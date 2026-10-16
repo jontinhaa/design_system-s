@@ -1,0 +1,53 @@
+{
+ "builders": [
+  "next.js",
+  "react"
+ ],
+ "libraries": [
+  {
+   "name": "gsap",
+   "version": "3.11.0",
+   "sources": [
+    "embutido em https://kstoimenov.com/_next/static/chunks/2qoc_kn_izwiv.js"
+   ]
+  }
+ ],
+ "runtime": {
+  "contexts": {
+   "webgl": 2,
+   "2d": 2
+  },
+  "wasm": 0,
+  "workers": 0,
+  "webgpu": false,
+  "shadowRoots": 1,
+  "canvases": 3
+ },
+ "cssFeatures": [
+  "view transitions"
+ ],
+ "fonts": {
+  "families": [
+   "lausanne",
+   "manier"
+  ],
+  "sources": [
+   "self-hosted"
+  ]
+ },
+ "videos": [
+  {
+   "src": "https://pub-c7582c931cdf4f86acceec21c154f4ce.r2.dev/real-reel.webm.webm",
+   "kind": "decorativo",
+   "reason": "curto, sem controles e sem som",
+   "hosting": "próprio site",
+   "action": "baixado"
+  }
+ ],
+ "files": {
+  "text": 15,
+  "font": 3,
+  "image": 99,
+  "video": 1
+ }
+}

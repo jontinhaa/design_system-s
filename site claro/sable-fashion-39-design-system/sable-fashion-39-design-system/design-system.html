@@ -1,0 +1,1067 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>SABLE Design System</title>
+<!-- preview capture: the Overview frame reports once the hero load sequence has settled
+     (tagline, model, corner label and actions rise 120 + i × 140 ms after load, 1.1 s each) -->
+<meta name="preview-ready-selector" content="body.ds-overview-ready">
+<meta name="preview-ready-after-ms" content="300">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%23111'/%3E%3Ctext x='16' y='23' font-family='Helvetica,Arial' font-size='20' font-weight='700' fill='%23F2F0EC' text-anchor='middle'%3ES%3C/text%3E%3C/svg%3E">
+<link rel="stylesheet" href="assets/overview/assets/sable-fashion-39.aura.build/fonts.css">
+<link rel="stylesheet" href="assets/overview/assets/sable-fashion-39.aura.build/sable.css">
+<style>
+/* ================================================================ catalog shell
+   Routing and layout only. The navbar is the Overview's own <nav> (sable.css), placed over the
+   frame exactly where the page's sticky nav sits under the announcement bar; the bone ground is the
+   page's own body. Every specimen keeps the page's markup and sable.css: section rules answer to
+   [data-ds-ctx="<section id>"], and .ds-ctx only takes that section's own box out of the way. */
+html, body { height: 100%; }
+body { overflow: hidden; }
+#overview-frame { position: fixed; inset: 0; width: 100%; height: 100%; border: 0; display: block; z-index: 0; background: var(--bone); }
+
+#ds-nav { position: fixed; top: 0; left: 0; right: 0; z-index: 60; transform: translateY(var(--ds-navy, 28px)); }
+body.is-components #ds-nav { transform: none; }
+/* the current view keeps the page's own link underline drawn */
+#ds-nav ul a.is-active::after { transform: scaleX(1); transform-origin: left; }
+#ds-nav a[aria-disabled="true"] { opacity: .3; pointer-events: none; }
+/* the page drops its link list under 900px; the catalog keeps its two views reachable there */
+@media (max-width: 900px) {
+  #ds-nav ul { display: flex; flex-direction: column; gap: 12px; }
+}
+
+/* ------------------------------------------------------------ components view */
+#view-components { position: fixed; top: calc(var(--nav) + 1px); left: 0; right: 0; bottom: 0; z-index: 10; display: none; background: var(--bone); }
+body.is-components #view-components { display: grid; grid-template-columns: 240px minmax(0, 1fr); }
+body.is-components #overview-frame { visibility: hidden; }
+
+/* sidebar: its own ink glass (the ink sections' ground and bone type), legible over any specimen */
+#ds-side { overflow-y: auto; padding: 32px 16px 40px 26px; display: flex; flex-direction: column; gap: 2px;
+  background: rgba(16,16,16,.92); -webkit-backdrop-filter: blur(14px) saturate(1.1); backdrop-filter: blur(14px) saturate(1.1);
+  border-right: 1px solid rgba(239,237,232,.14); color: var(--bone); }
+#ds-side .lbl { margin: 0 0 18px; color: rgba(239,237,232,.5); }
+#ds-side a { display: flex; align-items: baseline; gap: 12px; padding: 9px 0; font: 500 11px/1.2 Archivo, sans-serif;
+  letter-spacing: .16em; text-transform: uppercase; color: rgba(239,237,232,.7); transition: color .2s; }
+#ds-side a b { font-weight: 500; color: rgba(239,237,232,.42); font-variant-numeric: tabular-nums; }
+#ds-side a:hover, #ds-side a.is-current { color: var(--bone); }
+#ds-side a.is-current b { color: var(--bone); }
+
+#ds-main { position: relative; overflow-y: auto; overflow-x: hidden; padding: 52px clamp(20px, 3.6vw, 56px) 160px; }
+#ds-main > * { max-width: 1180px; }
+.ds-group { padding-bottom: 110px; }
+/* group head: the page's own section head (h2 800 uppercase, lbl in --mid) over an ink rule */
+.ds-head { display: flex; justify-content: space-between; align-items: flex-end; flex-wrap: wrap; gap: 18px;
+  border-bottom: 1px solid var(--ink); padding-bottom: 20px; margin-bottom: 34px; }
+.ds-head h2 { font-weight: 800; font-size: clamp(34px, 5.4vw, 76px); line-height: .9; letter-spacing: -.03em; text-transform: uppercase; }
+.ds-head .lbl { color: var(--mid); }
+.ds-sub { margin: 46px 0 18px; color: var(--mid); }
+.ds-head + .ds-sub { margin-top: 0; }
+.ds-spec { margin: 0 0 64px; }
+.ds-spec:last-child { margin-bottom: 0; }
+.ds-spec > h3 { margin: 0 0 16px; font: 700 12px/1.3 Archivo, sans-serif; letter-spacing: .14em; text-transform: uppercase; color: var(--ink); }
+.ds-meta { display: block; margin-top: 14px; font: 400 11.5px/1.6 ui-monospace, SFMono-Regular, Menlo, monospace; color: #4A4741; overflow-wrap: anywhere; }
+.ds-meta b { font-weight: 600; color: var(--ink); }
+.ds-note { margin-top: 8px; max-width: 78ch; font-size: 13.5px; line-height: 1.6; color: #4A4741; }
+.ds-row { display: flex; flex-wrap: wrap; align-items: center; gap: 20px 28px; }
+.ds-cell { display: flex; flex-direction: column; align-items: flex-start; gap: 12px; min-width: 0; }
+.ds-cell > small { font: 500 10px/1.3 Archivo, sans-serif; letter-spacing: .18em; text-transform: uppercase; color: var(--mid); }
+.ds-flag { position: absolute; left: 16px; bottom: 14px; z-index: 5; background: var(--bone); color: var(--ink); padding: 8px 12px;
+  border: 1px solid var(--line); }
+.ds-replay { margin-top: 22px; }
+
+/* specimen contexts */
+.ds-ctx { min-height: 0 !important; height: auto !important; padding: 0 !important; overflow: visible !important;
+  display: block !important; text-align: left !important; }
+.ds-ctx.ds-pad { padding: 26px 30px !important; }
+.ds-ctx.ds-padx { padding: 44px 48px !important; }
+.ds-ctx.ds-center { text-align: center !important; }
+.ds-bare { border: 0 !important; background: none !important; }
+.ds-flat { position: static !important; background: none !important; border: 0 !important; -webkit-backdrop-filter: none !important; backdrop-filter: none !important; }
+.ds-flat ul { display: flex !important; }
+.ds-ink { background: var(--ink); color: var(--bone); }
+
+/* typography: role | live sample | declared size */
+.ds-type { display: grid; grid-template-columns: 210px minmax(0, 1fr) 190px; gap: 28px; align-items: center; padding: 26px 0;
+  border-top: 1px solid var(--line); }
+.ds-type:last-child { border-bottom: 1px solid var(--line); }
+.ds-type .role { font: 700 13px/1.3 Archivo, sans-serif; letter-spacing: .04em; color: var(--ink); }
+.ds-type .face { margin-top: 4px; font-size: 12.5px; line-height: 1.45; color: #4A4741; }
+.ds-type .face code { display: block; margin-top: 6px; font: 400 11px/1.5 ui-monospace, SFMono-Regular, Menlo, monospace; color: #4A4741; overflow-wrap: anywhere; }
+.ds-type .sample { min-width: 0; overflow-wrap: break-word; }
+.ds-type .sizes { text-align: right; font: 500 12px/1.6 ui-monospace, SFMono-Regular, Menlo, monospace; color: var(--ink); }
+
+/* colors: live chip on its surface + label, value, token, use */
+.ds-colors { display: grid; grid-template-columns: repeat(auto-fill, minmax(270px, 1fr)); gap: 24px 30px; }
+.ds-sw { display: grid; grid-template-columns: 80px minmax(0, 1fr); gap: 14px; align-items: start; }
+.ds-chip { position: relative; height: 80px; overflow: hidden; display: grid; place-items: center; background: var(--bone);
+  box-shadow: inset 0 0 0 1px var(--line); }
+.ds-chip .aa { position: relative; font-weight: 800; font-size: 30px; line-height: 1; letter-spacing: -.02em; }
+.ds-chip .fill { position: absolute; inset: 0; }
+.ds-chip img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+.ds-sw strong { display: block; font: 600 13.5px/1.3 Archivo, sans-serif; }
+.ds-sw code { display: block; margin-top: 3px; font: 400 11px/1.45 ui-monospace, SFMono-Regular, Menlo, monospace; color: var(--ink); overflow-wrap: anywhere; }
+.ds-sw code.tok { color: #4A4741; }
+.ds-sw p { margin-top: 4px; font-size: 12.5px; line-height: 1.45; color: #4A4741; }
+.ds-fam { margin-bottom: 28px; }
+.ds-fam > strong { display: block; margin-bottom: 10px; font: 600 13.5px/1.3 Archivo, sans-serif; }
+.ds-states { display: grid; grid-template-columns: repeat(auto-fill, minmax(170px, 1fr)); gap: 16px; }
+.ds-state { display: flex; flex-direction: column; gap: 6px; min-width: 0; }
+.ds-state small { font: 500 10px/1.3 Archivo, sans-serif; letter-spacing: .18em; text-transform: uppercase; color: var(--mid); }
+.ds-state code { font: 400 11px/1.45 ui-monospace, SFMono-Regular, Menlo, monospace; color: var(--ink); overflow-wrap: anywhere; }
+.ds-state .ds-chip { height: 90px; }
+
+/* backgrounds and surfaces */
+.ds-window { position: relative; height: min(40vh, 360px); box-shadow: inset 0 0 0 1px var(--line); }
+.ds-bgspec { position: relative; height: 360px !important; min-height: 0 !important; padding: 0 !important; overflow: hidden !important; }
+.ds-glass { position: relative; height: 380px; overflow: hidden; }
+.ds-glass > img { width: 100%; height: 100%; object-fit: cover; filter: grayscale(1) contrast(1.04); }
+.ds-glass > nav { position: absolute; left: 0; right: 0; top: 50%; transform: translateY(-50%); }
+.ds-glass > nav .bar { height: 96px; }
+.ds-plates { display: flex; flex-wrap: wrap; gap: 24px 28px; align-items: flex-end; }
+.ds-plates .card, .ds-plates .ph-dark { width: 150px; }
+.ds-plates .ds-ctx.ph-dark { background: var(--ink); padding: 18px !important; width: auto; }
+
+/* icons */
+.ds-icons { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 34px 20px; }
+.ds-icon { display: flex; flex-direction: column; align-items: center; gap: 14px; min-width: 0; text-align: center; }
+.ds-icon .stage-i { height: 56px; display: grid; place-items: center; }
+.ds-icon code { font: 400 11px/1.45 ui-monospace, SFMono-Regular, Menlo, monospace; color: var(--ink); overflow-wrap: anywhere; }
+.ds-icon code i { display: block; font-style: normal; color: var(--mid); }
+
+/* motion */
+.ds-ease { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 0 28px; }
+.ds-ease > div { padding: 16px 0; border-top: 1px solid var(--line); }
+.ds-ease strong { display: block; font: 600 13.5px/1.3 Archivo, sans-serif; }
+.ds-ease code { display: block; margin-top: 4px; font: 400 11px/1.45 ui-monospace, SFMono-Regular, Menlo, monospace; color: var(--ink); overflow-wrap: anywhere; }
+.ds-ease p { margin-top: 6px; font-size: 12.5px; line-height: 1.45; color: #4A4741; }
+
+/* media and sections */
+.ds-model { display: grid; place-items: center; padding: 20px 0 30px; }
+.ds-hero { border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
+
+@media (max-width: 1080px) {
+  .ds-type { grid-template-columns: 160px minmax(0, 1fr); }
+  .ds-type .sizes { grid-column: 2; text-align: left; }
+  .ds-ease { grid-template-columns: 1fr; }
+}
+@media (max-width: 767px) {
+  body.is-components #view-components { grid-template-columns: minmax(0, 1fr); grid-template-rows: auto minmax(0, 1fr); }
+  #ds-side { flex-direction: row; align-items: center; gap: 20px; overflow-x: auto; overflow-y: hidden; padding: 14px 16px;
+    border-right: 0; border-bottom: 1px solid rgba(239,237,232,.14); scrollbar-width: none; }
+  #ds-side::-webkit-scrollbar { display: none; }
+  #ds-side .lbl { display: none; }
+  #ds-side a { flex: 0 0 auto; padding: 2px 0; white-space: nowrap; }
+  #ds-main { padding: 30px 16px 120px; }
+  .ds-type { grid-template-columns: minmax(0, 1fr); gap: 12px; }
+  .ds-type .sizes { grid-column: auto; }
+  .ds-colors { grid-template-columns: minmax(0, 1fr); }
+  .ds-ctx.ds-pad { padding: 22px 20px !important; }
+  .ds-ctx.ds-padx { padding: 28px 20px !important; }
+  .ds-window, .ds-bgspec { height: 260px !important; }
+  .ds-glass { height: 300px; }
+  .ds-icons { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+}
+</style>
+<script src="assets/overview/assets/cdn.tailwindcss.com/3.4.17.js"></script>
+</head>
+<body>
+
+<!-- the Overview's own navbar; its link list becomes the catalog views -->
+<nav id="ds-nav">
+  <div class="wrap bar">
+    <ul>
+      <li><a id="nav-overview" href="#overview">Overview</a></li>
+      <li><a id="nav-components" href="#components">Components</a></li>
+    </ul>
+    <div class="mk">SABLE</div>
+    <div class="util">
+      <span>Search</span><span>Account</span>
+      <a href="#shop" data-ds-goto="shop">Bag (<b id="bagn">0</b>)</a>
+    </div>
+  </div>
+  <i id="prog"></i>
+</nav>
+
+<iframe id="overview-frame" title="Overview" src="assets/overview/index.html"></iframe>
+
+<div id="view-components">
+<aside id="ds-side">
+  <p class="lbl">Components</p>
+  <a href="#components-typography"><b>01</b>Typography</a>
+  <a href="#components-colors"><b>02</b>Colors</a>
+  <a href="#components-backgrounds"><b>03</b>Backgrounds</a>
+  <a href="#components-surfaces"><b>04</b>Surfaces</a>
+  <a href="#components-icons"><b>05</b>Icons</a>
+  <a href="#components-motion"><b>06</b>Motion</a>
+  <a href="#components-actions"><b>07</b>Actions</a>
+  <a href="#components-navigation"><b>08</b>Navigation</a>
+  <a href="#components-forms"><b>09</b>Forms</a>
+  <a href="#components-cards"><b>10</b>Cards</a>
+  <a href="#components-data"><b>11</b>Data display</a>
+  <a href="#components-content"><b>12</b>Content groups</a>
+  <a href="#components-media"><b>13</b>Media</a>
+</aside>
+<main id="ds-main">
+
+<!-- ============================================================ 01 typography -->
+<section class="ds-group" id="components-typography">
+  <div class="ds-head"><h2>Typography</h2><div class="lbl">Foundations · 01</div></div>
+
+  <div class="ds-type"><div><div class="role">Display · Wordmark title</div><div class="face">Archivo · 800 · −.02em · lh .8<code>#hero .word b · .wl · .wr</code></div></div>
+    <div class="sample ds-ctx" data-ds-ctx="hero" style="container-type:inline-size"><div class="word" style="position:static;display:block"><b style="display:flex;flex-wrap:wrap;align-items:center;gap:.12em .3em;font-size:min(124px,23cqw)"><span class="wl">SABLE</span><span class="wr">DESIGN<br>SYSTEM</span></b></div></div>
+    <div class="sizes">min(124px, fit) | 120px | 17vw | 58px</div></div>
+  <div class="ds-type"><div><div class="role">Heading 2 · Season</div><div class="face">Archivo · 800 · uppercase · −.03em · lh .9<code>#season h2</code></div></div>
+    <div class="sample ds-ctx ds-pad" data-ds-ctx="season"><h2>Lorem<br>ipsum</h2></div>
+    <div class="sizes">92px | 6.4vw | 40px</div></div>
+  <div class="ds-type"><div><div class="role">Heading 2 · Lookbook</div><div class="face">Archivo · 800 · uppercase · −.03em · lh .9<code>#look h2</code></div></div>
+    <div class="sample ds-ctx" data-ds-ctx="look"><h2>Lorem<br>ipsum</h2></div>
+    <div class="sizes">76px | 5.4vw | 34px</div></div>
+  <div class="ds-type"><div><div class="role">Heading 2 · Signup</div><div class="face">Archivo · 800 · uppercase · −.03em<code>#signup h2</code></div></div>
+    <div class="sample ds-ctx" data-ds-ctx="signup"><h2 style="margin-bottom:0">Lorem ipsum, dolor sit.</h2></div>
+    <div class="sizes">64px | 4.6vw | 30px</div></div>
+  <div class="ds-type"><div><div class="role">Heading 2 · Split</div><div class="face">Archivo · 800 · uppercase · −.03em · lh .94<code>#cloth h2 · #atelier h2</code></div></div>
+    <div class="sample ds-ctx ds-pad" data-ds-ctx="cloth"><h2 style="margin-bottom:0">Lorem ipsum,<br>dolor sit.</h2></div>
+    <div class="sizes">60px | 4.4vw | 30px</div></div>
+  <div class="ds-type"><div><div class="role">Heading 2 · Shop</div><div class="face">Archivo · 800 · uppercase · −.015em<code>#shop h2</code></div></div>
+    <div class="sample ds-ctx" data-ds-ctx="shop"><h2>Lorem ipsum sit</h2></div>
+    <div class="sizes">44px | 3.4vw | 26px</div></div>
+  <div class="ds-type"><div><div class="role">Stat</div><div class="face">Archivo · 800 · tabular · lh 1<code>#atelier .acount b</code></div></div>
+    <div class="sample ds-ctx ds-pad" data-ds-ctx="atelier"><div class="acount" style="margin-top:0;border-top:0;padding-top:0"><div><b style="margin-bottom:0">120</b></div></div></div>
+    <div class="sizes">44px | 3.4vw | 28px</div></div>
+  <div class="ds-type"><div><div class="role">Wordmark · Footer</div><div class="face">Archivo · 800 · .24em<code>footer .mk</code></div></div>
+    <footer class="sample ds-ctx"><div class="mk" style="margin-bottom:0">SABLE</div></footer>
+    <div class="sizes">30px</div></div>
+  <div class="ds-type"><div><div class="role">Wordmark · Nav</div><div class="face">Archivo · 800 · .26em<code>nav .mk</code></div></div>
+    <nav class="sample ds-ctx ds-flat"><div class="mk" style="text-align:left">SABLE</div></nav>
+    <div class="sizes">26px</div></div>
+  <div class="ds-type"><div><div class="role">Category title</div><div class="face">Archivo · 700 · uppercase · .04em · bone on ink<code>#cats h3</code></div></div>
+    <div class="sample ds-ctx ds-pad" data-ds-ctx="cats"><h3 style="margin-bottom:0">Lorem ipsum</h3></div>
+    <div class="sizes">20px | 1.5vw | 16px</div></div>
+  <div class="ds-type"><div><div class="role">Body</div><div class="face">Archivo · 400 · lh 1.6<code>body</code></div></div>
+    <div class="sample"><p style="max-width:62ch">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation.</p></div>
+    <div class="sizes">15px</div></div>
+  <div class="ds-type"><div><div class="role">Text · Section</div><div class="face">Archivo · 400 · #4A4741 · 32ch<code>#season p</code></div></div>
+    <div class="sample ds-ctx ds-pad" data-ds-ctx="season"><p style="margin-top:0">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p></div>
+    <div class="sizes">14.5px</div></div>
+  <div class="ds-type"><div><div class="role">Text · Muted lead</div><div class="face">Archivo · 400 · --mid · 36ch<code>#look .lhd p · #signup p · #cloth p</code></div></div>
+    <div class="sample ds-ctx" data-ds-ctx="look"><div class="lhd" style="display:block;margin:0"><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore.</p></div></div>
+    <div class="sizes">14px</div></div>
+  <div class="ds-type"><div><div class="role">Product name · Price</div><div class="face">Archivo · 600 · price tabular<code>.card .nm · .card .pr</code></div></div>
+    <div class="sample"><div class="card" style="max-width:320px"><div class="meta" style="padding-top:0"><div><div class="nm">Rift Overshirt</div></div><div class="pr">£185</div></div></div></div>
+    <div class="sizes">13.5px</div></div>
+  <div class="ds-type"><div><div class="role">Footer link</div><div class="face">Archivo · 400 · #4A4741<code>footer a</code></div></div>
+    <footer class="sample ds-ctx"><a href="#" style="display:inline-block;padding:0">Our cloth</a></footer>
+    <div class="sizes">13.5px</div></div>
+  <div class="ds-type"><div><div class="role">Address</div><div class="face">Archivo · 400 · --mid · lh 1.9<code>footer address</code></div></div>
+    <footer class="sample ds-ctx"><address>18 Redchurch Street<br>London E2 7DP</address></footer>
+    <div class="sizes">13px</div></div>
+  <div class="ds-type"><div><div class="role">Text · Small</div><div class="face">Archivo · 400 · bone .6 on ink | --mid<code>#cats p · #svc div p · #cloth dl div</code></div></div>
+    <div class="sample ds-ctx ds-pad" data-ds-ctx="cats"><p style="margin-bottom:0">Lorem ipsum dolor sit amet, consectetur elit.</p></div>
+    <div class="sizes">12.5px</div></div>
+  <div class="ds-type"><div><div class="role">Service title</div><div class="face">Archivo · 700 · uppercase · .14em<code>#svc div h4</code></div></div>
+    <div class="sample ds-ctx ds-bare" data-ds-ctx="svc"><div><h4 style="margin-bottom:0">Lorem ipsum</h4></div></div>
+    <div class="sizes">12px</div></div>
+  <div class="ds-type"><div><div class="role">Hero corner label</div><div class="face">Archivo · 500 · uppercase · .24em · lh 1.9<code>#hero .tl p · #hero .br p</code></div></div>
+    <div class="sample ds-ctx" data-ds-ctx="hero"><div class="tl" style="position:static"><p>Heavy ink type<br>on bone,<br>monochrome.</p></div></div>
+    <div class="sizes">12px | 11px (.br)</div></div>
+  <div class="ds-type"><div><div class="role">Legal</div><div class="face">Archivo · 400 · --mid<code>footer .legal</code></div></div>
+    <footer class="sample ds-ctx"><div class="legal" style="border-top:0;padding-top:0"><span>© 2026 Sable Studio Ltd · Company 11482207</span></div></footer>
+    <div class="sizes">11.5px</div></div>
+  <div class="ds-type"><div><div class="role">Button · Nav link</div><div class="face">Archivo · 500 · uppercase · .2em | .16em<code>.btn · .btn-line · nav ul a</code></div></div>
+    <div class="sample"><div class="ds-row"><a class="btn" href="#"><span>Lorem ipsum</span></a><a class="btn-line" href="#">Dolor sit amet</a><nav class="ds-ctx ds-flat" style="display:inline-block !important"><ul><li><a href="#">Outerwear</a></li></ul></nav></div></div>
+    <div class="sizes">11px</div></div>
+  <div class="ds-type"><div><div class="role">Product category</div><div class="face">Archivo · 400 · uppercase · .08em · --mid<code>.card .ct</code></div></div>
+    <div class="sample"><div class="card"><div class="ct" style="margin-top:0">Outerwear</div></div></div>
+    <div class="sizes">11px</div></div>
+  <div class="ds-type"><div><div class="role">Caption · Link label</div><div class="face">Archivo · 500 · uppercase · .18em<code>#look figcaption · #cats .go</code></div></div>
+    <div class="sample ds-ctx" data-ds-ctx="look"><figure><figcaption style="margin-top:0"><span>01</span> Lorem ipsum, dolor sit</figcaption></figure></div>
+    <div class="sizes">10.5px</div></div>
+  <div class="ds-type"><div><div class="role">Label</div><div class="face">Archivo · 500 · uppercase · .22em | .2em<code>.lbl · .ann .tk · .card .add</code></div></div>
+    <div class="sample"><div class="lbl" style="color:var(--mid)">Lorem ipsum</div></div>
+    <div class="sizes">10px</div></div>
+  <div class="ds-type"><div><div class="role">Stat label</div><div class="face">Archivo · 400 · uppercase · .18em · bone .5<code>#atelier .acount span</code></div></div>
+    <div class="sample ds-ctx ds-pad" data-ds-ctx="atelier"><div class="acount" style="margin-top:0;border-top:0;padding-top:0"><div><span>Units per run</span></div></div></div>
+    <div class="sizes">9.5px</div></div>
+</section>
+
+<!-- ============================================================ 02 colors -->
+<section class="ds-group" id="components-colors">
+  <div class="ds-head"><h2>Colors</h2><div class="lbl">Foundations · 02</div></div>
+
+  <p class="ds-sub lbl">Brand and Accent</p>
+  <div class="ds-colors">
+    <div class="ds-sw"><span class="ds-chip"><span class="aa" style="color:var(--ink)">S</span></span>
+      <div><strong>Ink</strong><code>#101010</code><code class="tok">--ink</code><p>Wordmarks, headings, primary button, announcement bar and ink sections.</p></div></div>
+    <div class="ds-sw"><span class="ds-chip" style="background:var(--ink)"><span class="aa" style="color:var(--bone)">S</span></span>
+      <div><strong>Bone</strong><code>#EFEDE8</code><code class="tok">--bone</code><p>Page ground; type, ticker and button label on ink.</p></div></div>
+  </div>
+
+  <p class="ds-sub lbl">Surfaces</p>
+  <div class="ds-colors">
+    <div class="ds-sw"><span class="ds-chip"></span>
+      <div><strong>Page ground</strong><code>#EFEDE8</code><code class="tok">--bone</code><p>Body: hero, shop, lookbook, signup and footer.</p></div></div>
+    <div class="ds-sw"><span class="ds-chip"><span class="fill" style="background:#DCD9D3"></span></span>
+      <div><strong>Stone</strong><code>#DCD9D3</code><p>Season and cloth splits.</p></div></div>
+    <div class="ds-sw"><span class="ds-chip"><span class="fill" style="background:var(--ink)"></span></span>
+      <div><strong>Ink section</strong><code>#101010</code><code class="tok">--ink</code><p>Announcement bar, category strip, atelier.</p></div></div>
+    <div class="ds-sw"><span class="ds-chip"><span class="fill" style="background:#E4E1DC"></span></span>
+      <div><strong>Photo plate</strong><code>#E4E1DC</code><p>Behind product and lookbook images.</p></div></div>
+    <div class="ds-sw"><span class="ds-chip" style="background:var(--ink)"><span class="fill" style="inset:14px 26px;background:#1B1B1B"></span></span>
+      <div><strong>Dark plate</strong><code>#1B1B1B</code><p>Category thumbnails on the ink strip.</p></div></div>
+    <div class="ds-sw"><span class="ds-chip"><img src="assets/overview/assets/cdn.jsdelivr.net/gh/VanhDc/aura-assets@sable-v2/sable/img/look1.webp" alt=""><span class="fill" style="inset:24px 0;background:rgba(239,237,232,.9);-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)"></span></span>
+      <div><strong>Nav glass</strong><code>rgba(239,237,232,.9) · blur(10px)</code><p>Sticky navbar over the page.</p></div></div>
+    <div class="ds-sw"><span class="ds-chip"><img src="assets/overview/assets/cdn.jsdelivr.net/gh/VanhDc/aura-assets@sable-v2/sable/img/p-knit.webp" alt=""><span style="position:relative;width:30px;height:30px;border-radius:50%;background:rgba(239,237,232,.9)"></span></span>
+      <div><strong>Favourite disc</strong><code>rgba(239,237,232,.9)</code><p>Round save button over the product photo.</p></div></div>
+  </div>
+
+  <p class="ds-sub lbl">Text and Icons</p>
+  <div class="ds-colors">
+    <div class="ds-sw"><span class="ds-chip"><span class="aa" style="color:var(--ink)">Aa</span></span>
+      <div><strong>Primary text</strong><code>#101010</code><code class="tok">--ink</code><p>Headings, body, nav, product meta, icons.</p></div></div>
+    <div class="ds-sw"><span class="ds-chip"><span class="aa" style="color:#4A4741">Aa</span></span>
+      <div><strong>Secondary text</strong><code>#4A4741</code><p>Season and cloth paragraphs, footer links.</p></div></div>
+    <div class="ds-sw"><span class="ds-chip" style="background:#DCD9D3"><span class="aa" style="color:#54514C">Aa</span></span>
+      <div><strong>Kicker on stone</strong><code>#54514C</code><p>Season eyebrow.</p></div></div>
+    <div class="ds-sw"><span class="ds-chip" style="background:#DCD9D3"><span class="aa" style="color:#5A574F">Aa</span></span>
+      <div><strong>Spec value</strong><code>#5A574F</code><p>Cloth list values.</p></div></div>
+    <div class="ds-sw"><span class="ds-chip"><span class="aa" style="color:var(--mid)">Aa</span></span>
+      <div><strong>Muted text</strong><code>#8A8781</code><code class="tok">--mid</code><p>Service copy, product category, leads, captions, labels, address, legal.</p></div></div>
+    <div class="ds-sw"><span class="ds-chip" style="background:var(--ink)"><span class="aa" style="color:var(--bone)">Aa</span></span>
+      <div><strong>Inverse text</strong><code>#EFEDE8</code><code class="tok">--bone</code><p>Headings, stats, ticker and button label on ink.</p></div></div>
+    <div class="ds-sw"><span class="ds-chip" style="background:var(--ink)"><span class="aa" style="color:rgba(239,237,232,.62)">Aa</span></span>
+      <div><strong>Inverse secondary</strong><code>rgba(239,237,232,.62) · .6</code><p>Atelier paragraph; category copy at .6.</p></div></div>
+    <div class="ds-sw"><span class="ds-chip" style="background:var(--ink)"><span class="aa" style="color:rgba(239,237,232,.5)">Aa</span></span>
+      <div><strong>Inverse muted</strong><code>rgba(239,237,232,.5)</code><p>Atelier eyebrow and stat labels; ticker slashes at opacity .5.</p></div></div>
+  </div>
+
+  <p class="ds-sub lbl">Borders</p>
+  <div class="ds-colors">
+    <div class="ds-sw"><span class="ds-chip"><span class="fill" style="inset:26px 0 auto;height:28px;border-top:1px solid var(--line);border-bottom:1px solid var(--line)"></span></span>
+      <div><strong>Hairline</strong><code>1px rgba(16,16,16,.14)</code><code class="tok">--line</code><p>Nav bottom edge, service row, email field, footer legal.</p></div></div>
+    <div class="ds-sw"><span class="ds-chip" style="background:#DCD9D3"><span class="fill" style="inset:20px 0 auto;height:40px;border-top:1px solid rgba(16,16,16,.18);border-bottom:1px solid rgba(16,16,16,.1)"></span></span>
+      <div><strong>Spec rules</strong><code>rgba(16,16,16,.18) top · .1 rows</code><p>Cloth spec list.</p></div></div>
+    <div class="ds-sw"><span class="ds-chip"><span style="position:relative;width:52px;height:1px;background:var(--ink)"></span></span>
+      <div><strong>Ink rule</strong><code>1px #101010</code><p>Hero tagline rule (52px), line-button and nav-link underlines.</p></div></div>
+    <div class="ds-sw"><span class="ds-chip" style="background:var(--ink)"><span class="fill" style="inset:39px 0 auto;border-top:1px solid rgba(239,237,232,.16)"></span></span>
+      <div><strong>Inverse hairline</strong><code>rgba(239,237,232,.16)</code><p>Above the atelier counters.</p></div></div>
+    <div class="ds-sw"><span class="ds-chip"><span class="fill" style="inset:auto 0 24px;height:2px;background:var(--ink);transform:scaleX(.62);transform-origin:left"></span></span>
+      <div><strong>Progress rail</strong><code>2px #101010 · scaleX(scroll)</code><p>Scroll progress along the nav's bottom edge.</p></div></div>
+  </div>
+
+  <p class="ds-sub lbl">Interactive States</p>
+  <div class="ds-fam"><strong>Primary button · .btn</strong><div class="ds-states">
+    <div class="ds-state"><span class="ds-chip"><span class="btn"><span>Lorem</span></span></span><small>Default</small><code>#101010 / #EFEDE8</code></div>
+    <div class="ds-state"><span class="ds-chip"><span class="btn" style="background:#2E2E2E"><span>Lorem</span></span></span><small>Hover</small><code>::before #2E2E2E wipes up · .45s</code></div>
+  </div></div>
+  <div class="ds-fam"><strong>Line button · .btn-line</strong><div class="ds-states">
+    <div class="ds-state"><span class="ds-chip"><span class="btn-line">Dolor sit</span></span><small>Default</small><code>border-bottom 1px #101010</code></div>
+    <div class="ds-state"><span class="ds-chip"><span class="btn-line" style="border-bottom-color:transparent;background:linear-gradient(var(--ink),var(--ink)) left bottom / 100% 1px no-repeat">Dolor sit</span></span><small>Hover</small><code>::after redraws from the left · .45s</code></div>
+  </div></div>
+  <div class="ds-fam"><strong>Nav link · nav ul a</strong><div class="ds-states">
+    <div class="ds-state"><span class="ds-chip"><span class="lbl" style="font-size:11px;letter-spacing:.16em;padding:6px 0">Outerwear</span></span><small>Default</small><code>no underline</code></div>
+    <div class="ds-state"><span class="ds-chip"><span class="lbl" style="font-size:11px;letter-spacing:.16em;padding:6px 0;border-bottom:1px solid var(--ink)">Outerwear</span></span><small>Hover</small><code>::after 1px #101010 scaleX(1) from left · .4s</code></div>
+  </div></div>
+  <div class="ds-fam"><strong>Favourite · .card .fav</strong><div class="ds-states">
+    <div class="ds-state"><span class="ds-chip"><img src="assets/overview/assets/cdn.jsdelivr.net/gh/VanhDc/aura-assets@sable-v2/sable/img/p-knit.webp" alt=""><span class="card" style="position:relative"><span class="fav" style="position:static"><svg viewBox="0 0 24 24"><path d="M12 20.5 3.8 12.6a5 5 0 0 1 7.1-7l1.1 1.1 1.1-1.1a5 5 0 0 1 7.1 7Z"/></svg></span></span></span><small>Default</small><code>stroke #101010 · fill none</code></div>
+    <div class="ds-state"><span class="ds-chip"><img src="assets/overview/assets/cdn.jsdelivr.net/gh/VanhDc/aura-assets@sable-v2/sable/img/p-knit.webp" alt=""><span class="card" style="position:relative"><span class="fav" style="position:static;transform:scale(1.09)"><svg viewBox="0 0 24 24"><path d="M12 20.5 3.8 12.6a5 5 0 0 1 7.1-7l1.1 1.1 1.1-1.1a5 5 0 0 1 7.1 7Z"/></svg></span></span></span><small>Hover</small><code>scale(1.09) · .25s</code></div>
+    <div class="ds-state"><span class="ds-chip"><img src="assets/overview/assets/cdn.jsdelivr.net/gh/VanhDc/aura-assets@sable-v2/sable/img/p-knit.webp" alt=""><span class="card" style="position:relative"><span class="fav" aria-pressed="true" style="position:static"><svg viewBox="0 0 24 24"><path d="M12 20.5 3.8 12.6a5 5 0 0 1 7.1-7l1.1 1.1 1.1-1.1a5 5 0 0 1 7.1 7Z"/></svg></span></span></span><small>Selected</small><code>[aria-pressed="true"] fill #101010</code></div>
+  </div></div>
+  <div class="ds-fam"><strong>Add to bag · .card .add</strong><div class="ds-states">
+    <div class="ds-state"><span class="ds-chip"><img src="assets/overview/assets/cdn.jsdelivr.net/gh/VanhDc/aura-assets@sable-v2/sable/img/p-tee.webp" alt=""></span><small>Default</small><code>opacity 0 · translateY(12px)</code></div>
+    <div class="ds-state"><span class="ds-chip"><img src="assets/overview/assets/cdn.jsdelivr.net/gh/VanhDc/aura-assets@sable-v2/sable/img/p-tee.webp" alt=""><span class="card" style="position:absolute;inset:0"><span class="add" style="opacity:1;transform:none;left:8px;right:8px;bottom:8px;padding:9px;text-align:center">Add to bag</span></span></span><small>Hover · Focus</small><code>.card:hover · :focus-within → opacity 1</code></div>
+  </div></div>
+  <div class="ds-fam"><strong>Footer link · footer a</strong><div class="ds-states">
+    <div class="ds-state"><span class="ds-chip"><span style="font-size:13.5px;color:#4A4741">Sizing</span></span><small>Default</small><code>#4A4741</code></div>
+    <div class="ds-state"><span class="ds-chip"><span style="font-size:13.5px;color:var(--ink)">Sizing</span></span><small>Hover</small><code>#101010</code></div>
+  </div></div>
+  <div class="ds-fam"><strong>Email field · #signup input</strong><div class="ds-states">
+    <div class="ds-state"><span class="ds-chip"><span style="width:120px;height:36px;border:1px solid var(--line)"></span></span><small>Default</small><code>1px --line · transparent</code></div>
+    <div class="ds-state"><span class="ds-chip"><span style="width:120px;height:36px;border:1px solid var(--line);outline:2px solid var(--ink);outline-offset:2px"></span></span><small>Focus</small><code>outline 2px #101010 · offset 2px</code></div>
+  </div></div>
+
+  <p class="ds-sub lbl">Overlays</p>
+  <div class="ds-colors">
+    <div class="ds-sw"><span class="ds-chip"><img src="assets/overview/assets/cdn.jsdelivr.net/gh/VanhDc/aura-assets@sable-v2/sable/img/model.png" alt="" style="inset:8px;width:auto;height:calc(100% - 16px);margin:auto;object-fit:contain;filter:drop-shadow(0 26px 46px rgba(16,16,16,.22))"></span>
+      <div><strong>Model shadow</strong><code>drop-shadow(0 26px 46px rgba(16,16,16,.22))</code><p>The hero cut-out standing on the bone.</p></div></div>
+    <div class="ds-sw"><span class="ds-chip"><img src="assets/overview/assets/cdn.jsdelivr.net/gh/VanhDc/aura-assets@sable-v2/sable/img/season.webp" alt="" style="filter:grayscale(1) contrast(1.05)"></span>
+      <div><strong>Photo treatment</strong><code>grayscale(1) contrast(1.04–1.08)</code><p>Categories 1.06, season 1.05, lookbook 1.04, cloth video 1.06, atelier 1.08.</p></div></div>
+  </div>
+</section>
+
+<!-- ============================================================ 03 backgrounds -->
+<section class="ds-group" id="components-backgrounds">
+  <div class="ds-head"><h2>Backgrounds</h2><div class="lbl">Foundations · 03</div></div>
+
+  <div class="ds-spec">
+    <h3>Bone ground · page (live, behind this view)</h3>
+    <div class="ds-window"><span class="ds-flag lbl">Live · behind this view</span></div>
+    <code class="ds-meta"><b>body</b> background var(--bone) #EFEDE8 · color var(--ink)</code>
+    <p class="ds-note">The window looks straight through to this view's own ground, the page's bone body, which also carries the hero, shop, lookbook, signup and footer.</p>
+  </div>
+
+  <div class="ds-spec">
+    <h3>Stone field</h3>
+    <section class="ds-bgspec" data-ds-ctx="season"><span class="ds-flag lbl">#DCD9D3</span></section>
+    <code class="ds-meta"><b>#season · #cloth</b> background #DCD9D3</code>
+  </div>
+
+  <div class="ds-spec">
+    <h3>Ink field</h3>
+    <section class="ds-bgspec" data-ds-ctx="atelier"><span class="ds-flag lbl">#101010</span></section>
+    <code class="ds-meta"><b>.ann · #cats · #atelier</b> background var(--ink)</code>
+  </div>
+
+  <div class="ds-spec">
+    <h3>Cloth video band · muted loop (live)</h3>
+    <div class="ds-ctx" data-ds-ctx="cloth">
+      <figure class="cshot vband">
+        <video data-src="assets/overview/assets/cdn.jsdelivr.net/gh/VanhDc/aura-assets@sable-v2/sable/img/cloth.mp4" poster="assets/overview/assets/cdn.jsdelivr.net/gh/VanhDc/aura-assets@sable-v2/sable/img/cloth.webp" muted loop playsinline preload="none" aria-label="Macro of charcoal melton wool moving in a draught"></video>
+        <span class="ds-flag lbl">Live · plays while in view</span>
+      </figure>
+    </div>
+    <code class="ds-meta"><b>.vband</b> relative · overflow hidden · isolate &gt; <b>video</b> absolute inset 0 · cover · grayscale(1) contrast(1.06) · <b>#cloth .cshot</b> min-height min(62vh, 520px) · src held in data-src and attached on first view (threshold .2), paused off-screen, never loaded under reduced motion</code>
+  </div>
+</section>
+
+<!-- ============================================================ 04 surfaces -->
+<section class="ds-group" id="components-surfaces">
+  <div class="ds-head"><h2>Surfaces</h2><div class="lbl">Foundations · 04</div></div>
+
+  <div class="ds-spec">
+    <h3>Nav glass · over the lookbook</h3>
+    <div class="ds-glass">
+      <img src="assets/overview/assets/cdn.jsdelivr.net/gh/VanhDc/aura-assets@sable-v2/sable/img/look2.webp" alt="Two models seated on a concrete bench">
+      <nav aria-hidden="true"><div class="wrap bar"></div></nav>
+    </div>
+    <code class="ds-meta"><b>nav</b> background rgba(239,237,232,.9) · backdrop-filter blur(10px) · border-bottom 1px var(--line) · <b>.bar</b> height var(--nav) 96px</code>
+  </div>
+
+  <div class="ds-spec">
+    <h3>Photo plates · light and dark</h3>
+    <div class="ds-plates">
+      <div class="ds-cell"><div class="card"><div class="ph"></div></div><small>.card .ph · empty</small></div>
+      <div class="ds-cell"><div class="card"><div class="ph"><img src="assets/overview/assets/cdn.jsdelivr.net/gh/VanhDc/aura-assets@sable-v2/sable/img/p-cardigan.webp" alt="Gauge Cardigan"></div></div><small>.card .ph · loaded</small></div>
+      <div class="ds-cell"><div class="ds-ctx ph-dark" data-ds-ctx="cats"><div class="ph"></div></div><small>#cats .ph · empty</small></div>
+      <div class="ds-cell"><div class="ds-ctx ph-dark" data-ds-ctx="cats"><div class="ph"><img src="assets/overview/assets/cdn.jsdelivr.net/gh/VanhDc/aura-assets@sable-v2/sable/img/cat-women.webp" alt="Knitwear"></div></div><small>#cats .ph · loaded</small></div>
+    </div>
+    <code class="ds-meta"><b>.card .ph · #look .ph</b> #E4E1DC · aspect-ratio 3/4 (lookbook 3/4 · 4/3 · 1/1) · overflow hidden — <b>#cats .ph</b> #1B1B1B · clamp(78px, 7vw, 104px) · 3/4</code>
+  </div>
+</section>
+
+<!-- ============================================================ 05 icons -->
+<section class="ds-group" id="components-icons">
+  <div class="ds-head"><h2>Icons</h2><div class="lbl">Foundations · 05</div></div>
+  <div class="ds-icons">
+    <div class="ds-icon"><div class="stage-i"><span class="card"><span class="fav" style="position:static"><svg viewBox="0 0 24 24"><path d="M12 20.5 3.8 12.6a5 5 0 0 1 7.1-7l1.1 1.1 1.1-1.1a5 5 0 0 1 7.1 7Z"/></svg></span></span></div><code>heart<i>.card .fav svg · 14px · stroke 1.6</i></code></div>
+    <div class="ds-icon"><div class="stage-i"><span class="card"><span class="fav" aria-pressed="true" style="position:static"><svg viewBox="0 0 24 24"><path d="M12 20.5 3.8 12.6a5 5 0 0 1 7.1-7l1.1 1.1 1.1-1.1a5 5 0 0 1 7.1 7Z"/></svg></span></span></div><code>heart · pressed<i>[aria-pressed="true"] fill ink</i></code></div>
+    <div class="ds-icon"><div class="stage-i ds-ink" style="width:56px"><span class="ds-ctx" data-ds-ctx="cats"><span class="go"><i>→</i></span></span></div><code>arrow<i>#cats .go i · U+2192 glyph</i></code></div>
+    <div class="ds-icon"><div class="stage-i ann" style="width:56px;background:var(--ink)"><span class="tk" style="animation:none;padding:0"><i>/</i></span></div><code>slash<i>.ann .tk i · opacity .5</i></code></div>
+  </div>
+</section>
+
+<!-- ============================================================ 06 motion -->
+<section class="ds-group" id="components-motion">
+  <div class="ds-head"><h2>Motion</h2><div class="lbl">Foundations · 06</div></div>
+
+  <div class="ds-spec">
+    <h3>Scroll reveal · rise and fade (live)</h3>
+    <section class="ds-ctx ds-padx" data-ds-ctx="season" id="ds-reveal">
+      <div class="copy" style="padding:0">
+        <div class="kick lbl rv">Lorem ipsum</div>
+        <h2 class="rv">Lorem<br>ipsum</h2>
+        <p class="rv">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua, ut enim ad minim veniam.</p>
+        <a href="#" class="btn rv"><span>Lorem ipsum dolor sit</span></a>
+      </div>
+    </section>
+    <button class="btn-line ds-replay" type="button" id="ds-reveal-replay" style="background:none;border-left:0;border-right:0;border-top:0;cursor:pointer">Replay</button>
+    <code class="ds-meta"><b>.rv</b> opacity 0 · translateY(26px) → <b>.rv.in</b> none · .9s cubic-bezier(.22,.61,.36,1) · stagger (i % 4) × 70 ms · IntersectionObserver threshold .12, rootMargin 0 0 −6% 0, plus a scroll sweep at 94% of the viewport</code>
+  </div>
+
+  <div class="ds-spec">
+    <h3>Timing</h3>
+    <div class="ds-ease">
+      <div><strong>Hero load</strong><code>1s opacity · 1.1s transform · cubic-bezier(.19,1,.22,1)</code><p>.hv → .on: tagline, model, corner label, actions at 120 + i × 140 ms after load; from translateY(30px).</p></div>
+      <div><strong>Reveal</strong><code>.9s · cubic-bezier(.22,.61,.36,1)</code><p>Every .rv block on first view.</p></div>
+      <div><strong>Hover wipe and underline</strong><code>.4s–.45s · cubic-bezier(.6,0,.2,1)</code><p>Button fill, line-button and nav underlines, category arrow nudge (6px).</p></div>
+      <div><strong>Image zoom</strong><code>.8s–1.1s · cubic-bezier(.2,.8,.3,1)</code><p>Category 1.09, product 1.05, lookbook 1.04; add-to-bag rises in .45s.</p></div>
+      <div><strong>Ticker</strong><code>34s linear infinite</code><p>Announcement bar, translateX(0 → −100%), paused on hover.</p></div>
+      <div><strong>Scroll-linked</strong><code>rAF-batched · no easing</code><p>Hero parallax (model −.06, wordmark +.14 per px), season image, data-speed drift, lookbook clip scrub, progress rail; counters count up over 1100 ms (ease-out cubic).</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================ 07 actions -->
+<section class="ds-group" id="components-actions">
+  <div class="ds-head"><h2>Actions</h2><div class="lbl">Components · 07</div></div>
+
+  <div class="ds-spec">
+    <h3>Buttons</h3>
+    <div class="ds-row">
+      <div class="ds-cell"><a href="#" class="btn"><span>Lorem ipsum dolor sit</span></a><small>.btn · link</small></div>
+      <div class="ds-cell"><button class="btn" type="button"><span>Lorem ipsum</span></button><small>.btn · button</small></div>
+      <div class="ds-cell"><a href="#" class="btn-line">Dolor sit amet</a><small>.btn-line</small></div>
+    </div>
+    <code class="ds-meta"><b>.btn</b> ink / bone · padding 16px 34px · 500 11px .2em uppercase · ::before #2E2E2E from translateY(101%) on hover — <b>.btn-line</b> padding-bottom 5px · 1px ink border · ::after redraws from the left</code>
+  </div>
+
+  <div class="ds-spec">
+    <h3>Hero action pair</h3>
+    <div class="ds-ctx" data-ds-ctx="hero"><div class="acts" style="margin-top:0"><a href="#" class="btn"><span>Lorem ipsum dolor sit</span></a><a href="#" class="btn-line">Dolor sit amet</a></div></div>
+    <code class="ds-meta"><b>#hero .acts</b> flex · gap 18px · wrap</code>
+  </div>
+
+  <div class="ds-spec">
+    <h3>Category link · arrow nudge</h3>
+    <div class="ds-ctx ds-pad" data-ds-ctx="cats"><a href="#" style="display:inline-grid"><span class="go">Lorem ipsum <i>→</i></span></a></div>
+    <code class="ds-meta"><b>#cats .go</b> 500 10.5px .18em uppercase · <b>i</b> translateX(6px) on the tile's hover</code>
+  </div>
+</section>
+
+<!-- ============================================================ 08 navigation -->
+<section class="ds-group" id="components-navigation">
+  <div class="ds-head"><h2>Navigation</h2><div class="lbl">Components · 08</div></div>
+
+  <div class="ds-spec">
+    <h3>Announcement ticker (live)</h3>
+    <div class="ann" aria-hidden="true">
+      <div class="row">
+        <div class="tk"><span>Lorem ipsum dolor sit amet elit</span><i>/</i><span>Sed do eiusmod tempor</span><i>/</i><span>Magna aliqua</span><i>/</i><span>Duis aute irure dolor</span><i>/</i></div>
+        <div class="tk"><span>Lorem ipsum dolor sit amet elit</span><i>/</i><span>Sed do eiusmod tempor</span><i>/</i><span>Magna aliqua</span><i>/</i><span>Duis aute irure dolor</span><i>/</i></div>
+      </div>
+    </div>
+    <code class="ds-meta"><b>.ann</b> ink · overflow hidden &gt; <b>.row</b> max-content &gt; two <b>.tk</b> runs · gap 52px · 34s linear infinite · paused on hover</code>
+  </div>
+
+  <div class="ds-spec">
+    <h3>Navbar · sticky glass with progress rail</h3>
+    <nav style="position:relative">
+      <div class="wrap bar">
+        <ul>
+          <li><a href="#">Outerwear</a></li>
+          <li><a href="#">Knitwear</a></li>
+          <li><a href="#">Tailoring</a></li>
+          <li><a href="#">Archive</a></li>
+        </ul>
+        <div class="mk">SABLE</div>
+        <div class="util">
+          <span>Search</span><span>Account</span>
+          <a href="#">Bag (<b>0</b>)</a>
+        </div>
+      </div>
+      <i id="ds-navspec-rail" style="position:absolute;left:0;bottom:-1px;height:2px;width:100%;background:var(--ink);transform:scaleX(0);transform-origin:left;will-change:transform;z-index:2"></i>
+    </nav>
+    <code class="ds-meta"><b>nav</b> sticky top 0 · z 60 · glass · grid 1fr auto 1fr · height 96px — <b>ul a</b> underline scaleX(1) from the left on hover — <b>.util span</b> opacity .55 — under 900px the link list and Search / Account drop — <b>#prog</b> 2px ink rail, scaleX(scroll progress), here following this view's scroll</code>
+  </div>
+
+  <div class="ds-spec">
+    <h3>Footer</h3>
+    <footer style="padding-left:0;padding-right:0">
+      <div class="cols">
+        <div>
+          <div class="mk">SABLE</div>
+          <address>
+            18 Redchurch Street<br>London E2 7DP<br><br>
+            hello@sable.studio
+          </address>
+        </div>
+        <div><h4>Shop</h4>
+          <a href="#">Outerwear</a><a href="#">Knitwear</a>
+          <a href="#">Tailoring</a><a href="#">Archive sale</a></div>
+        <div><h4>Help</h4>
+          <a href="#">Sizing</a><a href="#">Shipping</a>
+          <a href="#">Returns</a><a href="#">Repairs</a></div>
+        <div><h4>Studio</h4>
+          <a href="#">Our cloth</a><a href="#">Stockists</a>
+          <a href="#">Journal</a><a href="#">Careers</a></div>
+      </div>
+      <div class="legal">
+        <span>© 2026 Sable Studio Ltd · Company 11482207</span>
+        <span>Prices include VAT</span>
+      </div>
+    </footer>
+    <code class="ds-meta"><b>footer .cols</b> 1.6fr 1fr 1fr 1fr (2 columns under 820px) · <b>h4</b> 700 11px .2em · <b>a</b> 13.5px #4A4741 → ink · <b>.legal</b> hairline top · 11.5px --mid</code>
+  </div>
+</section>
+
+<!-- ============================================================ 09 forms -->
+<section class="ds-group" id="components-forms">
+  <div class="ds-head"><h2>Forms</h2><div class="lbl">Components · 09</div></div>
+
+  <div class="ds-spec">
+    <h3>Signup · email and submit (live)</h3>
+    <section class="ds-ctx ds-padx ds-center" data-ds-ctx="signup" style="box-shadow:inset 0 0 0 1px var(--line)">
+      <h2>Lorem ipsum, dolor sit.</h2>
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore.</p>
+      <form id="ds-nf" novalidate>
+        <input type="email" required placeholder="you@email.com" aria-label="Email address">
+        <button class="btn" type="submit"><span>Lorem ipsum</span></button>
+      </form>
+      <div class="ok" id="ds-nok" role="status">You are on the list. Look out for Thursday.</div>
+    </section>
+    <code class="ds-meta"><b>#signup form</b> flex · gap 8px · centred · <b>input</b> 1px --line · transparent · 400 14px · focus outline 2px ink offset 2px · <b>.ok</b> fades in (.45s) on a valid address</code>
+  </div>
+</section>
+
+<!-- ============================================================ 10 cards -->
+<section class="ds-group" id="components-cards">
+  <div class="ds-head"><h2>Cards</h2><div class="lbl">Components · 10</div></div>
+
+  <div class="ds-spec">
+    <h3>Product card (live · hover, save, add to bag)</h3>
+    <div class="ds-ctx" data-ds-ctx="shop">
+      <div class="grid" id="ds-grid">
+        <article class="card">
+          <div class="ph">
+            <img src="assets/overview/assets/cdn.jsdelivr.net/gh/VanhDc/aura-assets@sable-v2/sable/img/p-overshirt.webp" alt="Rift Overshirt" loading="lazy">
+            <button class="fav" aria-pressed="false" aria-label="Save Rift Overshirt"><svg viewBox="0 0 24 24"><path d="M12 20.5 3.8 12.6a5 5 0 0 1 7.1-7l1.1 1.1 1.1-1.1a5 5 0 0 1 7.1 7Z"/></svg></button>
+            <button class="add" data-i="0">Add to bag</button>
+          </div>
+          <div class="meta">
+            <div><div class="nm">Rift Overshirt</div><div class="ct">Outerwear</div></div>
+            <div class="pr">£185</div>
+          </div>
+        </article>
+        <article class="card">
+          <div class="ph">
+            <img src="assets/overview/assets/cdn.jsdelivr.net/gh/VanhDc/aura-assets@sable-v2/sable/img/p-tee.webp" alt="Heavy Tee" loading="lazy">
+            <button class="fav" aria-pressed="false" aria-label="Save Heavy Tee"><svg viewBox="0 0 24 24"><path d="M12 20.5 3.8 12.6a5 5 0 0 1 7.1-7l1.1 1.1 1.1-1.1a5 5 0 0 1 7.1 7Z"/></svg></button>
+            <button class="add" data-i="1">Add to bag</button>
+          </div>
+          <div class="meta">
+            <div><div class="nm">Heavy Tee</div><div class="ct">Essentials</div></div>
+            <div class="pr">£58</div>
+          </div>
+        </article>
+        <article class="card">
+          <div class="ph">
+            <img src="assets/overview/assets/cdn.jsdelivr.net/gh/VanhDc/aura-assets@sable-v2/sable/img/p-cardigan.webp" alt="Gauge Cardigan" loading="lazy">
+            <button class="fav" aria-pressed="false" aria-label="Save Gauge Cardigan"><svg viewBox="0 0 24 24"><path d="M12 20.5 3.8 12.6a5 5 0 0 1 7.1-7l1.1 1.1 1.1-1.1a5 5 0 0 1 7.1 7Z"/></svg></button>
+            <button class="add" data-i="2">Add to bag</button>
+          </div>
+          <div class="meta">
+            <div><div class="nm">Gauge Cardigan</div><div class="ct">Knitwear</div></div>
+            <div class="pr">£210</div>
+          </div>
+        </article>
+        <article class="card">
+          <div class="ph">
+            <img src="assets/overview/assets/cdn.jsdelivr.net/gh/VanhDc/aura-assets@sable-v2/sable/img/p-knit.webp" alt="Cable Crew" loading="lazy">
+            <button class="fav" aria-pressed="false" aria-label="Save Cable Crew"><svg viewBox="0 0 24 24"><path d="M12 20.5 3.8 12.6a5 5 0 0 1 7.1-7l1.1 1.1 1.1-1.1a5 5 0 0 1 7.1 7Z"/></svg></button>
+            <button class="add" data-i="3">Add to bag</button>
+          </div>
+          <div class="meta">
+            <div><div class="nm">Cable Crew</div><div class="ct">Knitwear</div></div>
+            <div class="pr">£240</div>
+          </div>
+        </article>
+      </div>
+    </div>
+    <code class="ds-meta"><b>#shop .grid</b> 4 columns (2 under 1000px) · <b>.card .ph</b> 3/4 · #E4E1DC · image scale(1.05) on hover — <b>.fav</b> 30px bone disc · toggles aria-pressed — <b>.add</b> ink bar rises on hover / focus-within; click shows “Added” for 1.3 s and counts into the navbar bag — <b>.meta</b> name + category | price</code>
+  </div>
+
+  <div class="ds-spec">
+    <h3>Category tiles · on ink</h3>
+    <section class="ds-ctx ds-padx" data-ds-ctx="cats">
+      <div class="row">
+        <a href="#">
+          <div class="ph"><img src="assets/overview/assets/cdn.jsdelivr.net/gh/VanhDc/aura-assets@sable-v2/sable/img/cat-men.webp" alt="Menswear" loading="lazy"></div>
+          <div>
+            <h3>Lorem ipsum</h3>
+            <p>Lorem ipsum dolor sit amet, consectetur elit.</p>
+            <span class="go">Lorem ipsum <i>→</i></span>
+          </div>
+        </a>
+        <a href="#">
+          <div class="ph"><img src="assets/overview/assets/cdn.jsdelivr.net/gh/VanhDc/aura-assets@sable-v2/sable/img/cat-women.webp" alt="Knitwear" loading="lazy"></div>
+          <div>
+            <h3>Dolor sit</h3>
+            <p>Sed do eiusmod tempor incididunt ut labore et dolore.</p>
+            <span class="go">Dolor sit <i>→</i></span>
+          </div>
+        </a>
+        <a href="#">
+          <div class="ph"><img src="assets/overview/assets/cdn.jsdelivr.net/gh/VanhDc/aura-assets@sable-v2/sable/img/cat-tailoring.webp" alt="Tailoring" loading="lazy"></div>
+          <div>
+            <h3>Amet elit</h3>
+            <p>Ut enim ad minim veniam, quis nostrud exercitation.</p>
+            <span class="go">Amet elit <i>→</i></span>
+          </div>
+        </a>
+      </div>
+    </section>
+    <code class="ds-meta"><b>#cats .row</b> 3 columns (1 under 860px) &gt; <b>a</b> grid auto 1fr · <b>.ph</b> #1B1B1B 3/4 · grayscale(1) contrast(1.06) · scale(1.09) on hover · <b>h3</b> 700 uppercase · <b>p</b> bone .6 · <b>.go</b> arrow nudges 6px</code>
+  </div>
+</section>
+
+<!-- ============================================================ 11 data display -->
+<section class="ds-group" id="components-data">
+  <div class="ds-head"><h2>Data display</h2><div class="lbl">Components · 11</div></div>
+
+  <div class="ds-spec">
+    <h3>Service row</h3>
+    <section class="ds-ctx" data-ds-ctx="svc">
+      <div class="row">
+        <div><h4>Lorem ipsum</h4><p>Lorem ipsum dolor sit amet elit.</p></div>
+        <div><h4>Dolor sit</h4><p>Sed do eiusmod tempor incididunt.</p></div>
+        <div><h4>Amet elit</h4><p>Ut enim ad minim veniam quis nostrud.</p></div>
+        <div><h4>Consectetur</h4><p>Duis aute irure dolor in voluptate.</p></div>
+      </div>
+    </section>
+    <code class="ds-meta"><b>#svc</b> hairlines top and bottom &gt; <b>.row</b> 4 columns (2 under 820px) · <b>h4</b> 700 12px .14em · <b>p</b> 12.5px --mid</code>
+  </div>
+
+  <div class="ds-spec">
+    <h3>Spec list · on stone</h3>
+    <div class="ds-ctx ds-padx" data-ds-ctx="cloth">
+      <dl style="margin-top:0;max-width:520px">
+        <div><dt>Melton wool</dt><dd>620 gsm · Huddersfield</dd></div>
+        <div><dt>Dry cotton</dt><dd>340 gsm · Osaka</dd></div>
+        <div><dt>Lambswool</dt><dd>7 gauge · Hawick</dd></div>
+      </dl>
+    </div>
+    <code class="ds-meta"><b>#cloth dl</b> top rule rgba(16,16,16,.18) · rows flex space-between · 11px padding · rgba(16,16,16,.1) · 12.5px · <b>dt</b> 600 · <b>dd</b> #5A574F</code>
+  </div>
+
+  <div class="ds-spec">
+    <h3>Stat counters · count up on view (live)</h3>
+    <div class="ds-ctx ds-padx" data-ds-ctx="atelier" id="ds-counters">
+      <div class="acount" style="margin-top:0">
+        <div><b data-to="11">0</b><span>People</span></div>
+        <div><b data-to="42">0</b><span>Styles a year</span></div>
+        <div><b data-to="120">0</b><span>Units per run</span></div>
+      </div>
+    </div>
+    <button class="btn-line ds-replay" type="button" id="ds-count-replay" style="background:none;border-left:0;border-right:0;border-top:0;cursor:pointer">Replay</button>
+    <code class="ds-meta"><b>#atelier .acount</b> flex · gap clamp(20px, 4vw, 52px) · hairline top rgba(239,237,232,.16) · <b>b</b> 800 tabular · <b>span</b> 9.5px .18em bone .5 · 0 → data-to over 1100 ms, 1 − (1 − p)³, once at 60% visible</code>
+  </div>
+</section>
+
+<!-- ============================================================ 12 content groups -->
+<section class="ds-group" id="components-content">
+  <div class="ds-head"><h2>Content groups</h2><div class="lbl">Components · 12</div></div>
+
+  <div class="ds-spec">
+    <h3>Hero · wordmark split around the model (live)</h3>
+    <header class="ds-hero" data-ds-ctx="hero" id="ds-hero">
+      <div class="wrap" style="width:100%">
+        <div class="tl hv">
+          <p>Heavy ink type<br>on bone,<br>monochrome.</p>
+          <div class="rule"></div>
+        </div>
+        <div class="stage">
+          <div class="word back" aria-hidden="true"><b><span class="wl">SABLE</span><span class="wr">DESIGN<br>SYSTEM</span></b></div>
+          <img class="model hv" src="assets/overview/assets/cdn.jsdelivr.net/gh/VanhDc/aura-assets@sable-v2/sable/img/model.png" alt="A model walking in an oversized charcoal overcoat, wide trousers and white sneakers">
+        </div>
+        <div class="br hv">
+          <p>Lorem<br>ipsum dolor<br>2026</p>
+        </div>
+        <div class="acts hv">
+          <a href="#" class="btn"><span>Lorem ipsum dolor sit</span></a>
+          <a href="#" class="btn-line">Dolor sit amet</a>
+        </div>
+      </div>
+    </header>
+    <button class="btn-line ds-replay" type="button" id="ds-hero-replay" style="background:none;border-left:0;border-right:0;border-top:0;cursor:pointer">Replay load sequence</button>
+    <code class="ds-meta"><b>#hero</b> min-height calc(100svh − nav − 34px) · <b>.stage</b> grid centred · <b>.word.back</b> behind <b>.model</b> (z 2, min(62vh, 600px), drop shadow) · <b>.wl | .wr</b> columns clear the model's image box; stacked above him under 820px · <b>.tl · .br</b> corner labels · <b>.hv</b> load sequence · parallax: model translateY(−.06y) scale(1 + .00006y), wordmark translateY(.14y), here driven by this view's scroll</code>
+  </div>
+
+  <div class="ds-spec">
+    <h3>Section head · shop</h3>
+    <div class="ds-ctx" data-ds-ctx="shop"><div class="hd" style="margin-bottom:0"><h2>Lorem ipsum sit</h2><a href="#" class="btn-line">Lorem ipsum 42</a></div></div>
+    <code class="ds-meta"><b>#shop .hd</b> flex · space-between · align end · wrap</code>
+  </div>
+
+  <div class="ds-spec">
+    <h3>Season split · copy and bleeding shot</h3>
+    <section data-ds-ctx="season">
+      <div class="grid">
+        <div class="copy">
+          <div class="kick lbl">Lorem ipsum</div>
+          <h2>Lorem<br>ipsum</h2>
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua, ut enim ad minim veniam.</p>
+          <a href="#" class="btn"><span>Lorem ipsum dolor sit</span></a>
+        </div>
+        <div class="shot">
+          <img id="ds-season-img" src="assets/overview/assets/cdn.jsdelivr.net/gh/VanhDc/aura-assets@sable-v2/sable/img/season.webp" alt="Model in a black open collar shirt, lit from one side" loading="lazy">
+        </div>
+      </div>
+    </section>
+    <code class="ds-meta"><b>#season .grid</b> 1fr 1fr · min-height min(78vh, 660px) (stacked, shot first, under 860px) · <b>.shot img</b> cover · position center 28% · grayscale(1) contrast(1.05) · scale(1.12) translateY(top / innerHeight × −26px) on scroll</code>
+  </div>
+
+  <div class="ds-spec">
+    <h3>Cloth split · copy, spec list and video</h3>
+    <section data-ds-ctx="cloth">
+      <div class="cgrid">
+        <div class="ccopy">
+          <div class="lbl" style="margin-bottom:16px;color:var(--mid)">Lorem ipsum</div>
+          <h2>Lorem ipsum,<br>dolor sit.</h2>
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi.</p>
+          <dl>
+            <div><dt>Melton wool</dt><dd>620 gsm · Huddersfield</dd></div>
+            <div><dt>Dry cotton</dt><dd>340 gsm · Osaka</dd></div>
+            <div><dt>Lambswool</dt><dd>7 gauge · Hawick</dd></div>
+          </dl>
+        </div>
+        <figure class="cshot vband" data-speed="0.05">
+          <video data-src="assets/overview/assets/cdn.jsdelivr.net/gh/VanhDc/aura-assets@sable-v2/sable/img/cloth.mp4" poster="assets/overview/assets/cdn.jsdelivr.net/gh/VanhDc/aura-assets@sable-v2/sable/img/cloth.webp" muted loop playsinline preload="none" aria-label="Macro of charcoal melton wool moving in a draught"></video>
+        </figure>
+      </div>
+    </section>
+    <code class="ds-meta"><b>#cloth .cgrid</b> 1fr 1fr (stacked under 820px) · <b>.ccopy</b> centred · <b>.cshot</b> video band, data-speed .05 drift</code>
+  </div>
+
+  <div class="ds-spec">
+    <h3>Atelier split · shot, copy and counters on ink</h3>
+    <section data-ds-ctx="atelier">
+      <div class="agrid">
+        <figure class="ashot" data-speed="0.05"><img src="assets/overview/assets/cdn.jsdelivr.net/gh/VanhDc/aura-assets@sable-v2/sable/img/atelier.webp" alt="Hands guiding wool under a sewing machine" loading="lazy"></figure>
+        <div class="acopy">
+          <div class="lbl" style="margin-bottom:16px;color:rgba(239,237,232,.5)">Dolor sit</div>
+          <h2>Amet elit,<br>sed tempor.</h2>
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit sed do eiusmod. Tempor incididunt ut labore et dolore magna aliqua, ut enim ad minim veniam quis.</p>
+          <div class="acount">
+            <div><b data-to="11">0</b><span>People</span></div>
+            <div><b data-to="42">0</b><span>Styles a year</span></div>
+            <div><b data-to="120">0</b><span>Units per run</span></div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <code class="ds-meta"><b>#atelier .agrid</b> 1.05fr .95fr (stacked under 820px) · <b>.ashot img</b> min-height min(66vh, 540px) · grayscale(1) contrast(1.08) · data-speed .05 · <b>.acopy</b> bone .62 copy</code>
+  </div>
+</section>
+
+<!-- ============================================================ 13 media -->
+<section class="ds-group" id="components-media">
+  <div class="ds-head"><h2>Media</h2><div class="lbl">Components · 13</div></div>
+
+  <div class="ds-spec">
+    <h3>Lookbook · offset editorial grid with scroll scrub (live)</h3>
+    <section data-ds-ctx="look" style="padding-top:0">
+      <div class="lhd">
+        <div>
+          <div class="lbl" style="margin-bottom:14px;color:var(--mid)">Lorem ipsum</div>
+          <h2>Lorem<br>ipsum</h2>
+        </div>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore, et dolore magna aliqua ut enim ad minim.</p>
+      </div>
+      <div class="lgrid">
+        <figure class="lg-a" data-scrub data-speed="0.06">
+          <div class="ph"><img src="assets/overview/assets/cdn.jsdelivr.net/gh/VanhDc/aura-assets@sable-v2/sable/img/look1.webp" alt="Model against a concrete wall in the overcoat" loading="lazy"></div>
+          <figcaption><span>01</span> Lorem ipsum, dolor sit</figcaption>
+        </figure>
+        <figure class="lg-b" data-scrub data-speed="0.13">
+          <div class="ph"><img src="assets/overview/assets/cdn.jsdelivr.net/gh/VanhDc/aura-assets@sable-v2/sable/img/look2.webp" alt="Two models seated on a concrete bench" loading="lazy"></div>
+          <figcaption><span>02</span> Consectetur, adipiscing</figcaption>
+        </figure>
+        <figure class="lg-c" data-scrub data-speed="0.03">
+          <div class="ph"><img src="assets/overview/assets/cdn.jsdelivr.net/gh/VanhDc/aura-assets@sable-v2/sable/img/season.webp" alt="Portrait in the open collar shirt" loading="lazy"></div>
+          <figcaption><span>03</span> Sed do eiusmod, tempor</figcaption>
+        </figure>
+      </div>
+    </section>
+    <code class="ds-meta"><b>#look .lgrid</b> 12 columns · <b>.lg-a</b> 1/6 3:4 · <b>.lg-b</b> 6/13 4:3 offset down · <b>.lg-c</b> 3/8 1:1 · <b>img</b> grayscale(1) contrast(1.04) · clip-path inset((1 − --p) × 42%) scale(1 + (1 − --p) × .06), --p from 0 entering to 1 past the middle · data-speed drift .06 / .13 / .03 · zoom 1.04 on hover</code>
+  </div>
+
+  <div class="ds-spec">
+    <h3>Model cut-out</h3>
+    <div class="ds-model ds-ctx" data-ds-ctx="hero" style="display:grid !important"><img class="model" src="assets/overview/assets/cdn.jsdelivr.net/gh/VanhDc/aura-assets@sable-v2/sable/img/model.png" alt="A model walking in an oversized charcoal overcoat, wide trousers and white sneakers" style="height:min(56vh,520px)"></div>
+    <code class="ds-meta"><b>#hero .model</b> transparent PNG 555 × 1041 · height min(62vh, 600px) (46vh under 820px) · drop-shadow(0 26px 46px rgba(16,16,16,.22))</code>
+  </div>
+</section>
+
+</main>
+</div>
+
+<script>
+(function () {
+  var COMPONENTS_ENABLED = true;           /* Overview approved (orchestrated run) */
+  var RM = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var body = document.body, nav = document.getElementById('ds-nav'), frame = document.getElementById('overview-frame');
+  var linkO = document.getElementById('nav-overview'), linkC = document.getElementById('nav-components');
+  var main = document.getElementById('ds-main'), side = document.getElementById('ds-side');
+  var rail = document.getElementById('prog'), bagn = document.getElementById('bagn');
+  var mode = 'overview', frameY = 0, frameP = 0, annH = 28;
+  var isComp = function (h) { return h === '#components' || h.indexOf('#components-') === 0; };
+  if (!COMPONENTS_ENABLED) linkC.setAttribute('aria-disabled', 'true');
+  if (RM) rail.style.display = 'none';   /* the page only builds its rail with motion allowed */
+
+  function mainProgress() { var m = main.scrollHeight - main.clientHeight; return m > 0 ? Math.min(1, main.scrollTop / m) : 0; }
+  /* the page's nav is sticky under the announcement bar: the catalog's copy follows the frame's scroll */
+  function placeNav() {
+    nav.style.setProperty('--ds-navy', (mode === 'overview' ? Math.max(0, annH - frameY) : 0) + 'px');
+    rail.style.transform = 'scaleX(' + (mode === 'overview' ? frameP : mainProgress()) + ')';
+  }
+
+  function route() {
+    var h = location.hash;
+    if (isComp(h) && !COMPONENTS_ENABLED) { history.replaceState(null, '', location.pathname + location.search); h = ''; }
+    var comp = isComp(h);
+    mode = comp ? 'components' : 'overview';
+    body.classList.toggle('is-components', comp);
+    linkO.classList.toggle('is-active', !comp);
+    linkC.classList.toggle('is-active', comp);
+    placeNav();
+    if (!comp) return;
+    if (h === '#components') main.scrollTop = 0;
+    else { var el = document.getElementById(h.slice(1)); if (el) main.scrollTop = el.offsetTop - 24; }
+    spy(); pass();
+  }
+
+  addEventListener('message', function (e) {
+    if (e.source !== frame.contentWindow || !e.data) return;
+    var d = e.data;
+    if (d.ds === 'ready') body.classList.add('ds-overview-ready');
+    else if (d.ds === 'scroll') { frameY = d.y || 0; frameP = d.p || 0; if (d.ann != null) annH = d.ann; placeNav(); }
+    else if (d.ds === 'bag') bagn.textContent = d.n;
+  });
+
+  /* navbar: Bag scrolls the Overview to the shop, as on the page; nothing leaves the catalog */
+  nav.addEventListener('click', function (e) {
+    var a = e.target.closest('a[data-ds-goto]');
+    if (!a) return;
+    e.preventDefault();
+    if (mode === 'overview') { try { frame.contentWindow.postMessage({ ds: 'goto', id: a.getAttribute('data-ds-goto') }, '*'); } catch (err) {} }
+  });
+
+  /* sidebar follows the scroll */
+  var groups = [].slice.call(main.querySelectorAll('.ds-group'));
+  var sideLinks = [].slice.call(side.querySelectorAll('a'));
+  function spy() {
+    var y = main.scrollTop + 160, cur = groups[0];
+    groups.forEach(function (g) { if (g.offsetTop <= y) cur = g; });
+    sideLinks.forEach(function (a) {
+      var on = a.getAttribute('href') === '#' + cur.id;
+      if (on && !a.classList.contains('is-current') && innerWidth < 768) side.scrollLeft = a.offsetLeft - 16;
+      a.classList.toggle('is-current', on);
+    });
+  }
+  main.addEventListener('scroll', spy, { passive: true });
+
+  /* specimens stay put: links and form submits never navigate */
+  main.addEventListener('click', function (e) { if (e.target.closest('a')) e.preventDefault(); });
+  main.addEventListener('submit', function (e) { e.preventDefault(); }, true);
+
+  /* product cards — the page's own grid handler; adds count into the navbar bag */
+  document.getElementById('ds-grid').addEventListener('click', function (e) {
+    var fav = e.target.closest('.fav');
+    if (fav) { fav.setAttribute('aria-pressed', fav.getAttribute('aria-pressed') === 'true' ? 'false' : 'true'); return; }
+    var add = e.target.closest('.add');
+    if (add) {
+      bagn.textContent = (+bagn.textContent || 0) + 1;
+      add.textContent = 'Added';
+      setTimeout(function () { add.textContent = 'Add to bag'; }, 1300);
+    }
+  });
+
+  /* signup — the page's own handler */
+  document.getElementById('ds-nf').addEventListener('submit', function (e) {
+    e.preventDefault();
+    var i = e.target.querySelector('input');
+    if (!i.value || !i.checkValidity()) { i.focus(); return; }
+    document.getElementById('ds-nok').classList.add('on');
+    i.value = '';
+  });
+
+  /* scroll-linked specimens — the page's own rAF-batched pass (hero parallax, season image,
+     data-speed drift, lookbook scrub, progress rails), driven by this view's scroller */
+  var hero = document.getElementById('ds-hero'), heroModel = hero.querySelector('.model'), heroWord = hero.querySelector('.word.back');
+  var seasonImg = document.getElementById('ds-season-img'), navRail = document.getElementById('ds-navspec-rail');
+  var speeds = [].slice.call(main.querySelectorAll('[data-speed]')), scrubs = [].slice.call(main.querySelectorAll('[data-scrub]'));
+  var queued = false;
+  function pass() {
+    queued = false;
+    if (mode !== 'components') return;
+    placeNav();
+    if (RM) return;
+    navRail.style.transform = 'scaleX(' + mainProgress() + ')';
+    var y = Math.max(0, main.getBoundingClientRect().top - hero.getBoundingClientRect().top);
+    if (y <= innerHeight * 1.2) {
+      heroModel.style.transform = 'translateY(' + (y * -0.06) + 'px) scale(' + (1 + y * 0.00006) + ')';
+      heroWord.style.transform = 'translateY(' + (y * 0.14) + 'px)';
+    }
+    var r = seasonImg.parentElement.getBoundingClientRect();
+    if (r.bottom > 0 && r.top < innerHeight) seasonImg.style.transform = 'scale(1.12) translateY(' + (r.top / innerHeight) * -26 + 'px)';
+    speeds.forEach(function (el) {
+      var b = el.getBoundingClientRect();
+      if (b.bottom < -200 || b.top > innerHeight + 200) return;
+      var c = (b.top + b.height / 2 - innerHeight / 2) / innerHeight;
+      el.style.transform = 'translate3d(0, ' + (c * -parseFloat(el.dataset.speed) * 100) + 'px, 0)';
+    });
+    scrubs.forEach(function (el) {
+      var b = el.getBoundingClientRect();
+      if (b.bottom < 0 || b.top > innerHeight) return;
+      var p = Math.max(0, Math.min(1, 1 - (b.top - innerHeight * 0.25) / (innerHeight * 0.6)));
+      el.style.setProperty('--p', p.toFixed(3));
+    });
+  }
+  main.addEventListener('scroll', function () { if (!queued) { queued = true; requestAnimationFrame(pass); } }, { passive: true });
+  addEventListener('resize', pass);
+
+  /* hero load sequence — the page's own order and timings, on first view and on replay */
+  var heroEls = ['.tl', '.model', '.br', '.acts'].map(function (s) { return hero.querySelector(s); }), heroTimers = [];
+  function heroLoad() {
+    heroTimers.forEach(clearTimeout); heroTimers = [];
+    if (RM) { heroEls.forEach(function (el) { el.classList.add('on'); }); return; }
+    heroEls.forEach(function (el) { el.classList.remove('on'); });
+    void hero.offsetWidth;
+    heroEls.forEach(function (el, i) { heroTimers.push(setTimeout(function () { el.classList.add('on'); }, 120 + i * 140)); });
+  }
+  var heroIO = new IntersectionObserver(function (es) {
+    es.forEach(function (e) { if (e.isIntersecting) { heroLoad(); heroIO.unobserve(e.target); } });
+  }, { threshold: .2 });
+  heroIO.observe(hero);
+  document.getElementById('ds-hero-replay').addEventListener('click', heroLoad);
+
+  /* scroll reveal — the page's own observer and stagger, on the Motion stage */
+  var stage = document.getElementById('ds-reveal'), revealEls = [].slice.call(stage.querySelectorAll('.rv'));
+  revealEls.forEach(function (el, i) { el.style.transitionDelay = (i % 4) * 70 + 'ms'; });
+  var io = new IntersectionObserver(function (es) {
+    es.forEach(function (e) { if (e.isIntersecting || e.boundingClientRect.top < 0) { e.target.classList.add('in'); io.unobserve(e.target); } });
+  }, { threshold: .12, rootMargin: '0px 0px -6% 0px' });
+  revealEls.forEach(function (el) { io.observe(el); });
+  document.getElementById('ds-reveal-replay').addEventListener('click', function () {
+    revealEls.forEach(function (el) { el.style.transition = 'none'; el.classList.remove('in'); });
+    void stage.offsetWidth;
+    revealEls.forEach(function (el) { el.style.transition = ''; });
+    requestAnimationFrame(function () { revealEls.forEach(function (el) { el.classList.add('in'); }); });
+  });
+
+  /* counters — the page's own count-up, once at 60% visible */
+  function countUp(n) {
+    if (RM) { n.textContent = n.dataset.to; return; }
+    var to = +n.dataset.to, t0 = performance.now(), D = 1100;
+    (function step(now) {
+      var p = Math.min(1, (now - t0) / D), k = 1 - Math.pow(1 - p, 3);
+      n.textContent = Math.round(to * k);
+      if (p < 1) requestAnimationFrame(step);
+    })(t0);
+  }
+  var numIO = new IntersectionObserver(function (es) {
+    es.forEach(function (e) { if (e.isIntersecting) { countUp(e.target); numIO.unobserve(e.target); } });
+  }, { threshold: .6 });
+  main.querySelectorAll('.acount b[data-to]').forEach(function (n) { numIO.observe(n); });
+  document.getElementById('ds-count-replay').addEventListener('click', function () {
+    document.querySelectorAll('#ds-counters b[data-to]').forEach(countUp);
+  });
+
+  /* video bands — the page's own attach-on-first-view, pause off-screen */
+  if (!RM) {
+    var vo = new IntersectionObserver(function (es) {
+      es.forEach(function (e) {
+        var v = e.target;
+        if (e.isIntersecting) { if (!v.getAttribute('src') && v.dataset.src) v.src = v.dataset.src; v.play().catch(function () {}); }
+        else if (v.getAttribute('src')) v.pause();
+      });
+    }, { threshold: .2 });
+    main.querySelectorAll('.vband video').forEach(function (v) { vo.observe(v); });
+  }
+
+  addEventListener('hashchange', route);
+  route();
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,1566 @@
+{
+ "version": 1,
+ "tool": "wd3 0.1.0",
+ "captureId": "theboringblog.ai-3aa8ddc2",
+ "capturedAt": "2026-10-14T16:41:00+00:00",
+ "entry": {
+  "url": "https://www.theboringblog.ai/",
+  "path": "/",
+  "search": "",
+  "file": "site/www.theboringblog.ai/index.html",
+  "contentType": "text/html; charset=utf-8"
+ },
+ "blocked": [
+  "^https?://([^/?#]+\\.)?(google\\-analytics\\.com|analytics\\.google\\.com|googletagmanager\\.com|googleadservices\\.com|doubleclick\\.net|googlesyndication\\.com|googleoptimize\\.com|connect\\.facebook\\.net|bat\\.bing\\.com|snap\\.licdn\\.com|px\\.ads\\.linkedin\\.com|analytics\\.tiktok\\.com|ct\\.pinterest\\.com|static\\.ads\\-twitter\\.com|analytics\\.twitter\\.com|tr\\.snapchat\\.com|sc\\-static\\.net|mc\\.yandex\\.ru|hotjar\\.com|hotjar\\.io|clarity\\.ms|cdn\\.segment\\.com|api\\.segment\\.io|cdn\\.mxpnl\\.com|api\\-js\\.mixpanel\\.com|api\\.mixpanel\\.com|api\\.amplitude\\.com|api2\\.amplitude\\.com|api\\-secure\\.amplitude\\.com|api\\-sr\\.amplitude\\.com|sr\\-client\\-cfg\\.amplitude\\.com|plausible\\.io|cloud\\.umami\\.is|analytics\\.umami\\.is|static\\.cloudflareinsights\\.com|cloudflareinsights\\.com|vitals\\.vercel\\-insights\\.com|browser\\-intake\\-datadoghq\\.com|browser\\-intake\\-datadoghq\\.eu|js\\-agent\\.newrelic\\.com|bam\\.nr\\-data\\.net|bam\\-cell\\.nr\\-data\\.net|fullstory\\.com|script\\.crazyegg\\.com|mouseflow\\.com|smartlook\\.com|heapanalytics\\.com|i\\.posthog\\.com|stats\\.wp\\.com|pixel\\.wp\\.com|promotekit\\.com|ingest\\.sentry\\.io|ingest\\.us\\.sentry\\.io|ingest\\.de\\.sentry\\.io|widget\\.intercom\\.io|js\\.intercomcdn\\.com|api\\-iam\\.intercom\\.io|js\\.hs\\-scripts\\.com|js\\.hs\\-analytics\\.net|js\\.hs\\-banner\\.com|js\\.hscollectedforms\\.net|js\\.usemessages\\.com|track\\.hubspot\\.com|client\\.crisp\\.chat|embed\\.tawk\\.to|js\\.driftt\\.com|static\\.zdassets\\.com|ekr\\.zdassets\\.com|cdn\\.cookielaw\\.org|geolocation\\.onetrust\\.com|consent\\.cookiebot\\.com|consentcdn\\.cookiebot\\.com|app\\.usercentrics\\.eu|api\\.usercentrics\\.eu|cdn\\.iubenda\\.com|cmp\\.osano\\.com|cdn\\.termly\\.io)(:\\d+)?([/?#]|$)",
+  "/rpc/increment_shared_code_views",
+  "^https?://(umami|analytics|stats|plausible)\\.[^/]+/(api/send|api/collect|api/event|script\\.js)",
+  "/g/c(ollect)?\\?v=2&",
+  "sentry\\.io/api/\\d+/(envelope|store)",
+  "/api/meta-capi",
+  "^https?://(leadtracker|tracking|track|events?|collect)\\.[^/]+/",
+  "^https?://a\\.vturb\\.com/",
+  "facebook\\.com/tr[/?]",
+  "/_vercel/(speed-)?insights/",
+  "/cdn-cgi/rum",
+  "/cdn-cgi/challenge-platform/",
+  "google\\.com/(pagead|ads)/"
+ ],
+ "volatileParams": [
+  "v",
+  "_rsc",
+  "dpl",
+  "_",
+  "t",
+  "ts",
+  "timestamp",
+  "cb",
+  "cachebust",
+  "cacheBust",
+  "nocache",
+  "rnd",
+  "rand",
+  "random",
+  "_t"
+ ],
+ "entries": [
+  {
+   "url": "https://www.theboringblog.ai/",
+   "method": "GET",
+   "status": 200,
+   "contentType": "text/html; charset=utf-8",
+   "headers": {
+    "content-type": "text/html; charset=utf-8",
+    "link": "</_next/static/media/54fc36028e2bb174-s.p.20jfceqj9zyw9.woff2?dpl=dpl_Cuc2We3JpTh93pC8gS9r6ixR5eXs>; rel=preload; as=\"font\"; crossorigin=\"\"; type=\"font/woff2\", </_next/static/media/66b33cc02d8f8b9d-s.p.3slq8sz4zhb1g.woff2?dpl=dpl_Cuc2We3JpTh93pC8gS9r6ixR5eXs>; rel=preload; as=\"font\"; crossorigin=\"\"; type=\"font/woff2\", </_next/static/media/Geist_Variable-s.p.0mrjj4bg00-he.woff2?dpl=dpl_Cuc2We3JpTh93pC8gS9r6ixR5eXs>; rel=preload; as=\"font\"; crossorigin=\"\"; type=\"font/woff2\"",
+    "referrer-policy": "strict-origin-when-cross-origin",
+    "x-matched-path": "/"
+   },
+   "resourceType": "document",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "file": "site/www.theboringblog.ai/index.html",
+   "size": 381704,
+   "modes": [
+    "navigate"
+   ]
+  },
+  {
+   "url": "https://www.theboringblog.ai/_next/image?url=%2Fsky%2Fdawn.png&w=1920&q=75&dpl=dpl_Cuc2We3JpTh93pC8gS9r6ixR5eXs",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/webp",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "content-disposition": "attachment; filename=\"dawn.webp\"",
+    "content-type": "image/webp",
+    "referrer-policy": "strict-origin-when-cross-origin",
+    "x-matched-path": "/sky/dawn.png"
+   },
+   "resourceType": "image",
+   "passes": [
+    "desktop"
+   ],
+   "file": "site/www.theboringblog.ai/_next/image__qead0d1ba.webp",
+   "size": 13038,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://www.theboringblog.ai/_next/static/chunks/43-mjj-n4qz58.css?dpl=dpl_Cuc2We3JpTh93pC8gS9r6ixR5eXs",
+   "method": "GET",
+   "status": 200,
+   "contentType": "text/css; charset=utf-8",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "content-disposition": "inline; filename=\"43-mjj-n4qz58.css\"",
+    "content-type": "text/css; charset=utf-8",
+    "referrer-policy": "strict-origin-when-cross-origin",
+    "x-matched-path": "/_next/static/chunks/43-mjj-n4qz58.css"
+   },
+   "resourceType": "stylesheet",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "file": "site/www.theboringblog.ai/_next/static/chunks/43-mjj-n4qz58__q9b968860.css",
+   "size": 2962,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://www.theboringblog.ai/_next/static/chunks/1eityjul_jo6b.js?dpl=dpl_Cuc2We3JpTh93pC8gS9r6ixR5eXs",
+   "method": "GET",
+   "status": 200,
+   "contentType": "application/javascript; charset=utf-8",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "content-disposition": "inline; filename=\"1eityjul_jo6b.js\"",
+    "content-type": "application/javascript; charset=utf-8",
+    "referrer-policy": "strict-origin-when-cross-origin",
+    "x-matched-path": "/_next/static/chunks/1eityjul_jo6b.js"
+   },
+   "resourceType": "script",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "file": "site/www.theboringblog.ai/_next/static/chunks/1eityjul_jo6b__q9b968860.js",
+   "size": 6546,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://www.theboringblog.ai/_next/static/chunks/2hw39_eluoaeu.js?dpl=dpl_Cuc2We3JpTh93pC8gS9r6ixR5eXs",
+   "method": "GET",
+   "status": 200,
+   "contentType": "application/javascript; charset=utf-8",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "content-disposition": "inline; filename=\"2hw39_eluoaeu.js\"",
+    "content-type": "application/javascript; charset=utf-8",
+    "referrer-policy": "strict-origin-when-cross-origin",
+    "x-matched-path": "/_next/static/chunks/2hw39_eluoaeu.js"
+   },
+   "resourceType": "script",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "file": "site/www.theboringblog.ai/_next/static/chunks/2hw39_eluoaeu__q9b968860.js",
+   "size": 12573,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://www.theboringblog.ai/_next/static/chunks/25jrg_bvg5ex9.js?dpl=dpl_Cuc2We3JpTh93pC8gS9r6ixR5eXs",
+   "method": "GET",
+   "status": 200,
+   "contentType": "application/javascript; charset=utf-8",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "content-disposition": "inline; filename=\"25jrg_bvg5ex9.js\"",
+    "content-type": "application/javascript; charset=utf-8",
+    "referrer-policy": "strict-origin-when-cross-origin",
+    "x-matched-path": "/_next/static/chunks/25jrg_bvg5ex9.js"
+   },
+   "resourceType": "script",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "file": "site/www.theboringblog.ai/_next/static/chunks/25jrg_bvg5ex9__q9b968860.js",
+   "size": 30962,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://www.theboringblog.ai/_next/static/chunks/1g5rc0qzmf3ta.css?dpl=dpl_Cuc2We3JpTh93pC8gS9r6ixR5eXs",
+   "method": "GET",
+   "status": 200,
+   "contentType": "text/css; charset=utf-8",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "content-disposition": "inline; filename=\"1g5rc0qzmf3ta.css\"",
+    "content-type": "text/css; charset=utf-8",
+    "referrer-policy": "strict-origin-when-cross-origin",
+    "x-matched-path": "/_next/static/chunks/1g5rc0qzmf3ta.css"
+   },
+   "resourceType": "stylesheet",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "file": "site/www.theboringblog.ai/_next/static/chunks/1g5rc0qzmf3ta__q9b968860.css",
+   "size": 5763,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://www.theboringblog.ai/_next/static/chunks/3ixas6v9yss4w.js?dpl=dpl_Cuc2We3JpTh93pC8gS9r6ixR5eXs",
+   "method": "GET",
+   "status": 200,
+   "contentType": "application/javascript; charset=utf-8",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "content-disposition": "inline; filename=\"3ixas6v9yss4w.js\"",
+    "content-type": "application/javascript; charset=utf-8",
+    "referrer-policy": "strict-origin-when-cross-origin",
+    "x-matched-path": "/_next/static/chunks/3ixas6v9yss4w.js"
+   },
+   "resourceType": "script",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "file": "site/www.theboringblog.ai/_next/static/chunks/3ixas6v9yss4w__q9b968860.js",
+   "size": 37059,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://www.theboringblog.ai/_next/static/chunks/2kbpj-wv477_n.js?dpl=dpl_Cuc2We3JpTh93pC8gS9r6ixR5eXs",
+   "method": "GET",
+   "status": 200,
+   "contentType": "application/javascript; charset=utf-8",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "content-disposition": "inline; filename=\"2kbpj-wv477_n.js\"",
+    "content-type": "application/javascript; charset=utf-8",
+    "referrer-policy": "strict-origin-when-cross-origin",
+    "x-matched-path": "/_next/static/chunks/2kbpj-wv477_n.js"
+   },
+   "resourceType": "script",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "file": "site/www.theboringblog.ai/_next/static/chunks/2kbpj-wv477_n__q9b968860.js",
+   "size": 21150,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://www.theboringblog.ai/_next/static/chunks/35oxx9nln4mzh.js?dpl=dpl_Cuc2We3JpTh93pC8gS9r6ixR5eXs",
+   "method": "GET",
+   "status": 200,
+   "contentType": "application/javascript; charset=utf-8",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "content-disposition": "inline; filename=\"35oxx9nln4mzh.js\"",
+    "content-type": "application/javascript; charset=utf-8",
+    "referrer-policy": "strict-origin-when-cross-origin",
+    "x-matched-path": "/_next/static/chunks/35oxx9nln4mzh.js"
+   },
+   "resourceType": "script",
+   "passes": [
+    "mobile",
+    "desktop"
+   ],
+   "file": "site/www.theboringblog.ai/_next/static/chunks/35oxx9nln4mzh__q9b968860.js",
+   "size": 51105,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://www.theboringblog.ai/_next/static/chunks/3adcddpz1hukh.js?dpl=dpl_Cuc2We3JpTh93pC8gS9r6ixR5eXs",
+   "method": "GET",
+   "status": 200,
+   "contentType": "application/javascript; charset=utf-8",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "content-disposition": "inline; filename=\"3adcddpz1hukh.js\"",
+    "content-type": "application/javascript; charset=utf-8",
+    "referrer-policy": "strict-origin-when-cross-origin",
+    "x-matched-path": "/_next/static/chunks/3adcddpz1hukh.js"
+   },
+   "resourceType": "script",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "file": "site/www.theboringblog.ai/_next/static/chunks/3adcddpz1hukh__q9b968860.js",
+   "size": 33484,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://www.theboringblog.ai/_next/static/media/Geist_Variable-s.p.0mrjj4bg00-he.woff2?dpl=dpl_Cuc2We3JpTh93pC8gS9r6ixR5eXs",
+   "method": "GET",
+   "status": 200,
+   "contentType": "font/woff2",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "content-disposition": "inline; filename=\"Geist_Variable-s.p.0mrjj4bg00-he.woff2\"",
+    "content-type": "font/woff2",
+    "referrer-policy": "strict-origin-when-cross-origin",
+    "x-matched-path": "/_next/static/media/Geist_Variable-s.p.0mrjj4bg00-he.woff2"
+   },
+   "resourceType": "font",
+   "passes": [
+    "mobile",
+    "desktop"
+   ],
+   "file": "site/www.theboringblog.ai/_next/static/media/Geist_Variable-s.p.0mrjj4bg00-he__q9b968860.woff2",
+   "size": 69652,
+   "modes": [
+    "cors"
+   ]
+  },
+  {
+   "url": "https://www.theboringblog.ai/_next/static/chunks/3ainre9bxx0ob.js?dpl=dpl_Cuc2We3JpTh93pC8gS9r6ixR5eXs",
+   "method": "GET",
+   "status": 200,
+   "contentType": "application/javascript; charset=utf-8",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "content-disposition": "inline; filename=\"3ainre9bxx0ob.js\"",
+    "content-type": "application/javascript; charset=utf-8",
+    "referrer-policy": "strict-origin-when-cross-origin",
+    "x-matched-path": "/_next/static/chunks/3ainre9bxx0ob.js"
+   },
+   "resourceType": "script",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "file": "site/www.theboringblog.ai/_next/static/chunks/3ainre9bxx0ob__q9b968860.js",
+   "size": 54647,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://www.theboringblog.ai/_next/static/chunks/420bf9zpcuklx.js?dpl=dpl_Cuc2We3JpTh93pC8gS9r6ixR5eXs",
+   "method": "GET",
+   "status": 200,
+   "contentType": "application/javascript; charset=utf-8",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "content-disposition": "inline; filename=\"420bf9zpcuklx.js\"",
+    "content-type": "application/javascript; charset=utf-8",
+    "referrer-policy": "strict-origin-when-cross-origin",
+    "x-matched-path": "/_next/static/chunks/420bf9zpcuklx.js"
+   },
+   "resourceType": "script",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "file": "site/www.theboringblog.ai/_next/static/chunks/420bf9zpcuklx__q9b968860.js",
+   "size": 51105,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://www.theboringblog.ai/_next/static/chunks/turbopack-33j2kopr_e-to.js?dpl=dpl_Cuc2We3JpTh93pC8gS9r6ixR5eXs",
+   "method": "GET",
+   "status": 200,
+   "contentType": "application/javascript; charset=utf-8",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "content-disposition": "inline; filename=\"turbopack-33j2kopr_e-to.js\"",
+    "content-type": "application/javascript; charset=utf-8",
+    "referrer-policy": "strict-origin-when-cross-origin",
+    "x-matched-path": "/_next/static/chunks/turbopack-33j2kopr_e-to.js"
+   },
+   "resourceType": "script",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "file": "site/www.theboringblog.ai/_next/static/chunks/turbopack-33j2kopr_e-to__q9b968860.js",
+   "size": 11074,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://www.theboringblog.ai/_next/static/media/54fc36028e2bb174-s.p.20jfceqj9zyw9.woff2?dpl=dpl_Cuc2We3JpTh93pC8gS9r6ixR5eXs",
+   "method": "GET",
+   "status": 200,
+   "contentType": "font/woff2",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "content-disposition": "inline; filename=\"54fc36028e2bb174-s.p.20jfceqj9zyw9.woff2\"",
+    "content-type": "font/woff2",
+    "referrer-policy": "strict-origin-when-cross-origin",
+    "x-matched-path": "/_next/static/media/54fc36028e2bb174-s.p.20jfceqj9zyw9.woff2"
+   },
+   "resourceType": "font",
+   "passes": [
+    "mobile",
+    "desktop"
+   ],
+   "file": "site/www.theboringblog.ai/_next/static/media/54fc36028e2bb174-s.p.20jfceqj9zyw9__q9b968860.woff2",
+   "size": 120800,
+   "modes": [
+    "cors"
+   ]
+  },
+  {
+   "url": "https://www.theboringblog.ai/_next/static/chunks/0cv-unxi2tfh9.js?dpl=dpl_Cuc2We3JpTh93pC8gS9r6ixR5eXs",
+   "method": "GET",
+   "status": 200,
+   "contentType": "application/javascript; charset=utf-8",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "content-disposition": "inline; filename=\"0cv-unxi2tfh9.js\"",
+    "content-type": "application/javascript; charset=utf-8",
+    "referrer-policy": "strict-origin-when-cross-origin",
+    "x-matched-path": "/_next/static/chunks/0cv-unxi2tfh9.js"
+   },
+   "resourceType": "script",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "file": "site/www.theboringblog.ai/_next/static/chunks/0cv-unxi2tfh9__q9b968860.js",
+   "size": 33484,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://www.theboringblog.ai/_next/static/chunks/0ajkf_ww7o4ah.js?dpl=dpl_Cuc2We3JpTh93pC8gS9r6ixR5eXs",
+   "method": "GET",
+   "status": 200,
+   "contentType": "application/javascript; charset=utf-8",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "content-disposition": "inline; filename=\"0ajkf_ww7o4ah.js\"",
+    "content-type": "application/javascript; charset=utf-8",
+    "referrer-policy": "strict-origin-when-cross-origin",
+    "x-matched-path": "/_next/static/chunks/0ajkf_ww7o4ah.js"
+   },
+   "resourceType": "script",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "file": "site/www.theboringblog.ai/_next/static/chunks/0ajkf_ww7o4ah__q9b968860.js",
+   "size": 37059,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://www.theboringblog.ai/_next/static/chunks/3ajkdfqgdfrk6.css?dpl=dpl_Cuc2We3JpTh93pC8gS9r6ixR5eXs",
+   "method": "GET",
+   "status": 200,
+   "contentType": "text/css; charset=utf-8",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "content-disposition": "inline; filename=\"3ajkdfqgdfrk6.css\"",
+    "content-type": "text/css; charset=utf-8",
+    "referrer-policy": "strict-origin-when-cross-origin",
+    "x-matched-path": "/_next/static/chunks/3ajkdfqgdfrk6.css"
+   },
+   "resourceType": "stylesheet",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "file": "site/www.theboringblog.ai/_next/static/chunks/3ajkdfqgdfrk6__q9b968860.css",
+   "size": 13040,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://www.theboringblog.ai/_next/static/chunks/1zeh973ar4o2f.js?dpl=dpl_Cuc2We3JpTh93pC8gS9r6ixR5eXs",
+   "method": "GET",
+   "status": 200,
+   "contentType": "application/javascript; charset=utf-8",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "content-disposition": "inline; filename=\"1zeh973ar4o2f.js\"",
+    "content-type": "application/javascript; charset=utf-8",
+    "referrer-policy": "strict-origin-when-cross-origin",
+    "x-matched-path": "/_next/static/chunks/1zeh973ar4o2f.js"
+   },
+   "resourceType": "script",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "file": "site/www.theboringblog.ai/_next/static/chunks/1zeh973ar4o2f__q9b968860.js",
+   "size": 46796,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://www.theboringblog.ai/_next/static/chunks/2lmlkwkj_6x80.js?dpl=dpl_Cuc2We3JpTh93pC8gS9r6ixR5eXs",
+   "method": "GET",
+   "status": 200,
+   "contentType": "application/javascript; charset=utf-8",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "content-disposition": "inline; filename=\"2lmlkwkj_6x80.js\"",
+    "content-type": "application/javascript; charset=utf-8",
+    "referrer-policy": "strict-origin-when-cross-origin",
+    "x-matched-path": "/_next/static/chunks/2lmlkwkj_6x80.js"
+   },
+   "resourceType": "script",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "file": "site/www.theboringblog.ai/_next/static/chunks/2lmlkwkj_6x80__q9b968860.js",
+   "size": 3375,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://www.theboringblog.ai/_next/static/chunks/05rdqdiah857m.js?dpl=dpl_Cuc2We3JpTh93pC8gS9r6ixR5eXs",
+   "method": "GET",
+   "status": 200,
+   "contentType": "application/javascript; charset=utf-8",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "content-disposition": "inline; filename=\"05rdqdiah857m.js\"",
+    "content-type": "application/javascript; charset=utf-8",
+    "referrer-policy": "strict-origin-when-cross-origin",
+    "x-matched-path": "/_next/static/chunks/05rdqdiah857m.js"
+   },
+   "resourceType": "script",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "file": "site/www.theboringblog.ai/_next/static/chunks/05rdqdiah857m__q9b968860.js",
+   "size": 23638,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://www.theboringblog.ai/_next/static/chunks/2-m43fun7i56g.css?dpl=dpl_Cuc2We3JpTh93pC8gS9r6ixR5eXs",
+   "method": "GET",
+   "status": 200,
+   "contentType": "text/css; charset=utf-8",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "content-disposition": "inline; filename=\"2-m43fun7i56g.css\"",
+    "content-type": "text/css; charset=utf-8",
+    "referrer-policy": "strict-origin-when-cross-origin",
+    "x-matched-path": "/_next/static/chunks/2-m43fun7i56g.css"
+   },
+   "resourceType": "stylesheet",
+   "passes": [
+    "mobile",
+    "desktop"
+   ],
+   "file": "site/www.theboringblog.ai/_next/static/chunks/2-m43fun7i56g__q9b968860.css",
+   "size": 191192,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://www.theboringblog.ai/_next/static/media/66b33cc02d8f8b9d-s.p.3slq8sz4zhb1g.woff2?dpl=dpl_Cuc2We3JpTh93pC8gS9r6ixR5eXs",
+   "method": "GET",
+   "status": 200,
+   "contentType": "font/woff2",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "content-disposition": "inline; filename=\"66b33cc02d8f8b9d-s.p.3slq8sz4zhb1g.woff2\"",
+    "content-type": "font/woff2",
+    "referrer-policy": "strict-origin-when-cross-origin",
+    "x-matched-path": "/_next/static/media/66b33cc02d8f8b9d-s.p.3slq8sz4zhb1g.woff2"
+   },
+   "resourceType": "font",
+   "passes": [
+    "mobile",
+    "desktop"
+   ],
+   "file": "site/www.theboringblog.ai/_next/static/media/66b33cc02d8f8b9d-s.p.3slq8sz4zhb1g__q9b968860.woff2",
+   "size": 149512,
+   "modes": [
+    "cors"
+   ]
+  },
+  {
+   "url": "https://www.theboringblog.ai/_next/static/chunks/3-_11pszparir.css?dpl=dpl_Cuc2We3JpTh93pC8gS9r6ixR5eXs",
+   "method": "GET",
+   "status": 200,
+   "contentType": "text/css; charset=utf-8",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "content-disposition": "inline; filename=\"3-_11pszparir.css\"",
+    "content-type": "text/css; charset=utf-8",
+    "referrer-policy": "strict-origin-when-cross-origin",
+    "x-matched-path": "/_next/static/chunks/3-_11pszparir.css"
+   },
+   "resourceType": "stylesheet",
+   "passes": [
+    "mobile",
+    "desktop"
+   ],
+   "file": "site/www.theboringblog.ai/_next/static/chunks/3-_11pszparir__q9b968860.css",
+   "size": 23196,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://www.theboringblog.ai/_next/static/chunks/3f86m3flkpz0s.js?dpl=dpl_Cuc2We3JpTh93pC8gS9r6ixR5eXs",
+   "method": "GET",
+   "status": 200,
+   "contentType": "application/javascript; charset=utf-8",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "content-disposition": "inline; filename=\"3f86m3flkpz0s.js\"",
+    "content-type": "application/javascript; charset=utf-8",
+    "referrer-policy": "strict-origin-when-cross-origin",
+    "x-matched-path": "/_next/static/chunks/3f86m3flkpz0s.js"
+   },
+   "resourceType": "script",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "file": "site/www.theboringblog.ai/_next/static/chunks/3f86m3flkpz0s__q9b968860.js",
+   "size": 44412,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://www.theboringblog.ai/_next/static/chunks/2q4yn4ujnbpdm.js?dpl=dpl_Cuc2We3JpTh93pC8gS9r6ixR5eXs",
+   "method": "GET",
+   "status": 200,
+   "contentType": "application/javascript; charset=utf-8",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "content-disposition": "inline; filename=\"2q4yn4ujnbpdm.js\"",
+    "content-type": "application/javascript; charset=utf-8",
+    "referrer-policy": "strict-origin-when-cross-origin",
+    "x-matched-path": "/_next/static/chunks/2q4yn4ujnbpdm.js"
+   },
+   "resourceType": "script",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "file": "site/www.theboringblog.ai/_next/static/chunks/2q4yn4ujnbpdm__q9b968860.js",
+   "size": 122430,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://www.theboringblog.ai/_next/static/chunks/1ri8w-mos1kcl.js?dpl=dpl_Cuc2We3JpTh93pC8gS9r6ixR5eXs",
+   "method": "GET",
+   "status": 200,
+   "contentType": "application/javascript; charset=utf-8",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "content-disposition": "inline; filename=\"1ri8w-mos1kcl.js\"",
+    "content-type": "application/javascript; charset=utf-8",
+    "referrer-policy": "strict-origin-when-cross-origin",
+    "x-matched-path": "/_next/static/chunks/1ri8w-mos1kcl.js"
+   },
+   "resourceType": "script",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "file": "site/www.theboringblog.ai/_next/static/chunks/1ri8w-mos1kcl__q9b968860.js",
+   "size": 226356,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://www.theboringblog.ai/_next/static/chunks/02gerc_41n37o.js?dpl=dpl_Cuc2We3JpTh93pC8gS9r6ixR5eXs",
+   "method": "GET",
+   "status": 200,
+   "contentType": "application/javascript; charset=utf-8",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "content-disposition": "inline; filename=\"02gerc_41n37o.js\"",
+    "content-type": "application/javascript; charset=utf-8",
+    "referrer-policy": "strict-origin-when-cross-origin",
+    "x-matched-path": "/_next/static/chunks/02gerc_41n37o.js"
+   },
+   "resourceType": "script",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "file": "site/www.theboringblog.ai/_next/static/chunks/02gerc_41n37o__q9b968860.js",
+   "size": 116408,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://www.theboringblog.ai/_next/static/chunks/45b4r3bbj9zib.js?dpl=dpl_Cuc2We3JpTh93pC8gS9r6ixR5eXs",
+   "method": "GET",
+   "status": 200,
+   "contentType": "application/javascript; charset=utf-8",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "content-disposition": "inline; filename=\"45b4r3bbj9zib.js\"",
+    "content-type": "application/javascript; charset=utf-8",
+    "referrer-policy": "strict-origin-when-cross-origin",
+    "x-matched-path": "/_next/static/chunks/45b4r3bbj9zib.js"
+   },
+   "resourceType": "script",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "file": "site/www.theboringblog.ai/_next/static/chunks/45b4r3bbj9zib__q9b968860.js",
+   "size": 138236,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://www.theboringblog.ai/_next/image?url=%2Fsky%2Fdawn.png&w=3840&q=75&dpl=dpl_Cuc2We3JpTh93pC8gS9r6ixR5eXs",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/webp",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "content-disposition": "attachment; filename=\"dawn.webp\"",
+    "content-type": "image/webp",
+    "referrer-policy": "strict-origin-when-cross-origin",
+    "x-matched-path": "/sky/dawn.png"
+   },
+   "resourceType": "image",
+   "passes": [
+    "mobile"
+   ],
+   "file": "site/www.theboringblog.ai/_next/image__q65fe4bef.webp",
+   "size": 13038,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://www.theboringblog.ai/_next/static/chunks/10fa-h31-ulst.js?dpl=dpl_Cuc2We3JpTh93pC8gS9r6ixR5eXs",
+   "method": "GET",
+   "status": 200,
+   "contentType": "application/javascript; charset=utf-8",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "content-disposition": "inline; filename=\"10fa-h31-ulst.js\"",
+    "content-type": "application/javascript; charset=utf-8",
+    "referrer-policy": "strict-origin-when-cross-origin",
+    "x-matched-path": "/_next/static/chunks/10fa-h31-ulst.js"
+   },
+   "resourceType": "script",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "file": "site/www.theboringblog.ai/_next/static/chunks/10fa-h31-ulst__q9b968860.js",
+   "size": 9354,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://www.theboringblog.ai/02e71e65b966ffac/script.js",
+   "method": "GET",
+   "status": 200,
+   "contentType": "application/javascript; charset=utf-8",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "content-disposition": "inline; filename=\"script.js\"",
+    "content-type": "application/javascript; charset=utf-8"
+   },
+   "resourceType": "script",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "file": "site/www.theboringblog.ai/02e71e65b966ffac/script.js",
+   "size": 12567,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://www.theboringblog.ai/d8cfe6e103a22d0b/script.js",
+   "method": "GET",
+   "status": 200,
+   "contentType": "application/javascript; charset=utf-8",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "content-disposition": "inline; filename=\"script.js\"",
+    "content-type": "application/javascript; charset=utf-8"
+   },
+   "resourceType": "script",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "file": "site/www.theboringblog.ai/d8cfe6e103a22d0b/script.js",
+   "size": 4550,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://www.theboringblog.ai/posts?_rsc=5CB68i4pnAekjehf",
+   "method": "GET",
+   "status": 200,
+   "contentType": "text/x-component",
+   "headers": {
+    "content-type": "text/x-component",
+    "referrer-policy": "strict-origin-when-cross-origin",
+    "x-matched-path": "/posts.rsc",
+    "x-nextjs-deployment-id": "dpl_Cuc2We3JpTh93pC8gS9r6ixR5eXs"
+   },
+   "resourceType": "fetch",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "file": "site/www.theboringblog.ai/posts__q88a2ece6.rsc",
+   "size": 156,
+   "modes": [
+    "cors"
+   ]
+  },
+  {
+   "url": "https://www.theboringblog.ai/_next/static/chunks/23tft18o9t3ud.js?dpl=dpl_Cuc2We3JpTh93pC8gS9r6ixR5eXs",
+   "method": "GET",
+   "status": 200,
+   "contentType": "application/javascript; charset=utf-8",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "content-disposition": "inline; filename=\"23tft18o9t3ud.js\"",
+    "content-type": "application/javascript; charset=utf-8",
+    "referrer-policy": "strict-origin-when-cross-origin",
+    "x-matched-path": "/_next/static/chunks/23tft18o9t3ud.js"
+   },
+   "resourceType": "script",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "file": "site/www.theboringblog.ai/_next/static/chunks/23tft18o9t3ud__q9b968860.js",
+   "size": 34848,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://www.theboringblog.ai/icon.svg?icon.20cku_k9b5npa.svg",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/svg+xml",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "content-disposition": "inline; filename=\"icon.svg\"",
+    "content-type": "image/svg+xml",
+    "referrer-policy": "strict-origin-when-cross-origin",
+    "x-matched-path": "/icon.svg"
+   },
+   "resourceType": "other",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "file": "site/www.theboringblog.ai/icon__q0b3e4709.svg",
+   "size": 619,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://www.theboringblog.ai/_next/static/chunks/0mcpcz1rq6ljb.js?dpl=dpl_Cuc2We3JpTh93pC8gS9r6ixR5eXs",
+   "method": "GET",
+   "status": 200,
+   "contentType": "application/javascript; charset=utf-8",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "content-disposition": "inline; filename=\"0mcpcz1rq6ljb.js\"",
+    "content-type": "application/javascript; charset=utf-8",
+    "referrer-policy": "strict-origin-when-cross-origin",
+    "x-matched-path": "/_next/static/chunks/0mcpcz1rq6ljb.js"
+   },
+   "resourceType": "script",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "file": "site/www.theboringblog.ai/_next/static/chunks/0mcpcz1rq6ljb__q9b968860.js",
+   "size": 770134,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://www.theboringblog.ai/art/situations/block-tower-v1.png",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/png",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "content-disposition": "inline; filename=\"block-tower-v1.png\"",
+    "content-type": "image/png",
+    "referrer-policy": "strict-origin-when-cross-origin",
+    "x-matched-path": "/art/situations/block-tower-v1.png"
+   },
+   "resourceType": "image",
+   "passes": [
+    "mobile",
+    "desktop"
+   ],
+   "file": "site/www.theboringblog.ai/art/situations/block-tower-v1.png",
+   "size": 1806782,
+   "modes": [
+    "cors"
+   ]
+  },
+  {
+   "url": "https://www.theboringblog.ai/art/situations/rain-for-two-v1.png",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/png",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "content-disposition": "inline; filename=\"rain-for-two-v1.png\"",
+    "content-type": "image/png",
+    "referrer-policy": "strict-origin-when-cross-origin",
+    "x-matched-path": "/art/situations/rain-for-two-v1.png"
+   },
+   "resourceType": "image",
+   "passes": [
+    "mobile",
+    "desktop"
+   ],
+   "file": "site/www.theboringblog.ai/art/situations/rain-for-two-v1.png",
+   "size": 1889630,
+   "modes": [
+    "cors"
+   ]
+  },
+  {
+   "url": "https://www.theboringblog.ai/art/situations/tangled-hobby-v1.png",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/png",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "content-disposition": "inline; filename=\"tangled-hobby-v1.png\"",
+    "content-type": "image/png",
+    "referrer-policy": "strict-origin-when-cross-origin",
+    "x-matched-path": "/art/situations/tangled-hobby-v1.png"
+   },
+   "resourceType": "image",
+   "passes": [
+    "mobile",
+    "desktop"
+   ],
+   "file": "site/www.theboringblog.ai/art/situations/tangled-hobby-v1.png",
+   "size": 1752462,
+   "modes": [
+    "cors"
+   ]
+  },
+  {
+   "url": "https://www.theboringblog.ai/art/situations/stars-on-line-v1.png",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/png",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "content-disposition": "inline; filename=\"stars-on-line-v1.png\"",
+    "content-type": "image/png",
+    "referrer-policy": "strict-origin-when-cross-origin",
+    "x-matched-path": "/art/situations/stars-on-line-v1.png"
+   },
+   "resourceType": "image",
+   "passes": [
+    "mobile",
+    "desktop"
+   ],
+   "file": "site/www.theboringblog.ai/art/situations/stars-on-line-v1.png",
+   "size": 1805777,
+   "modes": [
+    "cors"
+   ]
+  },
+  {
+   "url": "https://www.theboringblog.ai/art/situations/box-beats-gift-v1.png",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/png",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "content-disposition": "inline; filename=\"box-beats-gift-v1.png\"",
+    "content-type": "image/png",
+    "referrer-policy": "strict-origin-when-cross-origin",
+    "x-matched-path": "/art/situations/box-beats-gift-v1.png"
+   },
+   "resourceType": "image",
+   "passes": [
+    "mobile",
+    "desktop"
+   ],
+   "file": "site/www.theboringblog.ai/art/situations/box-beats-gift-v1.png",
+   "size": 1798854,
+   "modes": [
+    "cors"
+   ]
+  },
+  {
+   "url": "https://www.theboringblog.ai/art/situations/familiar-giant-v1.png",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/png",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "content-disposition": "inline; filename=\"familiar-giant-v1.png\"",
+    "content-type": "image/png",
+    "referrer-policy": "strict-origin-when-cross-origin",
+    "x-matched-path": "/art/situations/familiar-giant-v1.png"
+   },
+   "resourceType": "image",
+   "passes": [
+    "mobile",
+    "desktop"
+   ],
+   "file": "site/www.theboringblog.ai/art/situations/familiar-giant-v1.png",
+   "size": 2000582,
+   "modes": [
+    "cors"
+   ]
+  },
+  {
+   "url": "https://www.theboringblog.ai/art/situations/bubble-inspector-v1.png",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/png",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "content-disposition": "inline; filename=\"bubble-inspector-v1.png\"",
+    "content-type": "image/png",
+    "referrer-policy": "strict-origin-when-cross-origin",
+    "x-matched-path": "/art/situations/bubble-inspector-v1.png"
+   },
+   "resourceType": "image",
+   "passes": [
+    "mobile",
+    "desktop"
+   ],
+   "file": "site/www.theboringblog.ai/art/situations/bubble-inspector-v1.png",
+   "size": 1828045,
+   "modes": [
+    "cors"
+   ]
+  },
+  {
+   "url": "https://www.theboringblog.ai/art/situations/cloud-delivery-v1.png",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/png",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "content-disposition": "inline; filename=\"cloud-delivery-v1.png\"",
+    "content-type": "image/png",
+    "referrer-policy": "strict-origin-when-cross-origin",
+    "x-matched-path": "/art/situations/cloud-delivery-v1.png"
+   },
+   "resourceType": "image",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "file": "site/www.theboringblog.ai/art/situations/cloud-delivery-v1.png",
+   "size": 1765372,
+   "modes": [
+    "cors"
+   ]
+  },
+  {
+   "url": "https://www.theboringblog.ai/art/situations/slow-voyage-v1.png",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/png",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "content-disposition": "inline; filename=\"slow-voyage-v1.png\"",
+    "content-type": "image/png",
+    "referrer-policy": "strict-origin-when-cross-origin",
+    "x-matched-path": "/art/situations/slow-voyage-v1.png"
+   },
+   "resourceType": "image",
+   "passes": [
+    "mobile",
+    "desktop"
+   ],
+   "file": "site/www.theboringblog.ai/art/situations/slow-voyage-v1.png",
+   "size": 1869685,
+   "modes": [
+    "cors"
+   ]
+  },
+  {
+   "url": "https://www.theboringblog.ai/art/situations/do-not-disturb-v1.png",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/png",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "content-disposition": "inline; filename=\"do-not-disturb-v1.png\"",
+    "content-type": "image/png",
+    "referrer-policy": "strict-origin-when-cross-origin",
+    "x-matched-path": "/art/situations/do-not-disturb-v1.png"
+   },
+   "resourceType": "image",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "file": "site/www.theboringblog.ai/art/situations/do-not-disturb-v1.png",
+   "size": 1825458,
+   "modes": [
+    "cors"
+   ]
+  },
+  {
+   "url": "https://www.theboringblog.ai/art/situations/camera-inspector-v1.png",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/png",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "content-disposition": "inline; filename=\"camera-inspector-v1.png\"",
+    "content-type": "image/png",
+    "referrer-policy": "strict-origin-when-cross-origin",
+    "x-matched-path": "/art/situations/camera-inspector-v1.png"
+   },
+   "resourceType": "image",
+   "passes": [
+    "mobile",
+    "desktop"
+   ],
+   "file": "site/www.theboringblog.ai/art/situations/camera-inspector-v1.png",
+   "size": 1828798,
+   "modes": [
+    "cors"
+   ]
+  },
+  {
+   "url": "https://www.theboringblog.ai/art/situations/cat-checkmate-v1.png",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/png",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "content-disposition": "inline; filename=\"cat-checkmate-v1.png\"",
+    "content-type": "image/png",
+    "referrer-policy": "strict-origin-when-cross-origin",
+    "x-matched-path": "/art/situations/cat-checkmate-v1.png"
+   },
+   "resourceType": "image",
+   "passes": [
+    "mobile",
+    "desktop"
+   ],
+   "file": "site/www.theboringblog.ai/art/situations/cat-checkmate-v1.png",
+   "size": 1813176,
+   "modes": [
+    "cors"
+   ]
+  },
+  {
+   "url": "https://www.theboringblog.ai/art/situations/tiny-observatory-v1.png",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/png",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "content-disposition": "inline; filename=\"tiny-observatory-v1.png\"",
+    "content-type": "image/png",
+    "referrer-policy": "strict-origin-when-cross-origin",
+    "x-matched-path": "/art/situations/tiny-observatory-v1.png"
+   },
+   "resourceType": "image",
+   "passes": [
+    "mobile",
+    "desktop"
+   ],
+   "file": "site/www.theboringblog.ai/art/situations/tiny-observatory-v1.png",
+   "size": 1871752,
+   "modes": [
+    "cors"
+   ]
+  },
+  {
+   "url": "https://www.theboringblog.ai/art/situations/creative-break-v1.png",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/png",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "content-disposition": "inline; filename=\"creative-break-v1.png\"",
+    "content-type": "image/png",
+    "referrer-policy": "strict-origin-when-cross-origin",
+    "x-matched-path": "/art/situations/creative-break-v1.png"
+   },
+   "resourceType": "image",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "file": "site/www.theboringblog.ai/art/situations/creative-break-v1.png",
+   "size": 1776660,
+   "modes": [
+    "cors"
+   ]
+  },
+  {
+   "url": "https://www.theboringblog.ai/art/situations/laundry-portal-v1.png",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/png",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "content-disposition": "inline; filename=\"laundry-portal-v1.png\"",
+    "content-type": "image/png",
+    "referrer-policy": "strict-origin-when-cross-origin",
+    "x-matched-path": "/art/situations/laundry-portal-v1.png"
+   },
+   "resourceType": "image",
+   "passes": [
+    "mobile",
+    "desktop"
+   ],
+   "file": "site/www.theboringblog.ai/art/situations/laundry-portal-v1.png",
+   "size": 2033684,
+   "modes": [
+    "cors"
+   ]
+  },
+  {
+   "url": "https://www.theboringblog.ai/art/situations/cat-on-keyboard-v1.png",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/png",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "content-disposition": "inline; filename=\"cat-on-keyboard-v1.png\"",
+    "content-type": "image/png",
+    "referrer-policy": "strict-origin-when-cross-origin",
+    "x-matched-path": "/art/situations/cat-on-keyboard-v1.png"
+   },
+   "resourceType": "image",
+   "passes": [
+    "mobile",
+    "desktop"
+   ],
+   "file": "site/www.theboringblog.ai/art/situations/cat-on-keyboard-v1.png",
+   "size": 1805077,
+   "modes": [
+    "cors"
+   ]
+  },
+  {
+   "url": "https://www.theboringblog.ai/art/situations/claimed-book-v1.png",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/png",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "content-disposition": "inline; filename=\"claimed-book-v1.png\"",
+    "content-type": "image/png",
+    "referrer-policy": "strict-origin-when-cross-origin",
+    "x-matched-path": "/art/situations/claimed-book-v1.png"
+   },
+   "resourceType": "image",
+   "passes": [
+    "mobile",
+    "desktop"
+   ],
+   "file": "site/www.theboringblog.ai/art/situations/claimed-book-v1.png",
+   "size": 1749503,
+   "modes": [
+    "cors"
+   ]
+  },
+  {
+   "url": "https://www.theboringblog.ai/art/situations/paper-pilot-v1.png",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/png",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "content-disposition": "inline; filename=\"paper-pilot-v1.png\"",
+    "content-type": "image/png",
+    "referrer-policy": "strict-origin-when-cross-origin",
+    "x-matched-path": "/art/situations/paper-pilot-v1.png"
+   },
+   "resourceType": "image",
+   "passes": [
+    "mobile",
+    "desktop"
+   ],
+   "file": "site/www.theboringblog.ai/art/situations/paper-pilot-v1.png",
+   "size": 1834827,
+   "modes": [
+    "cors"
+   ]
+  },
+  {
+   "url": "https://www.theboringblog.ai/art/situations/piano-duet-v1.png",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/png",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "content-disposition": "inline; filename=\"piano-duet-v1.png\"",
+    "content-type": "image/png",
+    "referrer-policy": "strict-origin-when-cross-origin",
+    "x-matched-path": "/art/situations/piano-duet-v1.png"
+   },
+   "resourceType": "image",
+   "passes": [
+    "mobile",
+    "desktop"
+   ],
+   "file": "site/www.theboringblog.ai/art/situations/piano-duet-v1.png",
+   "size": 1809997,
+   "modes": [
+    "cors"
+   ]
+  },
+  {
+   "url": "https://www.theboringblog.ai/art/situations/wet-paint-v1.png",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/png",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "content-disposition": "inline; filename=\"wet-paint-v1.png\"",
+    "content-type": "image/png",
+    "referrer-policy": "strict-origin-when-cross-origin",
+    "x-matched-path": "/art/situations/wet-paint-v1.png"
+   },
+   "resourceType": "image",
+   "passes": [
+    "mobile",
+    "desktop"
+   ],
+   "file": "site/www.theboringblog.ai/art/situations/wet-paint-v1.png",
+   "size": 1811543,
+   "modes": [
+    "cors"
+   ]
+  },
+  {
+   "url": "https://www.theboringblog.ai/art/situations/robot-inspector-v1.png",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/png",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "content-disposition": "inline; filename=\"robot-inspector-v1.png\"",
+    "content-type": "image/png",
+    "referrer-policy": "strict-origin-when-cross-origin",
+    "x-matched-path": "/art/situations/robot-inspector-v1.png"
+   },
+   "resourceType": "image",
+   "passes": [
+    "mobile",
+    "desktop"
+   ],
+   "file": "site/www.theboringblog.ai/art/situations/robot-inspector-v1.png",
+   "size": 1728518,
+   "modes": [
+    "cors"
+   ]
+  },
+  {
+   "url": "https://www.theboringblog.ai/art/situations/borrowed-moonlight-v1.png",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/png",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "content-disposition": "inline; filename=\"borrowed-moonlight-v1.png\"",
+    "content-type": "image/png",
+    "referrer-policy": "strict-origin-when-cross-origin",
+    "x-matched-path": "/art/situations/borrowed-moonlight-v1.png"
+   },
+   "resourceType": "image",
+   "passes": [
+    "mobile",
+    "desktop"
+   ],
+   "file": "site/www.theboringblog.ai/art/situations/borrowed-moonlight-v1.png",
+   "size": 1805939,
+   "modes": [
+    "cors"
+   ]
+  },
+  {
+   "url": "https://www.theboringblog.ai/art/situations/pottery-assistant-v1.png",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/png",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "content-disposition": "inline; filename=\"pottery-assistant-v1.png\"",
+    "content-type": "image/png",
+    "referrer-policy": "strict-origin-when-cross-origin",
+    "x-matched-path": "/art/situations/pottery-assistant-v1.png"
+   },
+   "resourceType": "image",
+   "passes": [
+    "mobile",
+    "desktop"
+   ],
+   "file": "site/www.theboringblog.ai/art/situations/pottery-assistant-v1.png",
+   "size": 1930171,
+   "modes": [
+    "cors"
+   ]
+  },
+  {
+   "url": "https://www.theboringblog.ai/art/situations/picnic-thief-v1.png",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/png",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "content-disposition": "inline; filename=\"picnic-thief-v1.png\"",
+    "content-type": "image/png",
+    "referrer-policy": "strict-origin-when-cross-origin",
+    "x-matched-path": "/art/situations/picnic-thief-v1.png"
+   },
+   "resourceType": "image",
+   "passes": [
+    "mobile",
+    "desktop"
+   ],
+   "file": "site/www.theboringblog.ai/art/situations/picnic-thief-v1.png",
+   "size": 1890670,
+   "modes": [
+    "cors"
+   ]
+  },
+  {
+   "url": "https://www.theboringblog.ai/posts?_rsc=tXyZJ52UQVBCVsD3",
+   "method": "GET",
+   "status": 200,
+   "contentType": "text/x-component",
+   "headers": {
+    "content-type": "text/x-component",
+    "referrer-policy": "strict-origin-when-cross-origin",
+    "x-matched-path": "/posts.rsc",
+    "x-nextjs-deployment-id": "dpl_Cuc2We3JpTh93pC8gS9r6ixR5eXs"
+   },
+   "resourceType": "fetch",
+   "passes": [
+    "desktop"
+   ],
+   "file": "site/www.theboringblog.ai/posts__q75af9752.rsc",
+   "size": 4748,
+   "modes": [
+    "cors"
+   ]
+  },
+  {
+   "url": "https://www.theboringblog.ai/manifest.webmanifest",
+   "method": "GET",
+   "status": 200,
+   "contentType": "application/manifest+json; charset=utf-8",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "content-disposition": "inline; filename=\"manifest.webmanifest\"",
+    "content-type": "application/manifest+json; charset=utf-8",
+    "referrer-policy": "strict-origin-when-cross-origin",
+    "x-matched-path": "/manifest.webmanifest"
+   },
+   "resourceType": "other",
+   "passes": [
+    "mobile"
+   ],
+   "file": "site/www.theboringblog.ai/manifest.webmanifest",
+   "size": 512
+  },
+  {
+   "url": "https://www.theboringblog.ai/favicon.ico",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/vnd.microsoft.icon",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "content-disposition": "inline; filename=\"favicon.ico\"",
+    "content-type": "image/vnd.microsoft.icon",
+    "referrer-policy": "strict-origin-when-cross-origin",
+    "x-matched-path": "/favicon.ico"
+   },
+   "resourceType": "other",
+   "passes": [
+    "mobile"
+   ],
+   "file": "site/www.theboringblog.ai/favicon.ico",
+   "size": 2523
+  },
+  {
+   "url": "https://www.theboringblog.ai/apple-icon.png?apple-icon.1csk4f7xy577-.png",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/png",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "content-disposition": "inline; filename=\"apple-icon.png\"",
+    "content-type": "image/png",
+    "referrer-policy": "strict-origin-when-cross-origin",
+    "x-matched-path": "/apple-icon.png"
+   },
+   "resourceType": "other",
+   "passes": [
+    "mobile"
+   ],
+   "file": "site/www.theboringblog.ai/apple-icon__q95c51d12.png",
+   "size": 2673
+  },
+  {
+   "url": "https://www.theboringblog.ai/favicon.ico?favicon.3pvdrb0xj02ql.ico",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/vnd.microsoft.icon",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "content-disposition": "inline; filename=\"favicon.ico\"",
+    "content-type": "image/vnd.microsoft.icon",
+    "referrer-policy": "strict-origin-when-cross-origin",
+    "x-matched-path": "/favicon.ico"
+   },
+   "resourceType": "other",
+   "passes": [
+    "mobile"
+   ],
+   "file": "site/www.theboringblog.ai/favicon__q620deba7.ico",
+   "size": 2523
+  }
+ ],
+ "videos": {
+  "posters": {},
+  "onlineHosts": []
+ }
+}

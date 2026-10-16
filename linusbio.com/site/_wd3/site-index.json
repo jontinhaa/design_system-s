@@ -1,0 +1,856 @@
+{
+ "version": 1,
+ "tool": "wd3 0.1.0",
+ "captureId": "linusbio.com-97e2eb1a",
+ "capturedAt": "2026-10-14T17:06:46+00:00",
+ "entry": {
+  "url": "https://www.linusbio.com/",
+  "path": "/",
+  "search": "",
+  "file": "site/www.linusbio.com/index.html",
+  "contentType": "text/html; charset=UTF-8"
+ },
+ "blocked": [
+  "^https?://([^/?#]+\\.)?(google\\-analytics\\.com|analytics\\.google\\.com|googletagmanager\\.com|googleadservices\\.com|doubleclick\\.net|googlesyndication\\.com|googleoptimize\\.com|connect\\.facebook\\.net|bat\\.bing\\.com|snap\\.licdn\\.com|px\\.ads\\.linkedin\\.com|analytics\\.tiktok\\.com|ct\\.pinterest\\.com|static\\.ads\\-twitter\\.com|analytics\\.twitter\\.com|tr\\.snapchat\\.com|sc\\-static\\.net|mc\\.yandex\\.ru|hotjar\\.com|hotjar\\.io|clarity\\.ms|cdn\\.segment\\.com|api\\.segment\\.io|cdn\\.mxpnl\\.com|api\\-js\\.mixpanel\\.com|api\\.mixpanel\\.com|api\\.amplitude\\.com|api2\\.amplitude\\.com|api\\-secure\\.amplitude\\.com|api\\-sr\\.amplitude\\.com|sr\\-client\\-cfg\\.amplitude\\.com|plausible\\.io|cloud\\.umami\\.is|analytics\\.umami\\.is|static\\.cloudflareinsights\\.com|cloudflareinsights\\.com|vitals\\.vercel\\-insights\\.com|browser\\-intake\\-datadoghq\\.com|browser\\-intake\\-datadoghq\\.eu|js\\-agent\\.newrelic\\.com|bam\\.nr\\-data\\.net|bam\\-cell\\.nr\\-data\\.net|fullstory\\.com|script\\.crazyegg\\.com|mouseflow\\.com|smartlook\\.com|heapanalytics\\.com|i\\.posthog\\.com|stats\\.wp\\.com|pixel\\.wp\\.com|promotekit\\.com|ingest\\.sentry\\.io|ingest\\.us\\.sentry\\.io|ingest\\.de\\.sentry\\.io|widget\\.intercom\\.io|js\\.intercomcdn\\.com|api\\-iam\\.intercom\\.io|js\\.hs\\-scripts\\.com|js\\.hs\\-analytics\\.net|js\\.hs\\-banner\\.com|js\\.hscollectedforms\\.net|js\\.usemessages\\.com|track\\.hubspot\\.com|client\\.crisp\\.chat|embed\\.tawk\\.to|js\\.driftt\\.com|static\\.zdassets\\.com|ekr\\.zdassets\\.com|cdn\\.cookielaw\\.org|geolocation\\.onetrust\\.com|consent\\.cookiebot\\.com|consentcdn\\.cookiebot\\.com|app\\.usercentrics\\.eu|api\\.usercentrics\\.eu|cdn\\.iubenda\\.com|cmp\\.osano\\.com|cdn\\.termly\\.io)(:\\d+)?([/?#]|$)",
+  "/rpc/increment_shared_code_views",
+  "^https?://(umami|analytics|stats|plausible)\\.[^/]+/(api/send|api/collect|api/event|script\\.js)",
+  "/g/c(ollect)?\\?v=2&",
+  "sentry\\.io/api/\\d+/(envelope|store)",
+  "/api/meta-capi",
+  "^https?://(leadtracker|tracking|track|events?|collect)\\.[^/]+/",
+  "^https?://a\\.vturb\\.com/",
+  "facebook\\.com/tr[/?]",
+  "/_vercel/(speed-)?insights/",
+  "/cdn-cgi/rum",
+  "/cdn-cgi/challenge-platform/",
+  "google\\.com/(pagead|ads)/"
+ ],
+ "volatileParams": [
+  "v",
+  "_rsc",
+  "dpl",
+  "_",
+  "t",
+  "ts",
+  "timestamp",
+  "cb",
+  "cachebust",
+  "cacheBust",
+  "nocache",
+  "rnd",
+  "rand",
+  "random",
+  "_t"
+ ],
+ "entries": [
+  {
+   "url": "https://www.linusbio.com/",
+   "method": "GET",
+   "status": 200,
+   "contentType": "text/html; charset=UTF-8",
+   "headers": {
+    "content-type": "text/html; charset=UTF-8",
+    "link": "<https://www.linusbio.com>; rel='canonical'",
+    "referrer-policy": "no-referrer-when-downgrade",
+    "x-robots-tag": "all"
+   },
+   "resourceType": "document",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "file": "site/www.linusbio.com/index.html",
+   "size": 169598,
+   "modes": [
+    "navigate"
+   ]
+  },
+  {
+   "url": "https://www.linusbio.com/assets/main-corporate.min.css?id=bdfd435e8c3dc8c561ac931443afab09",
+   "method": "GET",
+   "status": 200,
+   "contentType": "text/css",
+   "headers": {
+    "content-type": "text/css"
+   },
+   "resourceType": "stylesheet",
+   "passes": [
+    "mobile",
+    "desktop"
+   ],
+   "file": "site/www.linusbio.com/assets/main-corporate.min__qe0c1875a.css",
+   "size": 74312,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://www.linusbio.com/assets/main-corporate.min.js?id=e6f89495f2651524d80d9f1d0699850b",
+   "method": "GET",
+   "status": 200,
+   "contentType": "application/javascript; charset=utf-8",
+   "headers": {
+    "content-type": "application/javascript; charset=utf-8"
+   },
+   "resourceType": "script",
+   "passes": [
+    "mobile",
+    "desktop"
+   ],
+   "file": "site/www.linusbio.com/assets/main-corporate.min__q0b7414c6.js",
+   "size": 334889,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://www.linusbio.com/assets/fonts/SuisseIntl-Regular.woff",
+   "method": "GET",
+   "status": 200,
+   "contentType": "font/woff",
+   "headers": {
+    "content-type": "font/woff",
+    "priority": "u=0,i=?0"
+   },
+   "resourceType": "font",
+   "passes": [
+    "mobile",
+    "desktop"
+   ],
+   "file": "site/www.linusbio.com/assets/fonts/SuisseIntl-Regular.woff",
+   "size": 90964,
+   "modes": [
+    "cors"
+   ]
+  },
+  {
+   "url": "https://www.linusbio.com/cpresources/2235e790/cache-helper.js?v=1791623616",
+   "method": "GET",
+   "status": 200,
+   "contentType": "application/javascript; charset=utf-8",
+   "headers": {
+    "content-type": "application/javascript; charset=utf-8",
+    "priority": "u=3,i=?0"
+   },
+   "resourceType": "script",
+   "passes": [
+    "mobile",
+    "desktop"
+   ],
+   "file": "site/www.linusbio.com/cpresources/2235e790/cache-helper__qcfc09cf8.js",
+   "size": 6209,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://www.linusbio.com/assets/fonts/SuisseIntl-Light.woff",
+   "method": "GET",
+   "status": 200,
+   "contentType": "font/woff",
+   "headers": {
+    "content-type": "font/woff",
+    "priority": "u=0,i=?0"
+   },
+   "resourceType": "font",
+   "passes": [
+    "mobile",
+    "desktop"
+   ],
+   "file": "site/www.linusbio.com/assets/fonts/SuisseIntl-Light.woff",
+   "size": 90376,
+   "modes": [
+    "cors"
+   ]
+  },
+  {
+   "url": "https://www.linusbio.com/assets/corporate/images/footer-bg.jpg",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/jpeg",
+   "headers": {
+    "content-type": "image/jpeg",
+    "priority": "u=3,i"
+   },
+   "resourceType": "image",
+   "passes": [
+    "mobile",
+    "desktop"
+   ],
+   "file": "site/www.linusbio.com/assets/corporate/images/footer-bg.jpg",
+   "size": 1373925,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://www.linusbio.com/assets/site/favicon.svg?id=82d2a5854e6cb67416039d1c8ae6f841",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/svg+xml",
+   "headers": {
+    "content-type": "image/svg+xml",
+    "priority": "u=1,i"
+   },
+   "resourceType": "other",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "file": "site/www.linusbio.com/assets/site/favicon__q14d8865b.svg",
+   "size": 7484,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://linusbio-cs.transforms.svdcdn.com/production/our-science-image_2025-02-12-124800_sjqy.jpg?w=1200&h=833&q=80&auto=format&fit=crop&dm=1739364480&s=410b5353ae3968dc90cf25622197359d",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/webp",
+   "headers": {
+    "access-control-allow-headers": "Server, x-goog-meta-frames, Content-Length, Content-Type, Range, X-Requested-With, If-Modified-Since, If-None-Match",
+    "access-control-allow-origin": "*",
+    "access-control-expose-headers": "Server, x-goog-meta-frames, Content-Length, Content-Type, Range, X-Requested-With, If-Modified-Since, If-None-Match",
+    "cdn-cache": "HIT",
+    "cdn-cachedat": "10/11/2026 11:32:35",
+    "cdn-edgestorageid": "1068",
+    "cdn-proxyver": "1.71",
+    "cdn-pullzone": "2311465",
+    "cdn-requestcountrycode": "US",
+    "cdn-requestid": "94c04c131c3ca8fefd55932e155954bc",
+    "cdn-requestpullcode": "200",
+    "cdn-requestpullsuccess": "True",
+    "cdn-requesttime": "0",
+    "cdn-status": "200",
+    "content-type": "image/webp",
+    "x-amz-expiration": "expiry-date=\"Fri, 12 Feb 2027 00:00:00 GMT\", rule-id=\"delete-after-360\"",
+    "x-amz-id-2": "WTt3fwaea7ta+eDcxkQjK4zpDuAUSjkdZysWS6ehC0TaW5FVr5Q+FqkS7R0xbHUGs98stA/IuAnk",
+    "x-amz-request-id": "DABDB15DC42C8B96:B",
+    "x-wasabi-cm-reference-id": "1791718355 A11-U15.prod1.ashburn 2590412436:24989464:13"
+   },
+   "resourceType": "image",
+   "passes": [
+    "mobile"
+   ],
+   "file": "site/linusbio-cs.transforms.svdcdn.com/production/our-science-image_2025-02-12-124800_sjqy__qfab447bc.jpg",
+   "size": 26534,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://linusbio-cs.transforms.svdcdn.com/production/ClearStrand-ASD-Kit.webp?w=1200&h=856&q=80&auto=format&fit=crop&dm=1739364607&s=10ffe6d589365df44f48f6b215b867c6",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/webp",
+   "headers": {
+    "access-control-allow-headers": "Server, x-goog-meta-frames, Content-Length, Content-Type, Range, X-Requested-With, If-Modified-Since, If-None-Match",
+    "access-control-allow-origin": "*",
+    "access-control-expose-headers": "Server, x-goog-meta-frames, Content-Length, Content-Type, Range, X-Requested-With, If-Modified-Since, If-None-Match",
+    "cdn-cache": "HIT",
+    "cdn-cachedat": "10/13/2026 22:16:47",
+    "cdn-edgestorageid": "941",
+    "cdn-proxyver": "1.71",
+    "cdn-pullzone": "2311465",
+    "cdn-requestcountrycode": "US",
+    "cdn-requestid": "38c4696a0b8a713b34dd2d97fe9a7c3f",
+    "cdn-requestpullcode": "200",
+    "cdn-requestpullsuccess": "True",
+    "cdn-requesttime": "0",
+    "cdn-status": "200",
+    "content-type": "image/webp",
+    "x-amz-expiration": "expiry-date=\"Sat, 13 Feb 2027 00:00:00 GMT\", rule-id=\"delete-after-360\"",
+    "x-amz-id-2": "VNohuCUMh6CscuuO0j3R0nzl0p7NYqI9YvET0EOGtVh5bO/9jBfKAewFneTQcKU1CLReKuaMSuvQ",
+    "x-amz-request-id": "4CBA16A5522C6FED:A",
+    "x-wasabi-cm-reference-id": "1791929807 A11-U18.prod1.ashburn 2757385557:26614432:26"
+   },
+   "resourceType": "image",
+   "passes": [
+    "mobile"
+   ],
+   "file": "site/linusbio-cs.transforms.svdcdn.com/production/ClearStrand-ASD-Kit__q4858db02.webp",
+   "size": 22062,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://linusbio-cs.transforms.svdcdn.com/production/ClearStrand-ASD-Kit.webp?w=3000&h=2141&q=80&auto=format&fit=crop&dm=1739364607&s=dbce03091a65c572c9c1b862364fa3fa",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/webp",
+   "headers": {
+    "access-control-allow-headers": "Server, x-goog-meta-frames, Content-Length, Content-Type, Range, X-Requested-With, If-Modified-Since, If-None-Match",
+    "access-control-allow-origin": "*",
+    "access-control-expose-headers": "Server, x-goog-meta-frames, Content-Length, Content-Type, Range, X-Requested-With, If-Modified-Since, If-None-Match",
+    "cdn-cache": "HIT",
+    "cdn-cachedat": "09/18/2026 13:16:54",
+    "cdn-edgestorageid": "1348",
+    "cdn-proxyver": "1.70",
+    "cdn-pullzone": "2311465",
+    "cdn-requestcountrycode": "US",
+    "cdn-requestid": "94858f392db0e2b448d8bed7701bf202",
+    "cdn-requestpullcode": "200",
+    "cdn-requestpullsuccess": "True",
+    "cdn-requesttime": "0",
+    "cdn-status": "200",
+    "content-type": "image/webp",
+    "x-amz-expiration": "expiry-date=\"Fri, 05 Feb 2027 00:00:00 GMT\", rule-id=\"delete-after-360\"",
+    "x-amz-id-2": "dqmFYTFkyW7VZenbLHuaG22Yf/JnQPpY++d75YKnGV+gduJcefax58wQpMa664ECVTtOcbMayDso",
+    "x-amz-request-id": "5D0917C470E13DFF:A",
+    "x-wasabi-cm-reference-id": "1789737414 A11-U21.prod1.ashburn 714775906:6877804:12"
+   },
+   "resourceType": "image",
+   "passes": [
+    "desktop"
+   ],
+   "file": "site/linusbio-cs.transforms.svdcdn.com/production/ClearStrand-ASD-Kit__qc402dac7.webp",
+   "size": 61666,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://linusbio-cs.transforms.svdcdn.com/production/our-science-image_2025-02-12-124800_sjqy.jpg?w=3000&h=2083&q=80&auto=format&fit=crop&dm=1739364480&s=7813e5fcf45ef017cbb6e56ba51d974c",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/webp",
+   "headers": {
+    "access-control-allow-headers": "Server, x-goog-meta-frames, Content-Length, Content-Type, Range, X-Requested-With, If-Modified-Since, If-None-Match",
+    "access-control-allow-origin": "*",
+    "access-control-expose-headers": "Server, x-goog-meta-frames, Content-Length, Content-Type, Range, X-Requested-With, If-Modified-Since, If-None-Match",
+    "cdn-cache": "HIT",
+    "cdn-cachedat": "10/04/2026 23:52:38",
+    "cdn-edgestorageid": "1347",
+    "cdn-proxyver": "1.70",
+    "cdn-pullzone": "2311465",
+    "cdn-requestcountrycode": "US",
+    "cdn-requestid": "788d0859e1d3f2b08feb04fd23e0f234",
+    "cdn-requestpullcode": "200",
+    "cdn-requestpullsuccess": "True",
+    "cdn-requesttime": "0",
+    "cdn-status": "200",
+    "content-type": "image/webp",
+    "x-amz-expiration": "expiry-date=\"Fri, 05 Feb 2027 00:00:00 GMT\", rule-id=\"delete-after-360\"",
+    "x-amz-id-2": "9JsUUUyM/Kzyj1A0hjO1uyjHTCbaXN+jn+vmhSz1WJkwRCjPLrbqOxh8AP50vIXN/098Xh3pJvGb",
+    "x-amz-request-id": "DD72F73070E6138A:A",
+    "x-wasabi-cm-reference-id": "1791157934 B11-U16.prod1.ashburn 1965183227:18949344:10"
+   },
+   "resourceType": "image",
+   "passes": [
+    "desktop"
+   ],
+   "file": "site/linusbio-cs.transforms.svdcdn.com/production/our-science-image_2025-02-12-124800_sjqy__q2b453bfd.jpg",
+   "size": 79152,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://linusbio-cs.transforms.svdcdn.com/production/3d-vertical_2025-02-12-125706_gand.jpg?w=1200&h=1500&q=80&auto=format&fit=crop&dm=1739365026&s=0c4f6ef4f5ddbe8ccecc7f7717cc7878",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/webp",
+   "headers": {
+    "access-control-allow-headers": "Server, x-goog-meta-frames, Content-Length, Content-Type, Range, X-Requested-With, If-Modified-Since, If-None-Match",
+    "access-control-allow-origin": "*",
+    "access-control-expose-headers": "Server, x-goog-meta-frames, Content-Length, Content-Type, Range, X-Requested-With, If-Modified-Since, If-None-Match",
+    "cdn-cache": "HIT",
+    "cdn-cachedat": "09/29/2026 21:34:26",
+    "cdn-edgestorageid": "1347",
+    "cdn-proxyver": "1.70",
+    "cdn-pullzone": "2311465",
+    "cdn-requestcountrycode": "US",
+    "cdn-requestid": "4c04664c67e997805729f62d54d446a2",
+    "cdn-requestpullcode": "200",
+    "cdn-requestpullsuccess": "True",
+    "cdn-requesttime": "0",
+    "cdn-status": "200",
+    "content-type": "image/webp",
+    "x-amz-expiration": "expiry-date=\"Fri, 12 Feb 2027 00:00:00 GMT\", rule-id=\"delete-after-360\"",
+    "x-amz-id-2": "mkwcjqDxE9TFj/N+7m+BnnE3JWT1Mv0ppSComOZc4i39DpSN3WmbUv5psW3K28WZIbHYFDv0A556",
+    "x-amz-request-id": "986D5FCE42CC993E:A",
+    "x-wasabi-cm-reference-id": "1790717610 B14-U35.prod1.ashburn 1645024641:15891022:8"
+   },
+   "resourceType": "image",
+   "passes": [
+    "mobile"
+   ],
+   "file": "site/linusbio-cs.transforms.svdcdn.com/production/3d-vertical_2025-02-12-125706_gand__q01e06f3c.jpg",
+   "size": 87062,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://linusbio-cs.transforms.svdcdn.com/production/3d-vertical_2025-02-12-125706_gand.jpg?w=3000&h=3750&q=80&auto=format&fit=crop&dm=1739365026&s=afe99a164bf642fae4a61cbad99fa83d",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/webp",
+   "headers": {
+    "access-control-allow-headers": "Server, x-goog-meta-frames, Content-Length, Content-Type, Range, X-Requested-With, If-Modified-Since, If-None-Match",
+    "access-control-allow-origin": "*",
+    "access-control-expose-headers": "Server, x-goog-meta-frames, Content-Length, Content-Type, Range, X-Requested-With, If-Modified-Since, If-None-Match",
+    "cdn-cache": "HIT",
+    "cdn-cachedat": "10/13/2026 18:30:01",
+    "cdn-edgestorageid": "894",
+    "cdn-proxyver": "1.71",
+    "cdn-pullzone": "2311465",
+    "cdn-requestcountrycode": "US",
+    "cdn-requestid": "9b87b655682b662baca0ea5325be35b4",
+    "cdn-requestpullcode": "200",
+    "cdn-requestpullsuccess": "True",
+    "cdn-requesttime": "0",
+    "cdn-status": "200",
+    "content-type": "image/webp",
+    "x-amz-expiration": "expiry-date=\"Fri, 05 Feb 2027 00:00:00 GMT\", rule-id=\"delete-after-360\"",
+    "x-amz-id-2": "XZ5R8WjS9OE9gxmmMvmTtBZ5Tvgsn0uWJ0fESp2gWIDau4TIZhCs3l7aY2vk6+WbxzHGAXJG12e6",
+    "x-amz-request-id": "256B6FBA8A74501C:B",
+    "x-wasabi-cm-reference-id": "1791916196 A11-U19.prod1.ashburn 2666646379:25750480:32"
+   },
+   "resourceType": "image",
+   "passes": [
+    "desktop"
+   ],
+   "file": "site/linusbio-cs.transforms.svdcdn.com/production/3d-vertical_2025-02-12-125706_gand__qd2ecb8f4.jpg",
+   "size": 272680,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://linusbio-cs.transforms.svdcdn.com/production/careers-hero_2025-02-12-135135_xako.jpg?w=1200&h=675&q=80&auto=format&fit=crop&dm=1739368295&s=0298c2ed082fa1dbfda575c5fb1edc50",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/webp",
+   "headers": {
+    "access-control-allow-headers": "Server, x-goog-meta-frames, Content-Length, Content-Type, Range, X-Requested-With, If-Modified-Since, If-None-Match",
+    "access-control-allow-origin": "*",
+    "access-control-expose-headers": "Server, x-goog-meta-frames, Content-Length, Content-Type, Range, X-Requested-With, If-Modified-Since, If-None-Match",
+    "cdn-cache": "HIT",
+    "cdn-cachedat": "10/14/2026 13:24:19",
+    "cdn-edgestorageid": "1232",
+    "cdn-proxyver": "1.71",
+    "cdn-pullzone": "2311465",
+    "cdn-requestcountrycode": "US",
+    "cdn-requestid": "e43b54e182fcf01eb5ac6361c97082a5",
+    "cdn-requestpullcode": "200",
+    "cdn-requestpullsuccess": "True",
+    "cdn-requesttime": "0",
+    "cdn-status": "200",
+    "content-type": "image/webp",
+    "x-amz-expiration": "expiry-date=\"Fri, 12 Feb 2027 00:00:00 GMT\", rule-id=\"delete-after-360\"",
+    "x-amz-id-2": "G+pQScGzJM57Wxf+9AGD+mc9UwwP4z/5RoUboYrUJJKoAH3r1cbs2g9/7F0/kZy/vsxEmOUjcfbw",
+    "x-amz-request-id": "1EF8005DA6CF0B75:A",
+    "x-wasabi-cm-reference-id": "1791984259 A11-U18.prod1.ashburn 2802877126:27058358:12"
+   },
+   "resourceType": "image",
+   "passes": [
+    "mobile"
+   ],
+   "file": "site/linusbio-cs.transforms.svdcdn.com/production/careers-hero_2025-02-12-135135_xako__qf3516a7d.jpg",
+   "size": 20156,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://linusbio-cs.transforms.svdcdn.com/production/Traced-Photo-Use.jpg?w=1200&h=800&q=80&auto=format&fit=crop&dm=1783458895&s=513e1322a44817a16c99089aa4b5f12b",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/webp",
+   "headers": {
+    "access-control-allow-headers": "Server, x-goog-meta-frames, Content-Length, Content-Type, Range, X-Requested-With, If-Modified-Since, If-None-Match",
+    "access-control-allow-origin": "*",
+    "access-control-expose-headers": "Server, x-goog-meta-frames, Content-Length, Content-Type, Range, X-Requested-With, If-Modified-Since, If-None-Match",
+    "cdn-cache": "HIT",
+    "cdn-cachedat": "10/14/2026 13:24:19",
+    "cdn-edgestorageid": "1236",
+    "cdn-proxyver": "1.71",
+    "cdn-pullzone": "2311465",
+    "cdn-requestcountrycode": "US",
+    "cdn-requestid": "d686c862886c173dceff9617fb8284a8",
+    "cdn-requestpullcode": "200",
+    "cdn-requestpullsuccess": "True",
+    "cdn-requesttime": "0",
+    "cdn-status": "200",
+    "content-type": "image/webp",
+    "x-amz-expiration": "expiry-date=\"Sun, 04 Jul 2027 00:00:00 GMT\", rule-id=\"delete-after-360\"",
+    "x-amz-id-2": "egcdakVX5zMNHgfbB+CeMFHIXDmfeUBgcaGT3+tqrgtds3YB0WrBFf4fP4FDVv5bXwcFGRPrZrfx",
+    "x-amz-request-id": "B5FEFA17F3CCA025:B",
+    "x-wasabi-cm-reference-id": "1791984259 A11-U15.prod1.ashburn 2816941757:27131529:31"
+   },
+   "resourceType": "image",
+   "passes": [
+    "mobile"
+   ],
+   "file": "site/linusbio-cs.transforms.svdcdn.com/production/Traced-Photo-Use__q9cb3bb07.jpg",
+   "size": 7120,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://linusbio-cs.transforms.svdcdn.com/production/ClearStrand-ASD-collection-kit.jpg?w=1200&h=800&q=80&auto=format&fit=crop&dm=1773845428&s=0e43feef97bd6476751884bfd582e864",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/webp",
+   "headers": {
+    "access-control-allow-headers": "Server, x-goog-meta-frames, Content-Length, Content-Type, Range, X-Requested-With, If-Modified-Since, If-None-Match",
+    "access-control-allow-origin": "*",
+    "access-control-expose-headers": "Server, x-goog-meta-frames, Content-Length, Content-Type, Range, X-Requested-With, If-Modified-Since, If-None-Match",
+    "cdn-cache": "HIT",
+    "cdn-cachedat": "10/14/2026 13:24:19",
+    "cdn-edgestorageid": "940",
+    "cdn-proxyver": "1.71",
+    "cdn-pullzone": "2311465",
+    "cdn-requestcountrycode": "US",
+    "cdn-requestid": "9bf83252b003d1f8f72ec1f4126dc575",
+    "cdn-requestpullcode": "200",
+    "cdn-requestpullsuccess": "True",
+    "cdn-requesttime": "0",
+    "cdn-status": "200",
+    "content-type": "image/webp",
+    "x-amz-expiration": "expiry-date=\"Mon, 15 Mar 2027 00:00:00 GMT\", rule-id=\"delete-after-360\"",
+    "x-amz-id-2": "AJQBwE0hcZO7gfKzorR6RITyzBsG5vjwWs6EgKzwG/m7nIiNvP0Mzvjwcgz8hDmlMq/TOicEOiOV",
+    "x-amz-request-id": "F13DA35DC62F4E8D:B",
+    "x-wasabi-cm-reference-id": "1791984244 A11-U18.prod1.ashburn 2802866012:26976495:47"
+   },
+   "resourceType": "image",
+   "passes": [
+    "mobile"
+   ],
+   "file": "site/linusbio-cs.transforms.svdcdn.com/production/ClearStrand-ASD-collection-kit__q79fc79a1.jpg",
+   "size": 51034,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://linusbio-cs.transforms.svdcdn.com/production/Traced-Photo-Use.jpg?w=3000&h=2000&q=80&auto=format&fit=crop&dm=1783458895&s=96ce0c6a70a99c7ecd017b916dc49665",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/webp",
+   "headers": {
+    "access-control-allow-headers": "Server, x-goog-meta-frames, Content-Length, Content-Type, Range, X-Requested-With, If-Modified-Since, If-None-Match",
+    "access-control-allow-origin": "*",
+    "access-control-expose-headers": "Server, x-goog-meta-frames, Content-Length, Content-Type, Range, X-Requested-With, If-Modified-Since, If-None-Match",
+    "cdn-cache": "HIT",
+    "cdn-cachedat": "10/04/2026 23:52:38",
+    "cdn-edgestorageid": "1348",
+    "cdn-proxyver": "1.70",
+    "cdn-pullzone": "2311465",
+    "cdn-requestcountrycode": "US",
+    "cdn-requestid": "31c69099c10856366e9b0ebd7fd2f3bc",
+    "cdn-requestpullcode": "200",
+    "cdn-requestpullsuccess": "True",
+    "cdn-requesttime": "0",
+    "cdn-status": "200",
+    "content-type": "image/webp",
+    "x-amz-expiration": "expiry-date=\"Sat, 03 Jul 2027 00:00:00 GMT\", rule-id=\"delete-after-360\"",
+    "x-amz-id-2": "yQ+OlGl1xprQn7M84Xh66y/k3NRQXL8JtT822guNNqEs6RqS8glnxyJlVkDSLmKnZKHMCvFfi6hh",
+    "x-amz-request-id": "7B55B4AFF6A00E50:B",
+    "x-wasabi-cm-reference-id": "1791157935 A11-U16.prod1.ashburn 2056165948:19768713:101"
+   },
+   "resourceType": "image",
+   "passes": [
+    "desktop"
+   ],
+   "file": "site/linusbio-cs.transforms.svdcdn.com/production/Traced-Photo-Use__q75ec0669.jpg",
+   "size": 47738,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://linusbio-cs.transforms.svdcdn.com/production/careers-hero_2025-02-12-135135_xako.jpg?w=3000&h=1687&q=80&auto=format&fit=crop&dm=1739368295&s=4e8b4bc3411009fd0ecd043d7bf783d9",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/webp",
+   "headers": {
+    "access-control-allow-headers": "Server, x-goog-meta-frames, Content-Length, Content-Type, Range, X-Requested-With, If-Modified-Since, If-None-Match",
+    "access-control-allow-origin": "*",
+    "access-control-expose-headers": "Server, x-goog-meta-frames, Content-Length, Content-Type, Range, X-Requested-With, If-Modified-Since, If-None-Match",
+    "cdn-cache": "HIT",
+    "cdn-cachedat": "10/04/2026 23:52:38",
+    "cdn-edgestorageid": "1348",
+    "cdn-proxyver": "1.70",
+    "cdn-pullzone": "2311465",
+    "cdn-requestcountrycode": "US",
+    "cdn-requestid": "99c8cc8deae287371a969f543fc636d1",
+    "cdn-requestpullcode": "200",
+    "cdn-requestpullsuccess": "True",
+    "cdn-requesttime": "0",
+    "cdn-status": "200",
+    "content-type": "image/webp",
+    "x-amz-expiration": "expiry-date=\"Fri, 05 Feb 2027 00:00:00 GMT\", rule-id=\"delete-after-360\"",
+    "x-amz-id-2": "79xxlLI3rPyAEbeIqa0XcMGWl+0vq6EHJKKOgg38o/wxFXYAFnN5LJiFowcAMN9EbLXKCUHAn2W1",
+    "x-amz-request-id": "BA1AE9FA268ECA1B:B",
+    "x-wasabi-cm-reference-id": "1791157947 B14-U35.prod1.ashburn 2061043036:19811743:31"
+   },
+   "resourceType": "image",
+   "passes": [
+    "desktop"
+   ],
+   "file": "site/linusbio-cs.transforms.svdcdn.com/production/careers-hero_2025-02-12-135135_xako__qbd546973.jpg",
+   "size": 67786,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://linusbio-cs.transforms.svdcdn.com/production/ClearStrand-ASD-collection-kit.jpg?w=3000&h=2000&q=80&auto=format&fit=crop&dm=1773845428&s=f1644086907e9aa01260b7d0f5b559b8",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/webp",
+   "headers": {
+    "access-control-allow-headers": "Server, x-goog-meta-frames, Content-Length, Content-Type, Range, X-Requested-With, If-Modified-Since, If-None-Match",
+    "access-control-allow-origin": "*",
+    "access-control-expose-headers": "Server, x-goog-meta-frames, Content-Length, Content-Type, Range, X-Requested-With, If-Modified-Since, If-None-Match",
+    "cdn-cache": "HIT",
+    "cdn-cachedat": "10/04/2026 23:52:38",
+    "cdn-edgestorageid": "1068",
+    "cdn-proxyver": "1.70",
+    "cdn-pullzone": "2311465",
+    "cdn-requestcountrycode": "US",
+    "cdn-requestid": "7ced173eb23a42dfda9d6d14f31bb36a",
+    "cdn-requestpullcode": "200",
+    "cdn-requestpullsuccess": "True",
+    "cdn-requesttime": "0",
+    "cdn-status": "200",
+    "content-type": "image/webp",
+    "x-amz-expiration": "expiry-date=\"Mon, 15 Mar 2027 00:00:00 GMT\", rule-id=\"delete-after-360\"",
+    "x-amz-id-2": "0aXizXzs49buJWLz1foES5wMadZ6w+PLTd27uW/vdwf7aDDIERo0wf1xqCbURRLOvoONYbEJBww4",
+    "x-amz-request-id": "1FE60B0A407D0FEB:B",
+    "x-wasabi-cm-reference-id": "1791157899 B11-U16.prod1.ashburn 1965144059:18909118:39"
+   },
+   "resourceType": "image",
+   "passes": [
+    "desktop"
+   ],
+   "file": "site/linusbio-cs.transforms.svdcdn.com/production/ClearStrand-ASD-collection-kit__q0047e5e5.jpg",
+   "size": 151826,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://servd-linusbio-cs.b-cdn.net/production/videos/Processing-Selection-hero-compressed.mp4",
+   "method": "GET",
+   "status": 200,
+   "contentType": "video/mp4",
+   "headers": {
+    "content-type": "video/mp4",
+    "cdn-pullzone": "2311464",
+    "cdn-requestcountrycode": "US",
+    "x-amz-id-2": "+aDwCs/e1Z1afp+VPX84T9ACeZ8P1JpZLJuc283chIbwJutB2B7FPzjuUezc8gNIQLfvbbpyMq2L",
+    "x-amz-request-id": "32331DD9D37F5034:A",
+    "x-amz-version-id": "001736496307376145880-UXXlF7hugI",
+    "x-wasabi-cm-reference-id": "1790355152 A11-U15.prod1.ashburn 1327597038:12668737:70",
+    "cdn-proxyver": "1.70",
+    "cdn-requestpullsuccess": "True",
+    "cdn-requestpullcode": "206",
+    "cdn-cachedat": "09/25/2026 16:53:00",
+    "cdn-edgestorageid": "1067",
+    "cdn-requestid": "6dd62dec82d9619101f47efcdb4f6873",
+    "cdn-cache": "HIT",
+    "cdn-status": "200",
+    "cdn-requesttime": "0"
+   },
+   "resourceType": "media",
+   "passes": [
+    "desktop"
+   ],
+   "file": "site/servd-linusbio-cs.b-cdn.net/production/videos/Processing-Selection-hero-compressed.mp4",
+   "size": 2450458,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://servd-linusbio-cs.b-cdn.net/production/videos/Hair-Slicing-hero-compressed.mp4",
+   "method": "GET",
+   "status": 200,
+   "contentType": "video/mp4",
+   "headers": {
+    "content-type": "video/mp4",
+    "cdn-pullzone": "2311464",
+    "cdn-requestcountrycode": "US",
+    "x-amz-id-2": "I6Nde+eRuPC6YfeLAT9WMWmKcRSXP8s+8ns6j7FGQDAFjdwabfOF+XhPCJZyWHPFohQjsiOXKsPK",
+    "x-amz-request-id": "F33F296B349DFED1:B",
+    "x-amz-version-id": "001736496304350087199-lgMZjzMjiT",
+    "x-wasabi-cm-reference-id": "1790355166 B11-U16.prod1.ashburn 1262869777:12174684:5",
+    "cdn-proxyver": "1.70",
+    "cdn-requestpullsuccess": "True",
+    "cdn-requestpullcode": "206",
+    "cdn-cachedat": "09/25/2026 16:53:00",
+    "cdn-edgestorageid": "1067",
+    "cdn-requestid": "218c5b8528726ec7e27a818f0b9e6a04",
+    "cdn-cache": "HIT",
+    "cdn-status": "200",
+    "cdn-requesttime": "0"
+   },
+   "resourceType": "media",
+   "passes": [
+    "desktop"
+   ],
+   "file": "site/servd-linusbio-cs.b-cdn.net/production/videos/Hair-Slicing-hero-compressed.mp4",
+   "size": 5502316,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://servd-linusbio-cs.b-cdn.net/production/videos/Spectrometry-Section-Compressed_2025-02-12-171912_ddye.mp4",
+   "method": "GET",
+   "status": 200,
+   "contentType": "video/mp4",
+   "headers": {
+    "content-type": "video/mp4",
+    "cdn-pullzone": "2311464",
+    "cdn-requestcountrycode": "US",
+    "x-amz-id-2": "5axUVEJwadIqf934gY0Qt4hrCaYYA2a5Qr35SEf1mF12wj6wtfO3mCApjxIjtRx+4BFMIAs9K7EE",
+    "x-amz-request-id": "3B0F53EEE11BA6CE:B",
+    "x-amz-version-id": "001739380755014460310-NBA60ue9Jp",
+    "x-wasabi-cm-reference-id": "1790355123 A11-U21.prod1.ashburn 1263794366:12065376:89",
+    "cdn-proxyver": "1.70",
+    "cdn-requestpullsuccess": "True",
+    "cdn-requestpullcode": "206",
+    "cdn-cachedat": "09/25/2026 16:53:00",
+    "cdn-edgestorageid": "1069",
+    "cdn-requestid": "11c653b975526830e88db52b248bc056",
+    "cdn-cache": "HIT",
+    "cdn-status": "200",
+    "cdn-requesttime": "0"
+   },
+   "resourceType": "media",
+   "passes": [
+    "desktop"
+   ],
+   "file": "site/servd-linusbio-cs.b-cdn.net/production/videos/Spectrometry-Section-Compressed_2025-02-12-171912_ddye.mp4",
+   "size": 6078518,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://servd-linusbio-cs.b-cdn.net/production/videos/404-bg-optimized_2025-02-12-124224_iaxf.mp4",
+   "method": "GET",
+   "status": 200,
+   "contentType": "video/mp4",
+   "headers": {
+    "content-type": "video/mp4",
+    "cdn-pullzone": "2311464",
+    "cdn-requestcountrycode": "US",
+    "x-amz-id-2": "kz+WPsgBPvXBojtX28qu6NEs9OFj2shakX07NmNQveWh4+Jq9TUMuebkPxyukHvcJsxIpd5r45wp",
+    "x-amz-request-id": "25406281F56F853A:A",
+    "x-amz-version-id": "001739364144689487190-PITBphGEgt",
+    "x-wasabi-cm-reference-id": "1790355155 A11-U17.prod1.ashburn 1325719284:12742898:16",
+    "cdn-proxyver": "1.70",
+    "cdn-requestpullsuccess": "True",
+    "cdn-requestpullcode": "206",
+    "cdn-cachedat": "09/25/2026 16:53:00",
+    "cdn-edgestorageid": "1347",
+    "cdn-requestid": "f8f9d38378dc0781754d7442c41f4991",
+    "cdn-cache": "HIT",
+    "cdn-status": "200",
+    "cdn-requesttime": "0"
+   },
+   "resourceType": "media",
+   "passes": [
+    "desktop"
+   ],
+   "file": "site/servd-linusbio-cs.b-cdn.net/production/videos/404-bg-optimized_2025-02-12-124224_iaxf.mp4",
+   "size": 5134250,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://servd-linusbio-cs.b-cdn.net/production/videos/Spectrometry-Hero-Compressed_2025-02-12-171650_ayhy.mp4",
+   "method": "GET",
+   "status": 200,
+   "contentType": "video/mp4",
+   "headers": {
+    "content-type": "video/mp4",
+    "cdn-pullzone": "2311464",
+    "cdn-requestcountrycode": "US",
+    "x-amz-id-2": "Z0jrbEByPZBhFfrHOs10awWSvlbbrrqR4WZmN/UEtfpKtiUZ3PMatRey3HecQvKX4OrfcB5n4/88",
+    "x-amz-request-id": "3D6EE800198687F2:B",
+    "x-amz-version-id": "001739380611325632606-jRJ8g-pcQe",
+    "x-wasabi-cm-reference-id": "1790355100 A11-U16.prod1.ashburn 1320253267:12771667:47",
+    "cdn-proxyver": "1.70",
+    "cdn-requestpullsuccess": "True",
+    "cdn-requestpullcode": "206",
+    "cdn-cachedat": "09/25/2026 16:53:00",
+    "cdn-edgestorageid": "1233",
+    "cdn-requestid": "4e11e9eee8ff0a0d7b532496502c7dde",
+    "cdn-cache": "HIT",
+    "cdn-status": "200",
+    "cdn-requesttime": "0"
+   },
+   "resourceType": "media",
+   "passes": [
+    "desktop"
+   ],
+   "file": "site/servd-linusbio-cs.b-cdn.net/production/videos/Spectrometry-Hero-Compressed_2025-02-12-171650_ayhy.mp4",
+   "size": 6147356,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://servd-linusbio-cs.b-cdn.net/production/videos/Ablation-Section-Compressed_2025-02-12-171852_vxrb.mp4",
+   "method": "GET",
+   "status": 200,
+   "contentType": "video/mp4",
+   "headers": {
+    "content-type": "video/mp4",
+    "cdn-pullzone": "2311464",
+    "cdn-requestcountrycode": "US",
+    "x-amz-id-2": "uhgOfyAGNCa3qKuahG/rkey0t7cm25IZC7exHyUkZQQvv0zkPhoVZLT4XkNbFJ1B0zVhifVv5Itp",
+    "x-amz-request-id": "F8E081EE0D918F2E:A",
+    "x-amz-version-id": "001739380733071768673-Oeevge0zLn",
+    "x-wasabi-cm-reference-id": "1790355180 B14-U36.prod1.ashburn 1328222772:12788462:74",
+    "cdn-proxyver": "1.70",
+    "cdn-requestpullsuccess": "True",
+    "cdn-requestpullcode": "206",
+    "cdn-cachedat": "09/25/2026 16:53:00",
+    "cdn-edgestorageid": "845",
+    "cdn-requestid": "030fcf7e8ab1683848080c20f3f3cad8",
+    "cdn-cache": "HIT",
+    "cdn-status": "200",
+    "cdn-requesttime": "0"
+   },
+   "resourceType": "media",
+   "passes": [
+    "desktop"
+   ],
+   "file": "site/servd-linusbio-cs.b-cdn.net/production/videos/Ablation-Section-Compressed_2025-02-12-171852_vxrb.mp4",
+   "size": 11098367,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://www.linusbio.com/assets/site/apple-touch-icon.png?id=0aada97589a0535074d25233d9d380dc",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/png",
+   "headers": {
+    "content-type": "image/png"
+   },
+   "resourceType": "other",
+   "passes": [
+    "desktop"
+   ],
+   "file": "site/www.linusbio.com/assets/site/apple-touch-icon__qeecd49c3.png",
+   "size": 13598
+  }
+ ],
+ "videos": {
+  "posters": {},
+  "onlineHosts": []
+ }
+}

@@ -1,0 +1,140 @@
+
+[marquee-wrap] {
+  width: 100%;
+  overflow: hidden;
+}
+
+[marquee] {
+  display: flex;
+  width: max-content;
+  animation: marquee 100s linear infinite;
+}
+
+[marquee-item] {
+  flex: none;
+}
+
+@keyframes marquee {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+
+@media (max-width: 479px) {
+  .swiper-slide.for-news.for-3 {
+    margin-right: 0!important; /*override swiper*/
+  }
+}
+
+
+.hide{display:none !important}
+
+
+.richtext .rt-br-spacer {
+    margin-bottom: 3vw;
+    display: block;
+}
+
+.sm-content .btn_content {height:100% !important;}
+@media screen and (max-width: 767px) {
+.sm-content .btn_content {
+    height: 6vw !important;
+}
+}
+
+/* Remove Safari's default focus outline */
+form,
+input,
+button,
+.success-message
+{
+  outline: none!important;
+}
+
+/* Optional: Add a custom focus style for accessibility */
+input:focus,
+button:focus {
+  outline: 2px solid transparent; /* invisible, still focusable */
+  box-shadow: 0 0 0 2px rgba(0, 0, 0, 0.2); /* subtle custom focus ring */
+}
+
+
+/* =====================================================
+   BASE IMAGE SETUP
+===================================================== */
+.lisiting-block-media {
+  width: 100%;
+  position: relative;
+}
+
+/* Hide all style images by default */
+.lisiting-block-media [style-b-image],
+.lisiting-block-media [style-c-image],
+.lisiting-block-media [style-d-image] {
+  display: none;
+}
+
+/* Make images fill container */
+.lisiting-block-media img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* =====================================================
+   STYLE B — aspect-ratio: 4 / 3
+   Items: 2, 6, 8 (repeats every 8)
+===================================================== */
+.lisiting-item:nth-child(8n + 2) .lisiting-block-media,
+.lisiting-item:nth-child(8n + 6) .lisiting-block-media,
+.lisiting-item:nth-child(8n + 8) .lisiting-block-media {
+  aspect-ratio: 4 / 3;
+}
+
+.lisiting-item:nth-child(8n + 2) [style-b-image],
+.lisiting-item:nth-child(8n + 6) [style-b-image],
+.lisiting-item:nth-child(8n + 8) [style-b-image] {
+  display: block;
+}
+
+/* =====================================================
+   STYLE C — aspect-ratio: 1 / 1
+   Items: 3, 4  (repeats every 8)
+===================================================== */
+.lisiting-item:nth-child(8n + 3) .lisiting-block-media,
+.lisiting-item:nth-child(8n + 4) .lisiting-block-media {
+  aspect-ratio: 1 / 1;
+}
+
+.lisiting-item:nth-child(8n + 3) [style-c-image],
+.lisiting-item:nth-child(8n + 4) [style-c-image] {
+  display: block;
+}
+
+/* M note: I removed the 5th item (15 Jan)*/
+
+/* =====================================================
+   STYLE D — aspect-ratio: 1.85 / 1
+   Item: 7 (repeats every 8)
+===================================================== */
+.lisiting-item:nth-child(8n + 7) .lisiting-block-media {
+  aspect-ratio: 1.85 / 1;
+}
+
+.lisiting-item:nth-child(8n + 7) [style-d-image] {
+  display: block;
+}
+
+/* =====================================================
+   WIDTH CHANGE FOR STYLE D ITEM
+===================================================== */
+@media screen and (min-width: 767px) {
+  .lisiting-item:nth-child(8n + 7) {
+    width: calc(33.333333333333336% + 33.333333333333336%);
+  }
+}
+

@@ -1,0 +1,39 @@
+
+/* Default state */
+.loc_details.w-richtext a {
+    text-decoration: underline;
+    transition: opacity 0.3s ease;
+}
+
+/* Hover state */
+.loc_details.w-richtext a:hover {
+    opacity: 1;
+}
+
+/* Change sibling links opacity on hover */
+.loc_details.w-richtext a:hover ~ a {
+    opacity: 0.5;
+}
+
+/* Alternative approach using parent class for more reliability */
+.loc_details.w-richtext:hover a {
+    opacity: 0.5;
+}
+
+.loc_details.w-richtext:hover a:hover {
+    opacity: 1;
+}
+
+.loc_details.w-richtext p:has(a) {
+    margin-top: 1vw; /* Adjust the value as needed */
+}
+
+@media screen and (max-width: 479px) {
+    .loc_details p {
+        font-size: 4vw;
+        line-height: 4vw;
+    }
+    
+    .loc_details.w-richtext p:has(a) {
+    margin-top: 5vw; /* Adjust the value as needed */
+}

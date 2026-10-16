@@ -1,0 +1,2141 @@
+{
+ "version": 1,
+ "tool": "wd3 0.1.0",
+ "captureId": "heronaiapp.com-5255d9fa",
+ "capturedAt": "2026-10-14T16:36:33+00:00",
+ "entry": {
+  "url": "https://heronaiapp.com/",
+  "path": "/",
+  "search": "",
+  "file": "site/heronaiapp.com/index.html",
+  "contentType": "text/html; charset=UTF-8"
+ },
+ "blocked": [
+  "^https?://([^/?#]+\\.)?(google\\-analytics\\.com|analytics\\.google\\.com|googletagmanager\\.com|googleadservices\\.com|doubleclick\\.net|googlesyndication\\.com|googleoptimize\\.com|connect\\.facebook\\.net|bat\\.bing\\.com|snap\\.licdn\\.com|px\\.ads\\.linkedin\\.com|analytics\\.tiktok\\.com|ct\\.pinterest\\.com|static\\.ads\\-twitter\\.com|analytics\\.twitter\\.com|tr\\.snapchat\\.com|sc\\-static\\.net|mc\\.yandex\\.ru|hotjar\\.com|hotjar\\.io|clarity\\.ms|cdn\\.segment\\.com|api\\.segment\\.io|cdn\\.mxpnl\\.com|api\\-js\\.mixpanel\\.com|api\\.mixpanel\\.com|api\\.amplitude\\.com|api2\\.amplitude\\.com|api\\-secure\\.amplitude\\.com|api\\-sr\\.amplitude\\.com|sr\\-client\\-cfg\\.amplitude\\.com|plausible\\.io|cloud\\.umami\\.is|analytics\\.umami\\.is|static\\.cloudflareinsights\\.com|cloudflareinsights\\.com|vitals\\.vercel\\-insights\\.com|browser\\-intake\\-datadoghq\\.com|browser\\-intake\\-datadoghq\\.eu|js\\-agent\\.newrelic\\.com|bam\\.nr\\-data\\.net|bam\\-cell\\.nr\\-data\\.net|fullstory\\.com|script\\.crazyegg\\.com|mouseflow\\.com|smartlook\\.com|heapanalytics\\.com|i\\.posthog\\.com|stats\\.wp\\.com|pixel\\.wp\\.com|promotekit\\.com|ingest\\.sentry\\.io|ingest\\.us\\.sentry\\.io|ingest\\.de\\.sentry\\.io|widget\\.intercom\\.io|js\\.intercomcdn\\.com|api\\-iam\\.intercom\\.io|js\\.hs\\-scripts\\.com|js\\.hs\\-analytics\\.net|js\\.hs\\-banner\\.com|js\\.hscollectedforms\\.net|js\\.usemessages\\.com|track\\.hubspot\\.com|client\\.crisp\\.chat|embed\\.tawk\\.to|js\\.driftt\\.com|static\\.zdassets\\.com|ekr\\.zdassets\\.com|cdn\\.cookielaw\\.org|geolocation\\.onetrust\\.com|consent\\.cookiebot\\.com|consentcdn\\.cookiebot\\.com|app\\.usercentrics\\.eu|api\\.usercentrics\\.eu|cdn\\.iubenda\\.com|cmp\\.osano\\.com|cdn\\.termly\\.io)(:\\d+)?([/?#]|$)",
+  "/rpc/increment_shared_code_views",
+  "^https?://(umami|analytics|stats|plausible)\\.[^/]+/(api/send|api/collect|api/event|script\\.js)",
+  "/g/c(ollect)?\\?v=2&",
+  "sentry\\.io/api/\\d+/(envelope|store)",
+  "/api/meta-capi",
+  "^https?://(leadtracker|tracking|track|events?|collect)\\.[^/]+/",
+  "^https?://a\\.vturb\\.com/",
+  "facebook\\.com/tr[/?]",
+  "/_vercel/(speed-)?insights/",
+  "/cdn-cgi/rum",
+  "/cdn-cgi/challenge-platform/",
+  "google\\.com/(pagead|ads)/"
+ ],
+ "volatileParams": [
+  "v",
+  "_rsc",
+  "dpl",
+  "_",
+  "t",
+  "ts",
+  "timestamp",
+  "cb",
+  "cachebust",
+  "cacheBust",
+  "nocache",
+  "rnd",
+  "rand",
+  "random",
+  "_t"
+ ],
+ "entries": [
+  {
+   "url": "https://heronaiapp.com/",
+   "method": "GET",
+   "status": 200,
+   "contentType": "text/html; charset=UTF-8",
+   "headers": {
+    "cache-status": "\"Netlify Edge\"; hit; ttl=31525070",
+    "content-type": "text/html; charset=UTF-8",
+    "x-nf-request-id": "01M4XMBM8FPFM6DTW1EQBWBS2C"
+   },
+   "resourceType": "document",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "file": "site/heronaiapp.com/index.html",
+   "size": 261872,
+   "modes": [
+    "cors",
+    "navigate"
+   ]
+  },
+  {
+   "url": "https://heronaiapp.com/cdn.prod.website-files.com/6a4b5161f0d11f1602cc3bbf/css/heronai.webflow.shared.9f21166e0.min.css",
+   "method": "GET",
+   "status": 200,
+   "contentType": "text/css; charset=UTF-8",
+   "headers": {
+    "cache-status": "\"Netlify Edge\"; hit; ttl=31533132",
+    "content-type": "text/css; charset=UTF-8",
+    "x-nf-request-id": "01M4XMBM8DW9X4HVS1EYXJJ066"
+   },
+   "resourceType": "stylesheet",
+   "passes": [
+    "mobile",
+    "desktop"
+   ],
+   "file": "site/heronaiapp.com/cdn.prod.website-files.com/6a4b5161f0d11f1602cc3bbf/css/heronai.webflow.shared.9f21166e0.min.css",
+   "size": 244234,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://heronaiapp.com/cdn.prod.website-files.com/6a4b5161f0d11f1602cc3bbf/6a6b2e33f9a255a16702aabb_load.svg",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/svg+xml",
+   "headers": {
+    "cache-status": "\"Netlify Edge\"; hit; ttl=31535979",
+    "content-type": "image/svg+xml",
+    "x-nf-request-id": "01M4XMBM8F44S8FKFT112V8QA8"
+   },
+   "resourceType": "image",
+   "passes": [
+    "mobile",
+    "desktop"
+   ],
+   "file": "site/heronaiapp.com/cdn.prod.website-files.com/6a4b5161f0d11f1602cc3bbf/6a6b2e33f9a255a16702aabb_load.svg",
+   "size": 932,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://heronaiapp.com/cdn.prod.website-files.com/68f73a0fbae6fa626a19135c/6900476d411e3ea05889428f_bg.svg",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/svg+xml",
+   "headers": {
+    "cache-status": "\"Netlify Edge\"; hit; ttl=31526089",
+    "content-type": "image/svg+xml",
+    "x-nf-request-id": "01M4XMBM8F9N3039471A97XGFM"
+   },
+   "resourceType": "image",
+   "passes": [
+    "mobile",
+    "desktop"
+   ],
+   "file": "site/heronaiapp.com/cdn.prod.website-files.com/68f73a0fbae6fa626a19135c/6900476d411e3ea05889428f_bg.svg",
+   "size": 70591,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://heronaiapp.com/cdn.prod.website-files.com/6a4b5161f0d11f1602cc3bbf/6a703ca7b25c47076637c631_4f993b1a199968429382e85294f3e6d1_Full.webp",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/webp",
+   "headers": {
+    "cache-status": "\"Netlify Edge\"; hit; ttl=31526089",
+    "content-type": "image/webp",
+    "x-nf-request-id": "01M4XMBM8FX91F6SY6D1VKQ5NM"
+   },
+   "resourceType": "image",
+   "passes": [
+    "mobile",
+    "desktop"
+   ],
+   "file": "site/heronaiapp.com/cdn.prod.website-files.com/6a4b5161f0d11f1602cc3bbf/6a703ca7b25c47076637c631_4f993b1a199968429382e85294f3e6d1_Full.webp",
+   "size": 307504,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://heronaiapp.com/cdn.prod.website-files.com/6a4b5161f0d11f1602cc3bbf/6a69a23dcc24456128e2afe3_image%20345.avif",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/avif",
+   "headers": {
+    "cache-status": "\"Netlify Edge\"; hit; ttl=31535979",
+    "content-type": "image/avif",
+    "x-nf-request-id": "01M4XMBM9B3984ESEFEB9WSRJJ"
+   },
+   "resourceType": "image",
+   "passes": [
+    "mobile",
+    "desktop"
+   ],
+   "file": "site/heronaiapp.com/cdn.prod.website-files.com/6a4b5161f0d11f1602cc3bbf/6a69a23dcc24456128e2afe3_image 345.avif",
+   "size": 49933,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://heronaiapp.com/cdn.prod.website-files.com/6a4b5161f0d11f1602cc3bbf/6a69a34e15d1eb4aadac9ae6_b03ba3ff201b6aa651aadafe895f2928_Before-1.avif",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/avif",
+   "headers": {
+    "cache-status": "\"Netlify Edge\"; hit; ttl=31535979",
+    "content-type": "image/avif",
+    "x-nf-request-id": "01M4XMBM9MD2Z2YH6GNM9E16HA"
+   },
+   "resourceType": "image",
+   "passes": [
+    "mobile",
+    "desktop"
+   ],
+   "file": "site/heronaiapp.com/cdn.prod.website-files.com/6a4b5161f0d11f1602cc3bbf/6a69a34e15d1eb4aadac9ae6_b03ba3ff201b6aa651aadafe895f2928_Before-1.avif",
+   "size": 9070,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://heronaiapp.com/cdn.prod.website-files.com/6a4b5161f0d11f1602cc3bbf/6a6ad84d47e6be3956e3a35a_cta-sketch.webp",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/webp",
+   "headers": {
+    "cache-status": "\"Netlify Edge\"; hit; ttl=31535979",
+    "content-type": "image/webp",
+    "x-nf-request-id": "01M4XMBM9Q43TTNCP7S6C2KQ2T"
+   },
+   "resourceType": "image",
+   "passes": [
+    "mobile",
+    "desktop"
+   ],
+   "file": "site/heronaiapp.com/cdn.prod.website-files.com/6a4b5161f0d11f1602cc3bbf/6a6ad84d47e6be3956e3a35a_cta-sketch.webp",
+   "size": 30654,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://heronaiapp.com/cdn.prod.website-files.com/6a4b5161f0d11f1602cc3bbf/6a698acae521ff1cc6cba1f2_3a9b60f8f07a704746b20978dd8d73d1_Frame%20484%20(1).png",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/png",
+   "headers": {
+    "cache-status": "\"Netlify Edge\"; hit; ttl=31535979",
+    "content-type": "image/png",
+    "x-nf-request-id": "01M4XMBM9QEPTT5AHAFWDD72WS"
+   },
+   "resourceType": "image",
+   "passes": [
+    "mobile",
+    "desktop"
+   ],
+   "file": "site/heronaiapp.com/cdn.prod.website-files.com/6a4b5161f0d11f1602cc3bbf/6a698acae521ff1cc6cba1f2_3a9b60f8f07a704746b20978dd8d73d1_Frame 484 (1).png",
+   "size": 51972,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://heronaiapp.com/cdn.prod.website-files.com/6a4b5161f0d11f1602cc3bbf/6a63248e9e2e27200fb0efcf_609974a6d6c317e394b965e56b552669_image%20330.avif",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/avif",
+   "headers": {
+    "cache-status": "\"Netlify Edge\"; hit; ttl=31535979",
+    "content-type": "image/avif",
+    "x-nf-request-id": "01M4XMBM9QACTEGZ2VG2M62MFY"
+   },
+   "resourceType": "image",
+   "passes": [
+    "mobile",
+    "desktop"
+   ],
+   "file": "site/heronaiapp.com/cdn.prod.website-files.com/6a4b5161f0d11f1602cc3bbf/6a63248e9e2e27200fb0efcf_609974a6d6c317e394b965e56b552669_image 330.avif",
+   "size": 117136,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://heronaiapp.com/cdn.prod.website-files.com/6a4b5161f0d11f1602cc3bbf/6a8553546e24603c87f64acf_5884414ce5b036db18e0f9b93e96310e_heron_1.jpg",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/jpeg",
+   "headers": {
+    "cache-status": "\"Netlify Edge\"; hit; ttl=31535979",
+    "content-type": "image/jpeg",
+    "x-nf-request-id": "01M4XMBM9QPXH4Y8YCDHD6P176"
+   },
+   "resourceType": "image",
+   "passes": [
+    "mobile",
+    "desktop"
+   ],
+   "file": "site/heronaiapp.com/cdn.prod.website-files.com/6a4b5161f0d11f1602cc3bbf/6a8553546e24603c87f64acf_5884414ce5b036db18e0f9b93e96310e_heron_1.jpg",
+   "size": 71603,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://heronaiapp.com/cdn.prod.website-files.com/6a4b5161f0d11f1602cc3bbf/6a8572d56e24603c870c8690_505b3d65554a02469f21b0cccfc9348c_After%20(1).jpg",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/jpeg",
+   "headers": {
+    "cache-status": "\"Netlify Edge\"; hit; ttl=31535979",
+    "content-type": "image/jpeg",
+    "x-nf-request-id": "01M4XMBM9QEF62A14GHEH29D83"
+   },
+   "resourceType": "image",
+   "passes": [
+    "mobile",
+    "desktop"
+   ],
+   "file": "site/heronaiapp.com/cdn.prod.website-files.com/6a4b5161f0d11f1602cc3bbf/6a8572d56e24603c870c8690_505b3d65554a02469f21b0cccfc9348c_After (1).jpg",
+   "size": 118583,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://heronaiapp.com/cdn.prod.website-files.com/6a4b5161f0d11f1602cc3bbf/6a4b5161f0d11f1602cc3cc4_615801a3aaf9bfaa3a8ac5c616b665eb_cta%20image.webp",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/webp",
+   "headers": {
+    "cache-status": "\"Netlify Edge\"; hit; ttl=31535979",
+    "content-type": "image/webp",
+    "x-nf-request-id": "01M4XMBM9Q7X8NG27C6WYQXJKB"
+   },
+   "resourceType": "image",
+   "passes": [
+    "mobile",
+    "desktop"
+   ],
+   "file": "site/heronaiapp.com/cdn.prod.website-files.com/6a4b5161f0d11f1602cc3bbf/6a4b5161f0d11f1602cc3cc4_615801a3aaf9bfaa3a8ac5c616b665eb_cta image.webp",
+   "size": 84350,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://heronaiapp.com/cdn.prod.website-files.com/6a4b5161f0d11f1602cc3bbf/6a4b5161f0d11f1602cc3c0a_7a1f4c59a32ecf47588f364258cddcaf_footer1.avif",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/avif",
+   "headers": {
+    "cache-status": "\"Netlify Edge\"; hit; ttl=31535979",
+    "content-type": "image/avif",
+    "x-nf-request-id": "01M4XMBM9QMY4CTK3DNNS7FTCB"
+   },
+   "resourceType": "image",
+   "passes": [
+    "mobile",
+    "desktop"
+   ],
+   "file": "site/heronaiapp.com/cdn.prod.website-files.com/6a4b5161f0d11f1602cc3bbf/6a4b5161f0d11f1602cc3c0a_7a1f4c59a32ecf47588f364258cddcaf_footer1.avif",
+   "size": 8627,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://heronaiapp.com/cdn.prod.website-files.com/6a4b5161f0d11f1602cc3bbf/js/webflow.a0aa6ca1.b7683852b8a60d8e.js",
+   "method": "GET",
+   "status": 200,
+   "contentType": "application/javascript; charset=UTF-8",
+   "headers": {
+    "cache-status": "\"Netlify Edge\"; hit; ttl=31535055",
+    "content-type": "application/javascript; charset=UTF-8",
+    "x-nf-request-id": "01M4XMBM9QB5DFJ69KBF8FC6PD"
+   },
+   "resourceType": "script",
+   "passes": [
+    "mobile",
+    "desktop"
+   ],
+   "file": "site/heronaiapp.com/cdn.prod.website-files.com/6a4b5161f0d11f1602cc3bbf/js/webflow.a0aa6ca1.b7683852b8a60d8e.js",
+   "size": 45758,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://heronaiapp.com/cdn.prod.website-files.com/6a4b5161f0d11f1602cc3bbf/6a69a34ee521ff1cc6d69306_95fbf6e81134860c2ab2e4e9f5b9c723_Before.avif",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/avif",
+   "headers": {
+    "cache-status": "\"Netlify Edge\"; hit; ttl=31535979",
+    "content-type": "image/avif",
+    "x-nf-request-id": "01M4XMBM9QB5GYVV2RAZVYGDFT"
+   },
+   "resourceType": "image",
+   "passes": [
+    "mobile",
+    "desktop"
+   ],
+   "file": "site/heronaiapp.com/cdn.prod.website-files.com/6a4b5161f0d11f1602cc3bbf/6a69a34ee521ff1cc6d69306_95fbf6e81134860c2ab2e4e9f5b9c723_Before.avif",
+   "size": 10982,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://d3e54v103j8qbb.cloudfront.net/js/jquery-3.5.1.min.dc5e7f18c8.js?site=6a4b5161f0d11f1602cc3bbf",
+   "method": "GET",
+   "status": 200,
+   "contentType": "application/javascript",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "content-type": "application/javascript"
+   },
+   "resourceType": "script",
+   "passes": [
+    "mobile",
+    "desktop"
+   ],
+   "file": "site/d3e54v103j8qbb.cloudfront.net/js/jquery-3.5.1.min.dc5e7f18c8__q127d5e38.js",
+   "size": 89476,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://heronai-bp.netlify.app/config.js",
+   "method": "GET",
+   "status": 200,
+   "contentType": "application/javascript; charset=UTF-8",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "cache-status": "\"Netlify Edge\"; hit; ttl=31523444",
+    "content-type": "application/javascript; charset=UTF-8",
+    "x-nf-request-id": "01M4XMBMAX17SMJZTQ6ZJZFZ1C"
+   },
+   "resourceType": "script",
+   "passes": [
+    "mobile",
+    "desktop"
+   ],
+   "file": "site/heronai-bp.netlify.app/config.js",
+   "size": 1332,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://cdn.prod.website-files.com/6a4b5161f0d11f1602cc3bbf/6a4b5161f0d11f1602cc3c95_GeistMono-Medium.woff2",
+   "method": "GET",
+   "status": 200,
+   "contentType": "font/woff2",
+   "headers": {
+    "access-control-allow-methods": "GET, HEAD",
+    "access-control-allow-origin": "*",
+    "access-control-max-age": "3000",
+    "content-type": "font/woff2",
+    "priority": "u=0,i=?0",
+    "x-amz-id-2": "7LwKlvZ+FwuACxykdrfcVtulH7s1F2ZUxLdoQ/xH5FqEsGjhmtwFweGkRPnb8HjA+G73R1fiCyl+hQBHgwb0dXTS6y21CAZS",
+    "x-amz-request-id": "YEC364GBYN5D5JCA",
+    "x-amz-server-side-encryption": "AES256",
+    "x-amz-version-id": "f.dKK2CcNafqFCvarCVpqRxIbOFlkLX."
+   },
+   "resourceType": "font",
+   "passes": [
+    "mobile",
+    "desktop"
+   ],
+   "file": "site/cdn.prod.website-files.com/6a4b5161f0d11f1602cc3bbf/6a4b5161f0d11f1602cc3c95_GeistMono-Medium.woff2",
+   "size": 30520,
+   "modes": [
+    "cors"
+   ]
+  },
+  {
+   "url": "https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/SplitText.min.js",
+   "method": "GET",
+   "status": 200,
+   "contentType": "application/javascript; charset=utf-8",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "access-control-expose-headers": "*",
+    "content-type": "application/javascript; charset=utf-8",
+    "timing-allow-origin": "*",
+    "x-jsd-version": "3.13.0",
+    "x-jsd-version-type": "version"
+   },
+   "resourceType": "script",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "file": "site/cdn.jsdelivr.net/npm/gsap@3.13.0/dist/SplitText.min.js",
+   "size": 7247,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://cdn.jsdelivr.net/npm/@barba/core",
+   "method": "GET",
+   "status": 200,
+   "contentType": "application/javascript; charset=utf-8",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "access-control-expose-headers": "*",
+    "content-type": "application/javascript; charset=utf-8",
+    "timing-allow-origin": "*",
+    "x-jsd-version": "2.10.3",
+    "x-jsd-version-type": "version"
+   },
+   "resourceType": "script",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "file": "site/cdn.jsdelivr.net/npm/@barba/core.js",
+   "size": 32095,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/TextPlugin.min.js",
+   "method": "GET",
+   "status": 200,
+   "contentType": "application/javascript; charset=utf-8",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "access-control-expose-headers": "*",
+    "content-type": "application/javascript; charset=utf-8",
+    "timing-allow-origin": "*",
+    "x-jsd-version": "3.13.0",
+    "x-jsd-version-type": "version"
+   },
+   "resourceType": "script",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "file": "site/cdn.jsdelivr.net/npm/gsap@3.13.0/dist/TextPlugin.min.js",
+   "size": 10570,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://cdn.jsdelivr.net/npm/@barba/prefetch",
+   "method": "GET",
+   "status": 200,
+   "contentType": "application/javascript; charset=utf-8",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "access-control-expose-headers": "*",
+    "content-type": "application/javascript; charset=utf-8",
+    "timing-allow-origin": "*",
+    "x-jsd-version": "2.2.0",
+    "x-jsd-version-type": "version"
+   },
+   "resourceType": "script",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "file": "site/cdn.jsdelivr.net/npm/@barba/prefetch.js",
+   "size": 2276,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js",
+   "method": "GET",
+   "status": 200,
+   "contentType": "application/javascript; charset=utf-8",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "access-control-expose-headers": "*",
+    "content-type": "application/javascript; charset=utf-8",
+    "timing-allow-origin": "*",
+    "x-jsd-version": "3.12.5",
+    "x-jsd-version-type": "version"
+   },
+   "resourceType": "script",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "file": "site/cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js",
+   "size": 43380,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js",
+   "method": "GET",
+   "status": 200,
+   "contentType": "application/javascript; charset=utf-8",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "access-control-expose-headers": "*",
+    "content-type": "application/javascript; charset=utf-8",
+    "timing-allow-origin": "*",
+    "x-jsd-version": "3.12.5",
+    "x-jsd-version-type": "version"
+   },
+   "resourceType": "script",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "file": "site/cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js",
+   "size": 72214,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://cdn.prod.website-files.com/6a4b5161f0d11f1602cc3bbf/6a69a76433bc3835bce3ed52_BTGrotesk-SemiBold.woff2",
+   "method": "GET",
+   "status": 200,
+   "contentType": "font/woff2",
+   "headers": {
+    "access-control-allow-methods": "GET, HEAD",
+    "access-control-allow-origin": "*",
+    "access-control-max-age": "3000",
+    "content-type": "font/woff2",
+    "priority": "u=0,i=?0",
+    "x-amz-id-2": "4Ye5HamnYHVS497j/EftqFQp9+NJVqZvRlHMoGmI5El/GFWX5a1HPKEKPP83KpiLwcd5gzV2Wt8=",
+    "x-amz-request-id": "DWMTEHCEGBVRYK2W",
+    "x-amz-server-side-encryption": "AES256",
+    "x-amz-version-id": "sSZE.7oqo_7JOjvT3iH8LoQOhZrkbjnF"
+   },
+   "resourceType": "font",
+   "passes": [
+    "mobile",
+    "desktop"
+   ],
+   "file": "site/cdn.prod.website-files.com/6a4b5161f0d11f1602cc3bbf/6a69a76433bc3835bce3ed52_BTGrotesk-SemiBold.woff2",
+   "size": 8312,
+   "modes": [
+    "cors"
+   ]
+  },
+  {
+   "url": "https://cdn.prod.website-files.com/6a4b5161f0d11f1602cc3bbf/6a4b5161f0d11f1602cc3be0_border2.svg",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/svg+xml",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "content-type": "image/svg+xml",
+    "priority": "u=3,i",
+    "x-amz-id-2": "1RJ2fTx1vwBCSyDDYZfIeM5h9JaSt9BAMJOMsinYjVnXv6+6KuJFpuPIrs4CnGVXp7/sTzU50A82xo+Nt+dTB8o5Cs1C9JSD",
+    "x-amz-request-id": "Z39AKRHCKQ5KT1EW",
+    "x-amz-server-side-encryption": "AES256",
+    "x-amz-version-id": "qX1Xk2rItYlbOU8.Ol8CuJS.tHg6I5Pe"
+   },
+   "resourceType": "image",
+   "passes": [
+    "mobile",
+    "desktop"
+   ],
+   "file": "site/cdn.prod.website-files.com/6a4b5161f0d11f1602cc3bbf/6a4b5161f0d11f1602cc3be0_border2.svg",
+   "size": 386,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://cdn.prod.website-files.com/6a4b5161f0d11f1602cc3bbf/6a6ad1c2da777b5f8ae08567_ic-dash.svg",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/svg+xml",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "content-type": "image/svg+xml",
+    "priority": "u=1,i",
+    "x-amz-id-2": "BG6FwmKOP/1RMzbqe6d2Vzo7fZCANIUjDbEjNMl2civnbobilToni2QV/uZGTRqZnDWuYQcp2FU=",
+    "x-amz-request-id": "AKPTNCQ7Z579N17Y",
+    "x-amz-server-side-encryption": "AES256",
+    "x-amz-version-id": "NFwPXaco90bk4jysq42lbLex2MNki6ka"
+   },
+   "resourceType": "image",
+   "passes": [
+    "mobile",
+    "desktop"
+   ],
+   "file": "site/cdn.prod.website-files.com/6a4b5161f0d11f1602cc3bbf/6a6ad1c2da777b5f8ae08567_ic-dash.svg",
+   "size": 143,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://cdn.prod.website-files.com/6a4b5161f0d11f1602cc3bbf/6a4b5161f0d11f1602cc3c93_bg-border-grid.svg",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/svg+xml",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "content-type": "image/svg+xml",
+    "priority": "u=1,i",
+    "x-amz-id-2": "uFo2/1e1ScK0BzuG5F03yvRCHhahsCuZbj7yqde44iWpMlpE8KfGloC0b7ANLeE+DLa5ZM6Pxtlxgopk/MVx1kzrHmGx99YC",
+    "x-amz-request-id": "Z399CR5ZW1REF1G8",
+    "x-amz-server-side-encryption": "AES256",
+    "x-amz-version-id": "bkzSiTqrYKEqmGkreuCdXmuReSXCKp7Y"
+   },
+   "resourceType": "image",
+   "passes": [
+    "mobile",
+    "desktop"
+   ],
+   "file": "site/cdn.prod.website-files.com/6a4b5161f0d11f1602cc3bbf/6a4b5161f0d11f1602cc3c93_bg-border-grid.svg",
+   "size": 201,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://cdn.prod.website-files.com/6a4b5161f0d11f1602cc3bbf/6a69a764736de82b5ed81ccd_BTGrotesk-Regular.woff2",
+   "method": "GET",
+   "status": 200,
+   "contentType": "font/woff2",
+   "headers": {
+    "access-control-allow-methods": "GET, HEAD",
+    "access-control-allow-origin": "*",
+    "access-control-max-age": "3000",
+    "content-type": "font/woff2",
+    "priority": "u=0,i=?0",
+    "x-amz-id-2": "Ye8tZaIWeh15spwT45kqaVtFLCfzrug2mQd7JpnSPOc9w9gNSu3PAP9ccZso493cJSV2glr6apM=",
+    "x-amz-request-id": "YEC6W043B8BF4M4P",
+    "x-amz-server-side-encryption": "AES256",
+    "x-amz-version-id": "2ns67JgxvQW9C5DwkZSpqD6HYzAt7wWp"
+   },
+   "resourceType": "font",
+   "passes": [
+    "mobile",
+    "desktop"
+   ],
+   "file": "site/cdn.prod.website-files.com/6a4b5161f0d11f1602cc3bbf/6a69a764736de82b5ed81ccd_BTGrotesk-Regular.woff2",
+   "size": 8124,
+   "modes": [
+    "cors"
+   ]
+  },
+  {
+   "url": "https://cdn.prod.website-files.com/68f73a0fbae6fa626a19135c/6900476d411e3ea05889428f_bg.svg",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/svg+xml",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "content-type": "image/svg+xml",
+    "priority": "u=1,i",
+    "x-amz-id-2": "dE3g7VksGhr56YnTff+Dh260xCKMaDZMb7G/FqD+zSdiXj55rIgnhnqTZhlMWzXGg9JNsGJEtJ2cieUeDcyWlzH8EQ9bGYrlxJ49woxszg8=",
+    "x-amz-request-id": "C0CC06CS343R7RBS",
+    "x-amz-server-side-encryption": "AES256",
+    "x-amz-version-id": "k.BbDLbYfG6d_W4r.qJQyDOldgI5VY5u"
+   },
+   "resourceType": "image",
+   "passes": [
+    "mobile",
+    "desktop"
+   ],
+   "file": "site/cdn.prod.website-files.com/68f73a0fbae6fa626a19135c/6900476d411e3ea05889428f_bg.svg",
+   "size": 70591,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://cdn.prod.website-files.com/6a4b5161f0d11f1602cc3bbf/6a4b5161f0d11f1602cc3c0e_border.svg",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/svg+xml",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "content-type": "image/svg+xml",
+    "priority": "u=3,i",
+    "x-amz-id-2": "z/bbXi4igKd6mM/LIaEggfr8jlxWBR4o6oJshoUX4SSF1foQiWhhTxQiG3NTAbrzZ9R1WXHGGMqfndyb15rbJRDS+efaFjxr",
+    "x-amz-request-id": "Z3994PRMQD9M7573",
+    "x-amz-server-side-encryption": "AES256",
+    "x-amz-version-id": "twvbOgcxw0kYSU1E7XH2dKVBLlPe8R_S"
+   },
+   "resourceType": "image",
+   "passes": [
+    "mobile",
+    "desktop"
+   ],
+   "file": "site/cdn.prod.website-files.com/6a4b5161f0d11f1602cc3bbf/6a4b5161f0d11f1602cc3c0e_border.svg",
+   "size": 313,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://cdn.prod.website-files.com/6a4b5161f0d11f1602cc3bbf/6a4b5161f0d11f1602cc3c91_bg-border.svg",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/svg+xml",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "content-type": "image/svg+xml",
+    "priority": "u=1,i",
+    "x-amz-id-2": "OExVF4iiHuVwMCGNS3w0BzP6n7NvVuJOB0+Mz6QN5ilGDc1XmMZfdaY2ZYf84A47WEjhVWnS0LdAUctVff69pPwqw38Q8PUC",
+    "x-amz-request-id": "Z391WTTNM9NNS5QW",
+    "x-amz-server-side-encryption": "AES256",
+    "x-amz-version-id": "02d9gWk.3NBITVrAu5ctPdrxhokIJ32V"
+   },
+   "resourceType": "image",
+   "passes": [
+    "mobile",
+    "desktop"
+   ],
+   "file": "site/cdn.prod.website-files.com/6a4b5161f0d11f1602cc3bbf/6a4b5161f0d11f1602cc3c91_bg-border.svg",
+   "size": 143,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://cdn.prod.website-files.com/6a4b5161f0d11f1602cc3bbf/6a69a764e3c7de325a7f0c08_BTGrotesk-Medium.woff2",
+   "method": "GET",
+   "status": 200,
+   "contentType": "font/woff2",
+   "headers": {
+    "access-control-allow-methods": "GET, HEAD",
+    "access-control-allow-origin": "*",
+    "access-control-max-age": "3000",
+    "content-type": "font/woff2",
+    "priority": "u=0,i=?0",
+    "x-amz-id-2": "UJu3J0+PXaToLqclNuJKNIiZ2vxheoKz30T7lhqfzyi7VEj6LIH4Kdlgs+VIoDYlAPtzFz66hTTFitAOppFD2gx2lQcNwCn6",
+    "x-amz-request-id": "YEC3F7D1SY87Z1RS",
+    "x-amz-server-side-encryption": "AES256",
+    "x-amz-version-id": "IcSmDLhOYxeaAvCwlzOTqNGotm7QeG00"
+   },
+   "resourceType": "font",
+   "passes": [
+    "mobile",
+    "desktop"
+   ],
+   "file": "site/cdn.prod.website-files.com/6a4b5161f0d11f1602cc3bbf/6a69a764e3c7de325a7f0c08_BTGrotesk-Medium.woff2",
+   "size": 8332,
+   "modes": [
+    "cors"
+   ]
+  },
+  {
+   "url": "https://cdn.prod.website-files.com/6a4b5161f0d11f1602cc3bbf/6a69a764af469793ef4762c6_BTGrotesk-Bold.woff2",
+   "method": "GET",
+   "status": 200,
+   "contentType": "font/woff2",
+   "headers": {
+    "access-control-allow-methods": "GET, HEAD",
+    "access-control-allow-origin": "*",
+    "access-control-max-age": "3000",
+    "content-type": "font/woff2",
+    "priority": "u=0,i=?0",
+    "x-amz-id-2": "jz8vXIuJ0+VRiAEehm/vSXXcOpVSxZvOIqYu329ImYrtR8qWhM8P+tQ8+keeg6Z/mdkTREVkEE4=",
+    "x-amz-request-id": "YEC84VVR0W5Q00RA",
+    "x-amz-server-side-encryption": "AES256",
+    "x-amz-version-id": "Vfddm.oSETAbtfB1hwRYY_uAzvWiS239"
+   },
+   "resourceType": "font",
+   "passes": [
+    "mobile",
+    "desktop"
+   ],
+   "file": "site/cdn.prod.website-files.com/6a4b5161f0d11f1602cc3bbf/6a69a764af469793ef4762c6_BTGrotesk-Bold.woff2",
+   "size": 8340,
+   "modes": [
+    "cors"
+   ]
+  },
+  {
+   "url": "https://unpkg.com/lenis@1.1.5/dist/lenis.min.js",
+   "method": "GET",
+   "status": 200,
+   "contentType": "text/javascript; charset=utf-8",
+   "headers": {
+    "access-control-allow-headers": "*",
+    "access-control-allow-methods": "GET, HEAD, OPTIONS",
+    "access-control-allow-origin": "*",
+    "access-control-expose-headers": "*",
+    "content-digest": "sha256=:pjDlbK1GVp6U00rmqZIniXjyyEZNn+rJBdaxiTAqmEM=:",
+    "content-type": "text/javascript; charset=utf-8",
+    "fly-request-id": "01KVRY8N5M8B02R30ND9EEZZ7Y-ewr",
+    "priority": "u=2,i=?0"
+   },
+   "resourceType": "script",
+   "passes": [
+    "mobile",
+    "desktop"
+   ],
+   "file": "site/unpkg.com/lenis@1.1.5/dist/lenis.min.js",
+   "size": 12729,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://cdn.prod.website-files.com/6a4b5161f0d11f1602cc3bbf/6a4b5161f0d11f1602cc3c8e_border-black.svg",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/svg+xml",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "content-type": "image/svg+xml",
+    "priority": "u=3,i",
+    "x-amz-id-2": "tCM9fscAAFmaEcDJBS+IYlioJz5pONoiTsVZ32YlB0YRwM12ifco3JI/Xnz6GChQXPByGdcFQFhjTwuKKkJFbzhWMxFuU7cr",
+    "x-amz-request-id": "H1E3D1N15BCF60P5",
+    "x-amz-server-side-encryption": "AES256",
+    "x-amz-version-id": "VALOwGzj8QkiIAJpnkPKrXCIT4HuUXpU"
+   },
+   "resourceType": "image",
+   "passes": [
+    "mobile",
+    "desktop"
+   ],
+   "file": "site/cdn.prod.website-files.com/6a4b5161f0d11f1602cc3bbf/6a4b5161f0d11f1602cc3c8e_border-black.svg",
+   "size": 535,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://cdn.prod.website-files.com/68f73a0fbae6fa626a19135c/68faf70718094e7433046fcc_bg-deco.svg",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/svg+xml",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "content-type": "image/svg+xml",
+    "priority": "u=3,i",
+    "x-amz-id-2": "3qyHsBawc4NW/VjyAtm9JVJZ7cxz6bQKDx69bL0M7MGuBvsp3wvlYwKhgUOF6hKnqa/IUNr3pmmoEMal2uUNUQ7nmshhPiY2",
+    "x-amz-request-id": "N88HB8KGNRAKANP7",
+    "x-amz-server-side-encryption": "AES256",
+    "x-amz-version-id": "LgfBWQc3eX0CHbTWBkQcWnh0rxfPh_DL"
+   },
+   "resourceType": "image",
+   "passes": [
+    "mobile",
+    "desktop"
+   ],
+   "file": "site/cdn.prod.website-files.com/68f73a0fbae6fa626a19135c/68faf70718094e7433046fcc_bg-deco.svg",
+   "size": 794,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js",
+   "method": "GET",
+   "status": 200,
+   "contentType": "application/javascript; charset=utf-8",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "access-control-expose-headers": "*",
+    "content-type": "application/javascript; charset=utf-8",
+    "timing-allow-origin": "*",
+    "x-jsd-version": "11.2.10",
+    "x-jsd-version-type": "version"
+   },
+   "resourceType": "script",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "file": "site/cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js",
+   "size": 154597,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://d3e54v103j8qbb.cloudfront.net/img/webflow-badge-icon-d2.89e12c322e.svg",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/svg+xml",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "content-type": "image/svg+xml",
+    "x-amz-server-side-encryption": "AES256"
+   },
+   "resourceType": "image",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "file": "site/d3e54v103j8qbb.cloudfront.net/img/webflow-badge-icon-d2.89e12c322e.svg",
+   "size": 421,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://d3e54v103j8qbb.cloudfront.net/img/webflow-badge-text-d2.c82cec3b78.svg",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/svg+xml",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "content-type": "image/svg+xml",
+    "x-amz-server-side-encryption": "AES256"
+   },
+   "resourceType": "image",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "file": "site/d3e54v103j8qbb.cloudfront.net/img/webflow-badge-text-d2.c82cec3b78.svg",
+   "size": 9912,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://heronaiapp.com/cdn.prod.website-files.com/6a4b5161f0d11f1602cc3bbf/6a69ba2640fdb174e5b57241_favicon-light.png",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/png",
+   "headers": {
+    "cache-status": "\"Netlify Edge\"; hit; ttl=31524823",
+    "content-type": "image/png",
+    "x-nf-request-id": "01M4XMBMERCY661SQMZDB94EDK"
+   },
+   "resourceType": "other",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "file": "site/heronaiapp.com/cdn.prod.website-files.com/6a4b5161f0d11f1602cc3bbf/6a69ba2640fdb174e5b57241_favicon-light.png",
+   "size": 1493,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://heronai-bp.netlify.app/main.js",
+   "method": "GET",
+   "status": 200,
+   "contentType": "application/javascript; charset=UTF-8",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "cache-status": "\"Netlify Edge\"; hit; ttl=31533733",
+    "content-type": "application/javascript; charset=UTF-8",
+    "x-nf-request-id": "01M4XMBMDP1W8E463XSBGA0GN5"
+   },
+   "resourceType": "script",
+   "passes": [
+    "mobile",
+    "desktop"
+   ],
+   "file": "site/heronai-bp.netlify.app/main.js",
+   "size": 289590,
+   "modes": [
+    "cors"
+   ]
+  },
+  {
+   "url": "https://heronai-bp.netlify.app/assets/pixel-mask.svg",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/svg+xml",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "cache-status": "\"Netlify Edge\"; hit; ttl=31535980",
+    "content-type": "image/svg+xml",
+    "x-nf-request-id": "01M4XMBMHWS0WHHF81C79DNXEK"
+   },
+   "resourceType": "image",
+   "passes": [
+    "desktop"
+   ],
+   "file": "site/heronai-bp.netlify.app/assets/pixel-mask.svg",
+   "size": 25933,
+   "modes": [
+    "cors"
+   ]
+  },
+  {
+   "url": "https://heronaiapp.com/cookie-policy",
+   "method": "GET",
+   "status": 200,
+   "contentType": "text/html; charset=UTF-8",
+   "headers": {
+    "cache-status": "\"Netlify Edge\"; hit; ttl=31526341",
+    "content-type": "text/html; charset=UTF-8",
+    "x-nf-request-id": "01M4XMBMPF0B7WEVQZEY1T57FH"
+   },
+   "resourceType": "xhr",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "file": "site/heronaiapp.com/cookie-policy.html",
+   "size": 104891,
+   "modes": [
+    "cors"
+   ]
+  },
+  {
+   "url": "https://heronaiapp.com/contact-us",
+   "method": "GET",
+   "status": 200,
+   "contentType": "text/html; charset=UTF-8",
+   "headers": {
+    "cache-status": "\"Netlify Edge\"; hit; ttl=31526341",
+    "content-type": "text/html; charset=UTF-8",
+    "x-nf-request-id": "01M4XMBMPFPFATGD8XQVYJTZPQ"
+   },
+   "resourceType": "xhr",
+   "passes": [
+    "desktop"
+   ],
+   "file": "site/heronaiapp.com/contact-us.html",
+   "size": 102833,
+   "modes": [
+    "cors"
+   ]
+  },
+  {
+   "url": "https://heronaiapp.com/heron-chat-widget",
+   "method": "GET",
+   "status": 200,
+   "contentType": "text/html; charset=UTF-8",
+   "headers": {
+    "cache-status": "\"Netlify Edge\"; hit; ttl=31526341",
+    "content-type": "text/html; charset=UTF-8",
+    "x-nf-request-id": "01M4XMBMPFYFJ8JGFR0DKFRHC1"
+   },
+   "resourceType": "xhr",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "file": "site/heronaiapp.com/heron-chat-widget.html",
+   "size": 155569,
+   "modes": [
+    "cors"
+   ]
+  },
+  {
+   "url": "https://heronaiapp.com/heron-dashboard",
+   "method": "GET",
+   "status": 200,
+   "contentType": "text/html; charset=UTF-8",
+   "headers": {
+    "cache-status": "\"Netlify Edge\"; hit; ttl=31526341",
+    "content-type": "text/html; charset=UTF-8",
+    "x-nf-request-id": "01M4XMBMPFW88B4ART40TRDG3E"
+   },
+   "resourceType": "xhr",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "file": "site/heronaiapp.com/heron-dashboard.html",
+   "size": 153339,
+   "modes": [
+    "cors"
+   ]
+  },
+  {
+   "url": "https://heronaiapp.com/resources?sc=insights",
+   "method": "GET",
+   "status": 200,
+   "contentType": "text/html; charset=UTF-8",
+   "headers": {
+    "cache-status": "\"Netlify Edge\"; hit; ttl=31526341",
+    "content-type": "text/html; charset=UTF-8",
+    "x-nf-request-id": "01M4XMBMPFRFNCKMYC6Q1KVQAC"
+   },
+   "resourceType": "xhr",
+   "passes": [
+    "desktop"
+   ],
+   "file": "site/heronaiapp.com/resources__qee2cf571.html",
+   "size": 154315,
+   "modes": [
+    "cors"
+   ]
+  },
+  {
+   "url": "https://heronaiapp.com/about-us",
+   "method": "GET",
+   "status": 200,
+   "contentType": "text/html; charset=UTF-8",
+   "headers": {
+    "cache-status": "\"Netlify Edge\"; hit; ttl=31526341",
+    "content-type": "text/html; charset=UTF-8",
+    "x-nf-request-id": "01M4XMBMPFJPHK4C9TZP7DADS1"
+   },
+   "resourceType": "xhr",
+   "passes": [
+    "desktop"
+   ],
+   "file": "site/heronaiapp.com/about-us.html",
+   "size": 154259,
+   "modes": [
+    "cors"
+   ]
+  },
+  {
+   "url": "https://heronaiapp.com/pricing",
+   "method": "GET",
+   "status": 200,
+   "contentType": "text/html; charset=UTF-8",
+   "headers": {
+    "cache-status": "\"Netlify Edge\"; hit; ttl=31526341",
+    "content-type": "text/html; charset=UTF-8",
+    "x-nf-request-id": "01M4XMBMPFJNRTKP7FW58M9CTR"
+   },
+   "resourceType": "xhr",
+   "passes": [
+    "desktop"
+   ],
+   "file": "site/heronaiapp.com/pricing.html",
+   "size": 214720,
+   "modes": [
+    "cors"
+   ]
+  },
+  {
+   "url": "https://heronaiapp.com/cdn.prod.website-files.com/6a4b5161f0d11f1602cc3bbf/6a6875a7aadcc2ec708b1cfe_box-2.png",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/png",
+   "headers": {
+    "cache-status": "\"Netlify Edge\"; hit; ttl=31528325",
+    "content-type": "image/png",
+    "x-nf-request-id": "01M4XMBW34TY0RRVY45NPJQVJZ"
+   },
+   "resourceType": "image",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "file": "site/heronaiapp.com/cdn.prod.website-files.com/6a4b5161f0d11f1602cc3bbf/6a6875a7aadcc2ec708b1cfe_box-2.png",
+   "size": 6015,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://heronaiapp.com/cdn.prod.website-files.com/6a4b5161f0d11f1602cc3bbf/6a4b5161f0d11f1602cc3c5e_Dimensions.png",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/png",
+   "headers": {
+    "cache-status": "\"Netlify Edge\"; hit; ttl=31524667",
+    "content-type": "image/png",
+    "x-nf-request-id": "01M4XMBW34NM89QSDMHRVDGT3N"
+   },
+   "resourceType": "image",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "file": "site/heronaiapp.com/cdn.prod.website-files.com/6a4b5161f0d11f1602cc3bbf/6a4b5161f0d11f1602cc3c5e_Dimensions.png",
+   "size": 28698,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://heronaiapp.com/cdn.prod.website-files.com/6a4b5161f0d11f1602cc3bbf/6a4b5161f0d11f1602cc3c77_kk.png",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/png",
+   "headers": {
+    "cache-status": "\"Netlify Edge\"; hit; ttl=31524667",
+    "content-type": "image/png",
+    "x-nf-request-id": "01M4XMBW341DVGHFAGF79HRDCX"
+   },
+   "resourceType": "image",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "file": "site/heronaiapp.com/cdn.prod.website-files.com/6a4b5161f0d11f1602cc3bbf/6a4b5161f0d11f1602cc3c77_kk.png",
+   "size": 15667,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://heronaiapp.com/cdn.prod.website-files.com/6a4b5161f0d11f1602cc3bbf/6a4b5161f0d11f1602cc3c84_fff.png",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/png",
+   "headers": {
+    "cache-status": "\"Netlify Edge\"; hit; ttl=31524667",
+    "content-type": "image/png",
+    "x-nf-request-id": "01M4XMBW342P381HJAM4GK5AW9"
+   },
+   "resourceType": "image",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "file": "site/heronaiapp.com/cdn.prod.website-files.com/6a4b5161f0d11f1602cc3bbf/6a4b5161f0d11f1602cc3c84_fff.png",
+   "size": 26261,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://heronaiapp.com/cdn.prod.website-files.com/6a4b5161f0d11f1602cc3bbf/6a6875a79d14cd95a2ee4f14_box-1.png",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/png",
+   "headers": {
+    "cache-status": "\"Netlify Edge\"; hit; ttl=31528325",
+    "content-type": "image/png",
+    "x-nf-request-id": "01M4XMBW348KFM6WGJ0J6XCXE5"
+   },
+   "resourceType": "image",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "file": "site/heronaiapp.com/cdn.prod.website-files.com/6a4b5161f0d11f1602cc3bbf/6a6875a79d14cd95a2ee4f14_box-1.png",
+   "size": 5409,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://heronaiapp.com/cdn.prod.website-files.com/6a4b5161f0d11f1602cc3bbf/6a6715f67b405f421aeee3d4_1d0ff022380f5c6528ed6d4cd29accf8_Illust%20why%20us%20section.jpg",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/jpeg",
+   "headers": {
+    "cache-status": "\"Netlify Edge\"; hit; ttl=31528325",
+    "content-type": "image/jpeg",
+    "x-nf-request-id": "01M4XMBW34KDN7KD8NVXJ4W8K5"
+   },
+   "resourceType": "image",
+   "passes": [
+    "desktop"
+   ],
+   "file": "site/heronaiapp.com/cdn.prod.website-files.com/6a4b5161f0d11f1602cc3bbf/6a6715f67b405f421aeee3d4_1d0ff022380f5c6528ed6d4cd29accf8_Illust why us section.jpg",
+   "size": 40590,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://cdn.prod.website-files.com/6a4b5161f0d11f1602cc3bbf/6a857fd09f73ba800be8cc97_img%20(1).png",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/png",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "content-type": "image/png",
+    "priority": "u=3,i",
+    "x-amz-id-2": "HIpUnCEcJhK21JY7TBLjlB/MHetfknscmNN7YojWZ8nfns/zuBsk6cV197KPds96winXV312Ibw=",
+    "x-amz-request-id": "48X5PQ85J8EV6JC3",
+    "x-amz-server-side-encryption": "AES256",
+    "x-amz-version-id": "yL9LRBztOiKuSjFcLX2nzhJGN5GOVkzQ"
+   },
+   "resourceType": "image",
+   "passes": [
+    "desktop"
+   ],
+   "file": "site/cdn.prod.website-files.com/6a4b5161f0d11f1602cc3bbf/6a857fd09f73ba800be8cc97_img (1).png",
+   "size": 877,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://heronaiapp.com/cdn.prod.website-files.com/6a4b5161f0d11f1602cc3bbf/6a4b5161f0d11f1602cc3c29_ll.png",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/png",
+   "headers": {
+    "cache-status": "\"Netlify Edge\"; hit; ttl=31524667",
+    "content-type": "image/png",
+    "x-nf-request-id": "01M4XMBW343K4Z24901E39WE0G"
+   },
+   "resourceType": "image",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "file": "site/heronaiapp.com/cdn.prod.website-files.com/6a4b5161f0d11f1602cc3bbf/6a4b5161f0d11f1602cc3c29_ll.png",
+   "size": 22244,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://heronaiapp.com/cdn.prod.website-files.com/6a4b5161f0d11f1602cc3bbf/6a687b0f1d1ada1f534fc126_box-3.png",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/png",
+   "headers": {
+    "cache-status": "\"Netlify Edge\"; hit; ttl=31528325",
+    "content-type": "image/png",
+    "x-nf-request-id": "01M4XMBW3A8AEEAMCM5FHNAHJQ"
+   },
+   "resourceType": "image",
+   "passes": [
+    "desktop"
+   ],
+   "file": "site/heronaiapp.com/cdn.prod.website-files.com/6a4b5161f0d11f1602cc3bbf/6a687b0f1d1ada1f534fc126_box-3.png",
+   "size": 6370,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://heronaiapp.com/cdn.prod.website-files.com/6a4b5161f0d11f1602cc3bbf/6a670fa1cfadff37a55ba10b_8b74c365290a3a568eb43a2526db7de5_Illust%20why%20us%20section%20(1).jpg",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/jpeg",
+   "headers": {
+    "cache-status": "\"Netlify Edge\"; hit; ttl=31528325",
+    "content-type": "image/jpeg",
+    "x-nf-request-id": "01M4XMBW345Y85NXPQGWQE2TCB"
+   },
+   "resourceType": "image",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "file": "site/heronaiapp.com/cdn.prod.website-files.com/6a4b5161f0d11f1602cc3bbf/6a670fa1cfadff37a55ba10b_8b74c365290a3a568eb43a2526db7de5_Illust why us section (1).jpg",
+   "size": 40148,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://heronaiapp.com/cdn.prod.website-files.com/6a4b5161f0d11f1602cc3bbf/6a672441c43e84bf175b8fc9_f0abac54ab792d099695bd11ba88c3a0_Illust%20why%20us%20section%20(1).jpg",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/jpeg",
+   "headers": {
+    "cache-status": "\"Netlify Edge\"; hit; ttl=31528325",
+    "content-type": "image/jpeg",
+    "x-nf-request-id": "01M4XMBW3M386WG3R97MGRNW49"
+   },
+   "resourceType": "image",
+   "passes": [
+    "desktop"
+   ],
+   "file": "site/heronaiapp.com/cdn.prod.website-files.com/6a4b5161f0d11f1602cc3bbf/6a672441c43e84bf175b8fc9_f0abac54ab792d099695bd11ba88c3a0_Illust why us section (1).jpg",
+   "size": 17348,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://heronaiapp.com/cdn.prod.website-files.com/6a4b5161f0d11f1602cc3bbf/6a857d63d8e9eceab3a8a191_f4cd8364f148923074b6f17ed50f6efc_fff%20(1).png",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/png",
+   "headers": {
+    "cache-status": "\"Netlify Edge\"; hit; ttl=31527376",
+    "content-type": "image/png",
+    "x-nf-request-id": "01M4XMBW3MZJCVG9ZYPA2XH5P2"
+   },
+   "resourceType": "image",
+   "passes": [
+    "desktop"
+   ],
+   "file": "site/heronaiapp.com/cdn.prod.website-files.com/6a4b5161f0d11f1602cc3bbf/6a857d63d8e9eceab3a8a191_f4cd8364f148923074b6f17ed50f6efc_fff (1).png",
+   "size": 11573,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://heronaiapp.com/cdn.prod.website-files.com/6a4b5161f0d11f1602cc3bbf/6a672d855c5776ffd13a0b9b_660f6807d3ea3c427c195ecf4c16359d_Frame%202087327319%20(1).jpg",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/jpeg",
+   "headers": {
+    "cache-status": "\"Netlify Edge\"; hit; ttl=31528325",
+    "content-type": "image/jpeg",
+    "x-nf-request-id": "01M4XMBW3NXEY1X0CCTEJMA6YJ"
+   },
+   "resourceType": "image",
+   "passes": [
+    "desktop"
+   ],
+   "file": "site/heronaiapp.com/cdn.prod.website-files.com/6a4b5161f0d11f1602cc3bbf/6a672d855c5776ffd13a0b9b_660f6807d3ea3c427c195ecf4c16359d_Frame 2087327319 (1).jpg",
+   "size": 12958,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://heronaiapp.com/cdn.prod.website-files.com/6a4b5161f0d11f1602cc3bbf/6a68855841a36e195bf762fd_c8a3e64c6db5d262e6b0b63a70464e28_box-6.jpg",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/jpeg",
+   "headers": {
+    "cache-status": "\"Netlify Edge\"; hit; ttl=31528327",
+    "content-type": "image/jpeg",
+    "x-nf-request-id": "01M4XMBW3Q4F7C96WJA3JRQSJP"
+   },
+   "resourceType": "image",
+   "passes": [
+    "desktop"
+   ],
+   "file": "site/heronaiapp.com/cdn.prod.website-files.com/6a4b5161f0d11f1602cc3bbf/6a68855841a36e195bf762fd_c8a3e64c6db5d262e6b0b63a70464e28_box-6.jpg",
+   "size": 8223,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://heronaiapp.com/cdn.prod.website-files.com/6a4b5161f0d11f1602cc3bbf/6a6731092c23e6c739091db5_43da788ecab201c1c711273e28d8f0b4_Illust%20why%20us%20section.jpg",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/jpeg",
+   "headers": {
+    "cache-status": "\"Netlify Edge\"; hit; ttl=31528327",
+    "content-type": "image/jpeg",
+    "x-nf-request-id": "01M4XMBW3QT42YT3W6FAB7YRW4"
+   },
+   "resourceType": "image",
+   "passes": [
+    "desktop"
+   ],
+   "file": "site/heronaiapp.com/cdn.prod.website-files.com/6a4b5161f0d11f1602cc3bbf/6a6731092c23e6c739091db5_43da788ecab201c1c711273e28d8f0b4_Illust why us section.jpg",
+   "size": 26343,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://heronaiapp.com/cdn.prod.website-files.com/6a4b5161f0d11f1602cc3bbf/6a672d85516d2cebabe5ae10_8c825758515cc7b9420562a48360bf3a_Frame%201707479505%20(1).jpg",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/jpeg",
+   "headers": {
+    "cache-status": "\"Netlify Edge\"; hit; ttl=31528325",
+    "content-type": "image/jpeg",
+    "x-nf-request-id": "01M4XMBW3PMMBRT76Y4F1KMQHW"
+   },
+   "resourceType": "image",
+   "passes": [
+    "desktop"
+   ],
+   "file": "site/heronaiapp.com/cdn.prod.website-files.com/6a4b5161f0d11f1602cc3bbf/6a672d85516d2cebabe5ae10_8c825758515cc7b9420562a48360bf3a_Frame 1707479505 (1).jpg",
+   "size": 13580,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://heronaiapp.com/cdn.prod.website-files.com/6a4b5161f0d11f1602cc3bc0/6a6c0ceefb143418aa79a36c_Architects.jpg",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/jpeg",
+   "headers": {
+    "cache-status": "\"Netlify Edge\"; hit; ttl=31528327",
+    "content-type": "image/jpeg",
+    "x-nf-request-id": "01M4XMBW3Q15SAB1QZ66B38Q6C"
+   },
+   "resourceType": "image",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "file": "site/heronaiapp.com/cdn.prod.website-files.com/6a4b5161f0d11f1602cc3bc0/6a6c0ceefb143418aa79a36c_Architects.jpg",
+   "size": 127394,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://heronaiapp.com/cdn.prod.website-files.com/6a4b5161f0d11f1602cc3bbf/6a67432f15ab968d9acb8af4_cta-mb.webp",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/webp",
+   "headers": {
+    "cache-status": "\"Netlify Edge\"; hit; ttl=31527425",
+    "content-type": "image/webp",
+    "x-nf-request-id": "01M4XMBW3QT34PNHR8SDS27C79"
+   },
+   "resourceType": "image",
+   "passes": [
+    "desktop"
+   ],
+   "file": "site/heronaiapp.com/cdn.prod.website-files.com/6a4b5161f0d11f1602cc3bbf/6a67432f15ab968d9acb8af4_cta-mb.webp",
+   "size": 16372,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://heronaiapp.com/cdn.prod.website-files.com/6a4b5161f0d11f1602cc3bc0/6a6c0cff693690449c2a54b9_INTERIOR%20DESIGNERS.jpg",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/jpeg",
+   "headers": {
+    "cache-status": "\"Netlify Edge\"; hit; ttl=31528327",
+    "content-type": "image/jpeg",
+    "x-nf-request-id": "01M4XMBW3Q99W6K9335WNN6FER"
+   },
+   "resourceType": "image",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "file": "site/heronaiapp.com/cdn.prod.website-files.com/6a4b5161f0d11f1602cc3bc0/6a6c0cff693690449c2a54b9_INTERIOR DESIGNERS.jpg",
+   "size": 183765,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://heronaiapp.com/cdn.prod.website-files.com/6a4b5161f0d11f1602cc3bbf/6a672d855c5776ffd13a0b9f_61fddc00f08323cea212d4479c223bf4_Frame%202087327318%20(1).jpg",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/jpeg",
+   "headers": {
+    "cache-status": "\"Netlify Edge\"; hit; ttl=31528325",
+    "content-type": "image/jpeg",
+    "x-nf-request-id": "01M4XMBW3PVX8W10J8XPA57A5Z"
+   },
+   "resourceType": "image",
+   "passes": [
+    "desktop"
+   ],
+   "file": "site/heronaiapp.com/cdn.prod.website-files.com/6a4b5161f0d11f1602cc3bbf/6a672d855c5776ffd13a0b9f_61fddc00f08323cea212d4479c223bf4_Frame 2087327318 (1).jpg",
+   "size": 11846,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://heronaiapp.com/cdn.prod.website-files.com/6a4b5161f0d11f1602cc3bbf/6a685b5a07a3038b09d2a9d4_7eae2a6d059ebb6121966d2839ba80ee_logo-sketch.svg",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/svg+xml",
+   "headers": {
+    "cache-status": "\"Netlify Edge\"; hit; ttl=31527452",
+    "content-type": "image/svg+xml",
+    "x-nf-request-id": "01M4XMBW3Q59C2VGZFGMHHXWDD"
+   },
+   "resourceType": "image",
+   "passes": [
+    "desktop"
+   ],
+   "file": "site/heronaiapp.com/cdn.prod.website-files.com/6a4b5161f0d11f1602cc3bbf/6a685b5a07a3038b09d2a9d4_7eae2a6d059ebb6121966d2839ba80ee_logo-sketch.svg",
+   "size": 142591,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://heronaiapp.com/cdn.prod.website-files.com/6a4b5161f0d11f1602cc3bbf/6a66fd6676c8ee4725207aaa_c250d7593ed0b070d3eb6aa486953f89_solution2.avif",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/avif",
+   "headers": {
+    "cache-status": "\"Netlify Edge\"; fwd=miss; fwd-status=200; stored",
+    "content-type": "image/avif",
+    "x-nf-request-id": "01M4XMBW344ZB38Z9G0KVDCEF8"
+   },
+   "resourceType": "image",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "file": "site/heronaiapp.com/cdn.prod.website-files.com/6a4b5161f0d11f1602cc3bbf/6a66fd6676c8ee4725207aaa_c250d7593ed0b070d3eb6aa486953f89_solution2.avif",
+   "size": 54124,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://heronaiapp.com/cdn.prod.website-files.com/6a4b5161f0d11f1602cc3bc0/6a6c0d16d3c763bf20214c62_ENGINEERS.jpg",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/jpeg",
+   "headers": {
+    "cache-status": "\"Netlify Edge\"; hit; ttl=31527376",
+    "content-type": "image/jpeg",
+    "x-nf-request-id": "01M4XMBW3QZEKF7ETGXDGDZSQW"
+   },
+   "resourceType": "image",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "file": "site/heronaiapp.com/cdn.prod.website-files.com/6a4b5161f0d11f1602cc3bc0/6a6c0d16d3c763bf20214c62_ENGINEERS.jpg",
+   "size": 187672,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://heronaiapp.com/cdn.prod.website-files.com/6a4b5161f0d11f1602cc3bc0/6a6c0d2ae7585ba74aa3b09f_MALL%20FIRMS.jpg",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/jpeg",
+   "headers": {
+    "cache-status": "\"Netlify Edge\"; hit; ttl=31528327",
+    "content-type": "image/jpeg",
+    "x-nf-request-id": "01M4XMBW3QZQ0YCBEP3WB4ANKB"
+   },
+   "resourceType": "image",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "file": "site/heronaiapp.com/cdn.prod.website-files.com/6a4b5161f0d11f1602cc3bc0/6a6c0d2ae7585ba74aa3b09f_MALL FIRMS.jpg",
+   "size": 158704,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://heronaiapp.com/cdn.prod.website-files.com/6a4b5161f0d11f1602cc3bbf/6a66fd66235c9b3dc9658cce_b7a2ba681bb6f203cb6b6f354b9db94f_solution1.jpg",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/jpeg",
+   "headers": {
+    "cache-status": "\"Netlify Edge\"; fwd=miss; fwd-status=200; stored",
+    "content-type": "image/jpeg",
+    "x-nf-request-id": "01M4XMBW34P4ZHAVMDTZ887C5M"
+   },
+   "resourceType": "image",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "file": "site/heronaiapp.com/cdn.prod.website-files.com/6a4b5161f0d11f1602cc3bbf/6a66fd66235c9b3dc9658cce_b7a2ba681bb6f203cb6b6f354b9db94f_solution1.jpg",
+   "size": 168944,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://heronaiapp.com/cdn.prod.website-files.com/6a4b5161f0d11f1602cc3bc0/6a6c0d3219ade09c800cc210_BIM%20MANAGERS.jpg",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/jpeg",
+   "headers": {
+    "cache-status": "\"Netlify Edge\"; hit; ttl=31528327",
+    "content-type": "image/jpeg",
+    "x-nf-request-id": "01M4XMBW3QWG2K42MQMNCTDQXC"
+   },
+   "resourceType": "image",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "file": "site/heronaiapp.com/cdn.prod.website-files.com/6a4b5161f0d11f1602cc3bc0/6a6c0d3219ade09c800cc210_BIM MANAGERS.jpg",
+   "size": 226859,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://heronaiapp.com/cdn.prod.website-files.com/6a4b5161f0d11f1602cc3bc0/6a6c0d0a19ade09c800cb98e_DRAFTERS.jpg",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/jpeg",
+   "headers": {
+    "cache-status": "\"Netlify Edge\"; hit; ttl=31528327",
+    "content-type": "image/jpeg",
+    "x-nf-request-id": "01M4XMBW3QJ4K4WJ3FZV0XNQJW"
+   },
+   "resourceType": "image",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "file": "site/heronaiapp.com/cdn.prod.website-files.com/6a4b5161f0d11f1602cc3bc0/6a6c0d0a19ade09c800cb98e_DRAFTERS.jpg",
+   "size": 256373,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://heronaiapp.com/cdn.prod.website-files.com/6a4b5161f0d11f1602cc3bc0/6a6c0d3fdae4423c35ceaaf0_LANDSCAPE%20ARCHITECTS.jpg",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/jpeg",
+   "headers": {
+    "cache-status": "\"Netlify Edge\"; hit; ttl=31528327",
+    "content-type": "image/jpeg",
+    "x-nf-request-id": "01M4XMBW3Q8P2FTBJ9DKX73DVF"
+   },
+   "resourceType": "image",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "file": "site/heronaiapp.com/cdn.prod.website-files.com/6a4b5161f0d11f1602cc3bc0/6a6c0d3fdae4423c35ceaaf0_LANDSCAPE ARCHITECTS.jpg",
+   "size": 292594,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://heronaiapp.com/cdn.prod.website-files.com/6a4b5161f0d11f1602cc3bc0/6a6c0d1f7a4f92b6351bc4e0_DESIGN%20LEADS.jpg",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/jpeg",
+   "headers": {
+    "cache-status": "\"Netlify Edge\"; hit; ttl=31528327",
+    "content-type": "image/jpeg",
+    "x-nf-request-id": "01M4XMBW3Q25S386MREGK6ZPW5"
+   },
+   "resourceType": "image",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "file": "site/heronaiapp.com/cdn.prod.website-files.com/6a4b5161f0d11f1602cc3bc0/6a6c0d1f7a4f92b6351bc4e0_DESIGN LEADS.jpg",
+   "size": 334807,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://heronaiapp.com/cdn.prod.website-files.com/6a4b5161f0d11f1602cc3bc0/6a634f8490f683f582b7c815_Logo%20partner-12.png",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/png",
+   "headers": {
+    "cache-status": "\"Netlify Edge\"; hit; ttl=31524665",
+    "content-type": "image/png",
+    "x-nf-request-id": "01M4XMBXDG4B33BHRAV76XDBCG"
+   },
+   "resourceType": "image",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "file": "site/heronaiapp.com/cdn.prod.website-files.com/6a4b5161f0d11f1602cc3bc0/6a634f8490f683f582b7c815_Logo partner-12.png",
+   "size": 5446,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://heronaiapp.com/cdn.prod.website-files.com/6a4b5161f0d11f1602cc3bc0/6a634fa421f5ab60c373150c_Logo%20partner-13.png",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/png",
+   "headers": {
+    "cache-status": "\"Netlify Edge\"; hit; ttl=31524665",
+    "content-type": "image/png",
+    "x-nf-request-id": "01M4XMBXDGGFV5EXB7P3414EXX"
+   },
+   "resourceType": "image",
+   "passes": [
+    "desktop"
+   ],
+   "file": "site/heronaiapp.com/cdn.prod.website-files.com/6a4b5161f0d11f1602cc3bc0/6a634fa421f5ab60c373150c_Logo partner-13.png",
+   "size": 4633,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://heronaiapp.com/cdn.prod.website-files.com/6a4b5161f0d11f1602cc3bc0/6a634f5e18b19cdfe5aaf7e7_Logo%20partner-11.png",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/png",
+   "headers": {
+    "cache-status": "\"Netlify Edge\"; hit; ttl=31524665",
+    "content-type": "image/png",
+    "x-nf-request-id": "01M4XMBXDGEWFF7J4KF807DDZC"
+   },
+   "resourceType": "image",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "file": "site/heronaiapp.com/cdn.prod.website-files.com/6a4b5161f0d11f1602cc3bc0/6a634f5e18b19cdfe5aaf7e7_Logo partner-11.png",
+   "size": 2936,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://heronaiapp.com/cdn.prod.website-files.com/6a4b5161f0d11f1602cc3bc0/6a63503b2a4d020430c23b00_Logo%20partner-15.png",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/png",
+   "headers": {
+    "cache-status": "\"Netlify Edge\"; hit; ttl=31524665",
+    "content-type": "image/png",
+    "x-nf-request-id": "01M4XMBXDJHFTJN61NSK66K8AW"
+   },
+   "resourceType": "image",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "file": "site/heronaiapp.com/cdn.prod.website-files.com/6a4b5161f0d11f1602cc3bc0/6a63503b2a4d020430c23b00_Logo partner-15.png",
+   "size": 3470,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://heronaiapp.com/cdn.prod.website-files.com/6a4b5161f0d11f1602cc3bc0/6a63504c77c27729e0ddbb11_Logo%20partner-16.png",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/png",
+   "headers": {
+    "cache-status": "\"Netlify Edge\"; hit; ttl=31524665",
+    "content-type": "image/png",
+    "x-nf-request-id": "01M4XMBXDJN8K515P75721SJ1R"
+   },
+   "resourceType": "image",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "file": "site/heronaiapp.com/cdn.prod.website-files.com/6a4b5161f0d11f1602cc3bc0/6a63504c77c27729e0ddbb11_Logo partner-16.png",
+   "size": 4863,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://heronaiapp.com/cdn.prod.website-files.com/6a4b5161f0d11f1602cc3bc0/6a634fb5d19a05a393885a50_Logo%20partner-14.png",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/png",
+   "headers": {
+    "cache-status": "\"Netlify Edge\"; hit; ttl=31524665",
+    "content-type": "image/png",
+    "x-nf-request-id": "01M4XMBXDJM97SNH2CB5RJC8WX"
+   },
+   "resourceType": "image",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "file": "site/heronaiapp.com/cdn.prod.website-files.com/6a4b5161f0d11f1602cc3bc0/6a634fb5d19a05a393885a50_Logo partner-14.png",
+   "size": 3379,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://heronaiapp.com/cdn.prod.website-files.com/6a4b5161f0d11f1602cc3bc0/6a6350b8134d3cc5f515c4db_Logo%20partner-18.png",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/png",
+   "headers": {
+    "cache-status": "\"Netlify Edge\"; hit; ttl=31524665",
+    "content-type": "image/png",
+    "x-nf-request-id": "01M4XMBXDKKCF1EHEDEV2DXVTS"
+   },
+   "resourceType": "image",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "file": "site/heronaiapp.com/cdn.prod.website-files.com/6a4b5161f0d11f1602cc3bc0/6a6350b8134d3cc5f515c4db_Logo partner-18.png",
+   "size": 3966,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://heronaiapp.com/cdn.prod.website-files.com/6a4b5161f0d11f1602cc3bc0/6a6350857d1202ebd68239df_Logo%20partner-17.png",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/png",
+   "headers": {
+    "cache-status": "\"Netlify Edge\"; hit; ttl=31524665",
+    "content-type": "image/png",
+    "x-nf-request-id": "01M4XMBXDJBS54V8SCVGF6N6Y1"
+   },
+   "resourceType": "image",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "file": "site/heronaiapp.com/cdn.prod.website-files.com/6a4b5161f0d11f1602cc3bc0/6a6350857d1202ebd68239df_Logo partner-17.png",
+   "size": 4112,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://heronaiapp.com/resources?sc=ai-practices",
+   "method": "GET",
+   "status": 200,
+   "contentType": "text/html; charset=UTF-8",
+   "headers": {
+    "cache-status": "\"Netlify Edge\"; hit; ttl=31526321",
+    "content-type": "text/html; charset=UTF-8",
+    "x-nf-request-id": "01M4XMC8BHTBVV2XK4WVAENT5Y"
+   },
+   "resourceType": "xhr",
+   "passes": [
+    "desktop"
+   ],
+   "file": "site/heronaiapp.com/resources__qddff2ac6.html",
+   "size": 154315,
+   "modes": [
+    "cors"
+   ]
+  },
+  {
+   "url": "https://heronaiapp.com/resources?sc=design-workflows",
+   "method": "GET",
+   "status": 200,
+   "contentType": "text/html; charset=UTF-8",
+   "headers": {
+    "cache-status": "\"Netlify Edge\"; hit; ttl=31526321",
+    "content-type": "text/html; charset=UTF-8",
+    "x-nf-request-id": "01M4XMC8C6KVHX0W4MK64TT4ZM"
+   },
+   "resourceType": "xhr",
+   "passes": [
+    "desktop"
+   ],
+   "file": "site/heronaiapp.com/resources__q5f816cf8.html",
+   "size": 154315,
+   "modes": [
+    "cors"
+   ]
+  },
+  {
+   "url": "https://heronaiapp.com/terms-and-conditions",
+   "method": "GET",
+   "status": 200,
+   "contentType": "text/html; charset=UTF-8",
+   "headers": {
+    "cache-status": "\"Netlify Edge\"; hit; ttl=31527342",
+    "content-type": "text/html; charset=UTF-8",
+    "x-nf-request-id": "01M4XMC8WJDXP4J5EA6KY5QT2P"
+   },
+   "resourceType": "xhr",
+   "passes": [
+    "desktop"
+   ],
+   "file": "site/heronaiapp.com/terms-and-conditions.html",
+   "size": 106294,
+   "modes": [
+    "cors"
+   ]
+  },
+  {
+   "url": "https://heronaiapp.com/privacy-policy",
+   "method": "GET",
+   "status": 200,
+   "contentType": "text/html; charset=UTF-8",
+   "headers": {
+    "cache-status": "\"Netlify Edge\"; hit; ttl=31528317",
+    "content-type": "text/html; charset=UTF-8",
+    "x-nf-request-id": "01M4XMC8WJQ3K6FQJQ5W6CYA8D"
+   },
+   "resourceType": "xhr",
+   "passes": [
+    "desktop"
+   ],
+   "file": "site/heronaiapp.com/privacy-policy.html",
+   "size": 105454,
+   "modes": [
+    "cors"
+   ]
+  },
+  {
+   "url": "https://heronaiapp.com/cdn.prod.website-files.com/6a4b5161f0d11f1602cc3bbf/6a6b2ed0ea684adcb57a2262_favicon-dark.png",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/png",
+   "headers": {
+    "cache-status": "\"Netlify Edge\"; hit; ttl=31533326",
+    "content-type": "image/png",
+    "x-nf-request-id": "01M4XMCE5TS80PGXHWN2E022SQ"
+   },
+   "resourceType": "other",
+   "passes": [
+    "mobile"
+   ],
+   "file": "site/heronaiapp.com/cdn.prod.website-files.com/6a4b5161f0d11f1602cc3bbf/6a6b2ed0ea684adcb57a2262_favicon-dark.png",
+   "size": 1734
+  },
+  {
+   "url": "https://heronaiapp.com/cdn.prod.website-files.com/6a4b5161f0d11f1602cc3bbf/6a69ba264dc9ba53ba4a07fa_favicon-light.png",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/png",
+   "headers": {
+    "cache-status": "\"Netlify Edge\"; hit; ttl=31532692",
+    "content-type": "image/png",
+    "x-nf-request-id": "01M4XMCE7CP5F4AMJT0WMNB99F"
+   },
+   "resourceType": "other",
+   "passes": [
+    "desktop"
+   ],
+   "file": "site/heronaiapp.com/cdn.prod.website-files.com/6a4b5161f0d11f1602cc3bbf/6a69ba264dc9ba53ba4a07fa_favicon-light.png",
+   "size": 3654
+  },
+  {
+   "url": "https://heronaiapp.com/cdn.prod.website-files.com/6a4b5161f0d11f1602cc3bbf/6a685373f44f8dc1b903c2f6_webclip.png",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/png",
+   "headers": {
+    "cache-status": "\"Netlify Edge\"; fwd=miss; fwd-status=200; stored",
+    "content-type": "image/png",
+    "x-nf-request-id": "01M4XMCE6QCEXW7FGJ4RZ9WEZA"
+   },
+   "resourceType": "other",
+   "passes": [
+    "desktop"
+   ],
+   "file": "site/heronaiapp.com/cdn.prod.website-files.com/6a4b5161f0d11f1602cc3bbf/6a685373f44f8dc1b903c2f6_webclip.png",
+   "size": 55383
+  },
+  {
+   "url": "https://heronaiapp.com/cdn.prod.website-files.com/6a4b5161f0d11f1602cc3bbf/6a685373962e2dbd24608895_webclip.png",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/png",
+   "headers": {
+    "cache-status": "\"Netlify Edge\"; fwd=miss; fwd-status=200; stored",
+    "content-type": "image/png",
+    "x-nf-request-id": "01M4XMCE51HADJFD92DS3HC3Q9"
+   },
+   "resourceType": "other",
+   "passes": [
+    "mobile"
+   ],
+   "file": "site/heronaiapp.com/cdn.prod.website-files.com/6a4b5161f0d11f1602cc3bbf/6a685373962e2dbd24608895_webclip.png",
+   "size": 12453
+  },
+  {
+   "url": "https://heronaiapp.com/cdn.prod.website-files.com/6a4b5161f0d11f1602cc3bbf/6a68537337dfbd2cb268f8f0_webclip.png",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/png",
+   "headers": {
+    "cache-status": "\"Netlify Edge\"; fwd=miss; fwd-status=200; stored",
+    "content-type": "image/png",
+    "x-nf-request-id": "01M4XMCE5PFYQT87C7X10MBVKG"
+   },
+   "resourceType": "other",
+   "passes": [
+    "mobile"
+   ],
+   "file": "site/heronaiapp.com/cdn.prod.website-files.com/6a4b5161f0d11f1602cc3bbf/6a68537337dfbd2cb268f8f0_webclip.png",
+   "size": 13781
+  }
+ ],
+ "videos": {
+  "posters": {},
+  "onlineHosts": []
+ }
+}

@@ -1,0 +1,381 @@
+
+.single-vimeo-player iframe {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  pointer-events: none;
+}
+
+.single-vimeo-player[data-vimeo-player-target] {
+  cursor: pointer;
+}
+
+/* Overlay Dark */
+
+.single-vimeo-player .vimeo-overlay-dark {
+  background: black;
+  transition: opacity 0.3s ease-in-out;
+  opacity: 0;
+  z-index: 2;
+  pointer-events: none;
+}
+
+.single-vimeo-player[data-vimeo-status-activated="true"] .vimeo-overlay-dark {
+  opacity: 0.2;
+}
+
+.single-vimeo-player[data-vimeo-status-activated="true"][data-vimeo-status-loaded="true"]
+  .vimeo-overlay-dark {
+  opacity: 0;
+}
+
+@media (hover: hover) {
+  .single-vimeo-player
+    [data-vimeo-status-hover="true"]:hover
+    .vimeo-overlay-dark {
+    opacity: 0.3 !important;
+  }
+}
+
+/* Interface */
+
+.single-vimeo-player .vimeo-overlay-interface {
+  pointer-events: none;
+  z-index: 4;
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
+  display: flex;
+  align-items: flex-end;
+  padding: 5vw 13vw;
+  gap: 0.75rem;
+}
+
+@media screen and (max-width: 479px) {
+  .single-vimeo-player .vimeo-overlay-interface {
+    padding: 5vw 5vw 5vw 17vw;
+  }
+}
+
+.single-vimeo-player[data-vimeo-status-activated="true"][data-vimeo-status-play="false"]
+  .vimeo-overlay-interface,
+.single-vimeo-player[data-vimeo-status-activated="true"][data-vimeo-status-hover="true"]:hover
+  .vimeo-overlay-interface {
+  opacity: 1;
+}
+
+@media screen and (max-width: 1024px) {
+  .single-vimeo-player[data-vimeo-status-activated="true"][data-vimeo-status-play="true"]
+    .vimeo-overlay-interface {
+    opacity: 0 !important;
+  }
+}
+
+.single-vimeo-player .vimeo-overlay-interface * {
+  pointer-events: all;
+}
+
+.single-vimeo-player .vimeo-mute {
+  font-size: 0.875rem;
+  line-height: 1.5;
+  font-weight:500;
+  width: 3.625rem;
+  letter-spacing: -0.07em;
+  position: relative;
+  cursor: pointer;
+  flex-shrink: 0;
+}
+
+.single-vimeo-player .vimeo-mute svg {
+  width: 100%;
+  display: block;
+}
+
+.single-vimeo-player .vimeo-mute svg path {
+  fill: white;
+}
+
+.single-vimeo-player .vimeo-mute div:nth-child(2) {
+  display: none;
+}
+
+.single-vimeo-player[data-vimeo-status-muted="true"]
+  .vimeo-mute
+  div:nth-child(1) {
+  display: none;
+}
+
+.single-vimeo-player[data-vimeo-status-muted="true"]
+  .vimeo-mute
+  div:nth-child(2) {
+  display: block;
+}
+
+.single-vimeo-player .vimeo-duration {
+  display: flex;
+  align-items: baseline;
+  flex-shrink: 0;
+}
+
+.single-vimeo-player .vimeo-duration span {
+  color: white;
+  font-weight: 600;
+  white-space: nowrap;
+  font-size:0.75rem;
+}
+
+/* Timeline */
+
+.single-vimeo-player .vimeo-timeline {
+  height: 1.5em;
+  width: 100%;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  --timeline-rounded-corners: 0px;
+  --progress-value: white;
+  --progress-background: rgba(255, 255, 255, 0.2);
+  --progress-height: 2px;
+  --dot-height:2px;
+  --dot-color: white;
+}
+
+.single-vimeo-player .vimeo-timeline > input {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  position: absolute;
+  display: block;
+  background: transparent;
+  position: relative;
+  z-index: 2;
+  width: 100%;
+  height: 100%;
+  cursor: pointer;
+}
+
+.single-vimeo-player .vimeo-timeline > progress {
+  width: 100%;
+  position: absolute;
+  left: 0;
+  height: var(--progress-height);
+  margin: 0;
+  padding: 0;
+  vertical-align: top;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  border-radius: 0px;
+  overflow: hidden;
+  z-index: 0;
+  background: transparent;
+  border: none;
+  color: var(--progress-value);
+  cursor: pointer;
+}
+
+/* Progress */
+
+.single-vimeo-player progress::-webkit-progress-bar {
+  border-radius: var(--timeline-rounded-corners);
+  background-color: var(--progress-background);
+  box-shadow: 0;
+}
+
+.single-vimeo-player progress::-webkit-progress-value {
+  background: var(--progress-value);
+}
+
+.single-vimeo-player progress::-moz-progress-bar {
+  border-radius: var(--timeline-rounded-corners);
+  background: var(--progress-value);
+  box-shadow: 0;
+}
+
+.single-vimeo-player progress::-ms-fill {
+  border-radius: var(--timeline-rounded-corners);
+}
+
+/* Range */
+
+.single-vimeo-player [type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+}
+
+.single-vimeo-player [type="range"]:focus {
+  outline: none;
+}
+
+.single-vimeo-player [type="range"]::-ms-track {
+  width: 100%;
+  cursor: pointer;
+  background: transparent;
+  border-color: transparent;
+  color: transparent;
+}
+
+.single-vimeo-player [type="range"].time::-webkit-slider-runnable-track {
+  width: 100%;
+  height: var(--progress-height);
+  cursor: pointer;
+  background: var(--progress-background);
+  border-radius: var(--timeline-rounded-corners);
+}
+
+.single-vimeo-player [type="range"]::-webkit-slider-thumb {
+  box-shadow: 0;
+  height: var(--dot-height);
+  width: var(--dot-height);
+  border-radius: var(--timeline-rounded-corners);
+  background: var(--dot-color);
+  cursor: pointer;
+  -webkit-appearance: none;
+}
+
+.single-vimeo-player [type="range"]:focus::-webkit-slider-runnable-track {
+  background: transparent;
+}
+
+.single-vimeo-player [type="range"]::-moz-range-track {
+  width: 100%;
+  height: var(--progress-height);
+  cursor: pointer;
+  background: var(--progress-background);
+  border-radius: 0;
+  border: 0;
+  border-radius: var(--timeline-rounded-corners);
+  overflow: hidden;
+}
+
+.single-vimeo-player [type="range"]::-moz-range-thumb {
+  box-shadow: 0;
+  border: 0;
+  height: var(--dot-height);
+  width: var(--dot-height);
+  border-radius: var(--timeline-rounded-corners);
+  background: var(--dot-color);
+  cursor: pointer;
+  box-shadow: 0;
+}
+
+/* Icon (Play + Pause) */
+
+.single-vimeo-player .icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 2em;
+  transform: scale(1) rotate(0.001deg);
+  transition: opacity 0.3s ease-in-out;
+  background: rgba(255, 255, 255, 0);
+  border-radius: 50%;
+  aspect-ratio: 1/1;
+}
+
+.single-vimeo-player .icon svg {
+  width: 60%;
+}
+
+/* Play */
+
+.single-vimeo-player .vimeo-overlay-play {
+  z-index: 2;
+  display: flex;
+  align-items: flex-end;
+  justify-content: flex-start;
+  cursor: pointer;
+  opacity: 1;
+  padding: 4.75vw 10vw;
+}
+
+@media screen and (max-width:479px){
+.single-vimeo-player .vimeo-overlay-play {
+  padding: 4.75vw 6vw;
+}
+}
+
+.single-vimeo-player[data-vimeo-status-play="true"] .vimeo-overlay-play {
+  opacity: 0;
+}
+
+.single-vimeo-player .vimeo-overlay-play .icon svg path {
+  fill: var(--real-black);
+}
+
+/* Pause */
+
+.single-vimeo-player .vimeo-overlay-pause {
+  z-index:3;
+  display: none;
+  align-items: flex-end;
+  justify-content: flex-start;
+  cursor: pointer;
+  padding: 4.75vw 10vw;
+}
+
+@media screen and (max-width:479px){
+.single-vimeo-player .vimeo-overlay-pause {
+  padding: 4.75vw 6vw;
+}
+}
+
+.single-vimeo-player[data-vimeo-status-play="true"] .vimeo-overlay-pause {
+  display: flex;
+}
+
+.single-vimeo-player .vimeo-overlay-pause .icon {
+  opacity: 0;
+}
+
+.single-vimeo-player .vimeo-overlay-pause .icon svg path {
+  stroke: var(--real-black);
+}
+
+.single-vimeo-player[data-vimeo-status-activated="true"][data-vimeo-status-play="false"]
+  .vimeo-overlay-pause
+  .icon,
+.single-vimeo-player[data-vimeo-status-activated="true"][data-vimeo-status-hover="true"]:hover
+  .vimeo-overlay-pause
+  .icon {
+  opacity: 1;
+}
+
+@media screen and (max-width: 1024px) {
+  .single-vimeo-player[data-vimeo-status-activated="true"][data-vimeo-status-play="true"]
+    .vimeo-overlay-pause
+    .icon {
+    opacity: 0 !important;
+  }
+}
+
+/*  Loading */
+
+.single-vimeo-player .vimeo-overlay-loading {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 9;
+  transition: all 0.3s ease-in-out 0.5s;
+  opacity: 0;
+  pointer-events: none;
+  background-color: rgba(var(--color-dark-rgb), 0.5);
+}
+
+.single-vimeo-player[data-vimeo-status-play="true"] .vimeo-overlay-loading {
+  opacity: 1;
+}
+
+.single-vimeo-player[data-vimeo-status-play="true"][data-vimeo-status-loaded="true"]
+  .vimeo-overlay-loading {
+  opacity: 0;
+}
+
+.single-vimeo-player .vimeo-overlay-loading svg {
+  width: 8em;
+}
+
+.single-vimeo-player .vimeo-overlay-loading svg path {
+  fill: var(--analog-white);
+}

@@ -1,0 +1,454 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>SABLE Design System</title>
+<meta name="description" content="SABLE Design System.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%23111'/%3E%3Ctext x='16' y='23' font-family='Helvetica,Arial' font-size='20' font-weight='700' fill='%23F2F0EC' text-anchor='middle'%3ES%3C/text%3E%3C/svg%3E">
+<link rel="stylesheet" href="assets/sable-fashion-39.aura.build/fonts.css">
+<link rel="stylesheet" href="assets/sable-fashion-39.aura.build/sable.css">
+<script>
+/* design-system catalog: inside the catalog iframe the navbar is drawn by the catalog over this one
+   (hidden here, keeping its space). The frame reports its scroll so the catalog's navbar sticks under
+   the announcement bar exactly like this one, mirrors the bag count, and reports ready once the hero
+   load sequence has settled (last piece at load + 540 ms, 1.1 s transition). */
+(function () {
+  if (window.parent === window) return;
+  document.documentElement.classList.add('ds-embed');
+  function post(m) { try { window.parent.postMessage(m, '*'); } catch (e) {} }
+  var q = false;
+  function send() {
+    q = false;
+    var ann = document.querySelector('.ann'), h = document.documentElement.scrollHeight - innerHeight;
+    post({ ds: 'scroll', y: scrollY, ann: ann ? ann.offsetHeight : 0, p: h > 0 ? scrollY / h : 0 });
+  }
+  addEventListener('scroll', function () { if (!q) { q = true; requestAnimationFrame(send); } }, { passive: true });
+  addEventListener('resize', send);
+  addEventListener('DOMContentLoaded', function () {
+    send();
+    var n = document.getElementById('bagn');
+    if (n) new MutationObserver(function () { post({ ds: 'bag', n: n.textContent }); })
+      .observe(n, { childList: true, characterData: true, subtree: true });
+  });
+  addEventListener('load', function () { send(); setTimeout(function () { post({ ds: 'ready' }); }, 1800); });
+  addEventListener('message', function (e) {
+    if (e.source !== window.parent || !e.data || e.data.ds !== 'goto') return;
+    var el = document.getElementById(e.data.id);
+    if (el) el.scrollIntoView();
+  });
+})();
+</script>
+<style>
+html.ds-embed body > nav { visibility: hidden; }
+</style>
+<script src="assets/cdn.tailwindcss.com/3.4.17.js"></script></head>
+<body>
+
+<div class="ann" aria-hidden="true">
+  <div class="row">
+    <div class="tk"><span>Lorem ipsum dolor sit amet elit</span><i>/</i><span>Sed do eiusmod tempor</span><i>/</i><span>Magna aliqua</span><i>/</i><span>Duis aute irure dolor</span><i>/</i></div>
+    <div class="tk"><span>Lorem ipsum dolor sit amet elit</span><i>/</i><span>Sed do eiusmod tempor</span><i>/</i><span>Magna aliqua</span><i>/</i><span>Duis aute irure dolor</span><i>/</i></div>
+  </div>
+</div>
+
+<nav>
+  <div class="wrap bar">
+    <ul>
+      <li><a href="#cats">Outerwear</a></li>
+      <li><a href="#cats">Knitwear</a></li>
+      <li><a href="#cats">Tailoring</a></li>
+      <li><a href="#shop">Archive</a></li>
+    </ul>
+    <div class="mk">SABLE</div>
+    <div class="util">
+      <span>Search</span><span>Account</span>
+      <a href="#shop">Bag (<b id="bagn">0</b>)</a>
+    </div>
+  </div>
+</nav>
+
+<header id="hero">
+  <div class="wrap" style="width:100%">
+    <div class="tl hv" id="h1">
+      <p>Heavy ink type<br>on bone,<br>monochrome.</p>
+      <div class="rule"></div>
+    </div>
+
+    <div class="stage">
+      <div class="word back" aria-hidden="true"><b id="wb"><span class="wl">SABLE</span><span class="wr">DESIGN<br>SYSTEM</span></b></div>
+      <img class="model hv" id="hm" src="assets/cdn.jsdelivr.net/gh/VanhDc/aura-assets@sable-v2/sable/img/model.png" alt="A model walking in an oversized charcoal overcoat, wide trousers and white sneakers">
+    </div>
+
+    <div class="br hv" id="h2">
+      <p>Lorem<br>ipsum dolor<br>2026</p>
+    </div>
+
+    <div class="acts hv" id="h3">
+      <a href="#shop" class="btn"><span>Lorem ipsum dolor sit</span></a>
+      <a href="#season" class="btn-line">Dolor sit amet</a>
+    </div>
+  </div>
+</header>
+
+<section id="cats">
+  <div class="wrap row">
+    <a href="#shop" class="rv">
+      <div class="ph"><img src="assets/cdn.jsdelivr.net/gh/VanhDc/aura-assets@sable-v2/sable/img/cat-men.webp" alt="Menswear" loading="lazy"></div>
+      <div>
+        <h3>Lorem ipsum</h3>
+        <p>Lorem ipsum dolor sit amet, consectetur elit.</p>
+        <span class="go">Lorem ipsum <i>→</i></span>
+      </div>
+    </a>
+    <a href="#shop" class="rv">
+      <div class="ph"><img src="assets/cdn.jsdelivr.net/gh/VanhDc/aura-assets@sable-v2/sable/img/cat-women.webp" alt="Knitwear" loading="lazy"></div>
+      <div>
+        <h3>Dolor sit</h3>
+        <p>Sed do eiusmod tempor incididunt ut labore et dolore.</p>
+        <span class="go">Dolor sit <i>→</i></span>
+      </div>
+    </a>
+    <a href="#shop" class="rv">
+      <div class="ph"><img src="assets/cdn.jsdelivr.net/gh/VanhDc/aura-assets@sable-v2/sable/img/cat-tailoring.webp" alt="Tailoring" loading="lazy"></div>
+      <div>
+        <h3>Amet elit</h3>
+        <p>Ut enim ad minim veniam, quis nostrud exercitation.</p>
+        <span class="go">Amet elit <i>→</i></span>
+      </div>
+    </a>
+  </div>
+</section>
+
+<section id="season">
+  <div class="grid">
+    <div class="copy">
+      <div class="kick lbl rv">Lorem ipsum</div>
+      <h2 class="rv">Lorem<br>ipsum</h2>
+      <p class="rv">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor
+        incididunt ut labore et dolore magna aliqua, ut enim ad minim veniam.</p>
+      <a href="#shop" class="btn rv"><span>Lorem ipsum dolor sit</span></a>
+    </div>
+    <div class="shot">
+      <img id="seasonImg" src="assets/cdn.jsdelivr.net/gh/VanhDc/aura-assets@sable-v2/sable/img/season.webp" alt="Model in a black open collar shirt, lit from one side" loading="lazy">
+    </div>
+  </div>
+</section>
+
+<section id="svc">
+  <div class="wrap row">
+    <div class="rv"><h4>Lorem ipsum</h4><p>Lorem ipsum dolor sit amet elit.</p></div>
+    <div class="rv"><h4>Dolor sit</h4><p>Sed do eiusmod tempor incididunt.</p></div>
+    <div class="rv"><h4>Amet elit</h4><p>Ut enim ad minim veniam quis nostrud.</p></div>
+    <div class="rv"><h4>Consectetur</h4><p>Duis aute irure dolor in voluptate.</p></div>
+  </div>
+</section>
+
+<section id="shop">
+  <div class="wrap">
+    <div class="hd">
+      <h2 class="rv">Lorem ipsum sit</h2>
+      <a href="#" class="btn-line rv">Lorem ipsum 42</a>
+    </div>
+    <div class="grid" id="grid"></div>
+  </div>
+</section>
+
+<section id="look">
+  <div class="wrap">
+    <div class="lhd">
+      <div>
+        <div class="lbl rv" style="margin-bottom:14px;color:var(--mid)">Lorem ipsum</div>
+        <h2 class="rv">Lorem<br>ipsum</h2>
+      </div>
+      <p class="rv">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor
+        incididunt ut labore, et dolore magna aliqua ut enim ad minim.</p>
+    </div>
+    <div class="lgrid">
+      <figure class="lg-a rv" data-scrub="" data-speed="0.06">
+        <div class="ph"><img src="assets/cdn.jsdelivr.net/gh/VanhDc/aura-assets@sable-v2/sable/img/look1.webp" alt="Model against a concrete wall in the overcoat" loading="lazy"></div>
+        <figcaption><span>01</span> Lorem ipsum, dolor sit</figcaption>
+      </figure>
+      <figure class="lg-b rv" data-scrub="" data-speed="0.13">
+        <div class="ph"><img src="assets/cdn.jsdelivr.net/gh/VanhDc/aura-assets@sable-v2/sable/img/look2.webp" alt="Two models seated on a concrete bench" loading="lazy"></div>
+        <figcaption><span>02</span> Consectetur, adipiscing</figcaption>
+      </figure>
+      <figure class="lg-c rv" data-scrub="" data-speed="0.03">
+        <div class="ph"><img src="assets/cdn.jsdelivr.net/gh/VanhDc/aura-assets@sable-v2/sable/img/season.webp" alt="Portrait in the open collar shirt" loading="lazy"></div>
+        <figcaption><span>03</span> Sed do eiusmod, tempor</figcaption>
+      </figure>
+    </div>
+  </div>
+</section>
+
+<section id="cloth">
+  <div class="cgrid">
+    <div class="ccopy">
+      <div class="lbl rv" style="margin-bottom:16px;color:var(--mid)">Lorem ipsum</div>
+      <h2 class="rv">Lorem ipsum,<br>dolor sit.</h2>
+      <p class="rv">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor. Ut
+        enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi.</p>
+      <dl class="rv">
+        <div><dt>Melton wool</dt><dd>620 gsm · Huddersfield</dd></div>
+        <div><dt>Dry cotton</dt><dd>340 gsm · Osaka</dd></div>
+        <div><dt>Lambswool</dt><dd>7 gauge · Hawick</dd></div>
+      </dl>
+    </div>
+    <figure class="cshot rv vband" data-speed="0.05">
+        <video data-src="assets/cdn.jsdelivr.net/gh/VanhDc/aura-assets@sable-v2/sable/img/cloth.mp4" poster="assets/cdn.jsdelivr.net/gh/VanhDc/aura-assets@sable-v2/sable/img/cloth.webp" muted="" loop="" playsinline="" preload="none" aria-label="Macro of charcoal melton wool moving in a draught"></video>
+      </figure>
+  </div>
+</section>
+
+<section id="atelier">
+  <div class="agrid">
+    <figure class="ashot rv" data-speed="0.05"><img src="assets/cdn.jsdelivr.net/gh/VanhDc/aura-assets@sable-v2/sable/img/atelier.webp" alt="Hands guiding wool under a sewing machine" loading="lazy"></figure>
+    <div class="acopy">
+      <div class="lbl rv" style="margin-bottom:16px;color:rgba(239,237,232,.5)">Dolor sit</div>
+      <h2 class="rv">Amet elit,<br>sed tempor.</h2>
+      <p class="rv">Lorem ipsum dolor sit amet, consectetur adipiscing elit sed do eiusmod. Tempor
+        incididunt ut labore et dolore magna aliqua, ut enim ad minim veniam quis.</p>
+      <div class="acount rv">
+        <div><b data-to="11">0</b><span>People</span></div>
+        <div><b data-to="42">0</b><span>Styles a year</span></div>
+        <div><b data-to="120">0</b><span>Units per run</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="signup">
+  <div class="wrap">
+    <h2 class="rv">Lorem ipsum, dolor sit.</h2>
+    <p class="rv">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor
+      incididunt ut labore.</p>
+    <form class="rv" id="nf" novalidate="">
+      <input type="email" required="" placeholder="you@email.com" aria-label="Email address">
+      <button class="btn" type="submit"><span>Lorem ipsum</span></button>
+    </form>
+    <div class="ok" id="nok" role="status">You are on the list. Look out for Thursday.</div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="cols">
+      <div>
+        <div class="mk">SABLE</div>
+        <address>
+          18 Redchurch Street<br>London E2 7DP<br><br>
+          hello@sable.studio
+        </address>
+      </div>
+      <div><h4>Shop</h4>
+        <a href="#shop">Outerwear</a><a href="#shop">Knitwear</a>
+        <a href="#shop">Tailoring</a><a href="#shop">Archive sale</a></div>
+      <div><h4>Help</h4>
+        <a href="#">Sizing</a><a href="#">Shipping</a>
+        <a href="#">Returns</a><a href="#">Repairs</a></div>
+      <div><h4>Studio</h4>
+        <a href="#">Our cloth</a><a href="#">Stockists</a>
+        <a href="#">Journal</a><a href="#">Careers</a></div>
+    </div>
+    <div class="legal">
+      <span>© 2026 Sable Studio Ltd · Company 11482207</span>
+      <span>Prices include VAT</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+const RM = matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+const stage = document.querySelector('#hero .stage');
+const model = document.getElementById('hm');
+
+/* the load sequence: type, then the model rises into the word */
+addEventListener('load', () => {
+  if(RM){ document.querySelectorAll('.hv').forEach(e => e.classList.add('on')); return; }
+  const order = ['h1', 'hm', 'h2', 'h3'];
+  order.forEach((id, i) => {
+    const el = document.getElementById(id);
+    if(el) setTimeout(() => el.classList.add('on'), 120 + i * 140);
+  });
+});
+
+/* ── scroll: the wordmark and the model part company ───────────────
+   Two different rates on the same scroll makes the hero feel like layered
+   glass rather than a flat image. rAF-batched so scrolling stays cheap. */
+let ticking = false;
+function parallax(){
+  ticking = false;
+  const y = scrollY;
+  if(y > innerHeight * 1.2) return;
+  const back = document.querySelector('#hero .word.back');
+  if(model) model.style.transform = `translateY(${y * -0.06}px) scale(${1 + y * 0.00006})`;
+  if(back) back.style.transform = `translateY(${y * 0.14}px)`;
+  const si = document.getElementById('seasonImg');
+  if(si){
+    const r = si.parentElement.getBoundingClientRect();
+    if(r.bottom > 0 && r.top < innerHeight){
+      si.style.transform = `scale(1.12) translateY(${(r.top / innerHeight) * -26}px)`;
+    }
+  }
+}
+if(!RM) addEventListener('scroll', () => {
+  if(!ticking){ ticking = true; requestAnimationFrame(parallax); }
+}, {passive:true});
+
+/* ── product grid ─────────────────────────────────────────────────── */
+const PRODUCTS = [
+  {nm:'Rift Overshirt',   ct:'Outerwear', pr:185, img:'assets/cdn.jsdelivr.net/gh/VanhDc/aura-assets@sable-v2/sable/img/p-overshirt.webp'},
+  {nm:'Heavy Tee',        ct:'Essentials', pr:58,  img:'assets/cdn.jsdelivr.net/gh/VanhDc/aura-assets@sable-v2/sable/img/p-tee.webp'},
+  {nm:'Gauge Cardigan',   ct:'Knitwear',  pr:210, img:'assets/cdn.jsdelivr.net/gh/VanhDc/aura-assets@sable-v2/sable/img/p-cardigan.webp'},
+  {nm:'Cable Crew',       ct:'Knitwear',  pr:240, img:'assets/cdn.jsdelivr.net/gh/VanhDc/aura-assets@sable-v2/sable/img/p-knit.webp'}
+];
+const grid = document.getElementById('grid');
+const heart = '<svg viewBox="0 0 24 24"><path d="M12 20.5 3.8 12.6a5 5 0 0 1 7.1-7l1.1 1.1 1.1-1.1a5 5 0 0 1 7.1 7Z"/></svg>';
+grid.innerHTML = PRODUCTS.map((p, i) => `
+  <article class="card rv">
+    <div class="ph">
+      <img src="${p.img}" alt="${p.nm}" loading="lazy">
+      <button class="fav" aria-pressed="false" aria-label="Save ${p.nm}">${heart}</button>
+      <button class="add" data-i="${i}">Add to bag</button>
+    </div>
+    <div class="meta">
+      <div><div class="nm">${p.nm}</div><div class="ct">${p.ct}</div></div>
+      <div class="pr">£${p.pr}</div>
+    </div>
+  </article>`).join('');
+
+let bag = 0;
+grid.addEventListener('click', e => {
+  const fav = e.target.closest('.fav');
+  if(fav){
+    fav.setAttribute('aria-pressed', fav.getAttribute('aria-pressed') === 'true' ? 'false' : 'true');
+    return;
+  }
+  const add = e.target.closest('.add');
+  if(add){
+    bag++;
+    document.getElementById('bagn').textContent = bag;
+    add.textContent = 'Added';
+    setTimeout(() => { add.textContent = 'Add to bag'; }, 1300);
+  }
+});
+
+/* ── reveals ───────────────────────────────────────────────────────
+   IntersectionObserver only reports threshold CROSSINGS, so an element that
+   jumps from below the viewport to above it never fires a callback at all.
+   The scroll sweep is the safety net, not the observer. */
+const pending = new Set(document.querySelectorAll('.rv'));
+const io = new IntersectionObserver(es => {
+  es.forEach(e => { if(e.isIntersecting || e.boundingClientRect.top < 0) show(e.target); });
+}, {threshold:.12, rootMargin:'0px 0px -6% 0px'});
+function show(el){ el.classList.add('in'); pending.delete(el); io.unobserve(el); }
+[...pending].forEach((el, i) => { el.style.transitionDelay = (i % 4) * 70 + 'ms'; io.observe(el); });
+
+let sweeping = false;
+function sweep(){
+  sweeping = false;
+  [...pending].forEach(el => {
+    if(el.getBoundingClientRect().top < innerHeight * 0.94) show(el);
+  });
+  if(!pending.size) removeEventListener('scroll', queue);
+}
+function queue(){ if(!sweeping){ sweeping = true; requestAnimationFrame(sweep); } }
+addEventListener('scroll', queue, {passive:true});
+addEventListener('load', sweep);
+
+/* ── scroll system ─────────────────────────────────────────────────
+   One rAF-batched pass drives everything scroll-linked: a progress rail in the
+   nav, per-element parallax by data-speed, and a scrub that opens the lookbook
+   images as they cross the viewport. One listener, one frame, no layout thrash
+   beyond the rects we already need. */
+(function(){
+  if(RM) return;
+  const bar = document.createElement('i');
+  bar.id = 'prog';
+  document.querySelector('nav').appendChild(bar);
+  const speeds = [...document.querySelectorAll('[data-speed]')];
+  const scrubs = [...document.querySelectorAll('[data-scrub]')];
+  let q = false;
+
+  function pass(){
+    q = false;
+    const h = document.documentElement.scrollHeight - innerHeight;
+    bar.style.transform = `scaleX(${h > 0 ? scrollY / h : 0})`;
+
+    for(const el of speeds){
+      const r = el.getBoundingClientRect();
+      if(r.bottom < -200 || r.top > innerHeight + 200) continue;
+      const c = (r.top + r.height / 2 - innerHeight / 2) / innerHeight;
+      el.style.transform = `translate3d(0, ${c * -parseFloat(el.dataset.speed) * 100}px, 0)`;
+    }
+    for(const el of scrubs){
+      const r = el.getBoundingClientRect();
+      if(r.bottom < 0 || r.top > innerHeight) continue;
+      /* 0 as it enters the bottom, 1 once it has cleared the middle */
+      const p = Math.max(0, Math.min(1, 1 - (r.top - innerHeight * 0.25) / (innerHeight * 0.6)));
+      el.style.setProperty('--p', p.toFixed(3));
+    }
+  }
+  addEventListener('scroll', () => { if(!q){ q = true; requestAnimationFrame(pass); } }, {passive:true});
+  addEventListener('resize', pass);
+  pass();
+})();
+
+/* ── video bands · source attached on first view ───────────────────
+   The src is held in data-src and only assigned when the band first intersects.
+   Attaching it up front and pausing off-screen aborts the in-flight fetch,
+   which surfaces as a failed request; this way nothing is ever requested until
+   it is about to be seen, and reduced motion never downloads it at all. */
+(function(){
+  const vids = [...document.querySelectorAll('.vband video')];
+  if(!vids.length || RM) return;
+  const o = new IntersectionObserver(es => es.forEach(e => {
+    const v = e.target;
+    if(e.isIntersecting){
+      if(!v.src && v.dataset.src) v.src = v.dataset.src;
+      v.play().catch(()=>{});
+    } else if(v.src){
+      v.pause();
+    }
+  }), {threshold:.2});
+  vids.forEach(v => o.observe(v));
+})();
+
+/* ── atelier figures count up once, when the block arrives ────────── */
+(function(){
+  const nums = [...document.querySelectorAll('#atelier .acount b')];
+  if(!nums.length) return;
+  if(RM){ nums.forEach(n => n.textContent = n.dataset.to); return; }
+  const run = n => {
+    const to = +n.dataset.to;
+    const t0 = performance.now(), D = 1100;
+    (function step(now){
+      const p = Math.min(1, (now - t0) / D);
+      const e = 1 - Math.pow(1 - p, 3);
+      n.textContent = Math.round(to * e);
+      if(p < 1) requestAnimationFrame(step);
+    })(t0);
+  };
+  const o = new IntersectionObserver(es => es.forEach(e => {
+    if(e.isIntersecting){ run(e.target); o.unobserve(e.target); }
+  }), {threshold:.6});
+  nums.forEach(n => o.observe(n));
+})();
+
+/* ── signup ───────────────────────────────────────────────────────── */
+document.getElementById('nf')?.addEventListener('submit', e => {
+  e.preventDefault();
+  const i = e.target.querySelector('input');
+  if(!i.value || !i.checkValidity()){ i.focus(); return; }
+  document.getElementById('nok').classList.add('on');
+  i.value = '';
+});
+
+/* placeholder links must never jump to the top */
+document.addEventListener('click', e => {
+  const a = e.target.closest('a');
+  if(a && a.getAttribute('href') === '#') e.preventDefault();
+});
+</script>
+
+
+</body></html>

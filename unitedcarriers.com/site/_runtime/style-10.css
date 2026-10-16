@@ -1,0 +1,9 @@
+
+  /* .trans-circs-mask {
+    --hole-radius: 0vmax;
+    -webkit-mask-image: radial-gradient(circle, transparent 0, transparent calc(var(--hole-radius) - 1px), #000 var(--hole-radius));
+    mask-image: radial-gradient(circle, transparent 0, transparent calc(var(--hole-radius) - 1px), #000 var(--hole-radius));
+  } */
+  .trans-bg-mask {
+    will-change: width, height;
+  }

@@ -1,0 +1,1215 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8">
+<!-- Website Downloader 3.0: este arquivo é o retrato estático do site (DOM renderizado). Aberto via servidor
+     local (serve.py, ver Como rodar.md), o bootstrap abaixo carrega o site vivo; via file://, mostra este retrato. -->
+<meta name="referrer" content="no-referrer">
+<script data-wd3>window.__WD3__ = {"entryUrl": "https://the-family-rice-tray.vercel.app/", "replayHost": "the-family-rice-tray.vercel.app.localhost", "entryPath": "/", "captureId": "the-family-rice-tray.vercel.app-dcc69f3d", "capturedAt": "2026-10-14T16:57:03+00:00", "snapshot": true, "fileFonts": "site/_runtime/file-fonts.css"};</script>
+<script data-wd3>/* Website Downloader 3.0 — bootstrap do index.html.
+ * file://  → fica no retrato estático (e carrega as fontes embutidas, que o Chrome bloqueia em file://).
+ * http(s)  → para de carregar o retrato, registra o Service Worker de replay e abre o site vivo.
+ */
+(function () {
+  var cfg = window.__WD3__ || {};
+  var root = document.documentElement;
+  if (location.protocol === 'file:') {
+    root.setAttribute('data-wd3', 'file');
+    if (cfg.fileFonts) {
+      var link = document.createElement('link');
+      link.rel = 'stylesheet';
+      link.href = cfg.fileFonts;
+      (document.head || root).appendChild(link);
+    }
+    return;
+  }
+  root.setAttribute('data-wd3', 'loading');
+  if (cfg.snapshot) {
+    try { window.stop(); } catch (e) { /* o retrato não precisa carregar: o site vivo vem do SW */ }
+  }
+
+  function fail(msg) {
+    root.setAttribute('data-wd3', 'error');
+    var el = document.getElementById('wd3-error');
+    if (!el) {
+      var body = document.body || root.appendChild(document.createElement('body'));
+      body.innerHTML = '<p style="font:15px system-ui,sans-serif;padding:24px;color:#e8e8e8;background:#050505;margin:0">' +
+        'Não foi possível iniciar o replay: <span id="wd3-error"></span></p>';
+      el = document.getElementById('wd3-error');
+    }
+    el.textContent = msg;
+  }
+  if (!('serviceWorker' in navigator)) return fail('este navegador não suporta Service Workers.');
+
+  function go() { location.replace(cfg.entryPath); }
+  function start() {
+    navigator.serviceWorker.register('/site/_wd3/sw.js', { scope: '/' })
+      .then(function () { return navigator.serviceWorker.ready; })
+      .then(function () {
+        if (navigator.serviceWorker.controller) return go();
+        navigator.serviceWorker.addEventListener('controllerchange', go);
+      })
+      .catch(function (err) { fail(String(err && err.message || err)); });
+  }
+  // Aberto em localhost puro: tenta <domínio>.localhost (mesmo servidor), para sites que checam location.hostname.
+  var plain = location.hostname === 'localhost' || location.hostname === '127.0.0.1';
+  if (!plain || !cfg.replayHost || cfg.replayHost === 'localhost') return start();
+  var target = location.protocol + '//' + cfg.replayHost + (location.port ? ':' + location.port : '');
+  var decided = false;
+  function decide(fn) { if (!decided) { decided = true; fn(); } }
+  setTimeout(function () { decide(start); }, 1500);
+  fetch(target + '/site/_wd3/site-index.json', { mode: 'no-cors', cache: 'no-store' })
+    .then(function () { decide(function () { location.replace(target + cfg.entryPath); }); })
+    .catch(function () { decide(start); });
+})();
+</script>
+<style data-wd3>
+  [data-wd3-banner] { display: none; }
+  html[data-wd3="file"] [data-wd3-banner] { display: flex; }
+  html[data-wd3-unlock], html[data-wd3-unlock] body { overflow-y: auto !important; }
+</style>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Mâm Cơm — the Vietnamese family rice tray</title>
+    <meta name="description" content="A love letter to mâm cơm, the round tray of shared dishes at the centre of every Vietnamese home — laid out on the face of a Đông Sơn bronze drum.">
+    <meta name="theme-color" content="#5E0712">
+
+    <!-- The fourteen-rayed sun from the centre of a Đông Sơn drum — the same mark
+     the header uses. favicon.ico carries a simplified 16px variant alongside
+     the full 32/48 art, because the ring and the rays merge at 16px. -->
+    <link rel="icon" href="site/the-family-rice-tray.vercel.app/favicon.ico" sizes="16x16 32x32 48x48">
+    <link rel="icon" href="site/the-family-rice-tray.vercel.app/favicon.svg" type="image/svg+xml">
+    <link rel="apple-touch-icon" href="site/the-family-rice-tray.vercel.app/apple-touch-icon.png">
+    <link rel="manifest" href="site/the-family-rice-tray.vercel.app/site.webmanifest">
+
+    
+    <meta name="color-scheme" content="dark">
+
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Mâm Cơm — the Vietnamese family rice tray">
+    <meta property="og:description" content="Three thousand years on a circle. Spin the bronze drum and set the tray.">
+    <meta property="og:image" content="./img/feast.jpg">
+    <meta name="twitter:card" content="summary_large_image">
+
+    
+    
+    <link href="site/fonts.googleapis.com/css2__q21a98325.css" rel="stylesheet">
+
+    <link rel="stylesheet" href="site/_runtime/style-0.css" data-wd3-runtime-style="">
+
+    <noscript>
+      <style>
+        /* Without JS the tray can't spin — show every dish card in full instead. */
+        .tray,
+        .tray__controls {
+          display: none;
+        }
+        .dish-panel[hidden] {
+          display: block !important;
+        }
+        .dish-panel + .dish-panel {
+          margin-top: 1.25rem;
+        }
+        .tray-layout {
+          grid-template-columns: 1fr !important;
+        }
+        .noscript-note {
+          display: block !important;
+        }
+      </style>
+    </noscript>
+  </head>
+
+  <body>
+    <a class="skip-link" href="#main">Skip to content</a>
+
+    <header class="masthead">
+      <div class="masthead__inner">
+        <a class="brand" href="#top" aria-label="Mâm Cơm — back to top">
+          <!-- 14-rayed Đông Sơn sun, the mark at the centre of every bronze drum -->
+          <svg class="brand__mark" viewBox="0 0 100 100" aria-hidden="true" focusable="false">
+            <g fill="none" stroke="currentColor" stroke-width="4">
+              <circle cx="50" cy="50" r="46"></circle>
+              <circle cx="50" cy="50" r="36"></circle>
+            </g>
+            <path fill="currentColor" d="M50 12 55 40 78 22 62 47 90 50 62 53 78 78 55 60 50 88 45 60 22 78 38 53 10 50 38 47 22 22 45 40Z"></path>
+          </svg>
+          <span class="brand__word">Mâm Cơm</span>
+        </a>
+        <nav class="nav" aria-label="Sections">
+          <a href="#tray">
+            <span class="nav__the">The</span>
+            Tray
+          </a>
+          <a href="#legend">
+            <span class="nav__the">The</span>
+            Legend
+          </a>
+          <a href="#recipe">
+            <span class="nav__the">The</span>
+            Recipe
+          </a>
+          <a href="#manners">Nếp Nhà</a>
+        </nav>
+        <span class="nav__cloud" aria-hidden="true"></span>
+        <a class="plaque" href="#closer">
+          <span class="plaque__face">
+            <img class="plaque__sprig" src="site/the-family-rice-tray.vercel.app/img/sprig-lua-sen.png" alt="" width="120" height="120" aria-hidden="true" decoding="async">
+            <span>Ăn cơm chưa?</span>
+            <img class="plaque__sprig plaque__sprig--right" src="site/the-family-rice-tray.vercel.app/img/sprig-lua-sen.png" alt="" width="120" height="120" aria-hidden="true" decoding="async">
+          </span>
+        </a>
+      </div>
+    </header>
+
+    <main id="main">
+      <!-- ==================== HERO ==================== -->
+      <section class="hero" id="top" aria-labelledby="hero-title">
+        <div class="hero__art" aria-hidden="true">
+          <div class="hero__drum"></div>
+          <img class="hero__dragon" src="site/the-family-rice-tray.vercel.app/img/rong-dragon.png" alt="" width="2528" height="1696">
+        </div>
+        <div class="hero__inner">
+          <div class="hero__body">
+            <p class="hero__eyebrow">
+              A love letter to a regional dish
+              <span>Việt Nam · Đông Nam Á</span>
+            </p>
+            <h1 id="hero-title">
+              Mâm Cơm
+              <em>The family rice tray</em>
+            </h1>
+            <p class="hero__pron">
+              <span lang="vi">mâm cơm</span>
+              · /məm kəːm/ ·
+              <i>“the tray of rice”</i>
+            </p>
+            <p class="lede hero__lede">
+              Vietnamese has no word for
+              <i>entrée</i>
+              . There is only
+              <span class="vi" lang="vi">cơm</span>
+              — rice — and everything laid around it. Every evening, in a hundred million homes, six or seven small
+              dishes are set out on one round tray and eaten together, all at once, in any order. Not a sequence of
+              courses. A conversation.
+            </p>
+            <div class="hero__cta">
+              <a class="btn btn--solid" href="#tray">Set the tray</a>
+              <div class="player">
+                <button class="player__btn" type="button" aria-pressed="false" aria-label="Play the music" data-audio-toggle="">
+                  <svg class="player__drum" viewBox="0 0 200 200" aria-hidden="true" focusable="false" style="rotate: 0deg;">
+                    <g fill="currentColor">
+                      <path d="M146.0 100.0L119.8 97.3L119.8 102.7Z"></path>
+                      <path d="M141.4 120.0L119.0 106.2L116.7 111.0Z"></path>
+                      <path d="M128.7 136.0L114.5 113.8L110.3 117.2Z"></path>
+                      <path d="M110.2 144.8L107.0 118.7L101.8 119.9Z"></path>
+                      <path d="M89.8 144.8L98.2 119.9L93.0 118.7Z"></path>
+                      <path d="M71.3 136.0L89.7 117.2L85.5 113.8Z"></path>
+                      <path d="M58.6 120.0L83.3 111.0L81.0 106.2Z"></path>
+                      <path d="M54.0 100.0L80.2 102.7L80.2 97.3Z"></path>
+                      <path d="M58.6 80.0L81.0 93.8L83.3 89.0Z"></path>
+                      <path d="M71.3 64.0L85.5 86.2L89.7 82.8Z"></path>
+                      <path d="M89.8 55.2L93.0 81.3L98.2 80.1Z"></path>
+                      <path d="M110.2 55.2L101.8 80.1L107.0 81.3Z"></path>
+                      <path d="M128.7 64.0L110.3 82.8L114.5 86.2Z"></path>
+                      <path d="M141.4 80.0L116.7 89.0L119.0 93.8Z"></path>
+                    </g>
+                    <circle cx="100" cy="100" r="16" fill="none" stroke="currentColor" stroke-width="2"></circle>
+                    <circle cx="100" cy="100" r="56" fill="none" stroke="currentColor" stroke-width="1.2"></circle>
+                    <circle cx="100" cy="100" r="62" fill="none" stroke="currentColor" stroke-width="1.2"></circle>
+                    <circle cx="100" cy="100" r="90" fill="none" stroke="currentColor" stroke-width="1.2"></circle>
+                    <circle cx="100" cy="100" r="96" fill="none" stroke="currentColor" stroke-width="1.2"></circle>
+                    <circle cx="100" cy="100" r="76" fill="none" stroke="currentColor" stroke-width="1" stroke-dasharray="1 5" stroke-linecap="round"></circle>
+                    <g transform="translate(100.0 24.0) rotate(0)">
+                      <path d="M-7 2 L-2 -3 L0 1 L2 -3 L7 2" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"></path>
+                    </g>
+                    <g transform="translate(144.7 38.5) rotate(36)">
+                      <path d="M-7 2 L-2 -3 L0 1 L2 -3 L7 2" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"></path>
+                    </g>
+                    <g transform="translate(172.3 76.5) rotate(72)">
+                      <path d="M-7 2 L-2 -3 L0 1 L2 -3 L7 2" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"></path>
+                    </g>
+                    <g transform="translate(172.3 123.5) rotate(108)">
+                      <path d="M-7 2 L-2 -3 L0 1 L2 -3 L7 2" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"></path>
+                    </g>
+                    <g transform="translate(144.7 161.5) rotate(144)">
+                      <path d="M-7 2 L-2 -3 L0 1 L2 -3 L7 2" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"></path>
+                    </g>
+                    <g transform="translate(100.0 176.0) rotate(180)">
+                      <path d="M-7 2 L-2 -3 L0 1 L2 -3 L7 2" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"></path>
+                    </g>
+                    <g transform="translate(55.3 161.5) rotate(216)">
+                      <path d="M-7 2 L-2 -3 L0 1 L2 -3 L7 2" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"></path>
+                    </g>
+                    <g transform="translate(27.7 123.5) rotate(252)">
+                      <path d="M-7 2 L-2 -3 L0 1 L2 -3 L7 2" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"></path>
+                    </g>
+                    <g transform="translate(27.7 76.5) rotate(288)">
+                      <path d="M-7 2 L-2 -3 L0 1 L2 -3 L7 2" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"></path>
+                    </g>
+                    <g transform="translate(55.3 38.5) rotate(324)">
+                      <path d="M-7 2 L-2 -3 L0 1 L2 -3 L7 2" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"></path>
+                    </g>
+                  </svg>
+                  <svg class="player__glyph" viewBox="0 0 24 24" aria-hidden="true" focusable="false">
+                    <path class="player__play" d="M9 6.5 18 12l-9 5.5Z"></path>
+                    <path class="player__pause" d="M9 6h2.4v12H9zM12.6 6H15v12h-2.4z"></path>
+                  </svg>
+                </button>
+                <span class="player__label">
+                  <span lang="vi" aria-hidden="true">Đăng Đàn Cung</span>
+                  <a class="dim player__unesco" href="https://ich.unesco.org/en/RL/nha-nhac-vietnamese-court-music-00074" target="_blank" rel="noopener noreferrer" aria-label="Nhã nhạc, Vietnamese court music on the UNESCO Intangible Cultural Heritage list — opens in a new tab">
+                    <span lang="vi">Nhã nhạc</span>
+                    · UNESCO 2003
+                  </a>
+                </span>
+              </div>
+              <audio data-audio="" loop="" preload="none" src="https://the-family-rice-tray.vercel.app/audio/dang-dan-cung.mp3"></audio>
+            </div>
+
+            <!-- Each chip is a plain link to #tray, so it still works with no JS;
+             the script upgrades it to select that dish on arrival. -->
+            <div class="hero__dishes">
+              <p class="hero__dishes-label" id="hero-dishes-label">Tonight’s seven dishes</p>
+              <ul class="hero__strip" aria-labelledby="hero-dishes-label">
+                <li>
+                  <a class="hero__chip" href="#tray" data-jump="tab-com" aria-label="Cơm trắng, steamed jasmine rice — show it on the tray">
+                    <img src="site/the-family-rice-tray.vercel.app/img/com-trang.jpg" alt="" width="760" height="760" decoding="async">
+                  </a>
+                </li>
+                <li>
+                  <a class="hero__chip" href="#tray" data-jump="tab-thitkho" aria-label="Thịt kho trứng, caramel-braised pork and eggs — show it on the tray">
+                    <img src="site/the-family-rice-tray.vercel.app/img/thit-kho-trung.jpg" alt="" width="760" height="760" decoding="async">
+                  </a>
+                </li>
+                <li>
+                  <a class="hero__chip" href="#tray" data-jump="tab-canhchua" aria-label="Canh chua cá, sour tamarind fish soup — show it on the tray">
+                    <img src="site/the-family-rice-tray.vercel.app/img/canh-chua-ca.jpg" alt="" width="760" height="760" decoding="async">
+                  </a>
+                </li>
+                <li>
+                  <a class="hero__chip" href="#tray" data-jump="tab-cakho" aria-label="Cá kho tộ, clay-pot caramel fish — show it on the tray">
+                    <img src="site/the-family-rice-tray.vercel.app/img/ca-kho-to.jpg" alt="" width="760" height="760" decoding="async">
+                  </a>
+                </li>
+                <li>
+                  <a class="hero__chip" href="#tray" data-jump="tab-raumuong" aria-label="Rau muống xào tỏi, garlic water spinach — show it on the tray">
+                    <img src="site/the-family-rice-tray.vercel.app/img/rau-muong.jpg" alt="" width="760" height="760" decoding="async">
+                  </a>
+                </li>
+                <li>
+                  <a class="hero__chip" href="#tray" data-jump="tab-duacai" aria-label="Dưa cải và cà pháo, pickled greens and brined eggplant — show it on the tray">
+                    <img src="site/the-family-rice-tray.vercel.app/img/dua-cai.jpg" alt="" width="760" height="760" decoding="async">
+                  </a>
+                </li>
+                <li>
+                  <a class="hero__chip" href="#tray" data-jump="tab-nuocmam" aria-label="Nước mắm ớt, chilli fish sauce — show it on the tray">
+                    <img src="site/the-family-rice-tray.vercel.app/img/nuoc-mam-ot.jpg" alt="" width="760" height="760" decoding="async">
+                  </a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <p class="hero__scroll" aria-hidden="true">Scroll</p>
+      </section>
+
+      <!-- ==================== THE TRAY ==================== -->
+      <section class="section tray-section" id="tray" aria-labelledby="tray-title">
+        <div class="shell">
+          <div class="tray-head">
+            <div>
+              <p class="kicker">Ba nghìn năm trên một vòng tròn</p>
+              <h2 id="tray-title">
+                Three thousand years
+                <br class="br-wide">
+                on a circle
+              </h2>
+              <p class="lede dim">
+                Việt Nam’s oldest surviving artefact is a bronze drum, cast in the
+                <a class="wl" lang="vi" href="https://en.wikipedia.org/wiki/Dong%20Son%20culture" target="_blank" rel="noopener noreferrer" aria-label="Đông Sơn — read about it on Wikipedia, opens in a new tab">
+                  Đông Sơn
+                </a>
+                era: a perfect disc of concentric life — herons, boats, dancers, a fourteen-rayed sun at the centre. Its
+                most ordinary object is a bamboo tray of exactly the same shape. Spin the drum. Every dish sits on a ray
+                of the sun.
+              </p>
+            </div>
+            <img class="head-art" src="site/the-family-rice-tray.vercel.app/img/may.png" alt="" width="1100" height="614" loading="lazy" decoding="async" aria-hidden="true">
+          </div>
+
+          <div class="tray-layout">
+            <div>
+              <!-- The tray is a tablist: each dish is a tab, each card a tabpanel. -->
+              <div class="tray" id="tray-widget">
+                <div class="tray__plate" aria-hidden="true"></div>
+                <div class="tray__clip">
+                  <div class="tray__engraving" aria-hidden="true"></div>
+                  <div class="tray__glow" aria-hidden="true"></div>
+
+                  <div class="tray__ring" role="tablist" aria-label="The seven dishes of the tray">
+                    <!-- Each dish is placed by its own angle (--a); the photo is
+                   decorative because the button carries the accessible name
+                   and the linked panel carries the full description. -->
+                    <button class="dish" type="button" style="--a: 0deg" role="tab" id="tab-com" aria-controls="panel-com" aria-selected="true" tabindex="0" aria-label="Cơm trắng — steamed jasmine rice">
+                      <span class="dish__inner">
+                        <img src="site/the-family-rice-tray.vercel.app/img/com-trang.jpg" alt="" width="600" height="600" loading="lazy" decoding="async" draggable="false">
+                      </span>
+                    </button>
+                    <button class="dish" type="button" style="--a: 51.43deg" role="tab" id="tab-thitkho" aria-controls="panel-thitkho" aria-selected="false" tabindex="-1" aria-label="Thịt kho trứng — caramel-braised pork and eggs">
+                      <span class="dish__inner">
+                        <img src="site/the-family-rice-tray.vercel.app/img/thit-kho-trung.jpg" alt="" width="600" height="600" loading="lazy" decoding="async" draggable="false">
+                      </span>
+                    </button>
+                    <button class="dish" type="button" style="--a: 102.86deg" role="tab" id="tab-canhchua" aria-controls="panel-canhchua" aria-selected="false" tabindex="-1" aria-label="Canh chua cá — sour tamarind fish soup">
+                      <span class="dish__inner">
+                        <img src="site/the-family-rice-tray.vercel.app/img/canh-chua-ca.jpg" alt="" width="600" height="600" loading="lazy" decoding="async" draggable="false">
+                      </span>
+                    </button>
+                    <button class="dish" type="button" style="--a: 154.29deg" role="tab" id="tab-cakho" aria-controls="panel-cakho" aria-selected="false" tabindex="-1" aria-label="Cá kho tộ — clay-pot caramel fish">
+                      <span class="dish__inner">
+                        <img src="site/the-family-rice-tray.vercel.app/img/ca-kho-to.jpg" alt="" width="600" height="600" loading="lazy" decoding="async" draggable="false">
+                      </span>
+                    </button>
+                    <button class="dish" type="button" style="--a: 205.71deg" role="tab" id="tab-raumuong" aria-controls="panel-raumuong" aria-selected="false" tabindex="-1" aria-label="Rau muống xào tỏi — garlic water spinach">
+                      <span class="dish__inner">
+                        <img src="site/the-family-rice-tray.vercel.app/img/rau-muong.jpg" alt="" width="600" height="600" loading="lazy" decoding="async" draggable="false">
+                      </span>
+                    </button>
+                    <button class="dish" type="button" style="--a: 257.14deg" role="tab" id="tab-duacai" aria-controls="panel-duacai" aria-selected="false" tabindex="-1" aria-label="Dưa cải và cà pháo — pickled greens and brined eggplant">
+                      <span class="dish__inner">
+                        <img src="site/the-family-rice-tray.vercel.app/img/dua-cai.jpg" alt="" width="600" height="600" loading="lazy" decoding="async" draggable="false">
+                      </span>
+                    </button>
+                    <button class="dish" type="button" style="--a: 308.57deg" role="tab" id="tab-nuocmam" aria-controls="panel-nuocmam" aria-selected="false" tabindex="-1" aria-label="Nước mắm ớt — chilli fish sauce">
+                      <span class="dish__inner">
+                        <img src="site/the-family-rice-tray.vercel.app/img/nuoc-mam-ot.jpg" alt="" width="600" height="600" loading="lazy" decoding="async" draggable="false">
+                      </span>
+                    </button>
+                  </div>
+                </div>
+
+                <p class="tray__label" aria-hidden="true">
+                  <span class="tray__label-vi" data-label-vi="">Cơm Trắng</span>
+                  <span class="tray__label-en" data-label-en="">Steamed jasmine rice</span>
+                </p>
+              </div>
+
+              <div class="tray__controls">
+                <button class="spin" type="button" data-spin="-1" aria-label="Spin the tray to the previous dish">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">
+                    <path d="M19 12H5"></path>
+                    <path d="m12 19-7-7 7-7"></path>
+                  </svg>
+                </button>
+                <p class="tray__hint">Choose a dish, or spin with the arrow keys</p>
+                <button class="spin" type="button" data-spin="1" aria-label="Spin the tray to the next dish">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">
+                    <path d="M5 12h14"></path>
+                    <path d="m12 5 7 7-7 7"></path>
+                  </svg>
+                </button>
+              </div>
+            </div>
+
+            <div style="--panel-min: 738px;">
+              <p class="noscript-note dim" style="display: none; margin-bottom: 1.5rem">
+                All seven dishes of the tray, listed in full:
+              </p>
+
+              <div class="dish-panel" role="tabpanel" id="panel-com" aria-labelledby="tab-com" tabindex="0">
+                <figure class="dish-panel__figure">
+                  <img src="site/the-family-rice-tray.vercel.app/img/hero-com.jpg" alt="A bowl of steaming domed white jasmine rice with wooden chopsticks across the rim, lit warmly against dark wood." width="1200" height="800" loading="lazy" decoding="async">
+                </figure>
+                <p class="dish-panel__index">Dish 01 / 07 · the centre of gravity</p>
+                <h3>
+                  <a class="wl" lang="vi" href="https://en.wikipedia.org/wiki/Jasmine%20rice" target="_blank" rel="noopener noreferrer" aria-label="Cơm Trắng — read about it on Wikipedia, opens in a new tab">
+                    Cơm Trắng
+                  </a>
+                </h3>
+                <p class="dish-panel__en">Steamed jasmine rice</p>
+                <p class="dish-panel__note">
+                  In Vietnamese,
+                  <span class="vi" lang="vi">ăn cơm</span>
+                  — “to eat rice” — simply means
+                  <i>to eat</i>
+                  . Rice is not a side dish and not a starch course; it is the meal itself, and everything else on the
+                  tray is a way of getting through more of it. A pot is left warm on the stove for whoever comes home
+                  last.
+                </p>
+                <dl class="dish-facts">
+                  <div>
+                    <dt>Where</dt>
+                    <dd>Everywhere, three times a day</dd>
+                  </div>
+                  <div>
+                    <dt>Tastes like</dt>
+                    <dd>Faintly sweet, faintly floral, deliberately plain</dd>
+                  </div>
+                  <div>
+                    <dt>Eaten with</dt>
+                    <dd>Everything. That is the point</dd>
+                  </div>
+                  <div>
+                    <dt>Grown in</dt>
+                    <dd>The Red River and Mekong deltas</dd>
+                  </div>
+                </dl>
+              </div>
+
+              <div class="dish-panel" role="tabpanel" id="panel-thitkho" aria-labelledby="tab-thitkho" tabindex="0" style="" hidden="">
+                <figure class="dish-panel__figure">
+                  <img src="site/the-family-rice-tray.vercel.app/img/hero-thit-kho.jpg" alt="A clay pot of caramel-braised pork belly and whole soft eggs in glossy dark amber sauce, steaming, topped with spring onion and red chilli." width="1200" height="800" loading="lazy" decoding="async">
+                </figure>
+                <p class="dish-panel__index">Dish 02 / 07 · the one that lasts a week</p>
+                <h3>
+                  <a class="wl" lang="vi" href="https://en.wikipedia.org/wiki/Th%E1%BB%8Bt%20kho%20t%C3%A0u" target="_blank" rel="noopener noreferrer" aria-label="Thịt Kho Trứng — read about it on Wikipedia, opens in a new tab">
+                    Thịt Kho Trứng
+                  </a>
+                </h3>
+                <p class="dish-panel__en">Caramel-braised pork belly &amp; eggs</p>
+                <p class="dish-panel__note">
+                  Pork belly and whole eggs simmered for hours in coconut water and burnt-sugar caramel until the fat
+                  gives way completely. Southern families cook a pot of it on the eve of
+                  <span class="vi" lang="vi">Tết</span>
+                  so that nobody has to work on New Year’s Day — it is one of the rare dishes that genuinely improves
+                  each time it is reheated.
+                </p>
+                <dl class="dish-facts">
+                  <div>
+                    <dt>Where</dt>
+                    <dd>
+                      <span lang="vi">Miền Nam</span>
+                      — the South, and every Tết
+                    </dd>
+                  </div>
+                  <div>
+                    <dt>Tastes like</dt>
+                    <dd>Deep, sweet-savoury, coconut-soft</dd>
+                  </div>
+                  <div>
+                    <dt>Takes</dt>
+                    <dd>Two and a half hours, mostly waiting</dd>
+                  </div>
+                  <div>
+                    <dt>Secret</dt>
+                    <dd>Fresh coconut water, never tinned milk</dd>
+                  </div>
+                </dl>
+              </div>
+
+              <div class="dish-panel" role="tabpanel" id="panel-canhchua" aria-labelledby="tab-canhchua" tabindex="0" style="" hidden="">
+                <figure class="dish-panel__figure">
+                  <img src="site/the-family-rice-tray.vercel.app/img/hero-canh-chua.jpg" alt="A steaming bowl of amber sour tamarind fish soup crowded with pineapple, tomato, okra, bean sprouts and a heap of fresh coriander." width="1200" height="800" loading="lazy" decoding="async">
+                </figure>
+                <p class="dish-panel__index">Dish 03 / 07 · the soup that is also a drink</p>
+                <h3>
+                  <a class="wl" lang="vi" href="https://en.wikipedia.org/wiki/Canh%20chua" target="_blank" rel="noopener noreferrer" aria-label="Canh Chua Cá — read about it on Wikipedia, opens in a new tab">
+                    Canh Chua Cá
+                  </a>
+                </h3>
+                <p class="dish-panel__en">Sour tamarind fish soup</p>
+                <p class="dish-panel__note">
+                  The Mekong Delta throws its entire garden into one pot: tamarind, pineapple, tomato, okra, bean
+                  sprouts, rice-paddy herb, and whatever the river gave up that morning. A bowl sits at the edge of the
+                  tray all through the meal and is spooned over rice, sipped between bites, and used to wash down
+                  anything too salty.
+                </p>
+                <dl class="dish-facts">
+                  <div>
+                    <dt>Where</dt>
+                    <dd>
+                      <span lang="vi">Đồng bằng sông Cửu Long</span>
+                      — the Mekong Delta
+                    </dd>
+                  </div>
+                  <div>
+                    <dt>Tastes like</dt>
+                    <dd>Sour, sweet, hot and herbal at once</dd>
+                  </div>
+                  <div>
+                    <dt>Takes</dt>
+                    <dd>Twenty-five minutes</dd>
+                  </div>
+                  <div>
+                    <dt>Non-negotiable</dt>
+                    <dd>
+                      <span lang="vi">Rau om</span>
+                      , torn in at the last second
+                    </dd>
+                  </div>
+                </dl>
+              </div>
+
+              <div class="dish-panel" role="tabpanel" id="panel-cakho" aria-labelledby="tab-cakho" tabindex="0" style="" hidden="">
+                <figure class="dish-panel__figure">
+                  <img src="site/the-family-rice-tray.vercel.app/img/hero-ca-kho.jpg" alt="Dark mahogany caramelised fish steaks in a thick glossy sauce inside a small brown earthenware clay pot, scattered with pepper and chilli." width="1200" height="800" loading="lazy" decoding="async">
+                </figure>
+                <p class="dish-panel__index">Dish 04 / 07 · one shade before bitter</p>
+                <h3>
+                  <a class="wl" lang="vi" href="https://en.wikipedia.org/wiki/C%C3%A1%20kho%20t%E1%BB%99" target="_blank" rel="noopener noreferrer" aria-label="Cá Kho Tộ — read about it on Wikipedia, opens in a new tab">
+                    Cá Kho Tộ
+                  </a>
+                </h3>
+                <p class="dish-panel__en">Clay-pot caramel fish</p>
+                <p class="dish-panel__note">
+                  Catfish braised down in an unglazed clay pot until the sauce is thick enough to coat the back of a
+                  spoon. Everything depends on
+                  <span class="vi" lang="vi">nước màu</span>
+                  : sugar cooked to the colour of dark amber, pulled off the heat one shade before it turns bitter.
+                  Vietnamese cooks judge that moment by smell, never by a timer.
+                </p>
+                <dl class="dish-facts">
+                  <div>
+                    <dt>Where</dt>
+                    <dd>
+                      <span lang="vi">Miền Nam</span>
+                      — the South
+                    </dd>
+                  </div>
+                  <div>
+                    <dt>Tastes like</dt>
+                    <dd>Dark, salty-sweet, smoky at the edges</dd>
+                  </div>
+                  <div>
+                    <dt>Takes</dt>
+                    <dd>Forty minutes</dd>
+                  </div>
+                  <div>
+                    <dt>Vessel</dt>
+                    <dd>Clay. It holds heat the way nothing else does</dd>
+                  </div>
+                </dl>
+              </div>
+
+              <div class="dish-panel" role="tabpanel" id="panel-raumuong" aria-labelledby="tab-raumuong" tabindex="0" style="" hidden="">
+                <figure class="dish-panel__figure">
+                  <img src="site/the-family-rice-tray.vercel.app/img/hero-rau-muong.jpg" alt="A heap of glossy dark green stir-fried water spinach on a pale plate, strewn with golden fried garlic and slices of red chilli." width="1200" height="800" loading="lazy" decoding="async">
+                </figure>
+                <p class="dish-panel__index">Dish 05 / 07 · thirty seconds, no longer</p>
+                <h3>
+                  <a class="wl" lang="vi" href="https://en.wikipedia.org/wiki/Ipomoea%20aquatica" target="_blank" rel="noopener noreferrer" aria-label="Rau Muống Xào Tỏi — read about it on Wikipedia, opens in a new tab">
+                    Rau Muống Xào Tỏi
+                  </a>
+                </h3>
+                <p class="dish-panel__en">Water spinach stir-fried with garlic</p>
+                <p class="dish-panel__note">
+                  The most-eaten vegetable in the country and very nearly the cheapest. Screaming heat, a reckless
+                  fistful of garlic, thirty seconds in the wok. Any longer and the hollow stems collapse — the whole
+                  dish is a bet that you can move faster than the pan.
+                </p>
+                <dl class="dish-facts">
+                  <div>
+                    <dt>Where</dt>
+                    <dd>
+                      <span lang="vi">Cả nước</span>
+                      — the whole country
+                    </dd>
+                  </div>
+                  <div>
+                    <dt>Tastes like</dt>
+                    <dd>Green, snapping, unapologetically garlicky</dd>
+                  </div>
+                  <div>
+                    <dt>Takes</dt>
+                    <dd>Four minutes</dd>
+                  </div>
+                  <div>
+                    <dt>Leftover trick</dt>
+                    <dd>Boil the stems; drink the water as soup</dd>
+                  </div>
+                </dl>
+              </div>
+
+              <div class="dish-panel" role="tabpanel" id="panel-duacai" aria-labelledby="tab-duacai" tabindex="0" style="" hidden="">
+                <figure class="dish-panel__figure">
+                  <img src="site/the-family-rice-tray.vercel.app/img/hero-dua-cai.jpg" alt="Pale golden pickled mustard greens glistening in brine in a small blue and white porcelain saucer, beside round white brined baby eggplants." width="1200" height="800" loading="lazy" decoding="async">
+                </figure>
+                <p class="dish-panel__index">Dish 06 / 07 · the one that pushes back</p>
+                <h3>
+                  <a class="wl" lang="vi" href="https://en.wikipedia.org/wiki/C%C3%A0%20ph%C3%A1o" target="_blank" rel="noopener noreferrer" aria-label="Dưa Cải and Cà Pháo — read about it on Wikipedia, opens in a new tab">
+                    Dưa Cải &amp; Cà Pháo
+                  </a>
+                </h3>
+                <p class="dish-panel__en">Pickled mustard greens &amp; brined eggplant</p>
+                <p class="dish-panel__note">
+                  Every tray needs something sharp enough to argue with the rest of it. These live in a jar on the
+                  counter and arrive in a saucer barely wider than a palm, in deliberately small amounts, to reset the
+                  mouth between richer bites. Northern households will not sit down without them.
+                </p>
+                <dl class="dish-facts">
+                  <div>
+                    <dt>Where</dt>
+                    <dd>
+                      <span lang="vi">Miền Bắc</span>
+                      — the North
+                    </dd>
+                  </div>
+                  <div>
+                    <dt>Tastes like</dt>
+                    <dd>Sharp, salty, funky, bracing</dd>
+                  </div>
+                  <div>
+                    <dt>Takes</dt>
+                    <dd>Three days on the counter</dd>
+                  </div>
+                  <div>
+                    <dt>Portion</dt>
+                    <dd>Small. It is punctuation, not a sentence</dd>
+                  </div>
+                </dl>
+              </div>
+
+              <div class="dish-panel" role="tabpanel" id="panel-nuocmam" aria-labelledby="tab-nuocmam" tabindex="0" style="" hidden="">
+                <figure class="dish-panel__figure">
+                  <img src="site/the-family-rice-tray.vercel.app/img/hero-nuoc-mam.jpg" alt="A shallow white saucer of clear amber fish sauce with bright red chilli rings and slivered garlic floating on the surface, a lime wedge alongside." width="1200" height="800" loading="lazy" decoding="async">
+                </figure>
+                <p class="dish-panel__index">Dish 07 / 07 · the family signature</p>
+                <h3>
+                  <a class="wl" lang="vi" href="https://en.wikipedia.org/wiki/Fish%20sauce" target="_blank" rel="noopener noreferrer" aria-label="Nước Mắm Ớt — read about it on Wikipedia, opens in a new tab">
+                    Nước Mắm Ớt
+                  </a>
+                </h3>
+                <p class="dish-panel__en">Chilli fish sauce, for dipping</p>
+                <p class="dish-panel__note">
+                  Anchovies and sea salt, pressed in wooden barrels for a year and drawn off in grades like wine. The
+                  bottle is only the raw material: every household mixes its own dipping bowl with lime, sugar, garlic
+                  and chilli, and that ratio is the closest thing Vietnamese home cooking has to a handwriting.
+                </p>
+                <dl class="dish-facts">
+                  <div>
+                    <dt>Where</dt>
+                    <dd>
+                      <span lang="vi">Phú Quốc</span>
+                      &amp;
+                      <span lang="vi">Phan Thiết</span>
+                    </dd>
+                  </div>
+                  <div>
+                    <dt>Tastes like</dt>
+                    <dd>Salt, funk, sugar, lime, fire</dd>
+                  </div>
+                  <div>
+                    <dt>Takes</dt>
+                    <dd>Twelve months, then two minutes</dd>
+                  </div>
+                  <div>
+                    <dt>Placed</dt>
+                    <dd>Dead centre, within everyone’s reach</dd>
+                  </div>
+                </dl>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ==================== THE FEAST ==================== -->
+      <section class="feast" id="feast" aria-labelledby="feast-title">
+        <figure class="feast__frame">
+          <img class="feast__img" src="site/the-family-rice-tray.vercel.app/img/feast.jpg" alt="A complete mâm cơm seen from above on a round red lacquer tray: a clay pot of caramel-braised pork and eggs, a bowl of sour tamarind fish soup, a plate of garlic water spinach, pickled mustard greens, a central bowl of steamed rice, a saucer of chilli fish sauce, and empty rice bowls with chopsticks laid across them." width="2000" height="1125" loading="lazy" decoding="async">
+        </figure>
+        <div class="feast__body">
+          <p class="feast__cap">Mâm cơm miền Nam — a southern family tray, laid for four</p>
+          <div>
+            <p class="kicker">Một mâm đầy đủ · A full tray</p>
+            <h2 id="feast-title">
+              This is dinner.
+              <br>
+              All of it, at once.
+            </h2>
+          </div>
+          <div>
+            <p class="lede dim">
+              No starter, no main, no dessert. Everything arrives together and stays on the table until it is gone —
+              which means a Vietnamese meal is not a schedule, it is a place you sit down in. Seven dishes, one tray,
+              and no wrong order to eat them in.
+            </p>
+            <ul class="feast__count">
+              <li>7 dishes</li>
+              <li>1 tray</li>
+              <li>40 min cooking</li>
+              <li>20 min eating</li>
+              <li>2 hours still sitting there</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <!-- ==================== THE LEGEND ==================== -->
+      <section class="section legend" id="legend" aria-labelledby="legend-title">
+        <svg class="legend__seal" viewBox="0 0 200 200" aria-hidden="true" focusable="false">
+          <g fill="currentColor">
+            <path d="M146.0 100.0L119.8 97.3L119.8 102.7Z"></path>
+            <path d="M141.4 120.0L119.0 106.2L116.7 111.0Z"></path>
+            <path d="M128.7 136.0L114.5 113.8L110.3 117.2Z"></path>
+            <path d="M110.2 144.8L107.0 118.7L101.8 119.9Z"></path>
+            <path d="M89.8 144.8L98.2 119.9L93.0 118.7Z"></path>
+            <path d="M71.3 136.0L89.7 117.2L85.5 113.8Z"></path>
+            <path d="M58.6 120.0L83.3 111.0L81.0 106.2Z"></path>
+            <path d="M54.0 100.0L80.2 102.7L80.2 97.3Z"></path>
+            <path d="M58.6 80.0L81.0 93.8L83.3 89.0Z"></path>
+            <path d="M71.3 64.0L85.5 86.2L89.7 82.8Z"></path>
+            <path d="M89.8 55.2L93.0 81.3L98.2 80.1Z"></path>
+            <path d="M110.2 55.2L101.8 80.1L107.0 81.3Z"></path>
+            <path d="M128.7 64.0L110.3 82.8L114.5 86.2Z"></path>
+            <path d="M141.4 80.0L116.7 89.0L119.0 93.8Z"></path>
+          </g>
+          <circle cx="100" cy="100" r="16" fill="none" stroke="currentColor" stroke-width="2"></circle>
+          <circle cx="100" cy="100" r="56" fill="none" stroke="currentColor" stroke-width="1.2"></circle>
+          <circle cx="100" cy="100" r="62" fill="none" stroke="currentColor" stroke-width="1.2"></circle>
+          <circle cx="100" cy="100" r="90" fill="none" stroke="currentColor" stroke-width="1.2"></circle>
+          <circle cx="100" cy="100" r="96" fill="none" stroke="currentColor" stroke-width="1.2"></circle>
+          <circle cx="100" cy="100" r="76" fill="none" stroke="currentColor" stroke-width="1" stroke-dasharray="1 5" stroke-linecap="round"></circle>
+          <g transform="translate(100.0 24.0) rotate(0)">
+            <path d="M-7 2 L-2 -3 L0 1 L2 -3 L7 2" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"></path>
+          </g>
+          <g transform="translate(144.7 38.5) rotate(36)">
+            <path d="M-7 2 L-2 -3 L0 1 L2 -3 L7 2" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"></path>
+          </g>
+          <g transform="translate(172.3 76.5) rotate(72)">
+            <path d="M-7 2 L-2 -3 L0 1 L2 -3 L7 2" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"></path>
+          </g>
+          <g transform="translate(172.3 123.5) rotate(108)">
+            <path d="M-7 2 L-2 -3 L0 1 L2 -3 L7 2" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"></path>
+          </g>
+          <g transform="translate(144.7 161.5) rotate(144)">
+            <path d="M-7 2 L-2 -3 L0 1 L2 -3 L7 2" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"></path>
+          </g>
+          <g transform="translate(100.0 176.0) rotate(180)">
+            <path d="M-7 2 L-2 -3 L0 1 L2 -3 L7 2" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"></path>
+          </g>
+          <g transform="translate(55.3 161.5) rotate(216)">
+            <path d="M-7 2 L-2 -3 L0 1 L2 -3 L7 2" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"></path>
+          </g>
+          <g transform="translate(27.7 123.5) rotate(252)">
+            <path d="M-7 2 L-2 -3 L0 1 L2 -3 L7 2" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"></path>
+          </g>
+          <g transform="translate(27.7 76.5) rotate(288)">
+            <path d="M-7 2 L-2 -3 L0 1 L2 -3 L7 2" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"></path>
+          </g>
+          <g transform="translate(55.3 38.5) rotate(324)">
+            <path d="M-7 2 L-2 -3 L0 1 L2 -3 L7 2" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"></path>
+          </g>
+        </svg>
+        <div class="shell">
+          <div class="legend__grid">
+            <div>
+              <p class="kicker">Nguồn gốc · Origins</p>
+              <h2 id="legend-title" lang="vi">
+                Con Rồng
+                <br>
+                Cháu Tiên
+              </h2>
+              <p class="legend__sub">“Children of the Dragon, Grandchildren of the Fairy”</p>
+              <p>
+                <a class="wl" lang="vi" href="https://en.wikipedia.org/wiki/L%E1%BA%A1c%20Long%20Qu%C3%A2n" target="_blank" rel="noopener noreferrer" aria-label="Lạc Long Quân — read about it on Wikipedia, opens in a new tab">
+                  Lạc Long Quân
+                </a>
+                , a dragon lord of the sea, married
+                <a class="wl" lang="vi" href="https://en.wikipedia.org/wiki/%C3%82u%20C%C6%A1" target="_blank" rel="noopener noreferrer" aria-label="Âu Cơ — read about it on Wikipedia, opens in a new tab">
+                  Âu Cơ
+                </a>
+                , a fairy of the mountains. She bore a sac of one hundred eggs, and from them one hundred sons. When the
+                two finally parted, fifty followed their mother up into the highlands and fifty followed their father
+                down to the coast.
+              </p>
+              <p>
+                That, Vietnamese children are told, is why we are the way we are: a people half water and half rock, who
+                put the sea and the mountain on the same tray and eat them in the same mouthful. The eldest of those
+                sons founded
+                <a class="wl" lang="vi" href="https://en.wikipedia.org/wiki/V%C4%83n%20Lang" target="_blank" rel="noopener noreferrer" aria-label="Văn Lang — read about it on Wikipedia, opens in a new tab">
+                  Văn Lang
+                </a>
+                . His people cast bronze drums and flooded fields to grow rice.
+              </p>
+              <blockquote>
+                Three thousand years later the drum is behind museum glass — and the rice is still on the table, still
+                in the middle, still warm.
+              </blockquote>
+            </div>
+
+            <ol class="timeline">
+              <li>
+                <h3>~1000 BCE · Văn Lang</h3>
+                <p>
+                  Bronze casters at
+                  <a class="wl" lang="vi" href="https://en.wikipedia.org/wiki/Dong%20Son%20culture" target="_blank" rel="noopener noreferrer" aria-label="Đông Sơn — read about it on Wikipedia, opens in a new tab">
+                    Đông Sơn
+                  </a>
+                  pour the great drums while their neighbours flood the Red River delta to grow wet rice. Both
+                  technologies survive.
+                </p>
+              </li>
+              <li>
+                <h3>The face of the drum</h3>
+                <p>
+                  A fourteen-rayed sun at dead centre, ringed by bands of
+                  <span lang="vi">Lạc</span>
+                  herons in flight, long boats, and dancers in feathered headdresses. A drum, a calendar, and a map of
+                  an entire world — read from the middle outwards.
+                </p>
+              </li>
+              <li>
+                <h3>The tray</h3>
+                <p>
+                  The same circle, in bamboo or red lacquer. Rice at the centre, dishes on the radius, nothing served in
+                  courses, every bowl within every arm’s reach. Geometry as table manners.
+                </p>
+              </li>
+              <li data-now="">
+                <h3>Tonight</h3>
+                <p>
+                  Two main dishes, a soup, a plate of greens, a saucer of pickles, one bowl of fish sauce in the middle.
+                  Whoever gets home last still finds rice in the pot.
+                </p>
+              </li>
+            </ol>
+          </div>
+        </div>
+
+        <figure class="legend__scene">
+          <img src="site/the-family-rice-tray.vercel.app/img/con-rong.png" alt="Gold line drawing in Đông Sơn style: on the left a dragon coils above sea waves as fifty sons walk down to the water; on the right Âu Cơ rises towards mountain peaks as fifty sons climb; between them the sac of one hundred eggs radiates like a sun." width="2528" height="1696" loading="lazy" decoding="async">
+          <figcaption>
+            <span lang="vi">Năm mươi con theo cha xuống biển, năm mươi con theo mẹ lên non.</span>
+            <span class="dim">Fifty sons to the sea, fifty to the mountains.</span>
+          </figcaption>
+        </figure>
+      </section>
+
+      <!-- ==================== THE RECIPE ==================== -->
+      <section class="section recipe" id="recipe" aria-labelledby="recipe-title">
+        <div class="shell">
+          <div class="recipe__head">
+            <div>
+              <p class="kicker">Công thức · One of the seven</p>
+              <h2 id="recipe-title">
+                <a class="wl" lang="vi" href="https://en.wikipedia.org/wiki/Th%E1%BB%8Bt%20kho%20t%C3%A0u" target="_blank" rel="noopener noreferrer" aria-label="Thịt Kho Trứng — read about it on Wikipedia, opens in a new tab">
+                  Thịt Kho Trứng
+                </a>
+              </h2>
+              <p class="recipe__sub">Caramel-braised pork belly and eggs · serves the whole tray</p>
+              <p class="recipe__pick">
+                Seven dishes go on the tray, but only one of them is the dish a Vietnamese mother teaches you first. If
+                you learn a single thing to cook from this page, learn this one.
+              </p>
+              <p class="recipe__intro">
+                It is the dish a household makes when it wants to stop cooking for a while — forgiving, better reheated
+                than fresh, and the smell of the caramel going into the pot is, for a great many of us, the actual smell
+                of home. One pot on a Sunday carries a family through most of the week.
+              </p>
+            </div>
+            <figure style="margin: 0">
+              <div class="recipe__photo">
+                <img src="site/the-family-rice-tray.vercel.app/img/thit-kho-trung.jpg" alt="Cubes of caramel-braised pork belly and halved soft-yolked eggs in glossy dark amber sauce, in a crackle-glazed bowl." width="600" height="600" loading="lazy" decoding="async">
+              </div>
+              <figcaption class="recipe__credit">Thịt kho trứng, two hours in</figcaption>
+            </figure>
+          </div>
+
+          <div class="recipe__grid">
+            <div class="recipe__col">
+              <h3 id="ing-title">Ingredients</h3>
+
+              <div class="servings">
+                <span class="servings__label" id="servings-label">Scale the pot</span>
+                <div class="stepper" role="group" aria-labelledby="servings-label">
+                  <button type="button" data-step="-1" aria-label="Fewer servings">−</button>
+                  <output data-servings-out="" aria-live="polite">4 servings</output>
+                  <button type="button" data-step="1" aria-label="More servings">+</button>
+                </div>
+              </div>
+
+              <ul class="ingredients" aria-labelledby="ing-title">
+                <li>
+                  <span class="qty" data-base="800" data-unit="g">800 g</span>
+                  pork belly, skin on, in 4 cm cubes
+                </li>
+                <li>
+                  <span class="qty" data-base="8" data-unit="">8</span>
+                  eggs, boiled 8 minutes and peeled
+                </li>
+                <li>
+                  <span class="qty" data-base="250" data-unit="ml">250 ml</span>
+                  fresh coconut water
+                </li>
+                <li>
+                  <span class="qty" data-base="3" data-unit="tbsp">3 tbsp</span>
+                  fish sauce
+                </li>
+                <li>
+                  <span class="qty" data-base="3" data-unit="tbsp">3 tbsp</span>
+                  sugar — 2 for the caramel, 1 for the braise
+                </li>
+                <li>
+                  <span class="qty" data-base="4" data-unit="cloves">4 cloves</span>
+                  garlic, crushed flat
+                </li>
+                <li>
+                  <span class="qty" data-base="2" data-unit="">2</span>
+                  shallots, sliced thin
+                </li>
+                <li>
+                  <span class="qty" data-base="1" data-unit="tsp">1 tsp</span>
+                  black pepper, coarsely cracked
+                </li>
+                <li>
+                  <span class="qty" data-base="2" data-unit="">2</span>
+                  spring onions, cut in lengths
+                </li>
+                <li>
+                  <span class="qty">a pinch</span>
+                  of salt, for the marinade
+                </li>
+              </ul>
+
+              <dl class="recipe__meta">
+                <div>
+                  <dt>Prep</dt>
+                  <dd>20 min</dd>
+                </div>
+                <div>
+                  <dt>Braise</dt>
+                  <dd>2 hr</dd>
+                </div>
+                <div>
+                  <dt>Keeps</dt>
+                  <dd>5 days, improving</dd>
+                </div>
+                <div>
+                  <dt>Region</dt>
+                  <dd>Miền Nam</dd>
+                </div>
+              </dl>
+            </div>
+
+            <div class="recipe__col">
+              <h4 id="method-title">Method</h4>
+              <ol class="steps" aria-labelledby="method-title">
+                <li>
+                  <p>
+                    <strong>Marinate.</strong>
+                    Toss the pork with the fish sauce, one spoon of sugar, the shallots, garlic, pepper and a pinch of
+                    salt. Leave it thirty minutes at room temperature — longer in the fridge if you have the time.
+                  </p>
+                </li>
+                <li>
+                  <p>
+                    <strong>Burn the sugar, carefully.</strong>
+                    In a heavy pot over medium heat, melt two spoons of sugar dry, without stirring. Swirl the pan. When
+                    it turns the colour of strong tea and smells faintly of toast, it is done. Ten seconds later it is
+                    ruined.
+                  </p>
+                </li>
+                <li>
+                  <p>
+                    <strong>Sear.</strong>
+                    Tip in the pork and its marinade. It will hiss and seize. Turn the pieces until every side is
+                    lacquered dark and the fat has begun to render.
+                  </p>
+                </li>
+                <li>
+                  <p>
+                    <strong>Add the coconut water</strong>
+                    and just enough plain water to come level with the meat. Bring it to a bare simmer and skim off the
+                    grey foam that rises in the first few minutes.
+                  </p>
+                </li>
+                <li>
+                  <p>
+                    <strong>Braise low, uncovered or barely covered,</strong>
+                    for ninety minutes. Do not stir it — nudge it. The liquid should tremble, never roll.
+                  </p>
+                </li>
+                <li>
+                  <p>
+                    <strong>Add the eggs</strong>
+                    in the last thirty minutes so they take on colour without going rubbery. Roll them over once or
+                    twice so they stain evenly.
+                  </p>
+                </li>
+                <li>
+                  <p>
+                    <strong>Rest, then reheat.</strong>
+                    It is good now and noticeably better tomorrow. Serve with a great deal of white rice, something
+                    pickled, and something green.
+                  </p>
+                </li>
+              </ol>
+
+              <p class="aside-note">
+                <b>On the caramel.</b>
+                <span lang="vi">Nước màu</span>
+                is the single skill this dish asks of you. Cook the sugar too little and the braise stays pale and
+                sweet; too far and the whole pot turns bitter. Aim for the moment it stops smelling sweet and starts
+                smelling toasted — and have the pork standing by, because there is no time to fetch it.
+              </p>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ==================== TABLE MANNERS ==================== -->
+      <section class="section manners" id="manners" aria-labelledby="manners-title">
+        <div class="shell">
+          <div class="manners__head">
+            <div>
+              <p class="kicker">Nếp nhà · The way of the house</p>
+              <h2 id="manners-title">Six rules of the tray</h2>
+              <p class="lede dim">
+                A
+                <span class="vi" lang="vi">mâm cơm</span>
+                is a shared bowl, and shared bowls need etiquette. None of this is written down anywhere. All of it is
+                taught before you can read.
+              </p>
+            </div>
+            <img class="head-art" src="site/the-family-rice-tray.vercel.app/img/lua-sen.png" alt="" width="1000" height="671" loading="lazy" decoding="async" aria-hidden="true">
+          </div>
+
+          <ul class="manners__list">
+            <li>
+              <h3 lang="vi">Mời cơm</h3>
+              <span class="gloss">“Invite, then eat.”</span>
+              <p>
+                The youngest at the table invites each elder to begin, by name and in order of age —
+                <span lang="vi">“Con mời bà ăn cơm.”</span>
+                Nobody lifts chopsticks before that. It takes ten seconds and it sets the whole meal.
+              </p>
+            </li>
+            <li>
+              <h3 lang="vi">Ăn trông nồi, ngồi trông hướng</h3>
+              <span class="gloss">“Watch the pot as you eat; watch your seat as you sit.”</span>
+              <p>
+                Take what you need while noticing what is left. Never take the last piece of anything without offering
+                it first — and never twice in a row from the same plate.
+              </p>
+            </li>
+            <li>
+              <h3 lang="vi">Gắp cho người khác</h3>
+              <span class="gloss">“Serve someone else.”</span>
+              <p>
+                The best piece in the dish does not go into your bowl. It goes into a grandparent’s, or a guest’s,
+                placed there with your own chopsticks. Refusing it politely is part of the ritual too.
+              </p>
+            </li>
+            <li>
+              <h3 lang="vi">Cơm là chính</h3>
+              <span class="gloss">“Rice is the main thing.”</span>
+              <p>
+                Every dish is seasoned to be eaten
+                <em>with</em>
+                rice, not alone. Taste the braise by itself and it will seem far too salty. That is not a mistake — it
+                is the recipe working as designed.
+              </p>
+            </li>
+            <li>
+              <h3 lang="vi">Không cắm đũa</h3>
+              <span class="gloss">“Never stand your chopsticks up.”</span>
+              <p>
+                Chopsticks pushed upright into a bowl of rice is an offering for the dead, set on an ancestral altar
+                with incense. At a living table, lay them flat across the rim instead.
+              </p>
+            </li>
+            <li>
+              <h3 lang="vi">Ăn hết cơm</h3>
+              <span class="gloss">“Finish the rice.”</span>
+              <p>
+                Leave a grain and someone will tell you about the person who grew it. Nobody teaches this one as a rule.
+                Everybody enforces it.
+              </p>
+            </li>
+          </ul>
+        </div>
+      </section>
+
+      <!-- ==================== CLOSER ==================== -->
+      <section class="section closer" id="closer" aria-labelledby="closer-title">
+        <div class="closer__drum" aria-hidden="true"></div>
+        <div class="shell">
+          <p class="kicker" style="justify-content: center">Lời chào · The greeting</p>
+          <h2 id="closer-title" lang="vi">Ăn cơm chưa?</h2>
+          <div class="closer__body">
+            <p class="lede">“Have you eaten rice yet?”</p>
+            <p class="rule" aria-hidden="true"><span class="rule__mark"></span></p>
+            <p class="dim">
+              It is how Vietnamese people say hello — to a neighbour, on the phone, to a child coming through the door.
+              It is also how we say
+              <i>I was thinking about you</i>
+              , and
+              <i>are you all right</i>
+              , and
+              <i>come inside</i>
+              , and
+              <i>sit down</i>
+              , and
+              <i>there is still some in the pot</i>
+              .
+              <!-- the stop must hug the tag: a
+          newline between them collapses to a space, and a space is a break
+          opportunity, which lands a lone full stop on its own line -->
+            </p>
+            <p class="closer__punch">There is no way to translate it that does not come out sounding like love.</p>
+          </div>
+        </div>
+        <img class="closer__family" src="site/the-family-rice-tray.vercel.app/img/gia-dinh.png" alt="Three generations of a Vietnamese family sitting cross-legged on a woven mat around one round tray, the youngest child holding up a bowl of rice in both hands to his grandmother." width="1500" height="837" loading="lazy" decoding="async">
+      </section>
+    </main>
+
+    <footer class="footer">
+      <div class="frieze" role="presentation"></div>
+      <div class="footer__inner">
+        <div>
+          <p class="footer__tag">Mâm Cơm · Mời cả nhà</p>
+          <p class="footer__credit">
+            Music:
+            <span lang="vi">“Đăng Đàn Cung”</span>
+            , the Nguyễn court processional of Huế. It belongs to
+            <a class="wl" href="https://en.wikipedia.org/wiki/Nh%C3%A3_nh%E1%BA%A1c" target="_blank" rel="noopener noreferrer" aria-label="Nhã nhạc, Vietnamese court music — read about it on Wikipedia, opens in a new tab">
+              <span lang="vi">nhã nhạc</span>
+            </a>
+            , Vietnamese court music, proclaimed by UNESCO a Masterpiece of the Oral and Intangible Heritage of Humanity
+            in 2003 and inscribed on the Representative List in 2008. Recreation by Prof. Liam C. Kelley (
+            <span lang="vi">Lê Minh Khải</span>
+            ), used under
+            <a href="https://creativecommons.org/licenses/by/3.0/" target="_blank" rel="noopener noreferrer">
+              CC&nbsp;BY&nbsp;3.0
+            </a>
+            via
+            <a href="https://commons.wikimedia.org/wiki/File:%C4%90%C4%83ng_%C4%90%C3%A0n_cung_(%E7%99%BB%E5%A3%87%E5%AE%AE)_-_1941_Annam_Anthem_-_Recreation_by_Prof._Liam_C._Kelley_(L%C3%AA_Minh_Kh%E1%BA%A3i).mp3" target="_blank" rel="noopener noreferrer">
+              Wikimedia Commons
+            </a>
+            . Trimmed and level-matched.
+          </p>
+          <p>
+            A love letter to the Vietnamese family rice tray, built for the
+            <strong>DEV Frontend Challenge: Comfort Food Edition</strong>
+            —
+            <strong>#frontendchallenge.</strong>
+          </p>
+        </div>
+        <div>
+          <p>
+            <strong>Built with</strong>
+            hand-written HTML, CSS and about 60 lines of vanilla JavaScript. No frameworks, no build step.
+          </p>
+          <p>
+            <strong>Ornament</strong>
+            after the
+            <a class="wl" lang="vi" href="https://en.wikipedia.org/wiki/Ng%E1%BB%8Dc%20L%C5%A9%20drum" target="_blank" rel="noopener noreferrer" aria-label="Ngọc Lũ bronze drum — read about it on Wikipedia, opens in a new tab">
+              Ngọc Lũ bronze drum
+            </a>
+            (Đông Sơn culture, c. 1000 BCE) and Lý-dynasty dragon carving. Dish photography and gold-line illustration
+            generated for this page.
+          </p>
+        </div>
+      </div>
+    </footer>
+
+    
+  
+
+<div data-wd3-banner style="position:fixed;z-index:2147483647;left:16px;bottom:16px;max-width:min(560px,calc(100vw - 32px));align-items:center;gap:12px;padding:12px 14px;border-radius:12px;background:rgba(5,5,5,.92);color:#e8e8e8;border:1px solid #1d1d1d;box-shadow:0 8px 30px rgba(0,0,0,.35);font:13px/1.45 ui-sans-serif,system-ui,-apple-system,'Segoe UI',sans-serif;backdrop-filter:blur(8px)">
+  <span style="width:8px;height:8px;border-radius:50%;background:#00ffa3;flex:none"></span>
+  <span>Versão estática, sem animações. Para ver o site vivo, rode no terminal, nesta pasta: <b style="color:#00ffa3">python3 serve.py --open</b> (Windows: <b style="color:#00ffa3">py serve.py --open</b>). Passo a passo em <b style="color:#00ffa3">Como rodar.md</b>.</span>
+  <button type="button" onclick="this.parentNode.remove()" aria-label="Fechar" style="flex:none;background:none;border:0;color:#8a8a8a;font-size:18px;cursor:pointer;padding:0 2px">×</button>
+</div>
+</body></html>

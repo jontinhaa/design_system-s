@@ -1,0 +1,90 @@
+
+  .home-map-img-svg {
+    overflow: visible !important;
+  }
+	.home-map-img-svg path{
+  	transition: filter ease .4s;
+    &:nth-child(1) {
+    	transform: translate(-100vw, -16rem);
+    }
+    &:nth-child(2) {
+    	transform: translate(100vw, -26rem);
+    }
+     &:nth-child(3) {
+    	transform: translate(100vw, 26rem);
+    }
+     &:nth-child(4) {
+    	transform: translate(-20rem, -100dvh);
+    }
+    &:nth-child(5) {
+    	transform: translate(-22rem, -100dvh);
+    }
+    &:nth-child(6) {
+    	transform: translate(-100vw, 28rem);
+    }
+    &:nth-child(7) {
+    	transform: translate(-100vw, 48rem);
+    }
+    &:nth-child(8) {
+    	transform: translate(-48rem, 100dvh);
+    }
+    &:nth-child(9) {
+    	transform: translate(-28rem, 100dvh);
+    }
+    &:nth-child(10) {
+    	transform: translate(9rem, 100dvh);
+    }
+    &:nth-child(11) {
+    	transform: translate(42rem, 100dvh);
+    }
+    &:nth-child(12) {
+    	transform: translate(100vw, 26rem);
+    }
+    &:nth-child(13) {
+    	transform: translate(-70rem, -100dvh);
+    }
+  }
+  @media only screen and (max-width: 767px) {
+  	.home-map-img-svg path{
+      filter: url("#path-filter");
+      &:nth-child(1) {
+        transform: translate(-100%, -16rem);
+      }
+      &:nth-child(2) {
+        transform: translate(100%, -26rem);
+      }
+       &:nth-child(3) {
+        transform: translate(100%, 26rem);
+      }
+      &:nth-child(4) {
+        transform: translate(-20rem, -130dvh);
+      }
+      &:nth-child(5) {
+        transform: translate(-22rem, -121dvh);
+    	}
+      &:nth-child(6) {
+        transform: translate(-100%, 28rem);
+      }
+      &:nth-child(7) {
+        transform: translate(-100%, 48rem);
+      }
+      &:nth-child(8) {
+        transform: translate(-48rem, 100dvh);
+      }
+      &:nth-child(9) {
+        transform: translate(-28rem, 160dvh);
+      }
+      &:nth-child(10) {
+        transform: translate(9rem, 160dvh);
+      }
+      &:nth-child(11) {
+        transform: translate(42rem, 160dvh);
+      }
+      &:nth-child(12) {
+          transform: translate(100%, 26rem);
+      }
+      &:nth-child(13) {
+        transform: translate(-70rem, -100dvh);
+      }
+    }
+  }

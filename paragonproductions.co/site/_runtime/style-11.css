@@ -1,0 +1,21 @@
+
+.nav_toggle_wrap {
+	--thickness: 2px;
+	--gap: 0.35rem;
+	/* --rotate: 45; */
+  --width: 100%;
+}
+
+[data-navigation-status="active"] .nav_toggle_line {
+	width: 100% !important;
+}
+
+[data-navigation-status="active"] .nav_toggle_line:first-child {
+	transform: translateY(calc(var(--thickness) + var(--gap)));
+	/* transform: translateY(calc(var(--thickness) + var(--gap))) rotate(calc(var(--rotate) * 3 * 1deg)); */
+}
+
+[data-navigation-status="active"] .nav_toggle_line:last-child {
+	transform: translateY(calc(var(--thickness) * -1 + var(--gap) * -1));
+	/* transform: translateY(calc(var(--thickness) * -1 + var(--gap) * -1)) rotate(calc(var(--rotate) * 1deg));*/
+}

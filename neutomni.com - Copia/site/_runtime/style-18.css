@@ -1,0 +1,21 @@
+
+.pulse_dotty {
+  border-radius: 0;
+  color: currentColor;
+  --pulse-alpha: 0.8;
+  animation: pulse-animation-white 2s linear infinite;
+}
+@keyframes pulse-animation-white {
+  0% {
+    transform: rotate(45deg) scale(1.1);
+    box-shadow: 0 0 0 0 rgba(255, 255, 255, 0.55);
+  }
+  50% {
+    transform: rotate(90deg) scale(1.2);
+    box-shadow: 0 0 0 4px rgba(255, 255, 255, 0);
+  }
+  100% {
+    transform: rotate(135deg) scale(1.1);
+    box-shadow: 0 0 0 0 rgba(255, 255, 255, 0);
+  }
+}

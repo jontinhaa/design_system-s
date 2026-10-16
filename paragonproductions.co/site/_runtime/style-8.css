@@ -1,0 +1,29 @@
+
+
+/* --- Custom | CSS --- */
+
+/* Marquee Animation */
+@keyframes translateX {
+  to {
+    transform: translateX(-100%);
+  }
+}
+
+/* Base styles for all marquee lists */
+[data-css-marquee-list],
+[data-nav-marquee-list] {
+  animation-name: translateX;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  /* animation-play-state: paused; */
+}
+
+/* Specific duration overrides */
+[data-css-marquee-list] {
+  animation-duration: 20s;
+}
+
+[data-nav-marquee-list] {
+  animation-duration: 30s;
+}
+

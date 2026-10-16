@@ -1,0 +1,100 @@
+{
+ "builders": [
+  "webflow"
+ ],
+ "libraries": [
+  {
+   "name": "gsap",
+   "version": "3.15.0",
+   "sources": [
+    "página",
+    "https://cdn.prod.website-files.com/gsap/3.15.0/Observer.min.js",
+    "https://cdn.prod.website-files.com/gsap/3.15.0/MorphSVGPlugin.min.js",
+    "https://cdn.prod.website-files.com/gsap/3.15.0/SplitText.min.js",
+    "https://cdn.prod.website-files.com/gsap/3.15.0/gsap.min.js"
+   ]
+  },
+  {
+   "name": "gsap/ScrollTrigger",
+   "version": null,
+   "sources": [
+    "página"
+   ]
+  },
+  {
+   "name": "gsap/SplitText",
+   "version": null,
+   "sources": [
+    "página"
+   ]
+  },
+  {
+   "name": "jquery",
+   "version": "3.5.1",
+   "sources": [
+    "página",
+    "https://d3e54v103j8qbb.cloudfront.net/js/jquery-3.5.1.min.dc5e7f18c8.js?site=696f937263525fd559c6ea5f"
+   ]
+  },
+  {
+   "name": "lenis",
+   "version": "1.3.21",
+   "sources": [
+    "página",
+    "https://unpkg.com/lenis@1.3.21/dist/lenis.min.js"
+   ]
+  },
+  {
+   "name": "lottie",
+   "version": null,
+   "sources": [
+    "embutido em https://cdn.prod.website-files.com/696f937263525fd559c6ea5f/js/neutomni-026b92.schunk.c42549641b7d4501.js"
+   ]
+  },
+  {
+   "name": "swiper",
+   "version": null,
+   "sources": [
+    "página"
+   ]
+  }
+ ],
+ "runtime": {
+  "contexts": {
+   "2d": 3
+  },
+  "wasm": 0,
+  "workers": 0,
+  "webgpu": false,
+  "shadowRoots": 0,
+  "canvases": 1
+ },
+ "cssFeatures": [],
+ "fonts": {
+  "families": [
+   "Italic Local",
+   "Vazirmatn Local",
+   "Firacode Local",
+   "Editorial new Local"
+  ],
+  "sources": [
+   "self-hosted"
+  ]
+ },
+ "videos": [
+  {
+   "src": "https://pub-72fbbd6aa7d54a70b04aaa87235f19c9.r2.dev/Scene-2%20(1)%20(1).mp4",
+   "kind": "decorativo",
+   "reason": "curto, sem controles e sem som",
+   "hosting": "próprio site",
+   "action": "baixado"
+  }
+ ],
+ "files": {
+  "text": 17,
+  "image": 55,
+  "font": 6,
+  "application": 8,
+  "video": 1
+ }
+}

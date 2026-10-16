@@ -1,0 +1,1 @@
+let e=0;class d{constructor(s,i,{build:t,kill:h}){this.app=s,this.build=t,this.kill=h,this.ns=`${i}${e++}`,this.app.on(`resize.${this.ns}`,()=>this.rebuild()),this.app.on(`destroy.${this.ns}`,()=>this.destroy()),this.build()}rebuild(){this.kill(),this.build()}destroy(){this.kill(),this.app.off(`resize.${this.ns}`),this.app.off(`destroy.${this.ns}`)}}export{d as R};

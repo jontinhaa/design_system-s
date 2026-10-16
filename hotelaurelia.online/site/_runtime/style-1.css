@@ -1,0 +1,52 @@
+
+        html.au-mouse-active, html.au-mouse-active body,
+        html.au-mouse-active a, html.au-mouse-active button,
+        html.au-mouse-active [data-cursor] { cursor: none !important; }
+        html.au-mouse-active .au-cursor-ring,
+        html.au-mouse-active .au-cursor-dot,
+        html.au-mouse-active .au-burst-layer { display: block; }
+        @media (pointer: coarse) {
+          html:not(.au-mouse-active), html:not(.au-mouse-active) body { cursor: auto !important; }
+          html:not(.au-mouse-active) a, html:not(.au-mouse-active) button,
+          html:not(.au-mouse-active) [data-cursor] { cursor: pointer !important; }
+        }
+        .au-cursor-ring {
+          position: fixed; top: 0; left: 0; width: 36px; height: 36px;
+          display: none;
+          border: 1px solid var(--au-gold);
+          border-radius: 999px;
+          pointer-events: none; z-index: 9999;
+          transition: width .25s ease, height .25s ease, border-color .25s ease, background .25s ease;
+          backdrop-filter: blur(1px);
+        }
+        .au-cursor-ring.au-hover {
+          width: 64px; height: 64px;
+          border-color: var(--au-gold);
+          background: rgb(var(--au-gold-rgb) / 0.1);
+        }
+        .au-cursor-dot {
+          position: fixed; top: 0; left: 0; width: 5px; height: 5px;
+          display: none;
+          background: var(--au-gold);
+          border-radius: 999px;
+          pointer-events: none; z-index: 10000;
+          box-shadow: 0 0 12px rgb(var(--au-gold-rgb) / 0.7);
+        }
+        .au-burst-layer { display: none; position: fixed; inset: 0; pointer-events: none; z-index: 9997; }
+        .au-burst { position: absolute; width: 0; height: 0; }
+        .au-burst span {
+          position: absolute; left: 0; top: 0;
+          width: 4px; height: 4px; border-radius: 999px;
+          background: var(--au-gold);
+          box-shadow: 0 0 8px rgb(var(--au-gold-rgb) / 0.9);
+          transform: translate(0,0);
+          animation: au-burst .8s cubic-bezier(.16,1,.3,1) forwards;
+          animation-delay: var(--delay, 0ms);
+          opacity: 0;
+        }
+        @keyframes au-burst {
+          0% { transform: translate(0,0) scale(0.6); opacity: 0; }
+          20% { opacity: 1; }
+          100% { transform: translate(var(--tx), var(--ty)) scale(0.2); opacity: 0; }
+        }
+      

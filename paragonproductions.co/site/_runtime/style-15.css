@@ -1,0 +1,33 @@
+
+
+/* Responsive Desktop */
+@container threshold-featured-work (width >= 62em) {  
+  .featured-work_list_item:nth-child(5n + 1),
+  .featured-work_list_item:nth-child(5n + 2) {
+    grid-area: span 1 / span 3 / span 1 / span 1;
+  }
+  
+  .featured-work_list_item:nth-child(5n + 2) .featured-work_card_content,
+  .featured-work_list_item:nth-child(5n + 5) .featured-work_card_content {
+    border-right-style: none;
+  }
+
+  .featured-work_list_item {
+    grid-area: span 1 / span 2 / span 1 / span 1;
+  }
+}
+
+@container threshold-featured-work (width < 62em) {
+  .u-order-unset-above { order: unset !important; }
+	.u-all-unset-above { all: unset !important; }
+	.u-grid-above { display: flex !important; }
+  .featured-work_list_item .featured-work_card_content {
+  	border-right-style: none;
+  }
+}
+
+.featured-work_card_image:hover .featured-work_card_placeholder,
+.featured-work_card_image:focus-visible .featured-work_card_placeholder {
+	opacity: 0;
+}
+

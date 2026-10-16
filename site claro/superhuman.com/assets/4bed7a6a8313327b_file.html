@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <script src="/releases/d135262e6a93a0ec793379a3be6c7cca3a6cf1ac/assets/pre-paint-theme-CtVqTLCD.js"></script>
+
+    <meta charset="utf-8" />
+    <title>Superhuman Go</title>
+    <meta name="robots" content="noindex" />
+    <base href="/" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="color-scheme" content="light dark" />
+    <link rel="icon" type="image/png" sizes="16x16" href="/releases/d135262e6a93a0ec793379a3be6c7cca3a6cf1ac/favicon-16.png" />
+    <link rel="icon" type="image/png" sizes="32x32" href="/releases/d135262e6a93a0ec793379a3be6c7cca3a6cf1ac/favicon-32.png" />
+    <link rel="apple-touch-icon" sizes="128x128" href="/releases/d135262e6a93a0ec793379a3be6c7cca3a6cf1ac/apple-touch-icon.png" />
+    <style>
+      /*
+     * Background-only pre-paint so the page doesn't flash white before the
+     * bundle parses. The full loading skeleton is rendered by React from
+     * LoadingSkeleton.tsx. The `externalHeadScript` Vite plugin (configured
+     * in vite.config.ts) bundles `src/prePaintTheme/prePaintTheme.ts` as a
+     * synchronous classic IIFE, emits it as a hashed asset under the
+     * configured Vite base, and prepends a `<script src="…">` tag to <head>. The
+     * script sets `data-gds-theme` on <html> before paint, so this stays
+     * in sync with the user's stored choice without violating CSP
+     * `script-src 'self'`.
+     */
+      html,
+      body,
+      #root {
+        margin: 0;
+        padding: 0;
+        height: 100%;
+        background: #fcfaf7;
+        /* should match --color-background-base-subdued */
+      }
+
+      html[data-gds-theme='dark'],
+      html[data-gds-theme='dark'] body,
+      html[data-gds-theme='dark'] #root {
+        background: #292827;
+        /* should match --color-background-base-subdued */
+      }
+    </style>
+    <script type="module" crossorigin src="/releases/d135262e6a93a0ec793379a3be6c7cca3a6cf1ac/assets/main-X1yzoamd.js"></script>
+    <link rel="modulepreload" crossorigin href="/releases/d135262e6a93a0ec793379a3be6c7cca3a6cf1ac/assets/shared-redirects-_As4Bd3M.js">
+    <link rel="stylesheet" crossorigin href="/releases/d135262e6a93a0ec793379a3be6c7cca3a6cf1ac/assets/main-CY9NzZaB.css">
+  </head>
+
+  <body>
+    <div id="root"></div>
+  </body>
+</html>

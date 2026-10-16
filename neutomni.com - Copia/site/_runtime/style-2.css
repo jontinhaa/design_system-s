@@ -1,0 +1,22 @@
+
+@media (max-width: 768px) {
+  .service_content_wrap::before,
+  .card_botom_wrap::before {
+    z-index: -1;
+    pointer-events: none;
+    background: rgba(8, 50, 68, 0.08);
+    filter: blur(42px);
+    -webkit-filter: blur(42px);
+    transform: translateY(24px) scale(0.96);
+  }
+  .service_content_wrap::before {
+    inset: 24px;
+  }
+  .card_botom_wrap::before {
+    inset: 16px;
+    filter: blur(36px);
+    -webkit-filter: blur(36px);
+    transform: translateY(22px) scale(0.97);
+  }
+}
+

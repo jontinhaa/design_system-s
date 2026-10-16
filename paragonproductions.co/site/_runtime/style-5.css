@@ -1,0 +1,145 @@
+
+
+/* CSS Base */
+
+/* Root */
+:root {
+  --grid-breakout: [full-start] minmax(0, 1fr) [content-start] repeat(var(--site--column-count), minmax(0, var(--site--column-width))) [content-end] minmax(0, 1fr) [full-end];
+  --grid-breakout-single: [full-start] minmax(0, 1fr) [content-start] minmax(0, calc(100% - var(--site--margin) * 2)) [content-end] minmax(0, 1fr) [full-end];
+}
+
+/* Body */
+body { 
+  font-smoothing: antialiased;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale; 
+  text-rendering: optimizeLegibility; 
+}
+
+/* Default */
+::before, ::after {
+	box-sizing: border-box;
+}
+
+/* Relative Elements */
+section, nav, header, footer { position: relative; }
+
+/* Remove blue highlight on mobile tap */
+* {-webkit-tap-highlight-color: transparent;}
+* {vertical-align: bottom;}
+
+/* Image Selection */
+img::selection {background: transparent;}
+
+/* Video */
+video {width: 100%; object-fit: cover;}
+video.wf-empty {padding: 0;}
+
+/* SVG */
+svg {display: block;}
+
+/* Hide section if it has no CMS items */
+[data-cms-check="true"]:not(:has(.w-dyn-item)) {display: none;}
+
+/* Default */
+h1,h2,h3,h4,h5,h6,p,blockquote,label {
+	font-family: inherit;
+	font-size: inherit;
+	font-weight: inherit;
+	line-height: inherit;
+	letter-spacing: inherit;
+	text-transform: inherit;
+	text-wrap: inherit;
+	margin-top: 0;
+	margin-bottom: 0;
+}
+
+/* Line clamp */
+.u-line-clamp-1, .u-line-clamp-2, .u-line-clamp-3, .u-line-clamp-4, .u-line-clamp-5 { 
+  display: -webkit-box; 
+  overflow: hidden; 
+  -webkit-line-clamp: 1; 
+  -webkit-box-orient: vertical; 
+}
+.u-line-clamp-2 {-webkit-line-clamp: 2;}
+.u-line-clamp-3 {-webkit-line-clamp: 3;}
+.u-line-clamp-4 {-webkit-line-clamp: 4;}
+.u-line-clamp-5 {-webkit-line-clamp: 5;}
+
+/* Link */
+a:not([class]) {text-decoration: underline;}
+
+/* Rich text */
+.u-rich-text > *:first-child, 
+.u-rich-text .w-richtext > *:first-child {margin-top: 0rem;}
+.u-richtext > *:last-child 
+.u-rich-text .w-richtext > *:last-child {margin-bottom: 0rem;}
+.w-richtext a {position: relative; z-index: 4;}
+.w-embed:before, .w-embed:after,
+.w-richtext:before, .w-richtext:after {
+	content: unset;
+}
+
+.blog-template_body_rich-text a {text-decoration: none;}
+
+/* Margin Trim */
+:is(.u-margin-trim,.u-rich-text) > :not(:not(.w-condition-invisible,.u-cover-absolute,.u-ignore-trim) ~ :not(.w-condition-invisible,.u-cover-absolute,.u-ignore-trim)),
+:is(.u-margin-trim,.u-rich-text) > :not(:not(.w-condition-invisible,.u-cover-absolute,.u-ignore-trim) ~ :not(.w-condition-invisible,.u-cover-absolute,.u-ignore-trim)).u-display-contents > :first-child {
+	margin-top: 0;
+}
+:is(.u-margin-trim,.u-rich-text) > :not(:has(~ :not(.w-condition-invisible,.u-cover-absolute,.u-ignore-trim))),
+:is(.u-margin-trim,.u-rich-text) > :not(:has(~ :not(.w-condition-invisible,.u-cover-absolute,.u-ignore-trim))).u-display-contents > :last-child {
+	margin-bottom: 0;
+}
+
+/* Child Contain */
+.u-child-contain > * {
+	width: 100%;
+	max-width: inherit !important;
+  margin-inline: 0 !important;
+	margin-top: 0 !important;
+}
+
+/* Focus State */
+a, button, :where([tabindex]), [data-outline] {
+	outline-offset: var(--focus--offset-outer);
+}
+
+a:focus-visible,
+button:focus-visible,
+[tabindex]:focus-visible,
+label:has(input:focus-visible) [data-outline] {
+	outline-color: var(--_theme---text);
+	outline-width: var(--focus--width);
+	outline-style: solid;
+}
+
+/* Empty */
+.u-hide-if-empty:empty,
+.u-hide-if-empty:not(:has(> :not(.w-condition-invisible))),
+.u-hide-if-empty-cms:not(:has(.w-dyn-item)),
+.u-embed-js,
+.u-embed-css {
+	display: none !important;
+}
+
+/* Selection Color */
+::selection {
+	background-color: var(--_theme---selection--background);
+	color: var(--_theme---selection--text);
+  text-shadow: none;
+}
+
+select:has(option[value=""]:checked) {
+	color: color-mix(in lab, currentcolor 60%, transparent)
+}
+
+/* HTML */
+html {
+	background-color: var(--_theme---background--primary);
+}
+
+@media (prefers-color-scheme: light) {
+	option { color: black; }
+}
+

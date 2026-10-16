@@ -1,0 +1,20 @@
+
+  .track {
+    position: relative;
+    height: 220px;
+  }
+
+  #morphSvg,
+  #morphSvgMobile {
+    position: absolute;
+    left: 0;
+    top: 0;
+  }
+
+  #morphSvgMobile { display: none; }
+
+  @media (hover: none) {
+    #morphSvg { display: none; }
+    #morphSvgMobile { display: block; }
+    .track { height: 120px; }
+  }

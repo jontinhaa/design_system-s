@@ -1,0 +1,444 @@
+<html lang="en" class="scroll-smooth"><head><meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AURA | Premium Café Experience</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<script src="https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&amp;family=Playfair+Display:ital,wght@0,400;0,500;1,400&amp;display=swap" rel="stylesheet">
+<style>
+body {
+font-family: 'Inter', sans-serif;
+}
+.font-serif {
+font-family: 'Playfair Display', serif;
+}
+</style>
+</head>
+<body class="bg-[#FAFAF9] text-stone-900 antialiased selection:bg-stone-200">
+
+    <!-- Navigation -->
+    <nav class="fixed top-0 z-50 w-full bg-[#FAFAF9]/80 backdrop-blur-md border-b border-stone-200">
+        <div class="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between">
+            <div class="flex items-center gap-8">
+                <a href="#" class="text-xl font-medium tracking-tight uppercase font-serif">AURA</a>
+                <div class="hidden md:flex items-center gap-6 text-sm text-stone-500 font-normal">
+                    <a href="#story" class="hover:text-stone-900 transition-colors">Story</a>
+                    <a href="#menu-preview" class="hover:text-stone-900 transition-colors">Menu</a>
+                    <a href="#gallery" class="hover:text-stone-900 transition-colors">Gallery</a>
+                    <a href="#visit" class="hover:text-stone-900 transition-colors">Visit</a>
+                </div>
+            </div>
+            <div class="flex items-center gap-4">
+                <a href="#visit" class="text-sm font-normal text-stone-900 hover:text-stone-500 transition-colors hidden sm:block">Book a Table</a>
+                <a href="#menu" class="text-sm font-medium bg-stone-900 text-[#FAFAF9] px-4 py-2 rounded-lg hover:bg-stone-800 transition-colors shadow-sm">
+                    Order Ahead
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- 1. Hero Section -->
+    <header class="relative w-full h-screen min-h-[600px] flex items-center justify-center text-center">
+        <!-- Background Image -->
+        <div class="absolute inset-0 w-full h-full">
+            <img src="https://images.unsplash.com/photo-1554118811-1e0d58224f24?auto=format&amp;fit=crop&amp;q=80&amp;w=2000" alt="Cinematic café atmosphere" class="w-full h-full object-cover">
+            <div class="absolute inset-0 bg-stone-900/40"></div>
+        </div>
+        
+        <!-- Content -->
+        <div class="relative z-10 max-w-3xl mx-auto px-6 space-y-8 mt-16">
+            <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/10 backdrop-blur-sm text-xs font-medium text-[#FAFAF9] border border-white/20">
+                <span class="w-2 h-2 rounded-full bg-stone-300"></span>
+                Now roasting single-origin beans
+            </div>
+            <h1 class="text-5xl md:text-7xl font-medium tracking-tight text-white leading-[1.1] font-serif">
+                A Global Café Experience, <br> <span class="italic font-normal">Right Here.</span>
+            </h1>
+            <p class="text-lg text-stone-200 font-normal max-w-lg mx-auto leading-relaxed">
+                Comfort, creativity, and exceptional flavor woven into your daily ritual. A sanctuary designed for connection.
+            </p>
+            <div class="flex flex-col sm:flex-row items-center justify-center gap-4 pt-4">
+                <a href="#menu-preview" class="w-full sm:w-auto text-sm font-medium bg-[#FAFAF9] text-stone-900 px-6 py-3 rounded-lg hover:bg-white transition-colors shadow-sm">
+                    View Menu
+                </a>
+                <a href="#visit" class="w-full sm:w-auto text-sm font-medium text-white bg-transparent border border-white/30 px-6 py-3 rounded-lg hover:bg-white/10 transition-colors">
+                    Visit Us
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- 2. Brand Story -->
+    <section id="story" class="py-24 md:py-32">
+        <div class="max-w-7xl mx-auto px-6 flex flex-col md:flex-row items-center gap-16">
+            <div class="flex-1 space-y-6">
+                <h2 class="text-3xl md:text-4xl font-medium tracking-tight text-stone-900 font-serif">Our Story</h2>
+                <p class="text-base text-stone-500 leading-relaxed">
+                    AURA began as a pursuit of the perfect cup and evolved into a sanctuary for our community. We believe in the power of a quiet moment and the warmth of shared experiences. 
+                </p>
+                <p class="text-base text-stone-500 leading-relaxed">
+                    By partnering directly with farmers and focusing on an inviting, beautifully curated aesthetic, our space strips away distractions, leaving only genuine connection and crafted excellence for creators, thinkers, and lovers of fine food.
+                </p>
+            </div>
+            <div class="flex-1 w-full">
+                <img src="https://images.unsplash.com/photo-1600093463592-8e36ae95ef56?auto=format&amp;fit=crop&amp;q=80&amp;w=1000" alt="Warm cafe interior" class="w-full aspect-[4/5] object-cover rounded-2xl shadow-sm border border-stone-200">
+            </div>
+        </div>
+    </section>
+
+    <!-- 3. Signature Experience -->
+    <section class="py-24 bg-stone-100/50 border-y border-stone-200">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="mb-12">
+                <h2 class="text-3xl font-medium tracking-tight text-stone-900 font-serif mb-4">Signature Creations</h2>
+                <p class="text-base text-stone-500 max-w-xl">Carefully conceptualized dishes and drinks that define the AURA experience. A blend of culinary artistry and comforting familiarity.</p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Signature 1 -->
+                <div class="group cursor-pointer">
+                    <div class="overflow-hidden rounded-xl mb-4 border border-stone-200">
+                        <img src="https://images.unsplash.com/photo-1541167760496-1628856ab772?auto=format&amp;fit=crop&amp;q=80&amp;w=800" alt="Signature Latte" class="w-full aspect-square object-cover group-hover:scale-105 transition-transform duration-500">
+                    </div>
+                    <h3 class="text-lg font-medium text-stone-900 mb-1 tracking-tight font-serif">Smoked Vanilla Cortado</h3>
+                    <p class="text-sm text-stone-500">House-smoked vanilla bean syrup, equal parts espresso and textured milk, dusted with raw cacao.</p>
+                </div>
+                <!-- Signature 2 -->
+                <div class="group cursor-pointer">
+                    <div class="overflow-hidden rounded-xl mb-4 border border-stone-200">
+                        <img src="https://images.unsplash.com/photo-1628840042765-356cda07504e?auto=format&amp;fit=crop&amp;q=80&amp;w=800" alt="Truffle Toast" class="w-full aspect-square object-cover group-hover:scale-105 transition-transform duration-500">
+                    </div>
+                    <h3 class="text-lg font-medium text-stone-900 mb-1 tracking-tight font-serif">Wild Mushroom Tartine</h3>
+                    <p class="text-sm text-stone-500">Foraged seasonal mushrooms, whipped ricotta, truffle oil, and micro-thyme on thick-cut sourdough.</p>
+                </div>
+                <!-- Signature 3 -->
+                <div class="group cursor-pointer">
+                    <div class="overflow-hidden rounded-xl mb-4 border border-stone-200">
+                        <img src="https://images.unsplash.com/photo-1515516089376-88db1e26e9c0?auto=format&amp;fit=crop&amp;q=80&amp;w=800" alt="Matcha" class="w-full aspect-square object-cover group-hover:scale-105 transition-transform duration-500">
+                    </div>
+                    <h3 class="text-lg font-medium text-stone-900 mb-1 tracking-tight font-serif">Kyoto Rose Matcha</h3>
+                    <p class="text-sm text-stone-500">Ceremonial grade matcha whisked to perfection, layered over iced oat milk with a hint of rose water.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 4. Best Sellers -->
+    <section class="py-24">
+        <div class="max-w-7xl mx-auto px-6">
+            <h2 class="text-3xl font-medium tracking-tight text-stone-900 font-serif mb-12">Most Loved</h2>
+            
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+                <!-- Item 1 -->
+                <div class="relative bg-white rounded-xl border border-stone-200 p-4 shadow-sm hover:shadow-md transition-shadow">
+                    <span class="absolute top-6 left-6 z-10 bg-white/90 backdrop-blur text-stone-900 text-xs font-medium px-2.5 py-1 rounded-full shadow-sm">Customer Favorite</span>
+                    <img src="https://images.unsplash.com/photo-1509042239860-f550ce710b93?auto=format&amp;fit=crop&amp;q=80&amp;w=600" alt="Pour over" class="w-full aspect-square object-cover rounded-lg mb-4">
+                    <h3 class="text-base font-medium text-stone-900 tracking-tight">Ethiopia Yirgacheffe</h3>
+                    <p class="text-sm text-stone-500 mt-1 mb-3 line-clamp-2">Floral notes, jasmine, and bright citrus. Best enjoyed as a pour-over.</p>
+                    <span class="text-sm font-medium text-stone-900">$6.50</span>
+                </div>
+                <!-- Item 2 -->
+                <div class="relative bg-white rounded-xl border border-stone-200 p-4 shadow-sm hover:shadow-md transition-shadow">
+                    <span class="absolute top-6 left-6 z-10 bg-white/90 backdrop-blur text-stone-900 text-xs font-medium px-2.5 py-1 rounded-full shadow-sm">Chef's Pick</span>
+                    <img src="https://images.unsplash.com/photo-1620921575454-061033fa2699?auto=format&amp;fit=crop&amp;q=80&amp;w=600" alt="Croissant" class="w-full aspect-square object-cover rounded-lg mb-4">
+                    <h3 class="text-base font-medium text-stone-900 tracking-tight">Twice-Baked Almond</h3>
+                    <p class="text-sm text-stone-500 mt-1 mb-3 line-clamp-2">Flaky, buttery pastry filled with house-made frangipane cream.</p>
+                    <span class="text-sm font-medium text-stone-900">$5.00</span>
+                </div>
+                <!-- Item 3 -->
+                <div class="relative bg-white rounded-xl border border-stone-200 p-4 shadow-sm hover:shadow-md transition-shadow">
+                    <img src="https://images.unsplash.com/photo-1497935586351-b67a49e012bf?auto=format&amp;fit=crop&amp;q=80&amp;w=600" alt="Espresso" class="w-full aspect-square object-cover rounded-lg mb-4">
+                    <h3 class="text-base font-medium text-stone-900 tracking-tight">AURA House Espresso</h3>
+                    <p class="text-sm text-stone-500 mt-1 mb-3 line-clamp-2">Our signature blend with notes of dark chocolate and caramel.</p>
+                    <span class="text-sm font-medium text-stone-900">$3.50</span>
+                </div>
+                <!-- Item 4 -->
+                <div class="relative bg-white rounded-xl border border-stone-200 p-4 shadow-sm hover:shadow-md transition-shadow">
+                    <span class="absolute top-6 left-6 z-10 bg-white/90 backdrop-blur text-stone-900 text-xs font-medium px-2.5 py-1 rounded-full shadow-sm">Most Loved</span>
+                    <img src="https://images.unsplash.com/photo-1525351484163-7529414344d8?auto=format&amp;fit=crop&amp;q=80&amp;w=600" alt="Avocado Toast" class="w-full aspect-square object-cover rounded-lg mb-4">
+                    <h3 class="text-base font-medium text-stone-900 tracking-tight">Heirloom Avocado Toast</h3>
+                    <p class="text-sm text-stone-500 mt-1 mb-3 line-clamp-2">Smashed avocado, heirloom tomatoes, radish, and chili flakes.</p>
+                    <span class="text-sm font-medium text-stone-900">$12.00</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 5. Menu Preview -->
+    <section id="menu-preview" class="py-24 bg-white border-t border-stone-200">
+        <div class="max-w-7xl mx-auto px-6 space-y-24">
+            
+            <div class="text-center max-w-2xl mx-auto mb-16">
+                <h2 class="text-3xl md:text-4xl font-medium tracking-tight text-stone-900 font-serif mb-4">Curated Offerings</h2>
+                <p class="text-base text-stone-500">A glimpse into our meticulously crafted menu, honoring both timeless traditions and modern palates.</p>
+            </div>
+
+            <!-- Category 1: Breakfast -->
+            <div class="flex flex-col md:flex-row gap-12 items-center">
+                <div class="flex-1 w-full order-2 md:order-1">
+                    <h3 class="text-sm font-medium text-stone-400 uppercase tracking-widest mb-8 border-b border-stone-100 pb-2">Breakfast &amp; Brunch</h3>
+                    <div class="space-y-6">
+                        <div class="flex items-start justify-between gap-4">
+                            <div>
+                                <p class="text-base font-medium text-stone-900">Shakshuka</p>
+                                <p class="text-sm text-stone-500 mt-1 leading-relaxed">Poached farm eggs, spiced tomato ragout, feta, sourdough</p>
+                            </div>
+                            <span class="text-sm font-medium text-stone-900">$14.00</span>
+                        </div>
+                        <div class="flex items-start justify-between gap-4">
+                            <div>
+                                <p class="text-base font-medium text-stone-900">Ricotta Pancakes</p>
+                                <p class="text-sm text-stone-500 mt-1 leading-relaxed">Fluffy cakes, honeycomb butter, seasonal berry compote</p>
+                            </div>
+                            <span class="text-sm font-medium text-stone-900">$13.50</span>
+                        </div>
+                        <div class="flex items-start justify-between gap-4">
+                            <div>
+                                <p class="text-base font-medium text-stone-900">Overnight Chia Bowl</p>
+                                <p class="text-sm text-stone-500 mt-1 leading-relaxed">Coconut milk, mango puree, toasted macadamias</p>
+                            </div>
+                            <span class="text-sm font-medium text-stone-900">$9.00</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="flex-1 w-full order-1 md:order-2">
+                    <img src="https://images.unsplash.com/photo-1493770348161-369560ae357d?auto=format&amp;fit=crop&amp;q=80&amp;w=1000" alt="Breakfast setup" class="w-full aspect-[4/3] object-cover rounded-2xl shadow-sm border border-stone-100">
+                </div>
+            </div>
+
+            <!-- Category 2: Beverages -->
+            <div class="flex flex-col md:flex-row gap-12 items-center">
+                <div class="flex-1 w-full">
+                    <img src="https://images.unsplash.com/photo-1507133750070-4ed01ebdc91c?auto=format&amp;fit=crop&amp;q=80&amp;w=1000" alt="Barista pouring coffee" class="w-full aspect-[4/3] object-cover rounded-2xl shadow-sm border border-stone-100">
+                </div>
+                <div class="flex-1 w-full">
+                    <h3 class="text-sm font-medium text-stone-400 uppercase tracking-widest mb-8 border-b border-stone-100 pb-2">Café Favorites</h3>
+                    <div class="space-y-6">
+                        <div class="flex items-start justify-between gap-4">
+                            <div>
+                                <p class="text-base font-medium text-stone-900">Oat Milk Flat White</p>
+                                <p class="text-sm text-stone-500 mt-1 leading-relaxed">Double ristretto, silky microfoam</p>
+                            </div>
+                            <span class="text-sm font-medium text-stone-900">$5.00</span>
+                        </div>
+                        <div class="flex items-start justify-between gap-4">
+                            <div>
+                                <p class="text-base font-medium text-stone-900">Iced Hojicha Latte</p>
+                                <p class="text-sm text-stone-500 mt-1 leading-relaxed">Roasted green tea, light maple syrup, milk of choice</p>
+                            </div>
+                            <span class="text-sm font-medium text-stone-900">$5.50</span>
+                        </div>
+                        <div class="flex items-start justify-between gap-4">
+                            <div>
+                                <p class="text-base font-medium text-stone-900">Cold Brew Tonic</p>
+                                <p class="text-sm text-stone-500 mt-1 leading-relaxed">24hr cold brew, artisan tonic water, orange peel</p>
+                            </div>
+                            <span class="text-sm font-medium text-stone-900">$6.00</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- 6. Full Menu CTA -->
+    <section class="py-16 bg-[#2A2522] text-[#FAFAF9] text-center px-6">
+        <h2 class="text-2xl font-medium tracking-tight font-serif mb-6">Hungry for more?</h2>
+        <a href="#menu" class="inline-flex items-center justify-center text-sm font-medium bg-[#FAFAF9] text-[#2A2522] px-6 py-3 rounded-lg hover:bg-stone-200 transition-colors shadow-sm">
+            Explore Full Menu
+        </a>
+    </section>
+
+    <!-- 7. Gallery -->
+    <section id="gallery" class="py-24 bg-[#FAFAF9]">
+        <div class="max-w-7xl mx-auto px-6">
+            <h2 class="text-3xl font-medium tracking-tight text-stone-900 font-serif mb-12 text-center">Moments at AURA</h2>
+            
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-4 auto-rows-[200px]">
+                <div class="col-span-2 row-span-2 rounded-xl overflow-hidden group">
+                    <img src="https://images.unsplash.com/photo-1497935586351-b67a49e012bf?auto=format&amp;fit=crop&amp;q=80&amp;w=1000" alt="Gallery Image" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+                </div>
+                <div class="rounded-xl overflow-hidden group">
+                    <img src="https://images.unsplash.com/photo-1511920170033-f8396924c348?auto=format&amp;fit=crop&amp;q=80&amp;w=600" alt="Gallery Image" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+                </div>
+                <div class="rounded-xl overflow-hidden group">
+                    <img src="https://images.unsplash.com/photo-1559525839-b184a4d698c7?auto=format&amp;fit=crop&amp;q=80&amp;w=600" alt="Gallery Image" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+                </div>
+                <div class="col-span-2 md:col-span-1 row-span-2 rounded-xl overflow-hidden group">
+                    <img src="https://images.unsplash.com/photo-1600093463592-8e36ae95ef56?auto=format&amp;fit=crop&amp;q=80&amp;w=600" alt="Gallery Image" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+                </div>
+                <div class="rounded-xl overflow-hidden group hidden md:block">
+                    <img src="https://images.unsplash.com/photo-1509042239860-f550ce710b93?auto=format&amp;fit=crop&amp;q=80&amp;w=600" alt="Gallery Image" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 8. About Section -->
+    <section class="py-24 bg-stone-100/50 border-t border-stone-200">
+        <div class="max-w-3xl mx-auto px-6 text-center space-y-8">
+            <h2 class="text-3xl font-medium tracking-tight text-stone-900 font-serif">Our Philosophy</h2>
+            <p class="text-lg text-stone-500 font-normal leading-relaxed">
+                We draw inspiration from minimal, intentional living. Every element of AURA—from the muted tones of our walls to the ethically sourced beans we roast—is chosen to cultivate a sense of calm. Our founder envisioned a space where the noise of the city fades, replaced by the quiet hum of productivity and the rich aroma of honest food.
+            </p>
+        </div>
+    </section>
+
+    <!-- 9. Testimonials -->
+    <section class="py-24 bg-white border-t border-stone-200">
+        <div class="max-w-7xl mx-auto px-6">
+            <h2 class="text-3xl font-medium tracking-tight text-stone-900 font-serif mb-12 text-center">Community Voices</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <!-- Review 1 -->
+                <div class="p-8 border border-stone-200 rounded-2xl bg-[#FAFAF9]">
+                    <div class="flex gap-1 mb-6 text-stone-800">
+                        <iconify-icon icon="solar:star-linear" class="text-sm"></iconify-icon>
+                        <iconify-icon icon="solar:star-linear" class="text-sm"></iconify-icon>
+                        <iconify-icon icon="solar:star-linear" class="text-sm"></iconify-icon>
+                        <iconify-icon icon="solar:star-linear" class="text-sm"></iconify-icon>
+                        <iconify-icon icon="solar:star-linear" class="text-sm"></iconify-icon>
+                    </div>
+                    <p class="text-base text-stone-600 mb-8 leading-relaxed">"The best pour-over in the city. The space is incredibly calming, making it my go-to spot for deep work sessions. The food is equally impressive."</p>
+                    <div>
+                        <p class="text-sm font-medium text-stone-900">Sarah Jenkins</p>
+                        <p class="text-xs text-stone-400">Local Guide</p>
+                    </div>
+                </div>
+                <!-- Review 2 -->
+                <div class="p-8 border border-stone-200 rounded-2xl bg-[#FAFAF9]">
+                    <div class="flex gap-1 mb-6 text-stone-800">
+                        <iconify-icon icon="solar:star-linear" class="text-sm"></iconify-icon>
+                        <iconify-icon icon="solar:star-linear" class="text-sm"></iconify-icon>
+                        <iconify-icon icon="solar:star-linear" class="text-sm"></iconify-icon>
+                        <iconify-icon icon="solar:star-linear" class="text-sm"></iconify-icon>
+                        <iconify-icon icon="solar:star-linear" class="text-sm"></iconify-icon>
+                    </div>
+                    <p class="text-base text-stone-600 mb-8 leading-relaxed">"Their signature smoked vanilla cortado ruined all other lattes for me. It's perfectly balanced. Plus, the minimalist aesthetic is gorgeous."</p>
+                    <div>
+                        <p class="text-sm font-medium text-stone-900">David Chen</p>
+                        <p class="text-xs text-stone-400">Design Director</p>
+                    </div>
+                </div>
+                <!-- Review 3 -->
+                <div class="p-8 border border-stone-200 rounded-2xl bg-[#FAFAF9]">
+                    <div class="flex gap-1 mb-6 text-stone-800">
+                        <iconify-icon icon="solar:star-linear" class="text-sm"></iconify-icon>
+                        <iconify-icon icon="solar:star-linear" class="text-sm"></iconify-icon>
+                        <iconify-icon icon="solar:star-linear" class="text-sm"></iconify-icon>
+                        <iconify-icon icon="solar:star-linear" class="text-sm"></iconify-icon>
+                        <iconify-icon icon="solar:star-linear" class="text-sm"></iconify-icon>
+                    </div>
+                    <p class="text-base text-stone-600 mb-8 leading-relaxed">"A true sanctuary in the middle of a busy district. High-quality ingredients and you can taste the dedication in every single dish."</p>
+                    <div>
+                        <p class="text-sm font-medium text-stone-900">Elena Rodriguez</p>
+                        <p class="text-xs text-stone-400">Food Critic</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 10. Contact & Location -->
+    <section id="visit" class="py-24 bg-stone-100/50 border-t border-stone-200">
+        <div class="max-w-7xl mx-auto px-6 flex flex-col lg:flex-row gap-16 items-center">
+            
+            <!-- Information -->
+            <div class="flex-1 space-y-12">
+                <div>
+                    <h2 class="text-4xl md:text-5xl font-medium tracking-tight text-stone-900 leading-tight font-serif mb-4">
+                        Join us for your <br> next ritual.
+                    </h2>
+                    <p class="text-lg text-stone-500 font-normal max-w-md">
+                        Whether dropping in for a quick morning espresso or settling in for an afternoon of deep work.
+                    </p>
+                </div>
+
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-8">
+                    <!-- Location -->
+                    <div>
+                        <h4 class="text-sm font-medium text-stone-900 mb-3 flex items-center gap-2 uppercase tracking-wide">
+                            <iconify-icon icon="solar:map-point-linear" class="text-stone-400 text-lg"></iconify-icon>
+                            Visit
+                        </h4>
+                        <p class="text-sm text-stone-500 leading-relaxed font-normal">
+                            142 Minimalist Ave<br>
+                            Design District<br>
+                            San Francisco, CA 94103
+                        </p>
+                    </div>
+                    
+                    <!-- Hours -->
+                    <div>
+                        <h4 class="text-sm font-medium text-stone-900 mb-3 flex items-center gap-2 uppercase tracking-wide">
+                            <iconify-icon icon="solar:clock-circle-linear" class="text-stone-400 text-lg"></iconify-icon>
+                            Hours
+                        </h4>
+                        <ul class="text-sm text-stone-500 space-y-2 font-normal">
+                            <li class="flex justify-between items-center gap-4">
+                                <span>Mon - Fri</span>
+                                <span class="text-stone-900 font-medium">7am - 4pm</span>
+                            </li>
+                            <li class="flex justify-between items-center gap-4">
+                                <span>Saturday</span>
+                                <span class="text-stone-900 font-medium">8am - 5pm</span>
+                            </li>
+                            <li class="flex justify-between items-center gap-4">
+                                <span>Sunday</span>
+                                <span class="text-stone-900 font-medium">8am - 3pm</span>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="pt-4 flex items-center gap-4">
+                    <a href="#" class="text-sm font-medium bg-stone-900 text-[#FAFAF9] px-6 py-3 rounded-lg hover:bg-stone-800 transition-colors shadow-sm">
+                        Get Directions
+                    </a>
+                    <a href="tel:+15551234567" class="text-sm font-medium text-stone-600 bg-white border border-stone-200 px-6 py-3 rounded-lg hover:bg-stone-50 hover:text-stone-900 transition-colors">
+                        Call Us
+                    </a>
+                </div>
+            </div>
+
+            <!-- Visual / Map Placeholder -->
+            <div class="flex-1 w-full">
+                <div class="bg-white p-2 rounded-2xl border border-stone-200 shadow-sm relative overflow-hidden group">
+                    <img src="https://images.unsplash.com/photo-1524661135-423995f22d0b?auto=format&amp;fit=crop&amp;q=80&amp;w=1000" alt="Cafe exterior" class="w-full aspect-[4/3] object-cover rounded-xl grayscale-[20%] group-hover:scale-105 transition-transform duration-700">
+                    <div class="absolute inset-0 bg-stone-900/10 pointer-events-none rounded-xl"></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 11. Footer -->
+    <footer class="bg-white py-12 border-t border-stone-200">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="flex flex-col md:flex-row items-center justify-between gap-8 mb-8 border-b border-stone-100 pb-8">
+                <a href="#" class="text-2xl font-medium tracking-tight uppercase font-serif text-stone-900">AURA</a>
+                
+                <div class="flex flex-wrap items-center justify-center gap-8 text-sm text-stone-500 font-normal">
+                    <a href="#story" class="hover:text-stone-900 transition-colors">About</a>
+                    <a href="#menu-preview" class="hover:text-stone-900 transition-colors">Menu</a>
+                    <a href="#gallery" class="hover:text-stone-900 transition-colors">Gallery</a>
+                    <a href="#visit" class="hover:text-stone-900 transition-colors">Contact</a>
+                </div>
+
+                <div class="flex items-center gap-4">
+                    <a href="#" class="text-stone-400 hover:text-stone-900 transition-colors"><iconify-icon icon="solar:camera-linear" class="text-xl"></iconify-icon></a>
+                    <a href="#" class="text-stone-400 hover:text-stone-900 transition-colors"><iconify-icon icon="solar:letter-linear" class="text-xl"></iconify-icon></a>
+                    <a href="#" class="text-stone-400 hover:text-stone-900 transition-colors"><iconify-icon icon="solar:map-arrow-linear" class="text-xl"></iconify-icon></a>
+                </div>
+            </div>
+            
+            <div class="flex flex-col md:flex-row items-center justify-between gap-4 text-xs text-stone-400 font-normal">
+                <p>© 2024 Aura Cafe. All rights reserved.</p>
+                <div class="flex items-center gap-6">
+                    <a href="#" class="hover:text-stone-900 transition-colors">Privacy Policy</a>
+                    <a href="#" class="hover:text-stone-900 transition-colors">Terms of Service</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+
+</body></html>

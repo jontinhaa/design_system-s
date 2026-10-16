@@ -1,0 +1,692 @@
+{
+ "version": 1,
+ "tool": "wd3 0.1.0",
+ "captureId": "mrcresidencesbocaraton.com-cccffb23",
+ "capturedAt": "2026-10-14T17:02:23+00:00",
+ "entry": {
+  "url": "https://mrcresidencesbocaraton.com/",
+  "path": "/",
+  "search": "",
+  "file": "site/mrcresidencesbocaraton.com/index.html",
+  "contentType": "text/html; charset=UTF-8"
+ },
+ "blocked": [
+  "^https?://([^/?#]+\\.)?(google\\-analytics\\.com|analytics\\.google\\.com|googletagmanager\\.com|googleadservices\\.com|doubleclick\\.net|googlesyndication\\.com|googleoptimize\\.com|connect\\.facebook\\.net|bat\\.bing\\.com|snap\\.licdn\\.com|px\\.ads\\.linkedin\\.com|analytics\\.tiktok\\.com|ct\\.pinterest\\.com|static\\.ads\\-twitter\\.com|analytics\\.twitter\\.com|tr\\.snapchat\\.com|sc\\-static\\.net|mc\\.yandex\\.ru|hotjar\\.com|hotjar\\.io|clarity\\.ms|cdn\\.segment\\.com|api\\.segment\\.io|cdn\\.mxpnl\\.com|api\\-js\\.mixpanel\\.com|api\\.mixpanel\\.com|api\\.amplitude\\.com|api2\\.amplitude\\.com|api\\-secure\\.amplitude\\.com|api\\-sr\\.amplitude\\.com|sr\\-client\\-cfg\\.amplitude\\.com|plausible\\.io|cloud\\.umami\\.is|analytics\\.umami\\.is|static\\.cloudflareinsights\\.com|cloudflareinsights\\.com|vitals\\.vercel\\-insights\\.com|browser\\-intake\\-datadoghq\\.com|browser\\-intake\\-datadoghq\\.eu|js\\-agent\\.newrelic\\.com|bam\\.nr\\-data\\.net|bam\\-cell\\.nr\\-data\\.net|fullstory\\.com|script\\.crazyegg\\.com|mouseflow\\.com|smartlook\\.com|heapanalytics\\.com|i\\.posthog\\.com|stats\\.wp\\.com|pixel\\.wp\\.com|promotekit\\.com|ingest\\.sentry\\.io|ingest\\.us\\.sentry\\.io|ingest\\.de\\.sentry\\.io|widget\\.intercom\\.io|js\\.intercomcdn\\.com|api\\-iam\\.intercom\\.io|js\\.hs\\-scripts\\.com|js\\.hs\\-analytics\\.net|js\\.hs\\-banner\\.com|js\\.hscollectedforms\\.net|js\\.usemessages\\.com|track\\.hubspot\\.com|client\\.crisp\\.chat|embed\\.tawk\\.to|js\\.driftt\\.com|static\\.zdassets\\.com|ekr\\.zdassets\\.com|cdn\\.cookielaw\\.org|geolocation\\.onetrust\\.com|consent\\.cookiebot\\.com|consentcdn\\.cookiebot\\.com|app\\.usercentrics\\.eu|api\\.usercentrics\\.eu|cdn\\.iubenda\\.com|cmp\\.osano\\.com|cdn\\.termly\\.io)(:\\d+)?([/?#]|$)",
+  "/rpc/increment_shared_code_views",
+  "^https?://(umami|analytics|stats|plausible)\\.[^/]+/(api/send|api/collect|api/event|script\\.js)",
+  "/g/c(ollect)?\\?v=2&",
+  "sentry\\.io/api/\\d+/(envelope|store)",
+  "/api/meta-capi",
+  "^https?://(leadtracker|tracking|track|events?|collect)\\.[^/]+/",
+  "^https?://a\\.vturb\\.com/",
+  "facebook\\.com/tr[/?]",
+  "/_vercel/(speed-)?insights/",
+  "/cdn-cgi/rum",
+  "/cdn-cgi/challenge-platform/",
+  "google\\.com/(pagead|ads)/"
+ ],
+ "volatileParams": [
+  "v",
+  "_rsc",
+  "dpl",
+  "_",
+  "t",
+  "ts",
+  "timestamp",
+  "cb",
+  "cachebust",
+  "cacheBust",
+  "nocache",
+  "rnd",
+  "rand",
+  "random",
+  "_t"
+ ],
+ "entries": [
+  {
+   "url": "https://mrcresidencesbocaraton.com/",
+   "method": "GET",
+   "status": 200,
+   "contentType": "text/html; charset=UTF-8",
+   "headers": {
+    "content-type": "text/html; charset=UTF-8",
+    "link": "<https://mrcresidencesbocaraton.com/wp-json/>; rel=\"https://api.w.org/\", <https://mrcresidencesbocaraton.com/wp-json/wp/v2/pages/23>; rel=\"alternate\"; title=\"JSON\"; type=\"application/json\", <https://mrcresidencesbocaraton.com/>; rel=shortlink",
+    "x-cache-group": "normal",
+    "x-cacheable": "SHORT"
+   },
+   "resourceType": "document",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "file": "site/mrcresidencesbocaraton.com/index.html",
+   "size": 71591,
+   "modes": [
+    "navigate"
+   ]
+  },
+  {
+   "url": "https://mrcresidencesbocaraton.com/wp-content/uploads/2026/02/MrC-Boca-Raton-logo-white.svg",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/svg+xml",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "content-type": "image/svg+xml"
+   },
+   "resourceType": "image",
+   "passes": [
+    "mobile",
+    "desktop"
+   ],
+   "file": "site/mrcresidencesbocaraton.com/wp-content/uploads/2026/02/MrC-Boca-Raton-logo-white.svg",
+   "size": 13812,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://mrcresidencesbocaraton.com/wp-content/plugins/tablepress/css/build/default.css?ver=3.2.8",
+   "method": "GET",
+   "status": 200,
+   "contentType": "text/css",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "content-type": "text/css"
+   },
+   "resourceType": "stylesheet",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "file": "site/mrcresidencesbocaraton.com/wp-content/plugins/tablepress/css/build/default__q2efa1d4d.css",
+   "size": 8078,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://mrcresidencesbocaraton.com/wp-content/uploads/2026/02/MrC-Boca-Raton-logo-red.svg",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/svg+xml",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "content-type": "image/svg+xml"
+   },
+   "resourceType": "image",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "file": "site/mrcresidencesbocaraton.com/wp-content/uploads/2026/02/MrC-Boca-Raton-logo-red.svg",
+   "size": 13944,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://mrcresidencesbocaraton.com/wp-content/themes/mrc/assets/styles/main.css",
+   "method": "GET",
+   "status": 200,
+   "contentType": "text/css",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "content-type": "text/css"
+   },
+   "resourceType": "stylesheet",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "file": "site/mrcresidencesbocaraton.com/wp-content/themes/mrc/assets/styles/main.css",
+   "size": 128436,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://mrcresidencesbocaraton.com/wp-content/themes/mrc/assets/styles/main.css?ver=1775633448",
+   "method": "GET",
+   "status": 200,
+   "contentType": "text/css",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "content-type": "text/css"
+   },
+   "resourceType": "stylesheet",
+   "passes": [
+    "mobile",
+    "desktop"
+   ],
+   "file": "site/mrcresidencesbocaraton.com/wp-content/themes/mrc/assets/styles/main__qbe2d7f30.css",
+   "size": 128436,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://mrcresidencesbocaraton.com/wp-content/uploads/2025/11/Group-150.svg",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/svg+xml",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "content-type": "image/svg+xml",
+    "priority": "u=2,i"
+   },
+   "resourceType": "image",
+   "passes": [
+    "mobile",
+    "desktop"
+   ],
+   "file": "site/mrcresidencesbocaraton.com/wp-content/uploads/2025/11/Group-150.svg",
+   "size": 5188,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://code.jquery.com/jquery-3.6.0.min.js?ver=1.11.0",
+   "method": "GET",
+   "status": 200,
+   "contentType": "application/javascript; charset=utf-8",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "content-type": "application/javascript; charset=utf-8",
+    "x-cache-hits": "21, 89389"
+   },
+   "resourceType": "script",
+   "passes": [
+    "mobile",
+    "desktop"
+   ],
+   "file": "site/code.jquery.com/jquery-3.6.0.min__q75d2cb4b.js",
+   "size": 89501,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://mrcresidencesbocaraton.com/wp-content/themes/mrc/assets/js/libs/t.parallax.js?ver=1759787089",
+   "method": "GET",
+   "status": 200,
+   "contentType": "application/javascript",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "content-type": "application/javascript",
+    "priority": "u=2,i=?0"
+   },
+   "resourceType": "script",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "file": "site/mrcresidencesbocaraton.com/wp-content/themes/mrc/assets/js/libs/t.parallax__q8f37809c.js",
+   "size": 1607,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://mrcresidencesbocaraton.com/wp-content/uploads/2025/10/footer-logo.svg",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/svg+xml",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "content-type": "image/svg+xml",
+    "priority": "u=3,i"
+   },
+   "resourceType": "image",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "file": "site/mrcresidencesbocaraton.com/wp-content/uploads/2025/10/footer-logo.svg",
+   "size": 36385,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://mrcresidencesbocaraton.com/wp-content/themes/mrc/assets/js/init.js?ver=1782115453",
+   "method": "GET",
+   "status": 200,
+   "contentType": "application/javascript",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "content-type": "application/javascript",
+    "priority": "u=2,i=?0"
+   },
+   "resourceType": "script",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "file": "site/mrcresidencesbocaraton.com/wp-content/themes/mrc/assets/js/init__qc8a7c0a5.js",
+   "size": 49351,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://mrcresidencesbocaraton.com/wp-content/themes/mrc/assets/js/libs/t.selectbox.js?ver=1716924565",
+   "method": "GET",
+   "status": 200,
+   "contentType": "application/javascript",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "content-type": "application/javascript",
+    "priority": "u=2,i=?0"
+   },
+   "resourceType": "script",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "file": "site/mrcresidencesbocaraton.com/wp-content/themes/mrc/assets/js/libs/t.selectbox__q4b96ab52.js",
+   "size": 5528,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://cdnjs.cloudflare.com/ajax/libs/lottie-web/5.12.2/lottie.min.js?ver=5.12.2",
+   "method": "GET",
+   "status": 200,
+   "contentType": "application/javascript; charset=utf-8",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "cf-cdnjs-via": "cfworker/r2",
+    "content-type": "application/javascript; charset=utf-8",
+    "priority": "u=2,i=?0",
+    "timing-allow-origin": "*",
+    "x-cdnjs-cache": "HIT"
+   },
+   "resourceType": "script",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "file": "site/cdnjs.cloudflare.com/ajax/libs/lottie-web/5.12.2/lottie.min__qd141bdd9.js",
+   "size": 305543,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://mrcresidencesbocaraton.com/wp-content/themes/mrc/assets/fonts/Montserrat-Regular.woff",
+   "method": "GET",
+   "status": 200,
+   "contentType": "font/woff",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "content-type": "font/woff",
+    "priority": "u=0,i=?0"
+   },
+   "resourceType": "font",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "file": "site/mrcresidencesbocaraton.com/wp-content/themes/mrc/assets/fonts/Montserrat-Regular.woff",
+   "size": 95056,
+   "modes": [
+    "cors"
+   ]
+  },
+  {
+   "url": "https://mrcresidencesbocaraton.com/wp-content/themes/mrc/assets/fonts/Montserrat-Medium.woff",
+   "method": "GET",
+   "status": 200,
+   "contentType": "font/woff",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "content-type": "font/woff",
+    "priority": "u=0,i=?0"
+   },
+   "resourceType": "font",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "file": "site/mrcresidencesbocaraton.com/wp-content/themes/mrc/assets/fonts/Montserrat-Medium.woff",
+   "size": 95212,
+   "modes": [
+    "cors"
+   ]
+  },
+  {
+   "url": "https://mrcresidencesbocaraton.com/wp-content/uploads/2026/02/BINYAN_KYT3287_MrC_BocaResidences_S110_PoolRoof_EXT_3500_FINAL.jpg",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/jpeg",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "cf-bgj": "h2pri,imgq:100",
+    "cf-polished": "webp_bigger",
+    "content-type": "image/jpeg",
+    "priority": "u=1,i"
+   },
+   "resourceType": "image",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "file": "site/mrcresidencesbocaraton.com/wp-content/uploads/2026/02/BINYAN_KYT3287_MrC_BocaResidences_S110_PoolRoof_EXT_3500_FINAL.jpg",
+   "size": 314195,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://mrcresidencesbocaraton.com/wp-content/uploads/2026/02/BINYAN_KYT3287_MrC_BocaResidences_S020_EXT_ExteriorBuilding01_3500_FINAL.jpg",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/jpeg",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "cf-bgj": "h2pri,imgq:100",
+    "cf-polished": "webp_bigger",
+    "content-type": "image/jpeg",
+    "priority": "u=1,i"
+   },
+   "resourceType": "image",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "file": "site/mrcresidencesbocaraton.com/wp-content/uploads/2026/02/BINYAN_KYT3287_MrC_BocaResidences_S020_EXT_ExteriorBuilding01_3500_FINAL.jpg",
+   "size": 640905,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://mrcresidencesbocaraton.com/wp-content/uploads/2024/11/Group-15.svg",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/svg+xml",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "content-type": "image/svg+xml",
+    "priority": "u=3,i"
+   },
+   "resourceType": "image",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "file": "site/mrcresidencesbocaraton.com/wp-content/uploads/2024/11/Group-15.svg",
+   "size": 5186,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://mrcresidencesbocaraton.com/wp-content/themes/mrc/assets/images/chevron.svg",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/svg+xml",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "content-type": "image/svg+xml",
+    "priority": "u=3,i"
+   },
+   "resourceType": "image",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "file": "site/mrcresidencesbocaraton.com/wp-content/themes/mrc/assets/images/chevron.svg",
+   "size": 554,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://mrcresidencesbocaraton.com/wp-content/themes/mrc/assets/images/dark-patern.svg",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/svg+xml",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "content-type": "image/svg+xml",
+    "priority": "u=3,i"
+   },
+   "resourceType": "image",
+   "passes": [
+    "desktop"
+   ],
+   "file": "site/mrcresidencesbocaraton.com/wp-content/themes/mrc/assets/images/dark-patern.svg",
+   "size": 130575,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://mrcresidencesbocaraton.com/wp-content/uploads/2025/12/Mr-C.-Boca-Raton-_Boat.jpg.webp",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/webp",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "content-type": "image/webp",
+    "priority": "u=3,i"
+   },
+   "resourceType": "image",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "file": "site/mrcresidencesbocaraton.com/wp-content/uploads/2025/12/Mr-C.-Boca-Raton-_Boat.jpg.webp",
+   "size": 281314,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://mrcresidencesbocaraton.com/wp-content/themes/mrc/assets/images/patern-footer.svg",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/svg+xml",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "content-type": "image/svg+xml",
+    "priority": "u=3,i"
+   },
+   "resourceType": "image",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "file": "site/mrcresidencesbocaraton.com/wp-content/themes/mrc/assets/images/patern-footer.svg",
+   "size": 261489,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://mrcresidencesbocaraton.com/wp-content/themes/mrc/assets/fonts/Montserrat-SemiBold.woff",
+   "method": "GET",
+   "status": 200,
+   "contentType": "font/woff",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "content-type": "font/woff",
+    "priority": "u=0,i=?0"
+   },
+   "resourceType": "font",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "file": "site/mrcresidencesbocaraton.com/wp-content/themes/mrc/assets/fonts/Montserrat-SemiBold.woff",
+   "size": 95276,
+   "modes": [
+    "cors"
+   ]
+  },
+  {
+   "url": "https://mrcresidencesbocaraton.com/wp-content/themes/mrc/assets/fonts/Montserrat-Bold.woff",
+   "method": "GET",
+   "status": 200,
+   "contentType": "font/woff",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "content-type": "font/woff",
+    "priority": "u=0,i=?0"
+   },
+   "resourceType": "font",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "file": "site/mrcresidencesbocaraton.com/wp-content/themes/mrc/assets/fonts/Montserrat-Bold.woff",
+   "size": 96000,
+   "modes": [
+    "cors"
+   ]
+  },
+  {
+   "url": "https://mrcresidencesbocaraton.com/wp-content/themes/mrc/assets/images/mobile-pattern.svg",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/svg+xml",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "content-type": "image/svg+xml",
+    "priority": "u=3,i"
+   },
+   "resourceType": "image",
+   "passes": [
+    "mobile"
+   ],
+   "file": "site/mrcresidencesbocaraton.com/wp-content/themes/mrc/assets/images/mobile-pattern.svg",
+   "size": 115344,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://mrcresidencesbocaraton.com/wp-content/uploads/2025/11/cropped-MrC-favicon-1-32x32.png",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/webp",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "cf-bgj": "h2pri,imgq:100",
+    "cf-polished": "ok, orig_size=800",
+    "content-type": "image/webp",
+    "priority": "u=4,i"
+   },
+   "resourceType": "other",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "file": "site/mrcresidencesbocaraton.com/wp-content/uploads/2025/11/cropped-MrC-favicon-1-32x32.png",
+   "size": 402,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://mrcresidencesbocaraton.com/wp-content/uploads/2025/11/cropped-MrC-favicon-1-192x192.png",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/png",
+   "headers": {
+    "content-type": "image/png",
+    "access-control-allow-origin": "*",
+    "priority": "u=4;i=?0,cf-chb=(37;u=2;i=?0 382;u=5;i=?0)",
+    "cf-polished": "ok, orig_size=2184",
+    "cf-bgj": "imgq:100,h2pri"
+   },
+   "resourceType": "other",
+   "passes": [
+    "mobile"
+   ],
+   "file": "site/mrcresidencesbocaraton.com/wp-content/uploads/2025/11/cropped-MrC-favicon-1-192x192.png",
+   "size": 1952
+  },
+  {
+   "url": "https://mrcresidencesbocaraton.com/wp-content/uploads/2025/11/cropped-MrC-favicon-1-180x180.png",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/png",
+   "headers": {
+    "content-type": "image/png",
+    "cf-bgj": "h2pri,imgq:100",
+    "access-control-allow-origin": "*",
+    "cf-polished": "ok, orig_size=2006",
+    "priority": "u=4;i=?0,cf-chb=(37;u=2;i=?0 386;u=5;i=?0)"
+   },
+   "resourceType": "other",
+   "passes": [
+    "mobile"
+   ],
+   "file": "site/mrcresidencesbocaraton.com/wp-content/uploads/2025/11/cropped-MrC-favicon-1-180x180.png",
+   "size": 1802
+  },
+  {
+   "url": "https://mrcresidencesbocaraton.com/favicon.ico",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/x-icon",
+   "headers": {
+    "content-type": "image/x-icon",
+    "access-control-allow-origin": "*"
+   },
+   "resourceType": "other",
+   "passes": [
+    "mobile"
+   ],
+   "file": "site/mrcresidencesbocaraton.com/favicon.ico",
+   "size": 0
+  },
+  {
+   "url": "https://mrcresidencesbocaraton.com/wp-content/uploads/2026/04/MrC-mobile_home.mp4",
+   "method": "GET",
+   "status": 200,
+   "contentType": "video/mp4",
+   "headers": {
+    "content-type": "video/mp4",
+    "access-control-allow-origin": "*"
+   },
+   "resourceType": "media",
+   "passes": [
+    "mobile"
+   ],
+   "file": "site/mrcresidencesbocaraton.com/wp-content/uploads/2026/04/MrC-mobile_home.mp4",
+   "size": 13967325,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://mrcresidencesbocaraton.com/wp-content/uploads/2026/04/Mr-C-Movie-Web.mp4",
+   "method": "GET",
+   "status": 200,
+   "contentType": "video/mp4",
+   "headers": {
+    "content-type": "video/mp4",
+    "access-control-allow-origin": "*"
+   },
+   "resourceType": "media",
+   "passes": [
+    "desktop"
+   ],
+   "file": "site/mrcresidencesbocaraton.com/wp-content/uploads/2026/04/Mr-C-Movie-Web.mp4",
+   "size": 24744118,
+   "modes": [
+    "no-cors"
+   ]
+  }
+ ],
+ "videos": {
+  "posters": {},
+  "onlineHosts": []
+ }
+}

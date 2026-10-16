@@ -1,0 +1,734 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr"><head><meta charset="utf-8">
+<!-- Website Downloader 3.0: este arquivo é o retrato estático do site (DOM renderizado). Aberto via servidor
+     local (serve.py, ver Como rodar.md), o bootstrap abaixo carrega o site vivo; via file://, mostra este retrato. -->
+<meta name="referrer" content="no-referrer">
+<script data-wd3>window.__WD3__ = {"entryUrl": "https://mrcresidencesbocaraton.com/", "replayHost": "mrcresidencesbocaraton.com.localhost", "entryPath": "/", "captureId": "mrcresidencesbocaraton.com-cccffb23", "capturedAt": "2026-10-14T17:02:23+00:00", "snapshot": true, "fileFonts": null};</script>
+<script data-wd3>/* Website Downloader 3.0 — bootstrap do index.html.
+ * file://  → fica no retrato estático (e carrega as fontes embutidas, que o Chrome bloqueia em file://).
+ * http(s)  → para de carregar o retrato, registra o Service Worker de replay e abre o site vivo.
+ */
+(function () {
+  var cfg = window.__WD3__ || {};
+  var root = document.documentElement;
+  if (location.protocol === 'file:') {
+    root.setAttribute('data-wd3', 'file');
+    if (cfg.fileFonts) {
+      var link = document.createElement('link');
+      link.rel = 'stylesheet';
+      link.href = cfg.fileFonts;
+      (document.head || root).appendChild(link);
+    }
+    return;
+  }
+  root.setAttribute('data-wd3', 'loading');
+  if (cfg.snapshot) {
+    try { window.stop(); } catch (e) { /* o retrato não precisa carregar: o site vivo vem do SW */ }
+  }
+
+  function fail(msg) {
+    root.setAttribute('data-wd3', 'error');
+    var el = document.getElementById('wd3-error');
+    if (!el) {
+      var body = document.body || root.appendChild(document.createElement('body'));
+      body.innerHTML = '<p style="font:15px system-ui,sans-serif;padding:24px;color:#e8e8e8;background:#050505;margin:0">' +
+        'Não foi possível iniciar o replay: <span id="wd3-error"></span></p>';
+      el = document.getElementById('wd3-error');
+    }
+    el.textContent = msg;
+  }
+  if (!('serviceWorker' in navigator)) return fail('este navegador não suporta Service Workers.');
+
+  function go() { location.replace(cfg.entryPath); }
+  function start() {
+    navigator.serviceWorker.register('/site/_wd3/sw.js', { scope: '/' })
+      .then(function () { return navigator.serviceWorker.ready; })
+      .then(function () {
+        if (navigator.serviceWorker.controller) return go();
+        navigator.serviceWorker.addEventListener('controllerchange', go);
+      })
+      .catch(function (err) { fail(String(err && err.message || err)); });
+  }
+  // Aberto em localhost puro: tenta <domínio>.localhost (mesmo servidor), para sites que checam location.hostname.
+  var plain = location.hostname === 'localhost' || location.hostname === '127.0.0.1';
+  if (!plain || !cfg.replayHost || cfg.replayHost === 'localhost') return start();
+  var target = location.protocol + '//' + cfg.replayHost + (location.port ? ':' + location.port : '');
+  var decided = false;
+  function decide(fn) { if (!decided) { decided = true; fn(); } }
+  setTimeout(function () { decide(start); }, 1500);
+  fetch(target + '/site/_wd3/site-index.json', { mode: 'no-cors', cache: 'no-store' })
+    .then(function () { decide(function () { location.replace(target + cfg.entryPath); }); })
+    .catch(function () { decide(start); });
+})();
+</script>
+<style data-wd3>
+  [data-wd3-banner] { display: none; }
+  html[data-wd3="file"] [data-wd3-banner] { display: flex; }
+  html[data-wd3-unlock], html[data-wd3-unlock] body { overflow-y: auto !important; }
+</style>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="alternate" type="application/rss+xml" title="RSS 2.0" href="https://mrcresidencesbocaraton.com/feed/">
+    <link rel="alternate" type="text/xml" title="RSS .92" href="https://mrcresidencesbocaraton.com/feed/rss/">
+    <link rel="alternate" type="application/atom+xml" title="Atom 1.0" href="https://mrcresidencesbocaraton.com/feed/atom/">
+    <link rel="pingback" href="https://mrcresidencesbocaraton.com/xmlrpc.php">
+    <!-- <script id="Cookiebot" src="https://consent.cookiebot.com/uc.js" data-cbid="cdff5596-b8c0-4382-9c36-3d8505dbdae4" data-blockingmode="auto" type="text/javascript"></script> -->
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
+
+
+	<!-- This site is optimized with the Yoast SEO plugin v27.2 - https://yoast.com/product/yoast-seo-wordpress/ -->
+	<title>Mr. C Residences Boca Raton | New Luxury Residences for Sale</title>
+	<meta name="description" content="133 impeccably designed two- and three-bedroom residences in Downtown Boca Raton, featuring elevated design and a lifestyle defined by Mr. C hospitality.">
+	<link rel="canonical" href="site/mrcresidencesbocaraton.com/index.html">
+	<meta property="og:locale" content="en_US">
+	<meta property="og:type" content="website">
+	<meta property="og:title" content="Mr. C Residences Boca Raton | New Luxury Residences for Sale">
+	<meta property="og:description" content="133 impeccably designed two- and three-bedroom residences in Downtown Boca Raton, featuring elevated design and a lifestyle defined by Mr. C hospitality.">
+	<meta property="og:url" content="https://mrcresidencesbocaraton.com/">
+	<meta property="og:site_name" content="Mr. C Residences Boca Raton">
+	<meta property="article:modified_time" content="2026-04-22T07:35:09+00:00">
+	<meta property="og:image" content="https://mrcresidencesbocaraton.com/wp-content/uploads/2026/02/BINYAN_KYT3287_MrC_BocaResidences_S110_PoolRoof_EXT_3500_FINAL-scaled.jpg">
+	<meta property="og:image:width" content="2560">
+	<meta property="og:image:height" content="1600">
+	<meta property="og:image:type" content="image/jpeg">
+	<meta name="twitter:card" content="summary_large_image">
+	<!-- / Yoast SEO plugin. -->
+
+
+
+<link rel="alternate" title="oEmbed (JSON)" type="application/json+oembed" href="https://mrcresidencesbocaraton.com/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fmrcresidencesbocaraton.com%2F">
+<link rel="alternate" title="oEmbed (XML)" type="text/xml+oembed" href="https://mrcresidencesbocaraton.com/wp-json/oembed/1.0/embed?url=https%3A%2F%2Fmrcresidencesbocaraton.com%2F&amp;format=xml">
+<link rel="stylesheet" href="site/_runtime/style-0.css" data-wd3-runtime-style="">
+
+
+<link rel="stylesheet" id="main-css" href="site/mrcresidencesbocaraton.com/wp-content/themes/mrc/assets/styles/main__qbe2d7f30.css" media="all">
+<link rel="stylesheet" id="tablepress-default-css" href="site/mrcresidencesbocaraton.com/wp-content/plugins/tablepress/css/build/default__q2efa1d4d.css" media="all">
+<link rel="https://api.w.org/" href="https://mrcresidencesbocaraton.com/wp-json/"><link rel="alternate" title="JSON" type="application/json" href="https://mrcresidencesbocaraton.com/wp-json/wp/v2/pages/23"><link rel="EditURI" type="application/rsd+xml" title="RSD" href="https://mrcresidencesbocaraton.com/xmlrpc.php?rsd">
+<link rel="shortlink" href="site/mrcresidencesbocaraton.com/index.html">
+<!-- Google Tag Manager -->
+
+<!-- End Google Tag Manager --><link rel="icon" href="site/mrcresidencesbocaraton.com/wp-content/uploads/2025/11/cropped-MrC-favicon-1-32x32.png" sizes="32x32">
+<link rel="icon" href="site/mrcresidencesbocaraton.com/wp-content/uploads/2025/11/cropped-MrC-favicon-1-192x192.png" sizes="192x192">
+<link rel="apple-touch-icon" href="site/mrcresidencesbocaraton.com/wp-content/uploads/2025/11/cropped-MrC-favicon-1-180x180.png">
+<meta name="msapplication-TileImage" content="https://mrcresidencesbocaraton.com/wp-content/uploads/2025/11/cropped-MrC-favicon-1-270x270.png">
+
+    <!-- Preload main CSS to reduce render-blocking -->
+    
+
+</head>
+
+<body class="home wp-singular page-template-default page page-id-23 wp-theme-mrc">
+    <!-- Google Tag Manager (noscript) -->
+<noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-W22LXNNB"
+height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+<!-- End Google Tag Manager (noscript) -->
+    
+    <div id="main">
+
+                    <header class="large " id="header">
+                <a href="https://mrcresidencesbocaraton.com/" class="logo" aria-label="Home">
+                    <img src="site/mrcresidencesbocaraton.com/wp-content/uploads/2026/02/MrC-Boca-Raton-logo-white.svg" alt="White logo for Mr. C Residences Boca Raton." width="180" height="60">
+                    <img class="dark_logo" src="site/mrcresidencesbocaraton.com/wp-content/uploads/2026/02/MrC-Boca-Raton-logo-red.svg" alt="Red logo for Mr. C Residences Boca Raton." width="180" height="60">
+                </a>
+
+                <div class="menu">
+                    <ul id="menu-main" class="main-navigation"><li id="menu-item-518" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-home current-menu-item page_item page-item-23 current_page_item menu-item-518"><a href="https://mrcresidencesbocaraton.com/" aria-current="page">Home</a></li>
+<li id="menu-item-517" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-517"><a href="https://mrcresidencesbocaraton.com/mr-c-story/">THE MR. C STORY</a></li>
+<li id="menu-item-525" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-525"><a href="https://mrcresidencesbocaraton.com/residences/">Residences</a></li>
+<li id="menu-item-519" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-519"><a href="https://mrcresidencesbocaraton.com/services-amenities/">Services &amp; Amenities</a></li>
+<li id="menu-item-523" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-523"><a href="https://mrcresidencesbocaraton.com/neighborhood/">Neighborhood</a></li>
+<li id="menu-item-522" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-522"><a href="https://mrcresidencesbocaraton.com/gallery/">Gallery</a></li>
+<li id="menu-item-526" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-526"><a href="https://mrcresidencesbocaraton.com/team/">Team</a></li>
+<li id="menu-item-521" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-521"><a href="https://mrcresidencesbocaraton.com/downloads/">Downloads</a></li>
+<li id="menu-item-520" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-520"><a href="https://mrcresidencesbocaraton.com/contact/">Contact us</a></li>
+<li id="menu-item-524" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-524"><a href="https://mrcresidencesbocaraton.com/news/">News</a></li>
+</ul>                </div>
+            </header>
+
+            <header class="small hidden">
+                <a href="https://mrcresidencesbocaraton.com/" class="logo" aria-label="Home">
+                    <img class="light" src="site/mrcresidencesbocaraton.com/wp-content/uploads/2026/02/MrC-Boca-Raton-logo-white.svg" alt="White logo for Mr. C Residences Boca Raton." width="180" height="60">
+                    <img class="dark" src="site/mrcresidencesbocaraton.com/wp-content/uploads/2026/02/MrC-Boca-Raton-logo-red.svg" alt="Red logo for Mr. C Residences Boca Raton." width="180" height="60">
+                </a>
+
+                <div class="links">
+                                            <a class="contact" href="https://mrcresidencesbocaraton.com/contact">CONTACT US</a>
+                    
+                                            <a class="phone" href="tel:5616773921">T (561) 677-3921</a>
+                    
+                    <div class="menu_open">
+                        <p>menu</p>
+                        <div class="burger">
+                            <span></span>
+                            <span></span>
+                            <span></span>
+                        </div>
+                    </div>
+                </div>
+            </header>
+
+            <div class="side-menu">
+                <ul id="menu-main-1" class="main-navigation"><li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-home current-menu-item page_item page-item-23 current_page_item menu-item-518"><a href="https://mrcresidencesbocaraton.com/" aria-current="page">Home</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-517"><a href="https://mrcresidencesbocaraton.com/mr-c-story/">THE MR. C STORY</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-525"><a href="https://mrcresidencesbocaraton.com/residences/">Residences</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-519"><a href="https://mrcresidencesbocaraton.com/services-amenities/">Services &amp; Amenities</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-523"><a href="https://mrcresidencesbocaraton.com/neighborhood/">Neighborhood</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-522"><a href="https://mrcresidencesbocaraton.com/gallery/">Gallery</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-526"><a href="https://mrcresidencesbocaraton.com/team/">Team</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-521"><a href="https://mrcresidencesbocaraton.com/downloads/">Downloads</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-520"><a href="https://mrcresidencesbocaraton.com/contact/">Contact us</a></li>
+<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-524"><a href="https://mrcresidencesbocaraton.com/news/">News</a></li>
+</ul>
+                                    <img src="site/mrcresidencesbocaraton.com/wp-content/uploads/2025/11/Group-150.svg" alt="Mr. C Residences mascot icon wearing a suit jacket and bow tie." width="180" height="60">
+                            </div>
+        
+	
+		
+
+<div class="hero_wrap disable">
+    <div class="parallax_wrap">
+        <div class="tint-overlay">
+        </div>
+        
+                                    <video class="desktop lazy-bg-video" poster="" muted="" playsinline="" preload="none" autoplay="" loop="" style="width: 1697px; height: 955px; opacity: 1;">
+                    <source data-src="https://mrcresidencesbocaraton.com/wp-content/uploads/2026/04/Mr-C-Movie-Web.mp4" type="video/mp4" src="site/mrcresidencesbocaraton.com/wp-content/uploads/2026/04/Mr-C-Movie-Web.mp4">
+                </video>
+                                        <video class="mobile lazy-bg-video" poster="" muted="" playsinline="" preload="none" autoplay="" loop="" style="width: 1697px; height: 955px;">
+                    <source data-src="https://mrcresidencesbocaraton.com/wp-content/uploads/2026/04/MrC-mobile_home.mp4" type="video/mp4" src="site/mrcresidencesbocaraton.com/wp-content/uploads/2026/04/MrC-mobile_home.mp4">
+                </video>
+                    
+        
+        <div class="content_wrap visible">
+                            <h1>COME HOME TO <strong>MR. C</strong> </h1>
+            
+            <a href="#contact-us" class="button ">
+                CONTACT US            </a>
+        </div>
+
+        <div class="scroll-indicator visible">SCROLL FOR MORE
+            <img decoding="async" class="arrow" src="site/mrcresidencesbocaraton.com/wp-content/themes/mrc/assets/images/chevron.svg" alt="Arrow" width="32" height="32">
+        </div>
+    </div>
+</div>
+
+
+<section id="" class="patern_text dark">
+    <div class="left">
+        <!-- Background pattern is now handled by CSS -->
+    </div>
+
+    <div class="right">
+        <div class="content_wrap visible">
+                            <div class="title fadein-wrap">THOUGHTFULLY REFINED <br>
+PRIVATE RESIDENCES</div>
+            
+                            <div class="description fadein-wrap">Inspired by four generations of the Cipriani family’s tradition of hospitality excellence, Mr. C Residences embodies the essence of timeless and elegant living. Nestled in the heart of Boca Raton, this stunning collection of 133 private residences features fine dining from the on-site Bellini Restaurant, gracious indoor and outdoor amenity spaces and two- to three-bedroom homes, expertly crafted to bring refined modern touches to everyday living.</div>
+                                        <a class="fadein-wrap" href="https://mrcresidencesbocaraton.com/residences/">EXPLORE RESIDENCES</a>
+                    </div>
+    </div>
+</section>
+
+
+    <section class="full-width-image">
+        <div class="image_wrap">
+                            <img decoding="async" src="site/mrcresidencesbocaraton.com/wp-content/uploads/2026/02/BINYAN_KYT3287_MrC_BocaResidences_S020_EXT_ExteriorBuilding01_3500_FINAL.jpg" data-parallax-distance="-15" alt="Exterior view of Mr. C Residences Boca Raton luxury condos with glass balconies and palm trees." data-tparallax-allowed="" style="transform: translateY(-81.7469px);">
+
+                                    <div class="caption">
+                        BUILDING FACADE                    </div>
+                
+                                    <div class="title">
+                        ARTISTS CONCEPTUAL RENDERING                    </div>
+                                    </div>
+    </section>
+
+
+
+<section id="" class="patern_text light">
+    <div class="left">
+        <!-- Background pattern is now handled by CSS -->
+    </div>
+
+    <div class="right">
+        <div class="content_wrap visible">
+                            <div class="title fadein-wrap">INDULGE, RELAX, <br>
+REPEAT</div>
+            
+                            <div class="description fadein-wrap">Mr. C Residences offer home owners and their guests resort-level access to a wide array of services and amenities and encourage every visitor to savor the present moment. Mr C Residences Boca Raton is timeless elegance and coastal sophistication, in a walkable setting where the charm of Boca Raton unfolds around you. From fine dining and boutique shopping to culture and the coastline, every element is within reach—complemented by a tradition of refined service and iconic design.</div>
+                                        <a class="fadein-wrap" href="https://mrcresidencesbocaraton.com/services-amenities/">EXPLORE AMENITIES</a>
+                    </div>
+    </div>
+</section>
+
+
+    <section class="full-width-image">
+        <div class="image_wrap">
+                            <img decoding="async" src="site/mrcresidencesbocaraton.com/wp-content/uploads/2026/02/BINYAN_KYT3287_MrC_BocaResidences_S110_PoolRoof_EXT_3500_FINAL.jpg" data-parallax-distance="-15" alt="Rooftop infinity pool, lounge chairs, and palm trees at Mr. C Residences Boca Raton, FL." data-tparallax-allowed="" style="transform: translateY(-196.387px);">
+
+                                    <div class="caption">
+                        ROOFTOP POOL                    </div>
+                
+                                    <div class="title">
+                        Artists Conceptual Rendering                    </div>
+                                    </div>
+    </section>
+
+
+
+<section id="" class="patern_text dark">
+    <div class="left">
+        <!-- Background pattern is now handled by CSS -->
+    </div>
+
+    <div class="right">
+        <div class="content_wrap visible">
+                            <div class="title fadein-wrap">BOCA RATON<br>
+A HERITAGE OF STYLE</div>
+            
+                            <div class="description fadein-wrap">Boca Raton is where elegance lives without pretense— where mornings begin with ocean breezes and end in candlelit courtyards. With seamless access to pristine beaches, a thriving yachting culture, and world-renowned golf and tennis, this is a lifestyle built around leisure that is refined and unrushed.</div>
+                                        <a class="fadein-wrap" href="https://mrcresidencesbocaraton.com/neighborhood/">EXPLORE BOCA RATON</a>
+                    </div>
+    </div>
+</section>
+
+
+    <section class="full-width-image">
+        <div class="image_wrap">
+                            <picture decoding="async" data-parallax-distance="-15" data-tparallax-allowed="" style="transform: translateY(-308.56px);">
+<source type="image/webp" srcset="site/mrcresidencesbocaraton.com/wp-content/uploads/2025/12/Mr-C.-Boca-Raton-_Boat.jpg.webp">
+<img decoding="async" src="https://mrcresidencesbocaraton.com/wp-content/uploads/2025/12/Mr-C.-Boca-Raton-_Boat.jpg" data-parallax-distance="-15" alt="Overhead view of two people cruising on a motorboat through vibrant water near Mr. C Boca Raton." data-tparallax-allowed="" style="transform: translateY(-306.56px);">
+</picture>
+
+
+                
+                                    <div class="title">
+                        Overhead view of two people cruising on a motorboat through vibrant water near Mr. C Boca Raton.                    </div>
+                                    </div>
+    </section>
+
+
+
+<section class="contact-form">
+
+    <div id="contact-us" class="form_wrap light_background fadein-wrap">
+        <div class="form_logo"><img decoding="async" src="site/mrcresidencesbocaraton.com/wp-content/uploads/2024/11/Group-15.svg" alt="Mr. C Residences mascot icon wearing a suit jacket and bow tie." width="180" height="60"></div>
+        <div class="form_text">Be the first to receive news and updates <br>
+from Mr. C Residences Boca Raton.</div>
+
+        <div class="wpcf7">
+            <form id="spark-registration-form" action="https://spark.re/douglas-elliman-development-marketing/mr-c-residences-boca-raton/register/mr-c-residences-boca-raton-regi-form" accept-charset="UTF-8" method="post">
+                <input type="hidden" name="authenticity_token" value="" autocomplete="off">
+                
+                <div class="form-item">
+                    <input id="contact_first_name" maxlength="50" name="contact[first_name]" type="text" placeholder="First Name *" class="has-styled-placeholder">
+                    <div class="input-error" id="error_first_name"></div>
+                </div>
+                <div class="form-item">
+                    <input id="contact_last_name" maxlength="50" name="contact[last_name]" type="text" placeholder="Last Name *" class="has-styled-placeholder">
+                    <div class="input-error" id="error_last_name"></div>
+                </div>
+                <div class="form-item">
+                    <input id="contact_email" maxlength="255" name="contact[email]" type="email" placeholder="Email *" pattern="[^@\s]+@[^@\s]+\.[^@\s]+" class="has-styled-placeholder">
+                    <div class="input-error" id="error_email"></div>
+                </div>
+                <div class="form-item">
+                    <input id="contact_phone" maxlength="255" name="contact[phone]" type="tel" placeholder="Phone">
+                </div>
+
+                <div class="form-item dropdown-wrapper answer">
+                    <div class="custom-combobox"><div class="cs-select"><span class="cs-left"></span><a href="#" class="cs-selected" value="">Country</a><span class="cs-right"></span><div class="cs-clear"></div></div><div style="display:none" class="cs-dropdown"><a href="#" class="cs-option cs-hilighted" value="" selected="selected">Country</a><a href="#" class="cs-option" value="2">Albania</a><a href="#" class="cs-option" value="3">Algeria</a><a href="#" class="cs-option" value="4">American Samoa</a><a href="#" class="cs-option" value="5">Andorra</a><a href="#" class="cs-option" value="6">Angola</a><a href="#" class="cs-option" value="7">Anguilla</a><a href="#" class="cs-option" value="8">Antigua and Barbuda</a><a href="#" class="cs-option" value="9">Argentina</a><a href="#" class="cs-option" value="10">Armenia</a><a href="#" class="cs-option" value="11">Aruba</a><a href="#" class="cs-option" value="12">Australia</a><a href="#" class="cs-option" value="13">Austria</a><a href="#" class="cs-option" value="14">Azerbaijan</a><a href="#" class="cs-option" value="15">Bahamas</a><a href="#" class="cs-option" value="16">Bahrain</a><a href="#" class="cs-option" value="17">Bangladesh</a><a href="#" class="cs-option" value="18">Barbados</a><a href="#" class="cs-option" value="19">Belarus</a><a href="#" class="cs-option" value="20">Belgium</a><a href="#" class="cs-option" value="21">Belize</a><a href="#" class="cs-option" value="22">Benin</a><a href="#" class="cs-option" value="23">Bermuda</a><a href="#" class="cs-option" value="24">Bhutan</a><a href="#" class="cs-option" value="25">Bolivia</a><a href="#" class="cs-option" value="26">Bosnia and Herzegovina</a><a href="#" class="cs-option" value="27">Botswana</a><a href="#" class="cs-option" value="28">Brazil</a><a href="#" class="cs-option" value="29">Brunei Darussalam</a><a href="#" class="cs-option" value="30">Bulgaria</a><a href="#" class="cs-option" value="31">Burkina Faso</a><a href="#" class="cs-option" value="32">Burundi</a><a href="#" class="cs-option" value="33">Cambodia</a><a href="#" class="cs-option" value="34">Cameroon</a><a href="#" class="cs-option" value="35">Canada</a><a href="#" class="cs-option" value="36">Cape Verde</a><a href="#" class="cs-option" value="37">Cayman Islands</a><a href="#" class="cs-option" value="38">Central African Republic</a><a href="#" class="cs-option" value="39">Chad</a><a href="#" class="cs-option" value="40">Chile</a><a href="#" class="cs-option" value="41">China</a><a href="#" class="cs-option" value="42">Colombia</a><a href="#" class="cs-option" value="43">Comoros</a><a href="#" class="cs-option" value="44">Congo</a><a href="#" class="cs-option" value="45">Congo, the Democratic Republic of the</a><a href="#" class="cs-option" value="46">Cook Islands</a><a href="#" class="cs-option" value="47">Costa Rica</a><a href="#" class="cs-option" value="48">Cote D'Ivoire</a><a href="#" class="cs-option" value="49">Croatia</a><a href="#" class="cs-option" value="50">Cuba</a><a href="#" class="cs-option" value="51">Cyprus</a><a href="#" class="cs-option" value="52">Czech Republic</a><a href="#" class="cs-option" value="53">Denmark</a><a href="#" class="cs-option" value="54">Djibouti</a><a href="#" class="cs-option" value="55">Dominica</a><a href="#" class="cs-option" value="56">Dominican Republic</a><a href="#" class="cs-option" value="57">Ecuador</a><a href="#" class="cs-option" value="58">Egypt</a><a href="#" class="cs-option" value="59">El Salvador</a><a href="#" class="cs-option" value="60">Equatorial Guinea</a><a href="#" class="cs-option" value="61">Eritrea</a><a href="#" class="cs-option" value="62">Estonia</a><a href="#" class="cs-option" value="63">Ethiopia</a><a href="#" class="cs-option" value="64">Falkland Islands (Malvinas)</a><a href="#" class="cs-option" value="65">Faroe Islands</a><a href="#" class="cs-option" value="66">Fiji</a><a href="#" class="cs-option" value="67">Finland</a><a href="#" class="cs-option" value="68">France</a><a href="#" class="cs-option" value="69">French Guiana</a><a href="#" class="cs-option" value="70">French Polynesia</a><a href="#" class="cs-option" value="71">Gabon</a><a href="#" class="cs-option" value="72">Gambia</a><a href="#" class="cs-option" value="73">Georgia</a><a href="#" class="cs-option" value="74">Germany</a><a href="#" class="cs-option" value="75">Ghana</a><a href="#" class="cs-option" value="76">Gibraltar</a><a href="#" class="cs-option" value="77">Greece</a><a href="#" class="cs-option" value="78">Greenland</a><a href="#" class="cs-option" value="79">Grenada</a><a href="#" class="cs-option" value="80">Guadeloupe</a><a href="#" class="cs-option" value="81">Guam</a><a href="#" class="cs-option" value="82">Guatemala</a><a href="#" class="cs-option" value="83">Guinea</a><a href="#" class="cs-option" value="84">Guinea-Bissau</a><a href="#" class="cs-option" value="85">Guyana</a><a href="#" class="cs-option" value="86">Haiti</a><a href="#" class="cs-option" value="87">Holy See (Vatican City State)</a><a href="#" class="cs-option" value="88">Honduras</a><a href="#" class="cs-option" value="89">Hong Kong</a><a href="#" class="cs-option" value="90">Hungary</a><a href="#" class="cs-option" value="91">Iceland</a><a href="#" class="cs-option" value="92">India</a><a href="#" class="cs-option" value="93">Indonesia</a><a href="#" class="cs-option" value="94">Iran, Islamic Republic of</a><a href="#" class="cs-option" value="95">Iraq</a><a href="#" class="cs-option" value="96">Ireland</a><a href="#" class="cs-option" value="97">Israel</a><a href="#" class="cs-option" value="98">Italy</a><a href="#" class="cs-option" value="99">Jamaica</a><a href="#" class="cs-option" value="100">Japan</a><a href="#" class="cs-option" value="101">Jordan</a><a href="#" class="cs-option" value="102">Kazakhstan</a><a href="#" class="cs-option" value="103">Kenya</a><a href="#" class="cs-option" value="104">Kiribati</a><a href="#" class="cs-option" value="105">Korea, Democratic People's Republic of</a><a href="#" class="cs-option" value="106">Korea, Republic of</a><a href="#" class="cs-option" value="107">Kuwait</a><a href="#" class="cs-option" value="108">Kyrgyzstan</a><a href="#" class="cs-option" value="109">Lao People's Democratic Republic</a><a href="#" class="cs-option" value="110">Latvia</a><a href="#" class="cs-option" value="111">Lebanon</a><a href="#" class="cs-option" value="112">Lesotho</a><a href="#" class="cs-option" value="113">Liberia</a><a href="#" class="cs-option" value="114">Libyan Arab Jamahiriya</a><a href="#" class="cs-option" value="115">Liechtenstein</a><a href="#" class="cs-option" value="116">Lithuania</a><a href="#" class="cs-option" value="117">Luxembourg</a><a href="#" class="cs-option" value="118">Macao</a><a href="#" class="cs-option" value="119">Macedonia, the Former Yugoslav Republic of</a><a href="#" class="cs-option" value="120">Madagascar</a><a href="#" class="cs-option" value="121">Malawi</a><a href="#" class="cs-option" value="122">Malaysia</a><a href="#" class="cs-option" value="123">Maldives</a><a href="#" class="cs-option" value="124">Mali</a><a href="#" class="cs-option" value="125">Malta</a><a href="#" class="cs-option" value="126">Marshall Islands</a><a href="#" class="cs-option" value="127">Martinique</a><a href="#" class="cs-option" value="128">Mauritania</a><a href="#" class="cs-option" value="129">Mauritius</a><a href="#" class="cs-option" value="130">Mexico</a><a href="#" class="cs-option" value="131">Micronesia, Federated States of</a><a href="#" class="cs-option" value="132">Moldova, Republic of</a><a href="#" class="cs-option" value="133">Monaco</a><a href="#" class="cs-option" value="134">Mongolia</a><a href="#" class="cs-option" value="135">Montserrat</a><a href="#" class="cs-option" value="136">Morocco</a><a href="#" class="cs-option" value="137">Mozambique</a><a href="#" class="cs-option" value="138">Myanmar</a><a href="#" class="cs-option" value="139">Namibia</a><a href="#" class="cs-option" value="140">Nauru</a><a href="#" class="cs-option" value="141">Nepal</a><a href="#" class="cs-option" value="142">Netherlands</a><a href="#" class="cs-option" value="143">Netherlands Antilles</a><a href="#" class="cs-option" value="144">New Caledonia</a><a href="#" class="cs-option" value="145">New Zealand</a><a href="#" class="cs-option" value="146">Nicaragua</a><a href="#" class="cs-option" value="147">Niger</a><a href="#" class="cs-option" value="148">Nigeria</a><a href="#" class="cs-option" value="149">Niue</a><a href="#" class="cs-option" value="150">Norfolk Island</a><a href="#" class="cs-option" value="151">Northern Mariana Islands</a><a href="#" class="cs-option" value="152">Norway</a><a href="#" class="cs-option" value="153">Oman</a><a href="#" class="cs-option" value="154">Pakistan</a><a href="#" class="cs-option" value="155">Palau</a><a href="#" class="cs-option" value="156">Panama</a><a href="#" class="cs-option" value="157">Papua New Guinea</a><a href="#" class="cs-option" value="158">Paraguay</a><a href="#" class="cs-option" value="159">Peru</a><a href="#" class="cs-option" value="160">Philippines</a><a href="#" class="cs-option" value="161">Pitcairn</a><a href="#" class="cs-option" value="162">Poland</a><a href="#" class="cs-option" value="163">Portugal</a><a href="#" class="cs-option" value="164">Puerto Rico</a><a href="#" class="cs-option" value="165">Qatar</a><a href="#" class="cs-option" value="166">Reunion</a><a href="#" class="cs-option" value="167">Romania</a><a href="#" class="cs-option" value="168">Russian Federation</a><a href="#" class="cs-option" value="169">Rwanda</a><a href="#" class="cs-option" value="170">Saint Helena</a><a href="#" class="cs-option" value="171">Saint Kitts and Nevis</a><a href="#" class="cs-option" value="172">Saint Lucia</a><a href="#" class="cs-option" value="173">Saint Pierre and Miquelon</a><a href="#" class="cs-option" value="174">Saint Vincent and the Grenadines</a><a href="#" class="cs-option" value="175">Samoa</a><a href="#" class="cs-option" value="176">San Marino</a><a href="#" class="cs-option" value="177">Sao Tome and Principe</a><a href="#" class="cs-option" value="178">Saudi Arabia</a><a href="#" class="cs-option" value="179">Senegal</a><a href="#" class="cs-option" value="180">Seychelles</a><a href="#" class="cs-option" value="181">Sierra Leone</a><a href="#" class="cs-option" value="182">Singapore</a><a href="#" class="cs-option" value="183">Slovakia</a><a href="#" class="cs-option" value="184">Slovenia</a><a href="#" class="cs-option" value="185">Solomon Islands</a><a href="#" class="cs-option" value="186">Somalia</a><a href="#" class="cs-option" value="187">South Africa</a><a href="#" class="cs-option" value="188">Spain</a><a href="#" class="cs-option" value="189">Sri Lanka</a><a href="#" class="cs-option" value="190">Sudan</a><a href="#" class="cs-option" value="191">Suriname</a><a href="#" class="cs-option" value="192">Svalbard and Jan Mayen</a><a href="#" class="cs-option" value="193">Swaziland</a><a href="#" class="cs-option" value="194">Sweden</a><a href="#" class="cs-option" value="195">Switzerland</a><a href="#" class="cs-option" value="196">Syrian Arab Republic</a><a href="#" class="cs-option" value="198">Tajikistan</a><a href="#" class="cs-option" value="199">Tanzania, United Republic of</a><a href="#" class="cs-option" value="200">Thailand</a><a href="#" class="cs-option" value="201">Togo</a><a href="#" class="cs-option" value="202">Tokelau</a><a href="#" class="cs-option" value="203">Tonga</a><a href="#" class="cs-option" value="204">Trinidad and Tobago</a><a href="#" class="cs-option" value="205">Tunisia</a><a href="#" class="cs-option" value="206">Turkey</a><a href="#" class="cs-option" value="207">Turkmenistan</a><a href="#" class="cs-option" value="208">Turks and Caicos Islands</a><a href="#" class="cs-option" value="209">Tuvalu</a><a href="#" class="cs-option" value="210">Uganda</a><a href="#" class="cs-option" value="211">Ukraine</a><a href="#" class="cs-option" value="212">United Arab Emirates</a><a href="#" class="cs-option" value="213">United Kingdom</a><a href="#" class="cs-option" value="214">United States</a><a href="#" class="cs-option" value="215">Uruguay</a><a href="#" class="cs-option" value="216">Uzbekistan</a><a href="#" class="cs-option" value="217">Vanuatu</a><a href="#" class="cs-option" value="218">Venezuela</a><a href="#" class="cs-option" value="219">Viet Nam</a><a href="#" class="cs-option" value="220">Virgin Islands, British</a><a href="#" class="cs-option" value="221">Virgin Islands, U.s.</a><a href="#" class="cs-option" value="222">Wallis and Futuna</a><a href="#" class="cs-option" value="223">Western Sahara</a><a href="#" class="cs-option" value="224">Yemen</a><a href="#" class="cs-option" value="225">Zambia</a><a href="#" class="cs-option" value="226">Zimbabwe</a><a href="#" class="cs-option" value="197">Republic of China, Taiwan</a><a href="#" class="cs-option" value="453">Sint Maarten (Dutch part)</a><a href="#" class="cs-option" value="454">Aland Islands</a><a href="#" class="cs-option" value="455">Bonaire, Sint Eustatius and Saba</a><a href="#" class="cs-option" value="456">Bouvet Island</a><a href="#" class="cs-option" value="457">British Indian Ocean Territory</a><a href="#" class="cs-option" value="458">Christmas Island</a><a href="#" class="cs-option" value="459">Cocos (Keeling) Islands</a><a href="#" class="cs-option" value="460">Curacao</a><a href="#" class="cs-option" value="461">Guernsey</a><a href="#" class="cs-option" value="462">Heard Island and McDonald Islands</a><a href="#" class="cs-option" value="463">Isle of Man</a><a href="#" class="cs-option" value="464">Jersey</a><a href="#" class="cs-option" value="465">Mayotte</a><a href="#" class="cs-option" value="466">Montenegro</a><a href="#" class="cs-option" value="467">Palestine</a><a href="#" class="cs-option" value="468">Saint Barthelemy</a><a href="#" class="cs-option" value="469">Saint Martin (French part)</a><a href="#" class="cs-option" value="470">Serbia</a><a href="#" class="cs-option" value="471">South Georgia and the South Sandwich Islands</a><a href="#" class="cs-option" value="472">South Sudan</a><a href="#" class="cs-option" value="473">Timor-Leste</a><a href="#" class="cs-option" value="474">United States Minor Outlying Islands</a></div><select name="contact[country_id]" id="contact_country_id" aria-label="Country" style="position: fixed; left: 100%; opacity: 0;">
+                        <option value="" disabled="" selected="" hidden="">Country</option>
+                        <option value="2">Albania</option>
+                        <option value="3">Algeria</option>
+                        <option value="4">American Samoa</option>
+                        <option value="5">Andorra</option>
+                        <option value="6">Angola</option>
+                        <option value="7">Anguilla</option>
+                        <option value="8">Antigua and Barbuda</option>
+                        <option value="9">Argentina</option>
+                        <option value="10">Armenia</option>
+                        <option value="11">Aruba</option>
+                        <option value="12">Australia</option>
+                        <option value="13">Austria</option>
+                        <option value="14">Azerbaijan</option>
+                        <option value="15">Bahamas</option>
+                        <option value="16">Bahrain</option>
+                        <option value="17">Bangladesh</option>
+                        <option value="18">Barbados</option>
+                        <option value="19">Belarus</option>
+                        <option value="20">Belgium</option>
+                        <option value="21">Belize</option>
+                        <option value="22">Benin</option>
+                        <option value="23">Bermuda</option>
+                        <option value="24">Bhutan</option>
+                        <option value="25">Bolivia</option>
+                        <option value="26">Bosnia and Herzegovina</option>
+                        <option value="27">Botswana</option>
+                        <option value="28">Brazil</option>
+                        <option value="29">Brunei Darussalam</option>
+                        <option value="30">Bulgaria</option>
+                        <option value="31">Burkina Faso</option>
+                        <option value="32">Burundi</option>
+                        <option value="33">Cambodia</option>
+                        <option value="34">Cameroon</option>
+                        <option value="35">Canada</option>
+                        <option value="36">Cape Verde</option>
+                        <option value="37">Cayman Islands</option>
+                        <option value="38">Central African Republic</option>
+                        <option value="39">Chad</option>
+                        <option value="40">Chile</option>
+                        <option value="41">China</option>
+                        <option value="42">Colombia</option>
+                        <option value="43">Comoros</option>
+                        <option value="44">Congo</option>
+                        <option value="45">Congo, the Democratic Republic of the</option>
+                        <option value="46">Cook Islands</option>
+                        <option value="47">Costa Rica</option>
+                        <option value="48">Cote D'Ivoire</option>
+                        <option value="49">Croatia</option>
+                        <option value="50">Cuba</option>
+                        <option value="51">Cyprus</option>
+                        <option value="52">Czech Republic</option>
+                        <option value="53">Denmark</option>
+                        <option value="54">Djibouti</option>
+                        <option value="55">Dominica</option>
+                        <option value="56">Dominican Republic</option>
+                        <option value="57">Ecuador</option>
+                        <option value="58">Egypt</option>
+                        <option value="59">El Salvador</option>
+                        <option value="60">Equatorial Guinea</option>
+                        <option value="61">Eritrea</option>
+                        <option value="62">Estonia</option>
+                        <option value="63">Ethiopia</option>
+                        <option value="64">Falkland Islands (Malvinas)</option>
+                        <option value="65">Faroe Islands</option>
+                        <option value="66">Fiji</option>
+                        <option value="67">Finland</option>
+                        <option value="68">France</option>
+                        <option value="69">French Guiana</option>
+                        <option value="70">French Polynesia</option>
+                        <option value="71">Gabon</option>
+                        <option value="72">Gambia</option>
+                        <option value="73">Georgia</option>
+                        <option value="74">Germany</option>
+                        <option value="75">Ghana</option>
+                        <option value="76">Gibraltar</option>
+                        <option value="77">Greece</option>
+                        <option value="78">Greenland</option>
+                        <option value="79">Grenada</option>
+                        <option value="80">Guadeloupe</option>
+                        <option value="81">Guam</option>
+                        <option value="82">Guatemala</option>
+                        <option value="83">Guinea</option>
+                        <option value="84">Guinea-Bissau</option>
+                        <option value="85">Guyana</option>
+                        <option value="86">Haiti</option>
+                        <option value="87">Holy See (Vatican City State)</option>
+                        <option value="88">Honduras</option>
+                        <option value="89">Hong Kong</option>
+                        <option value="90">Hungary</option>
+                        <option value="91">Iceland</option>
+                        <option value="92">India</option>
+                        <option value="93">Indonesia</option>
+                        <option value="94">Iran, Islamic Republic of</option>
+                        <option value="95">Iraq</option>
+                        <option value="96">Ireland</option>
+                        <option value="97">Israel</option>
+                        <option value="98">Italy</option>
+                        <option value="99">Jamaica</option>
+                        <option value="100">Japan</option>
+                        <option value="101">Jordan</option>
+                        <option value="102">Kazakhstan</option>
+                        <option value="103">Kenya</option>
+                        <option value="104">Kiribati</option>
+                        <option value="105">Korea, Democratic People's Republic of</option>
+                        <option value="106">Korea, Republic of</option>
+                        <option value="107">Kuwait</option>
+                        <option value="108">Kyrgyzstan</option>
+                        <option value="109">Lao People's Democratic Republic</option>
+                        <option value="110">Latvia</option>
+                        <option value="111">Lebanon</option>
+                        <option value="112">Lesotho</option>
+                        <option value="113">Liberia</option>
+                        <option value="114">Libyan Arab Jamahiriya</option>
+                        <option value="115">Liechtenstein</option>
+                        <option value="116">Lithuania</option>
+                        <option value="117">Luxembourg</option>
+                        <option value="118">Macao</option>
+                        <option value="119">Macedonia, the Former Yugoslav Republic of</option>
+                        <option value="120">Madagascar</option>
+                        <option value="121">Malawi</option>
+                        <option value="122">Malaysia</option>
+                        <option value="123">Maldives</option>
+                        <option value="124">Mali</option>
+                        <option value="125">Malta</option>
+                        <option value="126">Marshall Islands</option>
+                        <option value="127">Martinique</option>
+                        <option value="128">Mauritania</option>
+                        <option value="129">Mauritius</option>
+                        <option value="130">Mexico</option>
+                        <option value="131">Micronesia, Federated States of</option>
+                        <option value="132">Moldova, Republic of</option>
+                        <option value="133">Monaco</option>
+                        <option value="134">Mongolia</option>
+                        <option value="135">Montserrat</option>
+                        <option value="136">Morocco</option>
+                        <option value="137">Mozambique</option>
+                        <option value="138">Myanmar</option>
+                        <option value="139">Namibia</option>
+                        <option value="140">Nauru</option>
+                        <option value="141">Nepal</option>
+                        <option value="142">Netherlands</option>
+                        <option value="143">Netherlands Antilles</option>
+                        <option value="144">New Caledonia</option>
+                        <option value="145">New Zealand</option>
+                        <option value="146">Nicaragua</option>
+                        <option value="147">Niger</option>
+                        <option value="148">Nigeria</option>
+                        <option value="149">Niue</option>
+                        <option value="150">Norfolk Island</option>
+                        <option value="151">Northern Mariana Islands</option>
+                        <option value="152">Norway</option>
+                        <option value="153">Oman</option>
+                        <option value="154">Pakistan</option>
+                        <option value="155">Palau</option>
+                        <option value="156">Panama</option>
+                        <option value="157">Papua New Guinea</option>
+                        <option value="158">Paraguay</option>
+                        <option value="159">Peru</option>
+                        <option value="160">Philippines</option>
+                        <option value="161">Pitcairn</option>
+                        <option value="162">Poland</option>
+                        <option value="163">Portugal</option>
+                        <option value="164">Puerto Rico</option>
+                        <option value="165">Qatar</option>
+                        <option value="166">Reunion</option>
+                        <option value="167">Romania</option>
+                        <option value="168">Russian Federation</option>
+                        <option value="169">Rwanda</option>
+                        <option value="170">Saint Helena</option>
+                        <option value="171">Saint Kitts and Nevis</option>
+                        <option value="172">Saint Lucia</option>
+                        <option value="173">Saint Pierre and Miquelon</option>
+                        <option value="174">Saint Vincent and the Grenadines</option>
+                        <option value="175">Samoa</option>
+                        <option value="176">San Marino</option>
+                        <option value="177">Sao Tome and Principe</option>
+                        <option value="178">Saudi Arabia</option>
+                        <option value="179">Senegal</option>
+                        <option value="180">Seychelles</option>
+                        <option value="181">Sierra Leone</option>
+                        <option value="182">Singapore</option>
+                        <option value="183">Slovakia</option>
+                        <option value="184">Slovenia</option>
+                        <option value="185">Solomon Islands</option>
+                        <option value="186">Somalia</option>
+                        <option value="187">South Africa</option>
+                        <option value="188">Spain</option>
+                        <option value="189">Sri Lanka</option>
+                        <option value="190">Sudan</option>
+                        <option value="191">Suriname</option>
+                        <option value="192">Svalbard and Jan Mayen</option>
+                        <option value="193">Swaziland</option>
+                        <option value="194">Sweden</option>
+                        <option value="195">Switzerland</option>
+                        <option value="196">Syrian Arab Republic</option>
+                        <option value="198">Tajikistan</option>
+                        <option value="199">Tanzania, United Republic of</option>
+                        <option value="200">Thailand</option>
+                        <option value="201">Togo</option>
+                        <option value="202">Tokelau</option>
+                        <option value="203">Tonga</option>
+                        <option value="204">Trinidad and Tobago</option>
+                        <option value="205">Tunisia</option>
+                        <option value="206">Turkey</option>
+                        <option value="207">Turkmenistan</option>
+                        <option value="208">Turks and Caicos Islands</option>
+                        <option value="209">Tuvalu</option>
+                        <option value="210">Uganda</option>
+                        <option value="211">Ukraine</option>
+                        <option value="212">United Arab Emirates</option>
+                        <option value="213">United Kingdom</option>
+                        <option selected="selected" value="214">United States</option>
+                        <option value="215">Uruguay</option>
+                        <option value="216">Uzbekistan</option>
+                        <option value="217">Vanuatu</option>
+                        <option value="218">Venezuela</option>
+                        <option value="219">Viet Nam</option>
+                        <option value="220">Virgin Islands, British</option>
+                        <option value="221">Virgin Islands, U.s.</option>
+                        <option value="222">Wallis and Futuna</option>
+                        <option value="223">Western Sahara</option>
+                        <option value="224">Yemen</option>
+                        <option value="225">Zambia</option>
+                        <option value="226">Zimbabwe</option>
+                        <option value="197">Republic of China, Taiwan</option>
+                        <option value="453">Sint Maarten (Dutch part)</option>
+                        <option value="454">Aland Islands</option>
+                        <option value="455">Bonaire, Sint Eustatius and Saba</option>
+                        <option value="456">Bouvet Island</option>
+                        <option value="457">British Indian Ocean Territory</option>
+                        <option value="458">Christmas Island</option>
+                        <option value="459">Cocos (Keeling) Islands</option>
+                        <option value="460">Curacao</option>
+                        <option value="461">Guernsey</option>
+                        <option value="462">Heard Island and McDonald Islands</option>
+                        <option value="463">Isle of Man</option>
+                        <option value="464">Jersey</option>
+                        <option value="465">Mayotte</option>
+                        <option value="466">Montenegro</option>
+                        <option value="467">Palestine</option>
+                        <option value="468">Saint Barthelemy</option>
+                        <option value="469">Saint Martin (French part)</option>
+                        <option value="470">Serbia</option>
+                        <option value="471">South Georgia and the South Sandwich Islands</option>
+                        <option value="472">South Sudan</option>
+                        <option value="473">Timor-Leste</option>
+                        <option value="474">United States Minor Outlying Islands</option>
+                    </select></div>
+                </div>
+
+                <div class="form-item">
+                    <input id="contact_postcode" maxlength="255" name="contact[postcode]" type="text" placeholder="Zip Code">
+                </div>
+
+                <div class="form-item dropdown-wrapper answer">
+                    <div class="custom-combobox"><div class="cs-select"><span class="cs-left"></span><a href="#" class="cs-selected" value="">Contact Preference</a><span class="cs-right"></span><div class="cs-clear"></div></div><div style="display:none" class="cs-dropdown"><a href="#" class="cs-option cs-hilighted" value="" selected="selected">Contact Preference</a><a href="#" class="cs-option" value="Any">Any</a><a href="#" class="cs-option" value="Email">Email</a><a href="#" class="cs-option" value="Phone">Phone</a><a href="#" class="cs-option" value="Agent">Agent</a><a href="#" class="cs-option" value="Text Message">Text Message</a></div><select name="contact[contact_preference]" id="contact_contact_preference" aria-label="Contact Preference" style="position: fixed; left: 100%; opacity: 0;">
+                        <option value="" disabled="" selected="" hidden="">Contact Preference</option>
+                        <option value="Any">Any</option>
+                        <option value="Email">Email</option>
+                        <option value="Phone">Phone</option>
+                        <option value="Agent">Agent</option>
+                        <option value="Text Message">Text Message</option>
+                    </select></div>
+                </div>
+
+                <div class="form-item agent-row">
+                    <div class="dropdown-wrapper answer">
+                        <div class="custom-combobox"><div class="cs-select"><span class="cs-left"></span><a href="#" class="cs-selected" value="">Are you an Agent? <span class="asterisk">*</span></a><span class="cs-right"></span><div class="cs-clear"></div></div><div style="display:none" class="cs-dropdown"><a href="#" class="cs-option cs-hilighted" value="" selected="selected">Are you an Agent? <span class="asterisk">*</span></a><a href="#" class="cs-option" value="false">No</a><a href="#" class="cs-option" value="true">Yes</a></div><select name="agent" id="agent" aria-label="Are you an Agent?" style="position: fixed; left: 100%; opacity: 0;">
+                            <option value="" disabled="" selected="" hidden="">Are you an Agent? <span class="asterisk">*</span></option>
+                            <option value="false">No</option>
+                            <option value="true">Yes</option>
+                        </select></div>
+                        <div class="input-error" id="error_agent"></div>
+                    </div>
+                    <div class="dropdown-wrapper answer" id="hidden-agent" style="display: table;">
+                        <input type="text" name="contact[brokerage_name]" id="contact_brokerage_name" data-enhance="false" placeholder="Employer/Brokerage">
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="form-item">
+                        <label class="lb">Desired Residence Size*</label>
+                        <span class="wpcf7-form-control-wrap" data-name="desired-residences-type">
+                            <span class="wpcf7-form-control wpcf7-checkbox">
+                                <span class="wpcf7-list-item">
+                                    <label class="wpcf7-list-item-label">
+                                        <input type="checkbox" name="answers[25258][answers][]" id="answers_25258_2-bedroom" value="2 Bedroom" class="custom-field-required">
+                                        <span>2 Bedroom</span>
+                                    </label>
+                                </span>
+                                <span class="wpcf7-list-item">
+                                    <label class="wpcf7-list-item-label">
+                                        <input type="checkbox" name="answers[25258][answers][]" id="answers_25258_2-bedroom-plus-den" value="2 Bedroom Plus Den" class="custom-field-required">
+                                        <span>2 Bedroom Plus Den</span>
+                                    </label>
+                                </span>
+                                <span class="wpcf7-list-item">
+                                    <label class="wpcf7-list-item-label">
+                                        <input type="checkbox" name="answers[25258][answers][]" id="answers_25258_3-bedroom" value="3 Bedroom" class="custom-field-required">
+                                        <span>3 Bedroom</span>
+                                    </label>
+                                </span>
+                                <span class="wpcf7-list-item">
+                                    <label class="wpcf7-list-item-label">
+                                        <input type="checkbox" name="answers[25258][answers][]" id="answers_25258_3-bedroom-plus-den" value="3 Bedroom Plus Den" class="custom-field-required">
+                                        <span>3 Bedroom Plus Den</span>
+                                    </label>
+                                </span>
+                            </span>
+                        </span>
+                        <div class="input-error" id="error_residences_type"></div>
+                    </div>
+
+                    <div class="form-item dropdown-wrapper answer">
+                        <div class="custom-combobox"><div class="cs-select"><span class="cs-left"></span><a href="#" class="cs-selected" value="">How did you hear about us? <span class="asterisk">*</span></a><span class="cs-right"></span><div class="cs-clear"></div></div><div style="display:none" class="cs-dropdown"><a href="#" class="cs-option cs-hilighted" value="" selected="selected">How did you hear about us? <span class="asterisk">*</span></a><a href="#" class="cs-option" value="Google Search">Google Search</a><a href="#" class="cs-option" value="Magazine/ Newspaper">Magazine/ Newspaper</a><a href="#" class="cs-option" value="Online Display Ad">Online Display Ad</a><a href="#" class="cs-option" value="Referral- Realtor">Referral- Realtor</a><a href="#" class="cs-option" value="Referral- Friend">Referral- Friend</a></div><select name="answers[25256][answers]" id="answers_25256" class="wpcf7-form-control wpcf7-select" aria-label="How did you hear about us?" style="position: fixed; left: 100%; opacity: 0;">
+                            <option value="" disabled="" selected="" hidden="">How did you hear about us? <span class="asterisk">*</span></option>
+                            <option value="Google Search">Google Search</option>
+                            <option value="Magazine/ Newspaper">Magazine/ Newspaper</option>
+                            <option value="Online Display Ad">Online Display Ad</option>
+                            <option value="Referral- Realtor">Referral- Realtor</option>
+                            <option value="Referral- Friend">Referral- Friend</option>
+                        </select></div>
+                        <div class="input-error" id="error_hear_about"></div>
+                    </div>
+                </div>
+
+                <button name="button" type="submit" class="button submit template-button">SUBMIT</button>
+                <!-- Custom validation script moved below -->
+
+                <input type="hidden" name="source" id="source" value="Prospect Web Registrant" autocomplete="off">
+                <input type="hidden" name="redirect_success" id="redirect_success" value="https://mrcresidencesbocaraton.com/thank-you" autocomplete="off">
+                <input type="hidden" name="redirect_error" id="redirect_error" value="https://mrcresidencesbocaraton.com/error/" autocomplete="off">
+                <input style="opacity: 0; display: none;" type="text" name="are_you_simulated" id="are_you_simulated" placeholder="Leave this field blank">
+                <input type="hidden" name="g-recaptcha-response" id="g-recaptcha-response" class="g-recaptcha-response" autocomplete="off">
+            </form>
+            
+            
+            
+            
+        </div>
+    </div>
+
+</section>
+	
+
+<section class="bottom_image dark_background">
+	<img class="footer-logo" src="site/mrcresidencesbocaraton.com/wp-content/uploads/2025/10/footer-logo.svg" alt="White logo with a red background for Mr. C Residences Boca Raton.">
+	<img class="bg-patern" src="site/mrcresidencesbocaraton.com/wp-content/themes/mrc/assets/images/patern-footer.svg" alt="Background Patern">
+</section>
+<footer>
+	<div class="left">
+		<a href="tel:5616773921">Call</a>
+		<span></span>
+		<a href="mailto:Info@MrCBocaRatonResidences.com">Email</a>
+			</div>
+
+	<div class="right">
+					<a href="https://mrcresidencesbocaraton.com/terms-and-conditions">Terms &amp; Conditions</a>
+			<span></span>
+		
+					<a href="https://mrcresidencesbocaraton.com/privacy-policy">Privacy policy</a>
+			<span></span>
+		
+		
+		<p>
+			©2026 Mr.C		</p>
+
+					<span></span>
+
+			<p>Branding &amp; website by <a href="https://theseventhart.com/" target="_blank" rel="noopener">Seventh Art</a></p>
+			</div>
+</footer>
+
+</div>
+
+
+
+
+
+
+
+
+
+
+<iframe height="1" width="1" style="position: absolute; top: 0px; left: 0px; border-width: medium; border-style: none; border-color: currentcolor; border-image: none; visibility: hidden;"></iframe>
+
+<div data-wd3-banner style="position:fixed;z-index:2147483647;left:16px;bottom:16px;max-width:min(560px,calc(100vw - 32px));align-items:center;gap:12px;padding:12px 14px;border-radius:12px;background:rgba(5,5,5,.92);color:#e8e8e8;border:1px solid #1d1d1d;box-shadow:0 8px 30px rgba(0,0,0,.35);font:13px/1.45 ui-sans-serif,system-ui,-apple-system,'Segoe UI',sans-serif;backdrop-filter:blur(8px)">
+  <span style="width:8px;height:8px;border-radius:50%;background:#00ffa3;flex:none"></span>
+  <span>Versão estática, sem animações. Para ver o site vivo, rode no terminal, nesta pasta: <b style="color:#00ffa3">python3 serve.py --open</b> (Windows: <b style="color:#00ffa3">py serve.py --open</b>). Passo a passo em <b style="color:#00ffa3">Como rodar.md</b>.</span>
+  <button type="button" onclick="this.parentNode.remove()" aria-label="Fechar" style="flex:none;background:none;border:0;color:#8a8a8a;font-size:18px;cursor:pointer;padding:0 2px">×</button>
+</div>
+</body></html>

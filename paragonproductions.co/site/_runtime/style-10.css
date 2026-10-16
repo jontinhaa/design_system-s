@@ -1,0 +1,73 @@
+
+
+/* --- Nav Component | CSS --- */
+
+/* -- Nav Desktop -- */
+/* Borders */
+.nav_menu_link { border-right: none; }
+.nav_menu_item:first-child { border-left: none; }
+.nav_menu_item:last-child { border-right-style: solid; border-right-width: var(--border-width--main); }
+
+/* Hide Last Item Before Collaps */
+@media screen and (max-width: 1004px) {
+	.nav_menu_item:last-child {
+		display: none;
+	}
+  
+	.nav_menu_item:nth-child(4) {
+		border-right-style: solid; border-right-width: var(--border-width--main);
+	}
+}
+
+/* -- Nav Mobile -- */
+/* Disable Scroll When Menu Is Open */
+body:has([data-navigation-status="active"]) { overflow: hidden; }
+
+/* Show/Hide content */
+.nav_mobile_wrap { transition: all 0.6s cubic-bezier(0.625, 0.05, 0, 1); transition-delay: 800ms;}
+[data-navigation-status="active"] .nav_mobile_wrap  { opacity: 1; visibility: visible; transition-delay: 0ms;}
+
+/* Nav Background Panel */
+.nav_mobile_panel { 
+	transition: all 0.6s cubic-bezier(0.5, 0.5, 0, 1);
+  transition-delay: 600ms;
+}
+[data-navigation-status="active"] .nav_mobile_panel { 
+	opacity: 1; 
+  visibility: visible;
+  transition: all 0.7s cubic-bezier(0.5, 0.5, 0, 1);
+  transition-delay: 0ms;
+}
+
+/* Link Item Slides */
+.nav_mobile_link_layout {
+  transition: transform 0.8s cubic-bezier(.65, 0, 0, 1);
+  transform: translate(0%, 120%);
+  transition-delay: 100ms;
+}
+
+[data-navigation-status="active"] .nav_mobile_link_layout { 
+  transition: transform 0.5s cubic-bezier(.65, 0, 0, 1);
+  transform: translate(0%, 0%);
+  transition-delay: 200ms;
+}
+
+.nav_mobile_social_list {
+  transition: transform 0.7s cubic-bezier(.65, 0, 0, 1);
+  transform: translate(0px, 120%);
+	transition-delay: 50ms;
+}
+
+[data-navigation-status="active"] .nav_mobile_social_list {
+  transform: translate(0px, 0%);
+  opacity: 1;
+  transition-delay: 300ms;
+}
+
+/* Nav Panel */
+.nav_menu_item.is-active .nav_menu_link_panel,
+.nav_menu_item:hover .nav_menu_link_panel,
+.nav_menu_item:focus-visible .nav_menu_link_panel {
+	opacity: 1;
+}
+

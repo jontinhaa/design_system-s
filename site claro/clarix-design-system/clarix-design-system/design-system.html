@@ -1,0 +1,946 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Clarix Design System</title>
+<!-- preview capture: the Overview frame reports once the odometer preloader has shattered and the
+     hero entrance (letter-by-letter title, logo + nav + info block, the model's radial ASCII reveal)
+     has finished -->
+<meta name="preview-ready-selector" content="body.ds-overview-ready">
+<meta name="preview-ready-after-ms" content="400">
+<link rel="stylesheet" href="assets/overview/assets/css/fonts.css">
+<link rel="stylesheet" href="assets/overview/assets/css/style.css">
+<style>
+/* ================================================================ catalog shell
+   Routing and layout only. The navbar is the Overview's own logo + .hero-nav markup and classes from
+   style.css, drawn where the page draws them and moved with the page's scroll (the page places them
+   absolutely at its top), revealed with the page's own .reveal-anim when its preloader shatters. */
+:root { --ds-top: 8.4rem; --ds-mono: ui-monospace, SFMono-Regular, Menlo, monospace; --ds-page: #f6fafe; }
+html, body { height: 100%; }
+body { overflow: hidden; background: var(--ds-page); }
+#overview-frame { position: fixed; inset: 0; width: 100%; height: 100%; border: 0; display: block; z-index: 0; background: #fff; }
+#ds-nav { position: fixed; top: 0; left: 0; right: 0; height: 0; z-index: 50; }
+#ds-nav .hero-nav a[aria-disabled="true"] { opacity: .35; pointer-events: none; }
+/* Components view: the navbar stays put on a band of the page's own frosted white glass */
+body.is-components #ds-nav { height: var(--ds-top); transform: none !important; background: rgba(246,250,254,.8);
+  -webkit-backdrop-filter: blur(20px); backdrop-filter: blur(20px); box-shadow: inset 0 -1px 0 rgba(0,0,0,.08); }
+body.is-components #overview-frame { pointer-events: none; }
+
+/* ------------------------------------------------------------ components view */
+#view-components { position: fixed; inset: 0; z-index: 10; overflow-y: auto; overflow-x: hidden; overscroll-behavior: contain; -webkit-overflow-scrolling: touch; }
+#view-components[hidden] { display: none; }
+/* one scrim of the scene's own #f6fafe holds the specimens off the live scene behind this view (the
+   Overview with only its two WebGL canvases); it lifts while a live window crosses mid-screen */
+#view-components::before { content: ""; position: fixed; inset: 0; z-index: -1; pointer-events: none;
+  background: rgba(246,250,254,.86); transition: opacity .6s ease; }
+body.ds-bg-clear #view-components::before { opacity: 0; }
+.ds-shell { max-width: 1680px; margin: 0 auto; padding: calc(var(--ds-top) + 40px) 3.125rem 0; display: grid;
+  grid-template-columns: 216px minmax(0, 1fr); gap: 0 56px; font-family: 'Sarabun', sans-serif; color: #000; }
+
+/* sidebar: its own dark glass, legible whatever the scene shows behind it */
+#ds-side { position: sticky; top: calc(var(--ds-top) + 24px); align-self: start; z-index: 5; max-height: calc(100vh - var(--ds-top) - 48px);
+  overflow-y: auto; padding: 16px 10px; border-radius: 20px; color: #eef2f8; scrollbar-width: none;
+  background: rgba(8,10,18,.86); -webkit-backdrop-filter: blur(18px) saturate(1.2); backdrop-filter: blur(18px) saturate(1.2);
+  box-shadow: 0 8px 32px rgba(0,0,0,.18), inset 0 0 0 1px rgba(255,255,255,.08); }
+#ds-side::-webkit-scrollbar { display: none; }
+#ds-side p { margin: 4px 12px 8px; font: 400 11px/1.4 'Sarabun', sans-serif; letter-spacing: .14em; text-transform: uppercase; color: #9aa3b5; }
+#ds-side a + p { margin-top: 18px; }
+#ds-side a { display: flex; align-items: baseline; gap: 10px; padding: 7px 12px; border-radius: 2.5rem; text-decoration: none;
+  font: 400 15px/1.3 'Sarabun', sans-serif; color: #dfe5ee; transition: background-color .2s ease, color .2s ease; }
+#ds-side a b { font: 400 11px/1 var(--ds-mono); color: #8a93a6; }
+#ds-side a:hover { color: #fff; background: rgba(255,255,255,.08); }
+#ds-side a.is-current { color: #000; background: #fff; }
+#ds-side a.is-current b { color: #555; }
+
+#ds-main { min-width: 0; padding-bottom: 200px; }
+.ds-group { padding: 0 0 140px; }
+.ds-head { margin-bottom: 48px; }
+.ds-eyebrow { margin: 0; font: 400 13px/1.4 'Sarabun', sans-serif; letter-spacing: .06em; text-transform: uppercase; }
+.ds-head h2 { margin: 10px 0 0; font: 200 64px/1.05 'Sarabun', sans-serif; letter-spacing: -.02em; }
+#ds-main .ds-head .clients-line { margin: 22px 0 0; }
+.ds-sub { margin: 56px 0 20px; font: 400 13px/1.4 'Sarabun', sans-serif; letter-spacing: .06em; text-transform: uppercase; }
+.ds-head + .ds-sub { margin-top: 0; }
+.ds-spec { margin: 0 0 64px; }
+.ds-spec:last-child { margin-bottom: 0; }
+.ds-spec > h3 { margin: 0 0 16px; font: 400 20px/1.3 'Sarabun', sans-serif; }
+.ds-meta { display: block; margin-top: 14px; font: 11.5px/1.6 var(--ds-mono); color: #1c2029; overflow-wrap: anywhere; }
+.ds-meta b { color: #000; font-weight: 600; }
+.ds-note { margin: 8px 0 0; max-width: 92ch; font: 400 15px/1.55 'Sarabun', sans-serif; color: #1c2029; }
+/* chrome labels keep a halo of the scene colour so they stay legible when the scrim lifts */
+.ds-head, .ds-sub, .ds-spec > h3, .ds-meta, .ds-note, .ds-type .role, .ds-type .face, .ds-type .sizes, .ds-sw strong, .ds-sw code, .ds-sw p,
+.ds-state small, .ds-state code, .ds-icon code {
+  text-shadow: 0 0 2px #f6fafe, 0 0 8px #f6fafe, 0 0 16px #f6fafe; }
+.ds-row { display: flex; flex-wrap: wrap; align-items: flex-start; gap: 32px 40px; }
+/* the page's own ground (the scene field #f6fafe) as context for specimens that sit on it */
+.ds-stage { position: relative; padding: 40px; background: #f6fafe; overflow: hidden; isolation: isolate; box-shadow: inset 0 0 0 1px rgba(0,0,0,.1); }
+.ds-stage.white { background: #fff; }
+
+/* typography: role | live sample | declared size */
+.ds-type { display: grid; grid-template-columns: 200px minmax(0, 1fr) 190px; gap: 32px; align-items: center; padding: 30px 0; border-top: 1px solid rgba(0,0,0,.12); }
+.ds-type:last-child { border-bottom: 1px solid rgba(0,0,0,.12); }
+.ds-type .role { font: 400 16px/1.3 'Sarabun', sans-serif; }
+.ds-type .face { margin-top: 4px; font: 400 14px/1.4 'Sarabun', sans-serif; color: #2a2f3a; }
+.ds-type .face code { display: block; margin-top: 6px; font: 11px/1.5 var(--ds-mono); color: #3a404c; overflow-wrap: anywhere; }
+.ds-type .sample { min-width: 0; overflow-wrap: break-word; }
+.ds-type .sample > * { position: static !important; top: auto !important; left: auto !important; right: auto !important; bottom: auto !important;
+  width: auto !important; margin: 0 !important; transform: none !important; text-align: left !important; white-space: normal !important; opacity: 1 !important; }
+.ds-type .sample .hero-title, .ds-type .sample .phase6-title { font-size: min(max(2.5rem, 7vw), 80px); }
+.ds-type .sample .feature-title, .ds-type .sample .stat-num { font-size: min(max(2.625rem, 5.5vw), 72px); }
+.ds-type .sample .flying-word { font-size: min(max(80px, 25vw), 150px); padding: 0; line-height: 1; }
+.ds-type .sizes { text-align: right; font: 12px/1.6 var(--ds-mono); color: #111; }
+.ds-type .sizes small { display: block; font: 400 12px/1.4 'Sarabun', sans-serif; color: #444; }
+
+/* colors: live chip on its surface + label, value, token, use */
+.ds-colors { display: grid; grid-template-columns: repeat(auto-fill, minmax(290px, 1fr)); gap: 28px 36px; }
+.ds-sw { display: grid; grid-template-columns: 96px minmax(0, 1fr); gap: 16px; align-items: start; }
+.ds-chip { position: relative; height: 96px; overflow: hidden; display: grid; place-items: center; border-radius: 12px;
+  background: #f6fafe; box-shadow: inset 0 0 0 1px rgba(0,0,0,.1); font-family: 'Sarabun', sans-serif; }
+.ds-chip .aa { position: relative; font: 200 40px/1 'Sarabun', sans-serif; }
+.ds-chip .fill { position: absolute; inset: 0; }
+.ds-chip .clients-line { position: absolute; left: 12px; right: 12px; top: 50%; margin: 0 !important; }
+.ds-sw strong { display: block; font: 400 16px/1.3 'Sarabun', sans-serif; }
+.ds-sw code { display: block; margin-top: 3px; font: 11px/1.45 var(--ds-mono); color: #111; overflow-wrap: anywhere; }
+.ds-sw code.tok { color: #4a5160; }
+.ds-sw p { margin: 4px 0 0; font: 400 14px/1.4 'Sarabun', sans-serif; color: #2a2f3a; }
+.ds-famname { margin: 0 0 16px; font: 400 17px/1.3 'Sarabun', sans-serif; }
+.ds-states { display: flex; flex-wrap: wrap; gap: 24px 40px; align-items: flex-start; margin-bottom: 40px; }
+.ds-state { display: flex; flex-direction: column; gap: 10px; align-items: flex-start; }
+.ds-state small { font: 400 11px/1.4 'Sarabun', sans-serif; letter-spacing: .08em; text-transform: uppercase; color: #333; }
+.ds-state code { font: 11px/1.45 var(--ds-mono); color: #111; }
+
+/* backgrounds: transparent windows onto the live scene; [data-station] flies it to a scroll station */
+.ds-window { position: relative; height: min(72vh, 660px); min-height: 320px; box-shadow: inset 0 0 0 1px rgba(0,0,0,.14); }
+/* the page's own glass pill (.hi-btn) as the live tag */
+#ds-main .ds-live { position: absolute; left: 20px; bottom: 20px; z-index: 3; padding: .5rem 1.4rem; font-size: 12px; letter-spacing: 1px; text-transform: uppercase; pointer-events: none; }
+/* full-screen compositions: a 100vw x 100vh box with the page's own fixed layer placed inside it,
+   zoomed to the column width, so vw-based type and layout stay exactly as on the page */
+.ds-fit { position: relative; width: 100%; overflow: hidden; box-shadow: inset 0 0 0 1px rgba(0,0,0,.14); }
+.ds-screen { position: relative; width: 100vw; height: 100vh; overflow: hidden; }
+.ds-screen > .glass-container, .ds-screen > .phase4-container, .ds-screen > .phase5-container, .ds-screen > .phase6-footer-wrapper {
+  position: absolute !important; opacity: 1 !important; transform: none !important; }
+.ds-screen > .phase4-container .split-feature-container, .ds-screen .phase6-footer-wrapper * { pointer-events: auto; }
+.ds-screen .glass-gradient-wrapper.ds-rest { transform: translate(-50%, -50%) scale(1); border-radius: 24px; }
+.ds-screen.ds-page { background: #f6fafe; }
+
+/* surfaces: the page's glass recipes, live over the scene */
+.ds-surfaces { position: absolute; inset: 0; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 24px; align-items: center; padding: 48px 32px 80px; }
+.ds-surf { position: relative; height: 220px; }
+.ds-surf > :not(small) { position: absolute !important; inset: 0 !important; width: auto !important; height: auto !important; transform: none !important; margin: 0 !important; max-width: none !important; }
+.ds-surf > .glass-footer { padding: 0; }
+.ds-surf small { position: absolute; left: 16px; bottom: 14px; z-index: 12; font: 11px/1.4 var(--ds-mono); color: #000; }
+
+/* icons: five to a row, id under each */
+.ds-icons { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 40px 24px; }
+.ds-icon { display: flex; flex-direction: column; align-items: flex-start; gap: 14px; min-width: 0; }
+.ds-icon .stage { min-height: 64px; display: flex; align-items: center; }
+.ds-icon code { font: 11px/1.45 var(--ds-mono); color: #111; overflow-wrap: anywhere; }
+.ds-icon code i { display: block; font-style: normal; color: #4a5160; }
+#ds-main .ds-icon .hero-logo { position: static; }
+.ds-icon .glyph { font-family: 'Sarabun', sans-serif; font-size: 1.2rem; line-height: 1; }
+
+/* specimen context: the page places these absolutely / fixed; here they sit in flow */
+#ds-main .ds-flow .hero-nav, #ds-main .ds-flow .hero-info-block { position: relative; top: auto; right: auto; bottom: auto; left: auto; }
+#ds-main .ds-flow .hero-nav { align-items: flex-end; }
+#ds-main .ds-flow .split-feature-container { margin-top: 0; }
+#ds-main .ds-flow .glass-footer { position: relative; left: auto; right: auto; bottom: auto; }
+#ds-main .ds-flow .footer-input-group { margin-bottom: 0; }
+.ds-cols { display: flex; flex-wrap: wrap; gap: 32px 5rem; font-family: 'Sarabun', sans-serif; color: #000; }
+.ds-stats { display: flex; flex-wrap: wrap; gap: 3.75rem; align-items: flex-end; font-family: 'Sarabun', sans-serif; color: #000; }
+.ds-grad { position: relative; overflow: hidden; }
+.ds-grad > .glass-gradient-img { z-index: 0; }
+.ds-grad > .ds-stats { position: relative; z-index: 1; }
+#ds-main .clients-container { margin-bottom: 0; }
+#ds-main .ds-flow .clients-subtitle, #ds-main .ds-flow .clients-line { margin-left: 0; margin-right: 0; padding-left: 0; }
+.ds-odo { position: relative; color: #000; font-family: 'Sarabun', sans-serif; font-weight: 200; font-size: 4rem; letter-spacing: -0.02em; line-height: 1; }
+.ds-entrance { position: relative; height: 34rem; }
+.ds-entrance .hero-logo { top: 2.5rem; }
+.ds-entrance .hero-info-block { bottom: 2.5rem; }
+.ds-entrance .hero-nav { pointer-events: none; }
+.ds-reveal { display: grid; gap: 28px; }
+
+@media (max-width: 1280px) { .ds-type { grid-template-columns: 180px minmax(0, 1fr); } .ds-type .sizes { grid-column: 2; text-align: left; } }
+@media (max-width: 900px) {
+  :root { --ds-top: 7.6rem; }
+  .ds-shell { grid-template-columns: minmax(0, 1fr); padding: calc(var(--ds-top) + 12px) 16px 0; }
+  #ds-side { top: calc(var(--ds-top) + 8px); display: flex; align-items: center; gap: 2px; overflow-x: auto; overflow-y: hidden;
+    max-height: none; padding: 5px; border-radius: 2.5rem; }
+  #ds-side p { display: none; }
+  #ds-side a { flex: 0 0 auto; padding: 7px 13px; white-space: nowrap; }
+  #ds-main { padding-top: 36px; }
+  .ds-group { padding-bottom: 100px; }
+  .ds-head h2 { font-size: 44px; }
+  .ds-type { grid-template-columns: minmax(0, 1fr); gap: 12px; padding: 24px 0; }
+  .ds-type .sizes { grid-column: auto; }
+  .ds-colors { grid-template-columns: minmax(0, 1fr); }
+  .ds-sw { grid-template-columns: 72px minmax(0, 1fr); }
+  .ds-chip { height: 72px; }
+  .ds-icons { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  .ds-stage { padding: 24px 16px; }
+  .ds-window { height: 60vh; min-height: 300px; }
+  .ds-surfaces { grid-template-columns: minmax(0, 1fr); gap: 14px; padding: 16px 16px 72px; align-content: center; }
+  .ds-surf { height: 22%; min-height: 90px; }
+  .ds-stats { gap: 2rem; }
+  .ds-cols { gap: 24px 2.5rem; }
+  .ds-entrance { height: 44rem; }
+}
+.ds-word { white-space: nowrap; }
+.ds-snap .hero-char, .ds-snap .reveal-anim, .ds-snap.reveal-anim { transition: none !important; }
+/* when the scrim lifts, the labels next to a live window take a small frosted backing of the scene
+   colour (same box at all times, so nothing shifts) */
+.ds-meta, .ds-note, .ds-spec > h3, .ds-eyebrow, .ds-head h2 { border-radius: 10px; transition: background-color .6s ease, box-shadow .6s ease; }
+.ds-meta, .ds-note { padding: 6px 10px; margin-left: -10px; }
+.ds-spec > h3, .ds-eyebrow, .ds-head h2 { display: table; padding: 2px 10px; margin-left: -10px; }
+body.ds-bg-clear .ds-meta, body.ds-bg-clear .ds-note, body.ds-bg-clear .ds-spec > h3, body.ds-bg-clear .ds-eyebrow, body.ds-bg-clear .ds-head h2 {
+  background-color: rgba(246,250,254,.88); box-shadow: 0 4px 24px rgba(0,0,0,.06); }
+</style>
+</head>
+<body>
+
+<!-- NAV: the Overview's own logo and hero nav (style.css .hero-logo / .hero-nav); its links become the
+     catalog views -->
+<div id="ds-nav">
+  <img src="assets/overview/assets/images/logo.svg" class="hero-logo preload-hidden reveal-anim from-top" alt="Clarix">
+  <nav class="hero-nav preload-hidden reveal-anim from-top" aria-label="Design system views">
+    <a id="nav-overview" href="#overview">overview <span class="nav-arrow">↗</span></a>
+    <a id="nav-components" href="#components">components <span class="nav-arrow">↗</span></a>
+  </nav>
+</div>
+
+<iframe id="overview-frame" title="Overview" src="assets/overview/index.html"></iframe>
+
+<div id="view-components" hidden>
+<div class="ds-shell">
+<aside id="ds-side" aria-label="Component groups">
+  <p>Foundations</p>
+  <a href="#components-typography"><b>01</b>Typography</a>
+  <a href="#components-colors"><b>02</b>Colors</a>
+  <a href="#components-backgrounds"><b>03</b>Backgrounds</a>
+  <a href="#components-surfaces"><b>04</b>Surfaces</a>
+  <a href="#components-icons"><b>05</b>Icons</a>
+  <p>Components</p>
+  <a href="#components-actions"><b>06</b>Actions</a>
+  <a href="#components-navigation"><b>07</b>Navigation</a>
+  <a href="#components-inputs"><b>08</b>Inputs and forms</a>
+  <a href="#components-data"><b>09</b>Data display</a>
+  <a href="#components-content"><b>10</b>Content groups</a>
+  <a href="#components-media"><b>11</b>Media</a>
+  <a href="#components-feedback"><b>12</b>Feedback and status</a>
+  <a href="#components-motion"><b>13</b>Motion</a>
+</aside>
+
+<main id="ds-main">
+
+<!-- ============================================================ 01 typography -->
+<section class="ds-group" id="components-typography">
+  <div class="ds-head"><p class="ds-eyebrow">( 01 ) Foundations</p><h2>Typography</h2><div class="clients-line"></div></div>
+
+  <div class="ds-type">
+    <div><div class="role">Display · flying word</div><div class="face">Sarabun 400<code>.flying-word .char</code></div></div>
+    <div class="sample"><div class="flying-word"><span class="char">L</span><span class="char">o</span><span class="char">r</span><span class="char">e</span><span class="char">m</span></div></div>
+    <div class="sizes">max(80px, 25vw)<small>sample capped at 150px</small></div>
+  </div>
+  <div class="ds-type">
+    <div><div class="role">Display · hero title</div><div class="face">Sarabun 200 / 400<code>h1.hero-title · .hero-subtitle</code></div></div>
+    <div class="sample"><h1 class="hero-title">Clarix<br><span class="hero-subtitle">Design System</span></h1></div>
+    <div class="sizes">max(2.5rem, 7vw)<small>line-height 1.0</small></div>
+  </div>
+  <div class="ds-type">
+    <div><div class="role">Display · finale</div><div class="face">Sarabun 200 / 400<code>h3.phase6-title</code></div></div>
+    <div class="sample"><h3 class="phase6-title">Ut enim ad minim<br><span style="font-weight: 400;">veniam quis</span></h3></div>
+    <div class="sizes">max(2.5rem, 7vw)<small>centred on the page</small></div>
+  </div>
+  <div class="ds-type">
+    <div><div class="role">Heading</div><div class="face">Sarabun 200 / 500<code>h3.feature-title · .scroll-title-container h3 · .gc-top-left</code></div></div>
+    <div class="sample"><h3 class="feature-title">Lorem ipsum dolor sit,<br><span style="font-weight: 500;">amet consectetur elit</span></h3></div>
+    <div class="sizes">max(2.625rem, 5.5vw)<small>tracking -0.02em · lh 1.1</small></div>
+  </div>
+  <div class="ds-type">
+    <div><div class="role">Numeral</div><div class="face">Sarabun 200<code>.stat-num</code></div></div>
+    <div class="sample"><div class="stat-num">200+</div></div>
+    <div class="sizes">max(42px, 5.5vw)<small>line-height 1</small></div>
+  </div>
+  <div class="ds-type">
+    <div><div class="role">Counter</div><div class="face">Sarabun 200<code>#preloader (inline style)</code></div></div>
+    <div class="sample"><div class="ds-odo">[ &nbsp;100&nbsp; / 100 ]</div></div>
+    <div class="sizes">4rem<small>tracking -0.02em</small></div>
+  </div>
+  <div class="ds-type">
+    <div><div class="role">Wordmark</div><div class="face">Sarabun 500<code>.footer-left h2 (inline style)</code></div></div>
+    <div class="sample"><h2 style="margin: 0; font-weight: 500; font-size: 1.5rem; letter-spacing: -0.02em; font-family: 'Sarabun', sans-serif;">IrisAI</h2></div>
+    <div class="sizes">1.5rem</div>
+  </div>
+  <div class="ds-type">
+    <div><div class="role">Label</div><div class="face">Sarabun 400, uppercase<code>.hi-top · .hero-nav a · .clients-subtitle</code></div></div>
+    <div class="sample"><div class="hi-top" style="max-width: 20rem; font-family: 'Sarabun', sans-serif;"><span>( A )</span><span>[ 001 /004 ]</span></div></div>
+    <div class="sizes">1.1rem</div>
+  </div>
+  <div class="ds-type">
+    <div><div class="role">Body</div><div class="face">Sarabun 400 at 70%<code>.hi-text</code></div></div>
+    <div class="sample" style="font-family: 'Sarabun', sans-serif;"><div class="hi-text" style="max-width: 30rem;">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</div></div>
+    <div class="sizes">1.0625rem<small>line-height 1.5</small></div>
+  </div>
+  <div class="ds-type">
+    <div><div class="role">Footer heading</div><div class="face">Sarabun 500<code>.footer-heading · .footer-col-title (0.9rem)</code></div></div>
+    <div class="sample" style="font-family: 'Sarabun', sans-serif;"><div class="footer-heading">Lorem ipsum dolor sit amet.</div></div>
+    <div class="sizes">1rem | 0.9rem</div>
+  </div>
+  <div class="ds-type">
+    <div><div class="role">Button</div><div class="face">Sarabun 400, tracking 1px<code>.hi-btn</code></div></div>
+    <div class="sample" style="font-family: 'Sarabun', sans-serif;"><a href="#" class="hi-btn" style="display: inline-block;">LOREM IPSUM</a></div>
+    <div class="sizes">0.95rem</div>
+  </div>
+  <div class="ds-type">
+    <div><div class="role">Link and input</div><div class="face">Sarabun 400<code>.footer-col a (0.85rem, 70%) · .footer-input (0.9rem)</code></div></div>
+    <div class="sample" style="font-family: 'Sarabun', sans-serif;"><div class="footer-col"><a href="#">Documentation</a></div></div>
+    <div class="sizes">0.9rem | 0.85rem</div>
+  </div>
+  <div class="ds-type">
+    <div><div class="role">Caption</div><div class="face">Sarabun 400 at 80%<code>.gc-bottom-left</code></div></div>
+    <div class="sample" style="font-family: 'Sarabun', sans-serif;"><div class="gc-bottom-left">Lorem ipsum dolorem</div></div>
+    <div class="sizes">14px</div>
+  </div>
+  <div class="ds-type">
+    <div><div class="role">Stat description</div><div class="face">Sarabun 400 at 85% / 50%<code>.stat-desc · .stat-sub (11px)</code></div></div>
+    <div class="sample" style="font-family: 'Sarabun', sans-serif;"><div class="stat-desc">lorem ipsum dolor<br><span class="stat-sub">*sit amet elit</span></div></div>
+    <div class="sizes">13px | 11px</div>
+  </div>
+  <div class="ds-type">
+    <div><div class="role">Legal</div><div class="face">Sarabun 400 at 60%<code>.footer-bottom · .footer-subtext (0.75rem)</code></div></div>
+    <div class="sample" style="font-family: 'Sarabun', sans-serif;"><div class="footer-bottom" style="text-align: left;">© 2026 IrisAI, All rights reserved.</div></div>
+    <div class="sizes">0.8rem | 0.75rem</div>
+  </div>
+</section>
+
+<!-- ============================================================ 02 colors -->
+<section class="ds-group" id="components-colors">
+  <div class="ds-head"><p class="ds-eyebrow">( 02 ) Foundations</p><h2>Colors</h2><div class="clients-line"></div></div>
+
+  <p class="ds-sub">Brand and Accent · the shader spectrum</p>
+  <div class="ds-colors">
+    <div class="ds-sw"><div class="ds-chip"><div class="fill" style="background:#0091ff"></div></div><div><strong>Spectrum blue</strong><code>#0091ff</code><code class="tok">shaderUniforms.colorBlue</code><p>Cold base of the ASCII field, the model and the particle logo; first stop of the rule.</p></div></div>
+    <div class="ds-sw"><div class="ds-chip"><div class="fill" style="background:#00aaff"></div></div><div><strong>Spectrum cyan</strong><code>#00aaff</code><code class="tok">shaderUniforms.colorCyan</code><p>Rim glow of the model and the reveal's leading edge.</p></div></div>
+    <div class="ds-sw"><div class="ds-chip"><div class="fill" style="background:#8000ff"></div></div><div><strong>Spectrum purple</strong><code>#8000ff</code><code class="tok">shaderUniforms.colorPurple</code><p>Fresnel rim of the model; middle stop of the rule.</p></div></div>
+    <div class="ds-sw"><div class="ds-chip"><div class="fill" style="background:#ff0099"></div></div><div><strong>Spectrum hot pink</strong><code>#ff0099</code><code class="tok">shaderUniforms.colorHotPink</code><p>Warm transition in every shader; the reveal's glowing border.</p></div></div>
+    <div class="ds-sw"><div class="ds-chip"><div class="fill" style="background:#ff0000"></div></div><div><strong>Spectrum warm end</strong><code>#ff0000</code><code class="tok">shaderUniforms.colorPeach</code><p>Warm end of the cycle, where the model's ASCII cells turn round; last stop of the rule.</p></div></div>
+    <div class="ds-sw"><div class="ds-chip"><div class="fill" style="background:#33ccff"></div></div><div><strong>Scan-line glow</strong><code>vec3(0.2, 0.8, 1.0)</code><p>The soft curved lines that travel up the model.</p></div></div>
+    <div class="ds-sw"><div class="ds-chip"><div class="clients-line"></div></div><div><strong>Spectrum rule</strong><code>linear-gradient(to right, #0091ff, #00aaff, #8000ff, #ff0099, #ff0000)</code><code class="tok">.clients-line</code><p>1px divider under labels and titles.</p></div></div>
+  </div>
+
+  <p class="ds-sub">Surfaces</p>
+  <div class="ds-colors">
+    <div class="ds-sw"><div class="ds-chip" style="background:#f6fafe"></div><div><strong>Scene field</strong><code>#f6fafe</code><code class="tok">bgScene.background · shaderUniforms.bgColor</code><p>The ground everything sits on: the ASCII shader's base.</p></div></div>
+    <div class="ds-sw"><div class="ds-chip" style="background:#ffffff"></div><div><strong>Document ground</strong><code>#ffffff</code><p>body background under the canvases.</p></div></div>
+    <div class="ds-sw"><div class="ds-chip"><div class="fill" style="background:#010103"></div></div><div><strong>Model body</strong><code>#010103</code><p>MeshPhysicalMaterial colour (metalness 0.9, clearcoat 1) under the holographic emission.</p></div></div>
+    <div class="ds-sw"><div class="ds-chip"><img class="fill" src="assets/overview/assets/images/gradient.png" alt="" style="width:100%;height:100%;object-fit:cover"><div class="fill" style="background:rgba(255,255,255,.15)"></div></div><div><strong>Frosted curtain</strong><code>rgba(255, 255, 255, 0.15)</code><code class="tok">.glass-container · blur(30px)</code><p>The glass sheet that slides up over the scene.</p></div></div>
+    <div class="ds-sw"><div class="ds-chip"><img class="fill" src="assets/overview/assets/images/gradient.png" alt="" style="width:100%;height:100%;object-fit:cover"><div class="fill" style="background:rgba(255,255,255,.4)"></div></div><div><strong>Glass panel</strong><code>rgba(255, 255, 255, 0.4)</code><code class="tok">.glass-footer · blur(20px)</code><p>The footer card over the finale.</p></div></div>
+    <div class="ds-sw"><div class="ds-chip" style="background:rgba(255,255,255,.4)"><div class="fill" style="inset:24px 10px;border-radius:2rem;background:rgba(255,255,255,.6);box-shadow:inset 0 0 0 1px rgba(0,0,0,.1)"></div></div><div><strong>Input pill</strong><code>rgba(255, 255, 255, 0.6)</code><code class="tok">.footer-input-group</code><p>Email field on the glass panel.</p></div></div>
+  </div>
+
+  <p class="ds-sub">Text and Icons</p>
+  <div class="ds-colors">
+    <div class="ds-sw"><div class="ds-chip"><span class="aa" style="color:#000">Aa</span></div><div><strong>Primary text</strong><code>#000000</code><p>Titles, labels, nav links, button text and stroke.</p></div></div>
+    <div class="ds-sw"><div class="ds-chip"><span class="aa" style="color:#000;opacity:.85">Aa</span></div><div><strong>Stat text</strong><code>#000000 · opacity 0.85</code><code class="tok">.stat-desc</code><p>Descriptions under the numerals.</p></div></div>
+    <div class="ds-sw"><div class="ds-chip"><span class="aa" style="color:#000;opacity:.7">Aa</span></div><div><strong>Body text</strong><code>#000000 · opacity 0.7</code><code class="tok">.hi-text · .footer-col a</code><p>Paragraphs and footer links at rest.</p></div></div>
+    <div class="ds-sw"><div class="ds-chip"><span class="aa" style="color:#000;opacity:.6">Aa</span></div><div><strong>Muted text</strong><code>#000000 · opacity 0.6</code><code class="tok">.footer-subtext · .footer-bottom</code><p>Consent line and copyright.</p></div></div>
+    <div class="ds-sw"><div class="ds-chip"><span class="aa" style="color:#000;opacity:.425">Aa</span></div><div><strong>Footnote</strong><code>opacity 0.5 inside 0.85</code><code class="tok">.stat-sub</code><p>Asterisk notes under stats.</p></div></div>
+    <div class="ds-sw"><div class="ds-chip" style="background:#000"><span class="aa" style="color:#fff">Aa</span></div><div><strong>Inverse text</strong><code>#ffffff on #000000</code><code class="tok">.footer-submit</code><p>The only filled button.</p></div></div>
+  </div>
+
+  <p class="ds-sub">Borders</p>
+  <div class="ds-colors">
+    <div class="ds-sw"><div class="ds-chip"><div class="fill" style="inset:34px 10px;border:1px solid #000;border-radius:2.5rem"></div></div><div><strong>Ink stroke</strong><code>1px solid #000000</code><code class="tok">.hi-btn</code><p>Outline of the glass pill buttons.</p></div></div>
+    <div class="ds-sw"><div class="ds-chip"><img class="fill" src="assets/overview/assets/images/gradient.png" alt="" style="width:100%;height:100%;object-fit:cover"><div class="fill" style="inset:18px;border-radius:1rem;border:1px solid rgba(255,255,255,.5);background:rgba(255,255,255,.4)"></div></div><div><strong>Glass edge</strong><code>rgba(255, 255, 255, 0.5) · 0.4 top</code><code class="tok">.glass-footer · .glass-container border-top</code><p>Light rim of the glass surfaces.</p></div></div>
+    <div class="ds-sw"><div class="ds-chip"><div class="fill" style="inset:48px 10px auto;height:1px;background:rgba(0,0,0,.1)"></div></div><div><strong>Hairline</strong><code>rgba(0, 0, 0, 0.1)</code><code class="tok">.footer-line · .footer-input-group · .stat-btn</code><p>Footer rule and control outlines.</p></div></div>
+    <div class="ds-sw"><div class="ds-chip"><div class="fill" style="inset:10px auto 10px 47px;width:1px;background:linear-gradient(to bottom, rgba(0,0,0,.0), rgba(0,0,0,.2) 10%, rgba(0,0,0,.2) 90%, rgba(0,0,0,.0))"></div></div><div><strong>Stat divider</strong><code>rgba(0, 0, 0, 0.2), fading at both ends</code><code class="tok">.stat-col::before</code><p>Vertical line left of each stat.</p></div></div>
+  </div>
+
+  <p class="ds-sub">Interactive States</p>
+  <p class="ds-famname">Glass pill · .hi-btn</p>
+  <div class="ds-states">
+    <div class="ds-state"><small>Default</small><a href="#" class="hi-btn" style="font-family:'Sarabun',sans-serif">LOREM IPSUM</a><code>rgba(255, 255, 255, 0.1)</code></div>
+    <div class="ds-state"><small>Hover</small><a href="#" class="hi-btn" style="font-family:'Sarabun',sans-serif;background:rgba(255,255,255,.3);transform:translateY(-2px)">LOREM IPSUM</a><code>rgba(255, 255, 255, 0.3) · translateY(-2px)</code></div>
+  </div>
+  <p class="ds-famname">Stat button · .stat-btn</p>
+  <div class="ds-states">
+    <div class="ds-state"><small>Default</small><div class="stat-btn" style="font-family:'Sarabun',sans-serif">→</div><code>rgba(0, 0, 0, 0.05)</code></div>
+    <div class="ds-state"><small>Hover</small><div class="stat-btn" style="font-family:'Sarabun',sans-serif;background:rgba(0,0,0,.15)">→</div><code>rgba(0, 0, 0, 0.15)</code></div>
+  </div>
+  <p class="ds-famname">Footer link · .footer-col a</p>
+  <div class="ds-states">
+    <div class="ds-state"><small>Default</small><div class="footer-col" style="font-family:'Sarabun',sans-serif"><a href="#">Research</a></div><code>#000000 · opacity 0.7</code></div>
+    <div class="ds-state"><small>Hover</small><div class="footer-col" style="font-family:'Sarabun',sans-serif"><a href="#" style="opacity:1">Research</a></div><code>opacity 1</code></div>
+  </div>
+
+  <p class="ds-sub">Overlays</p>
+  <div class="ds-colors">
+    <div class="ds-sw"><div class="ds-chip" style="background:#fff"><img class="fill" src="assets/overview/assets/images/gradient.png" alt="" style="width:100%;height:100%;object-fit:cover;opacity:.5"></div><div><strong>Gradient veil</strong><code>gradient.png · opacity 0.5</code><code class="tok">.glass-gradient-img</code><p>Pastel image inside the rounded panel on the curtain.</p></div></div>
+    <div class="ds-sw"><div class="ds-chip" style="background:#f6fafe"><div class="fill" style="inset:22px;border-radius:1rem;background:rgba(255,255,255,.4);box-shadow:0 8px 32px rgba(0,0,0,.05)"></div></div><div><strong>Glass shadow</strong><code>0 8px 32px rgba(0, 0, 0, 0.05)</code><code class="tok">.glass-footer</code><p>The footer's soft lift.</p></div></div>
+  </div>
+</section>
+
+<!-- ============================================================ 03 backgrounds -->
+<section class="ds-group" id="components-backgrounds">
+  <div class="ds-head"><p class="ds-eyebrow">( 03 ) Foundations</p><h2>Backgrounds</h2><div class="clients-line"></div></div>
+  <p class="ds-note">One live three.js scene is the background of the whole page and of this view: an ASCII shader field on #f6fafe (rounded cells tinted by the five-colour cycle, masked into drifting blobs, rippling around the cursor) under a transparent layer with the animated holographic model and a particle logo of about 34,780 points. The page's scroll drives it; each window below flies it to one scroll station of the Overview.</p>
+
+  <div class="ds-spec">
+    <h3>Hero · ASCII field and holographic model</h3>
+    <div class="ds-window" data-station="0"><span class="hi-btn ds-live">live · scroll 0.00</span></div>
+    <code class="ds-meta"><b>rendererBg</b> full-screen ShaderMaterial, 15px cell grid, radial + blob mask, cursor ripple · <b>renderer</b> (alpha) GLB model with its animation clip, MeshPhysicalMaterial #010103 + holographic onBeforeCompile shader (spectrum waves, purple fresnel rim, 8px ASCII cells square→round with warmth, radial reveal after the preloader) · canvases z 1 and 3, the hero title sits between them at z 2</code>
+  </div>
+
+  <div class="ds-spec">
+    <h3>Particle logo · assembled</h3>
+    <div class="ds-window" data-station="0.83"><span class="hi-btn ds-live">live · scroll 0.83</span></div>
+    <code class="ds-meta"><b>window.logoParticles</b> THREE.Points: logo.svg sampled at 450px wide (front, back and edge points) + 3,500 ambient points · spiral from a cylindrical scatter, pow(4) snap, bilinear blue/cyan → pink/red gradient × 1.4 · scroll 0.68 → 0.80 camera pushes to z 0.5 while the model fades out · tilts with the cursor</code>
+  </div>
+
+  <div class="ds-spec">
+    <h3>Finale · model fly-in and logo shatter</h3>
+    <div class="ds-window" data-station="1"><span class="hi-btn ds-live">live · scroll 1.00</span></div>
+    <code class="ds-meta">scroll 0.86 → 1.00 · model fades back to 0.95 and settles at (-0.4, -5.2, -1) facing the cursor · logo particles unwind to their scatter and drift, scaled 1.4 · the last viewport of scroll is a hold</code>
+  </div>
+
+  <div class="ds-spec">
+    <h3>Frosted curtain with gradient panel</h3>
+    <div class="ds-fit" data-station="0.3"><div class="ds-screen">
+      <div class="glass-container" data-ds-curtain>
+        <div class="glass-gradient-wrapper">
+          <img src="assets/overview/assets/images/gradient.png" class="glass-gradient-img" alt="">
+        </div>
+      </div>
+    </div></div>
+    <code class="ds-meta"><b>.glass-container</b> fixed full screen, rgba(255,255,255,.15), blur(30px), border-top rgba(255,255,255,.4), z 10 over the model · <b>.glass-gradient-wrapper</b> inset 4rem, <b>gradient.png</b> at opacity .5 · on the page scroll 0.40 → 0.54 slides it up (ease-in) while the panel grows 0.65 → 1 and rounds 0 → 24px; here the same curve follows this window into view</code>
+  </div>
+</section>
+
+<!-- ============================================================ 04 surfaces -->
+<section class="ds-group" id="components-surfaces">
+  <div class="ds-head"><p class="ds-eyebrow">( 04 ) Foundations</p><h2>Surfaces</h2><div class="clients-line"></div></div>
+  <div class="ds-spec">
+    <h3>Frosted white glass, three strengths</h3>
+    <div class="ds-window" data-station="0.14">
+      <div class="ds-surfaces">
+        <div class="ds-surf"><div class="glass-container"></div><small>.glass-container</small></div>
+        <div class="ds-surf"><div class="glass-footer"></div><small>.glass-footer</small></div>
+        <div class="ds-surf"><div class="glass-container"><div class="glass-gradient-wrapper ds-rest"><img src="assets/overview/assets/images/gradient.png" class="glass-gradient-img" alt=""></div></div><small>.glass-gradient-wrapper</small></div>
+      </div>
+    </div>
+    <code class="ds-meta"><b>.glass-container</b> rgba(255,255,255,.15) · blur(30px) · border-top rgba(255,255,255,.4) · square · <b>.glass-footer</b> rgba(255,255,255,.4) · blur(20px) · 1px rgba(255,255,255,.5) · radius 2rem · shadow 0 8px 32px rgba(0,0,0,.05) · <b>.glass-gradient-wrapper</b> on the curtain, radius 24px, gradient.png at .5 · the pill buttons use the same glass at .1 with blur(12px)</code>
+  </div>
+</section>
+
+<!-- ============================================================ 05 icons -->
+<section class="ds-group" id="components-icons">
+  <div class="ds-head"><p class="ds-eyebrow">( 05 ) Foundations</p><h2>Icons</h2><div class="clients-line"></div></div>
+  <div class="ds-icons">
+    <div class="ds-icon"><div class="stage"><img src="assets/overview/assets/images/logo.svg" class="hero-logo" alt="Clarix"></div><code>logo.svg<i>.hero-logo · 1.75rem high · also the particle logo's source</i></code></div>
+    <div class="ds-icon"><div class="stage hero-nav" style="position:static"><a href="#" style="gap:0"><span class="nav-arrow">↗</span></a></div><code>↗<i>.nav-arrow · 1.2rem text glyph</i></code></div>
+    <div class="ds-icon"><div class="stage"><div class="stat-btn" style="font-family:'Sarabun',sans-serif;margin:0">→</div></div><code>→<i>.stat-btn · 44px disc</i></code></div>
+  </div>
+</section>
+
+<!-- ============================================================ 06 actions -->
+<section class="ds-group" id="components-actions">
+  <div class="ds-head"><p class="ds-eyebrow">( 06 ) Components</p><h2>Actions</h2><div class="clients-line"></div></div>
+
+  <div class="ds-spec">
+    <h3>Glass pill button</h3>
+    <div class="ds-stage ds-flow" style="font-family:'Sarabun',sans-serif">
+      <div class="ds-states" style="margin:0">
+        <div class="ds-state"><small>Default</small><a href="#" class="hi-btn">LOREM IPSUM</a></div>
+        <div class="ds-state"><small>Hover</small><a href="#" class="hi-btn" style="background:rgba(255,255,255,.3);transform:translateY(-2px)">LOREM IPSUM</a></div>
+        <div class="ds-state"><small>Uppercase variant</small><a href="#" class="hi-btn" style="text-transform: uppercase;">DOLOR AMET</a></div>
+      </div>
+    </div>
+    <code class="ds-meta"><b>a.hi-btn</b> padding 0.875rem 3rem · 1px #000 · radius 2.5rem · rgba(255,255,255,.1) + blur(12px) · 0.95rem, tracking 1px · hover rgba(255,255,255,.3), lifts 2px (0.2s)</code>
+  </div>
+
+  <div class="ds-spec">
+    <h3>Submit button</h3>
+    <div class="ds-stage ds-flow" style="font-family:'Sarabun',sans-serif">
+      <div class="ds-states" style="margin:0">
+        <div class="ds-state"><small>Default</small><button type="button" class="footer-submit">Submit</button></div>
+        <div class="ds-state"><small>Hover</small><button type="button" class="footer-submit" style="transform:scale(1.05)">Submit</button></div>
+      </div>
+    </div>
+    <code class="ds-meta"><b>button.footer-submit</b> #000 fill, #fff text · radius 2rem · padding 0.6rem 1.5rem · hover scale(1.05) (0.2s)</code>
+  </div>
+
+  <div class="ds-spec">
+    <h3>Arrow disc</h3>
+    <div class="ds-stage ds-flow" style="font-family:'Sarabun',sans-serif">
+      <div class="ds-states" style="margin:0">
+        <div class="ds-state"><small>Default</small><div class="stat-btn" style="margin:0">→</div></div>
+        <div class="ds-state"><small>Hover</small><div class="stat-btn" style="margin:0;background:rgba(0,0,0,.15)">→</div></div>
+      </div>
+    </div>
+    <code class="ds-meta"><b>.stat-btn</b> 44px circle · rgba(0,0,0,.05) · 1px rgba(0,0,0,.1) · hover rgba(0,0,0,.15) (0.2s) · closes each stat column</code>
+  </div>
+</section>
+
+<!-- ============================================================ 07 navigation -->
+<section class="ds-group" id="components-navigation">
+  <div class="ds-head"><p class="ds-eyebrow">( 07 ) Components</p><h2>Navigation</h2><div class="clients-line"></div></div>
+
+  <div class="ds-spec">
+    <h3>Hero nav</h3>
+    <div class="ds-stage ds-flow" style="display:flex;justify-content:flex-end">
+      <div class="hero-nav">
+        <a href="#">home <span class="nav-arrow">↗</span></a>
+        <a href="#">plans <span class="nav-arrow">↗</span></a>
+        <a href="#">services <span class="nav-arrow">↗</span></a>
+        <a href="#">contact us <span class="nav-arrow">↗</span></a>
+      </div>
+    </div>
+    <code class="ds-meta"><b>.hero-nav</b> absolute top 2.5rem, right 3.125rem · right-aligned column, gap 0.75rem · <b>a</b> 1.1rem uppercase #000 + <b>.nav-arrow</b> ↗ · hover translateX(-4px) · enters with .reveal-anim.from-top after the preloader · the catalog navbar above is this same markup</code>
+  </div>
+
+  <div class="ds-spec">
+    <h3>Footer link columns</h3>
+    <div class="ds-stage ds-flow">
+      <div class="ds-cols">
+        <div class="footer-col"><div class="footer-col-title">Products</div><a href="#">Studio</a><a href="#">Engine</a><a href="#">Enterprise</a></div>
+        <div class="footer-col"><div class="footer-col-title">Learn</div><a href="#">Blog</a><a href="#">Research</a><a href="#">Documentation</a></div>
+        <div class="footer-col"><div class="footer-col-title">About</div><a href="#">Company</a><a href="#">Careers</a><a href="#">Contact</a></div>
+        <div class="footer-col"><div class="footer-col-title">Legal</div><a href="#">Terms &amp; Conditions</a><a href="#">Privacy Policy</a></div>
+      </div>
+    </div>
+    <code class="ds-meta"><b>.footer-right</b> gap 5rem · <b>.footer-col</b> column, gap 1rem · <b>.footer-col-title</b> 0.9rem 500 · <b>a</b> 0.85rem #000 at .7 → 1 on hover</code>
+  </div>
+</section>
+
+<!-- ============================================================ 08 inputs -->
+<section class="ds-group" id="components-inputs">
+  <div class="ds-head"><p class="ds-eyebrow">( 08 ) Components</p><h2>Inputs and forms</h2><div class="clients-line"></div></div>
+  <div class="ds-spec">
+    <h3>Newsletter field</h3>
+    <div class="ds-stage ds-flow" style="background:#fff">
+      <div class="footer-left" style="width:auto;max-width:26rem;font-family:'Sarabun',sans-serif">
+        <div class="footer-heading">Lorem ipsum dolor sit amet.</div>
+        <div class="footer-input-group">
+          <input type="email" placeholder="Enter your email" class="footer-input">
+          <button class="footer-submit">Submit</button>
+        </div>
+        <div class="footer-subtext">By subscribing you agree to our Privacy Policy and provide consent to receive updates from our company.</div>
+      </div>
+    </div>
+    <code class="ds-meta"><b>.footer-input-group</b> rgba(255,255,255,.6) · 1px rgba(0,0,0,.1) · radius 2rem · padding 0.3rem · max 22rem · <b>.footer-input</b> transparent, no outline, 0.9rem · <b>.footer-submit</b> inside · <b>.footer-subtext</b> 0.75rem at .6</code>
+  </div>
+</section>
+
+<!-- ============================================================ 09 data display -->
+<section class="ds-group" id="components-data">
+  <div class="ds-head"><p class="ds-eyebrow">( 09 ) Components</p><h2>Data display</h2><div class="clients-line"></div></div>
+
+  <div class="ds-spec">
+    <h3>Stat columns</h3>
+    <div class="ds-stage ds-grad" style="background:#fff">
+      <img src="assets/overview/assets/images/gradient.png" class="glass-gradient-img" alt="">
+      <div class="ds-stats">
+        <div class="stat-col stat-col-tall"><div class="stat-num">200+</div><div class="stat-desc">lorem ipsum dolor<br><span class="stat-sub">*sit amet elit</span></div><div class="stat-btn">→</div></div>
+        <div class="stat-col"><div class="stat-num">97%</div><div class="stat-desc">lorem ipsum dolor sit amet<br>consectetur</div><div class="stat-btn">→</div></div>
+        <div class="stat-col"><div class="stat-num">10X</div><div class="stat-desc">dolor sitamet<br><span class="stat-sub">*sit amet elit</span></div><div class="stat-btn">→</div></div>
+      </div>
+    </div>
+    <code class="ds-meta"><b>.stat-col</b> padding-left 20px, gap 16px, ::before fading 1px rule · <b>.stat-col-tall</b> raised 120px, rule stretched back down · <b>.stat-num</b> max(42px, 5.5vw) 200 · <b>.stat-desc</b> 13px at .85 · <b>.stat-sub</b> 11px at .5 · <b>.stat-btn</b> · row gap 3.75rem, bottom-aligned</code>
+  </div>
+
+  <div class="ds-spec">
+    <h3>Index label</h3>
+    <div class="ds-stage ds-flow" style="font-family:'Sarabun',sans-serif">
+      <div class="hi-top" style="width:100%;max-width:20rem;margin:0"><span>( A )</span><span>[ 001 /004 ]</span></div>
+    </div>
+    <code class="ds-meta"><b>.hi-top</b> flex, space-between · 1.1rem uppercase · margin-bottom 2rem · heads the hero block, the split feature and the corner layout</code>
+  </div>
+
+  <div class="ds-spec">
+    <h3>Gradient stats panel</h3>
+    <div class="ds-fit" data-station="0.5"><div class="ds-screen">
+      <div class="glass-container">
+        <div class="glass-gradient-wrapper ds-rest">
+          <img src="assets/overview/assets/images/gradient.png" class="glass-gradient-img" alt="">
+          <div class="gradient-content">
+            <div class="gc-top-left">Lorem ipsum dolor sit amet consectetur,<br>adipiscing elit sed do</div>
+            <div class="gc-bottom">
+              <div class="gc-bottom-left">Lorem ipsum dolorem</div>
+              <div class="gc-bottom-right">
+                <div class="stat-col stat-col-tall"><div class="stat-num">200+</div><div class="stat-desc">lorem ipsum dolor<br><span class="stat-sub">*sit amet elit</span></div><div class="stat-btn">→</div></div>
+                <div class="stat-col"><div class="stat-num">97%</div><div class="stat-desc">lorem ipsum dolor sit amet<br>consectetur</div><div class="stat-btn">→</div></div>
+                <div class="stat-col"><div class="stat-num">10X</div><div class="stat-desc">dolor sitamet<br><span class="stat-sub">*sit amet elit</span></div><div class="stat-btn">→</div></div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div></div>
+    <code class="ds-meta"><b>#glass-gradient.glass-gradient-wrapper</b> at rest (scale 1, radius 24px) on the curtain · <b>.gradient-content</b> padding 2rem, space-between · <b>.gc-top-left</b> title · <b>.gc-bottom-left</b> caption · <b>.gc-bottom-right</b> three stat columns · full page viewport, zoomed to fit</code>
+  </div>
+</section>
+
+<!-- ============================================================ 10 content groups -->
+<section class="ds-group" id="components-content">
+  <div class="ds-head"><p class="ds-eyebrow">( 10 ) Components</p><h2>Content groups</h2><div class="clients-line"></div></div>
+
+  <div class="ds-spec">
+    <h3>Hero info block</h3>
+    <div class="ds-stage ds-flow">
+      <div class="hero-info-block">
+        <div class="hi-top"><span>( A )</span><span>[ 001 /004 ]</span></div>
+        <div class="hi-text">Holographic ASCII shaders drift through a pastel spectrum behind airy Sarabun type and frosted white glass.</div>
+        <a href="#" class="hi-btn">LOREM IPSUM</a>
+      </div>
+    </div>
+    <code class="ds-meta"><b>.hero-info-block</b> absolute bottom 3.125rem, left 3.125rem · 20rem column · <b>.hi-top</b> index label · <b>.hi-text</b> 1.0625rem at .7 · <b>.hi-btn</b> · enters .from-bottom after the preloader</code>
+  </div>
+
+  <div class="ds-spec">
+    <h3>Split feature</h3>
+    <div class="ds-fit" data-station="0.66"><div class="ds-screen">
+      <div class="phase4-container" style="font-family: 'Sarabun', sans-serif;">
+        <div class="split-feature-container">
+          <div class="hi-top" style="width: 100%; min-width: 15rem; max-width: 20rem; margin-bottom: 0;"><span>( A )</span><span>[ 001 /004 ]</span></div>
+          <div style="display: flex; flex-direction: column; align-items: flex-start;">
+            <div class="split-top" style="text-align: left; display: inline-block;">
+              <h3 class="feature-title" style="text-align: left; margin-top: 0;">Lorem ipsum dolor sit,<br><span style="font-weight: 500;">amet consectetur elit</span></h3>
+              <div class="clients-line" style="margin-top: 3rem; margin-bottom: 3rem; width: 100%; margin-left: 0; margin-right: 0;"></div>
+            </div>
+            <div class="split-bottom" style="align-items: flex-start;">
+              <div class="hi-text" style="text-align: left; max-width: 30rem;">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua, ut enim ad minim veniam quis nostrud exercitation.</div>
+              <a href="#" class="hi-btn" style="margin-top: 1.5rem; text-transform: uppercase;">DOLOR AMET</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div></div>
+    <code class="ds-meta"><b>#phase4-container.phase4-container</b> fixed full screen, z 5, content bottom-right · <b>.split-feature-container</b> 100vh, padding 4rem 3.125rem, space-between · title + spectrum rule + text + pill · on the page it fades and slides 50px in and out over scroll 0.54 → 0.68 while the model swings left</code>
+  </div>
+
+  <div class="ds-spec">
+    <h3>Corner layout</h3>
+    <div class="ds-fit" data-station="0.83"><div class="ds-screen">
+      <div class="phase5-container" style="font-family: 'Sarabun', sans-serif;">
+        <div class="hi-top phase5-label-right"><span>( A )</span><span>[ 001 /004 ]</span></div>
+        <h3 class="feature-title phase5-title-left">Nemo enim ipsam voluptatem est</h3>
+        <div class="hi-text phase5-desc-left">Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam eaque ipsa quae ab illo.</div>
+        <h3 class="feature-title phase5-title-right">Lorem ipsum<br><span style="font-weight: 500;">dolor amet</span></h3>
+      </div>
+    </div></div>
+    <code class="ds-meta"><b>#phase5-container.phase5-container</b> fixed full screen, z 4 · title top-left, index label top-right, text bottom-left, title bottom-right, all 2.5rem / 3.125rem from the edges · framed around the assembled particle logo, visible over scroll 0.74 → 0.86</code>
+  </div>
+
+  <div class="ds-spec">
+    <h3>Glass footer</h3>
+    <div class="ds-fit" data-station="1"><div class="ds-screen">
+      <div class="phase6-footer-wrapper">
+        <div class="glass-footer">
+          <div class="footer-top">
+            <div class="footer-left">
+              <h2 style="margin: 0 0 2rem 0; font-weight: 500; font-size: 1.5rem; letter-spacing: -0.02em;">IrisAI</h2>
+              <div class="footer-heading">Lorem ipsum dolor sit amet.</div>
+              <div class="footer-input-group"><input type="email" placeholder="Enter your email" class="footer-input"><button class="footer-submit">Submit</button></div>
+              <div class="footer-subtext">By subscribing you agree to our Privacy Policy and provide consent to receive updates from our company.</div>
+            </div>
+            <div class="footer-right">
+              <div class="footer-col"><div class="footer-col-title">Products</div><a href="#">Studio</a><a href="#">Engine</a><a href="#">Enterprise</a></div>
+              <div class="footer-col"><div class="footer-col-title">Learn</div><a href="#">Blog</a><a href="#">Research</a><a href="#">Documentation</a></div>
+              <div class="footer-col"><div class="footer-col-title">About</div><a href="#">Company</a><a href="#">Careers</a><a href="#">Contact</a></div>
+              <div class="footer-col"><div class="footer-col-title">Legal</div><a href="#">Terms &amp; Conditions</a><a href="#">Privacy Policy</a></div>
+            </div>
+          </div>
+          <div class="footer-line"></div>
+          <div class="footer-bottom">© 2026 IrisAI, All rights reserved.</div>
+        </div>
+      </div>
+    </div></div>
+    <code class="ds-meta"><b>#phase6-footer.phase6-footer-wrapper</b> fixed, z 4 over the model, slides up from 100vh (ease-out) over scroll 0.86 → 1.00 · <b>.glass-footer</b> absolute bottom 2.5rem, inset 3.125rem, padding 3rem · newsletter left (35%), four link columns right · <b>.footer-line</b> · <b>.footer-bottom</b></code>
+  </div>
+</section>
+
+<!-- ============================================================ 11 media -->
+<section class="ds-group" id="components-media">
+  <div class="ds-head"><p class="ds-eyebrow">( 11 ) Components</p><h2>Media</h2><div class="clients-line"></div></div>
+  <div class="ds-spec">
+    <h3>Client logo marquee</h3>
+    <div class="ds-stage" style="padding: 40px 0; font-family:'Sarabun',sans-serif">
+      <div class="clients-container">
+        <div class="clients-subtitle">LOREM IPSUM</div>
+        <div class="clients-line"></div>
+        <div class="marquee-container"><div class="marquee-content"><img class="marquee-logo" src="assets/overview/assets/images/companies/Discord.png" alt="Discord"><img class="marquee-logo" src="assets/overview/assets/images/companies/Facebook.png" alt="Facebook"><img class="marquee-logo" src="assets/overview/assets/images/companies/Snapchat.png" alt="Snapchat"><img class="marquee-logo" src="assets/overview/assets/images/companies/Spotify.png" alt="Spotify"><img class="marquee-logo" src="assets/overview/assets/images/companies/TikTok.png" alt="TikTok"><img class="marquee-logo" src="assets/overview/assets/images/companies/WhatsApp.png" alt="WhatsApp"><img class="marquee-logo" src="assets/overview/assets/images/companies/YouTube.png" alt="YouTube"><img class="marquee-logo" src="assets/overview/assets/images/companies/dribbble.png" alt="dribbble"><img class="marquee-logo" src="assets/overview/assets/images/companies/ebay.png" alt="ebay"><img class="marquee-logo" src="assets/overview/assets/images/companies/instagram.png" alt="instagram"><img class="marquee-logo" src="assets/overview/assets/images/companies/twitter.png" alt="twitter"><img class="marquee-logo" src="assets/overview/assets/images/companies/Discord.png" alt="Discord"><img class="marquee-logo" src="assets/overview/assets/images/companies/Facebook.png" alt="Facebook"><img class="marquee-logo" src="assets/overview/assets/images/companies/Snapchat.png" alt="Snapchat"><img class="marquee-logo" src="assets/overview/assets/images/companies/Spotify.png" alt="Spotify"><img class="marquee-logo" src="assets/overview/assets/images/companies/TikTok.png" alt="TikTok"><img class="marquee-logo" src="assets/overview/assets/images/companies/WhatsApp.png" alt="WhatsApp"><img class="marquee-logo" src="assets/overview/assets/images/companies/YouTube.png" alt="YouTube"><img class="marquee-logo" src="assets/overview/assets/images/companies/dribbble.png" alt="dribbble"><img class="marquee-logo" src="assets/overview/assets/images/companies/ebay.png" alt="ebay"><img class="marquee-logo" src="assets/overview/assets/images/companies/instagram.png" alt="instagram"><img class="marquee-logo" src="assets/overview/assets/images/companies/twitter.png" alt="twitter"></div></div>
+      </div>
+    </div>
+    <code class="ds-meta"><b>.clients-container</b> · <b>.clients-subtitle</b> 1.1rem uppercase · <b>.clients-line</b> spectrum rule inset 3.125rem · <b>.marquee-container</b> grayscale(100%) at .8 · <b>.marquee-content</b> two identical sets of 11 PNG logos, 3.75rem high, gap 6rem, @keyframes marquee translateX(-50% → 0) 25s linear infinite</code>
+  </div>
+</section>
+
+<!-- ============================================================ 12 feedback -->
+<section class="ds-group" id="components-feedback">
+  <div class="ds-head"><p class="ds-eyebrow">( 12 ) Components</p><h2>Feedback and status</h2><div class="clients-line"></div></div>
+  <div class="ds-spec">
+    <h3>Odometer preloader</h3>
+    <div class="ds-stage" style="height: 10rem; padding: 0">
+      <div data-ds-odo style="position: absolute; top: 2.5rem; left: 3.125rem; color: #000; font-family: 'Sarabun', sans-serif; font-weight: 200; font-size: 4rem; letter-spacing: -0.02em; line-height: 1;">
+        [ &nbsp;
+        <div style="height: 4rem; overflow: hidden; position: relative; width: 6.5rem; display: inline-block; vertical-align: top;">
+          <div class="ds-odo-numbers" style="position: absolute; top: 0; left: 0; width: 100%; transition: transform 0.05s linear; text-align: center;"></div>
+        </div>
+        &nbsp; / 100 ]
+      </div>
+    </div>
+    <code class="ds-meta"><b>#preloader</b> fixed full screen, z 9999, top-left counter · <b>#odometer-numbers</b> 101 rows 000–100, 4rem each · stepped loader: targets 25 → 50 → 75 → 100 every 300 ms after a 200 ms beat, rolled at 180 %/s · at 100 the holographic blob in the scene shatters (~0.5 s), the counter fades (opacity 1 s) and the hero enters · replayed here while in view</code>
+  </div>
+</section>
+
+<!-- ============================================================ 13 motion -->
+<section class="ds-group" id="components-motion">
+  <div class="ds-head"><p class="ds-eyebrow">( 13 ) Components</p><h2>Motion</h2><div class="clients-line"></div></div>
+
+  <div class="ds-spec">
+    <h3>Letter reveal</h3>
+    <div class="ds-stage ds-reveal">
+      <h1 class="hero-title" data-ds-split="25" style="position: static; transform: none;">Clarix<br><span class="hero-subtitle">Design System</span></h1>
+      <h3 class="feature-title animated-title" data-ds-split="10">Lorem ipsum dolor sit,<br><span style="font-weight: 500;">amet consectetur elit</span></h3>
+    </div>
+    <code class="ds-meta">every title is split into <b>.char-mask</b> (overflow hidden, perspective 500px) › <b>.hero-char</b> starting translateY(110%) translateZ(-60px) rotateX(-65deg), blur(14px), opacity 0 · <b>.revealed</b> settles it · hero: 1.6s, 25 ms stagger · <b>.animated-title</b>: 0.8s, 10 ms stagger, on view or at its scroll phase · replayed here</code>
+  </div>
+
+  <div class="ds-spec">
+    <h3>Hero entrance</h3>
+    <div class="ds-stage ds-entrance" data-ds-entrance style="padding: 0">
+      <img src="assets/overview/assets/images/logo.svg" class="hero-logo preload-hidden reveal-anim from-top" alt="Clarix">
+      <div class="hero-nav preload-hidden reveal-anim from-top">
+        <a href="#">home <span class="nav-arrow">↗</span></a>
+        <a href="#">plans <span class="nav-arrow">↗</span></a>
+        <a href="#">services <span class="nav-arrow">↗</span></a>
+        <a href="#">contact us <span class="nav-arrow">↗</span></a>
+      </div>
+      <div class="hero-info-block preload-hidden reveal-anim from-bottom">
+        <div class="hi-top"><span>( A )</span><span>[ 001 /004 ]</span></div>
+        <div class="hi-text">Holographic ASCII shaders drift through a pastel spectrum behind airy Sarabun type and frosted white glass.</div>
+        <a href="#" class="hi-btn">LOREM IPSUM</a>
+      </div>
+    </div>
+    <code class="ds-meta"><b>.preload-hidden</b> opacity 0 · <b>.reveal-anim</b> transform 1.6s cubic-bezier(0.2, 0.8, 0.2, 1) + opacity 1.6s, both 0.6s delayed · <b>.from-top</b> −20px · <b>.from-bottom</b> +20px · dropped when the preloader shatters · replayed here</code>
+  </div>
+</section>
+
+</main>
+</div>
+</div>
+
+<script>
+/* Components specimens: fit the full-screen compositions, and replay the page's own motion (curtain,
+   letter reveal, odometer, hero entrance) while each specimen is in view. Called once by the router. */
+window.DS_SPECIMENS = function (view, isOn) {
+  var vis = new Map();
+  var io = new IntersectionObserver(function (es) { es.forEach(function (x) { vis.set(x.target, x.isIntersecting); }); }, { root: view, rootMargin: '10% 0px' });
+  function seen(el) { return isOn() && !!vis.get(el); }
+  function each(sel, fn) { [].forEach.call(view.querySelectorAll(sel), fn); }
+
+  /* a 100vw x 100vh composition zoomed to its column keeps the page's vw type and layout */
+  var fits = [].slice.call(view.querySelectorAll('.ds-fit'));
+  function fit() { fits.forEach(function (f) { f.firstElementChild.style.zoom = f.clientWidth / innerWidth; }); }
+  fit(); addEventListener('resize', fit, { passive: true });
+
+  /* curtain: the page's scroll 0.40 → 0.54 curve (ease-in rise, panel 0.65 → 1, radius 0 → 24px),
+     driven by this window's own travel into the screen */
+  var curtain = view.querySelector('[data-ds-curtain]'), panel = curtain && curtain.querySelector('.glass-gradient-wrapper');
+  function curtainTick() {
+    if (!curtain) return;
+    var r = curtain.closest('.ds-fit').getBoundingClientRect();
+    var p = Math.max(0, Math.min(1, (innerHeight - r.top) / (innerHeight * .75))), e = p * p;
+    curtain.style.setProperty('transform', 'translateY(' + (100 - e * 100) + '%)', 'important');
+    panel.style.transform = 'translate(-50%, -50%) scale(' + (0.65 + 0.35 * p) + ')';
+    panel.style.borderRadius = (p * 24) + 'px';
+  }
+  curtainTick(); view.addEventListener('scroll', curtainTick, { passive: true });
+
+  /* letter reveal: the page's split (.char-mask > .hero-char), letters grouped per word */
+  function split(el) {
+    function proc(node, parent) {
+      if (node.nodeType === 3) {
+        var word = null;
+        node.textContent.split('').forEach(function (ch) {
+          if (ch === ' ' || ch === '\n' || ch === '\t') { word = null; parent.appendChild(document.createTextNode(ch)); return; }
+          if (!word) { word = document.createElement('span'); word.className = 'ds-word'; parent.appendChild(word); }
+          var m = document.createElement('span'), c = document.createElement('span');
+          m.className = 'char-mask'; c.className = 'hero-char'; c.textContent = ch; m.appendChild(c); word.appendChild(m);
+        });
+      } else if (node.nodeType === 1) {
+        if (node.tagName === 'BR') { parent.appendChild(node.cloneNode()); return; }
+        var cl = node.cloneNode(false);
+        [].slice.call(node.childNodes).forEach(function (k) { proc(k, cl); });
+        parent.appendChild(cl);
+      }
+    }
+    var kids = [].slice.call(el.childNodes); el.innerHTML = ''; kids.forEach(function (k) { proc(k, el); });
+  }
+  each('[data-ds-split]', function (el) {
+    split(el); io.observe(el);
+    var stag = +el.getAttribute('data-ds-split') || 10, chars = [].slice.call(el.querySelectorAll('.hero-char'));
+    (function play() {
+      if (!seen(el)) { setTimeout(play, 500); return; }
+      el.classList.add('ds-snap'); chars.forEach(function (c) { c.classList.remove('revealed'); });
+      void el.offsetWidth; el.classList.remove('ds-snap');
+      setTimeout(function () { chars.forEach(function (c, i) { setTimeout(function () { c.classList.add('revealed'); }, i * stag); }); }, 300);
+      setTimeout(play, 300 + chars.length * stag + 4200);
+    })();
+  });
+
+  /* odometer: 101 rows, stepped targets 25/50/75/100 (200 ms beat, 300 ms apart), rolled at 180 %/s */
+  var odo = view.querySelector('[data-ds-odo]');
+  if (odo) {
+    var nums = odo.querySelector('.ds-odo-numbers'), rows = '';
+    for (var i = 0; i <= 100; i++) rows += '<div style="height: 4rem; line-height: 4rem; display: flex; align-items: center; justify-content: center;">' + String(i).padStart(3, '0') + '</div>';
+    nums.innerHTML = rows; io.observe(odo);
+    var cur = 0, t0 = 0, last = 0, steps = [[200, 25], [500, 50], [800, 75], [1100, 100]];
+    (function frame(ts) {
+      requestAnimationFrame(frame);
+      if (!ts || !seen(odo)) { last = 0; return; }
+      var dt = last ? Math.min(.1, (ts - last) / 1000) : 0; last = ts;
+      if (!t0) t0 = ts;
+      var el = ts - t0, target = 0;
+      steps.forEach(function (s) { if (el >= s[0]) target = s[1]; });
+      if (cur < target) { cur = Math.min(target, cur + dt * 180); nums.style.transform = 'translateY(-' + (cur * 4) + 'rem)'; }
+      if (el > 4200) { t0 = ts; cur = 0; nums.style.transform = 'translateY(0rem)'; }
+    })();
+  }
+
+  /* hero entrance: .preload-hidden off, .reveal-anim slides logo + nav down and the info block up */
+  var ent = view.querySelector('[data-ds-entrance]');
+  if (ent) {
+    io.observe(ent);
+    var items = [].slice.call(ent.querySelectorAll('.reveal-anim'));
+    (function loop() {
+      if (!seen(ent)) { setTimeout(loop, 500); return; }
+      items.forEach(function (x) { x.classList.add('ds-snap', 'preload-hidden'); });
+      void ent.offsetWidth;
+      items.forEach(function (x) { x.classList.remove('ds-snap'); });
+      setTimeout(function () { items.forEach(function (x) { x.classList.remove('preload-hidden'); }); }, 500);
+      setTimeout(loop, 500 + 2200 + 3000);
+    })();
+  }
+};
+</script>
+
+<script>
+(function () {
+  var COMPONENTS_ENABLED = true;           /* orchestrated run: Overview approved */
+  var frame = document.getElementById('overview-frame'), nav = document.getElementById('ds-nav');
+  var view = document.getElementById('view-components'), side = document.getElementById('ds-side');
+  var linkO = document.getElementById('nav-overview'), linkC = document.getElementById('nav-components');
+  var hidden = [].slice.call(nav.querySelectorAll('.preload-hidden'));
+  var isComp = function (h) { return h === '#components' || h.indexOf('#components-') === 0; };
+  var mode = 'overview', frameY = 0, revealed = false;
+  if (!COMPONENTS_ENABLED) { linkC.setAttribute('aria-disabled', 'true'); linkC.setAttribute('tabindex', '-1'); }
+
+  function post(m) { try { frame.contentWindow.postMessage(m, '*'); } catch (e) {} }
+  /* the page's own entrance: drop .preload-hidden and .reveal-anim slides logo and nav in */
+  function reveal() { if (revealed) return; revealed = true; hidden.forEach(function (el) { el.classList.remove('preload-hidden'); }); }
+  function placeNav() { nav.style.transform = mode === 'overview' && frameY ? 'translate3d(0,' + (-frameY) + 'px,0)' : ''; }
+  function progress() { var max = view.scrollHeight - view.clientHeight; return max > 0 ? Math.min(1, view.scrollTop / max) : 0; }
+  function topOffset() { return nav.offsetHeight + (side && innerWidth <= 900 ? side.offsetHeight + 24 : 24); }
+
+  function route() {
+    var h = location.hash || '#overview';
+    if (isComp(h) && !COMPONENTS_ENABLED) { history.replaceState(null, '', location.pathname + location.search); h = '#overview'; }
+    mode = isComp(h) ? 'components' : 'overview';
+    document.body.classList.toggle('is-components', mode === 'components');
+    view.hidden = mode !== 'components';
+    linkO.toggleAttribute('aria-current', mode === 'overview');
+    linkC.toggleAttribute('aria-current', mode === 'components');
+    placeNav();
+    if (mode !== 'components') { document.body.classList.remove('ds-bg-clear'); post({ ds: 'page' }); return; }
+    reveal(); startOnce();
+    if (h === '#components') view.scrollTop = 0;
+    else { jumpTo(h); pending = h; }
+    post({ ds: 'bg', p: progress() });
+    sync();
+  }
+
+  /* a deep link is placed again once fonts and images have settled the layout above it, unless the
+     visitor has scrolled in the meantime */
+  var pending = null;
+  function jumpTo(h) { var el = document.getElementById(h.slice(1)); if (el) view.scrollTop += el.getBoundingClientRect().top - topOffset(); }
+  function settle() { if (pending && mode === 'components' && location.hash === pending) { jumpTo(pending); sync(); } }
+  addEventListener('load', function () { settle(); pending = null; });
+  if (document.fonts && document.fonts.ready) document.fonts.ready.then(settle);
+  ['wheel', 'touchstart', 'keydown'].forEach(function (t) { view.addEventListener(t, function () { pending = null; }, { passive: true }); });
+
+  addEventListener('message', function (e) {
+    if (e.source !== frame.contentWindow || !e.data) return;
+    var d = e.data;
+    if (d.ds === 'y') { frameY = d.y || 0; if (mode === 'overview') placeNav(); }
+    else if (d.ds === 'intro') reveal();
+    else if (d.ds === 'ready') { reveal(); document.body.classList.add('ds-overview-ready'); if (mode === 'components') sync(true); }
+  });
+  frame.addEventListener('load', function () { if (mode === 'components') { post({ ds: 'bg', p: progress() }); sync(true); } });
+
+  /* Components: the Overview (canvases only) is the live background. This view's scroll walks the
+     page's scroll choreography; a live window ([data-station]) crossing the middle of the screen flies
+     the scene to its station and lifts the scrim so the scene shows through */
+  var groups = [], sideLinks = [], windows = [], lastStation = null;
+  function sync(force) {
+    if (mode !== 'components') return;
+    var mid = innerHeight / 2, st = null;
+    for (var i = 0; i < windows.length; i++) {
+      var r = windows[i].getBoundingClientRect();
+      if (r.top < mid && r.bottom > mid) { st = parseFloat(windows[i].getAttribute('data-station')); break; }
+    }
+    document.body.classList.toggle('ds-bg-clear', st !== null);
+    if (st !== null) { if (force || st !== lastStation) post({ ds: 'station', p: st }); }
+    else post({ ds: 'scroll', p: progress() });
+    lastStation = st;
+  }
+  function spy() {
+    if (!groups.length) return;
+    var y = topOffset() + 120, cur = groups[0];
+    groups.forEach(function (g) { if (g.getBoundingClientRect().top <= y) cur = g; });
+    sideLinks.forEach(function (a) {
+      var on = a.getAttribute('href') === '#' + cur.id;
+      if (on && !a.classList.contains('is-current') && innerWidth <= 900) side.scrollLeft = a.offsetLeft - 12;
+      a.classList.toggle('is-current', on);
+    });
+  }
+  var tick = false;
+  view.addEventListener('scroll', function () {
+    spy();
+    if (tick) return; tick = true;
+    requestAnimationFrame(function () { tick = false; sync(); });
+  }, { passive: true });
+  /* the shader's cursor ripple and the model / logo tilt follow the pointer on the page: forward it */
+  var mtick = false, mx = .5, my = .5;
+  addEventListener('mousemove', function (e) {
+    if (mode !== 'components') return;
+    mx = e.clientX / innerWidth; my = e.clientY / innerHeight;
+    if (mtick) return; mtick = true;
+    requestAnimationFrame(function () { mtick = false; post({ ds: 'mouse', x: mx, y: my }); });
+  }, { passive: true });
+
+  /* specimens: links and form submits do nothing */
+  view.addEventListener('click', function (e) {
+    var a = e.target.closest('a[href]');
+    if (a && !(side && side.contains(a))) e.preventDefault();
+  });
+  view.addEventListener('submit', function (e) { e.preventDefault(); });
+  if (side) side.addEventListener('click', function (e) {
+    var a = e.target.closest('a[href]');
+    if (a && a.getAttribute('href') === location.hash) { e.preventDefault(); route(); }
+  });
+
+  var started = false;
+  function startOnce() {
+    if (started) return; started = true;
+    groups = [].slice.call(document.querySelectorAll('#ds-main .ds-group'));
+    sideLinks = side ? [].slice.call(side.querySelectorAll('a')) : [];
+    windows = [].slice.call(view.querySelectorAll('[data-station]'));
+    if (window.DS_SPECIMENS) window.DS_SPECIMENS(view, function () { return mode === 'components'; });
+  }
+  addEventListener('resize', function () { if (mode === 'components') { spy(); sync(); } }, { passive: true });
+  addEventListener('hashchange', route);
+  route();
+})();
+</script>
+</body>
+</html>

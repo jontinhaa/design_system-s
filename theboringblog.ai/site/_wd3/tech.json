@@ -1,0 +1,48 @@
+{
+ "builders": [
+  "next.js",
+  "react"
+ ],
+ "libraries": [
+  {
+   "name": "three",
+   "version": "r185",
+   "sources": [
+    "página"
+   ]
+  }
+ ],
+ "runtime": {
+  "contexts": {
+   "webgl2": 1,
+   "2d": 8
+  },
+  "wasm": 0,
+  "workers": 0,
+  "webgpu": false,
+  "shadowRoots": 1,
+  "canvases": 1
+ },
+ "cssFeatures": [
+  "scroll-driven animations",
+  "@property",
+  "container queries",
+  "cascade layers"
+ ],
+ "fonts": {
+  "families": [
+   "Fraunces",
+   "GeistSans"
+  ],
+  "sources": [
+   "self-hosted"
+  ]
+ },
+ "videos": [],
+ "files": {
+  "text": 8,
+  "image": 30,
+  "application": 26,
+  "font": 3
+ }
+}

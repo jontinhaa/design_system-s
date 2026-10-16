@@ -1,0 +1,27 @@
+
+.nav_link,
+.footer_link {
+    position: relative;
+    cursor: pointer;
+    white-space: nowrap;
+}
+
+.nav_link::before,
+.footer_link::before {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 1px;
+    background: currentColor;
+    top: 100%;
+    left: 0;
+    transform-origin: 100% 50%;
+    transform: scaleX(0);
+    transition: transform 500ms cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+.nav_link:hover::before,
+.footer_link:hover::before {
+    transform-origin: 0% 50%;
+    transform: scaleX(1);
+}

@@ -1,0 +1,1246 @@
+
+  /* =========================================================
+   SHARED SVG DRAW SETTINGS
+========================================================= */
+
+  .home-problem-item[data-problem='manual'],
+  .home-problem-item[data-problem='disjointed'],
+  .home-problem-item[data-problem='blind'],
+  .home-problem-item[data-problem='slow'] {
+    --draw-ease: cubic-bezier(0.22, 1, 0.36, 1);
+    --dash-duration: 1s;
+    --dash-opacity: 1;
+  }
+
+  .home-problem-item .manual-svg,
+  .home-problem-item .automation-svg,
+  .home-problem-item .blind-svg,
+  .home-problem-item .slow-svg {
+    display: block;
+    width: 100%;
+    height: auto;
+    overflow: visible;
+  }
+
+  .home-problem-item .manual-svg path,
+  .home-problem-item .manual-svg line,
+  .home-problem-item .manual-svg ellipse,
+  .home-problem-item .automation-svg path,
+  .home-problem-item .automation-svg ellipse,
+  .home-problem-item .blind-svg path,
+  .home-problem-item .blind-svg circle,
+  .home-problem-item .slow-svg path {
+    fill: none;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+  }
+
+  .home-problem-item .manual-draw,
+  .home-problem-item .automation-draw,
+  .home-problem-item .blind-draw,
+  .home-problem-item .slow-draw {
+    opacity: 1;
+    animation: none;
+    will-change: stroke-dashoffset, opacity;
+  }
+
+  .home-problem-item .manual-dash,
+  .home-problem-item .automation-dash,
+  .home-problem-item .blind-dash,
+  .home-problem-item .slow-dash {
+    opacity: var(--dash-opacity);
+    stroke-width: 1;
+    stroke-dashoffset: 0;
+    animation: none;
+    will-change: stroke-dashoffset, opacity;
+  }
+
+  .home-problem-item svg path,
+  .home-problem-item svg line,
+  .home-problem-item svg ellipse,
+  .home-problem-item svg circle {
+    stroke-dasharray: var(--path-length) var(--path-length);
+    stroke-dashoffset: 0;
+  }
+
+  /* =========================================================
+   MANUAL
+========================================================= */
+
+  .home-problem-item[data-problem='manual'] {
+    --dash-delay: 1.45s;
+    --dash-step: -15.88;
+  }
+
+  .home-problem-item[data-problem='manual'] .manual-draw {
+    stroke-width: 1;
+  }
+
+  /* =========================================================
+   DATABASE PATH LENGTHS
+========================================================= */
+
+  .home-problem-item[data-problem='manual'] .manual-database-top {
+    --path-length: 130;
+    transform-box: fill-box;
+    transform-origin: center;
+    transform: rotate(180deg);
+  }
+
+  .home-problem-item[data-problem='manual'] .manual-database-inner {
+    --path-length: 80;
+  }
+
+  .home-problem-item[data-problem='manual'] .manual-column-upper-left,
+  .home-problem-item[data-problem='manual'] .manual-column-upper-right {
+    --path-length: 82;
+  }
+
+  .home-problem-item[data-problem='manual'] .manual-column-lower-left,
+  .home-problem-item[data-problem='manual'] .manual-column-lower-right {
+    --path-length: 28;
+  }
+
+  .home-problem-item[data-problem='manual'] .manual-database-bottom {
+    --path-length: 75;
+  }
+
+  /* =========================================================
+   PACKAGE PATH LENGTHS
+========================================================= */
+
+  .home-problem-item[data-problem='manual'] .manual-package-center {
+    --path-length: 34;
+  }
+
+  .home-problem-item[data-problem='manual'] .manual-package-top-left,
+  .home-problem-item[data-problem='manual'] .manual-package-top-right {
+    --path-length: 100;
+  }
+
+  .home-problem-item[data-problem='manual'] .manual-package-upper-left,
+  .home-problem-item[data-problem='manual'] .manual-package-upper-right {
+    --path-length: 100;
+  }
+
+  .home-problem-item[data-problem='manual'] .manual-package-left-side,
+  .home-problem-item[data-problem='manual'] .manual-package-right-side {
+    --path-length: 190;
+  }
+
+  /* =========================================================
+   DASHED LINES
+========================================================= */
+
+  .home-problem-item[data-problem='manual'] .manual-dash {
+    stroke-dasharray: 0.93 2.8 9.35 2.8;
+  }
+
+  /* Keep the SVG masks fully open. */
+
+  .home-problem-item[data-problem='manual'] .manual-mask-draw {
+    stroke-dasharray: none;
+    stroke-dashoffset: 0;
+    animation: none;
+  }
+
+  /* =========================================================
+   DATABASE TOP ANIMATION
+========================================================= */
+  @media (min-width: 768px) {
+    .home-problem-item[data-problem='manual']:hover .manual-database-top {
+      animation: homeProblemDraw 0.8s var(--draw-ease) 0s both;
+    }
+
+    .home-problem-item[data-problem='manual']:hover .manual-database-inner {
+      animation: homeProblemDraw 0.65s var(--draw-ease) 0.12s both;
+    }
+
+    .home-problem-item[data-problem='manual']:hover .manual-column-upper-left,
+    .home-problem-item[data-problem='manual']:hover .manual-column-upper-right {
+      animation: homeProblemDraw 0.45s var(--draw-ease) 0.25s both;
+    }
+
+    /* =========================================================
+   PACKAGE ANIMATION
+========================================================= */
+
+    .home-problem-item[data-problem='manual']:hover .manual-package-top-left,
+    .home-problem-item[data-problem='manual']:hover .manual-package-top-right {
+      animation: homeProblemDraw 0.75s var(--draw-ease) 0.2s both;
+    }
+
+    .home-problem-item[data-problem='manual']:hover .manual-package-upper-left,
+    .home-problem-item[data-problem='manual']:hover .manual-package-upper-right {
+      animation: homeProblemDraw 0.7s var(--draw-ease) 0.4s both;
+    }
+
+    .home-problem-item[data-problem='manual']:hover .manual-package-left-side,
+    .home-problem-item[data-problem='manual']:hover .manual-package-right-side {
+      animation: homeProblemDraw 0.9s var(--draw-ease) 0.55s both;
+    }
+
+    .home-problem-item[data-problem='manual']:hover .manual-package-center {
+      animation: homeProblemDraw 0.4s var(--draw-ease) 0.9s both;
+    }
+
+    /* =========================================================
+   DATABASE BOTTOM ANIMATION
+========================================================= */
+
+    .home-problem-item[data-problem='manual']:hover .manual-column-lower-left,
+    .home-problem-item[data-problem='manual']:hover .manual-column-lower-right {
+      animation: homeProblemDraw 0.4s var(--draw-ease) 0.95s both;
+    }
+
+    .home-problem-item[data-problem='manual']:hover .manual-database-bottom {
+      animation: homeProblemDraw 0.45s var(--draw-ease) 1.15s both;
+    }
+
+    /* =========================================================
+   DASH FLOW
+========================================================= */
+
+    .home-problem-item[data-problem='manual']:hover .manual-dash {
+      opacity: 0;
+      animation:
+        homeProblemDashAppear 0.35s ease-in var(--dash-delay) forwards,
+        homeProblemDashFlow var(--dash-duration) linear var(--dash-delay) infinite;
+    }
+  }
+  @media (max-width: 767px) {
+    .home-problem-item[data-problem='manual'].swiper-slide-active .manual-database-top {
+      animation: homeProblemDraw 0.8s var(--draw-ease) 0s both;
+    }
+
+    .home-problem-item[data-problem='manual'].swiper-slide-active .manual-database-inner {
+      animation: homeProblemDraw 0.65s var(--draw-ease) 0.12s both;
+    }
+
+    .home-problem-item[data-problem='manual'].swiper-slide-active .manual-column-upper-left,
+    .home-problem-item[data-problem='manual'].swiper-slide-active .manual-column-upper-right {
+      animation: homeProblemDraw 0.45s var(--draw-ease) 0.25s both;
+    }
+
+    /* =========================================================
+   PACKAGE ANIMATION
+========================================================= */
+
+    .home-problem-item[data-problem='manual'].swiper-slide-active .manual-package-top-left,
+    .home-problem-item[data-problem='manual'].swiper-slide-active .manual-package-top-right {
+      animation: homeProblemDraw 0.75s var(--draw-ease) 0.2s both;
+    }
+
+    .home-problem-item[data-problem='manual'].swiper-slide-active .manual-package-upper-left,
+    .home-problem-item[data-problem='manual'].swiper-slide-active .manual-package-upper-right {
+      animation: homeProblemDraw 0.7s var(--draw-ease) 0.4s both;
+    }
+
+    .home-problem-item[data-problem='manual'].swiper-slide-active .manual-package-left-side,
+    .home-problem-item[data-problem='manual'].swiper-slide-active .manual-package-right-side {
+      animation: homeProblemDraw 0.9s var(--draw-ease) 0.55s both;
+    }
+
+    .home-problem-item[data-problem='manual'].swiper-slide-active .manual-package-center {
+      animation: homeProblemDraw 0.4s var(--draw-ease) 0.9s both;
+    }
+
+    /* =========================================================
+   DATABASE BOTTOM ANIMATION
+========================================================= */
+
+    .home-problem-item[data-problem='manual'].swiper-slide-active .manual-column-lower-left,
+    .home-problem-item[data-problem='manual'].swiper-slide-active .manual-column-lower-right {
+      animation: homeProblemDraw 0.4s var(--draw-ease) 0.95s both;
+    }
+
+    .home-problem-item[data-problem='manual'].swiper-slide-active .manual-database-bottom {
+      animation: homeProblemDraw 0.45s var(--draw-ease) 1.15s both;
+    }
+
+    /* =========================================================
+   DASH FLOW
+========================================================= */
+
+    .home-problem-item[data-problem='manual'].swiper-slide-active .manual-dash {
+      opacity: 0;
+      animation:
+        homeProblemDashAppear 0.35s ease-in var(--dash-delay) forwards,
+        homeProblemDashFlow var(--dash-duration) linear var(--dash-delay) infinite;
+    }
+  }
+  /* =========================================================
+   DISJOINTED
+========================================================= */
+
+  .home-problem-item[data-problem='disjointed'] {
+    --dash-delay: 1.25s;
+    --dash-step: -15.88;
+  }
+
+  .home-problem-item[data-problem='disjointed'] .automation-draw {
+    stroke-width: 1.5;
+  }
+
+  .home-problem-item[data-problem='disjointed'] .automation-circle {
+    --path-length: 180;
+  }
+
+  .home-problem-item[data-problem='disjointed'] .automation-left-top,
+  .home-problem-item[data-problem='disjointed'] .automation-right-top {
+    --path-length: 58;
+  }
+
+  .home-problem-item[data-problem='disjointed'] .automation-left-side,
+  .home-problem-item[data-problem='disjointed'] .automation-left-bottom,
+  .home-problem-item[data-problem='disjointed'] .automation-right-side,
+  .home-problem-item[data-problem='disjointed'] .automation-right-bottom,
+  .home-problem-item[data-problem='disjointed'] .automation-box-top-left,
+  .home-problem-item[data-problem='disjointed'] .automation-box-top-right,
+  .home-problem-item[data-problem='disjointed'] .automation-center-line {
+    --path-length: 84;
+  }
+
+  .home-problem-item[data-problem='disjointed'] .automation-dash {
+    stroke-dasharray: 0.93 2.8 9.35 2.8;
+  }
+
+  .home-problem-item[data-problem='disjointed'] .automation-mask-draw {
+    --mask-length: 430;
+    fill: none;
+    stroke: white;
+    stroke-width: 4;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    stroke-dasharray: var(--mask-length) var(--mask-length);
+    stroke-dashoffset: 0;
+    animation: none;
+    will-change: stroke-dashoffset;
+  }
+  @media (min-width: 768px) {
+    .home-problem-item[data-problem='disjointed']:hover .automation-circle {
+      animation: homeProblemDraw 0.8s var(--draw-ease) 0s both;
+    }
+
+    .home-problem-item[data-problem='disjointed']:hover .automation-left-top,
+    .home-problem-item[data-problem='disjointed']:hover .automation-right-top {
+      animation: homeProblemDraw 0.35s var(--draw-ease) 0.2s both;
+    }
+
+    .home-problem-item[data-problem='disjointed']:hover .automation-left-side,
+    .home-problem-item[data-problem='disjointed']:hover .automation-right-side {
+      animation: homeProblemDraw 0.4s var(--draw-ease) 0.35s both;
+    }
+
+    .home-problem-item[data-problem='disjointed']:hover .automation-left-bottom,
+    .home-problem-item[data-problem='disjointed']:hover .automation-right-bottom {
+      animation: homeProblemDraw 0.6s var(--draw-ease) 0.45s both;
+    }
+
+    .home-problem-item[data-problem='disjointed']:hover .automation-box-top-left,
+    .home-problem-item[data-problem='disjointed']:hover .automation-box-top-right {
+      animation: homeProblemDraw 0.35s var(--draw-ease) 0.42s both;
+    }
+
+    .home-problem-item[data-problem='disjointed']:hover .automation-center-line {
+      animation: homeProblemDraw 0.4s var(--draw-ease) 0.48s both;
+    }
+
+    .home-problem-item[data-problem='disjointed']:hover .automation-dash {
+      opacity: 0;
+      animation:
+        homeProblemDashAppear 0.35s ease-in 0.65s forwards,
+        homeProblemDashFlow var(--dash-duration) linear 0.65s infinite;
+    }
+  }
+  @media (max-width: 767px) {
+    .home-problem-item[data-problem='disjointed'].swiper-slide-active .automation-circle {
+      animation: homeProblemDraw 0.8s var(--draw-ease) 0s both;
+    }
+
+    .home-problem-item[data-problem='disjointed'].swiper-slide-active .automation-left-top,
+    .home-problem-item[data-problem='disjointed'].swiper-slide-active .automation-right-top {
+      animation: homeProblemDraw 0.35s var(--draw-ease) 0.2s both;
+    }
+
+    .home-problem-item[data-problem='disjointed'].swiper-slide-active .automation-left-side,
+    .home-problem-item[data-problem='disjointed'].swiper-slide-active .automation-right-side {
+      animation: homeProblemDraw 0.4s var(--draw-ease) 0.35s both;
+    }
+
+    .home-problem-item[data-problem='disjointed'].swiper-slide-active .automation-left-bottom,
+    .home-problem-item[data-problem='disjointed'].swiper-slide-active .automation-right-bottom {
+      animation: homeProblemDraw 0.6s var(--draw-ease) 0.45s both;
+    }
+
+    .home-problem-item[data-problem='disjointed'].swiper-slide-active .automation-box-top-left,
+    .home-problem-item[data-problem='disjointed'].swiper-slide-active .automation-box-top-right {
+      animation: homeProblemDraw 0.35s var(--draw-ease) 0.42s both;
+    }
+
+    .home-problem-item[data-problem='disjointed'].swiper-slide-active .automation-center-line {
+      animation: homeProblemDraw 0.4s var(--draw-ease) 0.48s both;
+    }
+
+    .home-problem-item[data-problem='disjointed'].swiper-slide-active .automation-dash {
+      opacity: 0;
+      animation:
+        homeProblemDashAppear 0.35s ease-in 0.65s forwards,
+        homeProblemDashFlow var(--dash-duration) linear 0.65s infinite;
+    }
+  }
+
+  /* =========================================================
+   BLIND
+========================================================= */
+
+  .home-problem-item[data-problem='blind'] {
+    --blind-circle-duration: 1.25s;
+    --dash-step: -15.88;
+  }
+
+  .home-problem-item[data-problem='blind'] .blind-draw {
+    stroke-width: 1;
+  }
+
+  .home-problem-item[data-problem='blind'] .blind-circle {
+    --path-length: 586;
+    transform-box: fill-box;
+    transform-origin: center;
+    transform: rotate(180deg);
+  }
+
+  .home-problem-item[data-problem='blind'] .blind-dash {
+    stroke-dasharray: 0.93 2.8 9.35 2.8;
+  }
+  @media (min-width: 768px) {
+    .home-problem-item[data-problem='blind']:hover .blind-circle {
+      animation: homeProblemDraw var(--blind-circle-duration) var(--draw-ease) 0s both;
+    }
+
+    .home-problem-item[data-problem='blind']:hover .blind-dash {
+      opacity: 0;
+      animation:
+        homeProblemDashAppear 0.35s ease var(--dash-delay) forwards,
+        homeProblemDashFlow var(--dash-duration) linear var(--dash-delay) infinite;
+    }
+
+    .home-problem-item[data-problem='blind']:hover .blind-dash-outer {
+      --dash-delay: 0.6s;
+    }
+
+    .home-problem-item[data-problem='blind']:hover .blind-dash-cube {
+      --dash-delay: 0.8s;
+    }
+  }
+  @media (max-width: 767px) {
+    .home-problem-item[data-problem='blind'].swiper-slide-active .blind-circle {
+      animation: homeProblemDraw var(--blind-circle-duration) var(--draw-ease) 0s both;
+    }
+
+    .home-problem-item[data-problem='blind'].swiper-slide-active .blind-dash {
+      opacity: 0;
+      animation:
+        homeProblemDashAppear 0.35s ease var(--dash-delay) forwards,
+        homeProblemDashFlow var(--dash-duration) linear var(--dash-delay) infinite;
+    }
+
+    .home-problem-item[data-problem='blind'].swiper-slide-active .blind-dash-outer {
+      --dash-delay: 0.6s;
+    }
+
+    .home-problem-item[data-problem='blind'].swiper-slide-active .blind-dash-cube {
+      --dash-delay: 0.8s;
+    }
+  }
+  /* =========================================================
+   SLOW
+========================================================= */
+
+  .home-problem-item[data-problem='slow'] {
+    --dash-delay: 1.2s;
+    --dash-step: -13.27;
+  }
+
+  .home-problem-item[data-problem='slow'] .slow-draw {
+    stroke-width: 1;
+  }
+
+  .home-problem-item[data-problem='slow'] .slow-upper-left,
+  .home-problem-item[data-problem='slow'] .slow-upper-right {
+    --path-length: 102;
+  }
+
+  .home-problem-item[data-problem='slow'] .slow-upper-left-side,
+  .home-problem-item[data-problem='slow'] .slow-upper-right-side,
+  .home-problem-item[data-problem='slow'] .slow-upper-center-line,
+  .home-problem-item[data-problem='slow'] .slow-lower-center-line {
+    --path-length: 36;
+  }
+
+  .home-problem-item[data-problem='slow'] .slow-upper-left-bottom,
+  .home-problem-item[data-problem='slow'] .slow-upper-right-bottom,
+  .home-problem-item[data-problem='slow'] .slow-upper-center-left,
+  .home-problem-item[data-problem='slow'] .slow-upper-center-right {
+    --path-length: 100;
+  }
+
+  .home-problem-item[data-problem='slow'] .slow-lower-left-top,
+  .home-problem-item[data-problem='slow'] .slow-lower-right-top {
+    --path-length: 34;
+  }
+
+  .home-problem-item[data-problem='slow'] .slow-lower-left-side,
+  .home-problem-item[data-problem='slow'] .slow-lower-right-side {
+    --path-length: 136;
+  }
+
+  .home-problem-item[data-problem='slow'] .slow-lower-left-diagonal,
+  .home-problem-item[data-problem='slow'] .slow-lower-right-diagonal {
+    --path-length: 102;
+  }
+
+  .home-problem-item[data-problem='slow'] .slow-dash {
+    stroke-dasharray: 0.78 2.34 7.81 2.34;
+  }
+  @media (min-width: 768px) {
+    .home-problem-item[data-problem='slow']:hover .slow-upper-left,
+    .home-problem-item[data-problem='slow']:hover .slow-upper-right {
+      animation: homeProblemDraw 0.6s var(--draw-ease) 0s both;
+    }
+
+    .home-problem-item[data-problem='slow']:hover .slow-upper-left-side,
+    .home-problem-item[data-problem='slow']:hover .slow-upper-right-side {
+      animation: homeProblemDraw 0.3s var(--draw-ease) 0.3s both;
+    }
+
+    .home-problem-item[data-problem='slow']:hover .slow-upper-left-bottom,
+    .home-problem-item[data-problem='slow']:hover .slow-upper-right-bottom {
+      animation: homeProblemDraw 0.45s var(--draw-ease) 0.25s both;
+    }
+
+    .home-problem-item[data-problem='slow']:hover .slow-upper-center-left,
+    .home-problem-item[data-problem='slow']:hover .slow-upper-center-right {
+      animation: homeProblemDraw 0.45s var(--draw-ease) 0.5s both;
+    }
+
+    .home-problem-item[data-problem='slow']:hover .slow-upper-center-line {
+      animation: homeProblemDraw 0.4s var(--draw-ease) 0.45s both;
+    }
+
+    .home-problem-item[data-problem='slow']:hover .slow-lower-left-top,
+    .home-problem-item[data-problem='slow']:hover .slow-lower-right-top {
+      animation: homeProblemDraw 0.45s var(--draw-ease) 0.5s both;
+    }
+
+    .home-problem-item[data-problem='slow']:hover .slow-lower-left-side,
+    .home-problem-item[data-problem='slow']:hover .slow-lower-right-side {
+      animation: homeProblemDraw 0.35s var(--draw-ease) 0.6s both;
+    }
+
+    .home-problem-item[data-problem='slow']:hover .slow-lower-left-diagonal,
+    .home-problem-item[data-problem='slow']:hover .slow-lower-right-diagonal {
+      animation: homeProblemDraw 0.45s var(--draw-ease) 0.65s both;
+    }
+
+    .home-problem-item[data-problem='slow']:hover .slow-lower-center-line {
+      animation: homeProblemDraw 0.425s var(--draw-ease) 0.9s both;
+    }
+
+    .home-problem-item[data-problem='slow']:hover .slow-dash {
+      opacity: 0;
+      animation:
+        homeProblemDashAppear 0.5s ease 1s forwards,
+        homeProblemDashFlow var(--dash-duration) linear 1s infinite;
+    }
+  }
+  @media (max-width: 767px) {
+    .home-problem-item[data-problem='slow'].swiper-slide-active .slow-upper-left,
+    .home-problem-item[data-problem='slow'].swiper-slide-active .slow-upper-right {
+      animation: homeProblemDraw 0.6s var(--draw-ease) 0s both;
+    }
+
+    .home-problem-item[data-problem='slow'].swiper-slide-active .slow-upper-left-side,
+    .home-problem-item[data-problem='slow'].swiper-slide-active .slow-upper-right-side {
+      animation: homeProblemDraw 0.3s var(--draw-ease) 0.3s both;
+    }
+
+    .home-problem-item[data-problem='slow'].swiper-slide-active .slow-upper-left-bottom,
+    .home-problem-item[data-problem='slow'].swiper-slide-active .slow-upper-right-bottom {
+      animation: homeProblemDraw 0.45s var(--draw-ease) 0.25s both;
+    }
+
+    .home-problem-item[data-problem='slow'].swiper-slide-active .slow-upper-center-left,
+    .home-problem-item[data-problem='slow'].swiper-slide-active .slow-upper-center-right {
+      animation: homeProblemDraw 0.45s var(--draw-ease) 0.5s both;
+    }
+
+    .home-problem-item[data-problem='slow'].swiper-slide-active .slow-upper-center-line {
+      animation: homeProblemDraw 0.4s var(--draw-ease) 0.45s both;
+    }
+
+    .home-problem-item[data-problem='slow'].swiper-slide-active .slow-lower-left-top,
+    .home-problem-item[data-problem='slow'].swiper-slide-active .slow-lower-right-top {
+      animation: homeProblemDraw 0.45s var(--draw-ease) 0.5s both;
+    }
+
+    .home-problem-item[data-problem='slow'].swiper-slide-active .slow-lower-left-side,
+    .home-problem-item[data-problem='slow'].swiper-slide-active .slow-lower-right-side {
+      animation: homeProblemDraw 0.35s var(--draw-ease) 0.6s both;
+    }
+
+    .home-problem-item[data-problem='slow'].swiper-slide-active .slow-lower-left-diagonal,
+    .home-problem-item[data-problem='slow'].swiper-slide-active .slow-lower-right-diagonal {
+      animation: homeProblemDraw 0.45s var(--draw-ease) 0.65s both;
+    }
+
+    .home-problem-item[data-problem='slow'].swiper-slide-active .slow-lower-center-line {
+      animation: homeProblemDraw 0.425s var(--draw-ease) 0.9s both;
+    }
+
+    .home-problem-item[data-problem='slow'].swiper-slide-active .slow-dash {
+      opacity: 0;
+      animation:
+        homeProblemDashAppear 0.5s ease 1s forwards,
+        homeProblemDashFlow var(--dash-duration) linear 1s infinite;
+    }
+  }
+  /* =========================================================
+   SHARED KEYFRAMES
+========================================================= */
+
+  @keyframes homeProblemDraw {
+    0% {
+      opacity: 0;
+      stroke-dashoffset: var(--path-length);
+    }
+
+    1% {
+      opacity: 1;
+    }
+
+    100% {
+      opacity: 1;
+      stroke-dashoffset: 0;
+    }
+  }
+
+  @keyframes homeProblemDashAppear {
+    0% {
+      opacity: 0;
+    }
+
+    100% {
+      opacity: var(--dash-opacity);
+    }
+  }
+
+  @keyframes homeProblemDashFlow {
+    0% {
+      stroke-dashoffset: 0;
+    }
+
+    100% {
+      stroke-dashoffset: var(--dash-step);
+    }
+  }
+
+  @keyframes homeProblemMaskDraw {
+    0% {
+      stroke-dashoffset: var(--mask-length);
+    }
+
+    100% {
+      stroke-dashoffset: 0;
+    }
+  }
+
+  /* =========================================================
+   REDUCED MOTION
+========================================================= */
+
+  @media (prefers-reduced-motion: reduce) {
+    .home-problem-item:hover .manual-draw,
+    .home-problem-item:hover .manual-dash,
+    .home-problem-item:hover .automation-draw,
+    .home-problem-item:hover .automation-mask-draw,
+    .home-problem-item:hover .automation-dash,
+    .home-problem-item:hover .blind-draw,
+    .home-problem-item:hover .blind-dash,
+    .home-problem-item:hover .slow-draw,
+    .home-problem-item:hover .slow-dash {
+      animation: none;
+    }
+
+    .home-problem-item .manual-dash,
+    .home-problem-item .automation-dash,
+    .home-problem-item .blind-dash,
+    .home-problem-item .slow-dash {
+      opacity: var(--dash-opacity);
+    }
+  }
+
+  /* =========================================================
+   HOME WHY MOTION — OPTIMIZED
+   Timing and animation behavior are preserved.
+========================================================= */
+
+  .home-why-item-img {
+    --why-cycle: 5s;
+    --animation-duration: var(--why-cycle);
+    --box-stagger: 0.4s;
+    --why-open-ease: cubic-bezier(0.16, 1, 0.3, 1);
+    --why-smooth-ease: cubic-bezier(0.22, 1, 0.36, 1);
+    --why-close-ease: cubic-bezier(0.64, 0, 0.78, 0);
+  }
+
+  .home-why-item-img-box.box-1 {
+    --box-delay: 0s;
+  }
+  .home-why-item-img-box.box-2 {
+    --box-delay: 0.8s;
+  }
+  .home-why-item-img-box.box-3 {
+    --box-delay: 0.4s;
+  }
+
+  /* =========================================================
+   BOX — SHARED STATE
+========================================================= */
+
+  .home-why-item-img-box-bg,
+  .home-why-item-img-box-content,
+  .home-why-item-img-box-ic,
+  .home-why-item-img-box-ic-boder {
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+    will-change: transform, opacity;
+  }
+
+  .home-why-item-img-box-bg,
+  .home-why-item-img-box-content {
+    opacity: 0;
+    transform: translate3d(0, 0, 0) scale(0.001);
+    transform-origin: top right;
+    animation: homeWhyBoxReveal var(--animation-duration) linear var(--box-delay, 0s) infinite both;
+  }
+
+  .home-why-item-img-box-ic-bg {
+    opacity: 1;
+    backface-visibility: hidden;
+    -webkit-backface-visibility: hidden;
+    will-change: opacity;
+    animation: homeWhyIconBgSwap var(--animation-duration) linear var(--box-delay, 0s) infinite both;
+  }
+
+  .home-why-item-img-box-ic {
+    opacity: 0;
+    transform: translate3d(0, 0, 0) scale(0.75);
+    transform-origin: center;
+    animation: homeWhyIconReveal var(--animation-duration) linear var(--box-delay, 0s) infinite both;
+  }
+
+  .home-why-item-img-box-ic-boder {
+    opacity: 0;
+    transform: translate3d(0, 0, 0) scale(0.92);
+    transform-origin: center;
+    pointer-events: none;
+    animation: homeWhyIconBorderPulse var(--animation-duration) linear var(--box-delay, 0s) infinite both;
+  }
+
+  /* =========================================================
+   BOX KEYFRAMES
+========================================================= */
+
+  @keyframes homeWhyBoxReveal {
+    0%,
+    11% {
+      opacity: 0;
+      transform: translate3d(0, 0, 0) scale(0.001);
+    }
+    12% {
+      opacity: 1;
+      transform: translate3d(0, 0, 0) scale(0.001);
+      animation-timing-function: cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    32%,
+    62% {
+      opacity: 1;
+      transform: translate3d(0, 0, 0) scale(1);
+    }
+    62% {
+      animation-timing-function: cubic-bezier(0.4, 0, 1, 1);
+    }
+    70% {
+      opacity: 0;
+      transform: translate3d(0, 0, 0) scale(1);
+    }
+    70.01%,
+    100% {
+      opacity: 0;
+      transform: translate3d(0, 0, 0) scale(0.001);
+    }
+  }
+
+  @keyframes homeWhyIconBgSwap {
+    0%,
+    11% {
+      opacity: 1;
+    }
+    12% {
+      opacity: 1;
+      animation-timing-function: cubic-bezier(0.4, 0, 1, 1);
+    }
+    17%,
+    62% {
+      opacity: 0;
+    }
+    62.01% {
+      opacity: 0;
+      animation-timing-function: ease-out;
+    }
+    70%,
+    100% {
+      opacity: 1;
+    }
+  }
+
+  @keyframes homeWhyIconReveal {
+    0%,
+    12% {
+      opacity: 0;
+      transform: translate3d(0, 0, 0) scale(0.75);
+    }
+    12% {
+      animation-timing-function: cubic-bezier(0.16, 1, 0.3, 1);
+    }
+    17% {
+      opacity: 1;
+      transform: translate3d(0, 0, 0) scale(1.08);
+    }
+    21%,
+    62.01% {
+      opacity: 1;
+      transform: translate3d(0, 0, 0) scale(1);
+    }
+    62.01% {
+      animation-timing-function: ease-out;
+    }
+    70%,
+    100% {
+      opacity: 0;
+      transform: translate3d(0, 0, 0) scale(0.75);
+    }
+  }
+
+  @keyframes homeWhyIconBorderPulse {
+    0%,
+    6% {
+      opacity: 0;
+      transform: translate3d(0, 0, 0) scale(0.92);
+    }
+    8%,
+    58% {
+      opacity: 1;
+      transform: translate3d(0, 0, 0) scale(1);
+      animation-timing-function: cubic-bezier(0.22, 1, 0.36, 1);
+    }
+    13%,
+    63% {
+      opacity: 0;
+      transform: translate3d(0, 0, 0) scale(1.35);
+    }
+    13.01%,
+    56%,
+    63.01%,
+    100% {
+      opacity: 0;
+      transform: translate3d(0, 0, 0) scale(1);
+    }
+    57% {
+      opacity: 0;
+      transform: translate3d(0, 0, 0) scale(0.92);
+    }
+  }
+
+  /* =========================================================
+   IMAGE 4 — POINTS
+========================================================= */
+
+  .home-why-item-img-point {
+    opacity: 0;
+    transform: scale(0.4);
+    transform-origin: center;
+    animation: pointReveal var(--why-cycle, 5s) linear var(--delay, 0s) infinite;
+    will-change: transform, opacity;
+  }
+
+  .home-why-item-img-point.item-1 {
+    --point-index: 0;
+  }
+  .home-why-item-img-point.item-2 {
+    --point-index: 1;
+  }
+  .home-why-item-img-point.item-3 {
+    --point-index: 2;
+  }
+  .home-why-item-img-point.item-4 {
+    --point-index: 3;
+  }
+  .home-why-item-img-point.item-5 {
+    --point-index: 4;
+  }
+  .home-why-item-img-point.item-6 {
+    --point-index: 5;
+  }
+  .home-why-item-img-point.item-7 {
+    --point-index: 6;
+  }
+  .home-why-item-img-point.item-8 {
+    --point-index: 7;
+  }
+  .home-why-item-img-point.item-9 {
+    --point-index: 8;
+  }
+  .home-why-item-img-point.item-10 {
+    --point-index: 9;
+  }
+  .home-why-item-img-point.item-11 {
+    --point-index: 10;
+  }
+  .home-why-item-img-point.item-12 {
+    --point-index: 11;
+  }
+
+  .home-why-item-img-point {
+    --delay: calc(var(--point-index, 0) * 0.06s);
+  }
+
+  @keyframes pointReveal {
+    0%,
+    8% {
+      opacity: 0;
+      transform: scale(0.4);
+    }
+    12% {
+      opacity: 1;
+      transform: scale(1.15);
+      animation-timing-function: cubic-bezier(0.22, 1, 0.36, 1);
+    }
+    16%,
+    84% {
+      opacity: 1;
+      transform: scale(1);
+    }
+    84% {
+      animation-timing-function: cubic-bezier(0.64, 0, 0.78, 0);
+    }
+    90%,
+    100% {
+      opacity: 0;
+      transform: scale(0.4);
+    }
+  }
+
+  /* =========================================================
+   IMAGE 4 — LINES
+========================================================= */
+
+  .home-why-item-img-line .line {
+    opacity: 0;
+    stroke: #fa3600;
+    stroke-dasharray: 4 4;
+    stroke-dashoffset: 0;
+    animation:
+      homeWhyLineVisibility var(--why-cycle, 5s) linear var(--line-delay, 0s) infinite,
+      homeWhyDashMove 0.8s linear infinite;
+    will-change: opacity, stroke-dashoffset;
+  }
+
+  .home-why-item-img-line .line-1 {
+    --line-index: 0;
+  }
+  .home-why-item-img-line .line-2 {
+    --line-index: 1;
+  }
+  .home-why-item-img-line .line-3 {
+    --line-index: 2;
+  }
+  .home-why-item-img-line .line-4 {
+    --line-index: 3;
+  }
+  .home-why-item-img-line .line-5 {
+    --line-index: 4;
+  }
+  .home-why-item-img-line .line-6 {
+    --line-index: 5;
+  }
+  .home-why-item-img-line .line-7 {
+    --line-index: 6;
+  }
+  .home-why-item-img-line .line-8 {
+    --line-index: 7;
+  }
+  .home-why-item-img-line .line-9 {
+    --line-index: 8;
+  }
+  .home-why-item-img-line .line-10 {
+    --line-index: 9;
+  }
+  .home-why-item-img-line .line-11 {
+    --line-index: 10;
+  }
+  .home-why-item-img-line .line-12 {
+    --line-index: 11;
+  }
+  .home-why-item-img-line .line-13 {
+    --line-index: 12;
+  }
+  .home-why-item-img-line .line-14 {
+    --line-index: 13;
+  }
+  .home-why-item-img-line .line-15 {
+    --line-index: 14;
+  }
+  .home-why-item-img-line .line-16 {
+    --line-index: 15;
+  }
+
+  .home-why-item-img-line .line {
+    --line-delay: calc(var(--line-index, 0) * 0.03s);
+  }
+
+  @keyframes homeWhyLineVisibility {
+    0%,
+    30% {
+      opacity: 0;
+    }
+    30% {
+      opacity: 0;
+      animation-timing-function: cubic-bezier(0.22, 1, 0.36, 1);
+    }
+    40%,
+    82% {
+      opacity: 1;
+    }
+    82% {
+      animation-timing-function: cubic-bezier(0.64, 0, 0.78, 0);
+    }
+    87%,
+    100% {
+      opacity: 0;
+    }
+  }
+
+  @keyframes homeWhyDashMove {
+    from {
+      stroke-dashoffset: 0;
+    }
+    to {
+      stroke-dashoffset: -8;
+    }
+  }
+
+  /* =========================================================
+   IMAGE 3 — LOADING / CHECK
+========================================================= */
+
+  .is-loading svg {
+    display: block;
+    transform-origin: center;
+    animation: homeWhySpin 1s linear infinite;
+  }
+
+  .home-why-item-img-child.active .is-loading {
+    animation: loadingActive var(--why-cycle, 5s) linear infinite;
+  }
+
+  .home-why-item-img-child.active .is-check {
+    animation: checkActive var(--why-cycle, 5s) linear infinite;
+  }
+
+  @keyframes homeWhySpin {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(360deg);
+    }
+  }
+
+  @keyframes loadingActive {
+    0%,
+    74.01%,
+    100% {
+      opacity: 0;
+      transform: scale(0);
+    }
+    6%,
+    66% {
+      opacity: 1;
+      transform: scale(1);
+    }
+    74% {
+      opacity: 0;
+      transform: scale(0);
+    }
+  }
+
+  @keyframes checkActive {
+    0%,
+    74%,
+    98%,
+    100% {
+      opacity: 0;
+      transform: scale(0);
+    }
+    80% {
+      opacity: 1;
+      transform: scale(1.15);
+    }
+    84%,
+    92% {
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
+
+  /* =========================================================
+   IMAGE 3 — CARD 2
+========================================================= */
+
+  .home-why-item-card.card-2 {
+    opacity: 0;
+    transform: translate3d(0, 0.75rem, 0);
+    transform-origin: center;
+    animation: homeWhyCard2Reveal var(--why-cycle, 5s) linear infinite;
+    will-change: opacity, transform;
+  }
+
+  .home-why-item-card.card-2 .home-why-item-card-dot {
+    --dot-delay: calc(var(--dot-index, 0) * 0.2s);
+    opacity: 0.25;
+    transform: scale(0.75);
+    transform-origin: center;
+    animation: homeWhyCardDotLoading 1.2s ease-in-out var(--dot-delay) infinite;
+    will-change: opacity, transform;
+  }
+
+  .home-why-item-card.card-2 .home-why-item-card-dot:nth-child(1) {
+    --dot-index: 0;
+  }
+  .home-why-item-card.card-2 .home-why-item-card-dot:nth-child(2) {
+    --dot-index: 1;
+  }
+  .home-why-item-card.card-2 .home-why-item-card-dot:nth-child(3) {
+    --dot-index: 2;
+  }
+
+  .home-why-item-card.card-2 .home-why-item-card-dots {
+    opacity: 0;
+    animation: homeWhyCardDotsVisibility var(--why-cycle, 5s) linear infinite;
+  }
+
+  @keyframes homeWhyCard2Reveal {
+    0%,
+    4%,
+    74.01%,
+    100% {
+      opacity: 0;
+      transform: translate3d(0, 0.75rem, 0);
+    }
+    12%,
+    65% {
+      opacity: 1;
+      transform: translate3d(0, 0, 0);
+    }
+    74% {
+      opacity: 0;
+      transform: translate3d(0, 0.75rem, 0);
+    }
+  }
+
+  @keyframes homeWhyCardDotLoading {
+    0%,
+    60%,
+    100% {
+      opacity: 0.25;
+      transform: scale(0.75);
+    }
+    30% {
+      opacity: 1;
+      transform: scale(1.2);
+    }
+    45% {
+      opacity: 0.7;
+      transform: scale(1);
+    }
+  }
+
+  @keyframes homeWhyCardDotsVisibility {
+    0%,
+    11%,
+    68%,
+    100% {
+      opacity: 0;
+    }
+    14%,
+    62% {
+      opacity: 1;
+    }
+  }
+
+  /* =========================================================
+   IMAGE 3 — ACTIVE BORDER
+========================================================= */
+
+  .home-why-item-img-child.active::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    z-index: 2;
+    border: 0.2rem solid var(--content--border);
+    border-radius: inherit;
+    pointer-events: none;
+    animation: homeWhyBorderActive var(--why-cycle, 5s) linear infinite;
+  }
+
+  @keyframes homeWhyBorderActive {
+    0%,
+    74%,
+    98%,
+    100% {
+      inset: -0.2rem;
+      border-width: 0.2rem;
+      border-color: var(--content--border);
+    }
+    80%,
+    92% {
+      inset: -0.4rem;
+      border-width: 0.4rem;
+      border-color: var(--content--brand);
+    }
+  }
+
+  /* =========================================================
+   REDUCED MOTION
+========================================================= */
+
+  @media (prefers-reduced-motion: reduce) {
+    .home-why-item-img-box-bg,
+    .home-why-item-img-box-content,
+    .home-why-item-img-box-ic-bg,
+    .home-why-item-img-box-ic,
+    .home-why-item-img-box-ic-boder,
+    .home-why-item-img-point,
+    .home-why-item-img-line .line {
+      animation: none !important;
+    }
+
+    .home-why-item-img-point,
+    .home-why-item-img-line .line {
+      opacity: 1;
+      transform: none;
+      stroke-dashoffset: 0;
+    }
+  }

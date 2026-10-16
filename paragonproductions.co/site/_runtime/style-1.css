@@ -1,0 +1,28 @@
+
+/* ----- Global | CSS ----- */
+
+/* --- Lenis Scroll --- */
+html.lenis { height: auto; }
+.lenis.lenis-smooth { scroll-behavior: auto; }
+.lenis.lenis-smooth [data-lenis-prevent] { overscroll-behavior: contain; }
+.lenis.lenis-stopped { overflow: hidden; }
+
+/* GSAP Animation */
+/* Prevent Flicker*/
+html:not(.gsap-not-found) [data-prevent-flicker='true'] { 
+	visibility: hidden; 
+}
+
+/* Mask */
+.line-mask, .word-mask, .char-mask { 
+  padding-block: 0.125em; 
+  margin-block: -0.125em; 
+}
+
+.words {
+  display: inline-block;
+  white-space: nowrap;
+  overflow: clip;
+}
+
+

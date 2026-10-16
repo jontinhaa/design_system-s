@@ -1,0 +1,57 @@
+{
+ "builders": [],
+ "libraries": [
+  {
+   "name": "gsap",
+   "version": "3.11.0",
+   "sources": [
+    "embutido em https://guillaumezhu.com/assets/ScrollTrigger-Or8JzwiZ.js"
+   ]
+  },
+  {
+   "name": "lenis",
+   "version": null,
+   "sources": [
+    "página"
+   ]
+  },
+  {
+   "name": "three",
+   "version": "r184",
+   "sources": [
+    "página"
+   ]
+  }
+ ],
+ "runtime": {
+  "contexts": {
+   "webgl2": 3,
+   "webgl": 1
+  },
+  "wasm": 0,
+  "workers": 0,
+  "webgpu": false,
+  "shadowRoots": 0,
+  "canvases": 4
+ },
+ "cssFeatures": [],
+ "fonts": {
+  "families": [
+   "Satoshi-Variable",
+   "Satoshi-VariableItalic",
+   "CabinetGrotesk-Bold",
+   "CabinetGrotesk-Variable"
+  ],
+  "sources": [
+   "self-hosted"
+  ]
+ },
+ "videos": [],
+ "files": {
+  "text": 4,
+  "application": 10,
+  "image": 61,
+  "font": 4,
+  "model": 1
+ }
+}

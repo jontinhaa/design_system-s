@@ -1,0 +1,45 @@
+{
+ "builders": [
+  "aura (aura-html)"
+ ],
+ "libraries": [
+  {
+   "name": "iconify",
+   "version": "1.0.7",
+   "sources": [
+    "https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"
+   ]
+  },
+  {
+   "name": "tailwindcss (Play CDN)",
+   "version": "3.4.17",
+   "sources": [
+    "https://cdn.tailwindcss.com/3.4.17"
+   ]
+  }
+ ],
+ "runtime": {
+  "contexts": {},
+  "wasm": 0,
+  "workers": 0,
+  "webgpu": false,
+  "shadowRoots": 20,
+  "canvases": 0
+ },
+ "cssFeatures": [],
+ "fonts": {
+  "families": [
+   "Inter"
+  ],
+  "sources": [
+   "google fonts"
+  ]
+ },
+ "videos": [],
+ "files": {
+  "text": 3,
+  "image": 15,
+  "application": 6,
+  "font": 1
+ }
+}

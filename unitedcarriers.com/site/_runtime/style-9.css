@@ -1,0 +1,14 @@
+
+  .loader-service-item [data-wf--text--text-styles='mono'],
+  .loader-countries-item [data-wf--text--text-styles='mono'] {
+    text-box-edge: unset;
+    text-box-trim: unset;
+  }
+  .loader-bg-mask {
+    will-change: width, height;
+  }
+  @media (max-width: 767px) {
+    .loader-inner .grid {
+      grid-template-rows: 1fr 1fr 1fr;
+    }
+  }

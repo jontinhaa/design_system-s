@@ -1,0 +1,663 @@
+/* Hide scrollbar for WebKit browsers */
+::-webkit-scrollbar {
+  display: none;
+}
+html {
+  /* Base 16px at 1920px width. Clamps at 12px for smaller screens to maintain readability */
+  font-size: max(12px, 0.833333vw);
+}
+body {
+  margin: 0;
+  overflow-x: hidden; /* Prevent horizontal scroll */
+  -ms-overflow-style: none; /* IE and Edge */
+  scrollbar-width: none; /* Firefox */
+  background-color: #ffffff;
+  height: 2800vh; /* Long cinematic scroll, rebalanced so each section gets even pacing */
+}
+.preload-hidden {
+  opacity: 0 !important;
+  pointer-events: none !important;
+}
+.reveal-anim {
+  transition: transform 1.6s cubic-bezier(0.2, 0.8, 0.2, 1) 0.6s, opacity 1.6s ease 0.6s;
+  will-change: transform, opacity;
+}
+.preload-hidden.reveal-anim.from-top {
+  transform: translateY(-20px);
+}
+.preload-hidden.reveal-anim.from-bottom {
+  transform: translateY(20px);
+}
+canvas {
+  display: block;
+}
+.hero-logo {
+  position: absolute;
+  top: 2.5rem;
+  left: 3.125rem;
+  z-index: 5;
+  height: 1.75rem;
+  width: auto;
+}
+.hero-title {
+  position: absolute;
+  top: 43%;
+  transform: translateY(-50%);
+  left: 3.125rem;
+  font-family: 'Sarabun', sans-serif;
+  font-weight: 200;
+  /* Scales smoothly on desktop, shrinks safely on mobile, scales infinitely on 4K */
+  font-size: max(2.5rem, 7vw);
+  color: #000000;
+  margin: 0;
+  z-index: 2; /* Positioned between background canvas and foreground canvas */
+  pointer-events: none;
+  line-height: 1.0;
+  white-space: nowrap; /* Ensure it only breaks where the <br> is placed */
+}
+.char-mask {
+  display: inline-block;
+  overflow: hidden;
+  vertical-align: bottom;
+  padding-top: 0.2em;
+  margin-top: -0.2em;
+  /* Massive buffer at the bottom completely prevents the rigid cut-off during blur without causing mask-image GPU lag */
+  padding-bottom: 1.2em;
+  margin-bottom: -1.2em;
+  perspective: 500px;
+}
+.hero-char {
+  display: inline-block;
+  transform: translateY(110%) translateZ(-60px) rotateX(-65deg);
+  transform-origin: bottom center;
+  filter: blur(14px);
+  opacity: 0;
+  /* Hardware acceleration to completely eliminate lag */
+  will-change: transform, filter, opacity;
+  transition: transform 1.6s cubic-bezier(0.2, 0.8, 0.2, 1), filter 1.6s ease, opacity 1.2s ease;
+}
+.hero-char.revealed {
+  transform: translateY(0) translateZ(0) rotateX(0deg);
+  filter: blur(0px);
+  opacity: 1;
+}
+/* Non-hero titles animate much faster for snappy scrolling */
+.animated-title .hero-char {
+  transition: transform 0.8s cubic-bezier(0.2, 0.8, 0.2, 1), filter 0.8s ease, opacity 0.6s ease;
+}
+.hero-nav {
+  position: absolute;
+  top: 2.5rem;
+  right: 3.125rem;
+  z-index: 5; /* Above canvas to be clickable */
+  font-family: 'Sarabun', sans-serif;
+  font-weight: 400;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 0.75rem;
+}
+.hero-nav a {
+  color: #000000;
+  text-decoration: none;
+  font-size: 1.1rem;
+  font-weight: 400; /* Regular weight */
+  text-transform: uppercase; /* All caps */
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  opacity: 1; /* Fully black, no transparency */
+  transition: transform 0.2s ease;
+  cursor: pointer;
+}
+.hero-nav a:hover {
+  transform: translateX(-4px);
+}
+.hero-nav a .nav-arrow {
+  font-size: 1.2rem;
+  font-weight: 400; /* Keep arrow regular too */
+  line-height: 1;
+}
+.hero-subtitle {
+  font-weight: 400;
+  color: #000000;
+}
+.hero-info-block {
+  position: absolute;
+  bottom: 3.125rem;
+  left: 3.125rem;
+  z-index: 5;
+  font-family: 'Sarabun', sans-serif;
+  color: #000000;
+  width: 20rem;
+  display: flex;
+  flex-direction: column;
+}
+.hi-top {
+  display: flex;
+  justify-content: space-between;
+  font-size: 1.1rem;
+  font-weight: 400;
+  text-transform: uppercase;
+  margin-bottom: 2rem;
+}
+.hi-text {
+  font-size: 1.0625rem;
+  line-height: 1.5;
+  opacity: 0.7;
+  margin-bottom: 2.5rem;
+}
+.hi-btn {
+  align-self: flex-start;
+  padding: 0.875rem 3rem; /* Bigger padding */
+  border: 1px solid #000000; /* Solid black border */
+  border-radius: 2.5rem;
+  background: rgba(255, 255, 255, 0.1); /* Glass background */
+  backdrop-filter: blur(12px); /* Glass blur */
+  -webkit-backdrop-filter: blur(12px);
+  color: #000;
+  text-decoration: none;
+  font-size: 0.95rem; /* Slightly larger text */
+  font-weight: 400;
+  letter-spacing: 1px;
+  transition: background 0.2s, transform 0.2s;
+}
+.hi-btn:hover {
+  background: rgba(255, 255, 255, 0.3);
+  transform: translateY(-2px);
+}
+.scroll-content-wrapper {
+  position: absolute;
+  top: calc(100vh + 34.375rem);
+  left: 0;
+  width: 100%;
+  z-index: 2; /* Positioned behind the 3D model (which is z-index: 3) */
+  display: flex;
+  flex-direction: column;
+}
+.scroll-title-container {
+  padding-left: 3.125rem;
+  margin-bottom: 37.5rem; /* Exact distance from hero title to button */
+}
+.scroll-title-container h3 {
+  font-family: 'Sarabun', sans-serif;
+  font-weight: 200;
+  font-size: max(2.625rem, 5.5vw);
+  letter-spacing: -0.02em;
+  white-space: nowrap;
+  color: #000;
+  margin: 0;
+  line-height: 1.1;
+}
+
+.clients-container {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 37.5rem;
+}
+.clients-subtitle {
+  font-family: 'Sarabun', sans-serif;
+  font-size: 1.1rem;
+  font-weight: 400;
+  text-transform: uppercase;
+  padding-left: 3.125rem;
+  margin-bottom: 1rem;
+  color: #000;
+}
+.clients-line {
+  height: 1px;
+  margin-left: 3.125rem;
+  margin-right: 3.125rem;
+  background: linear-gradient(to right, #0091ff, #00aaff, #8000ff, #ff0099, #ff0000);
+  margin-bottom: 3rem;
+}
+.marquee-container {
+  width: 100%;
+  overflow: hidden;
+  white-space: nowrap;
+  filter: grayscale(100%);
+  opacity: 0.8;
+}
+.marquee-content {
+  display: inline-flex;
+  align-items: center;
+  gap: 6rem;
+  padding-right: 6rem; /* Match gap so the loop is seamless */
+  animation: marquee 25s linear infinite;
+}
+@keyframes marquee {
+  0% { transform: translateX(-50%); }
+  100% { transform: translateX(0); }
+}
+.marquee-logo {
+  height: 3.75rem;
+  width: auto;
+  object-fit: contain;
+}
+
+.feature-container {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+}
+.feature-title {
+  font-family: 'Sarabun', sans-serif;
+  font-weight: 200;
+  font-size: max(2.625rem, 5.5vw);
+  letter-spacing: -0.02em;
+  white-space: nowrap;
+  color: #000;
+  margin: 0;
+  line-height: 1.1;
+}
+.split-feature-container {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  padding-left: 3.125rem;
+  padding-right: 3.125rem;
+  box-sizing: border-box;
+  margin-top: 37.5rem;
+}
+.pill-badge {
+  display: inline-block;
+  font-family: 'Sarabun', sans-serif;
+  font-size: max(0.875rem, 1vw);
+  font-weight: 400;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  border-radius: 50px;
+  padding: 0.3rem 1.2rem;
+  color: #000;
+}
+.split-bottom {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  max-width: 45rem;
+}
+.feature-text {
+  font-family: 'Sarabun', sans-serif;
+  font-size: max(1.1rem, 1.25vw);
+  line-height: 1.5;
+  font-weight: 300;
+  color: #000;
+  opacity: 0.8;
+}
+.phase4-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  z-index: 5;
+  pointer-events: none;
+  display: flex;
+  align-items: flex-end; /* Align to bottom */
+  justify-content: flex-end;
+  opacity: 0;
+  transform: translateY(50px);
+}
+.phase4-container .split-feature-container {
+  pointer-events: auto;
+  margin-top: 0;
+  padding-top: 4rem; /* 64px from the top edge */
+  padding-bottom: 4rem; /* 64px from the bottom edge */
+  height: 100vh;
+  justify-content: space-between;
+  width: auto;
+  align-items: flex-start;
+}
+.phase5-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  z-index: 4;
+  pointer-events: none;
+  opacity: 0;
+}
+.phase5-title-left {
+  position: absolute;
+  top: 2.5rem;
+  left: 3.125rem;
+  text-align: left;
+  margin: 0;
+}
+.phase5-title-right {
+  position: absolute;
+  bottom: 2.5rem;
+  right: 3.125rem;
+  text-align: right;
+  margin: 0;
+}
+.phase5-desc-left {
+  position: absolute;
+  bottom: 2.5rem;
+  left: 3.125rem;
+  text-align: left;
+  max-width: 25rem;
+  margin: 0;
+}
+.phase5-label-right {
+  position: absolute;
+  top: 2.5rem;
+  right: 3.125rem;
+  width: 12rem;
+  margin: 0;
+}
+.phase6-container {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  z-index: 2; /* Behind the 3D model (which is z-index: 3) */
+  pointer-events: none;
+  opacity: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.phase6-title {
+  position: absolute;
+  top: 30vh;
+  transform: translateY(-50%);
+  left: 0;
+  width: 100%;
+  font-family: 'Sarabun', sans-serif;
+  font-weight: 200;
+  font-size: max(2.5rem, 7vw);
+  color: #000;
+  margin: 0;
+  line-height: 1.0;
+  text-align: center;
+  white-space: nowrap;
+  pointer-events: none;
+}
+.phase6-footer-wrapper {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  z-index: 4; /* Above the 3D model */
+  pointer-events: none;
+  transform: translateY(100vh); /* Start off-screen */
+}
+.phase6-footer-wrapper * {
+  pointer-events: auto;
+}
+.glass-footer {
+  position: absolute;
+  bottom: 2.5rem;
+  left: 3.125rem;
+  right: 3.125rem;
+  padding: 3rem;
+  background: rgba(255, 255, 255, 0.4);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border-radius: 2rem;
+  border: 1px solid rgba(255, 255, 255, 0.5);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.05);
+  display: flex;
+  flex-direction: column;
+  color: #000;
+  font-family: 'Sarabun', sans-serif;
+}
+.footer-top {
+  display: flex;
+  justify-content: space-between;
+}
+.footer-left {
+  width: 35%;
+  display: flex;
+  flex-direction: column;
+}
+.footer-heading {
+  font-size: 1rem;
+  font-weight: 500;
+  margin-bottom: 1.5rem;
+}
+.footer-input-group {
+  display: flex;
+  background: rgba(255, 255, 255, 0.6);
+  border-radius: 2rem;
+  padding: 0.3rem;
+  margin-bottom: 1rem;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  max-width: 22rem;
+}
+.footer-input {
+  flex: 1;
+  background: transparent;
+  border: none;
+  outline: none;
+  padding-left: 1rem;
+  font-family: 'Sarabun', sans-serif;
+  font-size: 0.9rem;
+}
+.footer-submit {
+  background: #000;
+  color: #fff;
+  border: none;
+  border-radius: 2rem;
+  padding: 0.6rem 1.5rem;
+  font-family: 'Sarabun', sans-serif;
+  cursor: pointer;
+  transition: transform 0.2s;
+}
+.footer-submit:hover {
+  transform: scale(1.05);
+}
+.footer-subtext {
+  font-size: 0.75rem;
+  opacity: 0.6;
+  line-height: 1.4;
+  max-width: 22rem;
+}
+.footer-right {
+  display: flex;
+  gap: 5rem;
+  padding-right: 2rem;
+}
+.footer-col {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+.footer-col-title {
+  font-size: 0.9rem;
+  font-weight: 500;
+  margin-bottom: 0.5rem;
+}
+.footer-col a {
+  color: #000;
+  opacity: 0.7;
+  text-decoration: none;
+  font-size: 0.85rem;
+  transition: opacity 0.2s;
+}
+.footer-col a:hover {
+  opacity: 1;
+}
+.footer-line {
+  height: 1px;
+  background: rgba(0, 0, 0, 0.1);
+  margin-top: 3rem;
+  margin-bottom: 1.5rem;
+}
+.footer-bottom {
+  text-align: center;
+  font-size: 0.8rem;
+  opacity: 0.6;
+}
+.words-container {
+  position: fixed; /* Keep it fixed to viewport while we manually animate */
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  perspective: 1500px; /* 3D depth for the perspective arc */
+  z-index: 2; /* Behind the model */
+  pointer-events: none;
+}
+.flying-word {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  font-family: 'Sarabun', sans-serif;
+  font-weight: 400;
+  /* Scales proportionately to screen width infinitely */
+  font-size: max(80px, 25vw);
+  color: #000000;
+  margin: 0;
+  padding: 0 0.2em; /* Ensure the parent GPU texture encompasses the padded children */
+  opacity: 0; /* Hidden by default */
+  white-space: nowrap; /* Prevents individual letter spans from breaking to a new line */
+  /* Default transform centers it */
+  transform: translate3d(-50%, -50%, 0) rotateY(0deg);
+}
+.flying-word .char {
+  display: inline-block;
+  /* Prevent WebKit GPU texture clipping on overflowing glyphs (like the tail of 'h') */
+  padding: 0 0.15em;
+  margin: 0 -0.15em;
+}
+.glass-container {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background: rgba(255, 255, 255, 0.15); /* Frosted white glass */
+  backdrop-filter: blur(30px); /* Blurs the ASCII matrix behind it */
+  -webkit-backdrop-filter: blur(30px);
+  border-top: 1px solid rgba(255, 255, 255, 0.4);
+  z-index: 10; /* Covers everything, including the 3D model (z-index 3) */
+  transform: translateY(100vh); /* Start hidden below the screen */
+  pointer-events: none;
+}
+.glass-gradient-wrapper {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  /* 64px margins on all sides means 100% - 128px */
+  width: calc(100% - 8rem);
+  height: calc(100% - 8rem);
+  transform: translate(-50%, -50%) scale(0.65); /* Start slightly smaller */
+  border-radius: 0px;
+  overflow: hidden;
+  pointer-events: auto;
+}
+.glass-gradient-img {
+  position: absolute;
+  top: 0; left: 0; width: 100%; height: 100%;
+  object-fit: cover;
+  z-index: 1;
+  opacity: 0.5; /* 50% transparency */
+}
+.gradient-content {
+  position: absolute;
+  top: 0; left: 0; width: 100%; height: 100%;
+  z-index: 2;
+  padding: 2rem;
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  color: #000000; /* Black text */
+  font-family: 'Sarabun', sans-serif;
+}
+.gc-top-left {
+  font-size: max(2.625rem, 5.5vw); /* Slightly reduced to guarantee 2 lines without breaking layout */
+  font-weight: 200;
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+  color: #000000; /* Black text */
+  max-width: none; /* Let it flow naturally to fit 2 lines */
+  white-space: nowrap; /* Force exactly two lines by placing only one <br> */
+}
+.gc-bottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+}
+.gc-bottom-left {
+  font-size: 14px;
+  font-weight: 400;
+  opacity: 0.8;
+}
+.gc-bottom-right {
+  display: flex;
+  gap: 3.75rem;
+  align-items: flex-end; /* Align columns at the bottom */
+}
+.stat-col {
+  position: relative;
+  padding-left: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+.stat-col-tall {
+  margin-bottom: 120px; /* Pushes the 200+ text UP */
+}
+.stat-col::before {
+  content: '';
+  position: absolute;
+  left: 0; top: 0; bottom: 0;
+  width: 1px;
+  background: linear-gradient(to bottom, rgba(0,0,0,0.0), rgba(0,0,0,0.2) 10%, rgba(0,0,0,0.2) 90%, rgba(0,0,0,0.0)); /* Black line */
+}
+.stat-col-tall::before {
+  bottom: -120px; /* Stretches the vertical line DOWN to align with the other columns */
+}
+.stat-num {
+  font-size: max(42px, 5.5vw); /* Match the header size */
+  font-weight: 200;
+  line-height: 1;
+}
+.stat-desc {
+  font-size: 13px;
+  line-height: 1.5;
+  opacity: 0.85;
+}
+.stat-sub {
+  opacity: 0.5;
+  font-size: 11px;
+}
+.stat-btn {
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  background: rgba(0, 0, 0, 0.05); /* Dark button */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 8px;
+  cursor: pointer;
+  transition: background 0.2s;
+  border: 1px solid rgba(0,0,0,0.1);
+}
+.stat-btn:hover {
+  background: rgba(0, 0, 0, 0.15);
+}
+
+/* ---------------------------------------------------------------------------------------------
+   Design-system copy: small phone fixes (<= 600px) so nothing is clipped at 390px. The page's own
+   sizes are kept; only no-wrap lines may wrap and the multi-column blocks stack or wrap. */
+@media (max-width: 600px) {
+  .scroll-title-container h3, .feature-title, .gc-top-left { white-space: normal; }
+  .gc-bottom { flex-direction: column; align-items: flex-start; gap: 1rem; }
+  .gc-bottom-right { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1.5rem 1rem; width: 100%; }
+  .stat-col-tall { margin-bottom: 0; }
+  .stat-col-tall::before { bottom: 0; }
+  .phase5-title-left { max-width: calc(100% - 6.25rem - 13rem); }
+  .phase5-desc-left { bottom: calc(2.5rem + 2.2 * max(2.625rem, 5.5vw) + 1.5rem); max-width: calc(100% - 6.25rem); }
+  .glass-footer { left: 1rem; right: 1rem; padding: 1.5rem; }
+  .footer-top { flex-direction: column; gap: 2rem; }
+  .footer-left { width: 100%; }
+  .footer-right { flex-wrap: wrap; gap: 1.5rem; padding-right: 0; }
+}

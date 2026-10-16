@@ -1,0 +1,89 @@
+{
+ "builders": [
+  "astro"
+ ],
+ "libraries": [
+  {
+   "name": "gsap",
+   "version": "3.11.0",
+   "sources": [
+    "embutido em https://studiors.be/_astro/motion.DWDv84-K.js"
+   ]
+  },
+  {
+   "name": "lenis",
+   "version": null,
+   "sources": [
+    "página"
+   ]
+  },
+  {
+   "name": "three",
+   "version": "r170",
+   "sources": [
+    "página"
+   ]
+  }
+ ],
+ "runtime": {
+  "contexts": {
+   "webgl2": 1
+  },
+  "wasm": 0,
+  "workers": 0,
+  "webgpu": false,
+  "shadowRoots": 0,
+  "canvases": 1
+ },
+ "cssFeatures": [
+  "scroll-driven animations"
+ ],
+ "fonts": {
+  "families": [],
+  "sources": []
+ },
+ "videos": [
+  {
+   "src": "https://media.studiors.be/studiors/videos/azzato/motion.mp4",
+   "kind": "decorativo",
+   "reason": "controlado pelo scroll",
+   "hosting": "próprio site",
+   "action": "baixado"
+  },
+  {
+   "src": "https://media.studiors.be/studiors/videos/celine-savigny/motion-vertical.mp4",
+   "kind": "decorativo",
+   "reason": "controlado pelo scroll",
+   "hosting": "próprio site",
+   "action": "baixado"
+  },
+  {
+   "src": "https://media.studiors.be/studiors/videos/vertical-view/motion-vertical.mp4",
+   "kind": "decorativo",
+   "reason": "controlado pelo scroll",
+   "hosting": "próprio site",
+   "action": "baixado"
+  },
+  {
+   "src": "https://media.studiors.be/studiors/videos/david-dieu/motion.mp4",
+   "kind": "decorativo",
+   "reason": "controlado pelo scroll",
+   "hosting": "próprio site",
+   "action": "baixado"
+  },
+  {
+   "src": "https://media.studiors.be/studiors/videos/simontarea/motion-vertical.mp4",
+   "kind": "decorativo",
+   "reason": "controlado pelo scroll",
+   "hosting": "próprio site",
+   "action": "baixado"
+  }
+ ],
+ "files": {
+  "text": 12,
+  "application": 1,
+  "outros": 15,
+  "image": 9,
+  "video": 5
+ }
+}

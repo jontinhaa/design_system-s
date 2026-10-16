@@ -1,0 +1,664 @@
+:root{--ink:#1e211d;--paper:#f1eee7;--chalk:#fbfaf6;--clay:#8d4f36;--olive:#626852;--line:rgba(30,33,29,.18);--serif:"Cormorant Garamond",Georgia,serif;--hero-serif:"Cormorant Garamond",Georgia,serif;--sans:"DM Sans",Arial,sans-serif}*{box-sizing:border-box}html{scroll-behavior:auto;-webkit-tap-highlight-color:transparent}body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--sans);font-weight:300;overflow-x:hidden}img{display:block;width:100%}a{color:inherit}.site-header{position:fixed;z-index:30;top:0;left:0;width:100%;height:calc(82px + env(safe-area-inset-top,0px));padding:env(safe-area-inset-top,0px) 3vw 0;display:grid;grid-template-columns:1fr auto 1fr;align-items:center;color:white;transition:.4s}.site-header.scrolled{height:calc(68px + env(safe-area-inset-top,0px));background:rgba(241,238,231,.92);backdrop-filter:blur(18px);color:var(--ink);border-bottom:1px solid var(--line)}.wordmark{font:400 18px/1 var(--serif);letter-spacing:.18em;text-decoration:none}.desktop-nav{display:flex;gap:32px}.desktop-nav a{font-size:11px;letter-spacing:.15em;text-transform:uppercase;text-decoration:none}
+/* Hover: the link softens into blur and holds; sharpens again on leave.
+   user-select:none — same lesson as the map lettering: no text caret / selection on click. */
+.desktop-nav a{filter:blur(0);transition:filter .35s ease;user-select:none;-webkit-user-select:none}
+@media(hover:hover){.desktop-nav a:hover{filter:blur(3px)}}.menu-button{display:none;border:0;background:none}.hero{--hgut:6vw;min-height:100svh;position:relative;color:#fff;overflow:hidden;display:grid;grid-template-columns:minmax(0,1fr) clamp(320px,28vw,400px) minmax(0,.12fr);column-gap:4vw;align-items:center;padding:0 var(--hgut)}.hero-image{position:absolute;inset:0;height:100%;object-fit:cover}.hero-shade{position:absolute;inset:0;background:linear-gradient(90deg,rgba(14,17,13,.58),rgba(14,17,13,.04) 70%),linear-gradient(0deg,rgba(14,17,13,.45),transparent 40%)}.hero-copy{position:relative;z-index:2;min-height:100svh;padding:17vh 0 5vh;display:flex;flex-direction:column}.eyebrow{text-transform:uppercase;letter-spacing:.22em;font-size:10px;font-weight:600;margin:0 0 30px}.eyebrow.light{color:rgba(255,255,255,.78)}h1,h2,h3,p{margin-top:0}h1,h2,h3{font-family:var(--serif);font-weight:400}h1{font-size:clamp(72px,10.2vw,160px);line-height:.8;letter-spacing:-.045em;margin:auto 0}h1 em,h2 em{font-weight:400}.hero-bottom{display:flex;justify-content:space-between;align-items:end}.hero-bottom p{font-size:16px;line-height:1.5}.section-pad{padding:130px 6vw}.section-number{font-size:9px;text-transform:uppercase;letter-spacing:.22em;border-top:1px solid var(--line);padding-top:14px}.place h2{font-size:clamp(58px,7vw,112px);line-height:.86;letter-spacing:-.04em;margin:0 0 44px}.final-cta h2{font-size:clamp(65px,8vw,120px);line-height:.83}.place-grid{display:grid;grid-template-columns:1.4fr 1fr;gap:12vw;margin-top:90px}.place-copy{padding-top:7vw}.place-copy p{font-size:18px;line-height:1.7}.place-copy ul{list-style:none;padding:0;margin-top:50px}.place-copy li{padding:16px 0;border-top:1px solid var(--line);font-size:12px}.location-line{display:flex;align-items:center;gap:22px;margin:110px 0 0;font-size:9px;letter-spacing:.2em}.location-line i{height:1px;background:var(--line);flex:1}.final-cta{position:relative;min-height:92vh;color:white;display:grid;place-items:center;text-align:center}.final-cta>img,.final-shade{position:absolute;inset:0;height:100%;object-fit:cover}.final-shade{background:rgba(19,22,18,.55)}footer{padding:70px 4vw;display:grid;grid-template-columns:2fr 1fr 1fr auto;gap:40px;align-items:start;background:var(--ink);color:white}footer p,footer>a:not(.wordmark),footer .foot-legal,footer .foot-legal a{font-size:10px;line-height:1.6;color:rgba(255,255,255,.65)}.lead-error{margin:12px 0 0;font-size:12px;line-height:1.55;color:#8d4f36}.mobile-menu{display:none}.reveal{opacity:0;transform:translateY(35px);transition:opacity .9s,transform .9s}.reveal.visible{opacity:1;transform:none}@media(max-width:800px){.site-header{height:64px;padding:0 20px;grid-template-columns:1fr auto}.desktop-nav,.header-cta,.header-ctas{display:none}.menu-button{display:grid;gap:6px;padding:10px}.menu-button span{display:block;width:24px;height:1px;background:currentColor}.hero-copy{padding:16vh 22px 30px}h1{font-size:19vw}.hero-bottom{align-items:center}.hero-bottom p{font-size:13px}.section-pad{padding:90px 30px}.place-grid{display:block}.place h2{font-size:16vw}.location-line{margin-top:70px;gap:10px}.final-cta{min-height:100svh}footer{grid-template-columns:1fr;gap:20px}.mobile-menu{position:fixed;z-index:25;inset:64px 0 0;background:var(--ink);color:white;padding:60px 22px;flex-direction:column;gap:28px}.mobile-menu.open{display:flex}.mobile-menu a{font:400 12vw var(--serif);text-decoration:none}.mobile-menu button{margin-top:auto;border:1px solid white;background:none;color:white;padding:18px;text-transform:uppercase;letter-spacing:.15em}}
+
+/* ================================================================
+   LOAM HOUSE — additions over the compiled base (line 1).
+   Consolidated 25 Aug 2026. Order matters in places: mobile menu v2
+   supersedes the base menu; the ≤800 blocks supersede ≤1050.
+   ================================================================ */
+
+/* ---------- Motion plumbing (GSAP hooks) ---------- */
+@media(prefers-reduced-motion:reduce){html{scroll-behavior:auto;-webkit-tap-highlight-color:transparent}.reveal{opacity:1;transform:none;transition:none}}
+.gsap-on .reveal{opacity:1;transform:none}
+.ed-line{padding-bottom:.12em}
+.gsap-on .section-number{border-top:0;padding-top:0}
+/* Chapter plate — the fig lockup at chapter scale: serif numeral over the caps title.
+   user-select:none — same as the nav links and map lettering: no text caret on click. */
+.section-number{user-select:none;-webkit-user-select:none}
+/* Solid ink shadow under the display type and plates — .022em offset, zero blur, ink 40%
+   (user-tuned on the precinct headline, rolled out site-wide; em scales with the type) */
+.hero h1,.cine h2,.place h2,.final-cta h2,.map-chapter .precinct-note h2,.section-number{text-shadow:0 .022em 0 rgba(20,22,18,.4)}
+.sn-mask{display:block;overflow:hidden}
+.sn-text{display:block}
+.sn-num{display:block;font:400 clamp(52px,4.8vw,76px)/1 var(--serif);letter-spacing:0}
+.sn-mask:not(.sn-num-mask){margin-top:-4px}
+/* link masked slide: clip box around the link text so it can tuck up/down
+   behind the copy (see editorial.js link timeline) */
+/* masked slides. line-height:0 on the mask kills the inline baseline gap that
+   was collapsing the clip box to the text height; the INNER is a block with its
+   own line-height, so the box height is deterministic (headroom included). */
+
+
+/* link clip box: an EXPLICIT-height flex box with the text bottom-anchored, so
+   the box can't collapse to the text height (the flex-item + inline-block combo
+   was doing exactly that). The empty space above the text is the headroom the
+   link slides up through before tucking behind the paragraph. */
+/* the clip box is tall and pulled UP with a negative margin so its top edge
+   reaches up near the paragraph (that's where the link should vanish); the
+   negative margin keeps the link's resting position put. The inner fills the
+   box and bottom-anchors the text, so travel is a robust 100% of the box. */
+
+
+
+/* ---------- Identity / header ---------- */
+.wordmark{display:block;width:190px;height:auto}
+.wordmark img{width:100%;height:auto;filter:invert(1);transition:filter .35s}
+.site-header.scrolled .wordmark img{filter:none}
+footer .wordmark img{filter:invert(1)}
+/* Final CTA footer: folded onto the image as a bottom overlay so the last chapter
+   is self-contained — one viewport, flush like every other chapter (no strip below). */
+.final-cta>footer{position:absolute;left:0;right:0;bottom:0;z-index:3;align-items:end;gap:30px;
+  padding:0 6vw 4.5vh;background:linear-gradient(0deg,rgba(16,19,14,.55),rgba(16,19,14,0))}
+@media(max-width:800px){
+  /* copy in a flexible row, footer in its own bottom row — they can't overlap, and the
+     two rows fill exactly one viewport */
+  .final-cta{grid-template-rows:1fr auto}
+  /* two columns: wordmark spans the top, Display Suite sits left and the Auyin line right,
+     Privacy centred beneath — the two address blocks no longer stack */
+  .final-cta>footer{position:static;width:100%;grid-template-columns:1fr 1fr;gap:8px 16px;align-items:start;justify-items:stretch;text-align:left;
+    padding:14px 24px calc(20px + env(safe-area-inset-bottom,0px));
+    background:linear-gradient(0deg,rgba(16,19,14,.72),rgba(16,19,14,0))}
+  .final-cta>footer .wordmark{grid-column:1/-1;justify-self:center;width:108px;margin:0 0 6px}
+  .final-cta>footer p{margin:0}
+  .final-cta>footer p+p{text-align:right}
+  .final-cta>footer>a:not(.wordmark),.final-cta>footer .foot-legal{grid-column:1/-1;justify-self:center}
+  .final-cta>footer p,.final-cta>footer>a:not(.wordmark),.final-cta>footer .foot-legal a{font-size:9px;line-height:1.55}
+}
+.site-header.scrolled{background:rgba(241,238,231,.72)}
+
+/* ---------- Hero (desktop) ---------- */
+.hero-copy h1{font-family:var(--hero-serif,"Cormorant Garamond",Georgia,serif);font-weight:300;font-size:clamp(76px,8.5vw,138px);line-height:.74;letter-spacing:-.045em;margin:9vh 0 auto}
+.hero-copy h1 em{color:#d2ab68;font-weight:300}
+.hero-bottom>div{display:flex;align-items:flex-end;gap:38px}
+.hero-bottom p{font-size:18px}
+.hero-brochure{display:inline-block;text-decoration:none;border:1px solid rgba(255,255,255,.6);border-radius:999px;background:rgba(30,20,14,.32);color:#fff;padding:16px 23px;text-transform:uppercase;letter-spacing:.15em;font:600 9px var(--sans);cursor:pointer;backdrop-filter:blur(8px)}
+.hero-bottom .hero-brochure{display:none}
+/* hero media: skyline intro + ambient loop (desktop), dedicated clip (mobile) */
+.hero-media-video{width:100%;background:#1e211d}
+.hero-media-mobile{display:none}
+.hero-media-img{display:none}
+.hero-video-ambient{opacity:0}
+.hero.ambient-on .hero-video-ambient{opacity:1}
+/* monitor-footage treatment: one reusable scanline + faint RGB grille layer,
+   dropped over EVERY full-bleed media panel so it reads consistently as screen
+   footage (and hides compression). --scan tunes intensity (0-1). Desktop only,
+   so mobile is untouched. Sits above the media, below the text (z-index:1). */
+@media(min-width:801px){
+  :root{--scan:.2}
+  .scanlines{position:absolute;inset:0;z-index:1;pointer-events:none;opacity:var(--scan);mix-blend-mode:soft-light;
+    background:
+      repeating-linear-gradient(0deg,rgba(0,0,0,.55) 0 1px,transparent 1px 2.5px),
+      repeating-linear-gradient(90deg,rgba(255,0,0,.10) 0 1px,rgba(0,255,0,.08) 1px 2px,rgba(0,80,255,.10) 2px 3px)}
+  
+  
+}
+
+
+/* ---------- Hero conversion card + success state ---------- */
+/* ── The enquiry card: INK. Same object, same affordances, the site's materials.
+   Graduated from _hero-form-mock.html 2026-09-04; the cream card is deleted, not overridden. ── */
+.hero-form-card{position:relative;z-index:4;align-self:center;width:100%;padding:32px 34px 28px;
+  background:rgba(18,22,18,.9);color:#fff;box-shadow:0 28px 80px rgba(8,10,7,.45)}
+.fmc-eyebrow{display:inline-block;text-transform:uppercase;letter-spacing:.22em;font-size:10px;
+  font-weight:600;color:rgba(255,255,255,.75);margin:0 0 18px}
+.fmc-eyebrow .m{display:block;overflow:hidden}     /* mask hugs the text; hairline outside it */
+.fmc-eyebrow .m span{display:block}
+.fmc-line{display:block;height:1px;background:rgba(255,255,255,.3);margin-top:12px}
+.fmc-intro{font-size:12.5px;line-height:1.6;color:rgba(255,255,255,.8);margin:0 0 24px;font-weight:300}
+.fmc-field{position:relative;margin:0 0 20px}
+.fmc-field label{display:block;overflow:hidden;font-size:9px;letter-spacing:.18em;text-transform:uppercase;
+  font-weight:600;color:rgba(255,255,255,.6);margin-bottom:6px}
+.fmc-field label span{display:block}
+.fmc-field input{width:100%;background:transparent;border:0;border-bottom:1px solid rgba(255,255,255,.4);
+  padding:7px 0 10px;font:300 16px var(--sans);color:#fff;outline:none}
+.fmc-field input:focus{border-bottom-color:rgba(255,255,255,.85)}
+.fmc-field input:-webkit-autofill,
+.fmc-field input:-webkit-autofill:hover,
+.fmc-field input:-webkit-autofill:focus{
+  -webkit-box-shadow:0 0 0 1000px #161a16 inset;-webkit-text-fill-color:#fff;caret-color:#fff;
+  transition:background-color 99999s}
+.fmc-focusline{position:absolute;left:0;right:0;bottom:0;height:1px;background:rgba(255,255,255,.95);
+  transform:scaleX(0);transform-origin:0 50%}
+/* idle caret in the empty NAME field: a normal blinking caret, gone on focus/typing */
+.fmc-caret{position:absolute;left:1px;bottom:12px;width:1px;height:17px;background:#fff;opacity:0;pointer-events:none}
+.fmc-field input:placeholder-shown:not(:focus) ~ .fmc-caret{animation:fmcCaret 1.06s step-end infinite}
+@keyframes fmcCaret{0%,49%{opacity:1}50%,100%{opacity:0}}
+/* the morph delta: the phone field expands in only when the visitor asks to be called */
+.fmc-phone-wrap{overflow:hidden;height:0}
+/* actions: the mobile menu's filled + ghost pill pair — existing site grammar */
+.fmc-btn{display:flex;align-items:center;justify-content:center;gap:10px;width:100%;height:46px;margin:0 0 8px;
+  border-radius:999px;font:600 10px var(--sans);letter-spacing:.16em;text-transform:uppercase;cursor:pointer;text-decoration:none}
+.fmc-btn.primary{background:var(--chalk);color:var(--ink);border:1px solid var(--chalk)}
+.fmc-btn.ghost{background:transparent;color:#fff;border:1px solid rgba(255,255,255,.42)}
+.fmc-trust{display:block;margin-top:14px;font-size:8.5px;line-height:1.5;color:rgba(255,255,255,.42);text-align:center}
+.hero-form-card .lead-error{color:#e8b19a}   /* the ink card needs a light error tone */
+/* ── thank-you state: centred lockup, sans email, optional call-back beneath ── */
+.fmc-success{display:none;padding:26px 0 18px;text-align:center}
+.fmc-success .line span{display:block;font:400 clamp(26px,2.4vw,32px)/1.15 var(--serif);letter-spacing:-.02em}
+.fmc-success .line .fmc-to{display:block;font:400 clamp(16px,1.5vw,19px)/1.5 var(--sans);letter-spacing:.03em;
+  color:rgba(255,255,255,.92);margin-top:12px}
+.fmc-success .fmc-view{margin:20px 0 2px;align-self:flex-start}
+.fmc-upsell{margin-top:34px;text-align:left}   /* no hairline: a rule here reads as another input underline */
+.fmc-upsell-intro{font-size:12px;line-height:1.6;color:rgba(255,255,255,.75);margin:0 0 22px}
+.fmc-upsell-done{margin:0;padding:14px 0 6px;text-align:center;
+  font:400 clamp(24px,2.2vw,30px)/1.3 var(--serif);letter-spacing:-.015em;color:rgba(255,255,255,.95);text-wrap:balance}
+.mbtn-icon{position:absolute;top:50%;left:16px;transform:translateY(-50%);color:#fff;line-height:0;transition:transform .5s cubic-bezier(.65,0,.35,1);pointer-events:none}
+.mbtn-icon svg{width:16px;height:16px;display:block}
+.mbtn:hover .dl-arrow{animation:mbtn-dl .7s cubic-bezier(.65,0,.35,1) infinite}
+@keyframes mbtn-dl{0%,100%{transform:translateY(0)}50%{transform:translateY(2.5px)}}
+.cd-dot{transform-box:fill-box;transform-origin:center}
+.mbtn:hover .cd-dot{animation:mbtn-dot 1s infinite;animation-delay:calc(var(--i)*.05s)}
+@keyframes mbtn-dot{0%{opacity:0;transform:scale(.4)}22%{opacity:1;transform:scale(1.5)}36%,100%{opacity:1;transform:scale(1)}}
+.mbtn:hover .mbtn-icon{transform:translateY(-50%) translateX(6px)}
+.mbtn-text{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);margin-left:6px;white-space:nowrap;color:#512616;font:600 9px var(--sans);text-transform:uppercase;letter-spacing:.14em;transition:color .5s;pointer-events:none}
+.mbtn:hover .mbtn-text{color:#fff}
+
+/* header CTAs — compact motion buttons, colour-aware of the scrolled header */
+.header-ctas{justify-self:end;display:flex;gap:10px}
+.header-ctas .mbtn{position:relative;display:block;height:44px;width:216px;padding:4px;border:1px solid rgba(255,255,255,.55);border-radius:999px;background:transparent;cursor:pointer;text-align:left;color:inherit;-webkit-text-fill-color:currentColor}
+.header-ctas .mbtn+.mbtn{width:200px}
+.site-header.scrolled .header-ctas .mbtn{border-color:var(--line)}
+.header-ctas .mbtn .mbtn-circle{display:block;height:34px;width:34px;border-radius:999px;background:rgba(0,0,0,.28);backdrop-filter:blur(8px);transition:width .5s cubic-bezier(.65,0,.35,1)}
+.site-header.scrolled .header-ctas .mbtn .mbtn-circle{background:rgba(0,0,0,.42)}
+.header-ctas .mbtn:hover .mbtn-circle{width:100%}
+.header-ctas .mbtn .mbtn-icon{left:14.5px}
+.header-ctas .mbtn .mbtn-icon svg{width:13px;height:13px}
+.header-ctas .mbtn .mbtn-text{color:inherit;margin-left:18px}
+.header-ctas .mbtn:hover .mbtn-text{color:#fff}
+
+/* touch devices: kill sticky :hover, drive the motion from :active (press) only */
+@media(hover:none){
+.mbtn:hover .mbtn-circle{width:40px}
+.header-ctas .mbtn:hover .mbtn-circle{width:34px}
+.mbtn:hover .mbtn-text{color:inherit}
+.mbtn:hover .mbtn-icon{transform:translateY(-50%)}
+.mbtn:hover .dl-arrow,.mbtn:hover .cd-dot{animation:none}
+.mbtn:active .mbtn-circle,.header-ctas .mbtn:active .mbtn-circle{width:100%}
+.mbtn:active .mbtn-text,.header-ctas .mbtn:active .mbtn-text{color:#fff}
+.mbtn:active .mbtn-icon{transform:translateY(-50%) translateX(6px)}
+.mbtn:active .dl-arrow{animation:mbtn-dl .7s cubic-bezier(.65,0,.35,1) infinite}
+.mbtn:active .cd-dot{animation:mbtn-dot 1s infinite;animation-delay:calc(var(--i)*.05s)}
+}
+
+/* ================================================================
+   CHAPTER SYSTEM (desktop, ≥801px) — 27 Aug 2026
+   Every top-level section becomes a full-screen "chapter": grows to
+   fill 100svh, its composition centres, its background fills edge to
+   edge. Palette per section is preserved (paper/chalk light, ink dark,
+   cinema = full-bleed media). Gravity/snap is driven from editorial.js
+   (kept off native CSS snap, which fights ScrollSmoother).
+   Mobile (≤800) keeps its existing stacked flow — untouched.
+   ================================================================ */
+@media(min-width:801px){
+  /* Gravity is gesture-driven in editorial.js (a flick flows to the next
+     chapter in one eased motion) — no native CSS snap, which had no flow
+     and choked on the taller chapters. */
+  .chapter{position:relative;min-height:100svh}
+  /* kill the tall vertical section padding; centring handles the gap */
+  .chapter.section-pad{padding-top:0;padding-bottom:0}
+
+  /* solid-palette fills */
+  .chapter-ink{background:var(--ink);color:var(--chalk)}
+  
+  
+
+  /* --- vertical centring per inner layout --- */
+  /* grid sections: centre their rows */
+  
+  /* block-flow sections: flex column centre */
+  .place.chapter{display:flex;flex-direction:column;justify-content:center}
+
+  /* keep tall inner media inside one screen so nothing snap-clips */
+  
+  
+  
+  
+  
+  
+  
+  
+  .place.chapter .place-grid{margin-top:clamp(24px,4vh,60px)}
+  .place.chapter .location-line{margin-top:clamp(40px,7vh,110px)}
+  
+
+  /* image-break → full-bleed cinema panel */
+  
+  
+  
+
+  /* collections → each fills the screen, media side full-height */
+  
+
+  /* amenities / final CTA → exactly one screen */
+  
+  
+  
+  
+  
+  
+  .final-cta.chapter{min-height:100svh}
+}
+
+/* ---------- ≤1050: header stacks; hero becomes a block ---------- */
+@media(max-width:1050px){
+  .site-header{grid-template-columns:1fr auto;height:auto;row-gap:12px;padding-top:calc(13px + env(safe-area-inset-top,0px));padding-bottom:13px;align-items:center}
+  .site-header .wordmark{grid-row:1;grid-column:1}
+  .site-header .desktop-nav,.site-header .menu-button{grid-row:1;grid-column:2;justify-self:end}
+  .header-ctas{display:flex;grid-row:2;grid-column:1/-1;width:100%;gap:10px}
+  .header-ctas .mbtn,.header-ctas .mbtn+.mbtn{flex:1;width:auto}
+  /* don't force the fixed 68px height on scroll, or the solid background
+     cuts off partway through the CTA strip */
+  .site-header.scrolled{height:auto}
+  .hero{display:block;padding:0}
+  .hero-copy{padding:16vh var(--hgut) 4vh}
+  .hero-form-card{margin:0 var(--hgut) 44px;max-width:480px;padding:30px 28px 26px}
+}
+
+/* ---------- Preloader — the SAME stripe curtain as the menu (.mm-panels): same
+   flex stripes, same .62s cubic-bezier(.76,0,.24,1), same staggered delay ramp.
+   Starts covering; JS lifts it (translateY -101%) once the hero video can play. --- */
+/* NO background here — the stripes are the only opaque layer, so lifting them
+   reveals the SITE beneath (not a backdrop). They cover fully at rest, so there's
+   no flash before the wipe. */
+.preloader{position:fixed;inset:0;z-index:200;overflow:hidden}
+.pl-panels{position:absolute;inset:0;display:flex}
+.pl-panels i{flex:1 1 0;height:100%;background:var(--ink);transform:translateY(0);transition:transform .62s cubic-bezier(.76,0,.24,1)}
+.preloader.lift .pl-panels i{transform:translateY(-101%)}
+.pl-panels i:nth-child(1){transition-delay:.21s}
+.pl-panels i:nth-child(2){transition-delay:.18s}
+.pl-panels i:nth-child(3){transition-delay:.15s}
+.pl-panels i:nth-child(4){transition-delay:.12s}
+.pl-panels i:nth-child(5){transition-delay:.09s}
+.pl-panels i:nth-child(6){transition-delay:.06s}
+.pl-panels i:nth-child(7){transition-delay:.03s}
+.pl-logo{position:absolute;inset:0;z-index:2;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:28px;pointer-events:none}
+.pl-logo img{width:clamp(150px,18vw,240px);filter:invert(1) blur(22px);will-change:filter}
+.pl-pct{font:600 10px var(--sans);letter-spacing:.28em;color:rgba(255,255,255,.5);animation:pl-pct-in .55s ease .25s backwards}
+.pl-pct::after{content:"%"}
+@keyframes pl-pct-in{from{opacity:0}}
+body.pl-active{overflow:hidden}
+body.pl-done .preloader{display:none}
+@media(prefers-reduced-motion:reduce){.preloader{display:none}}
+
+/* ---------- Mobile menu — panel-column reveal + masked link slide ---------- */
+@media(max-width:800px){.mobile-menu{display:flex}}
+.mobile-menu{position:fixed;inset:0;z-index:36;flex-direction:column;justify-content:flex-start;color:var(--chalk);padding:0;background:none;pointer-events:none;overflow:hidden}
+.mobile-menu.open{pointer-events:auto}
+/* keep it invisible while closed so link-divider lines don't bleed over the
+   page; delayed visibility on close lets the retract animation finish first */
+@media(max-width:800px){
+  .mobile-menu{visibility:hidden;transition:visibility 0s linear .72s}
+  .mobile-menu.open{visibility:visible;transition:visibility 0s}
+}
+.mm-panels{position:absolute;inset:0;display:flex;z-index:0}
+.mm-panels i{flex:1 1 0;height:100%;background:var(--ink);transform:translateY(-101%);transition:transform .62s cubic-bezier(.76,0,.24,1)}
+.mobile-menu.open .mm-panels i{transform:translateY(0)}
+.mm-panels i:nth-child(1){transition-delay:.20s}
+.mm-panels i:nth-child(2){transition-delay:.16s}
+.mm-panels i:nth-child(3){transition-delay:.12s}
+.mm-panels i:nth-child(4){transition-delay:.08s}
+.mm-panels i:nth-child(5){transition-delay:.04s}
+.mobile-menu.open .mm-panels i:nth-child(1){transition-delay:.04s}
+.mobile-menu.open .mm-panels i:nth-child(2){transition-delay:.08s}
+.mobile-menu.open .mm-panels i:nth-child(3){transition-delay:.12s}
+.mobile-menu.open .mm-panels i:nth-child(4){transition-delay:.16s}
+.mobile-menu.open .mm-panels i:nth-child(5){transition-delay:.20s}
+.mm-inner{position:relative;z-index:1;display:flex;flex-direction:column;width:100%;height:100%}
+.mm-head{display:flex;align-items:center;justify-content:space-between;height:calc(64px + env(safe-area-inset-top,0px));padding:env(safe-area-inset-top,0px) 30px 0;flex:0 0 auto}
+.mm-head .wordmark{width:150px;display:block}
+.mm-head .wordmark img{width:100%;filter:invert(1)}
+.mm-nav{display:flex;flex-direction:column;padding:3vh 30px 0}
+/* Hairlines follow the head/foot grammar (translated to border-color): transparent until
+   the conveyor lands, fading out immediately on close — never painted over the page. */
+.mm-nav a{display:flex;align-items:center;gap:20px;overflow:hidden;padding:0;border-top:1px solid transparent;transition:border-color .5s ease;font:500 13px/1 var(--sans);letter-spacing:.2em;text-transform:uppercase;color:#fff;text-decoration:none}
+.mm-nav a:last-child{border-bottom:1px solid transparent}
+.mobile-menu.open .mm-nav a{border-color:rgba(255,255,255,.12);transition-delay:.3s}
+.mm-nav em{font:600 10px/1 var(--sans);font-style:normal;letter-spacing:.16em;color:#c99a63;width:22px;flex:0 0 auto}
+.mm-linkin{display:flex;align-items:center;gap:20px;padding:22px 0;transform:translateY(112%);transition:transform .7s cubic-bezier(.22,1,.36,1)}
+.mobile-menu.open .mm-linkin{transform:translateY(0)}
+.mobile-menu.open .mm-nav a:nth-child(1) .mm-linkin{transition-delay:.30s}
+.mobile-menu.open .mm-nav a:nth-child(2) .mm-linkin{transition-delay:.37s}
+.mobile-menu.open .mm-nav a:nth-child(3) .mm-linkin{transition-delay:.44s}
+.mobile-menu.open .mm-nav a:nth-child(4) .mm-linkin{transition-delay:.51s}
+.mobile-menu.open .mm-nav a:nth-child(5) .mm-linkin{transition-delay:.58s}
+.mobile-menu.open .mm-nav a:nth-child(6) .mm-linkin{transition-delay:.65s}
+.mobile-menu.open .mm-nav a:nth-child(7) .mm-linkin{transition-delay:.72s}
+.mm-head,.mm-foot{opacity:0;transition:opacity .5s ease}
+.mobile-menu.open .mm-head{opacity:1;transition-delay:.28s}
+.mobile-menu.open .mm-foot{opacity:1;transition-delay:.55s}
+/* menu foot: CTAs as flat inline pills (filled + ghost) + contact lines */
+.mm-foot{margin-top:auto;padding:34px 30px calc(34px + env(safe-area-inset-bottom))}
+a.mbtn{text-decoration:none}
+.mm-ctas{display:flex;flex-direction:column;gap:12px;margin-bottom:30px}
+.mm-ctas .mbtn{position:relative;display:flex;align-items:center;justify-content:center;gap:12px;width:100%;min-width:0;height:58px;margin:0;padding:0 20px;border:1px solid transparent;border-radius:999px;overflow:hidden;font:600 10px var(--sans);letter-spacing:.16em;text-transform:uppercase;cursor:pointer;transition:transform .15s ease}
+.mm-ctas .mbtn:first-child{background:var(--chalk);color:var(--ink);border-color:var(--chalk)}
+.mm-ctas .mbtn:last-child{background:transparent;color:#fff;border-color:rgba(255,255,255,.42)}
+.mm-ctas .mbtn:active{transform:scale(.985)}
+.mm-ctas .mbtn .mbtn-circle{display:none}
+.mm-ctas .mbtn .mbtn-icon{position:static;transform:none;left:auto;top:auto;color:inherit;line-height:0}
+.mm-ctas .mbtn .mbtn-icon svg{width:16px;height:16px}
+.mm-ctas .mbtn .mbtn-text{position:static;transform:none;margin:0;color:inherit;font:inherit;min-width:0;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;letter-spacing:.13em}
+.mm-contact{margin-top:26px}
+.mm-contact p{margin:0;font-size:11px;line-height:1.7;letter-spacing:.03em;color:rgba(255,255,255,.5)}
+
+/* ---------- Morphing hamburger ⇄ X ---------- */
+@media(max-width:800px){
+  .menu-button{position:fixed;top:calc(5px + env(safe-area-inset-top,0px));right:20px;z-index:38;display:grid;gap:6px;width:28px;height:28px;padding:0;place-content:center;background:none;border:0;cursor:pointer}
+  .menu-button span{display:block;width:28px;height:1.6px;background:#fff;border-radius:2px;transform-origin:50% 50%;transition:transform .42s cubic-bezier(.76,0,.24,1),opacity .25s,background .3s}
+  .menu-button.is-open span{background:#fff}
+  .menu-button.is-open span:nth-child(1){transform:translateY(7.6px) rotate(45deg)}
+  .menu-button.is-open span:nth-child(2){transform:scaleX(.1);opacity:0}
+  .menu-button.is-open span:nth-child(3){transform:translateY(-7.6px) rotate(-45deg)}
+}
+
+/* ---------- ≤800: full-screen hero, form as its own section, header CTAs ---------- */
+.lbl-short{display:none}
+@media(max-width:800px){
+  .wordmark{width:145px}
+  .hero{--hgut:30px;background:#1e211d}
+  /* media covers exactly the first screen, fading into the dark band below */
+  .hero-media-video{display:none}
+  .hero-media-mobile,.hero-media-img{position:absolute;top:0;bottom:auto;left:0;width:100%;height:100svh;object-fit:cover;object-position:50% 42%;-webkit-mask-image:linear-gradient(to bottom,#000 78%,rgba(0,0,0,.4) 92%,transparent 100%);mask-image:linear-gradient(to bottom,#000 78%,rgba(0,0,0,.4) 92%,transparent 100%)}
+  /* TEMP: still image while the 9:16 hero clip is regenerated.
+     Swap back to video: .hero-media-mobile{display:block} .hero-media-img{display:none} */
+  .hero-media-mobile{display:none}
+  .hero-media-img{display:block;opacity:1}
+  /* headline text fills that first screen over the image */
+  .hero-copy{min-height:100svh;padding-top:15vh;padding-bottom:6vh}
+  .hero-copy .eyebrow{position:static;top:auto;margin-bottom:-6vh}
+  .hero-copy h1{position:static;top:auto;font-size:16.5vw;line-height:.79}
+  .hero-bottom{gap:20px;position:relative;top:1vh}
+  .hero-bottom>div{display:block}
+  /* form: its own section on the dark band below the image */
+  .hero-form-card{margin:3vh auto 13vh;max-width:min(440px,calc(100% - 44px))}
+  /* header CTAs: equal halves, short labels, white see-through fill.
+     no backdrop-filter — its blur layer clashed with the header's own
+     backdrop-filter and re-popped on scroll */
+  .header-ctas{display:grid;grid-template-columns:1fr 1fr;gap:9px;width:100%}
+  .header-ctas .mbtn{display:flex;align-items:center;justify-content:center;gap:8px;height:46px;padding:0 10px;width:100%;min-width:0;flex:none;background:rgba(255,255,255,.42);backdrop-filter:none;border-color:rgba(255,255,255,.5);transition:background .4s,border-color .4s}
+  .site-header.scrolled .header-ctas .mbtn{background:rgba(255,255,255,.4);border-color:var(--line)}
+  .header-ctas .mbtn .mbtn-circle{display:none}
+  .header-ctas .mbtn .mbtn-icon{position:static;transform:none;left:auto;top:auto;color:inherit;line-height:0}
+  .header-ctas .mbtn .mbtn-icon svg{width:14px;height:14px}
+  .header-ctas .mbtn .mbtn-text{position:static;transform:none;margin:0;color:inherit;font-size:9px;white-space:nowrap;min-width:0;overflow:hidden;text-overflow:ellipsis;letter-spacing:.09em}
+  .header-ctas .mbtn .lbl-full{display:none}
+  .header-ctas .mbtn .lbl-short{display:inline}
+  /* stop off-screen animation start-states widening the viewport (which was
+     flipping the layout into desktop mode) — mobile only, so it can't touch
+     ScrollSmoother's measurements on desktop */
+  html{overflow-x:hidden}
+  .place,.final-cta{overflow-x:clip}
+}
+
+/* ── Map chapter shell ── the section provides positioning ancestor + ocean-blue base for the SVG map.
+   All map internals live in map.css. */
+/* Mobile: touchNav (editorial.js) owns scrolling — the browser must never start a native
+   scroll, or its touchmoves turn non-cancelable and the release-glide silently loses
+   (inertia without the chapter settle). touch-action:none hands every touch to the engine;
+   taps are unaffected. The tune panel keeps its own internal scroll. */
+@media(max-width:800px){
+  html,body,svg#map{touch-action:none}
+  #tune-panel{touch-action:pan-y}
+}
+.map-chapter{min-height:100svh;position:relative;background:#b9cdd0;overflow:hidden}
+.map-chapter .map-stage{position:relative;height:100svh;backface-visibility:hidden}
+/* Gecko: backface-visibility:hidden promotes the stage to a compositor layer, and Firefox
+   reuses that layer's cached rasterisation of the SVG while the dive camera moves — the map
+   arrives as a stretched bitmap until the flight ends. Chrome keeps the promotion. */
+@supports (-moz-appearance:none){ .map-chapter .map-stage{backface-visibility:visible} }
+/* Ink scrim from the top and left — the same grammar as the frames' shade — so the
+   chapter copy reads white like everywhere else. Above the map, below the photo layer
+   (z4, which carries its own scrim); clicks pass through. */
+.map-chapter .map-stage::after{content:"";position:absolute;inset:0;z-index:2;pointer-events:none;
+  background:linear-gradient(90deg,rgba(20,22,18,.78),rgba(20,22,18,.32) 34%,rgba(20,22,18,0) 56%),
+             linear-gradient(180deg,rgba(20,22,18,.6),rgba(20,22,18,0) 38%)}
+/* The precinct note — the chapter's leading copy, bottom-left over the plan. */
+.map-chapter .precinct-note{position:absolute;left:6vw;bottom:9vh;z-index:6;max-width:760px;color:#fff;pointer-events:none;
+  transition:opacity .6s ease,filter .6s ease}
+.map-chapter .precinct-note.dived{opacity:0;filter:blur(8px)}   /* dives: fade+blur out, and back in on the pull-out */
+.map-chapter .precinct-note .eyebrow{display:inline-block;margin:0 0 24px;padding:0 0 14px;border-bottom:1px solid rgba(255,255,255,.34)}
+/* Hovering an amenity dot whispers its name above the note's hairline. */
+.map-chapter .precinct-note .dot-name{position:absolute;bottom:100%;left:0;margin:0 0 16px;
+  font:500 clamp(22px,2.1vw,30px)/1.1 var(--serif);font-style:italic;color:#fff;
+  opacity:0;transform:translateY(10px);transition:opacity .45s,transform .45s cubic-bezier(.3,1.3,.4,1);
+  pointer-events:none;white-space:nowrap}
+.map-chapter .precinct-note .dot-name.on{opacity:1;transform:none}
+.map-chapter .precinct-note h2{font-size:clamp(50px,7vw,112px);line-height:.85;letter-spacing:-.03em;margin:0 0 24px}
+.map-chapter .precinct-note .lede{font-size:clamp(14px,1.15vw,17px);line-height:1.6;max-width:min(46ch,38vw);color:rgba(255,255,255,.9);font-weight:300;margin:0;text-wrap:pretty}   /* vw cap keeps the copy inside the scrim's dark band at narrow windows */
+@media(max-width:800px){
+  /* Mobile: the note sits at the TOP, under the chapter divider, compressed — the dots
+     own the middle of the frame and the journey link the bottom. */
+  .map-chapter .precinct-note{left:26px;right:26px;top:225px;bottom:auto;max-width:none}
+  .map-chapter .precinct-note .eyebrow{margin:0 0 14px;padding:0 0 10px}
+  .map-chapter .precinct-note h2{margin:0 0 14px}   /* size inherits the frames' clamp — same scale as every chapter */
+  .map-chapter .precinct-note .lede{font-size:14px;max-width:20ch}
+  /* Mobile scrim: the desktop gradient, 5% darker (user-requested) */
+  .map-chapter .map-stage::after{background:linear-gradient(90deg,rgba(20,22,18,.83),rgba(20,22,18,.37) 34%,rgba(20,22,18,0) 56%),
+    linear-gradient(180deg,rgba(20,22,18,.65),rgba(20,22,18,0) 38%)}
+}
+@media(max-width:800px){
+  .map-chapter{min-height:100svh}
+}
+
+/* ── The enquiry form chapter ── desktop: an overlay sharing the hero's exact grid, so the
+   card sits in the same cell it always did (visually unchanged); mobile: its own
+   one-viewport chapter after the hero, the card centred on paper. */
+.form-chapter{position:absolute;top:0;left:0;width:100%;height:100svh;z-index:5;pointer-events:none;
+  display:grid;grid-template-columns:minmax(0,1fr) clamp(320px,28vw,400px) minmax(0,.12fr);
+  column-gap:4vw;align-items:center;padding:0 6vw}
+.form-chapter .hero-form-card{grid-column:2;pointer-events:auto}
+/* Desktop: the form-chapter overlays the hero image, so no background of its own. */
+.form-bg,.form-shade{display:none}
+@media(max-width:800px){
+  /* position:relative (not static) so the absolute .form-bg is contained to THIS chapter's
+     one-viewport box — static let it escape to the transformed #smooth-content (full page
+     height), which scaled the image ~5x and made it look zoomed + upscaled. */
+  .form-chapter{position:relative;overflow:hidden;height:auto;min-height:100svh;display:grid;place-items:center;
+    grid-template-columns:1fr;column-gap:0;
+    padding:80px 24px 30px;background:#121612;pointer-events:auto}
+  /* Mobile: a full-bleed image behind the form (like every other chapter), on a legibility
+     scrim — the box-less form reads straight over it. */
+  .form-bg{display:block;position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center;z-index:0}
+  .form-shade{display:block;position:absolute;inset:0;z-index:1;
+    background:linear-gradient(0deg,rgba(14,16,12,.65),rgba(14,16,12,.5) 45%,rgba(14,16,12,.52) 70%,rgba(14,16,12,.6))}
+  /* compressed ink card: full card — both actions + trust — fits the chapter viewport */
+  /* card colour == chapter colour on mobile, so the "card" was only its drop shadow reading
+     as a dark halo — drop the redundant background + shadow so it's flat content on the chapter */
+  .form-chapter .hero-form-card{grid-column:auto;width:100%;max-width:440px;padding:22px 24px 18px;margin:0;background:transparent;box-shadow:none}
+  .form-chapter .fmc-eyebrow{margin:0 0 16px}
+  .form-chapter .fmc-intro{margin:0 0 22px;font-size:13.5px}
+  .form-chapter .fmc-field{margin:0 0 22px}
+  .form-chapter .fmc-field input{padding:9px 0 12px;font-size:16px}
+  .form-chapter .fmc-btn{height:48px;margin:0 0 8px}
+  .form-chapter .fmc-trust{margin-top:16px}
+}
+
+/* ── Cinematic frame chapters (the restructured narrative beats 01–04) ──
+   One grammar, six frames: full-bleed image, bottom-anchored copy, keep-language
+   eyebrow over a hairline, serif headline, one lede, stat figures where the number
+   is the argument. Ported from the approved _*-test.html pages. */
+.cine{position:relative;min-height:100svh;overflow:hidden;display:flex;align-items:flex-end;background:#1e211d;color:#fff}
+.cine>img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center}
+.cine .shade{position:absolute;inset:0;
+  background:linear-gradient(0deg,rgba(22,24,19,.82),rgba(22,24,19,.30) 40%,rgba(22,24,19,0) 67%),
+             linear-gradient(90deg,rgba(22,24,19,.52),rgba(22,24,19,0) 50%)}
+.cine.centered .shade{background:linear-gradient(0deg,rgba(24,26,21,.82),rgba(24,26,21,.30) 42%,rgba(24,26,21,0) 68%)}
+.cine .copy{position:relative;z-index:2;padding:0 0 7vh;width:100%}
+.cine .inner{padding:0 6vw;max-width:760px}   /* cap INCLUDES the gutter by design: the tightening column at wide windows is what stacks the headlines — the approved composition, not a bug */
+.cine.centered .copy{display:flex;justify-content:center;padding:0 6vw 9vh}
+.cine.centered .inner{max-width:680px;text-align:center;padding:0}
+/* Eyebrow: in the copy stack, directly above its headline, the hairline breaking the two
+   apart — one consistent lockup on every frame. */
+.cine .eyebrow{display:inline-block;text-transform:uppercase;letter-spacing:.26em;
+  font-size:10px;font-weight:600;color:rgba(255,255,255,.82);margin:0 0 26px;padding:0 0 14px;
+  border-bottom:1px solid rgba(255,255,255,.32)}
+.cine h2{font-size:clamp(50px,7vw,112px);line-height:.85;letter-spacing:-.03em;margin:0 0 24px;text-wrap:balance;color:#fff}
+.cine .lede{font-size:clamp(14px,1.15vw,17px);line-height:1.6;max-width:48ch;color:rgba(255,255,255,.9);font-weight:300;margin:0;text-wrap:pretty}
+.cine.centered .lede{margin:0 auto;max-width:46ch}
+.cine .copy>.figs{display:flex;justify-content:space-between;gap:16px;margin:34px 6vw 0;padding-top:24px;border-top:1px solid rgba(255,255,255,.32)}
+.cine .inner .figs{display:flex;flex-wrap:wrap;gap:14px 56px;margin-top:34px;padding-top:10px;border-top:1px solid rgba(255,255,255,.32)}
+/* Collection eyebrow lives IN the stat block: full first row under the hairline, its own
+   border shed (the block's line is the lockup's rule). The wrapper is the drop mask —
+   the label slides down from behind the line. */
+.cine .figs .figs-eyebrow{flex:0 0 100%;overflow:hidden}
+.cine .figs .eyebrow{border-bottom:0;padding:0;margin:0}
+.cine .fig strong{display:block;font:400 clamp(42px,4.8vw,72px)/1 var(--serif)}
+.cine .fig span{display:block;font-size:9.5px;letter-spacing:.16em;text-transform:uppercase;color:rgba(255,255,255,.66);margin-top:8px}
+.cine .tags{display:flex;flex-wrap:wrap;gap:10px 26px;margin-top:26px;font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:rgba(255,255,255,.72)}
+/* The Finishes frame mirrors: copy right-aligned, breaking the run of left-set frames. */
+#finishes .copy{display:flex;justify-content:flex-end}
+#finishes .inner{text-align:right}
+#finishes .lede{margin-left:auto}
+#finishes .tags{justify-content:flex-end}
+#finishes .tags span{cursor:pointer;transition:color .3s}
+#finishes .tags span:hover{color:#fff}
+#finishes img.swap{opacity:0;transition:opacity .9s ease}
+#finishes img.swap.on{opacity:1}
+/* Beat dividers on the frames: absolute top-left, light on the imagery. */
+/* The beat divider's hairline runs the full content width — it grows (scaleX, left
+   origin) out to the page's content edge; the label sits beneath its left end. */
+.cine .section-number{position:absolute;top:110px;left:6vw;z-index:3;color:rgba(255,255,255,.8);width:calc(100% - 12vw)}
+/* #size has a 4-line headline that reaches up into the beat divider; lift only this
+   chapter's number clear of it (stays below the 82px header). */
+#size .section-number{top:88px}
+.map-chapter .section-number{position:absolute;top:104px;left:6vw;z-index:6;width:calc(100% - 12vw);color:#fff}
+@media(max-width:800px){
+  .cine>img{object-position:var(--mob-pos,center)}
+  .cine .inner{padding:0 26px}
+  .cine .lede{max-width:100%;font-size:15px}
+  .cine .copy>.figs{gap:10px;margin:26px 26px 0;padding-top:20px}
+  .cine .inner .figs{gap:30px}
+  .cine .fig strong{font-size:31px}
+  .cine .fig span{font-size:7.5px;letter-spacing:.07em;margin-top:6px;white-space:nowrap}
+  .cine .tags{gap:8px 18px;font-size:9px}
+  .cine.centered .copy{padding:0 26px 8vh}
+  /* the mobile header (wordmark + CTA pills) runs ~99px deep — the top-edge chrome clears it */
+  .cine .section-number,.map-chapter .section-number{top:124px;left:26px;width:calc(100% - 52px)}
+  /* scale the narrative headings up on mobile so they read big and stack like desktop */
+  .cine h2{font-size:16vw;line-height:.88}
+}
+
+/* The Place chapter's destination list — name left, researched minutes right.
+   color:inherit + opacity so the minutes read on the chapter's ground at any breakpoint. */
+.place-copy li{display:flex;align-items:baseline;gap:18px}
+.place-copy li span{margin-left:auto;font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:inherit;opacity:.55;white-space:nowrap}
+/* The frame lockup convention: hairline under the eyebrow, breaking it from the headline
+   (currentColor so it holds on the chapter's ground at any breakpoint). */
+/* The Place wears the Bayside sunset — full-bleed, left-weighted scrim under the copy,
+   white text; the currentColor devices (hairlines, minutes) adapt automatically. */
+.place{position:relative;overflow:hidden;color:#fff}
+.place .place-bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.place .place-shade{position:absolute;inset:0;
+  background:linear-gradient(90deg,rgba(18,20,17,.78),rgba(18,20,17,.42) 48%,rgba(18,20,17,.08) 72%),
+             linear-gradient(0deg,rgba(18,20,17,.55),rgba(18,20,17,0) 40%)}
+.place .section-number,.place .place-grid,.place .location-line{position:relative;z-index:2}
+.place .location-line i{background:currentColor;opacity:.3}
+.place .eyebrow{display:inline-block;margin:0 0 26px}
+.place .eyebrow::after{content:"";display:block;height:1px;background:currentColor;opacity:.32;margin-top:14px}
+/* Desktop: copy and list flow UNDER the headline (single column), tightened to hold one viewport. */
+@media(min-width:801px){
+  .place.section-pad{padding:110px 6vw 60px}
+  .place-grid{display:block;margin-top:26px;max-width:760px}
+  .place h2{margin-bottom:24px}
+  .place-copy{padding-top:0}
+  .place-copy p{font-size:16px;line-height:1.6;max-width:56ch}
+  .place-copy ul{margin-top:26px}
+  .place-copy li{padding:8px 0}
+  .place .location-line{margin-top:40px}
+}
+/* Mobile: the chapter compresses toward one viewport — the desktop rhythm's big gaps
+   (90/50/110px) stack up fast on a phone. */
+@media(max-width:800px){
+  /* clear the ~99px two-row mobile header (tracks the notch via safe-area); content tightened to stay one viewport */
+  .place.section-pad{min-height:100svh;padding:calc(104px + env(safe-area-inset-top,0px)) 26px 34px}
+  .place-grid{margin-top:18px}
+  .place h2{font-size:13vw;margin-bottom:16px}
+  .place-copy{padding-top:0}
+  .place-copy p{font-size:15px;line-height:1.55}
+  .place-copy ul{margin-top:14px}
+  .place-copy li{padding:6px 0;font-size:11.5px}
+  .location-line{margin-top:24px}
+}
+@media(max-width:800px){
+  /* every mobile chapter is full-bleed dark — paint the page ground dark too, so a sub-pixel
+     seam between chapters can never flash the light --paper background as a hairline */
+  body{background:#121612}
+}
+
+/* ================================================================
+   CONTACT CHAPTER — multi-step enquiry laid over the image (no box).
+   Reuses the ink-card field grammar (thin underline, uppercase labels,
+   chalk pills); one .cf-step shows at a time, driven by editorial.js.
+   ================================================================ */
+.contact-chapter{text-align:left}
+.contact-chapter .cf-scrim{position:absolute;inset:0;z-index:1;pointer-events:none;
+  background:linear-gradient(0deg,rgba(13,15,11,.92),rgba(13,15,11,.6) 42%,rgba(13,15,11,.28) 74%,rgba(13,15,11,.5))}
+.contact-inner{position:relative;z-index:3;width:100%;max-width:500px;margin:0 auto;padding:0 6vw;color:#fff}
+.contact-inner .eyebrow{display:inline-block;text-transform:uppercase;letter-spacing:.26em;font-size:10px;font-weight:600;color:rgba(255,255,255,.82);margin:0 0 16px;border:0}
+.contact-inner h2{font-family:var(--serif);font-weight:400;font-size:clamp(40px,4.6vw,64px);line-height:.9;letter-spacing:-.03em;margin:0 0 26px;color:#fff;text-align:left}
+.contact-inner h2 em{font-style:italic;font-weight:400}
+/* progress dots */
+.cf-progress{list-style:none;display:flex;justify-content:space-between;align-items:flex-start;gap:8px;padding:0;margin:0 0 26px;position:relative}
+.cf-progress::before{content:"";position:absolute;left:16.7%;right:16.7%;top:5px;height:1px;background:rgba(255,255,255,.22);z-index:0}
+.cf-dot{position:relative;z-index:1;flex:1 1 0;display:flex;flex-direction:column;align-items:center;gap:9px;
+  font-size:8px;letter-spacing:.16em;text-transform:uppercase;color:rgba(255,255,255,.45);transition:color .4s ease}
+.cf-dot::before{content:"";width:11px;height:11px;border-radius:50%;background:#171a15;border:1px solid rgba(255,255,255,.45);transition:all .4s ease}
+.cf-dot.active{color:#fff}
+.cf-dot.active::before{background:var(--chalk,#f1eee7);border-color:var(--chalk,#f1eee7);box-shadow:0 0 0 4px rgba(255,255,255,.14)}
+.cf-dot.completed::before{background:rgba(255,255,255,.75);border-color:rgba(255,255,255,.75)}
+/* stepped form */
+.cf-form{position:relative}
+.cf-hp{position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden}
+.cf-step{display:none}
+.cf-step.active{display:block;animation:cfFade .5s ease}
+@keyframes cfFade{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:none}}
+.cf-field{position:relative;margin:0 0 18px}
+.cf-field label{display:block;font-size:9px;letter-spacing:.18em;text-transform:uppercase;color:rgba(255,255,255,.62);margin:0 0 6px}
+.cf-field input,.cf-field select,.cf-field textarea{width:100%;background:transparent;border:0;border-bottom:1px solid rgba(255,255,255,.4);
+  padding:7px 0 9px;font:400 16px var(--sans);color:#fff;outline:none;border-radius:0;-webkit-appearance:none;appearance:none}
+.cf-field textarea{resize:none;line-height:1.5;min-height:52px}
+/* color-scheme:dark asks the browser to draw the native control AND its popup list in dark,
+   so the dropdown stops reading as a generic white box; the option rules cover Chromium/Firefox,
+   which style the list from the options themselves. iOS keeps its native picker. */
+.cf-field select{color-scheme:dark;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%23ffffff' stroke-width='2'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right 2px center;padding-right:22px}
+.cf-field select:invalid{color:rgba(255,255,255,.5)}   /* placeholder shows muted until a choice is made */
+.cf-field select option{color:#fff;background:#171a15;padding:10px 12px;font:400 15px var(--sans)}
+.cf-field select option:disabled{color:rgba(255,255,255,.45)}
+.cf-line{position:absolute;left:0;right:0;bottom:0;height:1px;background:rgba(255,255,255,.95);transform:scaleX(0);transform-origin:0 50%}
+.cf-field.invalid input,.cf-field.invalid select,.cf-field.invalid textarea{border-bottom-color:#e8b19a}
+.cf-nav{display:flex;align-items:center;gap:12px;margin-top:24px}
+.cf-spacer{flex:0 0 auto}
+.cf-btn{display:inline-flex;align-items:center;justify-content:center;height:50px;padding:0 26px;border-radius:999px;border:1px solid transparent;
+  font:600 10px var(--sans);letter-spacing:.15em;text-transform:uppercase;cursor:pointer;transition:transform .15s ease,background .3s,border-color .3s,opacity .3s}
+.cf-btn.primary{background:var(--chalk,#f1eee7);color:var(--ink,#1e211d);border-color:var(--chalk,#f1eee7);flex:1}
+.cf-btn.ghost{background:transparent;color:#fff;border-color:rgba(255,255,255,.5)}
+.cf-btn:active{transform:scale(.985)}
+.cf-btn:disabled{opacity:.6;cursor:not-allowed}
+.cf-contacts{margin:20px 0 0;font-size:9px;letter-spacing:.05em;line-height:1.7;color:rgba(255,255,255,.5);text-align:center}
+.cf-contacts a{display:block;color:rgba(255,255,255,.82);text-decoration:none;letter-spacing:.05em;font-size:11.5px;margin-top:3px}
+.cf-success .cf-success-h{font-family:var(--serif);font-weight:400;font-size:clamp(30px,4vw,46px);line-height:1.05;margin:0 0 14px;color:#fff}
+.cf-success .cf-success-p{font-size:14px;line-height:1.6;color:rgba(255,255,255,.82);max-width:42ch}
+.contact-chapter .lead-error{color:#e8b19a;margin:14px 0 0;font-size:12px;line-height:1.5}
+@media(max-width:800px){
+  /* mobile scrim 10% deeper than desktop — the form sits over more of the image on a phone */
+  .contact-chapter .cf-scrim{background:linear-gradient(0deg,rgba(13,15,11,.97),rgba(13,15,11,.7) 42%,rgba(13,15,11,.38) 74%,rgba(13,15,11,.6))}
+  .contact-inner{max-width:none;padding:0 26px}
+  .contact-inner h2{font-size:12vw;margin:0 0 22px}
+  .cf-progress{margin:0 0 22px}
+  .cf-field{margin:0 0 16px}
+  .cf-btn{height:48px}
+}
+
+
+/* Artist's impression disclosure on every full-bleed render (not the precinct map). */
+.chapter .artist-tag{position:absolute;right:6vw;bottom:22px;z-index:4;font-size:9px;letter-spacing:.16em;text-transform:uppercase;color:rgba(255,255,255,.5);pointer-events:none;text-shadow:0 1px 2px rgba(0,0,0,.35)}
+#finishes .artist-tag{right:auto;left:6vw}
+@media(max-width:800px){.chapter .artist-tag{right:26px;bottom:16px;font-size:8px}#finishes .artist-tag{left:26px}}
+/* Contact chapter carries an absolute footer at the bottom, so its tag goes top-right. */
+#contact .artist-tag{bottom:auto;top:104px}
+@media(max-width:800px){#contact .artist-tag{top:112px}}
+/* Mobile: lift the hero and storage bottom copy so the bottom-right artist tag clears it. */
+@media(max-width:800px){.hero .hero-bottom{transform:translateY(-36px)}#storage .copy{padding-bottom:calc(8vh + 26px)}}

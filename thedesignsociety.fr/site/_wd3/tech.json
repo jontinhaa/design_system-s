@@ -1,0 +1,93 @@
+{
+ "builders": [
+  "webflow"
+ ],
+ "libraries": [
+  {
+   "name": "barba",
+   "version": "2.10.3",
+   "sources": [
+    "página",
+    "https://cdn.jsdelivr.net/npm/@barba/core@2.10.3/dist/barba.umd.min.js"
+   ]
+  },
+  {
+   "name": "gsap",
+   "version": "3.15.0",
+   "sources": [
+    "página",
+    "https://cdn.prod.website-files.com/gsap/3.15.0/ScrambleTextPlugin.min.js",
+    "https://cdn.prod.website-files.com/gsap/3.15.0/Draggable.min.js",
+    "https://cdn.prod.website-files.com/gsap/3.15.0/Observer.min.js",
+    "https://cdn.prod.website-files.com/gsap/3.15.0/CustomEase.min.js"
+   ]
+  },
+  {
+   "name": "gsap/ScrollTrigger",
+   "version": null,
+   "sources": [
+    "página"
+   ]
+  },
+  {
+   "name": "gsap/SplitText",
+   "version": null,
+   "sources": [
+    "página"
+   ]
+  },
+  {
+   "name": "jquery",
+   "version": "3.5.1",
+   "sources": [
+    "página",
+    "https://d3e54v103j8qbb.cloudfront.net/js/jquery-3.5.1.min.dc5e7f18c8.js?site=698de82080130d2fe9cada54"
+   ]
+  },
+  {
+   "name": "lenis",
+   "version": "1.3.17",
+   "sources": [
+    "página",
+    "https://cdn.jsdelivr.net/npm/lenis@1.3.17/dist/lenis.min.js",
+    "https://unpkg.com/lenis@1.3.17/dist/lenis.css"
+   ]
+  },
+  {
+   "name": "webflow",
+   "version": null,
+   "sources": [
+    "https://cdn.prod.website-files.com/698de82080130d2fe9cada54/js/webflow.schunk.a3140c51201be139.js",
+    "https://cdn.prod.website-files.com/698de82080130d2fe9cada54/js/webflow.schunk.c46a6bfff9727111.js",
+    "https://cdn.prod.website-files.com/698de82080130d2fe9cada54/js/webflow.f7011928.b9fd9b65abb51a9a.js"
+   ]
+  }
+ ],
+ "runtime": {
+  "contexts": {},
+  "wasm": 0,
+  "workers": 0,
+  "webgpu": false,
+  "shadowRoots": 0,
+  "canvases": 0
+ },
+ "cssFeatures": [],
+ "fonts": {
+  "families": [
+   "Fkrasterromancompact Smooth",
+   "Geistpixel Line",
+   "Khinterferencetrial",
+   "Khtekatrial"
+  ],
+  "sources": [
+   "self-hosted"
+  ]
+ },
+ "videos": [],
+ "files": {
+  "text": 15,
+  "application": 3,
+  "image": 36,
+  "font": 5
+ }
+}

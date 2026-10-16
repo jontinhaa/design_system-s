@@ -1,0 +1,1516 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>NØEMA Design System</title>
+<!-- preview capture: the Overview frame reports once its preloader has wiped away and the hero
+     title, eyebrow, lead and HUD have finished rising in (about 4 s after load) -->
+<meta name="preview-ready-selector" content="body.ds-overview-ready">
+<meta name="preview-ready-after-ms" content="400">
+<meta name="theme-color" content="#050506">
+<link rel="icon" href="assets/overview/assets/noema-ai-studio-74.aura.build/favicon.ico">
+<link rel="stylesheet" href="assets/overview/assets/noema-ai-studio-74.aura.build/noema.css">
+<style>
+/* ================================================================ catalog shell
+   Routing and layout only. The navbar is the Overview's own .nav (brand, blend mode, menu button)
+   with its status slot holding the two catalog views; every specimen keeps the Overview's markup
+   and noema.css. Section rules answer to the section's own class, so each specimen sits inside
+   its section class; .ds-ctx only takes that section's own box (height, padding, position) away. */
+:root { --ds-nav-h: 68px; }
+html, body { height: 100%; }
+body { overflow: hidden; }
+#overview-frame { position: fixed; inset: 0; width: 100%; height: 100%; border: 0; display: block; z-index: 0; background: var(--void); }
+
+.ds-views { justify-self: center; display: flex; align-items: center; gap: 1.6rem; font-size: 0.62rem; letter-spacing: 0.18em; text-transform: uppercase; }
+.ds-views a { position: relative; opacity: 0.5; transition: opacity 0.35s; }
+.ds-views a:hover { opacity: 0.85; }
+.ds-views a.is-active { opacity: 1; }
+.ds-views a.is-active::after { content: ""; position: absolute; left: 0; right: 0.18em; bottom: -0.45rem; height: 1px; background: currentColor; }
+.ds-views a[aria-disabled="true"] { opacity: 0.22; pointer-events: none; }
+@media (max-width: 900px) {
+  #ds-nav { grid-template-columns: 1fr auto 1fr; }
+}
+@media (max-width: 420px) {
+  .ds-views { gap: 1.15rem; }
+}
+
+/* ------------------------------------------------------------ components view */
+/* the Overview's hero visual (machine → human reveal) runs live behind this view */
+#ds-live-bg { position: fixed; inset: 0; z-index: 0; display: none; overflow: hidden; background: black; }
+#ds-live-bg .hero__visual { cursor: auto; }
+body.is-components #ds-live-bg { display: block; }
+body.is-components #overview-frame { visibility: hidden; }
+/* the page's own grain and cursor, over this view (the Overview frame draws its own) */
+body > .noise { display: none; }
+body.is-components > .noise { display: block; }
+body:not(.is-components) > .cursor, body:not(.is-components) > .cursor-ring { display: none; }
+/* a dark glass strip under the blended navbar keeps it legible over the live hero */
+#ds-nav-back { position: fixed; top: 0; left: 0; right: 0; height: var(--ds-nav-h); z-index: 115; display: none;
+  background: rgba(5, 5, 6, 0.86); -webkit-backdrop-filter: blur(14px); backdrop-filter: blur(14px); border-bottom: 1px solid var(--line); }
+body.is-components #ds-nav-back { display: block; }
+body.is-components #ds-nav .menu-button { visibility: hidden; }
+
+#view-components { position: fixed; top: var(--ds-nav-h); left: 0; right: 0; bottom: 0; z-index: 10; display: none; }
+body.is-components #view-components { display: grid; grid-template-columns: 236px minmax(0, 1fr); }
+/* one scrim keeps the catalog readable over the live hero */
+#view-components::before { content: ""; position: fixed; inset: 0; z-index: -1; pointer-events: none;
+  background: linear-gradient(90deg, rgba(5, 5, 6, 0.9) 0%, rgba(5, 5, 6, 0.78) 55%, rgba(5, 5, 6, 0.68) 100%); }
+
+/* sidebar: its own void glass, the page's label type and capability indent */
+#ds-side { overflow-y: auto; padding: 2rem 1rem 2.6rem 1.6rem; display: flex; flex-direction: column; gap: 2px;
+  background: rgba(5, 5, 6, 0.88); -webkit-backdrop-filter: blur(16px) saturate(1.1); backdrop-filter: blur(16px) saturate(1.1);
+  border-right: 1px solid var(--line); }
+#ds-side p { margin: 0 0 1.2rem; font-size: 0.6rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--signal); }
+#ds-side a { display: flex; align-items: baseline; gap: 0.9rem; padding: 0.62rem 0; font-size: 0.64rem; letter-spacing: 0.16em;
+  text-transform: uppercase; color: rgba(241, 240, 234, 0.66); transition: color 0.3s, padding 0.4s cubic-bezier(0.16, 1, 0.3, 1); }
+#ds-side a b { font-family: "Courier New", monospace; font-weight: 400; font-size: 0.56rem; letter-spacing: 0.1em; color: rgba(241, 240, 234, 0.42); }
+#ds-side a:hover, #ds-side a.is-current { color: var(--ink); }
+#ds-side a.is-current { padding-left: 0.6rem; }
+#ds-side a.is-current b { color: var(--signal); }
+
+#ds-main { position: relative; overflow-y: auto; overflow-x: hidden; padding: 3.2rem clamp(1.2rem, 3.4vw, 3.4rem) 10rem; color: var(--ink); }
+#ds-main > * { max-width: 1180px; }
+.ds-group { padding-bottom: 7.5rem; }
+/* group head: the page's own section rule over a display heading */
+.ds-top { display: flex; justify-content: space-between; gap: 1rem; padding-bottom: 0.9rem; border-bottom: 1px solid var(--line);
+  font-size: 0.6rem; letter-spacing: 0.17em; text-transform: uppercase; }
+.ds-top span:last-child { color: var(--signal); }
+.ds-title { margin: 2.2rem 0 3.2rem; font-size: clamp(3.2rem, 6.2vw, 6.4rem); font-weight: 500; letter-spacing: -0.08em; line-height: 0.84; }
+.ds-sub { margin: 3.6rem 0 1.4rem; color: var(--signal); }
+.ds-title + .ds-sub { margin-top: 0; }
+.ds-spec { margin: 0 0 4.4rem; }
+.ds-spec:last-child { margin-bottom: 0; }
+.ds-spec > h3 { display: flex; flex-wrap: wrap; align-items: baseline; gap: 0.35rem 1rem; margin: 0 0 1.1rem; font-size: 1.05rem;
+  font-weight: 400; letter-spacing: -0.02em; line-height: 1.3; color: var(--ink); }
+.ds-live { font-family: "Courier New", monospace; font-size: 0.58rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--signal); }
+.ds-meta { display: block; margin-top: 0.9rem; font-family: "Courier New", monospace; font-size: 0.68rem; line-height: 1.65;
+  color: rgba(241, 240, 234, 0.7); overflow-wrap: anywhere; }
+.ds-meta b { font-weight: 700; color: var(--ink); }
+.ds-row { display: flex; flex-wrap: wrap; align-items: flex-start; gap: 1.6rem 2.4rem; }
+.ds-cell { display: flex; flex-direction: column; align-items: flex-start; gap: 0.8rem; min-width: 0; }
+.ds-cap { font-family: "Courier New", monospace; font-size: 0.6rem; letter-spacing: 0.12em; text-transform: uppercase; color: rgba(241, 240, 234, 0.66); }
+.ds-paper { background: var(--paper); color: var(--void); }
+.ds-void { background: var(--void); color: var(--ink); }
+.ds-outline { outline: 1px solid var(--line); outline-offset: -1px; }
+.ds-btn { margin-top: 1.3rem; padding: 0 0 0.35rem; border: 0; border-bottom: 1px solid var(--line); background: none; cursor: pointer;
+  font-size: 0.6rem; letter-spacing: 0.16em; text-transform: uppercase; color: var(--ink); }
+.ds-btn:hover { border-color: var(--ink); }
+
+/* specimen contexts */
+.ds-ctx { position: relative !important; inset: auto !important; width: auto !important; height: auto !important; min-height: 0 !important;
+  margin: 0 !important; padding: 0 !important; display: block !important; opacity: 1 !important; visibility: visible !important;
+  transform: none !important; clip-path: none !important; pointer-events: auto !important; }
+.ds-ctx.ds-pad { padding: 2.2rem clamp(1.2rem, 2.6vw, 2.6rem) !important; }
+.ds-ctx.ds-kpad { padding: 4rem 0 !important; }
+.ds-flow { position: relative !important; inset: auto !important; transform: none !important; margin: 0 !important; padding: 0 !important; display: block !important; }
+.ds-flow.ds-grid { display: grid !important; }
+.ds-shown span { opacity: 1 !important; }
+.ds-keep { display: flex !important; }
+.ds-keep-block { display: block !important; }
+.ds-abs { position: absolute !important; }
+
+/* typography: role | live sample | declared size */
+.ds-type { display: grid; grid-template-columns: 210px minmax(0, 1fr) 170px; gap: 1.6rem; align-items: center; padding: 1.5rem 0; border-top: 1px solid var(--line); }
+.ds-type:last-child { border-bottom: 1px solid var(--line); }
+.ds-type .role { font-size: 0.95rem; letter-spacing: -0.01em; color: var(--ink); }
+.ds-type .face { margin-top: 0.35rem; font-size: 0.72rem; line-height: 1.5; color: rgba(241, 240, 234, 0.64); }
+.ds-type .face code { display: block; margin-top: 0.45rem; font-family: "Courier New", monospace; font-size: 0.64rem; color: rgba(241, 240, 234, 0.74); overflow-wrap: anywhere; }
+.ds-type .sample { min-width: 0; overflow: hidden; }
+.ds-type .sizes { text-align: right; font-family: "Courier New", monospace; font-size: 0.68rem; line-height: 1.7; color: var(--ink); }
+
+/* colors: live chip on its surface + label, value, token, use */
+.ds-colors { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 1.6rem 2rem; }
+.ds-sw { display: grid; grid-template-columns: 84px minmax(0, 1fr); gap: 1rem; align-items: start; }
+.ds-chip { position: relative; height: 84px; overflow: hidden; display: grid; place-items: center; background: var(--void); outline: 1px solid var(--line); outline-offset: -1px; }
+.ds-chip .fill { position: absolute; inset: 0; }
+.ds-chip > img { position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; }
+.ds-chip .aa { position: relative; font-size: 2rem; font-weight: 500; letter-spacing: -0.06em; line-height: 1; }
+.ds-sw strong { display: block; font-size: 0.9rem; font-weight: 400; letter-spacing: -0.01em; color: var(--ink); }
+.ds-sw code { display: block; margin-top: 0.25rem; font-family: "Courier New", monospace; font-size: 0.64rem; line-height: 1.5; color: var(--ink); overflow-wrap: anywhere; }
+.ds-sw code.tok { color: var(--signal); }
+.ds-sw p { margin: 0.3rem 0 0; font-size: 0.74rem; line-height: 1.45; color: rgba(241, 240, 234, 0.64); }
+.ds-fam { margin-bottom: 1.8rem; }
+.ds-fam > strong { display: block; margin-bottom: 0.8rem; font-size: 0.9rem; font-weight: 400; color: var(--ink); }
+.ds-states { display: grid; grid-template-columns: repeat(auto-fill, minmax(170px, 1fr)); gap: 1rem; }
+.ds-state { display: flex; flex-direction: column; gap: 0.4rem; min-width: 0; }
+.ds-state .ds-chip { height: 104px; }
+.ds-state code { font-family: "Courier New", monospace; font-size: 0.62rem; line-height: 1.45; color: var(--ink); overflow-wrap: anywhere; }
+
+/* backgrounds */
+.ds-bgspec { position: relative !important; height: 560px !important; min-height: 0 !important; overflow: hidden !important; outline: 1px solid var(--line); outline-offset: -1px; }
+.ds-bgspec.ds-tall { height: 700px !important; }
+.ds-bgspec.ds-wide { height: auto !important; aspect-ratio: 16 / 9; }
+.ds-bgspec.ds-menubox { height: 880px !important; background: var(--void); isolation: isolate; }
+.ds-fill { height: 100% !important; min-height: 0 !important; }
+.ds-grounds { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 1rem; }
+.ds-grounds > div { position: relative; height: 200px; padding: 1rem; display: flex; flex-direction: column; justify-content: flex-end; gap: 0.2rem;
+  outline: 1px solid var(--line); outline-offset: -1px; font-family: "Courier New", monospace; font-size: 0.6rem; letter-spacing: 0.1em; text-transform: uppercase; }
+
+/* surfaces and media */
+.ds-surfs { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 1.2rem; }
+.ds-surfs > :last-child { grid-column: 1 / -1; }
+.ds-surf { position: relative; height: 280px; overflow: hidden; outline: 1px solid var(--line); outline-offset: -1px; }
+.ds-surf.ds-surf--tall { height: 380px; }
+.ds-surf > img { height: 100%; object-fit: cover; }
+.ds-media3 { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1rem; }
+.ds-media3 .chapter__media { height: 340px; }
+.ds-lv { position: relative !important; top: auto !important; height: 640px !important; min-height: 0 !important; max-width: 560px; }
+.ds-track { width: 300% !important; height: 100% !important; min-height: 0 !important; }
+.ds-track .project { flex: 0 0 33.3333%; }
+
+/* navigation and feedback */
+.ds-split { position: relative; display: grid; grid-template-columns: 1fr 1fr; height: 150px; isolation: isolate; outline: 1px solid var(--line); outline-offset: -1px; }
+.ds-navin { position: absolute !important; left: 0; right: 0; top: 0; }
+.ds-split .ds-navin { top: 50%; transform: translateY(-50%); }
+.ds-menubox .menu { position: absolute !important; }
+.ds-preload { position: relative; height: 480px; overflow: hidden; background: var(--void); outline: 1px solid var(--line); outline-offset: -1px; }
+.ds-preload .preloader { position: absolute !important; z-index: 1; }
+.ds-progress { position: relative; height: 64px; background: var(--void); outline: 1px solid var(--line); outline-offset: -1px; }
+.ds-progress .global-progress { position: absolute !important; z-index: 1; }
+.ds-rails { display: grid; grid-template-columns: 180px minmax(0, 1fr); gap: 1rem; }
+.ds-rails > div { position: relative; height: 260px !important; min-height: 0 !important; overflow: hidden; outline: 1px solid var(--line); outline-offset: -1px; }
+.ds-rails .protocol__progress { top: 1.6rem; bottom: 1.6rem; left: 50%; right: auto; }
+.ds-rails .no-formula__rail { bottom: 50%; }
+.ds-chip .cursor, .ds-chip .cursor-ring { position: absolute; top: 50%; left: 50%; z-index: 1; }
+.ds-chip .hero__halo { top: 50%; left: 50%; width: 64px; }
+
+@media (max-width: 1080px) {
+  .ds-type { grid-template-columns: 170px minmax(0, 1fr); }
+  .ds-type .sizes { grid-column: 2; text-align: left; }
+  .ds-grounds { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  .ds-media3 { grid-template-columns: minmax(0, 1fr); }
+}
+@media (max-width: 767px) {
+  body.is-components #view-components { grid-template-columns: minmax(0, 1fr); grid-template-rows: auto minmax(0, 1fr); }
+  #ds-side { flex-direction: row; align-items: center; gap: 1.3rem; overflow-x: auto; overflow-y: hidden; padding: 0.75rem 1.1rem;
+    border-right: 0; border-bottom: 1px solid var(--line); scrollbar-width: none; }
+  #ds-side::-webkit-scrollbar { display: none; }
+  #ds-side p { display: none; }
+  #ds-side a { flex: 0 0 auto; padding: 0.3rem 0; white-space: nowrap; }
+  #ds-side a.is-current { padding-left: 0; }
+  #ds-main { padding: 2rem 1.1rem 7rem; }
+  .ds-type { grid-template-columns: minmax(0, 1fr); gap: 0.9rem; }
+  .ds-type .sizes { grid-column: auto; }
+  .ds-colors { grid-template-columns: minmax(0, 1fr); }
+  .ds-bgspec { height: 480px !important; }
+  .ds-bgspec.ds-tall { height: 600px !important; }
+  .ds-bgspec.ds-wide { aspect-ratio: auto; height: 440px !important; }
+  .ds-bgspec.ds-menubox { height: 640px !important; }
+  .ds-grounds { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .ds-surfs { grid-template-columns: minmax(0, 1fr); }
+  .ds-split { height: 120px; }
+  .ds-rails { grid-template-columns: 110px minmax(0, 1fr); }
+  .ds-lv { height: 520px !important; }
+}
+</style>
+<script src="assets/overview/assets/cdn.tailwindcss.com/3.4.17.js"></script>
+</head>
+<body>
+
+<!-- the Overview's own navbar; its status slot carries the catalog views -->
+<div id="ds-nav-back" aria-hidden="true"></div>
+<nav class="nav" id="ds-nav" aria-label="Main navigation">
+  <a class="nav__brand" href="#overview" aria-label="NØEMA home">NØEMA®</a>
+  <span class="ds-views">
+    <a id="nav-overview" href="#overview">Overview</a>
+    <a id="nav-components" href="#components">Components</a>
+  </span>
+  <button class="menu-button magnetic" aria-label="Open menu" aria-expanded="false">
+    <span></span><span></span>
+  </button>
+</nav>
+
+<iframe id="overview-frame" title="Overview" src="assets/overview/index.html"></iframe>
+
+<!-- the Overview's hero visual, live behind the Components view -->
+<div id="ds-live-bg" aria-hidden="true">
+  <div class="hero__visual">
+    <img class="hero__image hero__image--machine" src="assets/overview/assets/hoirqrkdgbmvpwutwuwj.supabase.co/storage/v1/object/public/user-files/8bd0314a-9525-4a13-996e-2c37cbd9e514/ea090e90-63a4-4c35-9731-f6087231ebf9-synthetic-shell__qd7b63122.webp" alt="">
+    <img class="hero__image hero__image--human" src="assets/overview/assets/hoirqrkdgbmvpwutwuwj.supabase.co/storage/v1/object/public/user-files/8bd0314a-9525-4a13-996e-2c37cbd9e514/81c32039-f753-4e29-835e-18363a99da84-human-signal__q32088db0.webp" alt="">
+    <div class="hero__halo"></div>
+  </div>
+</div>
+<div class="noise" aria-hidden="true"></div>
+<div class="cursor" aria-hidden="true"></div>
+<div class="cursor-ring" aria-hidden="true"></div>
+
+<div id="view-components">
+<aside id="ds-side">
+  <p>Components</p>
+  <a href="#components-typography"><b>01</b>Typography</a>
+  <a href="#components-colors"><b>02</b>Colors</a>
+  <a href="#components-backgrounds"><b>03</b>Backgrounds</a>
+  <a href="#components-surfaces"><b>04</b>Surfaces</a>
+  <a href="#components-motion"><b>05</b>Motion</a>
+  <a href="#components-navigation"><b>06</b>Navigation</a>
+  <a href="#components-actions"><b>07</b>Actions</a>
+  <a href="#components-feedback"><b>08</b>Feedback and status</a>
+  <a href="#components-data"><b>09</b>Data display</a>
+  <a href="#components-content"><b>10</b>Content groups</a>
+  <a href="#components-kinetic"><b>11</b>Marquee and kinetic type</a>
+  <a href="#components-media"><b>12</b>Media</a>
+</aside>
+<main id="ds-main">
+
+<!-- ============================================================ 01 typography -->
+<section class="ds-group" id="components-typography">
+  <div class="ds-top"><span>01 / Typography</span><span>Foundations</span></div>
+  <h2 class="ds-title">Typography</h2>
+
+  <div class="ds-type"><div><div class="role">Display · Kinetic row</div><div class="face">Arial 600 · −0.095em · lh .7 · nowrap · i Georgia 400<code>.velocity__row · .text-river__line</code></div></div>
+    <section class="sample velocity ds-ctx ds-pad"><div class="velocity__row">Laboriosam <i>ipsum</i> dolores —</div></section>
+    <div class="sizes">16rem | 16vw | 6rem<br>river 15.5rem | 15vw | 6rem</div></div>
+
+  <div class="ds-type"><div><div class="role">Display · Closing</div><div class="face">Arial 600 · −0.1em · lh .68 · span Georgia italic 400, 1.5px void outline<code>.cta h2 · .cta h2 span</code></div></div>
+    <section class="sample cta ds-ctx ds-pad"><h2 class="ds-flow">Lorem sit <span>dolore.</span></h2></section>
+    <div class="sizes">15rem | 15vw | 5.2rem</div></div>
+
+  <div class="ds-type"><div><div class="role">Display · Anatomy</div><div class="face">Arial 500 · −0.1em · lh .68 · 8ch · 2nd line Georgia italic outline 1.3px<code>.anatomy h2</code></div></div>
+    <section class="sample anatomy ds-ctx ds-pad"><h2 class="ds-flow"><span>Lorem</span><span>ipsum dolor.</span></h2></section>
+    <div class="sizes">13.5rem | 13vw | 5rem<br>≤600px 7rem | 22vw | 4.4rem</div></div>
+
+  <div class="ds-type"><div><div class="role">Preloader mark</div><div class="face">Arial 700 · −0.09em · lh .75 · void on paper<code>.preloader__mark</code></div></div>
+    <div class="sample ds-paper ds-pad" style="padding:2rem 2.2rem"><div class="preloader__mark">NØ</div></div>
+    <div class="sizes">13rem | 15vw | 4rem</div></div>
+
+  <div class="ds-type"><div><div class="role">Display · Field</div><div class="face">Arial 600 · −0.1em · lh .7 · 2nd line Georgia italic outline 1.4px, offset 22vw<code>.field__title</code></div></div>
+    <section class="sample field ds-ctx ds-pad"><h2 class="field__title ds-flow"><span>Lorem sit</span><span>amet elit.</span></h2></section>
+    <div class="sizes">12.5rem | 12.2vw | 4.5rem<br>≤600px 7rem | 21vw | 4.4rem</div></div>
+
+  <div class="ds-type"><div><div class="role">Hero title</div><div class="face">Arial 600 · −0.087em · lh .77 · 9ch · .outline 1px ink .72<code>.hero h1 · .hero h1 .outline</code></div></div>
+    <section class="sample hero ds-ctx ds-pad"><h1 style="margin:0">NØEMA <span class="outline">Design System</span></h1></section>
+    <div class="sizes">10.9rem | 10.8vw | 4.25rem<br>≤600px 7rem | 22vw | 4rem</div></div>
+
+  <div class="ds-type"><div><div class="role">Display · Collective</div><div class="face">Arial 500 · −0.09em · lh .75 · centred · 2nd line Georgia italic outline 1.2px<code>.collective__title</code></div></div>
+    <section class="sample collective ds-ctx ds-pad"><h2 class="collective__title ds-flow ds-shown"><span>Lorem ut</span><span>dolore</span><span>magna sit.</span></h2></section>
+    <div class="sizes">10.8rem | 10.5vw | 4.2rem<br>≤600px 6.5rem | 19vw | 4rem</div></div>
+
+  <div class="ds-type"><div><div class="role">Heading · Work intro</div><div class="face">Arial 500 · −0.085em · lh .78 · 8ch<code>.work__intro h2</code></div></div>
+    <section class="sample work ds-ctx ds-pad"><div class="work__intro ds-ctx"><h2>Lorem ipsum. Dolor sit amet.</h2></div></section>
+    <div class="sizes">10rem | 9.5vw | 4rem</div></div>
+
+  <div class="ds-type"><div><div class="role">Heading · Chapter</div><div class="face">Arial 500 · −0.09em · lh .74 · i Georgia 400 block, outline 1px ink .7<code>.chapter h2 · .chapter h2 i</code></div></div>
+    <section class="sample protocol ds-ctx ds-pad"><article class="chapter ds-ctx"><h2>Sed do <i>eiusmod.</i></h2></article></section>
+    <div class="sizes">9.5rem | 8.7vw | 4.2rem<br>≤900px 7rem | 15vw | 3.8rem</div></div>
+
+  <div class="ds-type"><div><div class="role">Heading · Thesis</div><div class="face">Arial 500 · −0.085em · lh .83 · centred · i Georgia 400<code>.thesis__copy h2</code></div></div>
+    <section class="sample thesis ds-ctx ds-pad"><div class="thesis__copy ds-ctx"><h2>Lorem ipsum dolor sit. <i>Amet</i> consectetur elit.</h2></div></section>
+    <div class="sizes">9.2rem | 9vw | 3.8rem</div></div>
+
+  <div class="ds-type"><div><div class="role">Project name</div><div class="face">Arial 500 · −0.09em · lh .74<code>.project__copy h3</code></div></div>
+    <div class="sample ds-paper ds-pad" style="padding:2.2rem"><div class="project__copy ds-ctx"><h3 style="margin:0">ORCI</h3></div></div>
+    <div class="sizes">9rem | 9vw | 4.5rem</div></div>
+
+  <div class="ds-type"><div><div class="role">Statement · Manifesto</div><div class="face">Arial 500 · −0.075em · lh .92 · line 2 Georgia italic, indent 11vw · line 3 outline 1.5px void<code>.manifesto__statement · .manifesto__line:nth-child(n)</code></div></div>
+    <section class="sample manifesto ds-ctx ds-pad"><h2 class="manifesto__statement" style="width:auto;margin:0">
+      <span class="manifesto__line"><span>Lorem ipsum.</span></span>
+      <span class="manifesto__line"><span>Consectetur.</span></span>
+      <span class="manifesto__line"><span>Sed do eiusmod</span></span>
+    </h2></section>
+    <div class="sizes">9rem | 8.4vw | 3rem</div></div>
+
+  <div class="ds-type"><div><div class="role">Heading · Refusal</div><div class="face">Arial 500 · −0.08em · lh .84 · i Georgia 400 block<code>.no-formula__statement h2</code></div></div>
+    <section class="sample no-formula ds-ctx ds-pad"><article class="no-formula__statement ds-ctx"><h2>Lorem ipsum <i>dolorem.</i></h2></article></section>
+    <div class="sizes">8.5rem | 8.2vw | 3.8rem<br>≤600px 6rem | 17vw | 3.8rem</div></div>
+
+  <div class="ds-type"><div><div class="role">Metric numeral</div><div class="face">Arial 500 · −0.09em · lh .75<code>.metric strong</code></div></div>
+    <section class="sample metrics ds-ctx"><article class="metric" style="min-height:0;border:0"><strong>94</strong></article></section>
+    <div class="sizes">8rem | 7.5vw | 4rem</div></div>
+
+  <div class="ds-type"><div><div class="role">Heading · Living step</div><div class="face">Arial 500 · −0.075em · lh .87 · i Georgia 400 block<code>.living__step h2</code></div></div>
+    <section class="sample living ds-ctx"><article class="living__step is-active" style="min-height:0;padding:2rem 2.2rem;border:0"><h2>Lorem ipsum <i>dolor sit amet.</i></h2></article></section>
+    <div class="sizes">7.2rem | 7vw | 3.4rem<br>≤600px 6rem | 17vw | 3.4rem</div></div>
+
+  <div class="ds-type"><div><div class="role">HUD index</div><div class="face">Courier New 400 · −0.08em · lh .7<code>.viewer__index</code></div></div>
+    <div class="sample ds-void ds-pad" style="padding:2rem 2.2rem"><div class="viewer__hud-bottom"><span class="viewer__index">01</span></div></div>
+    <div class="sizes">7rem | 7vw | 4rem</div></div>
+
+  <div class="ds-type"><div><div class="role">Menu link</div><div class="face">Arial 400 · −0.075em · lh .95 · index .62rem .1em<code>.menu__links a</code></div></div>
+    <div class="sample ds-paper" style="padding:1.4rem 2.2rem"><div class="menu__links"><a href="#thesis" style="border:0">Thesis <span>01</span></a></div></div>
+    <div class="sizes">6.5rem | 6.5vw | 2.8rem</div></div>
+
+  <div class="ds-type"><div><div class="role">Metric statement</div><div class="face">Arial 500 · −0.09em · lh .87 · 8ch<code>.metric__feature strong</code></div></div>
+    <section class="sample metrics ds-ctx"><article class="metric metric__feature" style="min-height:0;border:0"><strong>Lorem ipsum dolor sit amet.</strong></article></section>
+    <div class="sizes">5.5rem | 5vw | 3rem</div></div>
+
+  <div class="ds-type"><div><div class="role">Preloader count</div><div class="face">Arial 400 · −0.08em · lh .8<code>.preloader__percent</code></div></div>
+    <div class="sample ds-paper" style="padding:2rem 2.2rem"><span class="preloader__percent">100</span></div>
+    <div class="sizes">5.5rem | 6vw | 2.4rem</div></div>
+
+  <div class="ds-type"><div><div class="role">Capability</div><div class="face">Arial 400 · −0.055em<code>.capability strong</code></div></div>
+    <section class="sample capabilities ds-ctx ds-pad"><div class="capability" style="border:0;padding:0" tabindex="-1"><small>01</small><strong>Lorem ipsum</strong><span>↗</span></div></section>
+    <div class="sizes">3.2rem | 3vw | 1.6rem</div></div>
+
+  <div class="ds-type"><div><div class="role">Lead · River</div><div class="face">Arial 400 · −0.045em · lh 1.15<code>.text-river__foot p</code></div></div>
+    <section class="sample text-river ds-ctx ds-pad"><div class="text-river__foot" style="display:block;width:auto;margin:0;padding:0;border:0"><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor.</p></div></section>
+    <div class="sizes">3rem | 3vw | 1.6rem</div></div>
+
+  <div class="ds-type"><div><div class="role">Card numeral</div><div class="face">Arial 400 · −0.07em<code>.field__card strong</code></div></div>
+    <div class="sample ds-paper" style="padding:1.6rem 2.2rem"><div class="field__card" style="position:static;width:auto;display:block;background:none;border:0;padding:0;backdrop-filter:none"><strong>1:1</strong></div></div>
+    <div class="sizes">2.4rem</div></div>
+
+  <div class="ds-type"><div><div class="role">Contact link</div><div class="face">Arial 400 · −0.04em · 1px void underline<code>.cta__contact a</code></div></div>
+    <section class="sample cta ds-ctx ds-pad"><div class="cta__contact" style="border:0;padding:0;display:block"><a class="magnetic" href="#contact">lorem@ipsum.studio ↗</a></div></section>
+    <div class="sizes">2.4rem | 2.4vw | 1.3rem</div></div>
+
+  <div class="ds-type"><div><div class="role">Lead · Note</div><div class="face">Arial 400 · −0.035em · lh 1.22<code>.velocity__note p</code></div></div>
+    <section class="sample velocity ds-ctx ds-pad"><div class="velocity__note" style="display:block;width:auto;margin:0;padding:0;border:0"><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor.</p></div></section>
+    <div class="sizes">2.2rem | 2.2vw | 1.35rem</div></div>
+
+  <div class="ds-type"><div><div class="role">Paragraph · Manifesto</div><div class="face">Arial 400 · lh 1.45<code>.manifesto__foot p</code></div></div>
+    <section class="sample manifesto ds-ctx ds-pad"><div class="manifesto__foot" style="display:block;width:auto;margin:0;padding:0;border:0"><p style="max-width:40rem">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore. Ut enim ad minim veniam.</p></div></section>
+    <div class="sizes">1.35rem | 1.45vw | .95rem</div></div>
+
+  <div class="ds-type"><div><div class="role">Paragraph · Living</div><div class="face">Arial 400 · lh 1.55 · 29rem<code>.living__step p</code></div></div>
+    <section class="sample living ds-ctx"><article class="living__step is-active" style="min-height:0;padding:2rem 2.2rem;border:0"><p style="margin:0">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p></article></section>
+    <div class="sizes">1.2rem | 1.25vw | .95rem</div></div>
+
+  <div class="ds-type"><div><div class="role">Wordmark</div><div class="face">Arial 700 · −0.055em<code>.nav__brand</code></div></div>
+    <div class="sample ds-void" style="padding:1.6rem 2.2rem"><span class="nav__brand">NØEMA®</span></div>
+    <div class="sizes">1.05rem</div></div>
+
+  <div class="ds-type"><div><div class="role">Hero lead</div><div class="face">Arial 400 · lh 1.55 · ink .72<code>.hero__sub p</code></div></div>
+    <section class="sample hero ds-ctx ds-pad"><div class="hero__sub" style="display:block"><p style="max-width:23rem">Void-black and bone-paper grounds, tightly tracked display type, hairline outlines and one electric violet signal.</p></div></section>
+    <div class="sizes">1rem | 1vw | .82rem</div></div>
+
+  <div class="ds-type"><div><div class="role">Body</div><div class="face">Arial 400 · lh 1.6 · ink .65 / .62 / .68 on void, void on paper<code>.chapter__body p · .thesis__copy p · .no-formula__statement p · .metric p · .project__copy p · .collective__footer p</code></div></div>
+    <section class="sample protocol ds-ctx ds-pad"><div class="chapter ds-ctx"><div class="chapter__body ds-ctx" style="border:0"><p style="max-width:25rem">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p></div></div></section>
+    <div class="sizes">.88rem | .86rem | .85rem | .82rem</div></div>
+
+  <div class="ds-type"><div><div class="role">Card caption</div><div class="face">Arial 400 · lh 1.5<code>.field__card p</code></div></div>
+    <div class="sample ds-paper" style="padding:1.6rem 2.2rem"><div class="field__card" style="position:static;width:auto;display:block;background:none;border:0;padding:0;backdrop-filter:none"><p style="max-width:18rem">Lorem ipsum dolor sit amet—consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore.</p></div></div>
+    <div class="sizes">.75rem</div></div>
+
+  <div class="ds-type"><div><div class="role">Label</div><div class="face">Arial 400 · uppercase · .16em–.2em · eyebrow rule 2.2rem<code>.eyebrow · .nav__status · .signal-strip__track · section tops · .metric small</code></div></div>
+    <section class="sample hero ds-ctx ds-pad"><span class="eyebrow">Lorem ipsum dolor sit amet</span></section>
+    <div class="sizes">.64rem | .62rem | .6rem | .58rem</div></div>
+
+  <div class="ds-type"><div><div class="role">Mono label</div><div class="face">Courier New 400 · uppercase · .08em–.16em<code>.chapter__number · .manifesto__foot small · .capability small · .anatomy__note · .hero__coordinates · .viewer__hud · .living__specimen · .living__dial</code></div></div>
+    <section class="sample protocol ds-ctx ds-pad"><article class="chapter ds-ctx"><span class="chapter__number" style="margin:0">MOVEMENT_01 / LOREM</span></article></section>
+    <div class="sizes">.62rem | .59rem | .56rem | .55rem | .54rem | .52rem</div></div>
+
+  <div class="ds-type"><div><div class="role">Micro code</div><div class="face">Courier New 400 · lh 1.35 · opacity .42<code>.footer-code</code></div></div>
+    <section class="sample cta ds-ctx ds-pad"><div class="footer-code ds-flow" aria-hidden="true">01001110 11000011 10011000 01000101 01001101 01000001<br>HUMAN / MACHINE / MEANING / 43.6532° N</div></section>
+    <div class="sizes">.5rem</div></div>
+</section>
+
+<!-- ============================================================ 02 colors -->
+<section class="ds-group" id="components-colors">
+  <div class="ds-top"><span>02 / Colors</span><span>Foundations</span></div>
+  <h2 class="ds-title">Colors</h2>
+
+  <p class="eyebrow ds-sub">Brand and Accent</p>
+  <div class="ds-colors">
+    <div class="ds-sw"><span class="ds-chip"><span class="fill" style="background:var(--electric)"></span></span>
+      <div><strong>Electric</strong><code>#6c63ff</code><code class="tok">--electric</code><p>Closing CTA ground, orb core, river dots, ticker ✦, anti-formula rail, text selection.</p></div></div>
+    <div class="ds-sw"><span class="ds-chip"><span class="aa" style="color:var(--signal)">Aa</span></span>
+      <div><strong>Signal</strong><code>#a9a5ff</code><code class="tok">--signal</code><p>Progress bar, movement numbers, capability indices, note heads, HUD highlights, tag dots.</p></div></div>
+    <div class="ds-sw"><span class="ds-chip"><span style="width:.9rem;height:.9rem;border-radius:50%;background:#7bff82;box-shadow:0 0 12px rgba(123,255,130,.7)"></span></span>
+      <div><strong>Status green</strong><code>#7bff82 · glow rgba(123,255,130,.7)</code><p>The “Studio online” dot in the navbar.</p></div></div>
+  </div>
+
+  <p class="eyebrow ds-sub">Surfaces</p>
+  <div class="ds-colors">
+    <div class="ds-sw"><span class="ds-chip"><span class="fill" style="background:var(--void)"></span></span>
+      <div><strong>Void</strong><code>#050506</code><code class="tok">--void</code><p>Page ground; protocol, anatomy, capabilities, thesis, collective sections.</p></div></div>
+    <div class="ds-sw"><span class="ds-chip"><span class="fill" style="background:var(--void-soft)"></span></span>
+      <div><strong>Void soft</strong><code>#0b0b0d</code><code class="tok">--void-soft</code><p>Media wells behind chapter and viewer images.</p></div></div>
+    <div class="ds-sw"><span class="ds-chip"><span class="fill" style="background:#000"></span></span>
+      <div><strong>Hero black</strong><code>black</code><p>Hero ground under the machine plate.</p></div></div>
+    <div class="ds-sw"><span class="ds-chip"><span class="fill" style="background:var(--paper)"></span></span>
+      <div><strong>Paper</strong><code>#e7e5de</code><code class="tok">--paper</code><p>Manifesto, metrics, living, velocity, river, work, field, anti-formula; preloader, menu, ticker.</p></div></div>
+    <div class="ds-sw"><span class="ds-chip"><span class="fill" style="background:#cfcec8"></span></span>
+      <div><strong>Stone</strong><code>#cfcec8</code><p>Third project panel.</p></div></div>
+    <div class="ds-sw"><span class="ds-chip"><span class="fill" style="background:var(--electric)"></span></span>
+      <div><strong>Electric ground</strong><code>#6c63ff</code><code class="tok">--electric</code><p>Closing CTA section, void type on it.</p></div></div>
+  </div>
+
+  <p class="eyebrow ds-sub">Text and Icons</p>
+  <div class="ds-colors">
+    <div class="ds-sw"><span class="ds-chip"><span class="aa" style="color:var(--ink)">Aa</span></span>
+      <div><strong>Ink</strong><code>#f1f0ea</code><code class="tok">--ink</code><p>Primary type, bars and rails on void.</p></div></div>
+    <div class="ds-sw"><span class="ds-chip" style="background:var(--paper)"><span class="aa" style="color:var(--void)">Aa</span></span>
+      <div><strong>Void type</strong><code>#050506</code><code class="tok">--void</code><p>Primary type on paper and electric.</p></div></div>
+    <div class="ds-sw"><span class="ds-chip"><span class="aa" style="color:rgba(241,240,234,.72)">Aa</span></span>
+      <div><strong>Ink lead</strong><code>rgba(241,240,234,.72) · .7</code><p>Hero lead, hero outline stroke; HUD coordinates at .7.</p></div></div>
+    <div class="ds-sw"><span class="ds-chip"><span class="aa" style="color:rgba(241,240,234,.65)">Aa</span></span>
+      <div><strong>Ink body</strong><code>rgba(241,240,234,.65) · .62 · .68</code><p>Chapter body; thesis at .62, collective footer at .68.</p></div></div>
+    <div class="ds-sw"><span class="ds-chip"><span class="aa" style="color:var(--signal)">01</span></span>
+      <div><strong>Signal type</strong><code>#a9a5ff</code><code class="tok">--signal</code><p>Movement numbers, capability indices, hero mode, thesis kicker, node sync.</p></div></div>
+    <div class="ds-sw"><span class="ds-chip" style="background:var(--paper)"><span class="aa" style="color:var(--void);opacity:.66">Aa</span></span>
+      <div><strong>Void muted</strong><code>opacity .66 · .42</code><p>Project copy on its panels; footer code at .42 on electric.</p></div></div>
+    <div class="ds-sw"><span class="ds-chip"><span class="aa" style="color:transparent;-webkit-text-stroke:1px rgba(241,240,234,.72)">Aa</span></span>
+      <div><strong>Outline on void</strong><code>transparent · stroke 1px–1.3px rgba(241,240,234,.7–.82)</code><p>Hero, chapter, anatomy and collective outline lines.</p></div></div>
+    <div class="ds-sw"><span class="ds-chip" style="background:var(--paper)"><span class="aa" style="color:transparent;-webkit-text-stroke:1.5px var(--void)">Aa</span></span>
+      <div><strong>Outline on paper</strong><code>transparent · stroke 1.4px–1.5px #050506</code><p>Manifesto, velocity, river, field, CTA, NO. mark.</p></div></div>
+  </div>
+
+  <p class="eyebrow ds-sub">Borders</p>
+  <div class="ds-colors">
+    <div class="ds-sw"><span class="ds-chip"><span class="fill" style="inset:28px 0 auto;height:28px;border-top:1px solid var(--line);border-bottom:1px solid var(--line)"></span></span>
+      <div><strong>Line</strong><code>rgba(241,240,234,.18)</code><code class="tok">--line</code><p>Section rules, capability rows, rings, axes and frames on void.</p></div></div>
+    <div class="ds-sw"><span class="ds-chip" style="background:var(--paper)"><span class="fill" style="inset:28px 0 auto;height:28px;border-top:1px solid var(--line-dark);border-bottom:1px solid var(--line-dark)"></span></span>
+      <div><strong>Line dark</strong><code>rgba(5,5,6,.18)</code><code class="tok">--line-dark</code><p>Rules, metric grid, menu links and orb rings on paper.</p></div></div>
+    <div class="ds-sw"><span class="ds-chip" style="background:var(--electric)"><span class="fill" style="inset:40px 0 auto;border-top:1px solid rgba(5,5,6,.3)"></span></span>
+      <div><strong>CTA rule</strong><code>rgba(5,5,6,.3)</code><p>Top and contact rules on electric.</p></div></div>
+    <div class="ds-sw"><span class="ds-chip"><span class="fill" style="inset:24px 20px;border-top:1px solid rgba(169,165,255,.62);border-left:1px solid rgba(169,165,255,.62)"></span></span>
+      <div><strong>Signal bracket</strong><code>rgba(169,165,255,.62)</code><p>Top-left corner of anatomy notes.</p></div></div>
+    <div class="ds-sw"><span class="ds-chip"><span class="fill" style="inset:12px;border:1px solid rgba(169,165,255,.68);border-radius:50%"></span></span>
+      <div><strong>Halo ring</strong><code>rgba(169,165,255,.68) · crosshair .45</code><p>Hero reveal lens.</p></div></div>
+    <div class="ds-sw"><span class="ds-chip" style="background:var(--electric)"><span style="color:var(--void);border-bottom:1px solid var(--void);font-size:1rem;letter-spacing:-.04em">lorem ↗</span></span>
+      <div><strong>Contact underline</strong><code>1px solid #050506</code><p>CTA contact link.</p></div></div>
+  </div>
+
+  <p class="eyebrow ds-sub">Interactive States</p>
+  <div class="ds-fam"><strong>Capability row · .capability</strong><div class="ds-states">
+    <div class="ds-state"><span class="ds-chip"><section class="capabilities ds-ctx" style="background:none;width:80%!important"><div class="capability" tabindex="-1" style="padding:.6rem 0;grid-template-columns:1.4rem 1fr auto"><small>01</small><strong style="font-size:1.1rem">Lorem</strong><span>↗</span></div></section></span><small class="ds-cap">Default</small><code>padding 1.55rem 0 · arrow 0°</code></div>
+    <div class="ds-state"><span class="ds-chip"><section class="capabilities ds-ctx" style="background:none;width:80%!important"><div class="capability" tabindex="-1" style="padding:.6rem 0 .6rem 1rem;grid-template-columns:1.4rem 1fr auto"><small>01</small><strong style="font-size:1.1rem">Lorem</strong><span style="transform:rotate(45deg)">↗</span></div></section></span><small class="ds-cap">Hover | Focus</small><code>padding-left 1rem · arrow 45° · .4s cubic-bezier(.16,1,.3,1) · outline none</code></div>
+  </div></div>
+  <div class="ds-fam"><strong>Cursor ring · .cursor-ring</strong><div class="ds-states">
+    <div class="ds-state"><span class="ds-chip"><span class="cursor ds-keep-block"></span><span class="cursor-ring ds-keep-block"></span></span><small class="ds-cap">Default</small><code>38px · 1px rgba(255,255,255,.75) · difference</code></div>
+    <div class="ds-state"><span class="ds-chip"><span class="cursor ds-keep-block"></span><span class="cursor-ring is-active ds-keep-block"></span></span><small class="ds-cap">Active</small><code>74px · rgba(255,255,255,.08) fill · over a, button, [tabindex], hero</code></div>
+  </div></div>
+  <div class="ds-fam"><strong>Menu button · .menu-button</strong><div class="ds-states">
+    <div class="ds-state"><span class="ds-chip"><span class="menu-button" style="display:block"><span></span><span></span></span></span><small class="ds-cap">Default</small><code>two 1px bars · second 68%</code></div>
+    <div class="ds-state"><span class="ds-chip"><span class="menu-button" style="display:block"><span style="transform:translateY(3px) rotate(15deg)"></span><span style="width:100%;transform:translateY(-4px) rotate(-15deg)"></span></span></span><small class="ds-cap">Open</small><code>±15° · y 3 / −4px · 100% · .4s</code></div>
+  </div></div>
+  <div class="ds-fam"><strong>Hero lens · .hero__halo</strong><div class="ds-states">
+    <div class="ds-state"><span class="ds-chip"><span class="hero__halo" style="opacity:.25"></span></span><small class="ds-cap">Default</small><code>opacity 0 · scale .82 (shown at .25)</code></div>
+    <div class="ds-state"><span class="ds-chip"><span class="hero__halo" style="opacity:1;transform:translate(-50%,-50%) scale(1)"></span></span><small class="ds-cap">Hover</small><code>opacity 1 · scale 1 · .35s / .6s</code></div>
+  </div></div>
+  <div class="ds-fam"><strong>Living step · .living__step</strong><div class="ds-states">
+    <div class="ds-state"><span class="ds-chip" style="background:var(--paper)"><span class="aa" style="color:var(--void);opacity:.3">Aa</span></span><small class="ds-cap">Default</small><code>opacity .3</code></div>
+    <div class="ds-state"><span class="ds-chip" style="background:var(--paper)"><span class="aa" style="color:var(--void)">Aa</span></span><small class="ds-cap">Active</small><code>.is-active · opacity 1 · .5s ease</code></div>
+  </div></div>
+  <div class="ds-fam"><strong>Viewer plate · .capabilities__viewer img</strong><div class="ds-states">
+    <div class="ds-state"><span class="ds-chip"><img src="assets/overview/assets/hoirqrkdgbmvpwutwuwj.supabase.co/storage/v1/object/public/user-files/8bd0314a-9525-4a13-996e-2c37cbd9e514/8a784a73-b86b-499f-b2c0-20892663f959-signal-anatomy__qc0c94f6a.webp" alt="" style="transform:scale(1.06)"></span><small class="ds-cap">Default</small><code>scale 1.06</code></div>
+    <div class="ds-state"><span class="ds-chip"><img src="assets/overview/assets/hoirqrkdgbmvpwutwuwj.supabase.co/storage/v1/object/public/user-files/8bd0314a-9525-4a13-996e-2c37cbd9e514/4ec609c7-3837-4946-ab54-3462a7f92e9d-encode-glyphs__q10ecb326.webp" alt="" style="filter:saturate(.65) contrast(1.15)"></span><small class="ds-cap">Selected · even index</small><code>.is-human · saturate(.65) contrast(1.15) · scale 1</code></div>
+  </div></div>
+  <div class="ds-fam"><strong>Text selection · ::selection</strong><div class="ds-states">
+    <div class="ds-state"><span class="ds-chip"><span style="background:var(--electric);color:white;padding:.2rem .35rem;font-size:1rem;letter-spacing:-.03em">Lorem</span></span><small class="ds-cap">Selected</small><code>#6c63ff / white</code></div>
+  </div></div>
+
+  <p class="eyebrow ds-sub">Overlays</p>
+  <div class="ds-colors">
+    <div class="ds-sw"><span class="ds-chip"><img src="assets/overview/assets/hoirqrkdgbmvpwutwuwj.supabase.co/storage/v1/object/public/user-files/8bd0314a-9525-4a13-996e-2c37cbd9e514/ea090e90-63a4-4c35-9731-f6087231ebf9-synthetic-shell__qd7b63122.webp" alt="" style="object-position:30% center"><span class="fill" style="background:linear-gradient(90deg,rgba(0,0,0,.76) 0%,rgba(0,0,0,.08) 43%,rgba(0,0,0,.08) 100%),linear-gradient(0deg,rgba(0,0,0,.62),transparent 32%)"></span></span>
+      <div><strong>Hero veil</strong><code>linear-gradient(90deg, rgba(0,0,0,.76) 0%, .08 43%, .08 100%) + linear-gradient(0deg, rgba(0,0,0,.62), transparent 32%)</code><p>.hero__visual::after, holds the title off the plate.</p></div></div>
+    <div class="ds-sw"><span class="ds-chip"><img src="assets/overview/assets/hoirqrkdgbmvpwutwuwj.supabase.co/storage/v1/object/public/user-files/8bd0314a-9525-4a13-996e-2c37cbd9e514/8a784a73-b86b-499f-b2c0-20892663f959-signal-anatomy__qc0c94f6a.webp" alt=""><span class="fill" style="background:linear-gradient(90deg,rgba(5,5,6,.76) 0%,transparent 48%,rgba(5,5,6,.24) 100%),linear-gradient(0deg,rgba(5,5,6,.62),transparent 45%)"></span></span>
+      <div><strong>Anatomy shade</strong><code>linear-gradient(90deg, rgba(5,5,6,.76) 0%, transparent 48%, .24 100%) + linear-gradient(0deg, .62, transparent 45%)</code><p>.anatomy__shade.</p></div></div>
+    <div class="ds-sw"><span class="ds-chip"><img src="assets/overview/assets/hoirqrkdgbmvpwutwuwj.supabase.co/storage/v1/object/public/user-files/8bd0314a-9525-4a13-996e-2c37cbd9e514/cc14a7de-a707-4ead-aa70-8868efa6f682-future-lab__q0450e60f.webp" alt=""><span class="fill" style="background:linear-gradient(90deg,rgba(231,229,222,.94) 0%,rgba(231,229,222,.65) 34%,transparent 68%)"></span></span>
+      <div><strong>Field veil</strong><code>linear-gradient(90deg, rgba(231,229,222,.94) 0%, .65 34%, transparent 68%) → opacity .18</code><p>.field__veil (≤600px: vertical).</p></div></div>
+    <div class="ds-sw"><span class="ds-chip"><img src="assets/overview/assets/hoirqrkdgbmvpwutwuwj.supabase.co/storage/v1/object/public/user-files/8bd0314a-9525-4a13-996e-2c37cbd9e514/ba18b372-e773-432a-a96d-1878b641c9b8-decode-labyrinth__q9829015e.webp" alt=""><span class="fill" style="inset:26px 10px;background:rgba(5,5,6,.78);backdrop-filter:blur(12px)"></span></span>
+      <div><strong>Tag glass</strong><code>rgba(5,5,6,.78) · blur(12px)</code><p>.chapter__tag.</p></div></div>
+    <div class="ds-sw"><span class="ds-chip"><img src="assets/overview/assets/hoirqrkdgbmvpwutwuwj.supabase.co/storage/v1/object/public/user-files/8bd0314a-9525-4a13-996e-2c37cbd9e514/1b2f96b5-378b-488e-bfab-00bc5f2b0592-aeon-mobility__qfd0a8bbd.webp" alt=""><span class="fill" style="inset:28px 16px;background:rgba(5,5,6,.72);backdrop-filter:blur(10px)"></span></span>
+      <div><strong>Counter glass</strong><code>rgba(5,5,6,.72) · blur(10px)</code><p>.project__counter.</p></div></div>
+    <div class="ds-sw"><span class="ds-chip"><img src="assets/overview/assets/hoirqrkdgbmvpwutwuwj.supabase.co/storage/v1/object/public/user-files/8bd0314a-9525-4a13-996e-2c37cbd9e514/cc14a7de-a707-4ead-aa70-8868efa6f682-future-lab__q0450e60f.webp" alt="" style="object-position:75% center"><span class="fill" style="inset:22px 10px;background:rgba(231,229,222,.82);border:1px solid var(--line-dark);backdrop-filter:blur(16px)"></span></span>
+      <div><strong>Card glass</strong><code>rgba(231,229,222,.82) · 1px line-dark · blur(16px)</code><p>.field__card.</p></div></div>
+    <div class="ds-sw"><span class="ds-chip"><span class="fill" style="inset:14px;border-radius:50%;background:var(--electric);box-shadow:0 0 70px rgba(108,99,255,.2)"></span></span>
+      <div><strong>Electric glow</strong><code>0 0 70px rgba(108,99,255,.2) · 0 0 30px .35 · 0 0 100px .14</code><p>Orb core; river dots at .35; thesis inner ring at .14.</p></div></div>
+    <div class="ds-sw"><span class="ds-chip"><span class="fill" style="inset:40px 0 auto;height:2px;background:var(--signal);box-shadow:0 0 14px rgba(169,165,255,.7)"></span></span>
+      <div><strong>Signal glow</strong><code>0 0 14px rgba(169,165,255,.7) · scan 0 0 20px #6c63ff</code><p>Global progress bar; anatomy scan line.</p></div></div>
+    <div class="ds-sw"><span class="ds-chip"><img src="assets/overview/assets/hoirqrkdgbmvpwutwuwj.supabase.co/storage/v1/object/public/user-files/8bd0314a-9525-4a13-996e-2c37cbd9e514/0d8fe5dc-2613-47a4-8a99-9ef809347583-living-bloom__qa7352523.webp" alt="" style="filter:grayscale(1) contrast(1.1)"></span>
+      <div><strong>Image treatments</strong><code>grayscale(1) contrast(1.1) · saturate(.82) contrast(1.05) · brightness(.82|.72) saturate(.82) → 1 · grayscale(.35)</code><p>Menu plate; hero human; anatomy and collective open to full; chapter two.</p></div></div>
+    <div class="ds-sw"><span class="ds-chip"><span class="fill" style="background:radial-gradient(circle at 35% 40%,rgba(255,255,255,.035) 0 1px,transparent 1.5px);background-size:5px 5px;opacity:1"></span></span>
+      <div><strong>Grain</strong><code>radial-gradient(circle at 35% 40%, rgba(255,255,255,.035) 0 1px, transparent 1.5px) · 5px · opacity .065</code><p>.noise, fixed over everything (shown here at full opacity).</p></div></div>
+  </div>
+</section>
+
+<!-- ============================================================ 03 backgrounds -->
+<section class="ds-group" id="components-backgrounds">
+  <div class="ds-top"><span>03 / Backgrounds</span><span>Foundations</span></div>
+  <h2 class="ds-title">Backgrounds</h2>
+
+  <div class="ds-spec">
+    <h3>Hero visual · machine → human reveal <span class="ds-live">Live · hover · also running behind this view</span></h3>
+    <section class="hero ds-bgspec ds-wide" id="ds-hero">
+      <div class="hero__visual" aria-label="Hover to reveal the human inside the machine">
+        <img class="hero__image hero__image--machine" src="assets/overview/assets/hoirqrkdgbmvpwutwuwj.supabase.co/storage/v1/object/public/user-files/8bd0314a-9525-4a13-996e-2c37cbd9e514/ea090e90-63a4-4c35-9731-f6087231ebf9-synthetic-shell__qd7b63122.webp" alt="A black futuristic synthetic figure wearing an illuminated helmet">
+        <img class="hero__image hero__image--human" src="assets/overview/assets/hoirqrkdgbmvpwutwuwj.supabase.co/storage/v1/object/public/user-files/8bd0314a-9525-4a13-996e-2c37cbd9e514/81c32039-f753-4e29-835e-18363a99da84-human-signal__q32088db0.webp" alt="The same helmet revealing a human face beneath the machine">
+        <div class="hero__halo" aria-hidden="true"></div>
+      </div>
+      <div class="hero__coordinates" aria-hidden="true">
+        <span>NODE / NØ-043</span>
+        <span>STATE / <b data-state="">LATENT</b></span>
+        <span>X <b data-x="">068.0</b> / Y <b data-y="">044.0</b></span>
+      </div>
+      <div class="hero__mode">Hover to shift <b>machine → human</b></div>
+    </section>
+    <code class="ds-meta"><b>.hero</b> black · 100svh · min 680px (620px ≤600px) &gt; <b>.hero__visual</b> cursor none · <b>.hero__image</b> inset −3% · 106% · cover &gt; <b>--human</b> clip-path circle(0 → clamp(115px, 12vw, 210px) at --mx --my) on pointermove · saturate(.82) contrast(1.05) (≤600px: static circle(22vw at 72% 39%)) · <b>.hero__halo</b> lens follows the pointer · <b>::after</b> veil · GSAP parallax yPercent 12, scale 1.08 over the hero's scroll · the Tailwind preflight max-width: 100% keeps the 106% plate from reaching the right edge (source behaviour)</code>
+  </div>
+
+  <div class="ds-spec">
+    <h3>Section grounds · with the page grain</h3>
+    <div class="ds-grounds">
+      <div style="background:var(--void);color:var(--ink)"><b style="font-weight:400">Void</b>#050506</div>
+      <div style="background:#000;color:var(--ink)"><b style="font-weight:400">Hero black</b>black</div>
+      <div style="background:var(--paper);color:var(--void)"><b style="font-weight:400">Paper</b>#e7e5de</div>
+      <div style="background:#cfcec8;color:var(--void)"><b style="font-weight:400">Stone</b>#cfcec8</div>
+      <div style="background:var(--electric);color:var(--void)"><b style="font-weight:400">Electric</b>#6c63ff</div>
+    </div>
+    <code class="ds-meta"><b>.noise</b> fixed · inset 0 · z 90 · opacity .065 · radial dot 5px — the page's own grain layer runs over this whole view, specimens included</code>
+  </div>
+
+  <div class="ds-spec">
+    <h3>Anatomy field · clipped plate, shade, grid and scan <span class="ds-live">Live · scrubbed by this view's scroll</span></h3>
+    <section class="anatomy ds-bgspec ds-tall" id="ds-anatomy">
+      <div class="anatomy__pin ds-fill">
+        <img class="anatomy__image" src="assets/overview/assets/hoirqrkdgbmvpwutwuwj.supabase.co/storage/v1/object/public/user-files/8bd0314a-9525-4a13-996e-2c37cbd9e514/8a784a73-b86b-499f-b2c0-20892663f959-signal-anatomy__qc0c94f6a.webp" alt="A living network of black glass neural filaments carrying violet light">
+        <div class="anatomy__shade" aria-hidden="true"></div>
+        <div class="anatomy__grid" aria-hidden="true"></div>
+        <div class="anatomy__scan" aria-hidden="true"></div>
+        <div class="anatomy__topline"><span>02 / Lorem ipsum</span><span>Dolor sit amet elit</span></div>
+        <h2><span>Lorem</span><span>ipsum dolor.</span></h2>
+        <div class="anatomy__note anatomy__note--one"><b>01 / Lorem</b> Lorem ipsum dolor sit amet, consectetur elit.</div>
+        <div class="anatomy__note anatomy__note--two"><b>02 / Ipsum</b> Sed do eiusmod tempor incididunt ut labore.</div>
+        <div class="anatomy__note anatomy__note--three"><b>03 / Dolor</b> Ut enim ad minim veniam, quis nostrud exercitation.</div>
+      </div>
+    </section>
+    <code class="ds-meta"><b>.anatomy__image</b> clip-path inset(12% 18% round 24rem) → inset(0% 0% round 0rem) · brightness(.82) saturate(.82) → 1 · scale 1.08 → 1.16 · <b>.anatomy__grid</b> 8.333vw lines at .22, masked to the left · <b>.anatomy__scan</b> 1px signal line −42vw → 42vw · notes rise at .55 / .92 / 1.28 · pinned +240% on the page (≥768px), scrubbed here by the specimen's pass</code>
+  </div>
+
+  <div class="ds-spec">
+    <h3>Field site · window into the lab <span class="ds-live">Live · scrubbed</span></h3>
+    <section class="field ds-bgspec" id="ds-field">
+      <div class="field__pin ds-fill">
+        <img class="field__image" src="assets/overview/assets/hoirqrkdgbmvpwutwuwj.supabase.co/storage/v1/object/public/user-files/8bd0314a-9525-4a13-996e-2c37cbd9e514/cc14a7de-a707-4ead-aa70-8868efa6f682-future-lab__q0450e60f.webp" alt="A monumental black intelligence sculpture floating inside a warm white future laboratory">
+        <div class="field__veil" aria-hidden="true"></div>
+        <div class="field__top"><span>06 / Lorem ipsum</span><span>Dolor sit amet consectetur adipiscing elit</span></div>
+        <h2 class="field__title"><span>Lorem sit</span><span>amet elit.</span></h2>
+        <div class="field__card">
+          <strong>1:1</strong>
+          <p>Lorem ipsum dolor sit amet—consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua enim.</p>
+        </div>
+      </div>
+    </section>
+    <code class="ds-meta"><b>.field</b> paper &gt; <b>.field__image</b> clip-path inset(8% 6% 8% 42%) → inset(0) · scale 1.1 → 1.18 · <b>.field__veil</b> opacity 1 → .18 · title lines drift −14% / +16% · card rises 90px · pinned +210% on the page</code>
+  </div>
+
+  <div class="ds-spec">
+    <h3>Collective field · iris opening with halo rings <span class="ds-live">Live · scrubbed</span></h3>
+    <section class="collective ds-bgspec ds-tall" id="ds-collective">
+      <div class="collective__pin ds-fill">
+        <img class="collective__image" src="assets/overview/assets/hoirqrkdgbmvpwutwuwj.supabase.co/storage/v1/object/public/user-files/8bd0314a-9525-4a13-996e-2c37cbd9e514/2e805fa0-f644-4954-b538-e5d512949f0d-collective-field__qf484fac1.webp" alt="Nine black glass intelligence objects linked by fine violet filaments">
+        <div class="collective__halo" aria-hidden="true"></div>
+        <div class="collective__top"><span>08 / Lorem ipsum</span><span>Dolor sit · amet consectetur</span></div>
+        <h2 class="collective__title"><span>Lorem ut</span><span>dolore</span><span>magna sit.</span></h2>
+        <div class="collective__footer">
+          <span class="collective__counter">Node sync / 00%</span>
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna—ut enim ad minim veniam quis nostrud exercitation.</p>
+        </div>
+      </div>
+    </section>
+    <code class="ds-meta"><b>.collective__image</b> clip-path circle(15%) → circle(64%) · brightness(.72) saturate(.82) → 1 · scale 1.05 → 1.13 · <b>.collective__halo</b> three rings rotate 120° · scale 1.18 · counter 00 → 100% · title lines fade in at .35 / .75 / 1.15 · pinned +230% on the page</code>
+  </div>
+
+  <div class="ds-spec">
+    <h3>Thesis rings · axes and concentric rings on void <span class="ds-live">Live · scrubbed</span></h3>
+    <section class="thesis ds-bgspec ds-tall" id="ds-thesis">
+      <div class="thesis__axis-x" aria-hidden="true"></div>
+      <div class="thesis__axis-y" aria-hidden="true"></div>
+      <div class="thesis__rings" aria-hidden="true"></div>
+      <div class="thesis__copy">
+        <small>Lorem ipsum dolor sit amet elit</small>
+        <h2>Lorem ipsum dolor sit. <i>Amet</i> consectetur elit.</h2>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt—ut labore et dolore magna aliqua.</p>
+      </div>
+    </section>
+    <code class="ds-meta"><b>.thesis__rings</b> min(72vw, 72rem) · 1px line · insets 12% / 28% (inner glow 0 0 100px rgba(108,99,255,.14)) · scale 1.32 · rotate 45° across the pass · <b>.thesis__axis-x / -y</b> 1px line · heading sharpens from opacity .1, scale .82, blur(18px)</code>
+  </div>
+
+  <div class="ds-spec">
+    <h3>Manifesto orb · paper with an electric core <span class="ds-live">Live · scrubbed</span></h3>
+    <section class="manifesto ds-bgspec" id="ds-orb" style="height:460px!important">
+      <span class="manifesto__index" style="top:2.2rem">01 / Lorem</span>
+      <div class="manifesto__orb" aria-hidden="true"></div>
+    </section>
+    <code class="ds-meta"><b>.manifesto__orb</b> right −13vw · bottom −18vw · 47vw · 1px line-dark rings (inset 15% / 34%) · core var(--electric) · glow 0 0 70px rgba(108,99,255,.2) · rotate 90° · xPercent −18 across the section</code>
+  </div>
+</section>
+
+<!-- ============================================================ 04 surfaces -->
+<section class="ds-group" id="components-surfaces">
+  <div class="ds-top"><span>04 / Surfaces</span><span>Foundations</span></div>
+  <h2 class="ds-title">Surfaces</h2>
+
+  <div class="ds-surfs">
+    <div class="ds-spec" style="margin:0">
+      <h3>Tag glass</h3>
+      <div class="ds-surf"><img src="assets/overview/assets/hoirqrkdgbmvpwutwuwj.supabase.co/storage/v1/object/public/user-files/8bd0314a-9525-4a13-996e-2c37cbd9e514/ba18b372-e773-432a-a96d-1878b641c9b8-decode-labyrinth__q9829015e.webp" alt="A transparent black glass labyrinth containing a violet path"><span class="chapter__tag">Lorem ipsum dolor</span></div>
+      <code class="ds-meta"><b>.chapter__tag</b> right / bottom 1rem · padding .75rem .9rem · rgba(5,5,6,.78) · blur(12px) · Courier .55rem · signal dot .4rem with glow</code>
+    </div>
+    <div class="ds-spec" style="margin:0">
+      <h3>Counter glass</h3>
+      <div class="ds-surf"><img src="assets/overview/assets/hoirqrkdgbmvpwutwuwj.supabase.co/storage/v1/object/public/user-files/8bd0314a-9525-4a13-996e-2c37cbd9e514/1b2f96b5-378b-488e-bfab-00bc5f2b0592-aeon-mobility__qfd0a8bbd.webp" alt="Autonomous mobility object floating over a reflective black surface"><span class="project__counter">CASE / 01—03</span></div>
+      <code class="ds-meta"><b>.project__counter</b> top / right 1rem · padding .55rem .7rem · rgba(5,5,6,.72) · blur(10px) · ink · Courier .54rem</code>
+    </div>
+    <div class="ds-spec" style="margin:0">
+      <h3>Paper glass card</h3>
+      <div class="ds-surf ds-surf--tall"><img src="assets/overview/assets/hoirqrkdgbmvpwutwuwj.supabase.co/storage/v1/object/public/user-files/8bd0314a-9525-4a13-996e-2c37cbd9e514/cc14a7de-a707-4ead-aa70-8868efa6f682-future-lab__q0450e60f.webp" alt="A monumental black intelligence sculpture floating inside a warm white future laboratory" style="object-position:70% center">
+        <div class="field__card" style="color:var(--void)">
+          <strong>1:1</strong>
+          <p>Lorem ipsum dolor sit amet—consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua enim.</p>
+        </div>
+      </div>
+      <code class="ds-meta"><b>.field__card</b> right var(--pad) · bottom 2rem · min(31rem, 38vw) · grid auto | minmax(160px, 18rem) · padding 1rem · rgba(231,229,222,.82) · 1px line-dark · blur(16px)</code>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================ 05 motion -->
+<section class="ds-group" id="components-motion">
+  <div class="ds-top"><span>05 / Motion</span><span>Foundations</span></div>
+  <h2 class="ds-title">Motion</h2>
+
+  <div class="ds-spec">
+    <h3>Line rise · masked statement lines <span class="ds-live">Live · plays on view</span></h3>
+    <section class="manifesto ds-ctx ds-pad" id="ds-rise">
+      <h2 class="manifesto__statement" style="width:auto;margin:0">
+        <span class="manifesto__line"><span>Lorem ipsum dolor sit amet.</span></span>
+        <span class="manifesto__line"><span>Consectetur elit.</span></span>
+        <span class="manifesto__line"><span>Sed do eiusmod tempor</span></span>
+        <span class="manifesto__line"><span>ut labore dolor.</span></span>
+      </h2>
+    </section>
+    <button class="ds-btn" type="button" id="ds-rise-replay">Replay</button>
+    <code class="ds-meta"><b>.manifesto__line</b> overflow hidden &gt; <b>span</b> from yPercent 115 · rotate 2° · 1.1s power4.out · stagger .12 · at top 78%</code>
+  </div>
+
+  <div class="ds-spec">
+    <h3>Scroll cue <span class="ds-live">Live · CSS</span></h3>
+    <section class="hero ds-ctx ds-pad"><span class="scroll-cue ds-keep">Lorem ipsum dolor</span></section>
+    <code class="ds-meta"><b>.scroll-cue::before</b> 2.7rem ink line · @keyframes cue scaleX .2 ↔ 1 · 1.8s ease-in-out infinite · hidden ≤600px on the page</code>
+  </div>
+
+  <div class="ds-spec">
+    <h3>Timing</h3>
+    <div class="ds-colors">
+      <div class="ds-sw" style="grid-template-columns:1fr"><div><strong>Preloader</strong><code>count 0 → 100 · 1.5s power3.inOut · mark .45s power3.out · wipe inset(0 0 100% 0) .9s power4.inOut (+.12s)</code><p>Hero title rises yPercent 115 · 1.1s power4.out; eyebrow, lead and HUD .8s · stagger .08.</p></div></div>
+      <div class="ds-sw" style="grid-template-columns:1fr"><div><strong>Reveals</strong><code>1.1s power4.out · .8s power3.out · stagger .1–.12</code><p>Statement lines, living steps (y 48), river foot (y 60), capability list (x −55, stagger .09).</p></div></div>
+      <div class="ds-sw" style="grid-template-columns:1fr"><div><strong>Count-up</strong><code>1.4s power3.out · at top 90%</code><p>Metric numerals, zero-padded to two digits.</p></div></div>
+      <div class="ds-sw" style="grid-template-columns:1fr"><div><strong>Menu</strong><code>panel .8s power4.inOut · links .6s power3.out · stagger .06 · delay .3 · bars .4s</code><p>clip-path wipe down, links rise 40px.</p></div></div>
+      <div class="ds-sw" style="grid-template-columns:1fr"><div><strong>Viewer swap</strong><code>opacity .35 → 1 · scale 1.12 → 1.02 · .75s power3.out</code><p>Capability hover and focus.</p></div></div>
+      <div class="ds-sw" style="grid-template-columns:1fr"><div><strong>CSS transitions</strong><code>cubic-bezier(.16,1,.3,1) · .35s · .4s · .6s · .8s · .9s</code><p>Cursor ring, halo, capability indent, metric ring, viewer plate, project zoom.</p></div></div>
+      <div class="ds-sw" style="grid-template-columns:1fr"><div><strong>Scrubbed scroll</strong><code>scrub true | 1 | .15 · ease none</code><p>Hero parallax, orb, velocity and river rows, living plate and dial, rings, CTA title, global progress.</p></div></div>
+      <div class="ds-sw" style="grid-template-columns:1fr"><div><strong>Pinned sequences</strong><code>anatomy +240% · protocol +320% · field +210% · collective +230% · anti-formula +300% · work = track width</code><p>≥768px pins; smaller screens get unpinned scrubs.</p></div></div>
+      <div class="ds-sw" style="grid-template-columns:1fr"><div><strong>Loops</strong><code>ticker 24s linear infinite · cue 1.8s ease-in-out infinite</code><p>prefers-reduced-motion: preloader removed, GSAP off, clips open.</p></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================ 06 navigation -->
+<section class="ds-group" id="components-navigation">
+  <div class="ds-top"><span>06 / Navigation</span><span>Components</span></div>
+  <h2 class="ds-title">Navigation</h2>
+
+  <div class="ds-spec">
+    <h3>Navbar · difference blend over void and paper</h3>
+    <div class="ds-split">
+      <div class="ds-void"></div><div class="ds-paper"></div>
+      <nav class="nav ds-navin" aria-label="Main navigation">
+        <a class="nav__brand" href="#top" aria-label="NØEMA home">NØEMA®</a>
+        <span class="nav__status">Studio online</span>
+        <button class="menu-button magnetic" type="button" aria-label="Open menu" aria-expanded="false"><span></span><span></span></button>
+      </nav>
+    </div>
+    <code class="ds-meta"><b>.nav</b> fixed top · grid 1fr auto 1fr · padding 1.35rem var(--pad) · ink · mix-blend-mode difference (reads dark on paper) · z 120 · <b>.nav__brand</b> 1.05rem 700 · <b>.nav__status</b> .62rem .18em + green dot (hidden ≤900px) · <b>.menu-button</b> 3.2 × 1.5rem</code>
+  </div>
+
+  <div class="ds-spec">
+    <h3>Menu overlay · paper panel with plate <span class="ds-live">Live · opens on view · menu button toggles</span></h3>
+    <div class="ds-bgspec ds-menubox" id="ds-menu">
+      <div class="menu" aria-hidden="true">
+        <div class="menu__image">
+          <img src="assets/overview/assets/hoirqrkdgbmvpwutwuwj.supabase.co/storage/v1/object/public/user-files/8bd0314a-9525-4a13-996e-2c37cbd9e514/0d8fe5dc-2613-47a4-8a99-9ef809347583-living-bloom__qa7352523.webp" alt="">
+        </div>
+        <div class="menu__panel">
+          <small>NØEMA / Selected coordinates</small>
+          <div class="menu__links">
+            <a href="#thesis">Thesis <span>01</span></a>
+            <a href="#anatomy">Anatomy <span>02</span></a>
+            <a href="#protocol">Method <span>03</span></a>
+            <a href="#living">Living systems <span>04</span></a>
+            <a href="#work">Work <span>07</span></a>
+            <a href="#contact">Contact <span>10</span></a>
+          </div>
+          <div class="menu__meta">
+            <span>Toronto / Global</span>
+            <span>EST 2026</span>
+          </div>
+        </div>
+      </div>
+      <nav class="nav ds-navin" aria-label="Main navigation">
+        <a class="nav__brand" href="#top" aria-label="NØEMA home">NØEMA®</a>
+        <span class="nav__status">Studio online</span>
+        <button class="menu-button magnetic" type="button" aria-label="Open menu" aria-expanded="false"><span></span><span></span></button>
+      </nav>
+    </div>
+    <code class="ds-meta"><b>.menu</b> fixed · grid minmax(0,1fr) | minmax(280px, 38vw) (one column, no plate ≤900px) · paper · clip-path inset(0 0 100% 0) → inset(0) · <b>.menu__image</b> grayscale(1) contrast(1.1) · <b>.menu__links a</b> hairline rows, index .62rem · Escape and link clicks close it</code>
+  </div>
+
+  <div class="ds-spec">
+    <h3>Global progress bar <span class="ds-live">Live · follows this view's scroll</span></h3>
+    <div class="ds-progress" id="ds-progress"><div class="global-progress" aria-hidden="true"><span></span></div></div>
+    <code class="ds-meta"><b>.global-progress</b> fixed top · 2px · z 500 &gt; <b>span</b> signal · glow 0 0 14px rgba(169,165,255,.7) · scaleX 0 → 1 from the left, scrub .15 over the full scroll</code>
+  </div>
+</section>
+
+<!-- ============================================================ 07 actions -->
+<section class="ds-group" id="components-actions">
+  <div class="ds-top"><span>07 / Actions</span><span>Components</span></div>
+  <h2 class="ds-title">Actions</h2>
+
+  <div class="ds-spec">
+    <h3>Menu button <span class="ds-live">Live · click</span></h3>
+    <div class="ds-row">
+      <div class="ds-cell"><div class="ds-void ds-outline" style="padding:1.4rem 1.6rem"><button class="menu-button magnetic" type="button" id="ds-burger" aria-label="Open menu" aria-expanded="false"><span></span><span></span></button></div><span class="ds-cap">Default ⇄ Open</span></div>
+    </div>
+    <code class="ds-meta"><b>.menu-button</b> transparent · 3.2rem × 1.5rem &gt; <b>span</b> 1px currentColor bars, margin .45rem 0 · second bar 68%, right-aligned · open: ±15°, y 3 / −4px, 100% · .4s</code>
+  </div>
+
+  <div class="ds-spec">
+    <h3>Contact link and channels</h3>
+    <section class="cta ds-ctx ds-pad"><div class="cta__contact">
+      <a class="magnetic" href="#contact">lorem@ipsum.studio ↗</a>
+      <div><span>Instagram</span><span>LinkedIn</span><span>Toronto / Remote</span></div>
+    </div></section>
+    <code class="ds-meta"><b>.cta__contact</b> grid 1fr auto · rule rgba(5,5,6,.3) · <b>a</b> clamp(1.3rem, 2.4vw, 2.4rem) · −.04em · 1px void underline · <b>div</b> .58rem .14em uppercase · gap 1.5rem</code>
+  </div>
+
+  <div class="ds-spec">
+    <h3>Capability row <span class="ds-live">Live · hover or focus</span></h3>
+    <section class="capabilities ds-ctx ds-pad"><div class="capabilities__list">
+      <div class="capability" tabindex="0"><small>01</small><strong>Lorem ipsum</strong><span>↗</span></div>
+      <div class="capability" tabindex="0"><small>02</small><strong>Dolor sit amet</strong><span>↗</span></div>
+    </div></section>
+    <code class="ds-meta"><b>.capability</b> grid 2.2rem 1fr auto · padding 1.55rem 0 · 1px line bottom · hover / focus: padding-left 1rem, arrow 45° · <b>small</b> Courier .55rem signal</code>
+  </div>
+</section>
+
+<!-- ============================================================ 08 feedback -->
+<section class="ds-group" id="components-feedback">
+  <div class="ds-top"><span>08 / Feedback and status</span><span>Components</span></div>
+  <h2 class="ds-title">Feedback and status</h2>
+
+  <div class="ds-spec">
+    <h3>Preloader <span class="ds-live">Live · plays on view</span></h3>
+    <div class="ds-preload" id="ds-preload">
+      <div class="preloader" aria-label="Loading NØEMA">
+        <div class="preloader__mark">NØ</div>
+        <div class="preloader__foot">
+          <span>Calibrating perception<br>Toronto · 43.6532° N</span>
+          <span class="preloader__percent">00</span>
+        </div>
+      </div>
+    </div>
+    <button class="ds-btn" type="button" id="ds-preload-replay">Replay</button>
+    <code class="ds-meta"><b>.preloader</b> fixed · z 1000 · grid 1fr auto · paper / void · <b>__mark</b> NØ · <b>__foot</b> line-dark rule · .66rem .16em · <b>__percent</b> counts 00 → 100, then the mark lands and the panel wipes up · body.loading locks scroll until done</code>
+  </div>
+
+  <div class="ds-spec">
+    <h3>Status indicator</h3>
+    <div class="ds-void ds-outline" style="padding:1.6rem 2rem;display:inline-block"><span class="nav__status ds-keep">Studio online</span></div>
+    <code class="ds-meta"><b>.nav__status::before</b> .42rem dot · #7bff82 · glow 0 0 12px rgba(123,255,130,.7) · gap .55rem · .62rem .18em uppercase</code>
+  </div>
+
+  <div class="ds-spec">
+    <h3>Cursor and ring <span class="ds-live">Live · follows the pointer in this view</span></h3>
+    <div class="ds-row">
+      <div class="ds-cell"><span class="ds-chip" style="width:140px;height:110px"><span class="cursor ds-keep-block"></span><span class="cursor-ring ds-keep-block"></span></span><span class="ds-cap">Default</span></div>
+      <div class="ds-cell"><span class="ds-chip" style="width:140px;height:110px"><span class="cursor ds-keep-block"></span><span class="cursor-ring is-active ds-keep-block"></span></span><span class="ds-cap">Active</span></div>
+    </div>
+    <code class="ds-meta"><b>.cursor</b> 5px white dot · <b>.cursor-ring</b> 38px · 1px rgba(255,255,255,.75) · mix-blend-mode difference · ring eases 0.14 per frame behind the dot · .is-active 74px on a, button, [tabindex] and the hero · fine pointers only, hidden ≤900px</code>
+  </div>
+
+  <div class="ds-spec">
+    <h3>Progress rails <span class="ds-live">Live · scrubbed</span></h3>
+    <div class="ds-rails" id="ds-rails">
+      <div class="protocol"><div class="protocol__progress ds-keep-block" aria-hidden="true"><span></span></div></div>
+      <div class="no-formula"><div class="no-formula__rail" aria-hidden="true"><span></span></div></div>
+    </div>
+    <code class="ds-meta"><b>.protocol__progress</b> 1px line column · ink fill 0 → 33 → 66 → 100% per movement (hidden ≤600px) · <b>.no-formula__rail</b> 1px line-dark · electric fill 25 / 50 / 75 / 100% per refusal · <b>.collective__counter</b> “Node sync / 00–100%” (live in Backgrounds)</code>
+  </div>
+</section>
+
+<!-- ============================================================ 09 data display -->
+<section class="ds-group" id="components-data">
+  <div class="ds-top"><span>09 / Data display</span><span>Components</span></div>
+  <h2 class="ds-title">Data display</h2>
+
+  <div class="ds-spec">
+    <h3>Metrics row <span class="ds-live">Live · counts up on view</span></h3>
+    <section class="metrics" id="ds-metrics" aria-label="Studio facts">
+      <article class="metric metric__feature">
+        <small>Lorem ipsum dolor</small>
+        <strong>Lorem ipsum dolor sit amet.</strong>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit sed do eiusmod.</p>
+      </article>
+      <article class="metric">
+        <small>Dolor sit amet</small>
+        <strong data-count="12">00</strong>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+      </article>
+      <article class="metric">
+        <small>Consectetur elit</small>
+        <strong data-count="94">00</strong>
+        <p>Sed do eiusmod tempor incididunt ut labore et dolore.</p>
+      </article>
+      <article class="metric">
+        <small>Sed do eiusmod</small>
+        <strong data-count="0">00</strong>
+        <p>Ut enim ad minim veniam, quis nostrud exercitation.</p>
+      </article>
+    </section>
+    <code class="ds-meta"><b>.metrics</b> grid 1.5fr repeat(3, 1fr) (2 ≤900px, 1 ≤600px) · paper · line-dark rules · <b>.metric</b> min-height 22rem · space-between · hover ring ::after scales 1.35 · <b>strong[data-count]</b> counts from 00</code>
+  </div>
+
+  <div class="ds-spec">
+    <h3>HUD readouts</h3>
+    <div class="ds-void ds-outline ds-row" style="padding:2rem 2.2rem;align-items:flex-end">
+      <div class="hero__coordinates ds-flow ds-grid" aria-hidden="true">
+        <span>NODE / NØ-043</span>
+        <span>STATE / <b data-state="">LATENT</b></span>
+        <span>X <b data-x="">068.0</b> / Y <b data-y="">044.0</b></span>
+      </div>
+      <div class="viewer__hud-top" style="gap:2rem"><span>Live instrument</span><span>v.06—26</span></div>
+      <div class="living__specimen ds-flow" style="display:flex!important;gap:2rem;color:var(--ink)"><span>Specimen NØ-04</span><span>State / Becoming</span></div>
+      <span class="collective__counter">Node sync / 64%</span>
+    </div>
+    <code class="ds-meta"><b>.hero__coordinates</b> left rule · Courier .55rem · ink .7 · X / Y / STATE rewrite on hover (hidden ≤900px) · <b>.viewer__hud</b> .54rem · <b>.living__specimen</b> .53rem · <b>.collective__counter</b> .56rem signal</code>
+  </div>
+</section>
+
+<!-- ============================================================ 10 content groups -->
+<section class="ds-group" id="components-content">
+  <div class="ds-top"><span>10 / Content groups</span><span>Components</span></div>
+  <h2 class="ds-title">Content groups</h2>
+
+  <div class="ds-spec">
+    <h3>Hero copy</h3>
+    <section class="hero ds-ctx ds-pad">
+      <div class="hero__copy ds-ctx">
+        <span class="eyebrow">Lorem ipsum dolor sit amet</span>
+        <h1>NØEMA <span class="outline">Design System</span></h1>
+        <div class="hero__sub">
+          <span class="scroll-cue">Lorem ipsum dolor</span>
+          <p>Void-black and bone-paper grounds, tightly tracked display type, hairline outlines and one electric violet signal.</p>
+        </div>
+      </div>
+    </section>
+    <code class="ds-meta"><b>.hero__copy</b> min(56rem, 67vw) (92% ≤900px) · bottom-aligned · padding 7.5rem var(--pad) 3.5rem · <b>.eyebrow</b> 2.2rem rule · <b>h1</b> 9ch · <b>.hero__sub</b> grid auto | minmax(210px, 23rem), one column ≤900px</code>
+  </div>
+
+  <div class="ds-spec">
+    <h3>Section index rule</h3>
+    <div style="display:grid;gap:1rem">
+      <section class="capabilities ds-ctx ds-pad"><div class="capabilities__top"><span>05 / Lorem ipsum</span><span>Hover to modulate</span></div></section>
+      <section class="living ds-ctx"><div class="living__header" style="padding:2rem clamp(1.2rem, 2.6vw, 2.6rem) 1rem"><span>04 / Lorem ipsum</span><span>Dolor sit amet, consectetur</span></div></section>
+      <section class="cta ds-ctx ds-pad"><div class="cta__top"><span>Lorem ipsum dolor</span><span>Dolor sit amet / Q4 2026</span></div></section>
+    </div>
+    <code class="ds-meta"><b>.protocol__header · .capabilities__top · .anatomy__topline · .field__top · .collective__top · .no-formula__top · .living__header · .text-river__top · .cta__top</b> flex space-between · .58–.61rem · .16–.17em uppercase · 1px line / line-dark (bottom) or rgba(5,5,6,.3) (top, CTA) · the second label drops ≤600px</code>
+  </div>
+
+  <div class="ds-spec">
+    <h3>Split note · label and paragraph on a rule</h3>
+    <div style="display:grid;gap:1rem">
+      <section class="manifesto ds-ctx ds-pad"><div class="manifesto__foot" style="width:auto;margin:0">
+        <small>Lorem / ipsum<br>Dolor sit amet elit;<br>sed do eiusmod tempor.</small>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore. Ut enim ad minim veniam. Quis nostrud exercitation.</p>
+      </div></section>
+      <section class="velocity ds-ctx ds-pad"><div class="velocity__note" style="width:auto;margin:0">
+        <small>Lorem ipsum dolor</small>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor—ut labore et dolore magna aliqua ut enim.</p>
+      </div></section>
+    </div>
+    <code class="ds-meta"><b>.manifesto__foot</b> grid minmax(170px, .45fr) 1fr · gap 12vw · Courier label · <b>.velocity__note · .text-river__foot</b> grid 1fr minmax(220–260px, 26–34rem) · 1px line-dark top · one column ≤600px</code>
+  </div>
+
+  <div class="ds-spec">
+    <h3>Operating protocol · three movements <span class="ds-live">Live · scrubbed</span></h3>
+    <section class="protocol ds-bgspec ds-tall" id="ds-protocol">
+      <div class="protocol__stage ds-fill">
+        <div class="protocol__header"><span>03 / Lorem ipsum</span><span>Dolor sit · amet consectetur</span></div>
+        <div class="protocol__progress" aria-hidden="true"><span></span></div>
+        <article class="chapter">
+          <div class="chapter__copy">
+            <span class="chapter__number">MOVEMENT_01 / LOREM</span>
+            <h2>Sed do <i>eiusmod.</i></h2>
+            <div class="chapter__body"><small>Lorem / Ipsum dolor sit</small><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p></div>
+          </div>
+          <div class="chapter__media"><img src="assets/overview/assets/hoirqrkdgbmvpwutwuwj.supabase.co/storage/v1/object/public/user-files/8bd0314a-9525-4a13-996e-2c37cbd9e514/ba18b372-e773-432a-a96d-1878b641c9b8-decode-labyrinth__q9829015e.webp" alt="A transparent black glass labyrinth containing a violet path"><span class="chapter__tag">Lorem ipsum dolor</span></div>
+        </article>
+        <article class="chapter">
+          <div class="chapter__copy">
+            <span class="chapter__number">MOVEMENT_02 / IPSUM</span>
+            <h2>Lorem ut <i>labore.</i></h2>
+            <div class="chapter__body"><small>Dolor / Sit amet elit</small><p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat duis.</p></div>
+          </div>
+          <div class="chapter__media"><img src="assets/overview/assets/hoirqrkdgbmvpwutwuwj.supabase.co/storage/v1/object/public/user-files/8bd0314a-9525-4a13-996e-2c37cbd9e514/4ec609c7-3837-4946-ab54-3462a7f92e9d-encode-glyphs__q10ecb326.webp" alt="A physical system of unique black glass glyph-like objects"><span class="chapter__tag">Sit amet elit</span></div>
+        </article>
+        <article class="chapter">
+          <div class="chapter__copy">
+            <span class="chapter__number">MOVEMENT_03 / DOLOR</span>
+            <h2>Magna et <i>aliqua.</i></h2>
+            <div class="chapter__body"><small>Amet / Consectetur</small><p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore. Eu fugiat nulla pariatur excepteur.</p></div>
+          </div>
+          <div class="chapter__media"><img src="assets/overview/assets/hoirqrkdgbmvpwutwuwj.supabase.co/storage/v1/object/public/user-files/8bd0314a-9525-4a13-996e-2c37cbd9e514/2500f46e-7716-45a4-b41e-50bfef97e316-release-portal__q697182c3.webp" alt="A monumental black portal in a pale mineral landscape"><span class="chapter__tag">Consectetur adipiscing</span></div>
+        </article>
+      </div>
+    </section>
+    <code class="ds-meta"><b>.chapter</b> absolute · grid 44% 56% (stacked ≤900px, media behind) · <b>.chapter__number</b> Courier signal · <b>.chapter__body</b> 5rem | minmax(220px, 25rem) on a line · movements cross-fade (opacity, scale .96, xPercent 8) while the next plate wipes in (left, then up) · pinned +320% on the page</code>
+  </div>
+
+  <div class="ds-spec">
+    <h3>Living step · inactive and active</h3>
+    <section class="living ds-ctx"><div class="living__copy" style="border-left:0">
+      <article class="living__step" style="min-height:0;padding:3rem clamp(1.2rem, 2.6vw, 2.6rem)">
+        <small>02 / Dolor sit amet</small>
+        <h2>Sed do eiusmod <i>tempor.</i></h2>
+        <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip. Ex ea commodo consequat duis aute irure.</p>
+      </article>
+      <article class="living__step is-active" style="min-height:0;padding:3rem clamp(1.2rem, 2.6vw, 2.6rem)">
+        <small>01 / Lorem ipsum</small>
+        <h2>Lorem ipsum <i>dolor sit amet.</i></h2>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+      </article>
+    </div></section>
+    <code class="ds-meta"><b>.living__step</b> min-height 86vh · centred · line-dark bottom · opacity .3 → <b>.is-active</b> 1 (.5s) when its middle crosses 54% / 46% · children rise y 48 on view</code>
+  </div>
+
+  <div class="ds-spec">
+    <h3>Anti-formula · four refusals over the NO. mark <span class="ds-live">Live · scrubbed</span></h3>
+    <section class="no-formula ds-bgspec ds-tall" id="ds-refusal">
+      <div class="no-formula__pin ds-fill">
+        <div class="no-formula__top"><span>09 / Lorem ipsum</span><span>Dolor sit · amet consectetur elit</span></div>
+        <div class="no-formula__mark" aria-hidden="true">NO.</div>
+        <div class="no-formula__statements">
+          <article class="no-formula__statement"><small>Lorem 01 / Ipsum dolor</small><h2>Lorem ipsum <i>dolorem.</i></h2><p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt.</p></article>
+          <article class="no-formula__statement"><small>Lorem 02 / Dolor sit amet</small><h2>Sed eiusmod <i>ut labore.</i></h2><p>Ut enim ad minim veniam, quis nostrud exercitation—ullamco laboris nisi ut aliquip ex ea commodo.</p></article>
+          <article class="no-formula__statement"><small>Lorem 03 / Consectetur elit</small><h2>Magna aliqua <i>ut enim minim.</i></h2><p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat.</p></article>
+          <article class="no-formula__statement"><small>Lorem 04 / Sed do eiusmod</small><h2>Quis nostrud <i>exercitation.</i></h2><p>Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit.</p></article>
+        </div>
+        <div class="no-formula__rail" aria-hidden="true"><span></span></div>
+      </div>
+    </section>
+    <code class="ds-meta"><b>.no-formula__mark</b> clamp(16rem, 40vw, 42rem) · 700 · outline 1.4px void (70vw at .32 ≤600px) · tilts −8° / 5° / −4° / 0° · <b>.no-formula__statement</b> stacked, each leaves up 70px as the next rises · rail fills per refusal · pinned +300% on the page</code>
+  </div>
+
+  <div class="ds-spec">
+    <h3>Anatomy notes</h3>
+    <div class="ds-void ds-outline ds-row" style="padding:2.2rem">
+      <div class="anatomy__note ds-flow ds-keep-block" style="opacity:1"><b>01 / Lorem</b> Lorem ipsum dolor sit amet, consectetur elit.</div>
+      <div class="anatomy__note ds-flow ds-keep-block" style="opacity:1"><b>02 / Ipsum</b> Sed do eiusmod tempor incididunt ut labore.</div>
+      <div class="anatomy__note ds-flow ds-keep-block" style="opacity:1"><b>03 / Dolor</b> Ut enim ad minim veniam, quis nostrud exercitation.</div>
+    </div>
+    <code class="ds-meta"><b>.anatomy__note</b> min(16rem, 20vw) · signal bracket top / left · Courier .55rem · <b>b</b> signal head · fade in with y −12 (hidden ≤600px)</code>
+  </div>
+
+  <div class="ds-spec">
+    <h3>Closing CTA <span class="ds-live">Live · title rises on scroll</span></h3>
+    <section class="cta ds-bgspec ds-tall" id="ds-cta">
+      <div class="cta__top"><span>Lorem ipsum dolor</span><span>Dolor sit amet / Q4 2026</span></div>
+      <h2>Lorem sit <span>dolore.</span></h2>
+      <div class="cta__contact">
+        <a class="magnetic" href="#contact">lorem@ipsum.studio ↗</a>
+        <div><span>Instagram</span><span>LinkedIn</span><span>Toronto / Remote</span></div>
+      </div>
+      <div class="footer-code" aria-hidden="true">
+        01001110 11000011 10011000 01000101 01001101 01000001<br>
+        HUMAN / MACHINE / MEANING / 43.6532° N
+      </div>
+    </section>
+    <code class="ds-meta"><b>.cta</b> electric · void type · flex column space-between · padding 8rem var(--pad) 2rem · <b>h2</b> from yPercent 60, opacity 0 until centre · <b>.footer-code</b> rotated −90° at the right edge</code>
+  </div>
+</section>
+
+<!-- ============================================================ 11 kinetic -->
+<section class="ds-group" id="components-kinetic">
+  <div class="ds-top"><span>11 / Marquee and kinetic type</span><span>Components</span></div>
+  <h2 class="ds-title">Marquee and kinetic type</h2>
+
+  <div class="ds-spec">
+    <h3>Signal strip · ticker <span class="ds-live">Live · CSS loop</span></h3>
+    <div class="signal-strip" aria-hidden="true">
+      <div class="signal-strip__track">
+        <span>Lorem ipsum</span><span>Dolor sit amet</span>
+        <span>Consectetur elit</span><span>Sed do eiusmod</span>
+        <span>Tempor incidunt</span><span>Lorem ipsum</span>
+        <span>Dolor sit amet</span><span>Consectetur elit</span>
+        <span>Sed do eiusmod</span><span>Tempor incidunt</span>
+      </div>
+    </div>
+    <code class="ds-meta"><b>.signal-strip</b> 3.2rem · paper · line-dark bottom · <b>__track</b> max-content · gap 2rem · .64rem .16em uppercase · translateX(−50%) 24s linear infinite · <b>span::after</b> electric ✦</code>
+  </div>
+
+  <div class="ds-spec">
+    <h3>Velocity rows <span class="ds-live">Live · scrubbed in opposite directions</span></h3>
+    <section class="velocity ds-ctx ds-kpad" id="ds-velocity">
+      <div class="velocity__row">Laboriosam <i>ipsum</i> dolores —</div>
+      <div class="velocity__row">Dolore <i>magna</i> aliqua —</div>
+      <div class="velocity__note" style="margin-top:4.5rem">
+        <small>Lorem ipsum dolor</small>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor—ut labore et dolore magna aliqua ut enim.</p>
+      </div>
+    </section>
+    <code class="ds-meta"><b>.velocity__row</b> max-content · nowrap · first xPercent 0 → −22 · second outline 1.5px void, starts −25vw, xPercent 0 → 8 · scrub across the section</code>
+  </div>
+
+  <div class="ds-spec">
+    <h3>Text river <span class="ds-live">Live · scrubbed</span></h3>
+    <section class="text-river ds-ctx ds-kpad" id="ds-river">
+      <div class="text-river__top" style="margin-bottom:4rem">
+        <span>Lorem / Ipsum dolor sit amet</span>
+        <span>Dolor sit · amet consectetur</span>
+      </div>
+      <div class="text-river__line">Lorem ipsum <b></b> Lorem ipsum <b></b></div>
+      <div class="text-river__line">Dolor amet <b></b> Dolor amet <b></b></div>
+      <div class="text-river__line">Sed tempor <b></b> Sed tempor <b></b></div>
+      <div class="text-river__foot" style="margin-top:5rem">
+        <small>Lorem ipsum / dolor sit</small>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor—incididunt ut labore et dolore magna.</p>
+      </div>
+    </section>
+    <code class="ds-meta"><b>.text-river__line</b> 600 · −.095em · second Georgia italic outline, starts −28vw · third starts −8vw · xPercent −24 / 18 / −30 across the section · <b>b</b> .16em electric dot · glow 0 0 30px rgba(108,99,255,.35)</code>
+  </div>
+</section>
+
+<!-- ============================================================ 12 media -->
+<section class="ds-group" id="components-media">
+  <div class="ds-top"><span>12 / Media</span><span>Components</span></div>
+  <h2 class="ds-title">Media</h2>
+
+  <div class="ds-spec">
+    <h3>Chapter plates · three treatments</h3>
+    <div class="ds-media3">
+      <article class="chapter ds-ctx"><div class="chapter__media"><img src="assets/overview/assets/hoirqrkdgbmvpwutwuwj.supabase.co/storage/v1/object/public/user-files/8bd0314a-9525-4a13-996e-2c37cbd9e514/ba18b372-e773-432a-a96d-1878b641c9b8-decode-labyrinth__q9829015e.webp" alt="A transparent black glass labyrinth containing a violet path"><span class="chapter__tag">Lorem ipsum dolor</span></div></article>
+      <article class="chapter ds-ctx"><div class="chapter__media"><img src="assets/overview/assets/hoirqrkdgbmvpwutwuwj.supabase.co/storage/v1/object/public/user-files/8bd0314a-9525-4a13-996e-2c37cbd9e514/4ec609c7-3837-4946-ab54-3462a7f92e9d-encode-glyphs__q10ecb326.webp" alt="A physical system of unique black glass glyph-like objects"><span class="chapter__tag">Sit amet elit</span></div></article>
+      <article class="chapter ds-ctx"><div class="chapter__media"><img src="assets/overview/assets/hoirqrkdgbmvpwutwuwj.supabase.co/storage/v1/object/public/user-files/8bd0314a-9525-4a13-996e-2c37cbd9e514/2500f46e-7716-45a4-b41e-50bfef97e316-release-portal__q697182c3.webp" alt="A monumental black portal in a pale mineral landscape"><span class="chapter__tag">Consectetur adipiscing</span></div></article>
+    </div>
+    <code class="ds-meta"><b>.chapter__media</b> void-soft well · cover · <b>:nth-of-type(2)</b> object-position 70%, grayscale(.35) · <b>:nth-of-type(3)</b> scale 1.16, object-position 88% · tag glass bottom right</code>
+  </div>
+
+  <div class="ds-spec">
+    <h3>Project track · three cases <span class="ds-live">Live · scrolls sideways with this view · hover zooms</span></h3>
+    <section class="work ds-bgspec ds-tall" id="ds-work">
+      <div class="work__track ds-track">
+        <article class="project">
+          <div class="project__copy">
+            <small>Lorem ipsum dolor / 2026</small>
+            <h3>ORCI</h3>
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit sed do eiusmod tempor.</p>
+          </div>
+          <div class="project__media">
+            <img src="assets/overview/assets/hoirqrkdgbmvpwutwuwj.supabase.co/storage/v1/object/public/user-files/8bd0314a-9525-4a13-996e-2c37cbd9e514/1b2f96b5-378b-488e-bfab-00bc5f2b0592-aeon-mobility__qfd0a8bbd.webp" alt="Autonomous mobility object floating over a reflective black surface">
+            <span class="project__counter">CASE / 01—03</span>
+          </div>
+        </article>
+        <article class="project">
+          <div class="project__copy">
+            <small>Dolor sit amet elit / 2026</small>
+            <h3>NISI</h3>
+            <p>Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi.</p>
+          </div>
+          <div class="project__media">
+            <img src="assets/overview/assets/hoirqrkdgbmvpwutwuwj.supabase.co/storage/v1/object/public/user-files/8bd0314a-9525-4a13-996e-2c37cbd9e514/9c0770c0-144a-4c0f-aa55-46232030c213-halo-membrane__q2496e8a1.webp" alt="Editorial portrait of a human face meeting a translucent membrane">
+            <span class="project__counter">CASE / 02—03</span>
+          </div>
+        </article>
+        <article class="project">
+          <div class="project__copy">
+            <small>Consectetur elit / 2027</small>
+            <h3>SED</h3>
+            <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore.</p>
+          </div>
+          <div class="project__media">
+            <img src="assets/overview/assets/hoirqrkdgbmvpwutwuwj.supabase.co/storage/v1/object/public/user-files/8bd0314a-9525-4a13-996e-2c37cbd9e514/be65bdd7-4eec-4a04-b5b3-c591b33d2484-nth-archive__q3e6b75be.webp" alt="Archive of levitating black glass memory slabs">
+            <span class="project__counter">CASE / 03—03</span>
+          </div>
+        </article>
+      </div>
+    </section>
+    <code class="ds-meta"><b>.work__track</b> 300vw · 100vh · pinned and translated −(width − viewport) on the page · <b>.project</b> grid 39% 61% (stacked ≤900px) · 1 paper rectangle · 2 void, arch media border-radius 50% 50% 0 0 · 3 stone, parallelogram clip polygon(16% 0, 100% 0, 84% 100%, 0 100%) · hover img scale 1.04 (.9s)</code>
+  </div>
+
+  <div class="ds-spec">
+    <h3>Capability instrument · list and viewer <span class="ds-live">Live · hover or focus a row</span></h3>
+    <section class="capabilities ds-ctx ds-pad" id="ds-caps">
+      <div class="capabilities__top"><span>05 / Lorem ipsum</span><span>Hover to modulate</span></div>
+      <div class="capabilities__grid">
+        <div class="capabilities__list">
+          <div class="capability" tabindex="0" data-index="01" data-visual="assets/overview/assets/hoirqrkdgbmvpwutwuwj.supabase.co/storage/v1/object/public/user-files/8bd0314a-9525-4a13-996e-2c37cbd9e514/8a784a73-b86b-499f-b2c0-20892663f959-signal-anatomy__qc0c94f6a.webp" data-label="Signal / Pattern"><small>01</small><strong>Lorem ipsum</strong><span>↗</span></div>
+          <div class="capability" tabindex="0" data-index="02" data-visual="assets/overview/assets/hoirqrkdgbmvpwutwuwj.supabase.co/storage/v1/object/public/user-files/8bd0314a-9525-4a13-996e-2c37cbd9e514/4ec609c7-3837-4946-ab54-3462a7f92e9d-encode-glyphs__q10ecb326.webp" data-label="Signal / Language"><small>02</small><strong>Dolor sit amet</strong><span>↗</span></div>
+          <div class="capability" tabindex="0" data-index="03" data-visual="assets/overview/assets/hoirqrkdgbmvpwutwuwj.supabase.co/storage/v1/object/public/user-files/8bd0314a-9525-4a13-996e-2c37cbd9e514/cc14a7de-a707-4ead-aa70-8868efa6f682-future-lab__q0450e60f.webp" data-label="Signal / Space"><small>03</small><strong>Consectetur elit</strong><span>↗</span></div>
+          <div class="capability" tabindex="0" data-index="04" data-visual="assets/overview/assets/hoirqrkdgbmvpwutwuwj.supabase.co/storage/v1/object/public/user-files/8bd0314a-9525-4a13-996e-2c37cbd9e514/0d8fe5dc-2613-47a4-8a99-9ef809347583-living-bloom__qa7352523.webp" data-label="Signal / Motion"><small>04</small><strong>Adipiscing sed do</strong><span>↗</span></div>
+          <div class="capability" tabindex="0" data-index="05" data-visual="assets/overview/assets/hoirqrkdgbmvpwutwuwj.supabase.co/storage/v1/object/public/user-files/8bd0314a-9525-4a13-996e-2c37cbd9e514/2500f46e-7716-45a4-b41e-50bfef97e316-release-portal__q697182c3.webp" data-label="Signal / Release"><small>05</small><strong>Tempor labore</strong><span>↗</span></div>
+          <div class="capability" tabindex="0" data-index="06" data-visual="assets/overview/assets/hoirqrkdgbmvpwutwuwj.supabase.co/storage/v1/object/public/user-files/8bd0314a-9525-4a13-996e-2c37cbd9e514/2e805fa0-f644-4954-b538-e5d512949f0d-collective-field__qf484fac1.webp" data-label="Signal / Field"><small>06</small><strong>Magna aliqua ut</strong><span>↗</span></div>
+        </div>
+        <div class="capabilities__viewer">
+          <img src="assets/overview/assets/hoirqrkdgbmvpwutwuwj.supabase.co/storage/v1/object/public/user-files/8bd0314a-9525-4a13-996e-2c37cbd9e514/8a784a73-b86b-499f-b2c0-20892663f959-signal-anatomy__qc0c94f6a.webp" alt="Visual response for selected studio capability">
+          <div class="viewer__hud">
+            <div class="viewer__hud-top"><span>Live instrument</span><span>v.06—26</span></div>
+            <div class="viewer__hud-bottom"><span class="viewer__index">01</span><span>Signal / Shell</span></div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <code class="ds-meta"><b>.capabilities__grid</b> minmax(0, .9fr) | minmax(320px, 1.1fr) · gap 7vw (viewer on top ≤900px) · <b>.capabilities__viewer</b> sticky 14vh · 72vh · min 520px · the row's data-visual, data-index and data-label drive the plate and HUD · even rows add .is-human · plate drifts yPercent 11</code>
+  </div>
+
+  <div class="ds-spec">
+    <h3>Living plate · framed specimen with dial <span class="ds-live">Live · scrubbed</span></h3>
+    <div class="living__visual ds-lv" id="ds-living">
+      <img src="assets/overview/assets/hoirqrkdgbmvpwutwuwj.supabase.co/storage/v1/object/public/user-files/8bd0314a-9525-4a13-996e-2c37cbd9e514/0d8fe5dc-2613-47a4-8a99-9ef809347583-living-bloom__qa7352523.webp" alt="A sculptural flower engineered from black glass and illuminated machinery">
+      <div class="living__specimen"><span>Specimen NØ-04</span><span>State / Becoming</span></div>
+      <div class="living__dial">Response<br>field</div>
+    </div>
+    <code class="ds-meta"><b>.living__visual</b> sticky · 100vh · min 700px (78vh ≤600px) · void · <b>::after</b> 1px line frame inset 1rem · img scale 1.08 → 1.18, rotate −2° → 3° · <b>.living__dial</b> 7rem ring with crosshair, rotates 270° across the section</code>
+  </div>
+</section>
+
+</main>
+</div>
+
+<script src="assets/overview/assets/noema-ai-studio-74.aura.build/gsap.min.js"></script>
+<script src="assets/overview/assets/noema-ai-studio-74.aura.build/ScrollTrigger.min.js"></script>
+<script>
+(function () {
+  var COMPONENTS_ENABLED = true;           /* Overview approved (orchestrated run) */
+  var RM = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var FINE = matchMedia('(pointer:fine)').matches;
+  var frame = document.getElementById('overview-frame');
+  var linkO = document.getElementById('nav-overview'), linkC = document.getElementById('nav-components');
+  var menuButton = document.querySelector('#ds-nav .menu-button');
+  var main = document.getElementById('ds-main');
+  var root = document.documentElement;
+  var q = function (s, r) { return (r || document).querySelector(s); };
+  var qa = function (s, r) { return [].slice.call((r || document).querySelectorAll(s)); };
+  var isComp = function (h) { return h === '#components' || h.indexOf('#components-') === 0; };
+  var inComp = false, compReady = false;
+  if (!COMPONENTS_ENABLED) linkC.setAttribute('aria-disabled', 'true');
+
+  function route() {
+    var h = location.hash;
+    if (isComp(h) && !COMPONENTS_ENABLED) { history.replaceState(null, '', location.pathname + location.search); h = ''; }
+    var comp = isComp(h);
+    inComp = comp;
+    document.body.classList.toggle('is-components', comp);
+    linkO.classList.toggle('is-active', !comp);
+    linkC.classList.toggle('is-active', comp);
+    if (!comp) { latentBg(); return; }
+    if (menuOpen) post({ ds: 'menu', open: false });
+    initComponents();
+    if (h === '#components') main.scrollTop = 0;
+    else { var el = document.getElementById(h.slice(1)); if (el) main.scrollTop = el.offsetTop - 24; }
+    spy();
+    if (window.ScrollTrigger) ScrollTrigger.refresh();
+  }
+
+  /* ---------------------------------------------------------------- navbar */
+  /* the menu button drives the Overview's own menu; its bars follow with the page's own tweens */
+  var menuOpen = false;
+  function drawButton(open) {
+    menuOpen = open;
+    menuButton.setAttribute('aria-expanded', String(open));
+    menuButton.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
+    if (!window.gsap) return;
+    gsap.to(menuButton.querySelector('span:first-child'), { rotate: open ? 15 : 0, y: open ? 3 : 0, duration: 0.4 });
+    gsap.to(menuButton.querySelector('span:last-child'), { rotate: open ? -15 : 0, y: open ? -4 : 0, width: open ? '100%' : '68%', duration: 0.4 });
+  }
+  function post(m) { try { frame.contentWindow.postMessage(m, '*'); } catch (e) {} }
+  menuButton.addEventListener('click', function () { post({ ds: 'menu', open: !menuOpen }); });
+  addEventListener('keydown', function (e) { if (e.key === 'Escape' && menuOpen) post({ ds: 'menu', open: false }); });
+  document.getElementById('ds-nav').addEventListener('pointermove', function (e) { if (!inComp) post({ ds: 'pointer', x: e.clientX, y: e.clientY }); });
+  addEventListener('message', function (e) {
+    if (e.source !== frame.contentWindow || !e.data) return;
+    if (e.data.ds === 'ready') document.body.classList.add('ds-overview-ready');
+    if (e.data.ds === 'menu' && !!e.data.open !== menuOpen) drawButton(!!e.data.open);
+  });
+
+  /* ---------------------------------------------------------------- cursor (the page's own) */
+  var cursor = q('body > .cursor'), ring = q('body > .cursor-ring');
+  var mouseX = innerWidth / 2, mouseY = innerHeight / 2, ringX = mouseX, ringY = mouseY;
+  function moveCursor() {
+    ringX += (mouseX - ringX) * 0.14;
+    ringY += (mouseY - ringY) * 0.14;
+    cursor.style.transform = 'translate(' + mouseX + 'px, ' + mouseY + 'px) translate(-50%, -50%)';
+    ring.style.transform = 'translate(' + ringX + 'px, ' + ringY + 'px) translate(-50%, -50%)';
+    requestAnimationFrame(moveCursor);
+  }
+  if (!RM && FINE) {
+    moveCursor();
+    addEventListener('pointermove', function (e) { mouseX = e.clientX; mouseY = e.clientY; });
+    qa('a, button, [tabindex], .hero__visual').forEach(function (node) {
+      node.addEventListener('mouseenter', function () { ring.classList.add('is-active'); });
+      node.addEventListener('mouseleave', function () { ring.classList.remove('is-active'); });
+    });
+  }
+
+  /* ---------------------------------------------------------------- hero reveal (the page's own handler) */
+  function reveal(scope, x, y) {
+    scope.style.setProperty('--mx', x + '%');
+    scope.style.setProperty('--my', y + '%');
+    q('.hero__image--human', scope).style.clipPath = 'circle(clamp(115px, 12vw, 210px) at ' + x + '% ' + y + '%)';
+    var cx = q('[data-x]', scope), cy = q('[data-y]', scope), st = q('[data-state]', scope);
+    if (cx) cx.textContent = x.toFixed(1).padStart(5, '0');
+    if (cy) cy.textContent = y.toFixed(1).padStart(5, '0');
+    if (st) st.textContent = 'REVEALED';
+  }
+  function latent(scope) {
+    q('.hero__image--human', scope).style.clipPath = 'circle(0 at var(--mx) var(--my))';
+    var st = q('[data-state]', scope); if (st) st.textContent = 'LATENT';
+  }
+  var liveBg = document.getElementById('ds-live-bg'), liveHalo = q('.hero__halo', liveBg);
+  function latentBg() { if (!RM && FINE) { latent(liveBg); liveHalo.style.opacity = ''; liveHalo.style.transform = ''; } }
+  if (!RM && FINE) {
+    /* behind this view the lens follows the pointer across the whole viewport */
+    addEventListener('pointermove', function (e) {
+      if (!inComp) return;
+      reveal(liveBg, e.clientX / innerWidth * 100, e.clientY / innerHeight * 100);
+      liveHalo.style.opacity = '1';
+      liveHalo.style.transform = 'translate(-50%, -50%) scale(1)';
+    });
+    document.addEventListener('pointerleave', latentBg);
+    var heroSpec = document.getElementById('ds-hero'), heroVis = q('.hero__visual', heroSpec);
+    heroVis.addEventListener('pointermove', function (e) {
+      var b = heroVis.getBoundingClientRect();
+      reveal(heroSpec, (e.clientX - b.left) / b.width * 100, (e.clientY - b.top) / b.height * 100);
+    });
+    heroVis.addEventListener('pointerleave', function () { latent(heroSpec); });
+  }
+
+  /* ---------------------------------------------------------------- sidebar follows the scroll */
+  var groups = qa('.ds-group', main);
+  var sideLinks = qa('#ds-side a');
+  function spy() {
+    var y = main.scrollTop + 160, cur = groups[0];
+    groups.forEach(function (g) { if (g.offsetTop <= y) cur = g; });
+    sideLinks.forEach(function (a) {
+      var on = a.getAttribute('href') === '#' + cur.id;
+      a.classList.toggle('is-current', on);
+      if (on && innerWidth < 768) a.parentNode.scrollLeft = a.offsetLeft - 16;
+    });
+  }
+  main.addEventListener('scroll', spy, { passive: true });
+
+  /* specimen links and forms stay put */
+  main.addEventListener('click', function (e) { if (e.target.closest('a')) e.preventDefault(); });
+  main.addEventListener('submit', function (e) { e.preventDefault(); });
+
+  /* ---------------------------------------------------------------- specimens (the page's own tweens,
+     scrubbed by this view's scroller; pinned sequences play across the specimen's pass instead) */
+  function initComponents() {
+    if (compReady) return;
+    compReady = true;
+    var WIDE = matchMedia('(min-width: 768px)').matches;
+
+    /* capability instrument — the page's own selector */
+    var caps = document.getElementById('ds-caps'), viewer = q('.capabilities__viewer', caps);
+    var viewerImage = q('img', viewer), viewerIndex = q('.viewer__index', viewer), viewerMode = q('.viewer__hud-bottom span:last-child', viewer);
+    function selectCapability(item) {
+      viewer.classList.toggle('is-human', Number(item.dataset.index) % 2 === 0);
+      viewerImage.src = item.dataset.visual;
+      viewerIndex.textContent = item.dataset.index;
+      viewerMode.textContent = item.dataset.label;
+      if (window.gsap && !RM) gsap.fromTo(viewerImage, { opacity: 0.35, scale: 1.12 }, { opacity: 1, scale: 1.02, duration: 0.75, ease: 'power3.out' });
+    }
+    qa('.capability', caps).forEach(function (item) {
+      item.addEventListener('mouseenter', function () { selectCapability(item); });
+      item.addEventListener('focus', function () { selectCapability(item); });
+    });
+
+    if (!window.gsap || !window.ScrollTrigger || RM) {
+      qa('#ds-metrics [data-count]').forEach(function (n) { n.textContent = String(n.dataset.count).padStart(2, '0'); });
+      return;
+    }
+    gsap.registerPlugin(ScrollTrigger);
+    var S = main;
+    function pass(trigger, scrub) { return { trigger: trigger, scroller: S, start: 'top 80%', end: 'bottom 20%', scrub: scrub == null ? 1 : scrub }; }
+    function through(trigger) { return { trigger: trigger, scroller: S, start: 'top bottom', end: 'bottom top', scrub: true }; }
+
+    /* live background: the hero's own parallax across this view's first screen */
+    gsap.to('#ds-live-bg .hero__image', { yPercent: 12, scale: 1.08, ease: 'none',
+      scrollTrigger: { scroller: S, start: 0, end: function () { return S.clientHeight; }, scrub: true } });
+    gsap.to('#ds-hero .hero__image', { yPercent: 12, scale: 1.08, ease: 'none', scrollTrigger: through('#ds-hero') });
+
+    /* global progress */
+    gsap.to('#ds-progress .global-progress span', { scaleX: 1, ease: 'none',
+      scrollTrigger: { scroller: S, start: 0, end: function () { return ScrollTrigger.maxScroll(S); }, scrub: 0.15 } });
+
+    /* anatomy */
+    var an = '#ds-anatomy ';
+    if (WIDE) {
+      gsap.timeline({ scrollTrigger: pass('#ds-anatomy') })
+        .to(an + '.anatomy__image', { clipPath: 'inset(0% 0% round 0rem)', scale: 1.08, filter: 'brightness(1) saturate(1)', duration: 1, ease: 'none' }, 0)
+        .from(an + 'h2 span:first-child', { xPercent: -32, opacity: 0, duration: 0.55 }, 0.06)
+        .from(an + 'h2 span:last-child', { xPercent: 34, opacity: 0, duration: 0.55 }, 0.12)
+        .fromTo(an + '.anatomy__scan', { x: '-42vw' }, { x: '42vw', duration: 1.8, ease: 'none' }, 0.18)
+        .to(an + '.anatomy__note--one', { opacity: 1, y: -12, duration: 0.28 }, 0.55)
+        .to(an + '.anatomy__note--two', { opacity: 1, y: -12, duration: 0.28 }, 0.92)
+        .to(an + '.anatomy__note--three', { opacity: 1, y: -12, duration: 0.28 }, 1.28)
+        .to(an + '.anatomy__image', { scale: 1.16, duration: 0.7, ease: 'none' }, 1.25);
+    } else {
+      gsap.to(an + '.anatomy__image', { clipPath: 'inset(0% round 0rem)', scale: 1.08, ease: 'none', scrollTrigger: pass('#ds-anatomy', true) });
+      gsap.from(an + 'h2 span', { yPercent: 80, opacity: 0, stagger: 0.12, scrollTrigger: { trigger: an + 'h2', scroller: S, start: 'top 85%' } });
+    }
+
+    /* field site */
+    var fl = '#ds-field ';
+    if (WIDE) {
+      gsap.timeline({ scrollTrigger: pass('#ds-field') })
+        .to(fl + '.field__image', { clipPath: 'inset(0% 0% 0% 0%)', scale: 1.1, duration: 1.2, ease: 'none' }, 0)
+        .to(fl + '.field__veil', { opacity: 0.18, duration: 0.85 }, 0.25)
+        .to(fl + '.field__title span:first-child', { xPercent: -14, duration: 1 }, 0)
+        .to(fl + '.field__title span:last-child', { xPercent: 16, duration: 1 }, 0)
+        .from(fl + '.field__card', { y: 90, opacity: 0, duration: 0.4 }, 0.75)
+        .to(fl + '.field__image', { scale: 1.18, duration: 0.8, ease: 'none' }, 1.2);
+    } else {
+      gsap.to(fl + '.field__image', { scale: 1.1, clipPath: 'inset(0% 0% 0% 0%)', ease: 'none', scrollTrigger: through('#ds-field') });
+    }
+
+    /* collective field */
+    var co = '#ds-collective ', sync = { value: 0 }, counter = q(co + '.collective__counter');
+    if (WIDE) {
+      gsap.timeline({ scrollTrigger: pass('#ds-collective') })
+        .to(co + '.collective__image', { clipPath: 'circle(64% at 50% 50%)', filter: 'brightness(1) saturate(1)', scale: 1.05, duration: 1.1, ease: 'none' }, 0)
+        .to(co + '.collective__halo', { rotate: 120, scale: 1.18, duration: 1.8, ease: 'none' }, 0)
+        .to(sync, { value: 100, duration: 1.6, ease: 'none', onUpdate: function () {
+          counter.textContent = 'Node sync / ' + String(Math.round(sync.value)).padStart(2, '0') + '%'; } }, 0)
+        .to(co + '.collective__title span:nth-child(1)', { opacity: 1, y: -8, duration: 0.35 }, 0.35)
+        .to(co + '.collective__title span:nth-child(2)', { opacity: 1, y: -8, duration: 0.35 }, 0.75)
+        .to(co + '.collective__title span:nth-child(3)', { opacity: 1, y: -8, duration: 0.35 }, 1.15)
+        .to(co + '.collective__image', { scale: 1.13, duration: 0.65, ease: 'none' }, 1.35);
+    } else {
+      gsap.to(co + '.collective__image', { clipPath: 'circle(72% at 50% 50%)', filter: 'brightness(1) saturate(1)', ease: 'none', scrollTrigger: pass('#ds-collective', true) });
+      gsap.to(co + '.collective__title span', { opacity: 1, y: -6, stagger: 0.12, scrollTrigger: { trigger: co + '.collective__title', scroller: S, start: 'top 80%' } });
+    }
+
+    /* thesis rings, manifesto orb */
+    gsap.to('#ds-thesis .thesis__rings', { scale: 1.32, rotate: 45, ease: 'none', scrollTrigger: through('#ds-thesis') });
+    gsap.from('#ds-thesis .thesis__copy h2', { opacity: 0.1, scale: 0.82, filter: 'blur(18px)', ease: 'none',
+      scrollTrigger: { trigger: '#ds-thesis', scroller: S, start: 'top 70%', end: 'center 45%', scrub: true } });
+    gsap.to('#ds-orb .manifesto__orb', { rotate: 90, xPercent: -18, ease: 'none', scrollTrigger: through('#ds-orb') });
+
+    /* line rise */
+    var rise = gsap.from('#ds-rise .manifesto__line span', { yPercent: 115, rotate: 2, duration: 1.1, stagger: 0.12, ease: 'power4.out',
+      scrollTrigger: { trigger: '#ds-rise .manifesto__statement', scroller: S, start: 'top 78%' } });
+    document.getElementById('ds-rise-replay').addEventListener('click', function () { rise.restart(); });
+
+    /* menu overlay — the page's own toggle, scoped to the specimen */
+    var mBox = document.getElementById('ds-menu'), mMenu = q('.menu', mBox), mBtn = q('.menu-button', mBox), mOpen = false;
+    function toggleSpecMenu(force) {
+      mOpen = typeof force === 'boolean' ? force : !mOpen;
+      mBtn.setAttribute('aria-expanded', String(mOpen));
+      mBtn.setAttribute('aria-label', mOpen ? 'Close menu' : 'Open menu');
+      mMenu.setAttribute('aria-hidden', String(!mOpen));
+      gsap.to(mMenu, { autoAlpha: mOpen ? 1 : 0, clipPath: mOpen ? 'inset(0 0 0% 0)' : 'inset(0 0 100% 0)', duration: 0.8, ease: 'power4.inOut' });
+      gsap.to(qa('.menu__links a', mBox), { y: mOpen ? 0 : 40, opacity: mOpen ? 1 : 0, duration: 0.6, stagger: 0.06, delay: mOpen ? 0.3 : 0, ease: 'power3.out' });
+      gsap.to(q('span:first-child', mBtn), { rotate: mOpen ? 15 : 0, y: mOpen ? 3 : 0, duration: 0.4 });
+      gsap.to(q('span:last-child', mBtn), { rotate: mOpen ? -15 : 0, y: mOpen ? -4 : 0, width: mOpen ? '100%' : '68%', duration: 0.4 });
+    }
+    mBtn.addEventListener('click', function () { toggleSpecMenu(); });
+    qa('.menu a', mBox).forEach(function (a) { a.addEventListener('click', function () { toggleSpecMenu(false); }); });
+    ScrollTrigger.create({ trigger: mBox, scroller: S, start: 'top 60%', once: true, onEnter: function () { if (!mOpen) toggleSpecMenu(true); } });
+
+    /* standalone menu button */
+    var burger = document.getElementById('ds-burger'), bOpen = false;
+    burger.addEventListener('click', function () {
+      bOpen = !bOpen;
+      burger.setAttribute('aria-expanded', String(bOpen));
+      gsap.to(q('span:first-child', burger), { rotate: bOpen ? 15 : 0, y: bOpen ? 3 : 0, duration: 0.4 });
+      gsap.to(q('span:last-child', burger), { rotate: bOpen ? -15 : 0, y: bOpen ? -4 : 0, width: bOpen ? '100%' : '68%', duration: 0.4 });
+    });
+
+    /* preloader — the page's own sequence, then it holds on the landed mark */
+    var pBox = document.getElementById('ds-preload'), pre = q('.preloader', pBox), pMark = q('.preloader__mark', pBox), pPct = q('.preloader__percent', pBox), pTl;
+    function playPreload() {
+      if (pTl) pTl.kill();
+      var v = { value: 0 };
+      gsap.set(pre, { clipPath: 'inset(0 0 0% 0)' });
+      gsap.set(pMark, { scale: 0.82, opacity: 0 });
+      pPct.textContent = '00';
+      pTl = gsap.timeline()
+        .to(v, { value: 100, duration: 1.5, ease: 'power3.inOut', onUpdate: function () { pPct.textContent = String(Math.round(v.value)).padStart(2, '0'); } })
+        .to(pMark, { scale: 1, opacity: 1, duration: 0.45, ease: 'power3.out' })
+        .to(pre, { clipPath: 'inset(0 0 100% 0)', duration: 0.9, ease: 'power4.inOut' }, '+=0.12')
+        .set(pre, { clipPath: 'inset(0 0 0% 0)' }, '+=0.9');
+    }
+    gsap.set(pMark, { scale: 0.82, opacity: 0 });
+    ScrollTrigger.create({ trigger: pBox, scroller: S, start: 'top 70%', once: true, onEnter: playPreload });
+    document.getElementById('ds-preload-replay').addEventListener('click', playPreload);
+
+    /* rails */
+    gsap.to('#ds-rails .protocol__progress span', { height: '100%', ease: 'none', scrollTrigger: pass('#ds-rails') });
+    gsap.to('#ds-rails .no-formula__rail span', { width: '100%', ease: 'none', scrollTrigger: pass('#ds-rails') });
+
+    /* metrics count-up */
+    qa('#ds-metrics [data-count]').forEach(function (number) {
+      var c = { value: 0 };
+      gsap.to(c, { value: Number(number.dataset.count), duration: 1.4, ease: 'power3.out',
+        scrollTrigger: { trigger: number, scroller: S, start: 'top 90%' },
+        onUpdate: function () { number.textContent = String(Math.round(c.value)).padStart(2, '0'); } });
+    });
+
+    /* protocol */
+    var chapters = qa('#ds-protocol .chapter');
+    gsap.timeline({ scrollTrigger: pass('#ds-protocol') })
+      .to('#ds-protocol .protocol__progress span', { height: '33%', duration: 1 }, 0)
+      .to(chapters[0], { opacity: 0, scale: 0.96, duration: 0.35 }, 0.7)
+      .fromTo(chapters[1], { opacity: 0, xPercent: 8 }, { opacity: 1, xPercent: 0, duration: 0.35 }, 0.82)
+      .fromTo(q('.chapter__media', chapters[1]), { clipPath: 'inset(0 100% 0 0)' }, { clipPath: 'inset(0 0% 0 0)', duration: 0.45 }, 0.78)
+      .to('#ds-protocol .protocol__progress span', { height: '66%', duration: 1 }, 1)
+      .to(chapters[1], { opacity: 0, scale: 0.96, duration: 0.35 }, 1.7)
+      .fromTo(chapters[2], { opacity: 0, xPercent: 8 }, { opacity: 1, xPercent: 0, duration: 0.35 }, 1.82)
+      .fromTo(q('.chapter__media', chapters[2]), { clipPath: 'inset(100% 0 0 0)' }, { clipPath: 'inset(0% 0 0 0)', duration: 0.45 }, 1.78)
+      .to('#ds-protocol .protocol__progress span', { height: '100%', duration: 1 }, 2);
+
+    /* anti-formula */
+    var refusals = qa('#ds-refusal .no-formula__statement'), rf = '#ds-refusal ';
+    gsap.timeline({ scrollTrigger: pass('#ds-refusal') })
+      .to(rf + '.no-formula__rail span', { width: '25%', duration: 0.6 }, 0)
+      .to(rf + '.no-formula__mark', { rotate: -8, scale: 1.03, duration: 0.7 }, 0)
+      .to(refusals[0], { opacity: 0, y: -70, duration: 0.25 }, 0.72)
+      .fromTo(refusals[1], { opacity: 0, y: 70 }, { opacity: 1, y: 0, duration: 0.3 }, 0.82)
+      .to(rf + '.no-formula__rail span', { width: '50%', duration: 0.6 }, 0.75)
+      .to(rf + '.no-formula__mark', { rotate: 5, scale: 0.95, duration: 0.7 }, 0.75)
+      .to(refusals[1], { opacity: 0, y: -70, duration: 0.25 }, 1.55)
+      .fromTo(refusals[2], { opacity: 0, y: 70 }, { opacity: 1, y: 0, duration: 0.3 }, 1.65)
+      .to(rf + '.no-formula__rail span', { width: '75%', duration: 0.6 }, 1.55)
+      .to(rf + '.no-formula__mark', { rotate: -4, scale: 1.07, duration: 0.7 }, 1.55)
+      .to(refusals[2], { opacity: 0, y: -70, duration: 0.25 }, 2.35)
+      .fromTo(refusals[3], { opacity: 0, y: 70 }, { opacity: 1, y: 0, duration: 0.3 }, 2.45)
+      .to(rf + '.no-formula__rail span', { width: '100%', duration: 0.6 }, 2.35)
+      .to(rf + '.no-formula__mark', { rotate: 0, scale: 1, duration: 0.7 }, 2.35);
+
+    /* closing CTA */
+    gsap.from('#ds-cta h2', { yPercent: 60, opacity: 0, ease: 'none', scrollTrigger: { trigger: '#ds-cta', scroller: S, start: 'top bottom', end: 'center center', scrub: true } });
+
+    /* velocity and river */
+    gsap.to('#ds-velocity .velocity__row:first-child', { xPercent: -22, ease: 'none', scrollTrigger: through('#ds-velocity') });
+    gsap.to('#ds-velocity .velocity__row:nth-child(2)', { xPercent: 8, ease: 'none', scrollTrigger: through('#ds-velocity') });
+    gsap.to('#ds-river .text-river__line:nth-child(2)', { xPercent: -24, ease: 'none', scrollTrigger: through('#ds-river') });
+    gsap.to('#ds-river .text-river__line:nth-child(3)', { xPercent: 18, ease: 'none', scrollTrigger: through('#ds-river') });
+    gsap.to('#ds-river .text-river__line:nth-child(4)', { xPercent: -30, ease: 'none', scrollTrigger: through('#ds-river') });
+    gsap.from('#ds-river .text-river__foot > *', { y: 60, opacity: 0, stagger: 0.12, ease: 'power3.out',
+      scrollTrigger: { trigger: '#ds-river .text-river__foot', scroller: S, start: 'top 82%' } });
+
+    /* project track */
+    var track = q('#ds-work .work__track'), workBox = document.getElementById('ds-work');
+    gsap.to(track, { x: function () { return -(track.scrollWidth - workBox.clientWidth); }, ease: 'none',
+      scrollTrigger: { trigger: workBox, scroller: S, start: 'top 75%', end: 'bottom 25%', scrub: 1, invalidateOnRefresh: true } });
+
+    /* capability instrument */
+    gsap.from('#ds-caps .capability', { x: -55, opacity: 0, duration: 0.8, stagger: 0.09, ease: 'power3.out',
+      scrollTrigger: { trigger: '#ds-caps .capabilities__list', scroller: S, start: 'top 78%' } });
+    gsap.to('#ds-caps .capabilities__viewer img', { yPercent: 11, ease: 'none', scrollTrigger: through('#ds-caps .capabilities__viewer') });
+
+    /* living plate */
+    gsap.fromTo('#ds-living img', { scale: 1.08, rotate: -2 }, { scale: 1.18, rotate: 3, ease: 'none', scrollTrigger: through('#ds-living') });
+    gsap.to('#ds-living .living__dial', { rotate: 270, ease: 'none', scrollTrigger: through('#ds-living') });
+  }
+
+  addEventListener('hashchange', route);
+  route();
+})();
+</script>
+</body>
+</html>

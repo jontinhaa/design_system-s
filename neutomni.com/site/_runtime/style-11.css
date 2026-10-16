@@ -1,0 +1,28 @@
+
+      #morphSvg,
+      #morphSvgMobile,
+      #morphLabel,
+      #morphLabelMobile {
+        will-change: transform;
+      }
+
+      #morphLabel {
+        pointer-events: auto;
+        position: relative;
+        z-index: 3;
+      }
+
+      #morphSvg {
+        position: relative;
+        z-index: 1;
+      }
+
+      #morphLabelMobile {
+        pointer-events: none;
+      }
+
+      .trail-clone {
+        will-change: opacity;
+        z-index: 0;
+      }
+    

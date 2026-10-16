@@ -1,0 +1,1455 @@
+{
+ "version": 1,
+ "tool": "wd3 0.1.0",
+ "captureId": "hotelaurelia.online-a9544078",
+ "capturedAt": "2026-10-14T17:01:16+00:00",
+ "entry": {
+  "url": "https://hotelaurelia.online/",
+  "path": "/",
+  "search": "",
+  "file": "site/hotelaurelia.online/index.html",
+  "contentType": "text/html; charset=utf-8"
+ },
+ "blocked": [
+  "^https?://([^/?#]+\\.)?(google\\-analytics\\.com|analytics\\.google\\.com|googletagmanager\\.com|googleadservices\\.com|doubleclick\\.net|googlesyndication\\.com|googleoptimize\\.com|connect\\.facebook\\.net|bat\\.bing\\.com|snap\\.licdn\\.com|px\\.ads\\.linkedin\\.com|analytics\\.tiktok\\.com|ct\\.pinterest\\.com|static\\.ads\\-twitter\\.com|analytics\\.twitter\\.com|tr\\.snapchat\\.com|sc\\-static\\.net|mc\\.yandex\\.ru|hotjar\\.com|hotjar\\.io|clarity\\.ms|cdn\\.segment\\.com|api\\.segment\\.io|cdn\\.mxpnl\\.com|api\\-js\\.mixpanel\\.com|api\\.mixpanel\\.com|api\\.amplitude\\.com|api2\\.amplitude\\.com|api\\-secure\\.amplitude\\.com|api\\-sr\\.amplitude\\.com|sr\\-client\\-cfg\\.amplitude\\.com|plausible\\.io|cloud\\.umami\\.is|analytics\\.umami\\.is|static\\.cloudflareinsights\\.com|cloudflareinsights\\.com|vitals\\.vercel\\-insights\\.com|browser\\-intake\\-datadoghq\\.com|browser\\-intake\\-datadoghq\\.eu|js\\-agent\\.newrelic\\.com|bam\\.nr\\-data\\.net|bam\\-cell\\.nr\\-data\\.net|fullstory\\.com|script\\.crazyegg\\.com|mouseflow\\.com|smartlook\\.com|heapanalytics\\.com|i\\.posthog\\.com|stats\\.wp\\.com|pixel\\.wp\\.com|promotekit\\.com|ingest\\.sentry\\.io|ingest\\.us\\.sentry\\.io|ingest\\.de\\.sentry\\.io|widget\\.intercom\\.io|js\\.intercomcdn\\.com|api\\-iam\\.intercom\\.io|js\\.hs\\-scripts\\.com|js\\.hs\\-analytics\\.net|js\\.hs\\-banner\\.com|js\\.hscollectedforms\\.net|js\\.usemessages\\.com|track\\.hubspot\\.com|client\\.crisp\\.chat|embed\\.tawk\\.to|js\\.driftt\\.com|static\\.zdassets\\.com|ekr\\.zdassets\\.com|cdn\\.cookielaw\\.org|geolocation\\.onetrust\\.com|consent\\.cookiebot\\.com|consentcdn\\.cookiebot\\.com|app\\.usercentrics\\.eu|api\\.usercentrics\\.eu|cdn\\.iubenda\\.com|cmp\\.osano\\.com|cdn\\.termly\\.io)(:\\d+)?([/?#]|$)",
+  "/rpc/increment_shared_code_views",
+  "^https?://(umami|analytics|stats|plausible)\\.[^/]+/(api/send|api/collect|api/event|script\\.js)",
+  "/g/c(ollect)?\\?v=2&",
+  "sentry\\.io/api/\\d+/(envelope|store)",
+  "/api/meta-capi",
+  "^https?://(leadtracker|tracking|track|events?|collect)\\.[^/]+/",
+  "^https?://a\\.vturb\\.com/",
+  "facebook\\.com/tr[/?]",
+  "/_vercel/(speed-)?insights/",
+  "/cdn-cgi/rum",
+  "/cdn-cgi/challenge-platform/",
+  "google\\.com/(pagead|ads)/"
+ ],
+ "volatileParams": [
+  "v",
+  "_rsc",
+  "dpl",
+  "_",
+  "t",
+  "ts",
+  "timestamp",
+  "cb",
+  "cachebust",
+  "cacheBust",
+  "nocache",
+  "rnd",
+  "rand",
+  "random",
+  "_t"
+ ],
+ "entries": [
+  {
+   "url": "https://hotelaurelia.online/",
+   "method": "GET",
+   "status": 200,
+   "contentType": "text/html; charset=utf-8",
+   "headers": {
+    "content-type": "text/html; charset=utf-8",
+    "referrer-policy": "strict-origin-when-cross-origin",
+    "x-deployment-id": "psr2.bd3d9034-1d29-4f1d-bec0-6dc95665f59d.1792602076.SVRus7buzYCKosyWa4E3SIZLt9fY_quvMbIm8fP2sWg"
+   },
+   "resourceType": "document",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "file": "site/hotelaurelia.online/index.html",
+   "size": 6429,
+   "modes": [
+    "navigate"
+   ]
+  },
+  {
+   "url": "https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&display=swap",
+   "method": "GET",
+   "status": 200,
+   "contentType": "text/css; charset=utf-8",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "content-type": "text/css; charset=utf-8",
+    "link": "<https://fonts.gstatic.com>; rel=preconnect; crossorigin",
+    "timing-allow-origin": "*"
+   },
+   "resourceType": "stylesheet",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "file": "site/fonts.googleapis.com/css2__qdc6068da.css",
+   "size": 2562,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://hotelaurelia.online/~flock.js",
+   "method": "GET",
+   "status": 200,
+   "contentType": "text/javascript; charset=utf-8",
+   "headers": {
+    "content-type": "text/javascript; charset=utf-8",
+    "referrer-policy": "strict-origin-when-cross-origin"
+   },
+   "resourceType": "script",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "file": "site/hotelaurelia.online/~flock.js",
+   "size": 21296,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://hotelaurelia.online/__l5e/events.124894084da8c432.js",
+   "method": "GET",
+   "status": 200,
+   "contentType": "application/javascript; charset=utf-8",
+   "headers": {
+    "content-type": "application/javascript; charset=utf-8",
+    "referrer-policy": "strict-origin-when-cross-origin"
+   },
+   "resourceType": "script",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "file": "site/hotelaurelia.online/__l5e/events.124894084da8c432.js",
+   "size": 25469,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://hotelaurelia.online/assets/main-BxjOK7DJ.css",
+   "method": "GET",
+   "status": 200,
+   "contentType": "text/css; charset=utf-8",
+   "headers": {
+    "content-type": "text/css; charset=utf-8",
+    "referrer-policy": "strict-origin-when-cross-origin",
+    "x-deployment-id": "psr2.bd3d9034-1d29-4f1d-bec0-6dc95665f59d.1792602077.tzywT3JyG6rBX_1eAzVMS03q3gQdIzdHgBIhDGUCq_Y"
+   },
+   "resourceType": "stylesheet",
+   "passes": [
+    "mobile",
+    "desktop"
+   ],
+   "file": "site/hotelaurelia.online/assets/main-BxjOK7DJ.css",
+   "size": 137440,
+   "modes": [
+    "cors"
+   ]
+  },
+  {
+   "url": "https://fonts.googleapis.com/css2?family=Satisfy&display=swap",
+   "method": "GET",
+   "status": 200,
+   "contentType": "text/css; charset=utf-8",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "content-type": "text/css; charset=utf-8",
+    "link": "<https://fonts.gstatic.com>; rel=preconnect; crossorigin",
+    "timing-allow-origin": "*"
+   },
+   "resourceType": "stylesheet",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "file": "site/fonts.googleapis.com/css2__q2af116f1.css",
+   "size": 409,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap",
+   "method": "GET",
+   "status": 200,
+   "contentType": "text/css; charset=utf-8",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "content-type": "text/css; charset=utf-8",
+    "timing-allow-origin": "*"
+   },
+   "resourceType": "stylesheet",
+   "passes": [
+    "mobile",
+    "desktop"
+   ],
+   "file": "site/fonts.googleapis.com/css2__q890c3841.css",
+   "size": 5220,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://fonts.googleapis.com/css2?family=Raleway:wght@300;400;500;600;700&family=Oswald:wght@400;500;600;700&display=swap",
+   "method": "GET",
+   "status": 200,
+   "contentType": "text/css; charset=utf-8",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "content-type": "text/css; charset=utf-8",
+    "link": "<https://fonts.gstatic.com>; rel=preconnect; crossorigin",
+    "timing-allow-origin": "*"
+   },
+   "resourceType": "stylesheet",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "file": "site/fonts.googleapis.com/css2__qe1532e91.css",
+   "size": 17414,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://hotelaurelia.online/assets/main-GxhXVsj2.js",
+   "method": "GET",
+   "status": 200,
+   "contentType": "text/javascript; charset=utf-8",
+   "headers": {
+    "content-type": "text/javascript; charset=utf-8",
+    "referrer-policy": "strict-origin-when-cross-origin",
+    "x-deployment-id": "psr2.bd3d9034-1d29-4f1d-bec0-6dc95665f59d.1792602077.tzywT3JyG6rBX_1eAzVMS03q3gQdIzdHgBIhDGUCq_Y"
+   },
+   "resourceType": "script",
+   "passes": [
+    "mobile",
+    "desktop"
+   ],
+   "file": "site/hotelaurelia.online/assets/main-GxhXVsj2.js",
+   "size": 697734,
+   "modes": [
+    "cors"
+   ]
+  },
+  {
+   "url": "https://hotelaurelia.online/__l5e/assets-v1/66012dc9-d9a7-4b32-9510-5fa4c7b21008/BerlingskeSerif-Regular.ttf",
+   "method": "GET",
+   "status": 200,
+   "contentType": "font/ttf",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "content-type": "font/ttf",
+    "referrer-policy": "strict-origin-when-cross-origin"
+   },
+   "resourceType": "font",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "file": "site/hotelaurelia.online/__l5e/assets-v1/66012dc9-d9a7-4b32-9510-5fa4c7b21008/BerlingskeSerif-Regular.ttf",
+   "size": 394972,
+   "modes": [
+    "cors"
+   ]
+  },
+  {
+   "url": "https://fonts.gstatic.com/s/raleway/v37/1Ptug8zYS_SKggPNyC0IT4ttDfA.woff2",
+   "method": "GET",
+   "status": 200,
+   "contentType": "font/woff2",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "content-type": "font/woff2",
+    "timing-allow-origin": "*"
+   },
+   "resourceType": "font",
+   "passes": [
+    "mobile",
+    "desktop"
+   ],
+   "file": "site/fonts.gstatic.com/s/raleway/v37/1Ptug8zYS_SKggPNyC0IT4ttDfA.woff2",
+   "size": 43120,
+   "modes": [
+    "cors"
+   ]
+  },
+  {
+   "url": "https://fonts.gstatic.com/s/raleway/v37/1Ptug8zYS_SKggPNyCMIT4ttDfCmxA.woff2",
+   "method": "GET",
+   "status": 200,
+   "contentType": "font/woff2",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "content-type": "font/woff2",
+    "timing-allow-origin": "*"
+   },
+   "resourceType": "font",
+   "passes": [
+    "mobile",
+    "desktop"
+   ],
+   "file": "site/fonts.gstatic.com/s/raleway/v37/1Ptug8zYS_SKggPNyCMIT4ttDfCmxA.woff2",
+   "size": 26520,
+   "modes": [
+    "cors"
+   ]
+  },
+  {
+   "url": "https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&display=swap",
+   "method": "GET",
+   "status": 200,
+   "contentType": "text/css; charset=utf-8",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "content-type": "text/css; charset=utf-8",
+    "timing-allow-origin": "*"
+   },
+   "resourceType": "stylesheet",
+   "passes": [
+    "mobile",
+    "desktop"
+   ],
+   "file": "site/fonts.googleapis.com/css2__q6a1786ed.css",
+   "size": 16392,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://fonts.googleapis.com/css2?family=Raleway:wght@300;400;500;600;700&display=swap",
+   "method": "GET",
+   "status": 200,
+   "contentType": "text/css; charset=utf-8",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "content-type": "text/css; charset=utf-8",
+    "timing-allow-origin": "*"
+   },
+   "resourceType": "stylesheet",
+   "passes": [
+    "mobile",
+    "desktop"
+   ],
+   "file": "site/fonts.googleapis.com/css2__q2fe249d3.css",
+   "size": 9330,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://fonts.gstatic.com/s/cormorantgaramond/v21/co3bmX5slCNuHLi8bLeY9MK7whWMhyjYqXtKky2F7g.woff2",
+   "method": "GET",
+   "status": 200,
+   "contentType": "font/woff2",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "content-type": "font/woff2",
+    "timing-allow-origin": "*"
+   },
+   "resourceType": "font",
+   "passes": [
+    "mobile",
+    "desktop"
+   ],
+   "file": "site/fonts.gstatic.com/s/cormorantgaramond/v21/co3bmX5slCNuHLi8bLeY9MK7whWMhyjYqXtKky2F7g.woff2",
+   "size": 37776,
+   "modes": [
+    "cors"
+   ]
+  },
+  {
+   "url": "https://fonts.gstatic.com/s/cormorantgaramond/v21/co3ZmX5slCNuHLi8bLeY9MK7whWMhyjYrEtImSqn7B6D.woff2",
+   "method": "GET",
+   "status": 200,
+   "contentType": "font/woff2",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "content-type": "font/woff2",
+    "timing-allow-origin": "*"
+   },
+   "resourceType": "font",
+   "passes": [
+    "mobile",
+    "desktop"
+   ],
+   "file": "site/fonts.gstatic.com/s/cormorantgaramond/v21/co3ZmX5slCNuHLi8bLeY9MK7whWMhyjYrEtImSqn7B6D.woff2",
+   "size": 39304,
+   "modes": [
+    "cors"
+   ]
+  },
+  {
+   "url": "https://fonts.gstatic.com/s/cormorantgaramond/v21/co3bmX5slCNuHLi8bLeY9MK7whWMhyjYp3tKky2F7i6C.woff2",
+   "method": "GET",
+   "status": 200,
+   "contentType": "font/woff2",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "content-type": "font/woff2",
+    "timing-allow-origin": "*"
+   },
+   "resourceType": "font",
+   "passes": [
+    "mobile",
+    "desktop"
+   ],
+   "file": "site/fonts.gstatic.com/s/cormorantgaramond/v21/co3bmX5slCNuHLi8bLeY9MK7whWMhyjYp3tKky2F7i6C.woff2",
+   "size": 33740,
+   "modes": [
+    "cors"
+   ]
+  },
+  {
+   "url": "https://fonts.gstatic.com/s/cormorantgaramond/v21/co3ZmX5slCNuHLi8bLeY9MK7whWMhyjYrEtGmSqn7B6DxjY.woff2",
+   "method": "GET",
+   "status": 200,
+   "contentType": "font/woff2",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "content-type": "font/woff2",
+    "timing-allow-origin": "*"
+   },
+   "resourceType": "font",
+   "passes": [
+    "mobile",
+    "desktop"
+   ],
+   "file": "site/fonts.gstatic.com/s/cormorantgaramond/v21/co3ZmX5slCNuHLi8bLeY9MK7whWMhyjYrEtGmSqn7B6DxjY.woff2",
+   "size": 34444,
+   "modes": [
+    "cors"
+   ]
+  },
+  {
+   "url": "https://hotelaurelia.online/assets/room-suite-2-_2ghJZTC.jpg",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/jpeg",
+   "headers": {
+    "content-type": "image/jpeg",
+    "referrer-policy": "strict-origin-when-cross-origin",
+    "x-deployment-id": "psr2.bd3d9034-1d29-4f1d-bec0-6dc95665f59d.1792602077.tzywT3JyG6rBX_1eAzVMS03q3gQdIzdHgBIhDGUCq_Y"
+   },
+   "resourceType": "image",
+   "passes": [
+    "mobile",
+    "desktop"
+   ],
+   "file": "site/hotelaurelia.online/assets/room-suite-2-_2ghJZTC.jpg",
+   "size": 187096,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://hotelaurelia.online/assets/room-suite-7j8DzjHe.jpg",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/jpeg",
+   "headers": {
+    "content-type": "image/jpeg",
+    "referrer-policy": "strict-origin-when-cross-origin",
+    "x-deployment-id": "psr2.bd3d9034-1d29-4f1d-bec0-6dc95665f59d.1792602077.tzywT3JyG6rBX_1eAzVMS03q3gQdIzdHgBIhDGUCq_Y"
+   },
+   "resourceType": "image",
+   "passes": [
+    "mobile",
+    "desktop"
+   ],
+   "file": "site/hotelaurelia.online/assets/room-suite-7j8DzjHe.jpg",
+   "size": 189149,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://hotelaurelia.online/assets/logo-2-BJ2navQv.svg",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/svg+xml",
+   "headers": {
+    "content-type": "image/svg+xml",
+    "referrer-policy": "strict-origin-when-cross-origin",
+    "x-deployment-id": "psr2.bd3d9034-1d29-4f1d-bec0-6dc95665f59d.1792602077.tzywT3JyG6rBX_1eAzVMS03q3gQdIzdHgBIhDGUCq_Y"
+   },
+   "resourceType": "image",
+   "passes": [
+    "mobile",
+    "desktop"
+   ],
+   "file": "site/hotelaurelia.online/assets/logo-2-BJ2navQv.svg",
+   "size": 47184,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://hotelaurelia.online/assets/room-suite-3-Cj2qPVbV.jpg",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/jpeg",
+   "headers": {
+    "content-type": "image/jpeg",
+    "referrer-policy": "strict-origin-when-cross-origin",
+    "x-deployment-id": "psr2.bd3d9034-1d29-4f1d-bec0-6dc95665f59d.1792602077.tzywT3JyG6rBX_1eAzVMS03q3gQdIzdHgBIhDGUCq_Y"
+   },
+   "resourceType": "image",
+   "passes": [
+    "mobile",
+    "desktop"
+   ],
+   "file": "site/hotelaurelia.online/assets/room-suite-3-Cj2qPVbV.jpg",
+   "size": 283227,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://hotelaurelia.online/__l5e/trackevents",
+   "method": "POST",
+   "status": 202,
+   "contentType": "application/json",
+   "headers": {
+    "content-type": "application/json",
+    "referrer-policy": "strict-origin-when-cross-origin"
+   },
+   "resourceType": "fetch",
+   "passes": [
+    "mobile"
+   ],
+   "file": "site/hotelaurelia.online/__l5e/trackevents__postb3b784a3.json",
+   "size": 17,
+   "bodyHash": "b3b784a38c3b4991318be3f77960151eb07757b72118c6f0a00223dccf471a10"
+  },
+  {
+   "url": "https://hotelaurelia.online/assets/winter-hero-BJwhNELS.jpg",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/jpeg",
+   "headers": {
+    "content-type": "image/jpeg",
+    "referrer-policy": "strict-origin-when-cross-origin",
+    "x-deployment-id": "psr2.bd3d9034-1d29-4f1d-bec0-6dc95665f59d.1792602077.tzywT3JyG6rBX_1eAzVMS03q3gQdIzdHgBIhDGUCq_Y"
+   },
+   "resourceType": "image",
+   "passes": [
+    "mobile",
+    "desktop"
+   ],
+   "file": "site/hotelaurelia.online/assets/winter-hero-BJwhNELS.jpg",
+   "size": 363383,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://hotelaurelia.online/__l5e/assets-v1/68b702ac-6d0b-4a1a-9629-32740385fc54/BerlingskeSerif-SemiBold.ttf",
+   "method": "GET",
+   "status": 200,
+   "contentType": "font/ttf",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "content-type": "font/ttf",
+    "referrer-policy": "strict-origin-when-cross-origin"
+   },
+   "resourceType": "font",
+   "passes": [
+    "mobile",
+    "desktop"
+   ],
+   "file": "site/hotelaurelia.online/__l5e/assets-v1/68b702ac-6d0b-4a1a-9629-32740385fc54/BerlingskeSerif-SemiBold.ttf",
+   "size": 407772,
+   "modes": [
+    "cors"
+   ]
+  },
+  {
+   "url": "https://hotelaurelia.online/__l5e/assets-v1/83c3f24b-0f15-48ef-9ed6-8c9846682073/BerlingskeSerif-Italic.ttf",
+   "method": "GET",
+   "status": 200,
+   "contentType": "font/ttf",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "content-type": "font/ttf",
+    "referrer-policy": "strict-origin-when-cross-origin"
+   },
+   "resourceType": "font",
+   "passes": [
+    "mobile",
+    "desktop"
+   ],
+   "file": "site/hotelaurelia.online/__l5e/assets-v1/83c3f24b-0f15-48ef-9ed6-8c9846682073/BerlingskeSerif-Italic.ttf",
+   "size": 443872,
+   "modes": [
+    "cors"
+   ]
+  },
+  {
+   "url": "https://archive.org/download/DebussyClairDeLunefrankl/2-15Debussy_SuiteBergamasqueL75-3.ClairDeLune.mp3",
+   "method": "GET",
+   "status": 302,
+   "contentType": "text/html; charset=UTF-8",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "content-type": "text/html; charset=UTF-8",
+    "location": "https://dn711101.ca.archive.org/0/items/DebussyClairDeLunefrankl/2-15Debussy_SuiteBergamasqueL75-3.ClairDeLune.mp3",
+    "onion-location": "https://archivep75mbjunhxc6x4j5mwjmomyxb573v42baldlqu56ruil2oiad.onion/download/DebussyClairDeLunefrankl/2-15Debussy_SuiteBergamasqueL75-3.ClairDeLune.mp3",
+    "x-fastcgi-cache": "MISS"
+   },
+   "resourceType": "media",
+   "passes": [
+    "mobile",
+    "desktop"
+   ],
+   "size": 0,
+   "redirect": "https://dn711101.ca.archive.org/0/items/DebussyClairDeLunefrankl/2-15Debussy_SuiteBergamasqueL75-3.ClairDeLune.mp3",
+   "modes": [
+    "cors"
+   ]
+  },
+  {
+   "url": "https://hotelaurelia.online/__l5e/assets-v1/633ad6c8-ebb4-49e8-b043-8d0f00555b99/LaGraziela.otf",
+   "method": "GET",
+   "status": 200,
+   "contentType": "font/otf",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "content-type": "font/otf",
+    "referrer-policy": "strict-origin-when-cross-origin"
+   },
+   "resourceType": "font",
+   "passes": [
+    "mobile",
+    "desktop"
+   ],
+   "file": "site/hotelaurelia.online/__l5e/assets-v1/633ad6c8-ebb4-49e8-b043-8d0f00555b99/LaGraziela.otf",
+   "size": 22476,
+   "modes": [
+    "cors"
+   ]
+  },
+  {
+   "url": "https://hotelaurelia.online/__l5e/assets-v1/98d58a17-469b-4a5c-b65a-e4d9a1646352/BerlingskeSerif-Md.ttf",
+   "method": "GET",
+   "status": 200,
+   "contentType": "font/ttf",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "content-type": "font/ttf",
+    "referrer-policy": "strict-origin-when-cross-origin"
+   },
+   "resourceType": "font",
+   "passes": [
+    "mobile",
+    "desktop"
+   ],
+   "file": "site/hotelaurelia.online/__l5e/assets-v1/98d58a17-469b-4a5c-b65a-e4d9a1646352/BerlingskeSerif-Md.ttf",
+   "size": 406340,
+   "modes": [
+    "cors"
+   ]
+  },
+  {
+   "url": "https://hotelaurelia.online/assets/about-statue-BcedsHLh.jpg",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/jpeg",
+   "headers": {
+    "content-type": "image/jpeg",
+    "referrer-policy": "strict-origin-when-cross-origin",
+    "x-deployment-id": "psr2.bd3d9034-1d29-4f1d-bec0-6dc95665f59d.1792602077.tzywT3JyG6rBX_1eAzVMS03q3gQdIzdHgBIhDGUCq_Y"
+   },
+   "resourceType": "image",
+   "passes": [
+    "desktop"
+   ],
+   "file": "site/hotelaurelia.online/assets/about-statue-BcedsHLh.jpg",
+   "size": 121599,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://hotelaurelia.online/__l5e/trackevents",
+   "method": "POST",
+   "status": 202,
+   "contentType": "application/json",
+   "headers": {
+    "content-type": "application/json",
+    "referrer-policy": "strict-origin-when-cross-origin"
+   },
+   "resourceType": "fetch",
+   "passes": [
+    "desktop"
+   ],
+   "file": "site/hotelaurelia.online/__l5e/trackevents__post5fc3d25b.json",
+   "size": 17,
+   "bodyHash": "5fc3d25b5ae15141e97b004301efb4ffda74d5d6459428ac9c7a0bab4a296bb9"
+  },
+  {
+   "url": "https://hotelaurelia.online/favicon.png",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/png",
+   "headers": {
+    "content-type": "image/png",
+    "referrer-policy": "strict-origin-when-cross-origin",
+    "x-deployment-id": "psr2.bd3d9034-1d29-4f1d-bec0-6dc95665f59d.1792602078.jDPjwM8awAkpUoRVukegdAaCVNZ_3nnC0zTC0exF4r0"
+   },
+   "resourceType": "other",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "file": "site/hotelaurelia.online/favicon.png",
+   "size": 7607,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://hotelaurelia.online/__l5e/assets-v1/0cc844c6-05ec-4c36-a1d7-cd4c96da2b2d/BerlingskeSerif-Lt.ttf",
+   "method": "GET",
+   "status": 200,
+   "contentType": "font/ttf",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "content-type": "font/ttf",
+    "referrer-policy": "strict-origin-when-cross-origin"
+   },
+   "resourceType": "font",
+   "passes": [
+    "mobile",
+    "desktop"
+   ],
+   "file": "site/hotelaurelia.online/__l5e/assets-v1/0cc844c6-05ec-4c36-a1d7-cd4c96da2b2d/BerlingskeSerif-Lt.ttf",
+   "size": 413040,
+   "modes": [
+    "cors"
+   ]
+  },
+  {
+   "url": "https://hotelaurelia.online/assets/about-right-DCJByTLE.jpg",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/jpeg",
+   "headers": {
+    "content-type": "image/jpeg",
+    "referrer-policy": "strict-origin-when-cross-origin",
+    "x-deployment-id": "psr2.bd3d9034-1d29-4f1d-bec0-6dc95665f59d.1792602078.jDPjwM8awAkpUoRVukegdAaCVNZ_3nnC0zTC0exF4r0"
+   },
+   "resourceType": "image",
+   "passes": [
+    "desktop"
+   ],
+   "file": "site/hotelaurelia.online/assets/about-right-DCJByTLE.jpg",
+   "size": 221783,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://hotelaurelia.online/__l5e/assets-v1/185d8e37-cf44-4381-9e29-ade38a1c2ac8/gold-birds-trio.png",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/png",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "content-type": "image/png",
+    "referrer-policy": "strict-origin-when-cross-origin"
+   },
+   "resourceType": "image",
+   "passes": [
+    "mobile",
+    "desktop"
+   ],
+   "file": "site/hotelaurelia.online/__l5e/assets-v1/185d8e37-cf44-4381-9e29-ade38a1c2ac8/gold-birds-trio.png",
+   "size": 178674,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://hotelaurelia.online/__l5e/trackevents",
+   "method": "POST",
+   "status": 202,
+   "contentType": "application/json",
+   "headers": {
+    "content-type": "application/json",
+    "referrer-policy": "strict-origin-when-cross-origin"
+   },
+   "resourceType": "fetch",
+   "passes": [
+    "mobile"
+   ],
+   "file": "site/hotelaurelia.online/__l5e/trackevents__postd3e49756.json",
+   "size": 17,
+   "bodyHash": "d3e4975683063470269bb54ef67d981f53ba154908ed74360b34de32f5dbf280"
+  },
+  {
+   "url": "https://hotelaurelia.online/__l5e/trackevents",
+   "method": "POST",
+   "status": 202,
+   "contentType": "application/json",
+   "headers": {
+    "content-type": "application/json",
+    "referrer-policy": "strict-origin-when-cross-origin"
+   },
+   "resourceType": "fetch",
+   "passes": [
+    "desktop"
+   ],
+   "file": "site/hotelaurelia.online/__l5e/trackevents__post2f5f6cbd.json",
+   "size": 17,
+   "bodyHash": "2f5f6cbd6277d843dfe6344b35877e2de0ec4ed2d4df79e3c4ebab64c206bbf9"
+  },
+  {
+   "url": "https://hotelaurelia.online/assets/exp-concert-C-WUMX8O.jpg",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/jpeg",
+   "headers": {
+    "content-type": "image/jpeg",
+    "referrer-policy": "strict-origin-when-cross-origin",
+    "x-deployment-id": "psr2.bd3d9034-1d29-4f1d-bec0-6dc95665f59d.1792602087.NBlc6A_Zwvi5cOWYPqu01YRbda0APbIhGsv2doT6zHU"
+   },
+   "resourceType": "image",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "file": "site/hotelaurelia.online/assets/exp-concert-C-WUMX8O.jpg",
+   "size": 100055,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://hotelaurelia.online/assets/exp-yacht-CzP2w3mU.jpg",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/jpeg",
+   "headers": {
+    "content-type": "image/jpeg",
+    "referrer-policy": "strict-origin-when-cross-origin",
+    "x-deployment-id": "psr2.bd3d9034-1d29-4f1d-bec0-6dc95665f59d.1792602087.NBlc6A_Zwvi5cOWYPqu01YRbda0APbIhGsv2doT6zHU"
+   },
+   "resourceType": "image",
+   "passes": [
+    "desktop"
+   ],
+   "file": "site/hotelaurelia.online/assets/exp-yacht-CzP2w3mU.jpg",
+   "size": 221026,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://hotelaurelia.online/assets/resort-palms-6wCUYnQs.jpg",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/jpeg",
+   "headers": {
+    "content-type": "image/jpeg",
+    "referrer-policy": "strict-origin-when-cross-origin",
+    "x-deployment-id": "psr2.bd3d9034-1d29-4f1d-bec0-6dc95665f59d.1792602087.NBlc6A_Zwvi5cOWYPqu01YRbda0APbIhGsv2doT6zHU"
+   },
+   "resourceType": "image",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "file": "site/hotelaurelia.online/assets/resort-palms-6wCUYnQs.jpg",
+   "size": 131194,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://hotelaurelia.online/assets/exp-yoga-BrOOiUH_.jpg",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/jpeg",
+   "headers": {
+    "content-type": "image/jpeg",
+    "referrer-policy": "strict-origin-when-cross-origin",
+    "x-deployment-id": "psr2.bd3d9034-1d29-4f1d-bec0-6dc95665f59d.1792602088.2CB5kBiGXPLlj-M4Qc1niY2Whuabgb8qShJpm79ucc8"
+   },
+   "resourceType": "image",
+   "passes": [
+    "desktop"
+   ],
+   "file": "site/hotelaurelia.online/assets/exp-yoga-BrOOiUH_.jpg",
+   "size": 180919,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://hotelaurelia.online/assets/exp-golf-Dj-Pc4dt.jpg",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/jpeg",
+   "headers": {
+    "content-type": "image/jpeg",
+    "referrer-policy": "strict-origin-when-cross-origin",
+    "x-deployment-id": "psr2.bd3d9034-1d29-4f1d-bec0-6dc95665f59d.1792602087.NBlc6A_Zwvi5cOWYPqu01YRbda0APbIhGsv2doT6zHU"
+   },
+   "resourceType": "image",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "file": "site/hotelaurelia.online/assets/exp-golf-Dj-Pc4dt.jpg",
+   "size": 151132,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://hotelaurelia.online/assets/dine-terrace-CuCnT2z7.jpg",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/jpeg",
+   "headers": {
+    "content-type": "image/jpeg",
+    "referrer-policy": "strict-origin-when-cross-origin",
+    "x-deployment-id": "psr2.bd3d9034-1d29-4f1d-bec0-6dc95665f59d.1792602088.2CB5kBiGXPLlj-M4Qc1niY2Whuabgb8qShJpm79ucc8"
+   },
+   "resourceType": "image",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "file": "site/hotelaurelia.online/assets/dine-terrace-CuCnT2z7.jpg",
+   "size": 304937,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://hotelaurelia.online/assets/exp-tea-BcJibo4b.jpg",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/jpeg",
+   "headers": {
+    "content-type": "image/jpeg",
+    "referrer-policy": "strict-origin-when-cross-origin",
+    "x-deployment-id": "psr2.bd3d9034-1d29-4f1d-bec0-6dc95665f59d.1792602087.NBlc6A_Zwvi5cOWYPqu01YRbda0APbIhGsv2doT6zHU"
+   },
+   "resourceType": "image",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "file": "site/hotelaurelia.online/assets/exp-tea-BcJibo4b.jpg",
+   "size": 186806,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://hotelaurelia.online/assets/exp-bar-nFi0vbEM.jpg",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/jpeg",
+   "headers": {
+    "content-type": "image/jpeg",
+    "referrer-policy": "strict-origin-when-cross-origin",
+    "x-deployment-id": "psr2.bd3d9034-1d29-4f1d-bec0-6dc95665f59d.1792602087.NBlc6A_Zwvi5cOWYPqu01YRbda0APbIhGsv2doT6zHU"
+   },
+   "resourceType": "image",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "file": "site/hotelaurelia.online/assets/exp-bar-nFi0vbEM.jpg",
+   "size": 178426,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://hotelaurelia.online/assets/exp-spa-CgLGEpDS.jpg",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/jpeg",
+   "headers": {
+    "content-type": "image/jpeg",
+    "referrer-policy": "strict-origin-when-cross-origin",
+    "x-deployment-id": "psr2.bd3d9034-1d29-4f1d-bec0-6dc95665f59d.1792602088.2CB5kBiGXPLlj-M4Qc1niY2Whuabgb8qShJpm79ucc8"
+   },
+   "resourceType": "image",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "file": "site/hotelaurelia.online/assets/exp-spa-CgLGEpDS.jpg",
+   "size": 103790,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://hotelaurelia.online/assets/resort-dining-C6nRt_iY.jpg",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/jpeg",
+   "headers": {
+    "content-type": "image/jpeg",
+    "referrer-policy": "strict-origin-when-cross-origin",
+    "x-deployment-id": "psr2.bd3d9034-1d29-4f1d-bec0-6dc95665f59d.1792602088.2CB5kBiGXPLlj-M4Qc1niY2Whuabgb8qShJpm79ucc8"
+   },
+   "resourceType": "image",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "file": "site/hotelaurelia.online/assets/resort-dining-C6nRt_iY.jpg",
+   "size": 163304,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://hotelaurelia.online/assets/exp-dining-DP-v43ZF.jpg",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/jpeg",
+   "headers": {
+    "content-type": "image/jpeg",
+    "referrer-policy": "strict-origin-when-cross-origin",
+    "x-deployment-id": "psr2.bd3d9034-1d29-4f1d-bec0-6dc95665f59d.1792602087.NBlc6A_Zwvi5cOWYPqu01YRbda0APbIhGsv2doT6zHU"
+   },
+   "resourceType": "image",
+   "passes": [
+    "desktop"
+   ],
+   "file": "site/hotelaurelia.online/assets/exp-dining-DP-v43ZF.jpg",
+   "size": 132143,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://hotelaurelia.online/assets/resort-spa-CKO-a6wB.jpg",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/jpeg",
+   "headers": {
+    "content-type": "image/jpeg",
+    "referrer-policy": "strict-origin-when-cross-origin",
+    "x-deployment-id": "psr2.bd3d9034-1d29-4f1d-bec0-6dc95665f59d.1792602087.NBlc6A_Zwvi5cOWYPqu01YRbda0APbIhGsv2doT6zHU"
+   },
+   "resourceType": "image",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "file": "site/hotelaurelia.online/assets/resort-spa-CKO-a6wB.jpg",
+   "size": 129752,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://hotelaurelia.online/assets/exp-pool-D--_eOSh.jpg",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/jpeg",
+   "headers": {
+    "content-type": "image/jpeg",
+    "referrer-policy": "strict-origin-when-cross-origin",
+    "x-deployment-id": "psr2.bd3d9034-1d29-4f1d-bec0-6dc95665f59d.1792602087.NBlc6A_Zwvi5cOWYPqu01YRbda0APbIhGsv2doT6zHU"
+   },
+   "resourceType": "image",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "file": "site/hotelaurelia.online/assets/exp-pool-D--_eOSh.jpg",
+   "size": 151381,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://hotelaurelia.online/__l5e/assets-v1/f6da8b7f-0527-464c-90c5-34653afe9f30/wedding-couple.png",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/png",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "content-type": "image/png",
+    "referrer-policy": "strict-origin-when-cross-origin"
+   },
+   "resourceType": "image",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "file": "site/hotelaurelia.online/__l5e/assets-v1/f6da8b7f-0527-464c-90c5-34653afe9f30/wedding-couple.png",
+   "size": 2553894,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://hotelaurelia.online/assets/resort-pool-NhBNm_56.jpg",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/jpeg",
+   "headers": {
+    "content-type": "image/jpeg",
+    "referrer-policy": "strict-origin-when-cross-origin",
+    "x-deployment-id": "psr2.bd3d9034-1d29-4f1d-bec0-6dc95665f59d.1792602088.2CB5kBiGXPLlj-M4Qc1niY2Whuabgb8qShJpm79ucc8"
+   },
+   "resourceType": "image",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "file": "site/hotelaurelia.online/assets/resort-pool-NhBNm_56.jpg",
+   "size": 266238,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://hotelaurelia.online/assets/dine-bar-CmeVLShz.jpg",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/jpeg",
+   "headers": {
+    "content-type": "image/jpeg",
+    "referrer-policy": "strict-origin-when-cross-origin",
+    "x-deployment-id": "psr2.bd3d9034-1d29-4f1d-bec0-6dc95665f59d.1792602088.2CB5kBiGXPLlj-M4Qc1niY2Whuabgb8qShJpm79ucc8"
+   },
+   "resourceType": "image",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "file": "site/hotelaurelia.online/assets/dine-bar-CmeVLShz.jpg",
+   "size": 308926,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://hotelaurelia.online/assets/dine-tea-detail-BeP3X8Ew.jpg",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/jpeg",
+   "headers": {
+    "content-type": "image/jpeg",
+    "referrer-policy": "strict-origin-when-cross-origin",
+    "x-deployment-id": "psr2.bd3d9034-1d29-4f1d-bec0-6dc95665f59d.1792602087.NBlc6A_Zwvi5cOWYPqu01YRbda0APbIhGsv2doT6zHU"
+   },
+   "resourceType": "image",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "file": "site/hotelaurelia.online/assets/dine-tea-detail-BeP3X8Ew.jpg",
+   "size": 172527,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://hotelaurelia.online/assets/exp-beach-BLUxBcL0.jpg",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/jpeg",
+   "headers": {
+    "content-type": "image/jpeg",
+    "referrer-policy": "strict-origin-when-cross-origin",
+    "x-deployment-id": "psr2.bd3d9034-1d29-4f1d-bec0-6dc95665f59d.1792602088.2CB5kBiGXPLlj-M4Qc1niY2Whuabgb8qShJpm79ucc8"
+   },
+   "resourceType": "image",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "file": "site/hotelaurelia.online/assets/exp-beach-BLUxBcL0.jpg",
+   "size": 292120,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://hotelaurelia.online/assets/about-right-winter-9T3lgwM5.jpg",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/jpeg",
+   "headers": {
+    "content-type": "image/jpeg",
+    "referrer-policy": "strict-origin-when-cross-origin",
+    "x-deployment-id": "psr2.bd3d9034-1d29-4f1d-bec0-6dc95665f59d.1792602106.oNFOMFn5VfYCFFWFHG9VTXw44l9M9ubogaW1dMf7kA8"
+   },
+   "resourceType": "image",
+   "passes": [
+    "desktop"
+   ],
+   "file": "site/hotelaurelia.online/assets/about-right-winter-9T3lgwM5.jpg",
+   "size": 157177,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://hotelaurelia.online/assets/about-left-winter-BoG7yQEK.jpg",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/jpeg",
+   "headers": {
+    "content-type": "image/jpeg",
+    "referrer-policy": "strict-origin-when-cross-origin",
+    "x-deployment-id": "psr2.bd3d9034-1d29-4f1d-bec0-6dc95665f59d.1792602106.oNFOMFn5VfYCFFWFHG9VTXw44l9M9ubogaW1dMf7kA8"
+   },
+   "resourceType": "image",
+   "passes": [
+    "desktop"
+   ],
+   "file": "site/hotelaurelia.online/assets/about-left-winter-BoG7yQEK.jpg",
+   "size": 156827,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://hotelaurelia.online/assets/room-suite-3-C7NGZ9VC.jpg",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/jpeg",
+   "headers": {
+    "content-type": "image/jpeg",
+    "referrer-policy": "strict-origin-when-cross-origin",
+    "x-deployment-id": "psr2.bd3d9034-1d29-4f1d-bec0-6dc95665f59d.1792602106.oNFOMFn5VfYCFFWFHG9VTXw44l9M9ubogaW1dMf7kA8"
+   },
+   "resourceType": "image",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "file": "site/hotelaurelia.online/assets/room-suite-3-C7NGZ9VC.jpg",
+   "size": 184643,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://hotelaurelia.online/assets/room-suite-2-D0MyvdE1.jpg",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/jpeg",
+   "headers": {
+    "content-type": "image/jpeg",
+    "referrer-policy": "strict-origin-when-cross-origin",
+    "x-deployment-id": "psr2.bd3d9034-1d29-4f1d-bec0-6dc95665f59d.1792602106.oNFOMFn5VfYCFFWFHG9VTXw44l9M9ubogaW1dMf7kA8"
+   },
+   "resourceType": "image",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "file": "site/hotelaurelia.online/assets/room-suite-2-D0MyvdE1.jpg",
+   "size": 104181,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://hotelaurelia.online/assets/room-suite-1LNFJA2X.jpg",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/jpeg",
+   "headers": {
+    "content-type": "image/jpeg",
+    "referrer-policy": "strict-origin-when-cross-origin",
+    "x-deployment-id": "psr2.bd3d9034-1d29-4f1d-bec0-6dc95665f59d.1792602106.oNFOMFn5VfYCFFWFHG9VTXw44l9M9ubogaW1dMf7kA8"
+   },
+   "resourceType": "image",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "file": "site/hotelaurelia.online/assets/room-suite-1LNFJA2X.jpg",
+   "size": 182026,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://hotelaurelia.online/assets/exp-terrace-BH_IcGon.jpg",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/jpeg",
+   "headers": {
+    "content-type": "image/jpeg",
+    "referrer-policy": "strict-origin-when-cross-origin",
+    "x-deployment-id": "psr2.bd3d9034-1d29-4f1d-bec0-6dc95665f59d.1792602110.8IwjhCEYQ7jOv8vmD8oTRSCoU0Qazi1nsDnG_HwZbvs"
+   },
+   "resourceType": "image",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "file": "site/hotelaurelia.online/assets/exp-terrace-BH_IcGon.jpg",
+   "size": 311712,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://hotelaurelia.online/assets/exp-fire-adJr-_VZ.jpg",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/jpeg",
+   "headers": {
+    "content-type": "image/jpeg",
+    "referrer-policy": "strict-origin-when-cross-origin",
+    "x-deployment-id": "psr2.bd3d9034-1d29-4f1d-bec0-6dc95665f59d.1792602110.8IwjhCEYQ7jOv8vmD8oTRSCoU0Qazi1nsDnG_HwZbvs"
+   },
+   "resourceType": "image",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "file": "site/hotelaurelia.online/assets/exp-fire-adJr-_VZ.jpg",
+   "size": 257104,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://hotelaurelia.online/assets/concert-hero-D1awPmBI.jpg",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/jpeg",
+   "headers": {
+    "content-type": "image/jpeg",
+    "referrer-policy": "strict-origin-when-cross-origin",
+    "x-deployment-id": "psr2.bd3d9034-1d29-4f1d-bec0-6dc95665f59d.1792602110.8IwjhCEYQ7jOv8vmD8oTRSCoU0Qazi1nsDnG_HwZbvs"
+   },
+   "resourceType": "image",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "file": "site/hotelaurelia.online/assets/concert-hero-D1awPmBI.jpg",
+   "size": 263741,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://hotelaurelia.online/__l5e/assets-v1/80e614d5-0366-4132-b3cf-b25043810736/aurelia-hero-long.mp4",
+   "method": "GET",
+   "status": 200,
+   "contentType": "video/mp4",
+   "headers": {
+    "content-type": "video/mp4",
+    "access-control-allow-origin": "*",
+    "referrer-policy": "strict-origin-when-cross-origin"
+   },
+   "resourceType": "media",
+   "passes": [
+    "desktop"
+   ],
+   "file": "site/hotelaurelia.online/__l5e/assets-v1/80e614d5-0366-4132-b3cf-b25043810736/aurelia-hero-long.mp4",
+   "size": 23161695,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://hotelaurelia.online/__l5e/assets-v1/6947a08b-1b29-43ea-b0dd-92a565bb1ddd/dine-chef.mp4",
+   "method": "GET",
+   "status": 200,
+   "contentType": "video/mp4",
+   "headers": {
+    "content-type": "video/mp4",
+    "access-control-allow-origin": "*",
+    "referrer-policy": "strict-origin-when-cross-origin"
+   },
+   "resourceType": "media",
+   "passes": [
+    "desktop"
+   ],
+   "file": "site/hotelaurelia.online/__l5e/assets-v1/6947a08b-1b29-43ea-b0dd-92a565bb1ddd/dine-chef.mp4",
+   "size": 8093516,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://dn711101.ca.archive.org/0/items/DebussyClairDeLunefrankl/2-15Debussy_SuiteBergamasqueL75-3.ClairDeLune.mp3",
+   "method": "GET",
+   "status": 200,
+   "contentType": "audio/mpeg",
+   "headers": {
+    "content-type": "audio/mpeg",
+    "access-control-allow-credentials": "true",
+    "access-control-allow-headers": "Accept-Encoding,Accept-Language,Authorization,Baggage,Cache-Control,Content-Length,Content-Range,DNT,Pragma,Range,Sentry-Trace,X-Requested-With",
+    "access-control-allow-origin": "*"
+   },
+   "resourceType": "media",
+   "passes": [
+    "desktop"
+   ],
+   "file": "site/dn711101.ca.archive.org/0/items/DebussyClairDeLunefrankl/2-15Debussy_SuiteBergamasqueL75-3.ClairDeLune.mp3",
+   "size": 5974413,
+   "modes": [
+    "cors"
+   ]
+  },
+  {
+   "url": "https://hotelaurelia.online/__l5e/assets-v1/6835eb29-ae96-41f2-bc35-eeb28f528817/aurelia-winter-hero.mp4",
+   "method": "GET",
+   "status": 200,
+   "contentType": "video/mp4",
+   "headers": {
+    "content-type": "video/mp4",
+    "access-control-allow-origin": "*",
+    "referrer-policy": "strict-origin-when-cross-origin"
+   },
+   "resourceType": "media",
+   "passes": [
+    "desktop"
+   ],
+   "file": "site/hotelaurelia.online/__l5e/assets-v1/6835eb29-ae96-41f2-bc35-eeb28f528817/aurelia-winter-hero.mp4",
+   "size": 37635117,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://hotelaurelia.online/__l5e/assets-v1/2c90a24d-ec75-43ce-b944-9af31efa2d37/dine-chef-winter.mp4",
+   "method": "GET",
+   "status": 200,
+   "contentType": "video/mp4",
+   "headers": {
+    "content-type": "video/mp4",
+    "access-control-allow-origin": "*",
+    "referrer-policy": "strict-origin-when-cross-origin"
+   },
+   "resourceType": "media",
+   "passes": [
+    "desktop"
+   ],
+   "file": "site/hotelaurelia.online/__l5e/assets-v1/2c90a24d-ec75-43ce-b944-9af31efa2d37/dine-chef-winter.mp4",
+   "size": 9487702,
+   "modes": [
+    "no-cors"
+   ]
+  }
+ ],
+ "videos": {
+  "posters": {},
+  "onlineHosts": []
+ }
+}

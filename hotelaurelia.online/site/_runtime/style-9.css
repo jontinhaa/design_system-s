@@ -1,0 +1,50 @@
+
+        @keyframes au-marquee {
+          0% { transform: translateX(0); }
+          100% { transform: translateX(-50%); }
+        }
+        .au-marquee {
+          animation: au-marquee 38s linear infinite;
+          will-change: transform;
+        }
+        .au-marquee:hover { animation-play-state: paused; }
+
+        @keyframes au-birds-sway {
+          0%, 100% { transform: translateY(0) rotate(-6deg); }
+          50%      { transform: translateY(-10px) rotate(-3deg); }
+        }
+        .au-birds {
+          animation: au-birds-sway 7s ease-in-out infinite;
+          transform-origin: 60% 60%;
+        }
+
+
+        .au-link { position: relative; }
+        .au-link .au-link-text {
+          position: relative;
+          background-image: linear-gradient(currentColor, currentColor);
+          background-size: 0% 1px;
+          background-position: 0 100%;
+          background-repeat: no-repeat;
+          transition: background-size 0.5s cubic-bezier(0.7, 0, 0.2, 1), color 0.3s ease;
+        }
+        .au-link:hover .au-link-text {
+          background-size: 100% 1px;
+          color: var(--au-gold);
+        }
+
+        .au-social-handle {
+          max-width: 0;
+          opacity: 0;
+          transition: max-width 0.6s cubic-bezier(0.7, 0, 0.2, 1), opacity 0.4s ease, margin-left 0.4s ease;
+        }
+        .au-social:hover {
+          border-color: rgb(var(--au-gold-rgb) / 0.7) !important;
+          background: rgb(var(--au-gold-rgb) / 0.06);
+        }
+        .au-social:hover .au-social-handle {
+          max-width: 260px;
+          opacity: 1;
+          margin-left: 4px;
+        }
+      

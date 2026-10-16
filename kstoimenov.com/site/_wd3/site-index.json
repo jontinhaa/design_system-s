@@ -1,0 +1,2401 @@
+{
+ "version": 1,
+ "tool": "wd3 0.1.0",
+ "captureId": "kstoimenov.com-63f5e55e",
+ "capturedAt": "2026-10-14T17:00:29+00:00",
+ "entry": {
+  "url": "https://kstoimenov.com/",
+  "path": "/",
+  "search": "",
+  "file": "site/kstoimenov.com/index.html",
+  "contentType": "text/html; charset=utf-8"
+ },
+ "blocked": [
+  "^https?://([^/?#]+\\.)?(google\\-analytics\\.com|analytics\\.google\\.com|googletagmanager\\.com|googleadservices\\.com|doubleclick\\.net|googlesyndication\\.com|googleoptimize\\.com|connect\\.facebook\\.net|bat\\.bing\\.com|snap\\.licdn\\.com|px\\.ads\\.linkedin\\.com|analytics\\.tiktok\\.com|ct\\.pinterest\\.com|static\\.ads\\-twitter\\.com|analytics\\.twitter\\.com|tr\\.snapchat\\.com|sc\\-static\\.net|mc\\.yandex\\.ru|hotjar\\.com|hotjar\\.io|clarity\\.ms|cdn\\.segment\\.com|api\\.segment\\.io|cdn\\.mxpnl\\.com|api\\-js\\.mixpanel\\.com|api\\.mixpanel\\.com|api\\.amplitude\\.com|api2\\.amplitude\\.com|api\\-secure\\.amplitude\\.com|api\\-sr\\.amplitude\\.com|sr\\-client\\-cfg\\.amplitude\\.com|plausible\\.io|cloud\\.umami\\.is|analytics\\.umami\\.is|static\\.cloudflareinsights\\.com|cloudflareinsights\\.com|vitals\\.vercel\\-insights\\.com|browser\\-intake\\-datadoghq\\.com|browser\\-intake\\-datadoghq\\.eu|js\\-agent\\.newrelic\\.com|bam\\.nr\\-data\\.net|bam\\-cell\\.nr\\-data\\.net|fullstory\\.com|script\\.crazyegg\\.com|mouseflow\\.com|smartlook\\.com|heapanalytics\\.com|i\\.posthog\\.com|stats\\.wp\\.com|pixel\\.wp\\.com|promotekit\\.com|ingest\\.sentry\\.io|ingest\\.us\\.sentry\\.io|ingest\\.de\\.sentry\\.io|widget\\.intercom\\.io|js\\.intercomcdn\\.com|api\\-iam\\.intercom\\.io|js\\.hs\\-scripts\\.com|js\\.hs\\-analytics\\.net|js\\.hs\\-banner\\.com|js\\.hscollectedforms\\.net|js\\.usemessages\\.com|track\\.hubspot\\.com|client\\.crisp\\.chat|embed\\.tawk\\.to|js\\.driftt\\.com|static\\.zdassets\\.com|ekr\\.zdassets\\.com|cdn\\.cookielaw\\.org|geolocation\\.onetrust\\.com|consent\\.cookiebot\\.com|consentcdn\\.cookiebot\\.com|app\\.usercentrics\\.eu|api\\.usercentrics\\.eu|cdn\\.iubenda\\.com|cmp\\.osano\\.com|cdn\\.termly\\.io)(:\\d+)?([/?#]|$)",
+  "/rpc/increment_shared_code_views",
+  "^https?://(umami|analytics|stats|plausible)\\.[^/]+/(api/send|api/collect|api/event|script\\.js)",
+  "/g/c(ollect)?\\?v=2&",
+  "sentry\\.io/api/\\d+/(envelope|store)",
+  "/api/meta-capi",
+  "^https?://(leadtracker|tracking|track|events?|collect)\\.[^/]+/",
+  "^https?://a\\.vturb\\.com/",
+  "facebook\\.com/tr[/?]",
+  "/_vercel/(speed-)?insights/",
+  "/cdn-cgi/rum",
+  "/cdn-cgi/challenge-platform/",
+  "google\\.com/(pagead|ads)/"
+ ],
+ "volatileParams": [
+  "v",
+  "_rsc",
+  "dpl",
+  "_",
+  "t",
+  "ts",
+  "timestamp",
+  "cb",
+  "cachebust",
+  "cacheBust",
+  "nocache",
+  "rnd",
+  "rand",
+  "random",
+  "_t"
+ ],
+ "entries": [
+  {
+   "url": "https://kstoimenov.com/",
+   "method": "GET",
+   "status": 200,
+   "contentType": "text/html; charset=utf-8",
+   "headers": {
+    "content-type": "text/html; charset=utf-8",
+    "x-nextjs-cache": "MISS",
+    "x-nextjs-prerender": "1",
+    "x-nextjs-stale-time": "300",
+    "x-opennext": "1"
+   },
+   "resourceType": "document",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "file": "site/kstoimenov.com/index.html",
+   "size": 109211,
+   "modes": [
+    "navigate"
+   ]
+  },
+  {
+   "url": "https://kstoimenov.com/_next/static/media/Manier_Regular-s.p.3klf7f_7o4i94.woff2",
+   "method": "GET",
+   "status": 200,
+   "contentType": "font/woff2",
+   "headers": {
+    "content-type": "font/woff2"
+   },
+   "resourceType": "font",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "file": "site/kstoimenov.com/_next/static/media/Manier_Regular-s.p.3klf7f_7o4i94.woff2",
+   "size": 22944,
+   "modes": [
+    "cors"
+   ]
+  },
+  {
+   "url": "https://kstoimenov.com/_next/static/media/TWKLausanne_300-s.p.3pv05iqjudn76.woff2",
+   "method": "GET",
+   "status": 200,
+   "contentType": "font/woff2",
+   "headers": {
+    "content-type": "font/woff2"
+   },
+   "resourceType": "font",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "file": "site/kstoimenov.com/_next/static/media/TWKLausanne_300-s.p.3pv05iqjudn76.woff2",
+   "size": 30152,
+   "modes": [
+    "cors"
+   ]
+  },
+  {
+   "url": "https://kstoimenov.com/assets/icon-sun.svg",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/svg+xml",
+   "headers": {
+    "content-type": "image/svg+xml"
+   },
+   "resourceType": "image",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "file": "site/kstoimenov.com/assets/icon-sun.svg",
+   "size": 2436,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://kstoimenov.com/_next/static/chunks/25kdwgjdg_oyt.css",
+   "method": "GET",
+   "status": 200,
+   "contentType": "text/css",
+   "headers": {
+    "content-type": "text/css"
+   },
+   "resourceType": "stylesheet",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "file": "site/kstoimenov.com/_next/static/chunks/25kdwgjdg_oyt.css",
+   "size": 14082,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://kstoimenov.com/_next/static/chunks/0b_t2-h0of4-3.css",
+   "method": "GET",
+   "status": 200,
+   "contentType": "text/css",
+   "headers": {
+    "content-type": "text/css"
+   },
+   "resourceType": "stylesheet",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "file": "site/kstoimenov.com/_next/static/chunks/0b_t2-h0of4-3.css",
+   "size": 63235,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://kstoimenov.com/_next/static/media/Manier_Italic-s.p.0q50xu3c2d0qv.woff2",
+   "method": "GET",
+   "status": 200,
+   "contentType": "font/woff2",
+   "headers": {
+    "content-type": "font/woff2"
+   },
+   "resourceType": "font",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "file": "site/kstoimenov.com/_next/static/media/Manier_Italic-s.p.0q50xu3c2d0qv.woff2",
+   "size": 24640,
+   "modes": [
+    "cors"
+   ]
+  },
+  {
+   "url": "https://kstoimenov.com/_next/static/chunks/43g8y2esc2fa5.css",
+   "method": "GET",
+   "status": 200,
+   "contentType": "text/css",
+   "headers": {
+    "content-type": "text/css"
+   },
+   "resourceType": "stylesheet",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "file": "site/kstoimenov.com/_next/static/chunks/43g8y2esc2fa5.css",
+   "size": 116729,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://kstoimenov.com/assets/cursor-ring-green.svg",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/svg+xml",
+   "headers": {
+    "content-type": "image/svg+xml"
+   },
+   "resourceType": "image",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "file": "site/kstoimenov.com/assets/cursor-ring-green.svg",
+   "size": 330,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://kstoimenov.com/assets/icon-moon.svg",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/svg+xml",
+   "headers": {
+    "content-type": "image/svg+xml",
+    "priority": "u=3,i"
+   },
+   "resourceType": "image",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "file": "site/kstoimenov.com/assets/icon-moon.svg",
+   "size": 1066,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://kstoimenov.com/assets/menu-eye.svg",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/svg+xml",
+   "headers": {
+    "content-type": "image/svg+xml",
+    "priority": "u=3,i"
+   },
+   "resourceType": "image",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "file": "site/kstoimenov.com/assets/menu-eye.svg",
+   "size": 628,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://kstoimenov.com/assets/logo.svg",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/svg+xml",
+   "headers": {
+    "content-type": "image/svg+xml",
+    "priority": "u=3,i"
+   },
+   "resourceType": "image",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "file": "site/kstoimenov.com/assets/logo.svg",
+   "size": 573,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://kstoimenov.com/assets/icon-arrow-outward.svg",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/svg+xml",
+   "headers": {
+    "content-type": "image/svg+xml",
+    "priority": "u=3,i"
+   },
+   "resourceType": "image",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "file": "site/kstoimenov.com/assets/icon-arrow-outward.svg",
+   "size": 282,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://kstoimenov.com/assets/cta-eye.svg",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/svg+xml",
+   "headers": {
+    "content-type": "image/svg+xml",
+    "priority": "u=3,i"
+   },
+   "resourceType": "image",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "file": "site/kstoimenov.com/assets/cta-eye.svg",
+   "size": 752,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://kstoimenov.com/_next/static/chunks/turbopack-0_oy76f5b5s82.js",
+   "method": "GET",
+   "status": 200,
+   "contentType": "text/javascript",
+   "headers": {
+    "content-type": "text/javascript",
+    "priority": "u=3,i=?0"
+   },
+   "resourceType": "script",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "file": "site/kstoimenov.com/_next/static/chunks/turbopack-0_oy76f5b5s82.js",
+   "size": 10580,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://kstoimenov.com/_next/static/chunks/2llbfznb4pxwo.js",
+   "method": "GET",
+   "status": 200,
+   "contentType": "text/javascript",
+   "headers": {
+    "content-type": "text/javascript",
+    "priority": "u=3,i=?0"
+   },
+   "resourceType": "script",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "file": "site/kstoimenov.com/_next/static/chunks/2llbfznb4pxwo.js",
+   "size": 13469,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://kstoimenov.com/assets/quote-half.svg",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/svg+xml",
+   "headers": {
+    "content-type": "image/svg+xml",
+    "priority": "u=3,i"
+   },
+   "resourceType": "image",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "file": "site/kstoimenov.com/assets/quote-half.svg",
+   "size": 770,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://kstoimenov.com/assets/footer-arrow-up.svg",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/svg+xml",
+   "headers": {
+    "content-type": "image/svg+xml",
+    "priority": "u=3,i"
+   },
+   "resourceType": "image",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "file": "site/kstoimenov.com/assets/footer-arrow-up.svg",
+   "size": 925,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://kstoimenov.com/assets/about-glyph-shape.svg",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/svg+xml",
+   "headers": {
+    "content-type": "image/svg+xml",
+    "priority": "u=3,i"
+   },
+   "resourceType": "image",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "file": "site/kstoimenov.com/assets/about-glyph-shape.svg",
+   "size": 1151,
+   "modes": [
+    "cors"
+   ]
+  },
+  {
+   "url": "https://kstoimenov.com/assets/about-glyph-subtract.svg",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/svg+xml",
+   "headers": {
+    "content-type": "image/svg+xml",
+    "priority": "u=3,i"
+   },
+   "resourceType": "image",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "file": "site/kstoimenov.com/assets/about-glyph-subtract.svg",
+   "size": 486,
+   "modes": [
+    "cors"
+   ]
+  },
+  {
+   "url": "https://kstoimenov.com/assets/social-linkedin.svg",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/svg+xml",
+   "headers": {
+    "content-type": "image/svg+xml",
+    "priority": "u=3,i"
+   },
+   "resourceType": "image",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "file": "site/kstoimenov.com/assets/social-linkedin.svg",
+   "size": 831,
+   "modes": [
+    "cors"
+   ]
+  },
+  {
+   "url": "https://kstoimenov.com/assets/social-x.svg",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/svg+xml",
+   "headers": {
+    "content-type": "image/svg+xml",
+    "priority": "u=3,i"
+   },
+   "resourceType": "image",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "file": "site/kstoimenov.com/assets/social-x.svg",
+   "size": 576,
+   "modes": [
+    "cors"
+   ]
+  },
+  {
+   "url": "https://kstoimenov.com/assets/social-dribbble.svg",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/svg+xml",
+   "headers": {
+    "content-type": "image/svg+xml",
+    "priority": "u=3,i"
+   },
+   "resourceType": "image",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "file": "site/kstoimenov.com/assets/social-dribbble.svg",
+   "size": 1280,
+   "modes": [
+    "cors"
+   ]
+  },
+  {
+   "url": "https://kstoimenov.com/assets/social-awwwards.svg",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/svg+xml",
+   "headers": {
+    "content-type": "image/svg+xml",
+    "priority": "u=3,i"
+   },
+   "resourceType": "image",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "file": "site/kstoimenov.com/assets/social-awwwards.svg",
+   "size": 752,
+   "modes": [
+    "cors"
+   ]
+  },
+  {
+   "url": "https://kstoimenov.com/assets/quote-star.svg",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/svg+xml",
+   "headers": {
+    "content-type": "image/svg+xml",
+    "priority": "u=3,i"
+   },
+   "resourceType": "image",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "file": "site/kstoimenov.com/assets/quote-star.svg",
+   "size": 1228,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://kstoimenov.com/assets/partners/acronis.svg",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/svg+xml",
+   "headers": {
+    "content-type": "image/svg+xml",
+    "priority": "u=3,i"
+   },
+   "resourceType": "image",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "file": "site/kstoimenov.com/assets/partners/acronis.svg",
+   "size": 2892,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://kstoimenov.com/assets/partners/blogo.svg",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/svg+xml",
+   "headers": {
+    "content-type": "image/svg+xml",
+    "priority": "u=3,i"
+   },
+   "resourceType": "image",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "file": "site/kstoimenov.com/assets/partners/blogo.svg",
+   "size": 2065,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://kstoimenov.com/assets/company-star.svg",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/svg+xml",
+   "headers": {
+    "content-type": "image/svg+xml",
+    "priority": "u=3,i"
+   },
+   "resourceType": "image",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "file": "site/kstoimenov.com/assets/company-star.svg",
+   "size": 1212,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://kstoimenov.com/assets/quote-icon-5.png",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/png",
+   "headers": {
+    "content-type": "image/png",
+    "priority": "u=3,i"
+   },
+   "resourceType": "image",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "file": "site/kstoimenov.com/assets/quote-icon-5.png",
+   "size": 1665,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://kstoimenov.com/assets/logo-registered.svg",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/svg+xml",
+   "headers": {
+    "content-type": "image/svg+xml",
+    "priority": "u=3,i"
+   },
+   "resourceType": "image",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "file": "site/kstoimenov.com/assets/logo-registered.svg",
+   "size": 1706,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://kstoimenov.com/assets/about-glyph-flower.png",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/png",
+   "headers": {
+    "content-type": "image/png",
+    "priority": "u=3,i"
+   },
+   "resourceType": "image",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "file": "site/kstoimenov.com/assets/about-glyph-flower.png",
+   "size": 1522,
+   "modes": [
+    "cors"
+   ]
+  },
+  {
+   "url": "https://kstoimenov.com/assets/svc-product-design.svg",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/svg+xml",
+   "headers": {
+    "content-type": "image/svg+xml",
+    "priority": "u=3,i"
+   },
+   "resourceType": "image",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "file": "site/kstoimenov.com/assets/svc-product-design.svg",
+   "size": 3201,
+   "modes": [
+    "cors"
+   ]
+  },
+  {
+   "url": "https://kstoimenov.com/assets/svc-digital-strategy.png",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/png",
+   "headers": {
+    "content-type": "image/png",
+    "priority": "u=3,i"
+   },
+   "resourceType": "image",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "file": "site/kstoimenov.com/assets/svc-digital-strategy.png",
+   "size": 1275,
+   "modes": [
+    "cors"
+   ]
+  },
+  {
+   "url": "https://kstoimenov.com/assets/svc-web-design.svg",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/svg+xml",
+   "headers": {
+    "content-type": "image/svg+xml",
+    "priority": "u=3,i"
+   },
+   "resourceType": "image",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "file": "site/kstoimenov.com/assets/svc-web-design.svg",
+   "size": 1222,
+   "modes": [
+    "cors"
+   ]
+  },
+  {
+   "url": "https://kstoimenov.com/assets/partners/simplebet.svg",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/svg+xml",
+   "headers": {
+    "content-type": "image/svg+xml",
+    "priority": "u=3,i"
+   },
+   "resourceType": "image",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "file": "site/kstoimenov.com/assets/partners/simplebet.svg",
+   "size": 5247,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://kstoimenov.com/assets/about-rail-cap.svg",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/svg+xml",
+   "headers": {
+    "content-type": "image/svg+xml",
+    "priority": "u=3,i"
+   },
+   "resourceType": "image",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "file": "site/kstoimenov.com/assets/about-rail-cap.svg",
+   "size": 308,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://kstoimenov.com/assets/partners/constructor.svg",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/svg+xml",
+   "headers": {
+    "content-type": "image/svg+xml",
+    "priority": "u=3,i"
+   },
+   "resourceType": "image",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "file": "site/kstoimenov.com/assets/partners/constructor.svg",
+   "size": 4261,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://kstoimenov.com/assets/partners/lottoland.svg",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/svg+xml",
+   "headers": {
+    "content-type": "image/svg+xml",
+    "priority": "u=3,i"
+   },
+   "resourceType": "image",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "file": "site/kstoimenov.com/assets/partners/lottoland.svg",
+   "size": 5521,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://kstoimenov.com/assets/partners/dojo.svg",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/svg+xml",
+   "headers": {
+    "content-type": "image/svg+xml",
+    "priority": "u=3,i"
+   },
+   "resourceType": "image",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "file": "site/kstoimenov.com/assets/partners/dojo.svg",
+   "size": 4520,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://kstoimenov.com/assets/partners/telus.svg",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/svg+xml",
+   "headers": {
+    "content-type": "image/svg+xml",
+    "priority": "u=3,i"
+   },
+   "resourceType": "image",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "file": "site/kstoimenov.com/assets/partners/telus.svg",
+   "size": 5685,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://kstoimenov.com/assets/partners/polygon.svg",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/svg+xml",
+   "headers": {
+    "content-type": "image/svg+xml",
+    "priority": "u=3,i"
+   },
+   "resourceType": "image",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "file": "site/kstoimenov.com/assets/partners/polygon.svg",
+   "size": 7830,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://kstoimenov.com/assets/partners/endava.svg",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/svg+xml",
+   "headers": {
+    "content-type": "image/svg+xml",
+    "priority": "u=3,i"
+   },
+   "resourceType": "image",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "file": "site/kstoimenov.com/assets/partners/endava.svg",
+   "size": 5424,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://kstoimenov.com/assets/social-behance.svg",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/svg+xml",
+   "headers": {
+    "content-type": "image/svg+xml",
+    "priority": "u=3,i"
+   },
+   "resourceType": "image",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "file": "site/kstoimenov.com/assets/social-behance.svg",
+   "size": 6632,
+   "modes": [
+    "cors"
+   ]
+  },
+  {
+   "url": "https://kstoimenov.com/assets/real-play-triangle.svg",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/svg+xml",
+   "headers": {
+    "content-type": "image/svg+xml",
+    "priority": "u=3,i"
+   },
+   "resourceType": "image",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "file": "site/kstoimenov.com/assets/real-play-triangle.svg",
+   "size": 511,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://kstoimenov.com/_next/static/chunks/3-5k80pt3ds20.js",
+   "method": "GET",
+   "status": 200,
+   "contentType": "text/javascript",
+   "headers": {
+    "content-type": "text/javascript",
+    "priority": "u=3,i=?0"
+   },
+   "resourceType": "script",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "file": "site/kstoimenov.com/_next/static/chunks/3-5k80pt3ds20.js",
+   "size": 17697,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://kstoimenov.com/assets/partners/claimcompass.svg",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/svg+xml",
+   "headers": {
+    "content-type": "image/svg+xml",
+    "priority": "u=3,i"
+   },
+   "resourceType": "image",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "file": "site/kstoimenov.com/assets/partners/claimcompass.svg",
+   "size": 9927,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://kstoimenov.com/assets/partners/jobpal.svg",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/svg+xml",
+   "headers": {
+    "content-type": "image/svg+xml",
+    "priority": "u=3,i"
+   },
+   "resourceType": "image",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "file": "site/kstoimenov.com/assets/partners/jobpal.svg",
+   "size": 5505,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://kstoimenov.com/assets/quote-icon-4.png",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/png",
+   "headers": {
+    "content-type": "image/png",
+    "priority": "u=3,i"
+   },
+   "resourceType": "image",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "file": "site/kstoimenov.com/assets/quote-icon-4.png",
+   "size": 642,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://kstoimenov.com/assets/quote-hourglass.svg",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/svg+xml",
+   "headers": {
+    "content-type": "image/svg+xml",
+    "priority": "u=3,i"
+   },
+   "resourceType": "image",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "file": "site/kstoimenov.com/assets/quote-hourglass.svg",
+   "size": 417,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://kstoimenov.com/assets/footer-contact-arrow.svg",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/svg+xml",
+   "headers": {
+    "content-type": "image/svg+xml",
+    "priority": "u=3,i"
+   },
+   "resourceType": "image",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "file": "site/kstoimenov.com/assets/footer-contact-arrow.svg",
+   "size": 484,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://kstoimenov.com/assets/partners/efes.svg",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/svg+xml",
+   "headers": {
+    "content-type": "image/svg+xml",
+    "priority": "u=3,i"
+   },
+   "resourceType": "image",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "file": "site/kstoimenov.com/assets/partners/efes.svg",
+   "size": 13735,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://kstoimenov.com/assets/svc-brand-identity.svg",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/svg+xml",
+   "headers": {
+    "content-type": "image/svg+xml",
+    "priority": "u=3,i"
+   },
+   "resourceType": "image",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "file": "site/kstoimenov.com/assets/svc-brand-identity.svg",
+   "size": 770,
+   "modes": [
+    "cors"
+   ]
+  },
+  {
+   "url": "https://kstoimenov.com/assets/svc-service-design.svg",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/svg+xml",
+   "headers": {
+    "content-type": "image/svg+xml",
+    "priority": "u=3,i"
+   },
+   "resourceType": "image",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "file": "site/kstoimenov.com/assets/svc-service-design.svg",
+   "size": 500,
+   "modes": [
+    "cors"
+   ]
+  },
+  {
+   "url": "https://kstoimenov.com/assets/partners/jeton.svg",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/svg+xml",
+   "headers": {
+    "content-type": "image/svg+xml",
+    "priority": "u=3,i"
+   },
+   "resourceType": "image",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "file": "site/kstoimenov.com/assets/partners/jeton.svg",
+   "size": 13754,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://kstoimenov.com/assets/cta-arrow.svg",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/svg+xml",
+   "headers": {
+    "content-type": "image/svg+xml",
+    "priority": "u=3,i"
+   },
+   "resourceType": "image",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "file": "site/kstoimenov.com/assets/cta-arrow.svg",
+   "size": 323,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://kstoimenov.com/assets/partners/ringier.svg",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/svg+xml",
+   "headers": {
+    "content-type": "image/svg+xml",
+    "priority": "u=3,i"
+   },
+   "resourceType": "image",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "file": "site/kstoimenov.com/assets/partners/ringier.svg",
+   "size": 5720,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://kstoimenov.com/assets/quote-icon-2.png",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/png",
+   "headers": {
+    "content-type": "image/png",
+    "priority": "u=3,i"
+   },
+   "resourceType": "image",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "file": "site/kstoimenov.com/assets/quote-icon-2.png",
+   "size": 5798,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://kstoimenov.com/assets/quote-icon-3.png",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/png",
+   "headers": {
+    "content-type": "image/png",
+    "priority": "u=3,i"
+   },
+   "resourceType": "image",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "file": "site/kstoimenov.com/assets/quote-icon-3.png",
+   "size": 3290,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://kstoimenov.com/assets/partners/brandquadergy.svg",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/svg+xml",
+   "headers": {
+    "content-type": "image/svg+xml",
+    "priority": "u=3,i"
+   },
+   "resourceType": "image",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "file": "site/kstoimenov.com/assets/partners/brandquadergy.svg",
+   "size": 15563,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://kstoimenov.com/assets/partners/macmillan.svg",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/svg+xml",
+   "headers": {
+    "content-type": "image/svg+xml",
+    "priority": "u=3,i"
+   },
+   "resourceType": "image",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "file": "site/kstoimenov.com/assets/partners/macmillan.svg",
+   "size": 15462,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://kstoimenov.com/assets/quote-icon-6.png",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/png",
+   "headers": {
+    "content-type": "image/png",
+    "priority": "u=3,i"
+   },
+   "resourceType": "image",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "file": "site/kstoimenov.com/assets/quote-icon-6.png",
+   "size": 1856,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://kstoimenov.com/_next/static/chunks/2l5edficfyk_d.js",
+   "method": "GET",
+   "status": 200,
+   "contentType": "text/javascript",
+   "headers": {
+    "content-type": "text/javascript",
+    "priority": "u=3,i=?0"
+   },
+   "resourceType": "script",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "file": "site/kstoimenov.com/_next/static/chunks/2l5edficfyk_d.js",
+   "size": 57298,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://kstoimenov.com/_next/static/chunks/14mumt5_n0xhi.js",
+   "method": "GET",
+   "status": 200,
+   "contentType": "text/javascript",
+   "headers": {
+    "content-type": "text/javascript",
+    "priority": "u=3,i=?0"
+   },
+   "resourceType": "script",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "file": "site/kstoimenov.com/_next/static/chunks/14mumt5_n0xhi.js",
+   "size": 57741,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://kstoimenov.com/_next/static/chunks/2qoc_kn_izwiv.js",
+   "method": "GET",
+   "status": 200,
+   "contentType": "text/javascript",
+   "headers": {
+    "content-type": "text/javascript",
+    "priority": "u=3,i=?0"
+   },
+   "resourceType": "script",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "file": "site/kstoimenov.com/_next/static/chunks/2qoc_kn_izwiv.js",
+   "size": 43359,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://kstoimenov.com/assets/quote-icon-1.png",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/png",
+   "headers": {
+    "content-type": "image/png",
+    "priority": "u=3,i"
+   },
+   "resourceType": "image",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "file": "site/kstoimenov.com/assets/quote-icon-1.png",
+   "size": 4568,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://kstoimenov.com/_next/static/chunks/3bwgz890g_j15.js",
+   "method": "GET",
+   "status": 200,
+   "contentType": "text/javascript",
+   "headers": {
+    "content-type": "text/javascript",
+    "priority": "u=3,i=?0"
+   },
+   "resourceType": "script",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "file": "site/kstoimenov.com/_next/static/chunks/3bwgz890g_j15.js",
+   "size": 72817,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://kstoimenov.com/assets/partners/unilever.svg",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/svg+xml",
+   "headers": {
+    "content-type": "image/svg+xml",
+    "priority": "u=3,i"
+   },
+   "resourceType": "image",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "file": "site/kstoimenov.com/assets/partners/unilever.svg",
+   "size": 45467,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://kstoimenov.com/_next/static/chunks/2r_ehkxe4rex5.js",
+   "method": "GET",
+   "status": 200,
+   "contentType": "text/javascript",
+   "headers": {
+    "content-type": "text/javascript",
+    "priority": "u=3,i=?0"
+   },
+   "resourceType": "script",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "file": "site/kstoimenov.com/_next/static/chunks/2r_ehkxe4rex5.js",
+   "size": 47655,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://kstoimenov.com/_next/static/chunks/20msfz3016icq.js",
+   "method": "GET",
+   "status": 200,
+   "contentType": "text/javascript",
+   "headers": {
+    "content-type": "text/javascript",
+    "priority": "u=3,i=?0"
+   },
+   "resourceType": "script",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "file": "site/kstoimenov.com/_next/static/chunks/20msfz3016icq.js",
+   "size": 143737,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://kstoimenov.com/_next/static/chunks/2cya-h6pss2j9.js",
+   "method": "GET",
+   "status": 200,
+   "contentType": "text/javascript",
+   "headers": {
+    "content-type": "text/javascript",
+    "priority": "u=3,i=?0"
+   },
+   "resourceType": "script",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "file": "site/kstoimenov.com/_next/static/chunks/2cya-h6pss2j9.js",
+   "size": 227314,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://kstoimenov.com/_next/static/chunks/2fw24bz7cgdt7.js",
+   "method": "GET",
+   "status": 200,
+   "contentType": "text/javascript",
+   "headers": {
+    "content-type": "text/javascript",
+    "priority": "u=3,i=?0"
+   },
+   "resourceType": "script",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "file": "site/kstoimenov.com/_next/static/chunks/2fw24bz7cgdt7.js",
+   "size": 330149,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://kstoimenov.com/assets/real-billboard.jpg",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/jpeg",
+   "headers": {
+    "content-type": "image/jpeg",
+    "priority": "u=3,i"
+   },
+   "resourceType": "image",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "file": "site/kstoimenov.com/assets/real-billboard.jpg",
+   "size": 368843,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://kstoimenov.com/icon.svg?icon.2ywaan9yswqra.svg",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/svg+xml",
+   "headers": {
+    "content-type": "image/svg+xml",
+    "priority": "u=1,i",
+    "x-nextjs-cache": "MISS",
+    "x-opennext": "1"
+   },
+   "resourceType": "other",
+   "passes": [
+    "mobile",
+    "desktop"
+   ],
+   "file": "site/kstoimenov.com/icon__q6a120331.svg",
+   "size": 880,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://kstoimenov.com/_next/image?url=%2Fassets%2Fworks%2Facronis-g1.avif&w=640&q=75",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/avif",
+   "headers": {
+    "content-disposition": "attachment",
+    "content-type": "image/avif",
+    "priority": "u=3,i"
+   },
+   "resourceType": "image",
+   "passes": [
+    "mobile"
+   ],
+   "file": "site/kstoimenov.com/_next/image__q131130a9.avif",
+   "size": 20810,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://kstoimenov.com/_next/image?url=%2Fassets%2Fworks%2Facronis-g2.avif&w=640&q=75",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/avif",
+   "headers": {
+    "content-disposition": "attachment",
+    "content-type": "image/avif",
+    "priority": "u=1,i"
+   },
+   "resourceType": "image",
+   "passes": [
+    "mobile"
+   ],
+   "file": "site/kstoimenov.com/_next/image__q89b2da7e.avif",
+   "size": 20419,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://kstoimenov.com/_next/image?url=%2Fassets%2Fworks%2Facronis-side.avif&w=640&q=75",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/avif",
+   "headers": {
+    "content-disposition": "attachment",
+    "content-type": "image/avif",
+    "priority": "u=3,i"
+   },
+   "resourceType": "image",
+   "passes": [
+    "mobile"
+   ],
+   "file": "site/kstoimenov.com/_next/image__q2953cc78.avif",
+   "size": 48499,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://kstoimenov.com/_next/image?url=%2Fassets%2Fworks%2Fdb-g1.avif&w=640&q=75",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/avif",
+   "headers": {
+    "content-disposition": "attachment",
+    "content-type": "image/avif",
+    "priority": "u=1,i"
+   },
+   "resourceType": "image",
+   "passes": [
+    "mobile"
+   ],
+   "file": "site/kstoimenov.com/_next/image__q44e7fca9.avif",
+   "size": 12295,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://kstoimenov.com/_next/image?url=%2Fassets%2Fworks%2Fdb-g3.avif&w=640&q=75",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/avif",
+   "headers": {
+    "content-disposition": "attachment",
+    "content-type": "image/avif",
+    "priority": "u=1,i"
+   },
+   "resourceType": "image",
+   "passes": [
+    "mobile"
+   ],
+   "file": "site/kstoimenov.com/_next/image__qcedcef2d.avif",
+   "size": 6116,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://kstoimenov.com/_next/image?url=%2Fassets%2Fworks%2Fdb-g2.avif&w=640&q=75",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/avif",
+   "headers": {
+    "content-disposition": "attachment",
+    "content-type": "image/avif",
+    "priority": "u=1,i"
+   },
+   "resourceType": "image",
+   "passes": [
+    "mobile"
+   ],
+   "file": "site/kstoimenov.com/_next/image__qc57a804a.avif",
+   "size": 15818,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://kstoimenov.com/_next/image?url=%2Fassets%2Fworks%2Forion-g1.avif&w=640&q=75",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/avif",
+   "headers": {
+    "content-disposition": "attachment",
+    "content-type": "image/avif",
+    "priority": "u=1,i"
+   },
+   "resourceType": "image",
+   "passes": [
+    "mobile"
+   ],
+   "file": "site/kstoimenov.com/_next/image__q9ccc1732.avif",
+   "size": 23327,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://kstoimenov.com/_next/image?url=%2Fassets%2Fworks%2Forion-g2.avif&w=640&q=75",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/avif",
+   "headers": {
+    "content-disposition": "attachment",
+    "content-type": "image/avif",
+    "priority": "u=1,i"
+   },
+   "resourceType": "image",
+   "passes": [
+    "mobile"
+   ],
+   "file": "site/kstoimenov.com/_next/image__q860bdac9.avif",
+   "size": 23325,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://kstoimenov.com/_next/image?url=%2Fassets%2Fworks%2Facronis-g3.avif&w=640&q=75",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/avif",
+   "headers": {
+    "content-disposition": "attachment",
+    "content-type": "image/avif",
+    "priority": "u=1,i"
+   },
+   "resourceType": "image",
+   "passes": [
+    "mobile"
+   ],
+   "file": "site/kstoimenov.com/_next/image__q5faa6df9.avif",
+   "size": 53389,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://kstoimenov.com/_next/image?url=%2Fassets%2Fworks%2Forion-g3.avif&w=640&q=75",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/avif",
+   "headers": {
+    "content-disposition": "attachment",
+    "content-type": "image/avif",
+    "priority": "u=1,i"
+   },
+   "resourceType": "image",
+   "passes": [
+    "mobile"
+   ],
+   "file": "site/kstoimenov.com/_next/image__qbbf8571a.avif",
+   "size": 27431,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://kstoimenov.com/_next/image?url=%2Fassets%2Fworks%2Fwpengine%2Fw2.avif&w=640&q=75",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/avif",
+   "headers": {
+    "content-disposition": "attachment",
+    "content-type": "image/avif",
+    "priority": "u=1,i"
+   },
+   "resourceType": "image",
+   "passes": [
+    "mobile"
+   ],
+   "file": "site/kstoimenov.com/_next/image__q4c2279cb.avif",
+   "size": 33003,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://kstoimenov.com/_next/image?url=%2Fassets%2Fworks%2Forion-side.avif&w=640&q=75",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/avif",
+   "headers": {
+    "content-disposition": "attachment",
+    "content-type": "image/avif",
+    "priority": "u=1,i"
+   },
+   "resourceType": "image",
+   "passes": [
+    "mobile"
+   ],
+   "file": "site/kstoimenov.com/_next/image__q5fd08d87.avif",
+   "size": 38462,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://kstoimenov.com/_next/image?url=%2Fassets%2Fworks%2Fdb-side.avif&w=640&q=75",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/avif",
+   "headers": {
+    "content-disposition": "attachment",
+    "content-type": "image/avif",
+    "priority": "u=1,i"
+   },
+   "resourceType": "image",
+   "passes": [
+    "mobile"
+   ],
+   "file": "site/kstoimenov.com/_next/image__q66c81d40.avif",
+   "size": 45047,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://kstoimenov.com/_next/image?url=%2Fassets%2Fworks%2Forion-main.avif&w=1200&q=75",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/avif",
+   "headers": {
+    "content-disposition": "attachment",
+    "content-type": "image/avif",
+    "priority": "u=1,i"
+   },
+   "resourceType": "image",
+   "passes": [
+    "mobile"
+   ],
+   "file": "site/kstoimenov.com/_next/image__q6df51f41.avif",
+   "size": 58088,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://kstoimenov.com/_next/image?url=%2Fassets%2Fworks%2Fmacmillan-main.avif&w=1200&q=75",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/avif",
+   "headers": {
+    "content-disposition": "attachment",
+    "content-type": "image/avif",
+    "priority": "u=1,i"
+   },
+   "resourceType": "image",
+   "passes": [
+    "mobile"
+   ],
+   "file": "site/kstoimenov.com/_next/image__q99197872.avif",
+   "size": 68440,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://kstoimenov.com/_next/image?url=%2Fassets%2Fworks%2Fpolygon-main.avif&w=1200&q=75",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/avif",
+   "headers": {
+    "content-disposition": "attachment",
+    "content-type": "image/avif",
+    "priority": "u=1,i"
+   },
+   "resourceType": "image",
+   "passes": [
+    "mobile"
+   ],
+   "file": "site/kstoimenov.com/_next/image__q959046ba.avif",
+   "size": 77655,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://kstoimenov.com/_next/image?url=%2Fassets%2Fworks%2Facronis-main.avif&w=1200&q=75",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/avif",
+   "headers": {
+    "content-disposition": "attachment",
+    "content-type": "image/avif",
+    "priority": "u=3,i"
+   },
+   "resourceType": "image",
+   "passes": [
+    "mobile"
+   ],
+   "file": "site/kstoimenov.com/_next/image__qc3905bc7.avif",
+   "size": 177466,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://kstoimenov.com/_next/image?url=%2Fassets%2Fworks%2Fwpengine%2Fw1.avif&w=1200&q=75",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/avif",
+   "headers": {
+    "content-disposition": "attachment",
+    "content-type": "image/avif",
+    "priority": "u=1,i"
+   },
+   "resourceType": "image",
+   "passes": [
+    "mobile"
+   ],
+   "file": "site/kstoimenov.com/_next/image__qc8b3ecdc.avif",
+   "size": 127215,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://kstoimenov.com/_next/image?url=%2Fassets%2Fworks%2Fmacmillan-side.avif&w=640&q=75",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/avif",
+   "headers": {
+    "content-disposition": "attachment",
+    "content-type": "image/avif",
+    "priority": "u=1,i"
+   },
+   "resourceType": "image",
+   "passes": [
+    "mobile"
+   ],
+   "file": "site/kstoimenov.com/_next/image__qd724d570.avif",
+   "size": 97469,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://kstoimenov.com/_next/image?url=%2Fassets%2Fworks%2Fdb-main.avif&w=1200&q=75",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/avif",
+   "headers": {
+    "content-disposition": "attachment",
+    "content-type": "image/avif",
+    "priority": "u=1,i"
+   },
+   "resourceType": "image",
+   "passes": [
+    "mobile"
+   ],
+   "file": "site/kstoimenov.com/_next/image__q121eeb79.avif",
+   "size": 222671,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://kstoimenov.com/_next/image?url=%2Fassets%2Fcta-portrait.png&w=96&q=75",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/png",
+   "headers": {
+    "content-disposition": "attachment",
+    "content-type": "image/png",
+    "priority": "u=3,i"
+   },
+   "resourceType": "image",
+   "passes": [
+    "mobile"
+   ],
+   "file": "site/kstoimenov.com/_next/image__q70f4baf3.png",
+   "size": 56127,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://kstoimenov.com/_next/image?url=%2Fassets%2Fworks%2Fpolygon-side.avif&w=640&q=75",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/avif",
+   "headers": {
+    "content-disposition": "attachment",
+    "content-type": "image/avif",
+    "priority": "u=3,i"
+   },
+   "resourceType": "image",
+   "passes": [
+    "mobile"
+   ],
+   "file": "site/kstoimenov.com/_next/image__qa2bae624.avif",
+   "size": 115475,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://kstoimenov.com/_next/image?url=%2Fassets%2Fworks%2Facronis-side.avif&w=1080&q=75",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/avif",
+   "headers": {
+    "content-disposition": "attachment",
+    "content-type": "image/avif"
+   },
+   "resourceType": "image",
+   "passes": [
+    "desktop"
+   ],
+   "file": "site/kstoimenov.com/_next/image__q76755d2e.avif",
+   "size": 48499,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://kstoimenov.com/_next/image?url=%2Fassets%2Fworks%2Facronis-main.avif&w=1920&q=75",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/avif",
+   "headers": {
+    "content-disposition": "attachment",
+    "content-type": "image/avif"
+   },
+   "resourceType": "image",
+   "passes": [
+    "desktop"
+   ],
+   "file": "site/kstoimenov.com/_next/image__q3d768052.avif",
+   "size": 177466,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://kstoimenov.com/_next/image?url=%2Fassets%2Fworks%2Facronis-g3.avif&w=1080&q=75",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/avif",
+   "headers": {
+    "content-disposition": "attachment",
+    "content-type": "image/avif"
+   },
+   "resourceType": "image",
+   "passes": [
+    "desktop"
+   ],
+   "file": "site/kstoimenov.com/_next/image__qa0b65b88.avif",
+   "size": 53389,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://kstoimenov.com/_next/image?url=%2Fassets%2Fworks%2Facronis-g1.avif&w=1080&q=75",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/avif",
+   "headers": {
+    "content-disposition": "attachment",
+    "content-type": "image/avif"
+   },
+   "resourceType": "image",
+   "passes": [
+    "desktop"
+   ],
+   "file": "site/kstoimenov.com/_next/image__q0e6d8520.avif",
+   "size": 20810,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://kstoimenov.com/_next/image?url=%2Fassets%2Fworks%2Facronis-g2.avif&w=1080&q=75",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/avif",
+   "headers": {
+    "content-disposition": "attachment",
+    "content-type": "image/avif"
+   },
+   "resourceType": "image",
+   "passes": [
+    "desktop"
+   ],
+   "file": "site/kstoimenov.com/_next/image__q226f0264.avif",
+   "size": 20419,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://kstoimenov.com/_next/image?url=%2Fassets%2Fworks%2Fdb-g3.avif&w=1080&q=75",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/avif",
+   "headers": {
+    "content-disposition": "attachment",
+    "content-type": "image/avif",
+    "priority": "u=3,i"
+   },
+   "resourceType": "image",
+   "passes": [
+    "desktop"
+   ],
+   "file": "site/kstoimenov.com/_next/image__q55b63cbf.avif",
+   "size": 6116,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://kstoimenov.com/_next/image?url=%2Fassets%2Fworks%2Fdb-g1.avif&w=1080&q=75",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/avif",
+   "headers": {
+    "content-disposition": "attachment",
+    "content-type": "image/avif",
+    "priority": "u=3,i"
+   },
+   "resourceType": "image",
+   "passes": [
+    "desktop"
+   ],
+   "file": "site/kstoimenov.com/_next/image__q1c7caa26.avif",
+   "size": 12295,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://kstoimenov.com/_next/image?url=%2Fassets%2Fworks%2Fdb-g2.avif&w=1080&q=75",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/avif",
+   "headers": {
+    "content-disposition": "attachment",
+    "content-type": "image/avif",
+    "priority": "u=3,i"
+   },
+   "resourceType": "image",
+   "passes": [
+    "desktop"
+   ],
+   "file": "site/kstoimenov.com/_next/image__qed6227b5.avif",
+   "size": 15818,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://kstoimenov.com/_next/image?url=%2Fassets%2Fworks%2Fdb-side.avif&w=1080&q=75",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/avif",
+   "headers": {
+    "content-disposition": "attachment",
+    "content-type": "image/avif",
+    "priority": "u=3,i"
+   },
+   "resourceType": "image",
+   "passes": [
+    "desktop"
+   ],
+   "file": "site/kstoimenov.com/_next/image__qd1cccecc.avif",
+   "size": 45047,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://kstoimenov.com/_next/image?url=%2Fassets%2Fworks%2Fpolygon-main.avif&w=1920&q=75",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/avif",
+   "headers": {
+    "content-disposition": "attachment",
+    "content-type": "image/avif",
+    "priority": "u=3,i"
+   },
+   "resourceType": "image",
+   "passes": [
+    "desktop"
+   ],
+   "file": "site/kstoimenov.com/_next/image__qd25421de.avif",
+   "size": 77655,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://kstoimenov.com/_next/image?url=%2Fassets%2Fworks%2Fmacmillan-main.avif&w=1920&q=75",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/avif",
+   "headers": {
+    "content-disposition": "attachment",
+    "content-type": "image/avif",
+    "priority": "u=1,i"
+   },
+   "resourceType": "image",
+   "passes": [
+    "desktop"
+   ],
+   "file": "site/kstoimenov.com/_next/image__q46ef46cd.avif",
+   "size": 68440,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://kstoimenov.com/_next/image?url=%2Fassets%2Fworks%2Fpolygon-side.avif&w=1080&q=75",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/avif",
+   "headers": {
+    "content-disposition": "attachment",
+    "content-type": "image/avif",
+    "priority": "u=3,i"
+   },
+   "resourceType": "image",
+   "passes": [
+    "desktop"
+   ],
+   "file": "site/kstoimenov.com/_next/image__qde43910d.avif",
+   "size": 115475,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://kstoimenov.com/_next/image?url=%2Fassets%2Fworks%2Fdb-main.avif&w=1920&q=75",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/avif",
+   "headers": {
+    "content-disposition": "attachment",
+    "content-type": "image/avif",
+    "priority": "u=3,i"
+   },
+   "resourceType": "image",
+   "passes": [
+    "desktop"
+   ],
+   "file": "site/kstoimenov.com/_next/image__q885d7eae.avif",
+   "size": 222671,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://kstoimenov.com/_next/image?url=%2Fassets%2Fworks%2Fmacmillan-side.avif&w=1080&q=75",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/avif",
+   "headers": {
+    "content-disposition": "attachment",
+    "content-type": "image/avif",
+    "priority": "u=1,i"
+   },
+   "resourceType": "image",
+   "passes": [
+    "desktop"
+   ],
+   "file": "site/kstoimenov.com/_next/image__q3f7e90c8.avif",
+   "size": 97469,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://kstoimenov.com/_next/image?url=%2Fassets%2Fworks%2Forion-g2.avif&w=1080&q=75",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/avif",
+   "headers": {
+    "content-disposition": "attachment",
+    "content-type": "image/avif",
+    "priority": "u=3,i"
+   },
+   "resourceType": "image",
+   "passes": [
+    "desktop"
+   ],
+   "file": "site/kstoimenov.com/_next/image__q6dbda850.avif",
+   "size": 23325,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://kstoimenov.com/_next/image?url=%2Fassets%2Fworks%2Forion-main.avif&w=1920&q=75",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/avif",
+   "headers": {
+    "content-disposition": "attachment",
+    "content-type": "image/avif",
+    "priority": "u=3,i"
+   },
+   "resourceType": "image",
+   "passes": [
+    "desktop"
+   ],
+   "file": "site/kstoimenov.com/_next/image__q0473ce17.avif",
+   "size": 58088,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://kstoimenov.com/_next/image?url=%2Fassets%2Fcta-portrait.png&w=384&q=75",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/png",
+   "headers": {
+    "content-disposition": "attachment",
+    "content-type": "image/png",
+    "priority": "u=3,i"
+   },
+   "resourceType": "image",
+   "passes": [
+    "desktop"
+   ],
+   "file": "site/kstoimenov.com/_next/image__qfbbb98cf.png",
+   "size": 56127,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://kstoimenov.com/_next/image?url=%2Fassets%2Fworks%2Forion-side.avif&w=1080&q=75",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/avif",
+   "headers": {
+    "content-disposition": "attachment",
+    "content-type": "image/avif",
+    "priority": "u=3,i"
+   },
+   "resourceType": "image",
+   "passes": [
+    "desktop"
+   ],
+   "file": "site/kstoimenov.com/_next/image__qcb3d21f2.avif",
+   "size": 38462,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://kstoimenov.com/_next/image?url=%2Fassets%2Fworks%2Fwpengine%2Fw1.avif&w=1920&q=75",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/avif",
+   "headers": {
+    "content-disposition": "attachment",
+    "content-type": "image/avif",
+    "priority": "u=3,i"
+   },
+   "resourceType": "image",
+   "passes": [
+    "desktop"
+   ],
+   "file": "site/kstoimenov.com/_next/image__q0e211cdc.avif",
+   "size": 127215,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://kstoimenov.com/_next/image?url=%2Fassets%2Fworks%2Fwpengine%2Fw2.avif&w=1080&q=75",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/avif",
+   "headers": {
+    "content-disposition": "attachment",
+    "content-type": "image/avif",
+    "priority": "u=3,i"
+   },
+   "resourceType": "image",
+   "passes": [
+    "desktop"
+   ],
+   "file": "site/kstoimenov.com/_next/image__q0a18694f.avif",
+   "size": 33003,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://kstoimenov.com/_next/image?url=%2Fassets%2Fworks%2Forion-g1.avif&w=1080&q=75",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/avif",
+   "headers": {
+    "content-disposition": "attachment",
+    "content-type": "image/avif",
+    "priority": "u=3,i"
+   },
+   "resourceType": "image",
+   "passes": [
+    "desktop"
+   ],
+   "file": "site/kstoimenov.com/_next/image__qcfaee368.avif",
+   "size": 23327,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://kstoimenov.com/_next/image?url=%2Fassets%2Fworks%2Forion-g3.avif&w=1080&q=75",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/avif",
+   "headers": {
+    "content-disposition": "attachment",
+    "content-type": "image/avif",
+    "priority": "u=3,i"
+   },
+   "resourceType": "image",
+   "passes": [
+    "desktop"
+   ],
+   "file": "site/kstoimenov.com/_next/image__q64360569.avif",
+   "size": 27431,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://pub-c7582c931cdf4f86acceec21c154f4ce.r2.dev/real-reel.webm.webm",
+   "method": "GET",
+   "status": 200,
+   "contentType": "video/webm",
+   "headers": {
+    "content-type": "video/webm"
+   },
+   "resourceType": "media",
+   "passes": [
+    "mobile"
+   ],
+   "file": "site/pub-c7582c931cdf4f86acceec21c154f4ce.r2.dev/real-reel.webm.webm",
+   "size": 74744935,
+   "modes": [
+    "no-cors"
+   ]
+  }
+ ],
+ "videos": {
+  "posters": {},
+  "onlineHosts": []
+ }
+}

@@ -1,0 +1,197 @@
+
+  .home-hero-img-deco-inner .txt:first-child {
+    opacity: 0.8;
+  }
+  @media (hover: hover) and (min-width: 992px)  {
+    .home-problem-item:hover .home-problem-item-img-inner {
+      color: var(--content--primary);
+    }
+    /* .home-problem-item:hover .home-problem-item-title-wrap {
+      grid-template-rows: min-content 1fr !important;
+    } */
+    .home-problem-item:hover .home-problem-item-plus {
+      transform: scale(1);
+    }
+    .home-problem-item:hover .home-problem-item-main:after {
+      opacity: 1;
+    }
+    .home-problem-item:hover .home-problem-item-dot {
+      opacity: 1;
+    }
+    .home-problem-item:hover .home-problem-item-head-title {
+      transform: translateX(2rem);
+    }
+  }
+  .home-problem-item-title-wrap {
+    transition: grid-template-rows 0.4s ease;
+  }
+  .home-why-item-img-deco.active .home-why-item-img-deco-bg,
+  .home-hero-img-deco.active .home-hero-img-deco-bg {
+    width: 100%;
+    height: 100%;
+    right: 0;
+    opacity: 1 !important;
+    top: 0;
+    animation: unset;
+    /* animation-play-state: paused; */
+  }
+  .home-why-item-img-deco.active .home-why-item-img-deco-inner,
+  .home-why-item-img-deco.active .home-why-item-img-deco-ic,
+  .home-hero-img-deco.active .home-hero-img-deco-inner,
+  .home-hero-img-deco.active .home-hero-img-deco-ic {
+    opacity: 1;
+  }
+  .home-hero-img-deco.active .home-hero-img-deco-numb {
+    opacity: 0;
+  }
+  .home-problem-item-main:after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+    background-image: var(--bg-grid);
+    background-size: 6.4rem 6.4rem;
+    background-position: center center;
+    opacity: 0;
+    transition: opacity 0.4s ease;
+    pointer-events: none;
+  }
+  .home-why-sticky-item:nth-child(2n + 1) {
+    grid-column: 2/3;
+  }
+  .home-usecase-faq-item .line.top {
+    display: none;
+  }
+  .home-usecase-faq-item:first-child .line.top {
+    display: block;
+  }
+  .home-usecase-faq-item.active .home-usecase-faq-item-numb {
+    color: var(--content--brand) !important;
+  }
+  .home-usecase-faq-item.active .path-vertical {
+    transform: scale(0);
+  }
+  .home-problem-item > .line-horizital.bot {
+    display: none;
+  }
+  .home-hero-ruler-item-wrap:hover .home-hero-ruler-item {
+    opacity: 1;
+  }
+  .home-map.expanded .home-map-content-wrap {
+    width: 55.65rem;
+  }
+  .home-map-content-item .line.bot {
+    display: none;
+  }
+  .home-map-content-item:last-child .line.bot {
+    display: block;
+  }
+  .home-map-number {
+    transition: opacity 0.4s ease;
+    cursor: pointer;
+  }
+  .home-map-number-wrap.active .home-map-number {
+    opacity: 0;
+  }
+  .home-map-number-wrap.active .home-map-number-box,
+  .home-map-number-wrap.hover .home-map-number-box {
+    opacity: 1;
+  }
+  .home-map-number-box {
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.4s ease;
+  }
+
+  .home-hero-ruler-item.left .home-hero-ruler-item-line-horizital {
+    clip-path: polygon(0 0, var(--clip-half) 0, var(--clip-half) 100%, 0 100%);
+  }
+  .home-hero-ruler-item.right .home-hero-ruler-item-line-horizital {
+    clip-path: polygon(var(--clip-half) 0, 100% 0, 100% 100%, var(--clip-half) 100%);
+  }
+  .home-hero-ruler-item.top .home-hero-ruler-item-line-vertical {
+    clip-path: polygon(0 0, 100% 0, 100% var(--clip-half), 0 var(--clip-half));
+  }
+  .home-hero-ruler-item.bot .home-hero-ruler-item-line-vertical {
+    clip-path: polygon(0 var(--clip-half), 100% var(--clip-half), 100% 100%, 0 100%);
+  }
+  .home-map-main-img.active .home-map-main-img-inner,
+  .home-map-main-img.active .home-map-intro {
+    pointer-events: all;
+  }
+  .home-why-main-devider {
+    transform: translateX(calc(-50% - (max(1px, 0.1rem) / 2)));
+  }
+  .home-usecase-faq-item:hover .home-usecase-faq-item-numb {
+    color: var(--content--brand);
+  }
+  .home-usecase-faq-item:hover .home-usecase-faq-item-ic {
+    color: var(--content--black);
+  }
+  .home-usecase-faq-item:not(:last-child):hover .home-usecase-faq-item-line-hover {
+    opacity: 1 !important;
+  }
+  .home-hero-title {
+    display: none;
+  }
+  .home-hero-title:first-child {
+    display: block;
+  }
+  @media only screen and (min-width: 991px) {
+    .home-map-content-item-ic .line {
+      display: none;
+    }
+    .home-why-item.active .home-why-item-sticky {
+      opacity: 1;
+    }
+  }
+  @media only screen and (max-width: 991px) {
+    .home-problem-item > .line-horizital.bot {
+      display: block;
+    }
+    .home-platform-content-left .line,
+    .home-why-sub-wrap .line,
+    .home-platform-content-right > .line.top {
+      display: none;
+    }
+  }
+  @media only screen and (min-width: 768px) {
+    .home-platform-content-img .line.line-dash,
+    .home-problem-inner > .line ,.home-hero-title-wrap .line, .home-hero-sub .line {
+      display: none;
+    }
+  }
+  @media only screen and (max-width: 767px) {
+    .home-hero-title br,
+    .home-map-content-label br,
+    .home-usecase-title br,
+    .home-problem-item-title br{
+      display: none;
+    }
+    .home-problem-item.swiper-slide-active .home-problem-item-img-inner{
+      color: var(--content--primary);
+    }
+    /* .home-map-number-wrap {
+      animation: fadeLoop 2s infinite;
+      animation-timing-function: ease-in-out;
+    }
+    .home-map-number-wrap:nth-child(2) {
+    	animation-delay: .15s:
+    }
+    .home-map-number-wrap:nth-child(3) {
+    	animation-delay: .3s:
+    } */
+    .home-map-number-wrap:hover,
+    .home-map-number-wrap.active {
+      animation: unset;
+    }
+    .home-why-item.swiper-slide-active .home-why-item-sticky {
+      opacity: 1;
+    }
+    .home-platform-content-img .line:not(.line-dash) {
+      display: none;
+    }
+    .home-platform-content-img .line.line-dash {
+      display: block;
+    }
+  }

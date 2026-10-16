@@ -1,0 +1,1554 @@
+<!DOCTYPE html>
+<html lang="en" class="antialiased"><head><meta charset="utf-8">
+<!-- Website Downloader 3.0: este arquivo é o retrato estático do site (DOM renderizado). Aberto via servidor
+     local (serve.py, ver Como rodar.md), o bootstrap abaixo carrega o site vivo; via file://, mostra este retrato. -->
+<meta name="referrer" content="no-referrer">
+<script data-wd3>window.__WD3__ = {"entryUrl": "https://creative-portfolio-87.aura.build/", "replayHost": "creative-portfolio-87.aura.build.localhost", "entryPath": "/", "captureId": "creative-portfolio-87.aura.build-eacc03c4", "capturedAt": "2026-10-13T20:28:44+00:00", "snapshot": true, "fileFonts": "site/_runtime/file-fonts.css"};</script>
+<script data-wd3>/* Website Downloader 3.0 — bootstrap do index.html.
+ * file://  → fica no retrato estático (e carrega as fontes embutidas, que o Chrome bloqueia em file://).
+ * http(s)  → para de carregar o retrato, registra o Service Worker de replay e abre o site vivo.
+ */
+(function () {
+  var cfg = window.__WD3__ || {};
+  var root = document.documentElement;
+  if (location.protocol === 'file:') {
+    root.setAttribute('data-wd3', 'file');
+    if (cfg.fileFonts) {
+      var link = document.createElement('link');
+      link.rel = 'stylesheet';
+      link.href = cfg.fileFonts;
+      (document.head || root).appendChild(link);
+    }
+    return;
+  }
+  root.setAttribute('data-wd3', 'loading');
+  if (cfg.snapshot) {
+    try { window.stop(); } catch (e) { /* o retrato não precisa carregar: o site vivo vem do SW */ }
+  }
+
+  function fail(msg) {
+    root.setAttribute('data-wd3', 'error');
+    var el = document.getElementById('wd3-error');
+    if (!el) {
+      var body = document.body || root.appendChild(document.createElement('body'));
+      body.innerHTML = '<p style="font:15px system-ui,sans-serif;padding:24px;color:#e8e8e8;background:#050505;margin:0">' +
+        'Não foi possível iniciar o replay: <span id="wd3-error"></span></p>';
+      el = document.getElementById('wd3-error');
+    }
+    el.textContent = msg;
+  }
+  if (!('serviceWorker' in navigator)) return fail('este navegador não suporta Service Workers.');
+
+  function go() { location.replace(cfg.entryPath); }
+  function start() {
+    navigator.serviceWorker.register('/site/_wd3/sw.js', { scope: '/' })
+      .then(function () { return navigator.serviceWorker.ready; })
+      .then(function () {
+        if (navigator.serviceWorker.controller) return go();
+        navigator.serviceWorker.addEventListener('controllerchange', go);
+      })
+      .catch(function (err) { fail(String(err && err.message || err)); });
+  }
+  // Aberto em localhost puro: tenta <domínio>.localhost (mesmo servidor), para sites que checam location.hostname.
+  var plain = location.hostname === 'localhost' || location.hostname === '127.0.0.1';
+  if (!plain || !cfg.replayHost || cfg.replayHost === 'localhost') return start();
+  var target = location.protocol + '//' + cfg.replayHost + (location.port ? ':' + location.port : '');
+  var decided = false;
+  function decide(fn) { if (!decided) { decided = true; fn(); } }
+  setTimeout(function () { decide(start); }, 1500);
+  fetch(target + '/site/_wd3/site-index.json', { mode: 'no-cors', cache: 'no-store' })
+    .then(function () { decide(function () { location.replace(target + cfg.entryPath); }); })
+    .catch(function () { decide(start); });
+})();
+</script>
+<style data-wd3>
+  [data-wd3-banner] { display: none; }
+  html[data-wd3="file"] [data-wd3-banner] { display: flex; }
+  html[data-wd3-unlock], html[data-wd3-unlock] body { overflow-y: auto !important; }
+</style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lumina - Powerful Automation</title>
+
+
+
+
+
+<link href="site/fonts.googleapis.com/css2__qc7313a91.css" rel="stylesheet">
+<link rel="stylesheet" href="site/_runtime/style-0.css" data-wd3-runtime-style="">
+<link rel="stylesheet" href="site/_runtime/style-1.css" data-wd3-runtime-style="">
+<link rel="stylesheet" href="site/_runtime/style-2.css" data-wd3-runtime-style="">
+<meta name="aura-font-heading-class" content="font-geist">
+<meta name="aura-font-body-class" content="font-sans">
+<meta name="aura-font-heading-label" content="Geist">
+<meta name="aura-font-body-label" content="Inter">
+<link id="all-fonts-link-font-geist" rel="stylesheet" href="site/fonts.googleapis.com/css2__qa4cd1a53.css"><link rel="stylesheet" href="site/_runtime/style-3.css" data-wd3-runtime-style="">
+<link rel="stylesheet" href="site/_runtime/style-4.css" data-wd3-runtime-style=""></head>
+  <body class="min-h-screen overflow-x-hidden selection:bg-white/10 font-sans bg-[#09090b] relative text-white" style="font-family: 'Inter', sans-serif;">
+    <!-- Background (component) added by Aura -->
+    <div class="aura-background-component fixed top-0 w-full h-screen -z-10 brightness-75" data-alpha-mask="80" style="; mask-image: linear-gradient(to bottom, transparent, black 0%, black 80%, transparent); -webkit-mask-image: linear-gradient(to bottom, transparent, black 0%, black 80%, transparent)">
+      <div class="aura-background-component top-0 w-full -z-10 absolute h-full">
+        <div data-us-project="uFY4IYPs2LU8fWm96Im2" class="absolute w-full h-full left-0 top-0 -z-10" data-us-initialized="true" data-scene-id="id-9yve4so0txu655f0a9e617"><canvas width="2160" height="1350" style="width: 1440px; height: 900px;" aria-label="Unicorn Studio Scene" role="img"></canvas></div>
+        
+      </div>
+    </div>
+
+    <!-- Background Glow Effects -->
+    <div class="fixed inset-0 z-0 pointer-events-none overflow-hidden flex items-center justify-center">
+      <div class="absolute top-0 left-1/2 -translate-x-1/2 w-px h-[60vh] bg-gradient-to-b via-zinc-500/5 to-transparent z-10 from-zinc-400/30"></div>
+      <div class="absolute top-[10%] left-1/2 -translate-x-1/2 w-48 h-56 blur-[100px] rounded-full z-10 bg-zinc-400/10"></div>
+      <div class="absolute -top-[50vh] w-[150vw] h-[100vh] rounded-[100%] border border-zinc-500/10 shadow-[0_0_120px_rgba(161,161,170,0.1)]"></div>
+      <div class="absolute top-[20vh] w-[120vw] h-[120vh] rounded-[100%] border shadow-[0_0_80px_rgba(161,161,170,0.05)] border-zinc-600/5"></div>
+      <div class="absolute top-[30%] left-[15%] w-64 h-64 bg-zinc-500/5 blur-[80px] rounded-full"></div>
+      <div class="absolute bottom-[20%] right-[20%] w-80 h-80 blur-[100px] rounded-full bg-zinc-400/5"></div>
+    </div>
+
+    <!-- Navigation -->
+    <header class="fixed flex md:px-12 z-50 pointer-events-auto pt-6 pr-6 pb-6 pl-6 top-0 right-0 left-0 items-center justify-between">
+      <a href="#" class="flex items-center gap-2.5 text-xl tracking-tight font-medium hover:opacity-80 transition-opacity font-geist text-white">
+        <iconify-icon icon="solar:play-bold" class="rotate-90 w-5 h-5 flex items-center justify-center text-white" style="stroke-width: 1.5;"><template shadowrootmode="open"><style data-style="data-style">:host{display:inline-block;vertical-align:0}span,svg{display:block}</style><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24"><path fill="currentColor" d="M21.4086 9.35258C23.5305 10.5065 23.5305 13.4935 21.4086 14.6474L8.59662 21.6145C6.53435 22.736 4 21.2763 4 18.9671L4 5.0329C4 2.72368 6.53435 1.26402 8.59661 2.38548L21.4086 9.35258Z"></path></svg></template></iconify-icon>
+        Lumina
+      </a>
+
+      <nav class="hidden md:flex items-center gap-10 text-base font-normal text-zinc-400">
+        <a href="#" class="flex items-center gap-1.5 transition-colors group hover:text-zinc-200">
+          Product
+          <iconify-icon icon="solar:alt-arrow-down-linear" class="w-4 h-4 flex items-center justify-center opacity-50 group-hover:opacity-100 transition-opacity" style="stroke-width: 1.5;"><template shadowrootmode="open"><style data-style="data-style">:host{display:inline-block;vertical-align:0}span,svg{display:block}</style><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M19 9L12 15L5 9"></path></svg></template></iconify-icon>
+        </a>
+        <a href="#" class="flex items-center gap-1.5 transition-colors group hover:text-zinc-200">
+          Resources
+          <iconify-icon icon="solar:alt-arrow-down-linear" class="w-4 h-4 flex items-center justify-center opacity-50 group-hover:opacity-100 transition-opacity" style="stroke-width: 1.5;"><template shadowrootmode="open"><style data-style="data-style">:host{display:inline-block;vertical-align:0}span,svg{display:block}</style><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M19 9L12 15L5 9"></path></svg></template></iconify-icon>
+        </a>
+        <a href="#" class="flex items-center gap-1.5 transition-colors group hover:text-zinc-200">
+          Pricing
+          <iconify-icon icon="solar:alt-arrow-down-linear" class="w-4 h-4 flex items-center justify-center opacity-50 group-hover:opacity-100 transition-opacity" style="stroke-width: 1.5;"><template shadowrootmode="open"><style data-style="data-style">:host{display:inline-block;vertical-align:0}span,svg{display:block}</style><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M19 9L12 15L5 9"></path></svg></template></iconify-icon>
+        </a>
+      </nav>
+
+      <div class="hidden md:flex items-center gap-6">
+        <a href="#" class="text-base font-normal transition-colors px-4 py-2 backdrop-blur-sm border rounded-full text-zinc-300 hover:text-white bg-black/50 border-zinc-700/50">
+          Login
+        </a>
+
+        <!-- Animated Hover CTA Nav -->
+        <button class="group relative inline-flex min-w-[120px] cursor-pointer transition-all duration-[1000ms] ease-[cubic-bezier(0.15,0.83,0.66,1)] hover:-translate-y-[2px] shadow-[0_2.8px_2.2px_rgba(0,0,0,0.3),_0_6.7px_5.3px_rgba(0,0,0,0.35),_0_12.5px_10px_rgba(0,0,0,0.4)] overflow-hidden font-normal tracking-tight bg-[#09090b]/80 backdrop-blur-md border rounded-full px-5 py-2.5 items-center justify-center text-sm hover:text-white text-zinc-300 border-zinc-700/80">
+          <!-- Original text (slides down on hover) -->
+          <span class="relative z-10 flex items-center gap-2 rounded-full transition-all duration-500 ease-out group-hover:transform group-hover:translate-y-8 group-hover:opacity-0 group-hover:blur-md">
+            Start Today It's Free
+            <iconify-icon icon="solar:arrow-right-linear" class="w-4 h-4 flex items-center justify-center" style="stroke-width: 1.5;"><template shadowrootmode="open"><style data-style="data-style">:host{display:inline-block;vertical-align:0}span,svg{display:block}</style><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 12H20M14 18L20 12L14 6"></path></svg></template></iconify-icon>
+          </span>
+
+          <!-- Clone text (slides in from top on hover) -->
+          <span class="absolute inset-0 z-10 flex items-center justify-center gap-2 transition-all duration-300 ease-in-out transform -translate-y-8 group-hover:translate-y-0 group-hover:opacity-100 group-hover:blur-none opacity-0 rounded-full blur-md">
+            Start Today It's Free
+            <iconify-icon icon="solar:arrow-right-linear" class="w-4 h-4 flex items-center justify-center" style="stroke-width: 1.5;"><template shadowrootmode="open"><style data-style="data-style">:host{display:inline-block;vertical-align:0}span,svg{display:block}</style><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 12H20M14 18L20 12L14 6"></path></svg></template></iconify-icon>
+          </span>
+
+          <!-- bottom light gradient line on hover -->
+          <span aria-hidden="true" class="absolute bottom-0 left-1/2 h-[1px] w-[70%] -translate-x-1/2 transition-all duration-[1000ms] ease-[cubic-bezier(0.15,0.83,0.66,1)] opacity-0 group-hover:opacity-80 bg-gradient-to-r from-transparent to-transparent rounded-full blur-[2px] via-neutral-200"></span>
+
+          <!-- bottom light gradient on hover -->
+          <span aria-hidden="true" class="absolute bottom-0 left-0 right-0 h-[100%] opacity-0 group-hover:opacity-60 transition-all duration-[1000ms] ease-[cubic-bezier(0.15,0.83,0.66,1)] pointer-events-none bg-gradient-to-t to-transparent rounded-full from-white/20 via-white/10"></span>
+        </button>
+      </div>
+    </header>
+    <main class="z-20 container md:px-12 flex flex-col md:pb-16 pointer-events-none mr-auto ml-auto pt-32 pr-6 pb-10 pl-6 relative justify-center">
+      <div class="grid grid-cols-1 lg:grid-cols-2 lg:gap-12 pointer-events-auto min-h-[70vh] gap-x-16 gap-y-16 items-center">
+        <!-- Left Side -->
+        <div class="flex flex-col gap-10 lg:pr-8 text-left gap-x-10 gap-y-10">
+          <h1 class="sm:text-6xl md:text-7xl leading-[1.1] [animation:animationIn_0.8s_ease-out_0.1s_both] animate-on-scroll animate text-5xl font-medium tracking-tight font-geist text-white/95" style="filter: blur(0px); opacity: 1; transform: translateY(0px);">
+            AI Agents
+            <br>
+            Powerful Automation
+            <br>
+            <span class="text-zinc-500">Made Simple</span>
+          </h1>
+
+          <div class="flex flex-wrap items-center gap-4 [animation:animationIn_0.8s_ease-out_0.2s_both] animate-on-scroll animate" style="filter: blur(0px); opacity: 1; transform: translateY(0px);">
+            <!-- Animated Hover CTA Hero -->
+            <button class="group relative inline-flex min-w-[120px] cursor-pointer transition-all duration-[1000ms] ease-[cubic-bezier(0.15,0.83,0.66,1)] hover:-translate-y-[3px] shadow-[0_2.8px_2.2px_rgba(0,0,0,0.3),_0_6.7px_5.3px_rgba(0,0,0,0.35),_0_12.5px_10px_rgba(0,0,0,0.4)] overflow-hidden font-normal tracking-tight border rounded-full px-8 py-3.5 items-center justify-center text-lg hover:text-white text-zinc-300 bg-zinc-900 border-zinc-700/80">
+              <!-- Original text (slides down on hover) -->
+              <span class="relative z-10 flex items-center gap-2 rounded-full transition-all duration-500 ease-out group-hover:transform group-hover:translate-y-8 group-hover:opacity-0 group-hover:blur-md">
+                Start Today It's Free
+                <iconify-icon icon="solar:arrow-right-linear" class="w-5 h-5 flex items-center justify-center" style="stroke-width: 1.5;"><template shadowrootmode="open"><style data-style="data-style">:host{display:inline-block;vertical-align:0}span,svg{display:block}</style><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 12H20M14 18L20 12L14 6"></path></svg></template></iconify-icon>
+              </span>
+
+              <!-- Clone text (slides in from top on hover) -->
+              <span class="absolute inset-0 z-10 flex items-center justify-center gap-2 transition-all duration-300 ease-in-out transform -translate-y-8 group-hover:translate-y-0 group-hover:opacity-100 group-hover:blur-none font-medium opacity-0 rounded-full blur-md">
+                Start Today It's Free
+                <iconify-icon icon="solar:arrow-right-linear" class="flex items-center justify-center w-5 h-5" style="stroke-width: 1.5; color: rgb(255, 255, 255);" width="20" height="20"><template shadowrootmode="open"><style data-style="data-style">:host{display:inline-block;vertical-align:0}span,svg{display:block}</style><svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M4 12H20M14 18L20 12L14 6"></path></svg></template></iconify-icon>
+              </span>
+
+              <!-- bottom light gradient line on hover -->
+              <span aria-hidden="true" class="absolute bottom-0 left-1/2 h-[1px] w-[70%] -translate-x-1/2 transition-all duration-[1000ms] ease-[cubic-bezier(0.15,0.83,0.66,1)] opacity-0 group-hover:opacity-80 bg-gradient-to-r from-transparent to-transparent rounded-full blur-[2px] via-neutral-200"></span>
+
+              <!-- bottom light gradient on hover -->
+              <span aria-hidden="true" class="absolute bottom-0 left-0 right-0 h-[100%] opacity-0 group-hover:opacity-60 transition-all duration-[1000ms] ease-[cubic-bezier(0.15,0.83,0.66,1)] pointer-events-none bg-gradient-to-t to-transparent rounded-full from-white/20 via-white/10"></span>
+            </button>
+
+            <button class="px-8 py-3.5 rounded-full border bg-transparent text-lg font-normal transition-colors backdrop-blur-sm border-zinc-800 text-zinc-300 hover:bg-zinc-800/50 hover:text-white">
+              Talk to Sales
+            </button>
+          </div>
+
+          <!-- Features List -->
+          <div class="flex flex-col gap-5 pt-4 [animation:animationIn_0.8s_ease-out_0.3s_both] animate-on-scroll animate" style="filter: blur(0px); opacity: 1; transform: translateY(0px);">
+            <div class="flex items-start gap-4 text-lg font-normal group text-zinc-400">
+              <iconify-icon icon="solar:check-circle-linear" class="w-6 h-6 flex items-center justify-center text-zinc-500 mt-0.5 group-hover:text-zinc-300 transition-colors flex-shrink-0" style="stroke-width: 1.5;"><template shadowrootmode="open"><style data-style="data-style">:host{display:inline-block;vertical-align:0}span,svg{display:block}</style><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="1.5"><circle cx="12" cy="12" r="10"></circle><path stroke-linejoin="round" d="M8.5 12.5L10.5 14.5L15.5 9.5"></path></g></svg></template></iconify-icon>
+              <span>
+                <span class="font-medium text-zinc-200">No-code :</span>
+                you click, it works
+              </span>
+            </div>
+            <div class="flex items-start gap-4 text-lg font-normal group text-zinc-400">
+              <iconify-icon icon="solar:check-circle-linear" class="w-6 h-6 flex items-center justify-center text-zinc-500 mt-0.5 group-hover:text-zinc-300 transition-colors flex-shrink-0" style="stroke-width: 1.5;"><template shadowrootmode="open"><style data-style="data-style">:host{display:inline-block;vertical-align:0}span,svg{display:block}</style><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="1.5"><circle cx="12" cy="12" r="10"></circle><path stroke-linejoin="round" d="M8.5 12.5L10.5 14.5L15.5 9.5"></path></g></svg></template></iconify-icon>
+              <span class="">
+                <span class="font-medium text-zinc-200">Open source :</span>
+                customizable and secure
+              </span>
+            </div>
+            <div class="flex items-start gap-4 text-lg font-normal group text-zinc-400">
+              <iconify-icon icon="solar:check-circle-linear" class="w-6 h-6 flex items-center justify-center text-zinc-500 mt-0.5 group-hover:text-zinc-300 transition-colors flex-shrink-0" style="stroke-width: 1.5;"><template shadowrootmode="open"><style data-style="data-style">:host{display:inline-block;vertical-align:0}span,svg{display:block}</style><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="1.5"><circle cx="12" cy="12" r="10"></circle><path stroke-linejoin="round" d="M8.5 12.5L10.5 14.5L15.5 9.5"></path></g></svg></template></iconify-icon>
+              <span class="">
+                <span class="font-medium text-zinc-200">Training :</span>
+                guided by us, built by your team
+              </span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right Side: Floating Image Cluster -->
+        <div class="lg:h-[650px] hidden md:block [animation:animationIn_0.8s_ease-out_0.4s_both] animate-on-scroll animate w-full h-[500px] z-50 pointer-events-auto relative" style="filter: blur(0px); opacity: 1; transform: translateY(0px);">
+          <div class="glass-card absolute top-[5%] left-[5%] w-40 lg:w-48 aspect-square rotate-[-4deg] p-2 md:p-3 z-[61] transition-all duration-500 ease-out hover:scale-105 hover:z-[100]">
+            <div class="relative w-full h-full rounded-xl overflow-hidden shadow-[0_0_10px_rgba(0,0,0,0.5)] bg-zinc-900">
+              <img src="site/hoirqrkdgbmvpwutwuwj.supabase.co/storage/v1/object/public/assets/assets/5b2b94ae-4a0b-458d-b838-58b0fb5fadfd_800w.webp" alt="" class="absolute inset-0 w-full h-full object-cover opacity-95">
+              <div class="bg-gradient-to-tr to-transparent absolute top-0 right-0 bottom-0 left-0 from-black/40"></div>
+            </div>
+            <div class="glass-highlight"></div>
+          </div>
+          <div class="glass-card absolute top-[15%] right-[5%] w-48 lg:w-56 aspect-[4/3] rotate-[3deg] p-2 md:p-3 z-[62] transition-all duration-500 ease-out hover:scale-105 hover:z-[100]">
+            <div class="relative w-full h-full rounded-xl overflow-hidden shadow-[0_0_10px_rgba(0,0,0,0.5)] bg-zinc-900">
+              <img src="site/hoirqrkdgbmvpwutwuwj.supabase.co/storage/v1/object/public/assets/assets/98ceb9e8-e614-438f-b0b6-6ea9a4cd962a_800w.jpg" alt="" class="absolute inset-0 w-full h-full object-cover opacity-95">
+              <div class="absolute inset-0 bg-gradient-to-tr to-transparent from-black/40"></div>
+            </div>
+            <div class="glass-highlight"></div>
+          </div>
+          <div class="glass-card lg:w-44 aspect-[3/4] md:p-3 w-36 z-[63] pt-2 pr-2 pb-2 pl-2 absolute top-[40%] left-[0%] rotate-[-2deg] transition-all duration-500 ease-out hover:scale-105 hover:z-[100]">
+            <div class="relative w-full h-full rounded-xl overflow-hidden shadow-[0_0_10px_rgba(0,0,0,0.5)] bg-zinc-900">
+              <img src="site/hoirqrkdgbmvpwutwuwj.supabase.co/storage/v1/object/public/assets/assets/cce9b24e-35c2-4401-966f-6862ca3cbe67_320w.webp" alt="" class="absolute inset-0 w-full h-full object-cover opacity-95">
+              <div class="absolute inset-0 bg-gradient-to-tr to-transparent from-black/40"></div>
+            </div>
+            <div class="glass-highlight"></div>
+          </div>
+          <div class="glass-card absolute top-[35%] right-[15%] w-52 lg:w-64 aspect-square rotate-[2deg] p-2 md:p-3 z-[64] transition-all duration-500 ease-out hover:scale-105 hover:z-[100]">
+            <div class="relative w-full h-full rounded-xl overflow-hidden shadow-[0_0_10px_rgba(0,0,0,0.5)] bg-zinc-900">
+              <img src="site/hoirqrkdgbmvpwutwuwj.supabase.co/storage/v1/object/public/assets/assets/84c1c812-11be-4bbf-980f-9c90b7a0d779_800w.webp" alt="" class="absolute inset-0 w-full h-full object-cover opacity-95">
+              <div class="absolute inset-0 bg-gradient-to-tr to-transparent from-black/40"></div>
+            </div>
+            <div class="glass-highlight"></div>
+          </div>
+          <div class="glass-card absolute bottom-[5%] left-[20%] w-44 lg:w-52 aspect-square rotate-[4deg] p-2 md:p-3 z-[62] transition-all duration-500 ease-out hover:scale-105 hover:z-[100]">
+            <div class="relative w-full h-full rounded-xl overflow-hidden shadow-[0_0_10px_rgba(0,0,0,0.5)] bg-zinc-900">
+              <img src="site/hoirqrkdgbmvpwutwuwj.supabase.co/storage/v1/object/public/assets/assets/7f606005-ba8e-4906-8403-5200e9723d9f_800w.webp" alt="" class="absolute inset-0 w-full h-full object-cover opacity-95">
+              <div class="absolute inset-0 bg-gradient-to-tr to-transparent from-black/40"></div>
+            </div>
+            <div class="glass-highlight"></div>
+          </div>
+          <div class="glass-card absolute bottom-[0%] right-[10%] w-36 lg:w-44 aspect-[4/3] rotate-[-3deg] p-2 md:p-3 z-[61] transition-all duration-500 ease-out hover:scale-105 hover:z-[100]">
+            <div class="relative w-full h-full rounded-xl overflow-hidden shadow-[0_0_10px_rgba(0,0,0,0.5)] bg-zinc-900">
+              <img src="site/hoirqrkdgbmvpwutwuwj.supabase.co/storage/v1/object/public/assets/assets/6d1c6740-1f50-4f43-bbb0-8bfb2f9620bd_320w.webp" alt="" class="absolute inset-0 w-full h-full object-cover opacity-95">
+              <div class="absolute inset-0 bg-gradient-to-tr to-transparent from-black/40"></div>
+            </div>
+            <div class="glass-highlight"></div>
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <!-- Main Hero Content -->
+
+    <!-- Enterprise Security & Scale Features Section -->
+    <section class="z-20 container md:px-12 pointer-events-auto mr-auto ml-auto pt-16 pr-6 pb-16 pl-6 relative">
+      <link rel="stylesheet" href="site/_runtime/style-5.css" data-wd3-runtime-style="">
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <!-- SOC 2 Compliance -->
+        <div class="flex flex-col bg-[#0e0e11] border rounded-3xl p-1.5 hover:bg-white/[0.02] transition-all duration-500 ease-out hover:scale-[1.02] hover:z-10 relative group shadow-[0_20px_40px_rgba(0,0,0,0.3)] [animation:animationIn_0.8s_ease-out_0.1s_both] animate-on-scroll border-white/5 animate" style="filter: blur(0px); opacity: 1; transform: translateY(0px);">
+          <div class="h-64 rounded-[1.25rem] relative overflow-hidden flex items-center justify-center bg-[#131316] border border-white/5">
+            <div class="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(255,255,255,0.04)_0%,transparent_60%)] pointer-events-none"></div>
+
+            <!-- Inner Graphic: Audit Dashboard -->
+            <div class="relative w-[85%] max-w-[260px] bg-[#09090b] border rounded-xl p-4 shadow-2xl z-10 flex flex-col border-white/10 [animation:lumina-float_4s_ease-in-out_infinite] animate-on-scroll animate">
+              <div class="flex items-center justify-between mb-4 pb-3 border-b border-white/5">
+                <div class="flex items-center gap-2">
+                  <i data-lucide="shield-check" class="w-4 h-4 text-emerald-400" stroke-width="1.5"></i>
+                  <span class="text-xs font-medium text-zinc-200">
+                    Security Audit
+                  </span>
+                </div>
+                <span class="text-[10px] px-1.5 py-0.5 rounded border font-medium bg-emerald-400/10 text-emerald-400 border-emerald-400/20 [animation:lumina-pulse_2s_ease-in-out_infinite] animate-on-scroll animate">
+                  Passed
+                </span>
+              </div>
+              <div class="flex flex-col gap-3">
+                <div class="flex items-center justify-between">
+                  <span class="text-[11px] font-medium text-zinc-400">
+                    End-to-end Encryption
+                  </span>
+                  <i data-lucide="check-circle-2" class="w-3.5 h-3.5 text-emerald-400 [animation:lumina-pulse_2s_ease-in-out_infinite] animate-on-scroll animate" style="animation-delay: 0s" stroke-width="2"></i>
+                </div>
+                <div class="flex items-center justify-between">
+                  <span class="text-[11px] font-medium text-zinc-400">
+                    Access Control Logs
+                  </span>
+                  <i data-lucide="check-circle-2" class="w-3.5 h-3.5 text-emerald-400 [animation:lumina-pulse_2s_ease-in-out_infinite] animate-on-scroll animate" style="animation-delay: 0.5s" stroke-width="2"></i>
+                </div>
+                <div class="flex items-center justify-between">
+                  <span class="text-[11px] font-medium text-zinc-400">
+                    Vulnerability Scan
+                  </span>
+                  <i data-lucide="check-circle-2" class="w-3.5 h-3.5 text-emerald-400 [animation:lumina-pulse_2s_ease-in-out_infinite] animate-on-scroll animate" style="animation-delay: 1s" stroke-width="2"></i>
+                </div>
+                <div class="flex items-center justify-between">
+                  <span class="text-[11px] font-medium text-zinc-400">
+                    Data Privacy Policies
+                  </span>
+                  <i data-lucide="check-circle-2" class="w-3.5 h-3.5 text-emerald-400 [animation:lumina-pulse_2s_ease-in-out_infinite] animate-on-scroll animate" style="animation-delay: 1.5s" stroke-width="2"></i>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="px-5 py-6 flex flex-col gap-2">
+            <h3 class="text-xl font-medium tracking-tight font-geist text-white">
+              SOC 2 Compliance
+            </h3>
+            <p class="text-base font-normal leading-relaxed text-zinc-400">
+              Our product meets SOC 2 standards for secure handling of sensitive
+              information
+            </p>
+          </div>
+        </div>
+
+        <!-- SSO and Domain Capture -->
+        <div class="flex flex-col bg-[#0e0e11] border rounded-3xl p-1.5 hover:bg-white/[0.02] transition-all duration-500 ease-out hover:scale-[1.02] hover:z-10 relative group shadow-[0_20px_40px_rgba(0,0,0,0.3)] [animation:animationIn_0.8s_ease-out_0.2s_both] animate-on-scroll border-white/5 animate" style="filter: blur(0px); opacity: 1; transform: translateY(0px);">
+          <div class="h-64 rounded-[1.25rem] relative overflow-hidden flex items-center justify-center bg-[#131316] border border-white/5">
+            <div class="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(255,255,255,0.04)_0%,transparent_60%)] pointer-events-none"></div>
+
+            <!-- Inner Graphic: Login Routing -->
+            <div class="relative w-[85%] max-w-[260px] flex flex-col gap-2 z-10 [animation:lumina-float_4s_ease-in-out_infinite] animate-on-scroll animate" style="animation-delay: 0.5s">
+              <!-- Login Box -->
+              <div class="bg-[#09090b] border rounded-xl p-3.5 shadow-2xl relative border-white/10">
+                <div class="flex items-center gap-2 mb-3">
+                  <div class="w-5 h-5 rounded flex items-center justify-center bg-zinc-800">
+                    <i data-lucide="building" class="w-3 h-3 text-zinc-300" stroke-width="1.5"></i>
+                  </div>
+                  <span class="text-[11px] font-medium text-zinc-200">
+                    Sign in to Acme
+                  </span>
+                </div>
+                <div class="bg-[#131316] border rounded-lg p-2.5 flex items-center justify-between text-xs border-white/5">
+                  <span class="font-medium text-zinc-300">
+                    jane@acmecorp.com
+                  </span>
+                  <i data-lucide="loader-2" class="w-3.5 h-3.5 text-zinc-500 animate-spin" stroke-width="2"></i>
+                </div>
+              </div>
+
+              <!-- Routing Path -->
+              <div class="flex flex-col items-center justify-center h-4 relative overflow-hidden">
+                <div class="absolute w-px h-full bg-gradient-to-b to-transparent from-white/20"></div>
+                <div class="absolute w-2 h-2 rounded-full border bg-[#09090b] shadow-[0_0_8px_rgba(255,255,255,0.3)] border-white/20 [animation:lumina-scan_2s_linear_infinite] animate-on-scroll animate"></div>
+              </div>
+
+              <!-- IDP Box -->
+              <div class="bg-[#09090b] border rounded-xl p-3 shadow-2xl flex items-center gap-3 w-4/5 mx-auto relative overflow-hidden border-white/10">
+                <div class="absolute inset-0 bg-gradient-to-r from-transparent via-blue-500/10 to-transparent [animation:lumina-shine_3s_ease-in-out_infinite] animate-on-scroll animate"></div>
+                <div class="w-7 h-7 rounded-lg bg-blue-500/10 border border-blue-500/20 flex items-center justify-center">
+                  <i data-lucide="fingerprint" class="w-4 h-4 text-blue-400" stroke-width="1.5"></i>
+                </div>
+                <div class="flex flex-col">
+                  <span class="text-[9px] text-zinc-500 uppercase tracking-widest font-medium">
+                    Routing to
+                  </span>
+                  <span class="text-[11px] font-medium text-zinc-200">
+                    Identity Provider
+                  </span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="px-5 py-6 flex flex-col gap-2">
+            <h3 class="text-xl font-medium tracking-tight font-geist text-white">
+              SSO and Domain Capture
+            </h3>
+            <p class="text-base font-normal leading-relaxed text-zinc-400">
+              Seamlessly manage users with SSO and domain capture
+            </p>
+          </div>
+        </div>
+
+        <!-- Fine-Grained Permissions -->
+        <div class="flex flex-col bg-[#0e0e11] border rounded-3xl p-1.5 hover:bg-white/[0.02] transition-all duration-500 ease-out hover:scale-[1.02] hover:z-10 relative group shadow-[0_20px_40px_rgba(0,0,0,0.3)] [animation:animationIn_0.8s_ease-out_0.3s_both] animate-on-scroll border-white/5 animate" style="filter: blur(0px); opacity: 1; transform: translateY(0px);">
+          <div class="h-64 rounded-[1.25rem] relative overflow-hidden flex items-center justify-center bg-[#131316] border border-white/5">
+            <div class="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(255,255,255,0.04)_0%,transparent_60%)] pointer-events-none"></div>
+
+            <!-- Inner Graphic: Permissions Matrix -->
+            <div class="relative w-[90%] max-w-[280px] bg-[#09090b] border rounded-xl overflow-hidden shadow-2xl z-10 flex flex-col border-white/10 [animation:lumina-float_4s_ease-in-out_infinite] animate-on-scroll animate" style="animation-delay: 1s">
+              <div class="grid grid-cols-5 gap-2 p-3 border-b bg-white/[0.02] border-white/5">
+                <div class="col-span-2 text-[10px] font-medium text-zinc-500 uppercase tracking-wider">
+                  Resource
+                </div>
+                <div class="text-[10px] font-medium text-zinc-500 uppercase tracking-wider text-center">
+                  Read
+                </div>
+                <div class="text-[10px] font-medium text-zinc-500 uppercase tracking-wider text-center">
+                  Edit
+                </div>
+                <div class="text-[10px] font-medium text-zinc-500 uppercase tracking-wider text-center">
+                  Admin
+                </div>
+              </div>
+              <div class="flex flex-col p-2 gap-1 bg-[#0e0e11]">
+                <!-- Row 1 -->
+                <div class="grid grid-cols-5 gap-2 p-2 items-center rounded-lg cursor-pointer [animation:lumina-highlight_3s_ease-in-out_infinite] animate-on-scroll animate" style="animation-delay: 0s">
+                  <div class="col-span-2 flex items-center gap-2">
+                    <i data-lucide="database" class="w-3.5 h-3.5 text-zinc-400" stroke-width="1.5"></i>
+                    <span class="text-[11px] font-medium truncate text-zinc-300">
+                      Core API
+                    </span>
+                  </div>
+                  <div class="flex justify-center">
+                    <div class="w-3.5 h-3.5 rounded border bg-emerald-500/10 flex items-center justify-center border-white/10">
+                      <i data-lucide="check" class="w-2.5 h-2.5 text-emerald-400" stroke-width="2"></i>
+                    </div>
+                  </div>
+                  <div class="flex justify-center">
+                    <div class="w-3.5 h-3.5 rounded border bg-[#131316] border-white/10"></div>
+                  </div>
+                  <div class="flex justify-center">
+                    <div class="w-3.5 h-3.5 rounded border bg-[#131316] border-white/10"></div>
+                  </div>
+                </div>
+                <!-- Row 2 -->
+                <div class="grid grid-cols-5 gap-2 p-2 items-center rounded-lg cursor-pointer [animation:lumina-highlight_3s_ease-in-out_infinite] animate-on-scroll animate" style="animation-delay: 1s">
+                  <div class="col-span-2 flex items-center gap-2">
+                    <i data-lucide="globe" class="w-3.5 h-3.5 text-zinc-400" stroke-width="1.5"></i>
+                    <span class="text-[11px] font-medium truncate text-zinc-300">
+                      Marketing
+                    </span>
+                  </div>
+                  <div class="flex justify-center">
+                    <div class="w-3.5 h-3.5 rounded border bg-emerald-500/10 flex items-center justify-center border-white/10">
+                      <i data-lucide="check" class="w-2.5 h-2.5 text-emerald-400" stroke-width="2"></i>
+                    </div>
+                  </div>
+                  <div class="flex justify-center">
+                    <div class="w-3.5 h-3.5 rounded border bg-emerald-500/10 flex items-center justify-center border-white/10">
+                      <i data-lucide="check" class="w-2.5 h-2.5 text-emerald-400" stroke-width="2"></i>
+                    </div>
+                  </div>
+                  <div class="flex justify-center">
+                    <div class="w-3.5 h-3.5 rounded border bg-[#131316] border-white/10"></div>
+                  </div>
+                </div>
+                <!-- Row 3 -->
+                <div class="grid grid-cols-5 gap-2 p-2 items-center rounded-lg cursor-pointer [animation:lumina-highlight_3s_ease-in-out_infinite] animate-on-scroll animate" style="animation-delay: 2s">
+                  <div class="col-span-2 flex items-center gap-2">
+                    <i data-lucide="credit-card" class="w-3.5 h-3.5 text-zinc-400" stroke-width="1.5"></i>
+                    <span class="text-[11px] font-medium truncate text-zinc-300">
+                      Billing
+                    </span>
+                  </div>
+                  <div class="flex justify-center">
+                    <div class="w-3.5 h-3.5 rounded border bg-emerald-500/10 flex items-center justify-center border-white/10">
+                      <i data-lucide="check" class="w-2.5 h-2.5 text-emerald-400" stroke-width="2"></i>
+                    </div>
+                  </div>
+                  <div class="flex justify-center">
+                    <div class="w-3.5 h-3.5 rounded border bg-emerald-500/10 flex items-center justify-center border-white/10">
+                      <i data-lucide="check" class="w-2.5 h-2.5 text-emerald-400" stroke-width="2"></i>
+                    </div>
+                  </div>
+                  <div class="flex justify-center">
+                    <div class="w-3.5 h-3.5 rounded border bg-emerald-500/10 flex items-center justify-center border-white/10">
+                      <i data-lucide="check" class="w-2.5 h-2.5 text-emerald-400" stroke-width="2"></i>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="px-5 py-6 flex flex-col gap-2">
+            <h3 class="text-xl font-medium tracking-tight font-geist text-white">
+              Fine-Grained Permissions
+            </h3>
+            <p class="text-base font-normal leading-relaxed text-zinc-400">
+              Effortlessly assign and manage fine-grained permissions with our
+              solution
+            </p>
+          </div>
+        </div>
+
+        <!-- Role-Based Access Control -->
+        <div class="flex flex-col bg-[#0e0e11] border rounded-3xl p-1.5 hover:bg-white/[0.02] transition-all duration-500 ease-out hover:scale-[1.02] hover:z-10 relative group shadow-[0_20px_40px_rgba(0,0,0,0.3)] [animation:animationIn_0.8s_ease-out_0.4s_both] animate-on-scroll border-white/5 animate" style="filter: blur(0px); opacity: 1; transform: translateY(0px);">
+          <div class="h-64 rounded-[1.25rem] relative overflow-hidden flex items-center justify-center bg-[#131316] border border-white/5">
+            <div class="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(255,255,255,0.04)_0%,transparent_60%)] pointer-events-none"></div>
+
+            <!-- Inner Graphic: Role Assignments -->
+            <div class="relative w-[90%] max-w-[280px] bg-[#09090b] border rounded-xl p-3 shadow-2xl z-10 flex flex-col gap-4 border-white/10 [animation:lumina-float_4s_ease-in-out_infinite] animate-on-scroll animate" style="animation-delay: 1.5s">
+              <div class="flex items-center gap-3 p-2 bg-white/[0.03] border rounded-lg border-white/5">
+                <div class="w-8 h-8 rounded-full bg-purple-500/20 border border-purple-500/20 flex items-center justify-center font-medium text-xs shadow-inner text-purple-400">
+                  JD
+                </div>
+                <div class="flex flex-col">
+                  <span class="text-[12px] font-medium text-zinc-200">
+                    Jane Doe
+                  </span>
+                  <span class="text-[10px] text-zinc-500">
+                    Engineering Team
+                  </span>
+                </div>
+              </div>
+              <div class="flex flex-col gap-2">
+                <div class="text-[10px] font-medium text-zinc-500 uppercase tracking-wider px-1">
+                  Assigned Roles
+                </div>
+                <div class="flex flex-wrap gap-2">
+                  <div class="flex items-center gap-1.5 px-2 py-1.5 bg-blue-500/10 border border-blue-500/20 rounded-md text-[11px] font-medium shadow-sm text-blue-400 [animation:lumina-scale_3s_ease-in-out_infinite] animate-on-scroll animate" style="animation-delay: 0s">
+                    <i data-lucide="shield" class="w-3 h-3" stroke-width="1.5"></i>
+                    Admin
+                    <i data-lucide="x" class="w-3 h-3 ml-1 opacity-60 hover:opacity-100 cursor-pointer transition-opacity"></i>
+                  </div>
+                  <div class="flex items-center gap-1.5 px-2 py-1.5 border rounded-md text-[11px] font-medium shadow-sm bg-white/5 border-white/10 text-zinc-300 [animation:lumina-scale_3s_ease-in-out_infinite] animate-on-scroll animate" style="animation-delay: 1.5s">
+                    <i data-lucide="edit-2" class="w-3 h-3 text-zinc-400" stroke-width="1.5"></i>
+                    Editor
+                    <i data-lucide="x" class="w-3 h-3 ml-1 opacity-60 hover:opacity-100 cursor-pointer transition-opacity"></i>
+                  </div>
+                  <div class="flex items-center gap-1.5 px-2 py-1.5 border border-dashed rounded-md text-[11px] font-medium text-zinc-500 cursor-pointer transition-colors bg-[#0e0e11] border-white/20 hover:text-zinc-300 hover:border-white/40">
+                    <i data-lucide="plus" class="w-3 h-3" stroke-width="2"></i>
+                    Add Role
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="px-5 py-6 flex flex-col gap-2">
+            <h3 class="text-xl font-medium tracking-tight font-geist text-white">
+              Role-Based Access Control
+            </h3>
+            <p class="text-base font-normal leading-relaxed text-zinc-400">
+              Ensure enterprise security and compliance with role-based access
+              management
+            </p>
+          </div>
+        </div>
+
+        <!-- Workspaces Per Organization -->
+        <div class="flex flex-col bg-[#0e0e11] border rounded-3xl p-1.5 hover:bg-white/[0.02] transition-all duration-500 ease-out hover:scale-[1.02] hover:z-10 relative group shadow-[0_20px_40px_rgba(0,0,0,0.3)] [animation:animationIn_0.8s_ease-out_0.5s_both] animate-on-scroll border-white/5 animate" style="filter: blur(0px); opacity: 1; transform: translateY(0px);">
+          <div class="h-64 rounded-[1.25rem] relative overflow-hidden flex items-center justify-center bg-[#131316] border border-white/5">
+            <div class="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(255,255,255,0.04)_0%,transparent_60%)] pointer-events-none"></div>
+
+            <!-- Inner Graphic: Workspace Switcher -->
+            <div class="relative w-[85%] max-w-[240px] z-10 flex flex-col [animation:lumina-float_4s_ease-in-out_infinite] animate-on-scroll animate" style="animation-delay: 2s">
+              <!-- Dropdown Trigger -->
+              <div class="bg-[#09090b] border rounded-xl p-2.5 flex items-center justify-between shadow-lg mb-2 relative z-20 transition-colors cursor-pointer border-white/10 hover:border-white/20">
+                <div class="flex items-center gap-2.5">
+                  <div class="w-6 h-6 rounded-md bg-gradient-to-br from-indigo-500 flex items-center justify-center text-[11px] font-bold shadow-inner to-purple-600 text-white">
+                    A
+                  </div>
+                  <span class="text-xs font-medium text-zinc-200">
+                    Acme Global
+                  </span>
+                </div>
+                <i data-lucide="chevrons-up-down" class="w-3.5 h-3.5 text-zinc-500" stroke-width="1.5"></i>
+              </div>
+              <!-- Dropdown Menu -->
+              <div class="bg-[#0e0e11] border rounded-xl p-1.5 shadow-2xl flex flex-col gap-0.5 relative overflow-hidden border-white/10">
+                <div class="absolute top-0 right-0 w-32 h-32 bg-purple-500/5 blur-2xl"></div>
+                <div class="text-[10px] font-medium text-zinc-500 px-2.5 py-2 uppercase tracking-wider relative z-10">
+                  Switch Workspace
+                </div>
+
+                <div class="flex items-center gap-2.5 p-2 rounded-lg border border-white/[0.02] relative z-10 [animation:lumina-highlight_3s_ease-in-out_infinite] animate-on-scroll animate" style="animation-delay: 0s">
+                  <div class="w-6 h-6 rounded-md bg-gradient-to-br from-indigo-500 flex items-center justify-center text-[11px] font-bold shadow-sm to-purple-600 text-white">
+                    A
+                  </div>
+                  <span class="text-xs font-medium text-zinc-200">
+                    Acme Global
+                  </span>
+                  <i data-lucide="check" class="w-3.5 h-3.5 ml-auto text-white [animation:lumina-pulse_2s_ease-in-out_infinite] animate-on-scroll animate" stroke-width="2"></i>
+                </div>
+
+                <div class="flex items-center gap-2.5 p-2 rounded-lg cursor-pointer relative z-10 [animation:lumina-highlight_3s_ease-in-out_infinite] animate-on-scroll animate" style="animation-delay: 1.5s">
+                  <div class="w-6 h-6 rounded-md border flex items-center justify-center text-[11px] font-bold bg-zinc-800 border-white/10 text-zinc-400">
+                    E
+                  </div>
+                  <span class="text-xs font-medium text-zinc-400">
+                    Acme Europe
+                  </span>
+                </div>
+
+                <div class="h-px my-1 mx-2 relative z-10 bg-white/5"></div>
+
+                <div class="flex items-center gap-2.5 p-2 hover:bg-white/[0.02] rounded-lg transition-colors cursor-pointer relative z-10 text-zinc-400 hover:text-zinc-200">
+                  <i data-lucide="plus" class="w-4 h-4 ml-1" stroke-width="1.5"></i>
+                  <span class="text-xs font-medium">Create Workspace</span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="px-5 py-6 flex flex-col gap-2">
+            <h3 class="text-xl font-medium tracking-tight font-geist text-white">
+              Workspaces Per Organization
+            </h3>
+            <p class="text-base font-normal leading-relaxed text-zinc-400">
+              Organize projects effectively with multiple workspaces per
+              organization
+            </p>
+          </div>
+        </div>
+
+        <!-- On-Premise Deployment -->
+        <div class="flex flex-col bg-[#0e0e11] border rounded-3xl p-1.5 hover:bg-white/[0.02] transition-all duration-500 ease-out hover:scale-[1.02] hover:z-10 relative group shadow-[0_20px_40px_rgba(0,0,0,0.3)] [animation:animationIn_0.8s_ease-out_0.6s_both] animate-on-scroll border-white/5 animate" style="filter: blur(8.88178e-16px); opacity: 1; transform: translateY(3.55271e-15px);">
+          <div class="h-64 rounded-[1.25rem] relative overflow-hidden flex items-center justify-center bg-[#131316] border border-white/5">
+            <div class="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(255,255,255,0.04)_0%,transparent_60%)] pointer-events-none"></div>
+
+            <!-- Inner Graphic: Terminal Deployment -->
+            <div class="relative w-[90%] max-w-[280px] bg-[#000] border rounded-xl overflow-hidden shadow-2xl z-10 flex flex-col font-mono border-white/10 [animation:lumina-float_4s_ease-in-out_infinite] animate-on-scroll animate" style="animation-delay: 2.5s">
+              <div class="bg-[#18181b] border-b px-3 py-2 flex items-center gap-2 border-white/5">
+                <div class="flex gap-1.5">
+                  <div class="w-2.5 h-2.5 rounded-full bg-zinc-700"></div>
+                  <div class="w-2.5 h-2.5 rounded-full bg-zinc-700"></div>
+                  <div class="w-2.5 h-2.5 rounded-full bg-zinc-700"></div>
+                </div>
+                <span class="text-[10px] text-zinc-500 ml-2">
+                  root@on-prem-node:~
+                </span>
+              </div>
+              <div class="p-3.5 flex flex-col gap-2 text-[11px] leading-relaxed bg-gradient-to-b from-transparent to-[#18181b]/30">
+                <div class="flex gap-2 text-zinc-300">
+                  <span class="font-medium text-emerald-400">$</span>
+                  <span>lumina deploy --env production</span>
+                </div>
+                <div class="text-zinc-500">
+                  Initializing deployment sequence...
+                </div>
+                <div class="flex items-center gap-2 text-zinc-400">
+                  <span class="font-medium text-emerald-400">[OK]</span>
+                  Provisioning containers
+                </div>
+                <div class="flex items-center gap-2 text-zinc-400">
+                  <span class="font-medium text-emerald-400">[OK]</span>
+                  Establishing VPC tunnel
+                </div>
+                <div class="flex flex-col gap-1.5 mt-1">
+                  <div class="text-zinc-500 flex justify-between">
+                    <span>Starting services (3/3)</span>
+                    <span class="text-emerald-400">100%</span>
+                  </div>
+                  <div class="w-full h-1 rounded-full overflow-hidden bg-zinc-800">
+                    <div class="h-full rounded-full bg-emerald-400 [animation:lumina-load_3s_ease-in-out_infinite] animate-on-scroll" style="width: 10%;"></div>
+                  </div>
+                </div>
+                <div class="mt-1 flex items-center text-emerald-400">
+                  Ready at 192.168.1.100
+                  <span class="w-1.5 h-3 ml-1 bg-emerald-400 [animation:lumina-blink_1s_steps(2,_start)_infinite] animate-on-scroll" style="opacity: 0.5;"></span>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="px-5 py-6 flex flex-col gap-2">
+            <h3 class="text-xl font-medium tracking-tight font-geist text-white">
+              On-Premise Deployment
+            </h3>
+            <p class="text-base font-normal leading-relaxed text-zinc-400">
+              Deploy Lumina on-premise for enhanced control and security
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Dashboard App Preview Section -->
+    <section class="relative z-20 container mx-auto px-6 md:px-8 py-24 pointer-events-auto">
+      <div class="flex flex-col items-center justify-center text-center mb-16 relative [animation:animationIn_0.8s_ease-out_0.1s_both] animate-on-scroll" style="filter: blur(8px); opacity: 0; transform: translateY(30px);">
+        <!-- Decorative accents -->
+        <div class="absolute -top-8 -left-4 md:left-12 flex flex-col gap-2 opacity-80">
+          <div class="w-2 h-6 rounded-full rotate-45 origin-bottom-right bg-zinc-400"></div>
+          <div class="w-2 h-4 rounded-full rotate-45 origin-bottom-right ml-4 bg-zinc-400"></div>
+          <div class="w-2 h-3 rounded-full rotate-45 origin-bottom-right ml-8 bg-zinc-400"></div>
+        </div>
+
+        <h2 class="text-3xl md:text-5xl font-medium tracking-tight mb-4 font-geist text-white">
+          Meet your financial platform
+        </h2>
+        <p class="text-lg font-normal max-w-2xl text-zinc-400">
+          Built for any business and every customer. Flexible and user friendly.
+        </p>
+      </div>
+
+      <!-- Dashboard UI Container -->
+      <div class="w-full max-w-[1300px] mx-auto bg-[#0e0e11]/80 backdrop-blur-2xl rounded-[2rem] border shadow-[0_30px_60px_-15px_rgba(0,0,0,0.8),inset_0_1px_1px_rgba(255,255,255,0.05),inset_0_-1px_1px_rgba(0,0,0,0.3)] flex flex-col md:flex-row overflow-hidden min-h-[850px] [animation:animationIn_0.8s_ease-out_0.3s_both] animate-on-scroll animate border-white/10" style="filter: blur(0px); opacity: 1; transform: translateY(0px);">
+        <!-- Sidebar Navigation -->
+        <div class="w-full md:w-24 bg-transparent flex md:flex-col items-center justify-between py-6 px-4 border-b md:border-b-0 md:border-r relative z-10 border-white/5">
+          <div class="flex md:flex-col items-center gap-10 md:gap-12 w-full md:w-auto overflow-x-auto md:overflow-visible no-scrollbar">
+            <!-- Logo -->
+            <a href="#" class="relative w-10 h-10 flex-shrink-0 group">
+              <div class="absolute inset-0 rounded-full opacity-80 group-hover:opacity-100 transition-opacity bg-white/80"></div>
+              <div class="absolute top-1/4 left-1/4 w-full h-full backdrop-blur-sm rounded-full mix-blend-overlay bg-white/20"></div>
+            </a>
+
+            <!-- Nav Icons -->
+            <div class="flex md:flex-col items-center gap-8 text-zinc-500">
+              <button class="transition-colors hover:text-white">
+                <iconify-icon icon="solar:widget-linear" class="w-6 h-6 flex items-center justify-center" style="stroke-width: 1.5;"><template shadowrootmode="open"><style data-style="data-style">:host{display:inline-block;vertical-align:0}span,svg{display:block}</style><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="1.5"><path d="M2.5 6.5C2.5 4.61438 2.5 3.67157 3.08579 3.08579C3.67157 2.5 4.61438 2.5 6.5 2.5C8.38562 2.5 9.32843 2.5 9.91421 3.08579C10.5 3.67157 10.5 4.61438 10.5 6.5C10.5 8.38562 10.5 9.32843 9.91421 9.91421C9.32843 10.5 8.38562 10.5 6.5 10.5C4.61438 10.5 3.67157 10.5 3.08579 9.91421C2.5 9.32843 2.5 8.38562 2.5 6.5Z"></path><path d="M13.5 17.5C13.5 15.6144 13.5 14.6716 14.0858 14.0858C14.6716 13.5 15.6144 13.5 17.5 13.5C19.3856 13.5 20.3284 13.5 20.9142 14.0858C21.5 14.6716 21.5 15.6144 21.5 17.5C21.5 19.3856 21.5 20.3284 20.9142 20.9142C20.3284 21.5 19.3856 21.5 17.5 21.5C15.6144 21.5 14.6716 21.5 14.0858 20.9142C13.5 20.3284 13.5 19.3856 13.5 17.5Z"></path><path d="M2.5 17.5C2.5 15.6144 2.5 14.6716 3.08579 14.0858C3.67157 13.5 4.61438 13.5 6.5 13.5C8.38562 13.5 9.32843 13.5 9.91421 14.0858C10.5 14.6716 10.5 15.6144 10.5 17.5C10.5 19.3856 10.5 20.3284 9.91421 20.9142C9.32843 21.5 8.38562 21.5 6.5 21.5C4.61438 21.5 3.67157 21.5 3.08579 20.9142C2.5 20.3284 2.5 19.3856 2.5 17.5Z"></path><path d="M13.5 6.5C13.5 4.61438 13.5 3.67157 14.0858 3.08579C14.6716 2.5 15.6144 2.5 17.5 2.5C19.3856 2.5 20.3284 2.5 20.9142 3.08579C21.5 3.67157 21.5 4.61438 21.5 6.5C21.5 8.38562 21.5 9.32843 20.9142 9.91421C20.3284 10.5 19.3856 10.5 17.5 10.5C15.6144 10.5 14.6716 10.5 14.0858 9.91421C13.5 9.32843 13.5 8.38562 13.5 6.5Z"></path></g></svg></template></iconify-icon>
+              </button>
+              <button class="transition-colors hover:text-white">
+                <iconify-icon icon="solar:star-linear" class="w-6 h-6 flex items-center justify-center" style="stroke-width: 1.5;"><template shadowrootmode="open"><style data-style="data-style">:host{display:inline-block;vertical-align:0}span,svg{display:block}</style><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="1.5" d="M9.15316 5.40838C10.4198 3.13613 11.0531 2 12 2C12.9469 2 13.5802 3.13612 14.8468 5.40837L15.1745 5.99623C15.5345 6.64193 15.7144 6.96479 15.9951 7.17781C16.2757 7.39083 16.6251 7.4699 17.3241 7.62805L17.9605 7.77203C20.4201 8.32856 21.65 8.60682 21.9426 9.54773C22.2352 10.4886 21.3968 11.4691 19.7199 13.4299L19.2861 13.9372C18.8096 14.4944 18.5713 14.773 18.4641 15.1177C18.357 15.4624 18.393 15.8341 18.465 16.5776L18.5306 17.2544C18.7841 19.8706 18.9109 21.1787 18.1449 21.7602C17.3788 22.3417 16.2273 21.8115 13.9243 20.7512L13.3285 20.4768C12.6741 20.1755 12.3469 20.0248 12 20.0248C11.6531 20.0248 11.3259 20.1755 10.6715 20.4768L10.0757 20.7512C7.77268 21.8115 6.62118 22.3417 5.85515 21.7602C5.08912 21.1787 5.21588 19.8706 5.4694 17.2544L5.53498 16.5776C5.60703 15.8341 5.64305 15.4624 5.53586 15.1177C5.42868 14.773 5.19043 14.4944 4.71392 13.9372L4.2801 13.4299C2.60325 11.4691 1.76482 10.4886 2.05742 9.54773C2.35002 8.60682 3.57986 8.32856 6.03954 7.77203L6.67589 7.62805C7.37485 7.4699 7.72433 7.39083 8.00494 7.17781C8.28555 6.96479 8.46553 6.64194 8.82547 5.99623L9.15316 5.40838Z"></path></svg></template></iconify-icon>
+              </button>
+              <button class="transition-colors hover:text-white">
+                <iconify-icon icon="solar:calendar-linear" class="w-6 h-6 flex items-center justify-center" style="stroke-width: 1.5;"><template shadowrootmode="open"><style data-style="data-style">:host{display:inline-block;vertical-align:0}span,svg{display:block}</style><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="1.5"><path d="M2 12C2 8.22876 2 6.34315 3.17157 5.17157C4.34315 4 6.22876 4 10 4H14C17.7712 4 19.6569 4 20.8284 5.17157C22 6.34315 22 8.22876 22 12V14C22 17.7712 22 19.6569 20.8284 20.8284C19.6569 22 17.7712 22 14 22H10C6.22876 22 4.34315 22 3.17157 20.8284C2 19.6569 2 17.7712 2 14V12Z"></path><path d="M7 4V2.5"></path><path d="M17 4V2.5"></path><path d="M2.5 9H21.5"></path><path stroke-linejoin="round" d="M17 13H17.0001"></path><path stroke-linejoin="round" d="M12 13H12.0001"></path><path stroke-linejoin="round" d="M7 13H7.0001"></path><path stroke-linejoin="round" d="M17 17.0234H17.0001"></path><path stroke-linejoin="round" d="M12 17.0234H12.0001"></path><path stroke-linejoin="round" d="M7 17.0234H7.0001"></path></g></svg></template></iconify-icon>
+              </button>
+              <button class="transition-colors relative hover:text-white">
+                <iconify-icon icon="solar:document-text-linear" class="w-6 h-6 flex items-center justify-center" style="stroke-width: 1.5;"><template shadowrootmode="open"><style data-style="data-style">:host{display:inline-block;vertical-align:0}span,svg{display:block}</style><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="1.5"><path d="M3 10C3 6.22876 3 4.34315 4.17157 3.17157C5.34315 2 7.22876 2 11 2H13C16.7712 2 18.6569 2 19.8284 3.17157C21 4.34315 21 6.22876 21 10V14C21 17.7712 21 19.6569 19.8284 20.8284C18.6569 22 16.7712 22 13 22H11C7.22876 22 5.34315 22 4.17157 20.8284C3 19.6569 3 17.7712 3 14V10Z"></path><path d="M8 12H16"></path><path d="M8 8H16"></path><path d="M8 16H13"></path></g></svg></template></iconify-icon>
+                <span class="absolute top-0 right-0 w-2 h-2 rounded-full border border-[#18181b] shadow-[0_0_10px_rgba(255,255,255,0.5)] bg-white"></span>
+              </button>
+              <button class="transition-colors hover:text-white">
+                <iconify-icon icon="solar:buildings-linear" class="w-6 h-6 flex items-center justify-center" style="stroke-width: 1.5;"><template shadowrootmode="open"><style data-style="data-style">:host{display:inline-block;vertical-align:0}span,svg{display:block}</style><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="1.5"><path d="M22 22L2 22"></path><path d="M21 22V6C21 4.11438 21 3.17157 20.4143 2.58579C19.8285 2 18.8857 2 17 2H15C13.1144 2 12.1716 2 11.5858 2.58579C11.1143 3.05733 11.0223 3.76022 11.0044 5"></path><path d="M15 22V9C15 7.11438 15 6.17157 14.4142 5.58579C13.8284 5 12.8856 5 11 5H7C5.11438 5 4.17157 5 3.58579 5.58579C3 6.17157 3 7.11438 3 9V22"></path><path d="M9 22V19"></path><path d="M6 8H12"></path><path d="M6 11H12"></path><path d="M6 14H12"></path></g></svg></template></iconify-icon>
+              </button>
+              <button class="transition-colors hover:text-white">
+                <iconify-icon icon="solar:user-linear" class="w-6 h-6 flex items-center justify-center" style="stroke-width: 1.5;"><template shadowrootmode="open"><style data-style="data-style">:host{display:inline-block;vertical-align:0}span,svg{display:block}</style><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="1.5"><circle cx="12" cy="6" r="4"></circle><path d="M20 17.5C20 19.9853 20 22 12 22C4 22 4 19.9853 4 17.5C4 15.0147 7.58172 13 12 13C16.4183 13 20 15.0147 20 17.5Z"></path></g></svg></template></iconify-icon>
+              </button>
+            </div>
+          </div>
+
+          <!-- Animated Dashboard Primary Action (Sidebar Add) -->
+          <button class="hidden md:flex group relative w-12 h-12 cursor-pointer transition-all duration-[1000ms] ease-[cubic-bezier(0.15,0.83,0.66,1)] hover:-translate-y-[2px] shadow-[0_2.8px_2.2px_rgba(0,0,0,0.3),_0_6.7px_5.3px_rgba(0,0,0,0.35),_0_12.5px_10px_rgba(0,0,0,0.4)] overflow-hidden border rounded-full items-center justify-center flex-shrink-0 mt-8 hover:text-white bg-zinc-900 border-zinc-700/80 text-zinc-300">
+            <span class="relative z-10 flex items-center justify-center rounded-full transition-all duration-500 ease-out group-hover:transform group-hover:translate-y-8 group-hover:opacity-0 group-hover:blur-md">
+              <iconify-icon icon="solar:add-circle-linear" class="w-6 h-6 flex items-center justify-center" style="stroke-width: 1.5;"><template shadowrootmode="open"><style data-style="data-style">:host{display:inline-block;vertical-align:0}span,svg{display:block}</style><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="1.5"><circle cx="12" cy="12" r="10"></circle><path d="M15 12L12 12M12 12L9 12M12 12L12 9M12 12L12 15"></path></g></svg></template></iconify-icon>
+            </span>
+            <span class="absolute inset-0 z-10 flex items-center justify-center transition-all duration-300 ease-in-out transform -translate-y-8 group-hover:translate-y-0 group-hover:opacity-100 group-hover:blur-none opacity-0 rounded-full blur-md">
+              <iconify-icon icon="solar:add-circle-linear" class="w-6 h-6 flex items-center justify-center text-white" style="stroke-width: 1.5;"><template shadowrootmode="open"><style data-style="data-style">:host{display:inline-block;vertical-align:0}span,svg{display:block}</style><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="1.5"><circle cx="12" cy="12" r="10"></circle><path d="M15 12L12 12M12 12L9 12M12 12L12 9M12 12L12 15"></path></g></svg></template></iconify-icon>
+            </span>
+            <span aria-hidden="true" class="absolute bottom-0 left-1/2 h-[1px] w-[70%] -translate-x-1/2 transition-all duration-[1000ms] ease-[cubic-bezier(0.15,0.83,0.66,1)] opacity-0 group-hover:opacity-80 bg-gradient-to-r from-transparent to-transparent rounded-full blur-[2px] via-neutral-200"></span>
+            <span aria-hidden="true" class="absolute bottom-0 left-0 right-0 h-[100%] opacity-0 group-hover:opacity-60 transition-all duration-[1000ms] ease-[cubic-bezier(0.15,0.83,0.66,1)] pointer-events-none bg-gradient-to-t to-transparent rounded-full from-white/20 via-white/10"></span>
+          </button>
+        </div>
+
+        <!-- Main Content Area -->
+        <div class="flex-1 flex flex-col lg:flex-row md:p-8 overflow-y-auto dash-scroll pt-6 pr-6 pb-6 pl-6 gap-x-8 gap-y-8">
+          <!-- Left Column (Main Dashboard Core) -->
+          <div class="flex-1 flex flex-col gap-8">
+            <!-- Header -->
+            <div class="flex flex-col md:flex-row md:items-center justify-between gap-4">
+              <h2 class="text-2xl md:text-3xl font-medium tracking-tight font-geist text-white">
+                Welcome Back Joan!
+              </h2>
+
+              <div class="flex items-center gap-4">
+                <button class="w-10 h-10 rounded-full flex items-center justify-center transition-colors relative border border-transparent hover:bg-white/5 text-zinc-400 hover:border-white/10">
+                  <iconify-icon icon="solar:bell-linear" class="w-5 h-5 flex items-center justify-center" style="stroke-width: 1.5;"><template shadowrootmode="open"><style data-style="data-style">:host{display:inline-block;vertical-align:0}span,svg{display:block}</style><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="1.5"><path d="M18.7491 9.70957V9.00496C18.7491 5.13623 15.7274 2 12 2C8.27256 2 5.25087 5.13623 5.25087 9.00496V9.70957C5.25087 10.5552 5.00972 11.3818 4.5578 12.0854L3.45036 13.8095C2.43882 15.3843 3.21105 17.5249 4.97036 18.0229C9.57274 19.3257 14.4273 19.3257 19.0296 18.0229C20.789 17.5249 21.5612 15.3843 20.5496 13.8095L19.4422 12.0854C18.9903 11.3818 18.7491 10.5552 18.7491 9.70957Z"></path><path d="M7.5 19C8.15503 20.7478 9.92246 22 12 22C14.0775 22 15.845 20.7478 16.5 19"></path></g></svg></template></iconify-icon>
+                  <span class="absolute top-2 right-2.5 w-1.5 h-1.5 shadow-[0_0_10px_rgba(255,255,255,0.5)] rounded-full bg-white"></span>
+                </button>
+                <button class="flex items-center gap-2 border px-4 py-2 rounded-full font-medium text-xs transition-colors bg-white/5 text-zinc-300 border-white/10 hover:bg-white/10 hover:text-white">
+                  <iconify-icon icon="solar:restart-linear" class="w-3 h-3 flex items-center justify-center" style="stroke-width: 1.5;"><template shadowrootmode="open"><style data-style="data-style">:host{display:inline-block;vertical-align:0}span,svg{display:block}</style><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M18.364 8.04928L17.6569 7.34217C14.5327 4.21798 9.46734 4.21798 6.34315 7.34217C3.21895 10.4664 3.21895 15.5317 6.34315 18.6559C9.46734 21.7801 14.5327 21.7801 17.6569 18.6559C19.4737 16.8391 20.234 14.3658 19.9377 11.9995M18.364 3.80664V8.04928H14.1213"></path></svg></template></iconify-icon>
+                  2 NEW UPDATES
+                </button>
+                <button class="w-10 h-10 rounded-full bg-[#18181b] border flex items-center justify-center transition-colors border-white/10 text-zinc-400 hover:text-white hover:border-white/20">
+                  <iconify-icon icon="solar:user-linear" class="w-5 h-5 flex items-center justify-center" style="stroke-width: 1.5;"><template shadowrootmode="open"><style data-style="data-style">:host{display:inline-block;vertical-align:0}span,svg{display:block}</style><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="1.5"><circle cx="12" cy="6" r="4"></circle><path d="M20 17.5C20 19.9853 20 22 12 22C4 22 4 19.9853 4 17.5C4 15.0147 7.58172 13 12 13C16.4183 13 20 15.0147 20 17.5Z"></path></g></svg></template></iconify-icon>
+                </button>
+              </div>
+            </div>
+
+            <!-- Quick Action Cards -->
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-4">
+              <button class="bg-white/[0.02] border border-white/[0.03] rounded-3xl p-6 flex flex-col items-center justify-center gap-3 hover:bg-white/[0.05] transition-colors group">
+                <div class="w-12 h-12 rounded-full border shadow-[inset_0_1px_1px_rgba(255,255,255,0.1)] flex items-center justify-center group-hover:scale-110 group-hover:bg-white/10 transition-all duration-300 bg-white/5 border-white/10">
+                  <iconify-icon icon="solar:home-2-linear" class="w-5 h-5 flex items-center justify-center group-hover:text-white transition-colors text-zinc-300" style="stroke-width: 1.5;"><template shadowrootmode="open"><style data-style="data-style">:host{display:inline-block;vertical-align:0}span,svg{display:block}</style><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="1.5"><path d="M2 12.2039C2 9.91549 2 8.77128 2.5192 7.82274C3.0384 6.87421 3.98695 6.28551 5.88403 5.10813L7.88403 3.86687C9.88939 2.62229 10.8921 2 12 2C13.1079 2 14.1106 2.62229 16.116 3.86687L18.116 5.10812C20.0131 6.28551 20.9616 6.87421 21.4808 7.82274C22 8.77128 22 9.91549 22 12.2039V13.725C22 17.6258 22 19.5763 20.8284 20.7881C19.6569 22 17.7712 22 14 22H10C6.22876 22 4.34315 22 3.17157 20.7881C2 19.5763 2 17.6258 2 13.725V12.2039Z"></path><path d="M12 15L12 18"></path></g></svg></template></iconify-icon>
+                </div>
+                <span class="text-xs font-medium group-hover:text-zinc-200 text-zinc-400">
+                  Home Loan
+                </span>
+              </button>
+
+              <button class="bg-white/[0.02] border border-white/[0.03] rounded-3xl p-6 flex flex-col items-center justify-center gap-3 hover:bg-white/[0.05] transition-colors group">
+                <div class="w-12 h-12 rounded-full border shadow-[inset_0_1px_1px_rgba(255,255,255,0.1)] flex items-center justify-center group-hover:scale-110 group-hover:bg-white/10 transition-all duration-300 bg-white/5 border-white/10">
+                  <iconify-icon icon="solar:bus-linear" class="w-5 h-5 flex items-center justify-center group-hover:text-white transition-colors text-zinc-300" style="stroke-width: 1.5;"><template shadowrootmode="open"><style data-style="data-style">:host{display:inline-block;vertical-align:0}span,svg{display:block}</style><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="1.5"><path d="M4 10C4 6.22876 4 4.34315 5.17157 3.17157C6.34315 2 8.22876 2 12 2C15.7712 2 17.6569 2 18.8284 3.17157C20 4.34315 20 6.22876 20 10V12C20 15.7712 20 17.6569 18.8284 18.8284C17.6569 20 15.7712 20 12 20C8.22876 20 6.34315 20 5.17157 18.8284C4 17.6569 4 15.7712 4 12V10Z"></path><path stroke-linejoin="round" d="M4 13H20"></path><path stroke-linejoin="round" d="M15.5 16H17"></path><path stroke-linejoin="round" d="M7 16H8.5"></path><path stroke-linejoin="round" d="M6 19.5V21C6 21.5523 6.44772 22 7 22H8.5C9.05228 22 9.5 21.5523 9.5 21V20"></path><path stroke-linejoin="round" d="M18 19.5V21C18 21.5523 17.5523 22 17 22H15.5C14.9477 22 14.5 21.5523 14.5 21V20"></path><path stroke-linejoin="round" d="M20 9H21C21.5523 9 22 9.44772 22 10V11C22 11.3148 21.8518 11.6111 21.6 11.8L20 13"></path><path stroke-linejoin="round" d="M4 9H3C2.44772 9 2 9.44772 2 10V11C2 11.3148 2.14819 11.6111 2.4 11.8L4 13"></path><path d="M19.5 5H4.5"></path></g></svg></template></iconify-icon>
+                </div>
+                <span class="text-xs font-medium group-hover:text-zinc-200 text-zinc-400">
+                  Car Loan
+                </span>
+              </button>
+
+              <button class="bg-white/[0.02] border border-white/[0.03] rounded-3xl p-6 flex flex-col items-center justify-center gap-3 hover:bg-white/[0.05] transition-colors group">
+                <div class="w-12 h-12 rounded-full border shadow-[inset_0_1px_1px_rgba(255,255,255,0.1)] flex items-center justify-center group-hover:scale-110 group-hover:bg-white/10 transition-all duration-300 bg-white/5 border-white/10">
+                  <iconify-icon icon="solar:tuning-square-2-linear" class="w-5 h-5 flex items-center justify-center group-hover:text-white transition-colors text-zinc-300" style="stroke-width: 1.5;"><template shadowrootmode="open"><style data-style="data-style">:host{display:inline-block;vertical-align:0}span,svg{display:block}</style><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="1.5"><path d="M2 12C2 7.28595 2 4.92893 3.46447 3.46447C4.92893 2 7.28595 2 12 2C16.714 2 19.0711 2 20.5355 3.46447C22 4.92893 22 7.28595 22 12C22 16.714 22 19.0711 20.5355 20.5355C19.0711 22 16.714 22 12 22C7.28595 22 4.92893 22 3.46447 20.5355C2 19.0711 2 16.714 2 12Z"></path><path d="M10 14C11.1046 14 12 14.8954 12 16C12 17.1046 11.1046 18 10 18C8.89543 18 8 17.1046 8 16C8 14.8954 8.89543 14 10 14Z"></path><circle cx="2" cy="2" r="2" transform="matrix(0 -1 -1 0 16 10)"></circle><path d="M14 16L19 16"></path><path d="M10 8L5 8"></path><path d="M5 16L6 16"></path><path d="M19 8L18 8"></path></g></svg></template></iconify-icon>
+                </div>
+                <span class="text-xs font-medium group-hover:text-zinc-200 text-zinc-400">
+                  Maintenance
+                </span>
+              </button>
+
+              <button class="bg-white/[0.02] border border-white/[0.03] rounded-3xl p-6 flex flex-col items-center justify-center gap-3 hover:bg-white/[0.05] transition-colors group">
+                <div class="w-12 h-12 rounded-full border shadow-[inset_0_1px_1px_rgba(255,255,255,0.1)] flex items-center justify-center group-hover:scale-110 group-hover:bg-white/10 transition-all duration-300 bg-white/5 border-white/10">
+                  <iconify-icon icon="solar:battery-charge-linear" class="w-5 h-5 flex items-center justify-center group-hover:text-white transition-colors text-zinc-300" style="stroke-width: 1.5;"><template shadowrootmode="open"><style data-style="data-style">:host{display:inline-block;vertical-align:0}span,svg{display:block}</style><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="1.5"><path d="M2 12C2 8.22876 2 6.34315 3.17157 5.17157C4.34315 4 6.22876 4 10 4H11.5C15.2712 4 17.1569 4 18.3284 5.17157C19.5 6.34315 19.5 8.22876 19.5 12C19.5 15.7712 19.5 17.6569 18.3284 18.8284C17.1569 20 15.2712 20 11.5 20H10C6.22876 20 4.34315 20 3.17157 18.8284C2 17.6569 2 15.7712 2 12Z"></path><path d="M20 10C20.9428 10 21.4142 10 21.7071 10.2929C22 10.5858 22 11.0572 22 12C22 12.9428 22 13.4142 21.7071 13.7071C21.4142 14 20.9428 14 20 14V10Z"></path><path stroke-linejoin="round" d="M11.5 9L9 12H12.5L10 15"></path></g></svg></template></iconify-icon>
+                </div>
+                <span class="text-xs font-medium group-hover:text-zinc-200 text-zinc-400">
+                  Boosters
+                </span>
+              </button>
+            </div>
+
+            <!-- Statistics Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+              <div class="flex items-center gap-4 bg-white/[0.02] hover:bg-white/[0.04] transition-colors rounded-2xl p-4 border border-white/[0.02]">
+                <div class="w-14 h-14 rounded-xl bg-[#18181b] border shadow-[0_0_15px_rgba(255,255,255,0.02)] flex items-center justify-center border-white/10 text-zinc-200">
+                  <iconify-icon icon="solar:arrow-left-down-linear" class="w-6 h-6 flex items-center justify-center" style="stroke-width: 1.5;"><template shadowrootmode="open"><style data-style="data-style">:host{display:inline-block;vertical-align:0}span,svg{display:block}</style><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M18 6L6 18M15 18L6 18L6 9"></path></svg></template></iconify-icon>
+                </div>
+                <div class="flex flex-col">
+                  <span class="text-sm font-normal text-zinc-400">
+                    Harvested losses
+                  </span>
+                  <span class="text-2xl font-semibold tracking-tight font-geist text-white">
+                    $0.00
+                  </span>
+                </div>
+              </div>
+
+              <div class="flex items-center gap-4 bg-white/[0.02] hover:bg-white/[0.04] transition-colors rounded-2xl p-4 border border-white/[0.02]">
+                <div class="w-14 h-14 rounded-xl bg-[#18181b] border shadow-[0_0_15px_rgba(255,255,255,0.02)] flex items-center justify-center border-white/10 text-zinc-200">
+                  <iconify-icon icon="solar:arrow-right-up-linear" class="w-6 h-6 flex items-center justify-center" style="stroke-width: 1.5;"><template shadowrootmode="open"><style data-style="data-style">:host{display:inline-block;vertical-align:0}span,svg{display:block}</style><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M6 18L18 6M18 15V6H9"></path></svg></template></iconify-icon>
+                </div>
+                <div class="flex flex-col">
+                  <span class="text-sm font-normal text-zinc-400">
+                    Total earnings
+                  </span>
+                  <span class="text-2xl font-semibold tracking-tight font-geist text-white">
+                    $10,596.80
+                  </span>
+                </div>
+              </div>
+
+              <div class="flex items-center gap-4 bg-white/[0.02] hover:bg-white/[0.04] transition-colors rounded-2xl p-4 border border-white/[0.02]">
+                <div class="w-14 h-14 rounded-xl bg-[#18181b] border shadow-[0_0_15px_rgba(255,255,255,0.02)] flex items-center justify-center border-white/10 text-zinc-200">
+                  <iconify-icon icon="solar:chart-square-linear" class="w-6 h-6 flex items-center justify-center" style="stroke-width: 1.5;"><template shadowrootmode="open"><style data-style="data-style">:host{display:inline-block;vertical-align:0}span,svg{display:block}</style><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="1.5"><path d="M2 12C2 7.28595 2 4.92893 3.46447 3.46447C4.92893 2 7.28595 2 12 2C16.714 2 19.0711 2 20.5355 3.46447C22 4.92893 22 7.28595 22 12C22 16.714 22 19.0711 20.5355 20.5355C19.0711 22 16.714 22 12 22C7.28595 22 4.92893 22 3.46447 20.5355C2 19.0711 2 16.714 2 12Z"></path><path d="M7 18V9"></path><path d="M12 18V6"></path><path d="M17 18V13"></path></g></svg></template></iconify-icon>
+                </div>
+                <div class="flex flex-col">
+                  <span class="text-sm font-normal text-zinc-400">
+                    Total net worth
+                  </span>
+                  <span class="text-2xl font-semibold tracking-tight font-geist text-white">
+                    $5,250.90
+                  </span>
+                </div>
+              </div>
+
+              <div class="flex items-center gap-4 bg-white/[0.02] hover:bg-white/[0.04] transition-colors rounded-2xl p-4 border border-white/[0.02]">
+                <div class="w-14 h-14 rounded-xl bg-[#18181b] border shadow-[0_0_15px_rgba(255,255,255,0.02)] flex items-center justify-center border-white/10 text-zinc-200">
+                  <iconify-icon icon="solar:target-linear" class="w-6 h-6 flex items-center justify-center" style="stroke-width: 1.5;"><template shadowrootmode="open"><style data-style="data-style">:host{display:inline-block;vertical-align:0}span,svg{display:block}</style><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="1.5"><path d="M22 12C22 17.5228 17.5228 22 12 22C6.47715 22 2 17.5228 2 12C2 6.47715 6.47715 2 12 2C17.5228 2 22 6.47715 22 12Z"></path><path d="M2 12L5 12"></path><path d="M19 12L22 12"></path><path d="M12 22L12 19"></path><path d="M12 5L12 2"></path><path stroke-linejoin="round" d="M10 12H12H14"></path><path stroke-linejoin="round" d="M12 14L12 12L12 10"></path></g></svg></template></iconify-icon>
+                </div>
+                <div class="flex flex-col">
+                  <span class="text-sm font-normal text-zinc-400">
+                    Total for all goals
+                  </span>
+                  <span class="text-2xl font-semibold tracking-tight font-geist text-white">
+                    $5,596.80
+                  </span>
+                </div>
+              </div>
+            </div>
+
+            <!-- Activity Graph & Recent Activity Combined Row -->
+            <div class="grid grid-cols-1 xl:grid-cols-3 gap-8 pt-4">
+              <!-- Recent Activity Table -->
+              <div class="xl:col-span-2 flex flex-col gap-6">
+                <h3 class="text-xl font-medium font-geist text-white">
+                  Recent Activity
+                </h3>
+
+                <!-- Tabs & Filters -->
+                <div class="flex items-center justify-between border-b pb-4 border-white/10">
+                  <div class="flex gap-8">
+                    <button class="text-sm font-medium relative pb-4 -mb-4 border-b-2 text-white border-white">
+                      History
+                    </button>
+                    <button class="text-sm font-medium text-zinc-500 pb-4 -mb-4 border-b-2 border-transparent hover:text-zinc-300">
+                      Upcoming
+                    </button>
+                  </div>
+
+                  <div class="flex items-center gap-3">
+                    <button class="flex items-center gap-2 border px-4 py-1.5 rounded-lg text-xs font-medium transition-colors bg-white/5 text-zinc-300 border-white/10 hover:bg-white/10">
+                      <iconify-icon icon="solar:calendar-linear" class="w-3.5 h-3.5 flex items-center justify-center" style="stroke-width: 1.5;"><template shadowrootmode="open"><style data-style="data-style">:host{display:inline-block;vertical-align:0}span,svg{display:block}</style><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="1.5"><path d="M2 12C2 8.22876 2 6.34315 3.17157 5.17157C4.34315 4 6.22876 4 10 4H14C17.7712 4 19.6569 4 20.8284 5.17157C22 6.34315 22 8.22876 22 12V14C22 17.7712 22 19.6569 20.8284 20.8284C19.6569 22 17.7712 22 14 22H10C6.22876 22 4.34315 22 3.17157 20.8284C2 19.6569 2 17.7712 2 14V12Z"></path><path d="M7 4V2.5"></path><path d="M17 4V2.5"></path><path d="M2.5 9H21.5"></path><path stroke-linejoin="round" d="M17 13H17.0001"></path><path stroke-linejoin="round" d="M12 13H12.0001"></path><path stroke-linejoin="round" d="M7 13H7.0001"></path><path stroke-linejoin="round" d="M17 17.0234H17.0001"></path><path stroke-linejoin="round" d="M12 17.0234H12.0001"></path><path stroke-linejoin="round" d="M7 17.0234H7.0001"></path></g></svg></template></iconify-icon>
+                      2 Sep 20 - 20 Sep 20
+                    </button>
+                    <button class="w-8 h-8 rounded-lg border flex items-center justify-center transition-colors bg-white/5 border-white/10 text-zinc-400 hover:text-white hover:bg-white/10">
+                      <iconify-icon icon="solar:download-square-linear" class="w-4 h-4 flex items-center justify-center" style="stroke-width: 1.5;"><template shadowrootmode="open"><style data-style="data-style">:host{display:inline-block;vertical-align:0}span,svg{display:block}</style><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="1.5"><path stroke-linejoin="round" d="M12 7L12 14M9 11L12 14L15 11"></path><path d="M16 17H12H8"></path><path d="M2 12C2 7.28595 2 4.92893 3.46447 3.46447C4.92893 2 7.28595 2 12 2C16.714 2 19.0711 2 20.5355 3.46447C22 4.92893 22 7.28595 22 12C22 16.714 22 19.0711 20.5355 20.5355C19.0711 22 16.714 22 12 22C7.28595 22 4.92893 22 3.46447 20.5355C2 19.0711 2 16.714 2 12Z"></path></g></svg></template></iconify-icon>
+                    </button>
+
+                    <!-- Animated Dashboard Primary Action (Header Add) -->
+                    <button class="group relative flex w-8 h-8 cursor-pointer transition-all duration-[1000ms] ease-[cubic-bezier(0.15,0.83,0.66,1)] hover:-translate-y-[2px] shadow-[0_2.8px_2.2px_rgba(0,0,0,0.3),_0_6.7px_5.3px_rgba(0,0,0,0.35),_0_12.5px_10px_rgba(0,0,0,0.4)] overflow-hidden border rounded-full items-center justify-center hover:text-white bg-zinc-900 border-zinc-700/80 text-zinc-300">
+                      <span class="relative z-10 flex items-center justify-center rounded-full transition-all duration-500 ease-out group-hover:transform group-hover:translate-y-6 group-hover:opacity-0 group-hover:blur-md">
+                        <iconify-icon icon="solar:add-circle-linear" class="w-4 h-4 flex items-center justify-center" style="stroke-width: 1.5;"><template shadowrootmode="open"><style data-style="data-style">:host{display:inline-block;vertical-align:0}span,svg{display:block}</style><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="1.5"><circle cx="12" cy="12" r="10"></circle><path d="M15 12L12 12M12 12L9 12M12 12L12 9M12 12L12 15"></path></g></svg></template></iconify-icon>
+                      </span>
+                      <span class="absolute inset-0 z-10 flex items-center justify-center transition-all duration-300 ease-in-out transform -translate-y-6 group-hover:translate-y-0 group-hover:opacity-100 group-hover:blur-none opacity-0 rounded-full blur-md">
+                        <iconify-icon icon="solar:add-circle-linear" class="w-4 h-4 flex items-center justify-center text-white" style="stroke-width: 1.5;"><template shadowrootmode="open"><style data-style="data-style">:host{display:inline-block;vertical-align:0}span,svg{display:block}</style><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="1.5"><circle cx="12" cy="12" r="10"></circle><path d="M15 12L12 12M12 12L9 12M12 12L12 9M12 12L12 15"></path></g></svg></template></iconify-icon>
+                      </span>
+                      <span aria-hidden="true" class="absolute bottom-0 left-1/2 h-[1px] w-[70%] -translate-x-1/2 transition-all duration-[1000ms] ease-[cubic-bezier(0.15,0.83,0.66,1)] opacity-0 group-hover:opacity-80 bg-gradient-to-r from-transparent to-transparent rounded-full blur-[2px] via-neutral-200"></span>
+                      <span aria-hidden="true" class="absolute bottom-0 left-0 right-0 h-[100%] opacity-0 group-hover:opacity-60 transition-all duration-[1000ms] ease-[cubic-bezier(0.15,0.83,0.66,1)] pointer-events-none bg-gradient-to-t to-transparent rounded-full from-white/20 via-white/10"></span>
+                    </button>
+                  </div>
+                </div>
+
+                <!-- Transaction Table -->
+                <div class="flex flex-col gap-6">
+                  <!-- Date Group 1 -->
+                  <div class="flex flex-col gap-4">
+                    <span class="text-xs font-medium text-zinc-500">
+                      10 Jun, 2022
+                    </span>
+
+                    <div class="flex items-center justify-between group hover:bg-white/[0.04] p-2 -mx-2 rounded-xl transition-colors">
+                      <div class="flex items-center gap-4 w-1/3 min-w-[180px]">
+                        <div class="text-zinc-500">
+                          <iconify-icon icon="solar:transfer-horizontal-linear" class="w-4 h-4 flex items-center justify-center" style="stroke-width: 1.5;"><template shadowrootmode="open"><style data-style="data-style">:host{display:inline-block;vertical-align:0}span,svg{display:block}</style><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"><path d="M20 10L4 10L9.5 4"></path><path d="M4 14L20 14L14.5 20"></path></g></svg></template></iconify-icon>
+                        </div>
+                        <div class="flex flex-col">
+                          <span class="text-sm font-medium text-zinc-200">
+                            Amazon Support
+                          </span>
+                          <span class="text-xs text-zinc-500">
+                            10 Sep, 2020 at 3:30 PM
+                          </span>
+                        </div>
+                      </div>
+
+                      <div class="hidden sm:flex items-center gap-2 w-1/3">
+                        <div class="w-6 h-6 rounded border flex items-center justify-center bg-white/5 border-white/10 text-zinc-400">
+                          <iconify-icon icon="solar:bag-3-linear" class="w-3 h-3 flex items-center justify-center" style="stroke-width: 1.5;"><template shadowrootmode="open"><style data-style="data-style">:host{display:inline-block;vertical-align:0}span,svg{display:block}</style><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="1.5"><path d="M3.74181 18.5545C3.74181 18.5545 3.74181 18.5545 3.74181 18.5545C4.94143 20 7.17414 20 11.6395 20H12.3607C16.8261 20 19.0589 20 20.2585 18.5545M3.74181 18.5545C2.54219 17.1091 2.95365 14.9146 3.77657 10.5257C4.36179 7.40452 4.65441 5.84393 5.7653 4.92196M20.2585 18.5545C20.2585 18.5545 20.2585 18.5545 20.2585 18.5545C21.4581 17.1091 21.0466 14.9146 20.2237 10.5257C19.6385 7.40452 19.3459 5.84393 18.235 4.92196M18.235 4.92196C18.235 4.92196 18.235 4.92196 18.235 4.92196C17.1241 4 15.5363 4 12.3607 4H11.6395C8.46398 4 6.8762 4 5.7653 4.92196C5.7653 4.92196 5.7653 4.92196 5.7653 4.92196"></path><path d="M9.1709 8C9.58273 9.16519 10.694 10 12.0002 10C13.3064 10 14.4177 9.16519 14.8295 8"></path></g></svg></template></iconify-icon>
+                        </div>
+                        <span class="text-xs text-zinc-400">Supplies</span>
+                      </div>
+
+                      <div class="flex items-center justify-end gap-6 w-1/3">
+                        <div class="w-6 h-6 rounded-md border flex items-center justify-center bg-white/5 border-white/5 text-zinc-400">
+                          <iconify-icon icon="solar:document-text-linear" class="w-3 h-3 flex items-center justify-center" style="stroke-width: 1.5;"><template shadowrootmode="open"><style data-style="data-style">:host{display:inline-block;vertical-align:0}span,svg{display:block}</style><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="1.5"><path d="M3 10C3 6.22876 3 4.34315 4.17157 3.17157C5.34315 2 7.22876 2 11 2H13C16.7712 2 18.6569 2 19.8284 3.17157C21 4.34315 21 6.22876 21 10V14C21 17.7712 21 19.6569 19.8284 20.8284C18.6569 22 16.7712 22 13 22H11C7.22876 22 5.34315 22 4.17157 20.8284C3 19.6569 3 17.7712 3 14V10Z"></path><path d="M8 12H16"></path><path d="M8 8H16"></path><path d="M8 16H13"></path></g></svg></template></iconify-icon>
+                        </div>
+                        <span class="text-sm font-medium text-zinc-500 w-20 text-right">
+                          -$20.200
+                        </span>
+                      </div>
+                    </div>
+                  </div>
+
+                  <!-- Date Group 2 -->
+                  <div class="flex flex-col gap-4">
+                    <span class="text-xs font-medium text-zinc-500">
+                      08 Jun, 2022
+                    </span>
+
+                    <div class="flex items-center justify-between group hover:bg-white/[0.04] p-2 -mx-2 rounded-xl transition-colors">
+                      <div class="flex items-center gap-4 w-1/3 min-w-[180px]">
+                        <div class="text-zinc-300">
+                          <iconify-icon icon="solar:download-square-linear" class="w-4 h-4 flex items-center justify-center" style="stroke-width: 1.5;"><template shadowrootmode="open"><style data-style="data-style">:host{display:inline-block;vertical-align:0}span,svg{display:block}</style><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="1.5"><path stroke-linejoin="round" d="M12 7L12 14M9 11L12 14L15 11"></path><path d="M16 17H12H8"></path><path d="M2 12C2 7.28595 2 4.92893 3.46447 3.46447C4.92893 2 7.28595 2 12 2C16.714 2 19.0711 2 20.5355 3.46447C22 4.92893 22 7.28595 22 12C22 16.714 22 19.0711 20.5355 20.5355C19.0711 22 16.714 22 12 22C7.28595 22 4.92893 22 3.46447 20.5355C2 19.0711 2 16.714 2 12Z"></path></g></svg></template></iconify-icon>
+                        </div>
+                        <div class="flex flex-col">
+                          <span class="text-sm font-medium text-zinc-200">
+                            Roland GmbH
+                          </span>
+                          <span class="text-xs text-zinc-500">
+                            10 Sep, 2020 at 3:30 PM
+                          </span>
+                        </div>
+                      </div>
+
+                      <div class="hidden sm:flex items-center gap-2 w-1/3">
+                        <div class="w-6 h-6 rounded border flex items-center justify-center bg-white/5 border-white/10 text-zinc-400">
+                          <iconify-icon icon="solar:pie-chart-2-linear" class="w-3 h-3 flex items-center justify-center" style="stroke-width: 1.5;"><template shadowrootmode="open"><style data-style="data-style">:host{display:inline-block;vertical-align:0}span,svg{display:block}</style><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="1.5"><path d="M6.22209 4.60105C6.66665 4.304 7.13344 4.04636 7.6171 3.82976C8.98898 3.21539 9.67491 2.9082 10.5875 3.4994C11.5 4.09061 11.5 5.06041 11.5 7.00001V8.50001C11.5 10.3856 11.5 11.3284 12.0858 11.9142C12.6716 12.5 13.6144 12.5 15.5 12.5H17C18.9396 12.5 19.9094 12.5 20.5006 13.4125C21.0918 14.3251 20.7846 15.011 20.1702 16.3829C19.9536 16.8666 19.696 17.3334 19.399 17.7779C18.3551 19.3402 16.8714 20.5578 15.1355 21.2769C13.3996 21.9959 11.4895 22.184 9.64665 21.8175C7.80383 21.4509 6.11109 20.5461 4.78249 19.2175C3.45389 17.8889 2.5491 16.1962 2.18254 14.3534C1.81598 12.5105 2.00412 10.6004 2.72315 8.86451C3.44218 7.12861 4.65982 5.64492 6.22209 4.60105Z"></path><path d="M21.446 7.06901C20.6342 5.00831 18.9917 3.36579 16.931 2.55398C15.3895 1.94669 14 3.34316 14 5.00002V9.00002C14 9.5523 14.4477 10 15 10H19C20.6569 10 22.0533 8.61055 21.446 7.06901Z"></path></g></svg></template></iconify-icon>
+                        </div>
+                        <span class="text-xs text-zinc-400">Marketing</span>
+                      </div>
+
+                      <div class="flex items-center justify-end gap-6 w-1/3">
+                        <div class="w-6 h-6 rounded-md flex items-center justify-center shadow-[inset_0_1px_1px_rgba(255,255,255,0.1)] bg-white/10 text-white">
+                          <iconify-icon icon="solar:check-read-linear" class="w-3 h-3 flex items-center justify-center" style="stroke-width: 1.5;"><template shadowrootmode="open"><style data-style="data-style">:host{display:inline-block;vertical-align:0}span,svg{display:block}</style><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5"><path d="M4 12.9L7.14286 16.5L15 7.5"></path><path d="M20 7.5625L11.4283 16.5625L11 16"></path></g></svg></template></iconify-icon>
+                        </div>
+                        <span class="text-sm font-medium w-20 text-right text-white">
+                          +$30.400
+                        </span>
+                      </div>
+                    </div>
+
+                    <div class="flex items-center justify-between group hover:bg-white/[0.04] p-2 -mx-2 rounded-xl transition-colors">
+                      <div class="flex items-center gap-4 w-1/3 min-w-[180px]">
+                        <div class="text-zinc-500">
+                          <iconify-icon icon="solar:arrow-right-up-linear" class="w-4 h-4 flex items-center justify-center" style="stroke-width: 1.5;"><template shadowrootmode="open"><style data-style="data-style">:host{display:inline-block;vertical-align:0}span,svg{display:block}</style><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M6 18L18 6M18 15V6H9"></path></svg></template></iconify-icon>
+                        </div>
+                        <div class="flex flex-col">
+                          <span class="text-sm font-medium text-zinc-200">
+                            Bank of America
+                          </span>
+                          <span class="text-xs text-zinc-500">
+                            10 Sep, 2020 at 3:30 PM
+                          </span>
+                        </div>
+                      </div>
+
+                      <div class="hidden sm:flex items-center gap-2 w-1/3">
+                        <div class="w-6 h-6 rounded border flex items-center justify-center bg-white/5 border-white/10 text-zinc-400">
+                          <iconify-icon icon="solar:case-minimalistic-linear" class="w-3 h-3 flex items-center justify-center" style="stroke-width: 1.5;"><template shadowrootmode="open"><style data-style="data-style">:host{display:inline-block;vertical-align:0}span,svg{display:block}</style><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="1.5"><path d="M14 6H10C8.64413 6 7.53199 6 6.60915 6.05445C4.96519 6.15144 3.92193 6.42122 3.17157 7.17157C2 8.34315 2 10.2288 2 14C2 17.7712 2 19.6569 3.17157 20.8284C4.34315 22 6.22876 22 10 22H14C17.7712 22 19.6569 22 20.8284 20.8284C22 19.6569 22 17.7712 22 14C22 10.2288 22 8.34315 20.8284 7.17157C20.0781 6.42122 19.0348 6.15144 17.3909 6.05445C16.468 6 15.3559 6 14 6Z"></path><path d="M6.60938 6.05445C7.43282 6.03358 8.15925 5.45491 8.43944 4.68032C8.44806 4.65649 8.4569 4.62999 8.47457 4.57697L8.50023 4.5C8.54241 4.37344 8.56351 4.31014 8.58608 4.254C8.87427 3.53712 9.54961 3.05037 10.3208 3.00366C10.3812 3 10.4479 3 10.5814 3H13.4191C13.5525 3 13.6192 3 13.6796 3.00366C14.4508 3.05037 15.1262 3.53712 15.4144 4.254C15.4369 4.31014 15.458 4.37343 15.5002 4.5L15.5259 4.57697C15.5435 4.62992 15.5524 4.65651 15.561 4.68032C15.8412 5.45491 16.5676 6.03358 17.3911 6.05445"></path><path d="M21.676 8.70569C18.6661 10.6621 17.1471 11.6543 15.5606 12.1472C13.2417 12.8677 10.7587 12.8677 8.43972 12.1472C6.85322 11.6543 5.33161 10.6716 2.32178 8.71517"></path><path d="M8 11V13"></path><path d="M16 11V13"></path></g></svg></template></iconify-icon>
+                        </div>
+                        <span class="text-xs text-zinc-400">
+                          Office supplies
+                        </span>
+                      </div>
+
+                      <div class="flex items-center justify-end gap-6 w-1/3">
+                        <div class="w-6 h-6 rounded-md border flex items-center justify-center bg-white/5 border-white/5 text-zinc-400">
+                          <iconify-icon icon="solar:document-text-linear" class="w-3 h-3 flex items-center justify-center" style="stroke-width: 1.5;"><template shadowrootmode="open"><style data-style="data-style">:host{display:inline-block;vertical-align:0}span,svg{display:block}</style><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="1.5"><path d="M3 10C3 6.22876 3 4.34315 4.17157 3.17157C5.34315 2 7.22876 2 11 2H13C16.7712 2 18.6569 2 19.8284 3.17157C21 4.34315 21 6.22876 21 10V14C21 17.7712 21 19.6569 19.8284 20.8284C18.6569 22 16.7712 22 13 22H11C7.22876 22 5.34315 22 4.17157 20.8284C3 19.6569 3 17.7712 3 14V10Z"></path><path d="M8 12H16"></path><path d="M8 8H16"></path><path d="M8 16H13"></path></g></svg></template></iconify-icon>
+                        </div>
+                        <span class="text-sm font-medium text-zinc-500 w-20 text-right">
+                          -$10.200
+                        </span>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Activity Graph (Moved & Styled for main column) -->
+              <div class="xl:col-span-1 flex flex-col justify-between gap-4 bg-white/[0.02] p-6 rounded-3xl border border-white/[0.03] shadow-[inset_0_1px_1px_rgba(255,255,255,0.05)]">
+                <div class="">
+                  <h4 class="text-sm font-medium mb-2 text-zinc-400">
+                    Activity Graph
+                  </h4>
+                  <span class="text-3xl font-semibold tracking-tight font-geist text-white">
+                    $186k
+                  </span>
+                </div>
+
+                <div class="flex-1 flex flex-col justify-end mt-4">
+                  <div class="flex justify-end mb-2">
+                    <span class="text-xs font-medium uppercase tracking-wider text-zinc-600">
+                      Between Sep 9 - 27
+                    </span>
+                  </div>
+
+                  <!-- Simple CSS Bar Chart -->
+                  <div class="h-32 w-full flex items-end justify-between gap-1 pb-2 border-b relative mt-auto border-white/5">
+                    <div class="absolute left-0 top-0 bottom-2 flex flex-col justify-between text-xs w-6 text-zinc-600">
+                      <span>25k</span>
+                      <span>15k</span>
+                      <span>5k</span>
+                      <span>0</span>
+                    </div>
+                    <div class="flex-1 flex items-end justify-between gap-1 ml-8 h-full">
+                      <div class="w-full bg-gradient-to-t rounded-t-sm from-zinc-600/30 to-white/90" style="height: 20%"></div>
+                      <div class="w-full bg-gradient-to-t rounded-t-sm from-zinc-600/30 to-white/90" style="height: 35%"></div>
+                      <div class="w-full bg-gradient-to-t rounded-t-sm from-zinc-600/30 to-white/90" style="height: 25%"></div>
+                      <div class="w-full bg-gradient-to-t rounded-t-sm opacity-50 from-zinc-600/30 to-white/90" style="height: 45%"></div>
+                      <div class="w-full bg-gradient-to-t rounded-t-sm from-zinc-600/30 to-white/90" style="height: 60%"></div>
+                      <div class="w-full bg-gradient-to-t rounded-t-sm opacity-70 from-zinc-600/30 to-white/90" style="height: 80%"></div>
+                      <div class="w-full bg-gradient-to-t rounded-t-sm shadow-[0_0_15px_rgba(255,255,255,0.4)] from-zinc-600/30 to-white/90" style="height: 90%"></div>
+                      <div class="w-full bg-gradient-to-t rounded-t-sm from-zinc-600/30 to-white/90" style="height: 100%"></div>
+                      <div class="w-full bg-gradient-to-t rounded-t-sm opacity-60 from-zinc-600/30 to-white/90" style="height: 60%"></div>
+                      <div class="w-full bg-gradient-to-t rounded-t-sm from-zinc-600/30 to-white/90" style="height: 40%"></div>
+                      <div class="w-full bg-gradient-to-t rounded-t-sm from-zinc-600/30 to-white/90" style="height: 30%"></div>
+                    </div>
+                  </div>
+                  <div class="flex items-center justify-between ml-8 text-xs mt-2 text-zinc-600">
+                    <span>9</span>
+                    <span>11</span>
+                    <span>13</span>
+                    <span>15</span>
+                    <span>17</span>
+                    <span>19</span>
+                    <span>21</span>
+                    <span>23</span>
+                    <span>25</span>
+                    <span>27</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Right Sidebar (Profile, Tools, Actions) -->
+        </div>
+      </div>
+    </section>
+    <section class="container md:px-12 z-20 pointer-events-auto mr-auto ml-auto pt-32 pr-6 pb-24 pl-6 relative">
+      <div class="flex flex-col items-center justify-center text-center mb-16 relative [animation:animationIn_0.8s_ease-out_0.1s_both] animate-on-scroll animate" style="filter: blur(0px); opacity: 1; transform: translateY(0px);">
+        <h2 class="text-3xl md:text-5xl font-medium tracking-tight mb-4 font-geist text-white">
+          Simple, transparent pricing
+        </h2>
+        <p class="text-lg font-normal max-w-2xl text-zinc-400">
+          Choose the plan that best fits your needs. All plans include core
+          features.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-6 lg:gap-8 max-w-5xl mx-auto mb-24 [animation:animationIn_0.8s_ease-out_0.2s_both] animate-on-scroll animate" style="filter: blur(0px); opacity: 1; transform: translateY(0px);">
+        <!-- Hobby Plan -->
+        <div class="flex flex-col bg-[#0e0e11] border rounded-3xl p-8 hover:bg-white/[0.02] transition-colors relative shadow-[0_20px_40px_rgba(0,0,0,0.3)] border-white/5">
+          <h3 class="text-xl font-medium tracking-tight mb-2 font-geist text-white">
+            Hobby
+          </h3>
+          <p class="text-sm mb-6 h-10 text-zinc-400">
+            Perfect for side projects and learning.
+          </p>
+          <div class="mb-6">
+            <span class="text-4xl font-medium tracking-tight font-geist text-white">
+              $0
+            </span>
+            <span class="text-sm text-zinc-500">/mo</span>
+          </div>
+          <button class="w-full px-4 py-2.5 rounded-full border bg-transparent text-sm font-medium transition-colors mb-8 border-zinc-800 text-zinc-300 hover:bg-zinc-800/50 hover:text-white">
+            Get Started
+          </button>
+          <div class="flex flex-col gap-3">
+            <div class="flex items-center gap-3 text-sm text-zinc-300">
+              <i data-lucide="check" class="w-4 h-4 text-zinc-500" stroke-width="2"></i>
+              Up to 1,000 active users
+            </div>
+            <div class="flex items-center gap-3 text-sm text-zinc-300">
+              <i data-lucide="check" class="w-4 h-4 text-zinc-500" stroke-width="2"></i>
+              Community support
+            </div>
+            <div class="flex items-center gap-3 text-sm text-zinc-300">
+              <i data-lucide="check" class="w-4 h-4 text-zinc-500" stroke-width="2"></i>
+              Basic analytics
+            </div>
+          </div>
+        </div>
+
+        <!-- Pro Plan -->
+        <div class="flex flex-col bg-[#131316] border rounded-3xl p-8 relative shadow-[0_20px_40px_rgba(0,0,0,0.5)] transform md:-translate-y-4 border-white/10">
+          <div class="absolute inset-0 bg-gradient-to-b to-transparent rounded-3xl pointer-events-none from-white/5"></div>
+          <div class="absolute -top-px left-1/2 -translate-x-1/2 w-1/2 h-px bg-gradient-to-r from-transparent to-transparent via-zinc-400"></div>
+
+          <div class="flex justify-between items-center mb-2">
+            <h3 class="text-xl font-medium tracking-tight font-geist text-white">
+              Pro
+            </h3>
+            <span class="text-[10px] uppercase tracking-wider font-medium px-2 py-1 rounded-full border bg-white/10 text-zinc-200 border-white/5">
+              Most Popular
+            </span>
+          </div>
+          <p class="text-sm mb-6 h-10 text-zinc-400">
+            For scaling startups and growing teams.
+          </p>
+          <div class="mb-6">
+            <span class="text-4xl font-medium tracking-tight font-geist text-white">
+              $49
+            </span>
+            <span class="text-sm text-zinc-500">/mo</span>
+          </div>
+          <button class="w-full px-4 py-2.5 rounded-full text-sm font-medium transition-colors mb-8 shadow-[0_0_20px_rgba(255,255,255,0.1)] bg-white text-black hover:bg-zinc-200">
+            Start Free Trial
+          </button>
+          <div class="flex flex-col gap-3">
+            <div class="flex items-center gap-3 text-sm text-zinc-300">
+              <i data-lucide="check" class="w-4 h-4 text-emerald-400" stroke-width="2"></i>
+              Up to 50,000 active users
+            </div>
+            <div class="flex items-center gap-3 text-sm text-zinc-300">
+              <i data-lucide="check" class="w-4 h-4 text-emerald-400" stroke-width="2"></i>
+              Priority email support
+            </div>
+            <div class="flex items-center gap-3 text-sm text-zinc-300">
+              <i data-lucide="check" class="w-4 h-4 text-emerald-400" stroke-width="2"></i>
+              Advanced analytics
+            </div>
+            <div class="flex items-center gap-3 text-sm text-zinc-300">
+              <i data-lucide="check" class="w-4 h-4 text-emerald-400" stroke-width="2"></i>
+              Custom domains
+            </div>
+          </div>
+        </div>
+
+        <!-- Enterprise Plan -->
+        <div class="flex flex-col bg-[#0e0e11] border rounded-3xl p-8 hover:bg-white/[0.02] transition-colors relative shadow-[0_20px_40px_rgba(0,0,0,0.3)] border-white/5">
+          <h3 class="text-xl font-medium tracking-tight mb-2 font-geist text-white">
+            Enterprise
+          </h3>
+          <p class="text-sm mb-6 h-10 text-zinc-400">
+            Custom solutions for large scale operations.
+          </p>
+          <div class="mb-6">
+            <span class="text-4xl font-medium tracking-tight font-geist text-white">
+              Custom
+            </span>
+          </div>
+          <button class="w-full px-4 py-2.5 rounded-full border bg-transparent text-sm font-medium transition-colors mb-8 border-zinc-800 text-zinc-300 hover:bg-zinc-800/50 hover:text-white">
+            Contact Sales
+          </button>
+          <div class="flex flex-col gap-3">
+            <div class="flex items-center gap-3 text-sm text-zinc-300">
+              <i data-lucide="check" class="w-4 h-4 text-zinc-500" stroke-width="2"></i>
+              Unlimited active users
+            </div>
+            <div class="flex items-center gap-3 text-sm text-zinc-300">
+              <i data-lucide="check" class="w-4 h-4 text-zinc-500" stroke-width="2"></i>
+              24/7 dedicated support
+            </div>
+            <div class="flex items-center gap-3 text-sm text-zinc-300">
+              <i data-lucide="check" class="w-4 h-4 text-zinc-500" stroke-width="2"></i>
+              Custom integrations
+            </div>
+            <div class="flex items-center gap-3 text-sm text-zinc-300">
+              <i data-lucide="check" class="w-4 h-4 text-zinc-500" stroke-width="2"></i>
+              SLA &amp; SOC 2 compliance
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="max-w-5xl mx-auto bg-[#09090b] border rounded-3xl overflow-hidden shadow-[0_20px_40px_rgba(0,0,0,0.3)] [animation:animationIn_0.8s_ease-out_0.3s_both] animate-on-scroll relative animate border-white/5" style="filter: blur(0px); opacity: 1; transform: translateY(0px);">
+        <div class="absolute inset-0 bg-white/[0.02] pointer-events-none"></div>
+        <div class="overflow-x-auto relative z-10">
+          <table class="w-full text-left text-sm whitespace-nowrap">
+            <thead class="">
+              <tr class="border-b bg-white/[0.02] border-white/5">
+                <th class="p-6 font-medium text-base text-white">
+                  Compare Plans
+                </th>
+                <th class="p-6 font-medium w-1/5 text-center text-white">
+                  Hobby
+                </th>
+                <th class="p-6 font-medium w-1/5 text-center text-white">
+                  Pro
+                </th>
+                <th class="p-6 font-medium w-1/5 text-center text-white">
+                  Enterprise
+                </th>
+              </tr>
+            </thead>
+            <tbody class="divide-y divide-white/5">
+              <tr class="">
+                <td colspan="4" class="p-6 pb-2 text-xs font-medium text-zinc-500 uppercase tracking-wider bg-white/[0.01]">
+                  Core Features
+                </td>
+              </tr>
+              <tr class="hover:bg-white/[0.02] transition-colors">
+                <td class="px-6 py-4 font-medium text-zinc-300">
+                  Monthly Active Users
+                </td>
+                <td class="px-6 py-4 text-center text-zinc-400">1,000</td>
+                <td class="px-6 py-4 text-center text-zinc-400">50,000</td>
+                <td class="px-6 py-4 text-center text-zinc-400">Unlimited</td>
+              </tr>
+              <tr class="hover:bg-white/[0.02] transition-colors">
+                <td class="px-6 py-4 font-medium text-zinc-300">
+                  API Requests
+                </td>
+                <td class="px-6 py-4 text-center text-zinc-400">10K/mo</td>
+                <td class="px-6 py-4 text-center text-zinc-400">1M/mo</td>
+                <td class="px-6 py-4 text-center text-zinc-400">Unlimited</td>
+              </tr>
+              <tr class="hover:bg-white/[0.02] transition-colors">
+                <td class="px-6 py-4 font-medium text-zinc-300">
+                  Data Retention
+                </td>
+                <td class="px-6 py-4 text-center text-zinc-400">7 days</td>
+                <td class="px-6 py-4 text-center text-zinc-400">30 days</td>
+                <td class="px-6 py-4 text-center text-zinc-400">365 days</td>
+              </tr>
+
+              <tr class="">
+                <td colspan="4" class="p-6 pb-2 pt-8 text-xs font-medium text-zinc-500 uppercase tracking-wider bg-white/[0.01]">
+                  Advanced Tools
+                </td>
+              </tr>
+              <tr class="hover:bg-white/[0.02] transition-colors">
+                <td class="px-6 py-4 font-medium text-zinc-300">
+                  Custom Domains
+                </td>
+                <td class="px-6 py-4">
+                  <div class="flex justify-center">
+                    <i data-lucide="minus" class="w-4 h-4 text-zinc-700"></i>
+                  </div>
+                </td>
+                <td class="px-6 py-4">
+                  <div class="flex justify-center">
+                    <i data-lucide="check" class="w-4 h-4 text-emerald-400"></i>
+                  </div>
+                </td>
+                <td class="px-6 py-4">
+                  <div class="flex justify-center">
+                    <i data-lucide="check" class="w-4 h-4 text-zinc-400"></i>
+                  </div>
+                </td>
+              </tr>
+              <tr class="hover:bg-white/[0.02] transition-colors">
+                <td class="px-6 py-4 font-medium text-zinc-300">
+                  Role-based Access
+                </td>
+                <td class="px-6 py-4">
+                  <div class="flex justify-center">
+                    <i data-lucide="minus" class="w-4 h-4 text-zinc-700"></i>
+                  </div>
+                </td>
+                <td class="px-6 py-4">
+                  <div class="flex justify-center">
+                    <i data-lucide="check" class="w-4 h-4 text-emerald-400"></i>
+                  </div>
+                </td>
+                <td class="px-6 py-4">
+                  <div class="flex justify-center">
+                    <i data-lucide="check" class="w-4 h-4 text-zinc-400"></i>
+                  </div>
+                </td>
+              </tr>
+              <tr class="hover:bg-white/[0.02] transition-colors">
+                <td class="px-6 py-4 font-medium text-zinc-300">Audit Logs</td>
+                <td class="px-6 py-4">
+                  <div class="flex justify-center">
+                    <i data-lucide="minus" class="w-4 h-4 text-zinc-700"></i>
+                  </div>
+                </td>
+                <td class="px-6 py-4">
+                  <div class="flex justify-center">
+                    <i data-lucide="minus" class="w-4 h-4 text-zinc-700"></i>
+                  </div>
+                </td>
+                <td class="px-6 py-4">
+                  <div class="flex justify-center">
+                    <i data-lucide="check" class="w-4 h-4 text-zinc-400"></i>
+                  </div>
+                </td>
+              </tr>
+              <tr class="hover:bg-white/[0.02] transition-colors">
+                <td class="px-6 py-4 font-medium text-zinc-300">
+                  Single Sign-On (SSO)
+                </td>
+                <td class="px-6 py-4">
+                  <div class="flex justify-center">
+                    <i data-lucide="minus" class="w-4 h-4 text-zinc-700"></i>
+                  </div>
+                </td>
+                <td class="px-6 py-4">
+                  <div class="flex justify-center">
+                    <i data-lucide="minus" class="w-4 h-4 text-zinc-700"></i>
+                  </div>
+                </td>
+                <td class="px-6 py-4">
+                  <div class="flex justify-center">
+                    <i data-lucide="check" class="w-4 h-4 text-zinc-400"></i>
+                  </div>
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+    <section class="container md:px-12 z-20 pointer-events-auto border-white/5 border-t mr-auto ml-auto pt-24 pr-6 pb-24 pl-6 relative">
+      <div class="flex flex-col items-center justify-center text-center mb-16 relative [animation:animationIn_0.8s_ease-out_0.1s_both] animate-on-scroll" style="filter: blur(8px); opacity: 0; transform: translateY(30px);">
+        <h2 class="text-3xl md:text-5xl font-medium tracking-tight mb-4 font-geist text-white">
+          Seamless Integrations
+        </h2>
+        <p class="text-lg font-normal max-w-2xl text-zinc-400">
+          Connect Lumina with your existing stack in minutes.
+        </p>
+      </div>
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-6 max-w-5xl mx-auto [animation:animationIn_0.8s_ease-out_0.2s_both] animate-on-scroll" style="filter: blur(8px); opacity: 0; transform: translateY(30px);">
+        <div class="flex items-center justify-center p-8 bg-[#0e0e11] border border-white/5 rounded-3xl hover:bg-white/[0.02] transition-colors">
+          <iconify-icon icon="logos:slack-icon" class="text-4xl"><template shadowrootmode="open"><style data-style="data-style">:host{display:inline-block;vertical-align:0}span,svg{display:block}</style><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 256 256"><path fill="#e01e5a" d="M53.841 161.32c0 14.832-11.987 26.82-26.819 26.82S.203 176.152.203 161.32c0-14.831 11.987-26.818 26.82-26.818H53.84zm13.41 0c0-14.831 11.987-26.818 26.819-26.818s26.819 11.987 26.819 26.819v67.047c0 14.832-11.987 26.82-26.82 26.82c-14.83 0-26.818-11.988-26.818-26.82z"></path><path fill="#36c5f0" d="M94.07 53.638c-14.832 0-26.82-11.987-26.82-26.819S79.239 0 94.07 0s26.819 11.987 26.819 26.819v26.82zm0 13.613c14.832 0 26.819 11.987 26.819 26.819s-11.987 26.819-26.82 26.819H26.82C11.987 120.889 0 108.902 0 94.069c0-14.83 11.987-26.818 26.819-26.818z"></path><path fill="#2eb67d" d="M201.55 94.07c0-14.832 11.987-26.82 26.818-26.82s26.82 11.988 26.82 26.82s-11.988 26.819-26.82 26.819H201.55zm-13.41 0c0 14.832-11.988 26.819-26.82 26.819c-14.831 0-26.818-11.987-26.818-26.82V26.82C134.502 11.987 146.489 0 161.32 0s26.819 11.987 26.819 26.819z"></path><path fill="#ecb22e" d="M161.32 201.55c14.832 0 26.82 11.987 26.82 26.818s-11.988 26.82-26.82 26.82c-14.831 0-26.818-11.988-26.818-26.82V201.55zm0-13.41c-14.831 0-26.818-11.988-26.818-26.82c0-14.831 11.987-26.818 26.819-26.818h67.25c14.832 0 26.82 11.987 26.82 26.819s-11.988 26.819-26.82 26.819z"></path></svg></template></iconify-icon>
+        </div>
+        <div class="flex items-center justify-center p-8 bg-[#0e0e11] border border-white/5 rounded-3xl hover:bg-white/[0.02] transition-colors">
+          <iconify-icon icon="mdi:github" class="text-4xl text-white"><template shadowrootmode="open"><style data-style="data-style">:host{display:inline-block;vertical-align:0}span,svg{display:block}</style><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24"><path fill="currentColor" d="M12 2A10 10 0 0 0 2 12c0 4.42 2.87 8.17 6.84 9.5c.5.08.66-.23.66-.5v-1.69c-2.77.6-3.36-1.34-3.36-1.34c-.46-1.16-1.11-1.47-1.11-1.47c-.91-.62.07-.6.07-.6c1 .07 1.53 1.03 1.53 1.03c.87 1.52 2.34 1.07 2.91.83c.09-.65.35-1.09.63-1.34c-2.22-.25-4.55-1.11-4.55-4.92c0-1.11.38-2 1.03-2.71c-.1-.25-.45-1.29.1-2.64c0 0 .84-.27 2.75 1.02c.79-.22 1.65-.33 2.5-.33s1.71.11 2.5.33c1.91-1.29 2.75-1.02 2.75-1.02c.55 1.35.2 2.39.1 2.64c.65.71 1.03 1.6 1.03 2.71c0 3.82-2.34 4.66-4.57 4.91c.36.31.69.92.69 1.85V21c0 .27.16.59.67.5C19.14 20.16 22 16.42 22 12A10 10 0 0 0 12 2"></path></svg></template></iconify-icon>
+        </div>
+        <div class="flex items-center justify-center p-8 bg-[#0e0e11] border border-white/5 rounded-3xl hover:bg-white/[0.02] transition-colors">
+          <iconify-icon icon="mdi:aws" class="text-4xl text-white"><template shadowrootmode="open"><style data-style="data-style">:host{display:inline-block;vertical-align:0}span,svg{display:block}</style><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24"><path fill="currentColor" d="M7.64 10.38c0 .25.02.45.07.62c.05.12.12.28.21.46c.04.04.05.1.05.15c0 .07-.04.13-.13.2l-.42.28c-.06.04-.12.06-.17.06c-.07 0-.13-.04-.2-.1c-.09-.1-.17-.2-.24-.31c-.06-.11-.13-.24-.2-.39c-.52.61-1.17.92-1.96.92c-.56 0-1-.16-1.33-.48c-.32-.32-.49-.75-.49-1.29c0-.55.2-1 .6-1.36c.41-.34.95-.52 1.63-.52c.23 0 .44.02.71.06c.23.03.5.08.76.14v-.48c0-.51-.1-.84-.31-1.07c-.22-.21-.57-.3-1.08-.3c-.24 0-.48.03-.72.08c-.25.06-.49.13-.72.23c-.11.04-.2.07-.23.08c-.05.02-.08.02-.11.02c-.09 0-.14-.06-.14-.2v-.33c0-.1.01-.18.05-.23q.045-.075.18-.12c.24-.14.51-.24.84-.32a4 4 0 0 1 1.04-.13q1.185 0 1.74.54c.37.36.55.91.55 1.64v2.15zm-2.7 1.02c.22 0 .44-.04.68-.12s.45-.23.63-.43c.11-.13.19-.27.25-.43c0-.16.05-.35.05-.58v-.27c-.2-.07-.4-.07-.62-.12a7 7 0 0 0-.62-.04c-.45 0-.77.09-.99.27s-.32.43-.32.76c0 .32.07.56.24.71c.16.17.39.25.7.25m5.34.71a.6.6 0 0 1-.28-.06c-.03-.05-.08-.14-.12-.26L8.32 6.65c-.04-.15-.06-.22-.06-.27c0-.11.05-.17.16-.17h.65c.13 0 .22.02.26.07c.06.04.1.13.14.26l1.11 4.4l1.04-4.4c.03-.13.07-.22.13-.26c.05-.04.14-.07.25-.07h.55c.12 0 .21.02.26.07c.05.04.1.13.13.26L14 11l1.14-4.46c.04-.13.09-.22.13-.26c.06-.04.14-.07.26-.07h.62c.11 0 .17.06.17.17c0 .03-.01.07-.02.12c0 0-.02.08-.04.15l-1.61 5.14c-.04.14-.08.21-.15.26c-.04.04-.13.07-.24.07h-.57c-.13 0-.19-.02-.27-.07a.45.45 0 0 1-.12-.26L12.27 7.5l-1.03 4.28q-.045.195-.12.27a.5.5 0 0 1-.27.06zm8.55.18c-.33 0-.7-.04-1.03-.12s-.59-.17-.76-.26a.5.5 0 0 1-.21-.19a.4.4 0 0 1-.04-.18v-.34c0-.14.05-.2.15-.2h.12c.04 0 .1.05.17.08c.22.1.47.18.73.23c.27.05.54.08.79.08c.42 0 .75-.07.97-.22c.23-.17.35-.36.35-.63c0-.19-.07-.34-.18-.47c-.12-.12-.35-.24-.67-.34l-.97-.3c-.48-.16-.84-.38-1.06-.68a1.58 1.58 0 0 1-.33-.97c0-.28.06-.52.18-.73c.12-.22.28-.4.46-.55c.22-.15.44-.26.71-.34q.39-.12.84-.12q.21 0 .45.03c.14.02.28.05.42.07c.14.04.26.07.38.11s.2.08.28.12c.09.05.16.1.2.16s.06.13.06.22v.32q0 .21-.15.21c-.05 0-.14-.03-.26-.08c-.37-.17-.8-.26-1.27-.26c-.38 0-.66.06-.89.19c-.2.12-.31.32-.31.59c0 .19.07.35.2.47c.13.13.38.25.73.37l.95.3c.48.14.82.36 1.03.64q.3.405.3.93c0 .28-.06.54-.17.77c-.12.22-.28.42-.5.58c-.19.17-.44.29-.72.38s-.62.13-.95.13m1.25 3.24C17.89 17.14 14.71 18 12 18c-3.85 0-7.3-1.42-9.91-3.77c-.21-.19-.02-.44.23-.29c2.82 1.63 6.29 2.62 9.89 2.62c2.43 0 5.1-.5 7.55-1.56c.37-.15.68.26.32.53M21 14.5c-.29-.37-1.86-.18-2.57-.1c-.21.03-.24-.16-.05-.3c1.25-.87 3.31-.6 3.54-.33c.24.3-.06 2.36-1.23 3.34c-.19.15-.36.07-.28-.11c.27-.68.86-2.16.59-2.5"></path></svg></template></iconify-icon>
+        </div>
+        <div class="flex items-center justify-center p-8 bg-[#0e0e11] border border-white/5 rounded-3xl hover:bg-white/[0.02] transition-colors">
+          <iconify-icon icon="logos:google-cloud" class="text-4xl"><template shadowrootmode="open"><style data-style="data-style">:host{display:inline-block;vertical-align:0}span,svg{display:block}</style><svg xmlns="http://www.w3.org/2000/svg" width="1.25em" height="1em" viewBox="0 0 256 206"><path fill="#ea4335" d="m170.252 56.819l22.253-22.253l1.483-9.37C153.437-11.677 88.976-7.496 52.42 33.92C42.267 45.423 34.734 59.764 30.717 74.573l7.97-1.123l44.505-7.34l3.436-3.513c19.797-21.742 53.27-24.667 76.128-6.168z"></path><path fill="#4285f4" d="M224.205 73.918a100.25 100.25 0 0 0-30.217-48.722l-31.232 31.232a55.52 55.52 0 0 1 20.379 44.037v5.544c15.35 0 27.797 12.445 27.797 27.796c0 15.352-12.446 27.485-27.797 27.485h-55.671l-5.466 5.934v33.34l5.466 5.231h55.67c39.93.311 72.553-31.494 72.864-71.424a72.3 72.3 0 0 0-31.793-60.453"></path><path fill="#34a853" d="M71.87 205.796h55.593V161.29H71.87a27.3 27.3 0 0 1-11.399-2.498l-7.887 2.42l-22.409 22.253l-1.952 7.574c12.567 9.489 27.9 14.825 43.647 14.757"></path><path fill="#fbbc05" d="M71.87 61.426C31.94 61.663-.237 94.227.001 134.158a72.3 72.3 0 0 0 28.222 56.88l32.248-32.246c-13.99-6.322-20.208-22.786-13.887-36.776s22.786-20.208 36.775-13.888a27.8 27.8 0 0 1 13.887 13.888l32.248-32.248A72.22 72.22 0 0 0 71.87 61.427"></path></svg></template></iconify-icon>
+        </div>
+        <div class="flex items-center justify-center p-8 bg-[#0e0e11] border border-white/5 rounded-3xl hover:bg-white/[0.02] transition-colors">
+          <iconify-icon icon="simple-icons:linear" class="text-4xl text-white"><template shadowrootmode="open"><style data-style="data-style">:host{display:inline-block;vertical-align:0}span,svg{display:block}</style><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24"><path fill="currentColor" d="M2.886 4.18A11.98 11.98 0 0 1 11.99 0C18.624 0 24 5.376 24 12.009c0 3.64-1.62 6.903-4.18 9.105L2.887 4.18ZM1.817 5.626l16.556 16.556q-.787.496-1.65.866L.951 7.277q.371-.863.866-1.65ZM.322 9.163l14.515 14.515q-1.066.26-2.195.322L0 11.358a12 12 0 0 1 .322-2.195m-.17 4.862l9.823 9.824a12.02 12.02 0 0 1-9.824-9.824Z"></path></svg></template></iconify-icon>
+        </div>
+        <div class="flex items-center justify-center p-8 bg-[#0e0e11] border border-white/5 rounded-3xl hover:bg-white/[0.02] transition-colors">
+          <iconify-icon icon="simple-icons:notion" class="text-4xl text-white"><template shadowrootmode="open"><style data-style="data-style">:host{display:inline-block;vertical-align:0}span,svg{display:block}</style><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24"><path fill="currentColor" d="M4.459 4.208c.746.606 1.026.56 2.428.466l13.215-.793c.28 0 .047-.28-.046-.326L17.86 1.968c-.42-.326-.981-.7-2.055-.607L3.01 2.295c-.466.046-.56.28-.374.466zm.793 3.08v13.904c0 .747.373 1.027 1.214.98l14.523-.84c.841-.046.935-.56.935-1.167V6.354c0-.606-.233-.933-.748-.887l-15.177.887c-.56.047-.747.327-.747.933zm14.337.745c.093.42 0 .84-.42.888l-.7.14v10.264c-.608.327-1.168.514-1.635.514c-.748 0-.935-.234-1.495-.933l-4.577-7.186v6.952L12.21 19s0 .84-1.168.84l-3.222.186c-.093-.186 0-.653.327-.746l.84-.233V9.854L7.822 9.76c-.094-.42.14-1.026.793-1.073l3.456-.233l4.764 7.279v-6.44l-1.215-.139c-.093-.514.28-.887.747-.933zM1.936 1.035l13.31-.98c1.634-.14 2.055-.047 3.082.7l4.249 2.986c.7.513.934.653.934 1.213v16.378c0 1.026-.373 1.634-1.68 1.726l-15.458.934c-.98.047-1.448-.093-1.962-.747l-3.129-4.06c-.56-.747-.793-1.306-.793-1.96V2.667c0-.839.374-1.54 1.447-1.632"></path></svg></template></iconify-icon>
+        </div>
+        <div class="flex items-center justify-center p-8 bg-[#0e0e11] border border-white/5 rounded-3xl hover:bg-white/[0.02] transition-colors">
+          <iconify-icon icon="logos:salesforce" class="text-4xl"><template shadowrootmode="open"><style data-style="data-style">:host{display:inline-block;vertical-align:0}span,svg{display:block}</style><svg xmlns="http://www.w3.org/2000/svg" width="1.43em" height="1em" viewBox="0 0 256 180"><path fill="#00a1e0" d="M106.553 19.651c8.248-8.594 19.731-13.924 32.43-13.924c16.883 0 31.612 9.414 39.455 23.389a54.5 54.5 0 0 1 22.3-4.74c30.449 0 55.134 24.9 55.134 55.615c0 30.719-24.685 55.62-55.134 55.62a54.7 54.7 0 0 1-10.86-1.083c-6.908 12.321-20.07 20.645-35.178 20.645a40.1 40.1 0 0 1-17.632-4.058c-7.002 16.47-23.316 28.019-42.33 28.019c-19.8 0-36.674-12.529-43.152-30.1c-2.83.602-5.763.915-8.772.915c-23.574 0-42.686-19.308-42.686-43.13a43.2 43.2 0 0 1 21.345-37.36a49.4 49.4 0 0 1-4.088-19.727C17.385 22.336 39.626.128 67.06.128c16.106 0 30.42 7.658 39.494 19.523"></path><path fill="#fff" d="M37.17 92.956c-.16.419.058.506.11.58c.48.349.968.6 1.46.88c2.609 1.385 5.071 1.79 7.647 1.79c5.246 0 8.503-2.79 8.503-7.283v-.087c0-4.153-3.676-5.662-7.126-6.75l-.448-.147c-2.601-.845-4.845-1.573-4.845-3.286v-.09c0-1.465 1.311-2.544 3.344-2.544c2.259 0 4.94.75 6.667 1.705c0 0 .506.328.692-.164c.102-.262.976-2.615 1.068-2.87c.098-.277-.077-.481-.255-.59c-1.971-1.2-4.696-2.019-7.516-2.019l-.525.004c-4.801 0-8.153 2.9-8.153 7.057v.087c0 4.383 3.698 5.803 7.162 6.794l.558.172c2.524.775 4.7 1.442 4.7 3.22v.087c0 1.625-1.414 2.835-3.695 2.835c-.885 0-3.708-.018-6.758-1.946c-.368-.215-.583-.371-.867-.542c-.15-.095-.524-.26-.688.236zm76.8 0c-.16.419.058.506.11.58c.48.349.968.6 1.46.88c2.608 1.385 5.071 1.79 7.647 1.79c5.246 0 8.503-2.79 8.503-7.283v-.087c0-4.153-3.676-5.662-7.126-6.75l-.448-.147c-2.601-.845-4.846-1.573-4.846-3.286v-.09c0-1.465 1.312-2.544 3.345-2.544c2.259 0 4.94.75 6.667 1.705c0 0 .506.328.692-.164c.102-.262.976-2.615 1.067-2.87c.099-.277-.076-.481-.255-.59c-1.97-1.2-4.696-2.019-7.515-2.019l-.525.004c-4.802 0-8.153 2.9-8.153 7.057v.087c0 4.383 3.697 5.803 7.162 6.794l.557.172c2.525.775 4.704 1.442 4.704 3.22v.087c0 1.625-1.418 2.835-3.698 2.835a12.4 12.4 0 0 1-6.758-1.946c-.368-.215-.587-.364-.863-.542c-.095-.062-.54-.234-.693.236zm52.429-8.799c0 2.54-.474 4.54-1.406 5.953c-.922 1.4-2.317 2.08-4.263 2.08c-1.949 0-3.337-.677-4.244-2.08c-.918-1.41-1.384-3.413-1.384-5.953c0-2.535.466-4.532 1.384-5.93c.907-1.385 2.295-2.059 4.244-2.059c1.946 0 3.34.674 4.266 2.058c.93 1.4 1.403 3.396 1.403 5.931m4.379-4.707c-.43-1.453-1.1-2.735-1.993-3.803c-.893-1.071-2.022-1.93-3.363-2.557c-1.337-.623-2.918-.94-4.692-.94c-1.778 0-3.359.317-4.696.94c-1.34.626-2.47 1.486-3.366 2.557c-.889 1.071-1.56 2.354-1.993 3.803c-.426 1.447-.64 3.028-.64 4.707c0 1.68.214 3.265.64 4.707c.434 1.45 1.1 2.732 1.997 3.804a9.4 9.4 0 0 0 3.362 2.535c1.34.609 2.918.918 4.696.918c1.774 0 3.352-.31 4.692-.918a9.4 9.4 0 0 0 3.363-2.535c.893-1.068 1.563-2.35 1.993-3.804c.43-1.446.645-3.03.645-4.707c0-1.675-.215-3.26-.645-4.707m35.959 12.063c-.145-.426-.557-.266-.557-.266c-.637.244-1.315.47-2.036.583a16 16 0 0 1-2.401.171c-2.12 0-3.804-.63-5.01-1.876c-1.209-1.246-1.887-3.26-1.88-5.986c.008-2.48.606-4.346 1.68-5.767c1.068-1.413 2.692-2.138 4.86-2.138c1.807 0 3.184.207 4.627.663c0 0 .346.15.51-.303c.382-1.063.667-1.825 1.075-2.994c.116-.332-.168-.474-.27-.514c-.568-.222-1.909-.583-2.922-.736c-.947-.145-2.054-.222-3.286-.222c-1.84 0-3.479.313-4.882.94c-1.399.623-2.586 1.483-3.526 2.554s-1.654 2.353-2.131 3.803c-.474 1.446-.714 3.035-.714 4.714c0 3.632.98 6.569 2.914 8.718c1.938 2.157 4.85 3.253 8.645 3.253c2.244 0 4.547-.455 6.2-1.107c0 0 .318-.153.18-.521zm7.663-9.788c.207-1.41.597-2.583 1.198-3.497c.907-1.388 2.291-2.15 4.237-2.15c1.945 0 3.231.765 4.153 2.15c.612.914.878 2.138.983 3.497zm14.743-3.1c-.372-1.403-1.294-2.82-1.898-3.468c-.955-1.028-1.887-1.746-2.813-2.146a10.8 10.8 0 0 0-4.248-.86c-1.85 0-3.53.31-4.892.95c-1.366.642-2.514 1.516-3.414 2.606c-.9 1.085-1.577 2.379-2.007 3.847c-.434 1.46-.652 3.053-.652 4.732c0 1.709.226 3.3.674 4.732c.451 1.443 1.173 2.715 2.15 3.767c.972 1.06 2.225 1.891 3.726 2.47c1.49.576 3.3.875 5.38.871c4.281-.015 6.537-.969 7.465-1.483c.164-.09.321-.251.124-.71l-.969-2.714c-.145-.405-.557-.255-.557-.255c-1.06.393-2.568 1.1-6.084 1.093c-2.299-.004-4.004-.682-5.071-1.742c-1.097-1.085-1.632-2.68-1.727-4.932l14.824.014s.39-.007.43-.386c.014-.16.51-3.046-.441-6.386m-133.46 3.1c.211-1.41.597-2.583 1.199-3.497c.907-1.388 2.291-2.15 4.236-2.15c1.946 0 3.232.765 4.157 2.15c.609.914.875 2.138.98 3.497zm14.74-3.1c-.372-1.403-1.29-2.82-1.895-3.468c-.954-1.028-1.887-1.746-2.812-2.146a10.8 10.8 0 0 0-4.248-.86c-1.847 0-3.53.31-4.892.95c-1.367.642-2.514 1.516-3.414 2.606c-.9 1.085-1.577 2.379-2.007 3.847c-.43 1.46-.652 3.053-.652 4.732c0 1.709.225 3.3.674 4.732c.451 1.443 1.173 2.715 2.149 3.767c.973 1.06 2.226 1.891 3.727 2.47c1.49.576 3.3.875 5.38.871c4.281-.015 6.536-.969 7.465-1.483c.164-.09.32-.251.124-.71l-.965-2.714c-.15-.405-.561-.255-.561-.255c-1.06.393-2.565 1.1-6.088 1.093c-2.295-.004-4-.682-5.067-1.742c-1.097-1.085-1.633-2.68-1.727-4.932l14.823.014s.39-.007.43-.386c.015-.16.51-3.046-.444-6.386M63.642 91.431c-.58-.462-.66-.579-.856-.878c-.292-.455-.441-1.104-.441-1.927c0-1.304.43-2.24 1.322-2.87c-.01.003 1.275-1.112 4.3-1.072c2.123.03 4.021.343 4.021.343v6.74h.004s-1.884.404-4.004.531c-3.017.182-4.357-.87-4.346-.867m5.898-10.415c-.601-.044-1.38-.07-2.313-.07c-1.272 0-2.5.16-3.65.47a9.5 9.5 0 0 0-3.097 1.436a7.15 7.15 0 0 0-2.15 2.444c-.524.977-.79 2.128-.79 3.417c0 1.312.225 2.452.677 3.385a6.1 6.1 0 0 0 1.935 2.317c.823.601 1.84 1.042 3.02 1.308c1.162.266 2.48.4 3.923.4c1.52 0 3.035-.123 4.503-.375a94 94 0 0 0 3.734-.721c.492-.117 1.039-.266 1.039-.266c.368-.091.338-.485.338-.485l-.007-13.555c0-2.973-.794-5.177-2.357-6.543c-1.555-1.363-3.847-2.051-6.809-2.051c-1.11 0-2.9.153-3.97.368c0 0-3.24.626-4.573 1.668c0 0-.291.182-.131.59l1.05 2.82c.13.364.484.24.484.24s.113-.043.244-.12c2.852-1.552 6.459-1.504 6.459-1.504c1.603 0 2.834.32 3.665.958c.809.619 1.22 1.555 1.22 3.53v.626c-1.275-.182-2.444-.287-2.444-.287m119.56-7.639a.4.4 0 0 0-.223-.532c-.251-.098-1.512-.364-2.485-.426c-1.861-.113-2.896.2-3.821.616c-.918.415-1.938 1.085-2.507 1.847v-1.804c0-.251-.178-.451-.426-.451h-3.8c-.247 0-.426.2-.426.451v22.11c0 .248.204.452.452.452h3.894a.45.45 0 0 0 .448-.452V84.142c0-1.482.164-2.962.492-3.89c.32-.919.758-1.654 1.297-2.183a4.55 4.55 0 0 1 1.833-1.1c.688-.211 1.45-.28 1.989-.28c.776 0 1.628.2 1.628.2c.284.033.445-.142.54-.4c.254-.678.976-2.708 1.114-3.112"></path><path fill="#fff" d="M152.544 63.13a13 13 0 0 0-1.465-.35a11.6 11.6 0 0 0-2.014-.152c-2.682 0-4.795.757-6.277 2.251c-1.476 1.486-2.478 3.749-2.98 6.725l-.183 1.002h-3.366s-.408-.015-.495.43l-.55 3.086c-.04.291.087.477.48.477h3.276l-3.323 18.55c-.258 1.494-.557 2.722-.889 3.654c-.324.918-.64 1.607-1.034 2.11c-.38.48-.736.838-1.356 1.045c-.51.172-1.1.252-1.745.252c-.357 0-.834-.059-1.187-.131a3.5 3.5 0 0 1-.802-.26s-.382-.145-.535.238c-.12.317-.995 2.717-1.1 3.013c-.102.295.043.524.229.593c.437.153.761.255 1.355.397c.824.194 1.52.204 2.172.204c1.362 0 2.608-.193 3.639-.564c1.035-.375 1.938-1.028 2.74-1.91c.863-.954 1.406-1.952 1.923-3.318c.514-1.348.955-3.024 1.304-4.976l3.341-18.897h4.882s.411.014.495-.434l.554-3.082c.036-.295-.087-.477-.485-.477h-4.74c.026-.106.241-1.774.784-3.344c.233-.667.67-1.21 1.038-1.581a3.1 3.1 0 0 1 1.243-.773c.47-.153 1.005-.226 1.592-.226c.444 0 .885.051 1.216.12c.46.099.638.15.758.186c.485.146.55.004.645-.23l1.133-3.11c.117-.335-.171-.478-.273-.518M86.322 95.19c0 .247-.179.448-.426.448h-3.931c-.248 0-.423-.2-.423-.448V63.553c0-.247.175-.448.423-.448h3.93c.248 0 .427.2.427.448z"></path></svg></template></iconify-icon>
+        </div>
+        <div class="flex items-center justify-center p-8 bg-[#0e0e11] border border-white/5 rounded-3xl hover:bg-white/[0.02] transition-colors">
+          <iconify-icon icon="logos:figma" class="text-4xl"><template shadowrootmode="open"><style data-style="data-style">:host{display:inline-block;vertical-align:0}span,svg{display:block}</style><svg xmlns="http://www.w3.org/2000/svg" width="0.67em" height="1em" viewBox="0 0 256 384"><path fill="#0acf83" d="M64 384c35.328 0 64-28.672 64-64v-64H64c-35.328 0-64 28.672-64 64s28.672 64 64 64"></path><path fill="#a259ff" d="M0 192c0-35.328 28.672-64 64-64h64v128H64c-35.328 0-64-28.672-64-64"></path><path fill="#f24e1e" d="M0 64C0 28.672 28.672 0 64 0h64v128H64C28.672 128 0 99.328 0 64"></path><path fill="#ff7262" d="M128 0h64c35.328 0 64 28.672 64 64s-28.672 64-64 64h-64z"></path><path fill="#1abcfe" d="M256 192c0 35.328-28.672 64-64 64s-64-28.672-64-64s28.672-64 64-64s64 28.672 64 64"></path></svg></template></iconify-icon>
+        </div>
+      </div>
+    </section>
+
+    <section class="container md:px-12 z-20 pointer-events-auto border-white/5 border-t mr-auto ml-auto pt-24 pr-6 pb-24 pl-6 relative">
+  <div class="flex flex-col md:flex-row justify-between items-start md:items-end mb-10 gap-6 [animation:animationIn_0.8s_ease-out_0.1s_both] animate-on-scroll" style="filter: blur(8px); opacity: 0; transform: translateY(30px);">
+    <div class="flex flex-col gap-3">
+      <span class="text-xs font-medium text-zinc-500 uppercase tracking-widest">Testimonials</span>
+      <h2 class="text-4xl md:text-5xl lg:text-6xl font-medium tracking-tight font-geist text-white max-w-3xl">
+        Lumina is transforming team workflows
+      </h2>
+    </div>
+    <div class="flex gap-3 gap-x-3 gap-y-3">
+  <button class="transition-all flex bg-zinc-900 bg-gradient-to-b from-black/10 via-black/20 to-black/10 rounded-full shadow-[0px_0px_0px_1px_rgba(0,0,0,0.06),0px_1px_1px_-0.5px_rgba(0,0,0,0.06),0px_3px_3px_-1.5px_rgba(0,0,0,0.06),_0px_6px_6px_-3px_rgba(0,0,0,0.06),0px_12px_12px_-6px_rgba(0,0,0,0.06),0px_24px_24px_-12px_rgba(0,0,0,0.06)] items-center justify-center w-12 h-12 hover:bg-zinc-800 hover:text-white" style="box-shadow: 0 18px 35px rgba(0, 0, 0, 0.25), 0 0 0 1px rgba(255,255,255,0.1); color: #e5e7eb; position: relative; --border-gradient: linear-gradient(180deg, rgba(255, 255, 255, 0.2), rgba(0, 0, 0, 0.4), rgba(255, 255, 255, 0.2)); --border-radius-before: 9999px">
+    <i data-lucide="chevron-left" class="w-5 h-5"></i>
+  </button>
+  <button class="transition-all flex bg-zinc-900 bg-gradient-to-b from-black/10 via-black/20 to-black/10 rounded-full shadow-[0px_0px_0px_1px_rgba(0,0,0,0.06),0px_1px_1px_-0.5px_rgba(0,0,0,0.06),0px_3px_3px_-1.5px_rgba(0,0,0,0.06),_0px_6px_6px_-3px_rgba(0,0,0,0.06),0px_12px_12px_-6px_rgba(0,0,0,0.06),0px_24px_24px_-12px_rgba(0,0,0,0.06)] items-center justify-center w-12 h-12 hover:bg-zinc-800 hover:text-white" style="box-shadow: 0 18px 35px rgba(0, 0, 0, 0.25), 0 0 0 1px rgba(255,255,255,0.1); color: #e5e7eb; position: relative; --border-gradient: linear-gradient(180deg, rgba(255, 255, 255, 0.2), rgba(0, 0, 0, 0.4), rgba(255, 255, 255, 0.2)); --border-radius-before: 9999px">
+    <i data-lucide="chevron-right" class="w-5 h-5"></i>
+  </button>
+  <link rel="stylesheet" href="site/_runtime/style-6.css" data-wd3-runtime-style="">
+</div>
+  </div>
+
+  <div class="flex flex-col sm:flex-row sm:items-center [animation:animationIn_0.8s_ease-out_0.2s_both] animate-on-scroll mb-16 gap-x-4 gap-y-4" style="filter: blur(8px); opacity: 0; transform: translateY(30px);">
+    <div class="flex items-center gap-1.5">
+      <i data-lucide="star" class="w-6 h-6 fill-emerald-500 text-emerald-500"></i>
+      <span class="text-xl font-medium tracking-tight text-white">Trustpilot</span>
+    </div>
+    
+    <div class="text-sm font-medium text-zinc-400 sm:ml-2">
+      <span class="text-zinc-200">TrustScore 4.7/5</span> <span class="hidden sm:inline">·</span> <span class="block sm:inline">18,211 reviews</span>
+    </div>
+  </div>
+
+  <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-24 items-start [animation:animationIn_0.8s_ease-out_0.3s_both] animate-on-scroll" style="filter: blur(8px); opacity: 0; transform: translateY(30px);">
+    <div class="flex flex-col">
+      <div class="flex items-baseline gap-2 mb-2">
+        <span class="lg:text-8xl leading-none text-7xl font-medium text-gray-50 tracking-tight font-geist" style="mask-image: linear-gradient(180deg, transparent, black 50%, black 60%, transparent); -webkit-mask-image: linear-gradient(180deg, transparent, black 50%, black 60%, transparent);">
+          40
+        </span>
+        <span class="text-2xl text-zinc-300 font-medium tracking-tight">hrs</span>
+      </div>
+      <p class="text-lg text-zinc-400 mb-8 font-medium">Saved per week</p>
+      
+      <p class="text-xl lg:text-2xl leading-relaxed font-normal text-zinc-200 mb-10 tracking-tight">
+        With Lumina, we completely transformed how we handle our automated workflows. We've saved countless hours and the ROI was apparent within the first week. For the first time in years, our team feels proud, agile, and in control of our infrastructure again.
+      </p>
+
+      <div class="">
+        <button class="px-8 py-3.5 rounded-full border bg-transparent text-base font-normal transition-colors border-zinc-700/80 text-zinc-300 hover:bg-zinc-800/50 hover:text-white inline-flex items-center justify-center min-w-[160px]">
+          Read story
+        </button>
+      </div>
+    </div>
+
+    <div class="grid grid-cols-2 gap-4 h-[400px] md:h-[500px] lg:h-[600px]">
+      <div class="relative w-full h-full rounded-3xl overflow-hidden bg-[#0e0e11] border border-white/10 group">
+        <img src="site/hoirqrkdgbmvpwutwuwj.supabase.co/storage/v1/object/public/assets/assets/91a69d34-7bfd-4a15-802d-67ddeff8c160_800w.webp" alt="Day 1" class="w-full h-full object-cover opacity-80 group-hover:scale-105 transition-transform duration-700">
+        <div class="absolute inset-0 bg-gradient-to-t from-[#09090b]/80 via-transparent to-transparent"></div>
+        <div class="absolute bottom-4 left-4 lg:bottom-6 lg:left-6">
+          <span class="px-3 py-1.5 rounded-full bg-white/10 backdrop-blur-md text-xs font-medium text-white border border-white/10">Day 1</span>
+        </div>
+      </div>
+      
+      <div class="relative w-full h-full rounded-3xl overflow-hidden bg-[#0e0e11] border border-white/10 group">
+        <img src="site/hoirqrkdgbmvpwutwuwj.supabase.co/storage/v1/object/public/assets/assets/e2b6bfe8-29b7-48cb-9aa6-a44e21613618_800w.webp" alt="Month 6" class="w-full h-full object-cover opacity-80 group-hover:scale-105 transition-transform duration-700">
+        <div class="absolute inset-0 bg-gradient-to-t from-[#09090b]/80 via-transparent to-transparent"></div>
+        <div class="absolute bottom-4 left-4 lg:bottom-6 lg:left-6">
+          <span class="px-3 py-1.5 rounded-full bg-white/10 backdrop-blur-md text-xs font-medium text-white border border-white/10">Month 6</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+    <section class="container md:px-12 z-20 pointer-events-auto mr-auto ml-auto pt-24 pr-6 pb-32 pl-6 relative border-t border-white/5">
+      <div class="flex flex-col items-center justify-center text-center p-12 md:p-20 bg-gradient-to-b from-[#131316] to-[#0e0e11] border border-white/10 rounded-[3rem] relative overflow-hidden shadow-[0_20px_40px_rgba(0,0,0,0.5)] [animation:animationIn_0.8s_ease-out_0.1s_both] animate-on-scroll" style="filter: blur(8px); opacity: 0; transform: translateY(30px);">
+        <div class="absolute inset-0 bg-[radial-gradient(circle_at_center,rgba(255,255,255,0.05)_0%,transparent_60%)] pointer-events-none"></div>
+        <h2 class="text-4xl md:text-6xl font-medium tracking-tight mb-6 font-geist text-white relative z-10">
+          Ready to automate your workflow?
+        </h2>
+        <p class="text-lg font-normal max-w-2xl text-zinc-400 mb-10 relative z-10">
+          Join thousands of companies using Lumina to power their operations.
+        </p>
+        <div class="flex flex-wrap justify-center gap-4 relative z-10">
+          <button class="px-8 py-3.5 rounded-full text-sm font-medium transition-colors shadow-[0_0_20px_rgba(255,255,255,0.1)] bg-white text-black hover:bg-zinc-200">
+            Start Free Trial
+          </button>
+          <button class="px-8 py-3.5 rounded-full border bg-transparent text-sm font-medium transition-colors border-zinc-800 text-zinc-300 hover:bg-zinc-800/50 hover:text-white">
+            Talk to Sales
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <footer class="border-t border-white/5 bg-[#09090b] pt-16 pb-8 px-6 md:px-12 relative z-20">
+      <div class="container mx-auto grid grid-cols-2 md:grid-cols-5 gap-8 mb-16">
+        <div class="col-span-2 flex flex-col gap-4 pr-8">
+          <a href="#" class="flex items-center gap-2.5 text-xl tracking-tight font-medium font-geist text-white">
+            <iconify-icon icon="solar:play-bold" class="rotate-90 w-5 h-5 flex items-center justify-center text-white" style="stroke-width: 1.5;"><template shadowrootmode="open"><style data-style="data-style">:host{display:inline-block;vertical-align:0}span,svg{display:block}</style><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24"><path fill="currentColor" d="M21.4086 9.35258C23.5305 10.5065 23.5305 13.4935 21.4086 14.6474L8.59662 21.6145C6.53435 22.736 4 21.2763 4 18.9671L4 5.0329C4 2.72368 6.53435 1.26402 8.59661 2.38548L21.4086 9.35258Z"></path></svg></template></iconify-icon>
+            Lumina
+          </a>
+          <p class="text-sm text-zinc-500 max-w-xs mt-2">
+            Powerful automation made simple. Secure, scalable, and built for
+            modern teams.
+          </p>
+        </div>
+        <div class="flex flex-col gap-4">
+          <h4 class="text-sm font-medium text-white">Product</h4>
+          <a href="#" class="text-sm text-zinc-500 hover:text-zinc-300 transition-colors">
+            Features
+          </a>
+          <a href="#" class="text-sm text-zinc-500 hover:text-zinc-300 transition-colors">
+            Integrations
+          </a>
+          <a href="#" class="text-sm text-zinc-500 hover:text-zinc-300 transition-colors">
+            Pricing
+          </a>
+          <a href="#" class="text-sm text-zinc-500 hover:text-zinc-300 transition-colors">
+            Changelog
+          </a>
+        </div>
+        <div class="flex flex-col gap-4">
+          <h4 class="text-sm font-medium text-white">Resources</h4>
+          <a href="#" class="text-sm text-zinc-500 hover:text-zinc-300 transition-colors">
+            Documentation
+          </a>
+          <a href="#" class="text-sm text-zinc-500 hover:text-zinc-300 transition-colors">
+            API Reference
+          </a>
+          <a href="#" class="text-sm text-zinc-500 hover:text-zinc-300 transition-colors">
+            Community
+          </a>
+          <a href="#" class="text-sm text-zinc-500 hover:text-zinc-300 transition-colors">
+            Blog
+          </a>
+        </div>
+        <div class="flex flex-col gap-4">
+          <h4 class="text-sm font-medium text-white">Company</h4>
+          <a href="#" class="text-sm text-zinc-500 hover:text-zinc-300 transition-colors">
+            About
+          </a>
+          <a href="#" class="text-sm text-zinc-500 hover:text-zinc-300 transition-colors">
+            Careers
+          </a>
+          <a href="#" class="text-sm text-zinc-500 hover:text-zinc-300 transition-colors">
+            Legal
+          </a>
+          <a href="#" class="text-sm text-zinc-500 hover:text-zinc-300 transition-colors">
+            Contact
+          </a>
+        </div>
+      </div>
+      <div class="container mx-auto pt-8 border-t border-white/5 flex flex-col md:flex-row items-center justify-between gap-4">
+        <p class="text-sm text-zinc-600">
+          © 2024 Lumina Inc. All rights reserved.
+        </p>
+        <div class="flex items-center gap-4">
+          <a href="#" class="text-zinc-600 hover:text-zinc-400 transition-colors">
+            <iconify-icon icon="mdi:twitter" class="w-5 h-5"><template shadowrootmode="open"><style data-style="data-style">:host{display:inline-block;vertical-align:0}span,svg{display:block}</style><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24"><path fill="currentColor" d="M22.46 6c-.77.35-1.6.58-2.46.69c.88-.53 1.56-1.37 1.88-2.38c-.83.5-1.75.85-2.72 1.05C18.37 4.5 17.26 4 16 4c-2.35 0-4.27 1.92-4.27 4.29c0 .34.04.67.11.98C8.28 9.09 5.11 7.38 3 4.79c-.37.63-.58 1.37-.58 2.15c0 1.49.75 2.81 1.91 3.56c-.71 0-1.37-.2-1.95-.5v.03c0 2.08 1.48 3.82 3.44 4.21a4.2 4.2 0 0 1-1.93.07a4.28 4.28 0 0 0 4 2.98a8.52 8.52 0 0 1-5.33 1.84q-.51 0-1.02-.06C3.44 20.29 5.7 21 8.12 21C16 21 20.33 14.46 20.33 8.79c0-.19 0-.37-.01-.56c.84-.6 1.56-1.36 2.14-2.23"></path></svg></template></iconify-icon>
+          </a>
+          <a href="#" class="text-zinc-600 hover:text-zinc-400 transition-colors">
+            <iconify-icon icon="mdi:github" class="w-5 h-5"><template shadowrootmode="open"><style data-style="data-style">:host{display:inline-block;vertical-align:0}span,svg{display:block}</style><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24"><path fill="currentColor" d="M12 2A10 10 0 0 0 2 12c0 4.42 2.87 8.17 6.84 9.5c.5.08.66-.23.66-.5v-1.69c-2.77.6-3.36-1.34-3.36-1.34c-.46-1.16-1.11-1.47-1.11-1.47c-.91-.62.07-.6.07-.6c1 .07 1.53 1.03 1.53 1.03c.87 1.52 2.34 1.07 2.91.83c.09-.65.35-1.09.63-1.34c-2.22-.25-4.55-1.11-4.55-4.92c0-1.11.38-2 1.03-2.71c-.1-.25-.45-1.29.1-2.64c0 0 .84-.27 2.75 1.02c.79-.22 1.65-.33 2.5-.33s1.71.11 2.5.33c1.91-1.29 2.75-1.02 2.75-1.02c.55 1.35.2 2.39.1 2.64c.65.71 1.03 1.6 1.03 2.71c0 3.82-2.34 4.66-4.57 4.91c.36.31.69.92.69 1.85V21c0 .27.16.59.67.5C19.14 20.16 22 16.42 22 12A10 10 0 0 0 12 2"></path></svg></template></iconify-icon>
+          </a>
+          <a href="#" class="text-zinc-600 hover:text-zinc-400 transition-colors">
+            <iconify-icon icon="mdi:linkedin" class="w-5 h-5"><template shadowrootmode="open"><style data-style="data-style">:host{display:inline-block;vertical-align:0}span,svg{display:block}</style><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24"><path fill="currentColor" d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2zm-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.32 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93zM6.88 8.56a1.68 1.68 0 0 0 1.68-1.68c0-.93-.75-1.69-1.68-1.69a1.69 1.69 0 0 0-1.69 1.69c0 .93.76 1.68 1.69 1.68m1.39 9.94v-8.37H5.5v8.37z"></path></svg></template></iconify-icon>
+          </a>
+        </div>
+      </div>
+    </footer>
+  
+<div data-wd3-banner style="position:fixed;z-index:2147483647;left:16px;bottom:16px;max-width:min(560px,calc(100vw - 32px));align-items:center;gap:12px;padding:12px 14px;border-radius:12px;background:rgba(5,5,5,.92);color:#e8e8e8;border:1px solid #1d1d1d;box-shadow:0 8px 30px rgba(0,0,0,.35);font:13px/1.45 ui-sans-serif,system-ui,-apple-system,'Segoe UI',sans-serif;backdrop-filter:blur(8px)">
+  <span style="width:8px;height:8px;border-radius:50%;background:#00ffa3;flex:none"></span>
+  <span>Versão estática, sem animações. Para ver o site vivo, rode no terminal, nesta pasta: <b style="color:#00ffa3">python3 serve.py --open</b> (Windows: <b style="color:#00ffa3">py serve.py --open</b>). Passo a passo em <b style="color:#00ffa3">Como rodar.md</b>.</span>
+  <button type="button" onclick="this.parentNode.remove()" aria-label="Fechar" style="flex:none;background:none;border:0;color:#8a8a8a;font-size:18px;cursor:pointer;padding:0 2px">×</button>
+</div>
+</body></html>

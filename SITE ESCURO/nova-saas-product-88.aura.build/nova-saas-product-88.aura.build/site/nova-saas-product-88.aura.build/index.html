@@ -1,0 +1,1438 @@
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Nova — Plan smart. Build faster.</title>
+<meta name="description" content="Nova helps you plan product roadmaps, collaborate with your team, and ship features faster.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&amp;display=swap" rel="stylesheet">
+<script src="https://cdn.tailwindcss.com"></script>
+<meta name="disabled-font-classes" content="font-geist,font-roboto,font-montserrat,font-poppins,font-playfair,font-instrument-serif,font-merriweather,font-bricolage,font-jakarta,font-manrope,font-space-grotesk,font-work-sans,font-pt-serif,font-geist-mono,font-space-mono,font-quicksand,font-nunito,font-newsreader,font-google-sans-flex,font-oswald,font-dm-sans,font-cormorant"><meta name="aura-font-heading-class" content="font-bricolage"><meta name="aura-font-body-class" content="font-sans"><meta name="aura-font-heading-label" content="Bricolage"><meta name="aura-font-body-label" content="Inter">
+</head>
+  <body class="antialiased text-zinc-100 bg-[#0a0a12]" style="font-family: Inter, ui-sans-serif, system-ui, -apple-system, &quot;Segoe UI&quot;, Roboto, Helvetica, Arial;">
+
+<div class="gradient-blur">
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+  </div>
+  <style class="">
+    .gradient-blur {
+      position: fixed;
+      z-index: 40;
+      inset: 0 0 auto 0;
+      height: 12%;
+      pointer-events: none;
+    }
+
+    .gradient-blur>div,
+    .gradient-blur::before,
+    .gradient-blur::after {
+      position: absolute;
+      inset: 0;
+    }
+
+    .gradient-blur::before {
+      content: "";
+      z-index: 1;
+      backdrop-filter: blur(0.5px);
+      mask: linear-gradient(to top,
+          rgba(0, 0, 0, 0) 0%,
+          rgba(0, 0, 0, 1) 12.5%,
+          rgba(0, 0, 0, 1) 25%,
+          rgba(0, 0, 0, 0) 37.5%);
+    }
+
+    .gradient-blur>div:nth-of-type(1) {
+      z-index: 2;
+      backdrop-filter: blur(1px);
+      mask: linear-gradient(to top,
+          rgba(0, 0, 0, 0) 12.5%,
+          rgba(0, 0, 0, 1) 25%,
+          rgba(0, 0, 0, 1) 37.5%,
+          rgba(0, 0, 0, 0) 50%);
+    }
+
+    .gradient-blur>div:nth-of-type(2) {
+      z-index: 3;
+      backdrop-filter: blur(2px);
+      mask: linear-gradient(to top,
+          rgba(0, 0, 0, 0) 25%,
+          rgba(0, 0, 0, 1) 37.5%,
+          rgba(0, 0, 0, 1) 50%,
+          rgba(0, 0, 0, 0) 62.5%);
+    }
+
+    .gradient-blur>div:nth-of-type(3) {
+      z-index: 4;
+      backdrop-filter: blur(4px);
+      mask: linear-gradient(to top,
+          rgba(0, 0, 0, 0) 37.5%,
+          rgba(0, 0, 0, 1) 50%,
+          rgba(0, 0, 0, 1) 62.5%,
+          rgba(0, 0, 0, 0) 75%);
+    }
+
+    .gradient-blur>div:nth-of-type(4) {
+      z-index: 5;
+      backdrop-filter: blur(8px);
+      mask: linear-gradient(to top,
+          rgba(0, 0, 0, 0) 50%,
+          rgba(0, 0, 0, 1) 62.5%,
+          rgba(0, 0, 0, 1) 75%,
+          rgba(0, 0, 0, 0) 87.5%);
+    }
+
+    .gradient-blur>div:nth-of-type(5) {
+      z-index: 6;
+      backdrop-filter: blur(16px);
+      mask: linear-gradient(to top,
+          rgba(0, 0, 0, 0) 62.5%,
+          rgba(0, 0, 0, 1) 75%,
+          rgba(0, 0, 0, 1) 87.5%,
+          rgba(0, 0, 0, 0) 100%);
+    }
+
+    .gradient-blur>div:nth-of-type(6) {
+      z-index: 7;
+      backdrop-filter: blur(32px);
+      mask: linear-gradient(to top,
+          rgba(0, 0, 0, 0) 75%,
+          rgba(0, 0, 0, 1) 87.5%,
+          rgba(0, 0, 0, 1) 100%);
+    }
+
+    .gradient-blur::after {
+      content: "";
+      z-index: 8;
+      backdrop-filter: blur(64px);
+      mask: linear-gradient(to top,
+          rgba(0, 0, 0, 0) 87.5%,
+          rgba(0, 0, 0, 1) 100%);
+    }
+  </style>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!-- Background (component) added by Aura -->
+<div class="aura-background-component -z-10 w-full absolute top-0 h-[830px]" data-alpha-mask="80" style="; mask-image: linear-gradient(to bottom, transparent, black 0%, black 80%, transparent); -webkit-mask-image: linear-gradient(to bottom, transparent, black 0%, black 80%, transparent)"><div data-us-project="GE8mpmmCRgK6XBF57jgF" class="absolute w-full h-full left-0 top-0 -z-10"></div>
+<script type="text/javascript" class="">
+  !function(){if(!window.UnicornStudio){window.UnicornStudio={isInitialized:!1};var i=document.createElement("script");i.src="https://cdn.jsdelivr.net/gh/hiunicornstudio/unicornstudio.js@v1.4.33/dist/unicornStudio.umd.js",i.onload=function(){window.UnicornStudio.isInitialized||(UnicornStudio.init(),window.UnicornStudio.isInitialized=!0)},(document.head || document.body).appendChild(i)}}();
+</script></div>
+    <!-- Background glow -->
+    <div class="pointer-events-none fixed overflow-hidden top-0 right-0 bottom-0 left-0" style="visibility: hidden;">
+      <div class="-top-32 -translate-x-1/2 opacity-40 w-[1100px] h-[1100px] rounded-full absolute left-1/2 blur-3xl"></div>
+      <div class="opacity-30 w-[700px] h-[700px] rounded-full absolute right-0 bottom-0 blur-3xl translate-x-1/3 translate-y-1/3"></div>
+    </div>
+
+    <!-- Nav -->
+    <header class="sticky z-50 relative top-0">
+    <div class="sm:px-6 lg:px-8 max-w-7xl border-slate-50/5 mr-auto ml-auto pr-4 pl-4">
+        <div class="flex h-16 items-center justify-between">
+            <a href="/home" class="inline-flex items-center justify-center bg-center w-[80px] h-[36px] bg-[url(https://hoirqrkdgbmvpwutwuwj.supabase.co/storage/v1/object/public/assets/assets/f7466370-2832-4fdd-84c2-0932bb0dd850_800w.png)] bg-cover rounded-full"></a>
+
+            <nav class="hidden md:flex border-slate-50/5 border rounded-full pr-4 pl-4 backdrop-blur-lg gap-x-1 gap-y-1 items-center">
+                <a href="/product" class="hover:text-white text-sm font-medium text-zinc-300 pt-2 pr-3 pb-2 pl-3">Product</a>
+                <a href="/pricing" class="hover:text-white text-sm font-medium text-zinc-300 pt-2 pr-3 pb-2 pl-3">Pricing</a>
+                <a href="/changelog" class="hover:text-white text-sm font-medium text-zinc-300 pt-2 pr-3 pb-2 pl-3">Changelog</a>
+                <a href="/docs" class="hover:text-white text-sm font-medium text-zinc-300 pt-2 pr-3 pb-2 pl-3">Docs</a>
+                <a href="/company" class="hover:text-white text-sm font-medium text-zinc-300 pt-2 pr-3 pb-2 pl-3">Company</a>
+            </nav>
+
+            <div class="flex gap-2 gap-x-2 gap-y-2 items-center">
+                <button type="button" role="button" aria-label="Login" class="hidden sm:inline-flex group overflow-hidden cursor-pointer select-none transition-all duration-300 hover:scale-[1.02] hover:border-purple-400/40 hover:shadow-[0_0_50px_rgba(168,85,247,0.2)_inset,0_0_30px_rgba(168,85,247,0.15)] active:scale-[0.98] outline-none focus-visible:ring-2 focus-visible:ring-purple-500/50 border-purple-400/20 border rounded-full pt-2 pr-5 pb-2 pl-5 relative shadow-[0_0_40px_rgba(168,85,247,0.1)_inset,0_0_20px_rgba(168,85,247,0.05)] items-center justify-center" onclick="window.location.href='/login'">
+                    <div id="fluid-layer-aura-emoknpry61frsfkqd" class="absolute inset-0 mix-blend-screen opacity-80 transition-opacity duration-300 pointer-events-none" style="background: radial-gradient(circle at 50% 50%, rgba(168, 85, 247, 0.15) 0%, transparent 50%);"></div>
+                    <div class="absolute inset-0 rounded-full border border-white/5 opacity-50 pointer-events-none"></div>
+                    <div class="absolute top-0 left-1/4 right-1/4 h-[1px] bg-gradient-to-r from-transparent via-purple-200/30 to-transparent pointer-events-none"></div>
+                    <span class="relative z-10 flex items-center gap-2 text-purple-50 text-sm font-medium tracking-wide drop-shadow-[0_0_12px_rgba(233,213,255,0.6)]">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="log-in" class="lucide lucide-log-in h-4 w-4" aria-hidden="true"><path d="m10 17 5-5-5-5"></path><path d="M15 12H3"></path><path d="M15 3h4a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-4"></path></svg>
+                        <span class="">Login</span>
+                    </span>
+                    <script>
+                        (function() {
+                            const btn = document.querySelector('[data-element-id="aura-emoknpry61frsfkqd"]');
+                            const fluid = document.getElementById('fluid-layer-aura-emoknpry61frsfkqd');
+                            if (!btn || !fluid) return;
+                            
+                            let time = 0;
+                            let targetMouseX = 50;
+                            let targetMouseY = 50;
+                            let currentMouseX = 50;
+                            let currentMouseY = 50;
+                            let isHovered = false;
+
+                            btn.addEventListener('mousemove', function(e) {
+                                const rect = btn.getBoundingClientRect();
+                                targetMouseX = ((e.clientX - rect.left) / rect.width) * 100;
+                                targetMouseY = ((e.clientY - rect.top) / rect.height) * 100;
+                                isHovered = true;
+                            });
+
+                            btn.addEventListener('mouseleave', function() {
+                                isHovered = false;
+                            });
+
+                            const lerp = function(start, end, factor) { return start + (end - start) * factor; };
+
+                            function animate() {
+                                time += 0.015;
+
+                                const orb1X = 50 + Math.sin(time) * 35;
+                                const orb1Y = 50 + Math.cos(time * 0.7) * 25;
+                                const orb2X = 50 + Math.cos(time * 1.1) * 45;
+                                const orb2Y = 50 + Math.sin(time * 0.4) * 30;
+
+                                const color1 = 'rgba(192, 132, 252, 0.25)';
+                                const color2 = 'rgba(168, 85, 247, 0.15)';
+
+                                let bgString = 'radial-gradient(circle at ' + orb1X + '% ' + orb1Y + '%, ' + color1 + ' 0%, transparent 65%), radial-gradient(circle at ' + orb2X + '% ' + orb2Y + '%, ' + color2 + ' 0%, transparent 70%)';
+
+                                if (isHovered) {
+                                    currentMouseX = lerp(currentMouseX, targetMouseX, 0.1);
+                                    currentMouseY = lerp(currentMouseY, targetMouseY, 0.1);
+                                    bgString = 'radial-gradient(circle at ' + currentMouseX + '% ' + currentMouseY + '%, rgba(233, 213, 255, 0.35) 0%, transparent 45%), ' + bgString;
+                                } else {
+                                    currentMouseX = lerp(currentMouseX, 50, 0.05);
+                                    currentMouseY = lerp(currentMouseY, 50, 0.05);
+                                }
+
+                                fluid.style.background = bgString;
+
+                                requestAnimationFrame(animate);
+                            }
+
+                            animate();
+                        })();
+                    </script>
+                </button>
+                
+                <button type="button" id="mobile-menu-btn" class="md:hidden inline-flex items-center justify-center p-2 rounded-md text-zinc-300 hover:text-white hover:bg-white/5 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-purple-500 transition-colors">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-menu"><line x1="4" x2="20" y1="12" y2="12"></line><line x1="4" x2="20" y1="6" y2="6"></line><line x1="4" x2="20" y1="18" y2="18"></line></svg>
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Mobile Navigation Menu -->
+    <div id="mobile-menu" class="hidden md:hidden absolute w-full left-0 top-16 bg-[#0a0a12]/95 backdrop-blur-xl border-t border-white/10 shadow-2xl z-40">
+        <div class="space-y-1 px-4 pb-3 pt-4">
+            <a href="#" class="block px-3 py-2.5 rounded-md text-base font-medium text-white bg-white/5">Product</a>
+            <a href="#" class="block px-3 py-2.5 rounded-md text-base font-medium text-zinc-300 hover:text-white hover:bg-white/5 transition-colors">Pricing</a>
+            <a href="#" class="block px-3 py-2.5 rounded-md text-base font-medium text-zinc-300 hover:text-white hover:bg-white/5 transition-colors">Changelog</a>
+            <a href="#" class="block px-3 py-2.5 rounded-md text-base font-medium text-zinc-300 hover:text-white hover:bg-white/5 transition-colors">Docs</a>
+            <a href="#" class="block px-3 py-2.5 rounded-md text-base font-medium text-zinc-300 hover:text-white hover:bg-white/5 transition-colors">Company</a>
+        </div>
+        <div class="px-4 pb-6 pt-4 border-t border-white/10 sm:hidden">
+            <button type="button" role="button" aria-label="Login" class="w-full inline-flex cursor-pointer select-none transition-all duration-300 hover:border-purple-400/40 outline-none border-purple-400/20 border rounded-full pt-2.5 pr-5 pb-2.5 pl-5 items-center justify-center bg-purple-400/10 shadow-[0_0_20px_rgba(168,85,247,0.1)_inset]">
+                <span class="flex items-center gap-2 text-purple-50 text-base font-medium tracking-wide drop-shadow-[0_0_12px_rgba(233,213,255,0.6)]">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-log-in"><path d="m10 17 5-5-5-5"></path><path d="M15 12H3"></path><path d="M15 3h4a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2h-4"></path></svg>
+                    <span>Login</span>
+                </span>
+            </button>
+        </div>
+    </div>
+
+    <script>
+        (function() {
+            const btn = document.getElementById('mobile-menu-btn');
+            const menu = document.getElementById('mobile-menu');
+            const icon = btn?.querySelector('svg');
+            
+            if (btn && menu && icon) {
+                btn.addEventListener('click', () => {
+                    const isHidden = menu.classList.contains('hidden');
+                    menu.classList.toggle('hidden');
+                    
+                    if (isHidden) {
+                        icon.innerHTML = '<path d="M18 6 6 18"/><path d="m6 6 12 12"/>';
+                    } else {
+                        icon.innerHTML = '<line x1="4" x2="20" y1="12" y2="12"/><line x1="4" x2="20" y1="6" y2="6"/><line x1="4" x2="20" y1="18" y2="18"/>';
+                    }
+                });
+            }
+        })();
+    </script>
+</header>
+
+    <!-- Hero -->
+    <section class="z-10 mt-0 relative">
+      <div class="sm:px-6 lg:px-8 sm:pt-16 max-w-6xl mt-0 mr-auto mb-0 ml-auto pt-16 pr-0 pl-0" style="mask-image: linear-gradient(180deg, transparent, black 0%, black 60%, transparent); -webkit-mask-image: linear-gradient(180deg, transparent, black 0%, black 60%, transparent);">
+        <div class="flex flex-col text-left mt-12 mr-auto ml-auto space-y-6 items-start">
+          <div class="mb-6">
+            <span class="inline-flex items-center gap-2 text-xs font-medium text-zinc-200 bg-slate-950/50 border-white/10 border rounded-full pt-1 pr-3 pb-1 pl-3 backdrop-blur-xl">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="sparkles" aria-hidden="true" class="lucide lucide-sparkles h-3.5 w-3.5 text-violet-300"><path d="M11.017 2.814a1 1 0 0 1 1.966 0l1.051 5.558a2 2 0 0 0 1.594 1.594l5.558 1.051a1 1 0 0 1 0 1.966l-5.558 1.051a2 2 0 0 0-1.594 1.594l-1.051 5.558a1 1 0 0 1-1.966 0l-1.051-5.558a2 2 0 0 0-1.594-1.594l-5.558-1.051a1 1 0 0 1 0-1.966l5.558-1.051a2 2 0 0 0 1.594-1.594z"></path><path d="M20 2v4"></path><path d="M22 4h-4"></path><circle cx="4" cy="20" r="2"></circle></svg>
+              New: AI-powered sprint planning
+            </span>
+          </div>
+
+          <span class="block bg-clip-text text-8xl font-semibold text-transparent tracking-tight text-left bg-gradient-to-r from-[#d8ccff] to-[#a39fea] max-w-2xl pt-0 pb-3" style="mask-image: linear-gradient(140deg, transparent, black 10%, black 65%, transparent); -webkit-mask-image: linear-gradient(140deg, transparent, black 10%, black 65%, transparent);">Plan smarter,
+ship faster</span>
+          <p class="sm:text-lg text-base text-purple-300 max-w-lg mt-0 pt-2 pr-4 pb-2 drop-shadow-lg" style="mask-image: linear-gradient(180deg, transparent, black 25%, black 70%, transparent); -webkit-mask-image: linear-gradient(180deg, transparent, black 25%, black 70%, transparent);">
+            Build products your users love. Streamline roadmaps, collaborate seamlessly, and track progress from idea to launch.
+          </p>
+
+          <div class="flex gap-3 mt-8 mb-0 pb-[60px] gap-x-3 gap-y-3 items-center">
+            <a href="#" class="group overflow-hidden transition-all duration-300 hover:scale-[1.02] hover:border-purple-400/40 hover:shadow-[0_0_50px_rgba(168,85,247,0.2)_inset,0_0_30px_rgba(168,85,247,0.15)] active:scale-[0.98] outline-none focus-visible:ring-2 focus-visible:ring-purple-500/50 inline-flex items-center justify-center cursor-pointer bg-gradient-to-r from-[#0d182b] to-[#050914] border-purple-400/20 border rounded-full pt-3.5 pr-8 pb-3.5 pl-8 relative shadow-[0_0_40px_rgba(168,85,247,0.1)_inset,0_0_20px_rgba(168,85,247,0.05)]">
+    
+    <!-- Fluid WebGL-like Animation Layer -->
+    <div id="fluid-layer-aura-emokmu6bi1a0zcu4u" class="absolute inset-0 mix-blend-screen opacity-80 transition-opacity duration-300 pointer-events-none" style="background: radial-gradient(circle at 50% 50%, rgba(168, 85, 247, 0.15) 0%, transparent 50%);"></div>
+
+    <!-- Structural Highlights -->
+    <div class="absolute inset-0 rounded-full border border-white/5 opacity-50 pointer-events-none"></div>
+    <div class="absolute top-0 left-1/4 right-1/4 h-[1px] bg-gradient-to-r from-transparent via-purple-200/30 to-transparent pointer-events-none"></div>
+
+    <!-- Button Content -->
+    <div class="relative z-10 flex items-center justify-center gap-2">
+        <span class="text-purple-50 text-base font-normal tracking-wide drop-shadow-[0_0_12px_rgba(233,213,255,0.6)]">Start free trial</span>
+        <span class="inline-flex items-center justify-center z-10 bg-purple-400/10 w-7 h-7 rounded-full relative shadow-[0_0_10px_rgba(168,85,247,0.2)_inset] border border-purple-400/20 ml-1">
+            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="text-purple-50"><path d="M5 12h14"></path><path d="m12 5 7 7-7 7"></path></svg>
+        </span>
+    </div>
+
+    <script class="">
+        (function() {
+            const btn = document.querySelector('[data-element-id="aura-emokmu6bi1a0zcu4u"]');
+            const fluid = document.getElementById('fluid-layer-aura-emokmu6bi1a0zcu4u');
+            if (!btn || !fluid) return;
+            
+            let time = 0;
+            let targetMouseX = 50;
+            let targetMouseY = 50;
+            let currentMouseX = 50;
+            let currentMouseY = 50;
+            let isHovered = false;
+
+            btn.addEventListener('mousemove', function(e) {
+                const rect = btn.getBoundingClientRect();
+                targetMouseX = ((e.clientX - rect.left) / rect.width) * 100;
+                targetMouseY = ((e.clientY - rect.top) / rect.height) * 100;
+                isHovered = true;
+            });
+
+            btn.addEventListener('mouseleave', function() {
+                isHovered = false;
+            });
+
+            const lerp = function(start, end, factor) { return start + (end - start) * factor; };
+
+            function animate() {
+                time += 0.015;
+
+                const orb1X = 50 + Math.sin(time) * 35;
+                const orb1Y = 50 + Math.cos(time * 0.7) * 25;
+                const orb2X = 50 + Math.cos(time * 1.1) * 45;
+                const orb2Y = 50 + Math.sin(time * 0.4) * 30;
+
+                const color1 = 'rgba(192, 132, 252, 0.25)';
+                const color2 = 'rgba(168, 85, 247, 0.15)';
+
+                let bgString = 'radial-gradient(circle at ' + orb1X + '% ' + orb1Y + '%, ' + color1 + ' 0%, transparent 65%), radial-gradient(circle at ' + orb2X + '% ' + orb2Y + '%, ' + color2 + ' 0%, transparent 70%)';
+
+                if (isHovered) {
+                    currentMouseX = lerp(currentMouseX, targetMouseX, 0.1);
+                    currentMouseY = lerp(currentMouseY, targetMouseY, 0.1);
+                    bgString = 'radial-gradient(circle at ' + currentMouseX + '% ' + currentMouseY + '%, rgba(233, 213, 255, 0.35) 0%, transparent 45%), ' + bgString;
+                } else {
+                    currentMouseX = lerp(currentMouseX, 50, 0.05);
+                    currentMouseY = lerp(currentMouseY, 50, 0.05);
+                }
+
+                fluid.style.background = bgString;
+
+                requestAnimationFrame(animate);
+            }
+
+            animate();
+        })();
+    </script>
+</a>
+            <a href="#" class="inline-flex items-center gap-2 hover:bg-white/5 text-sm font-medium text-zinc-200 bg-slate-950/50 border-white/10 border rounded-full pt-2.5 pr-5 pb-2.5 pl-5 backdrop-blur-xl">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="play" aria-hidden="true" class="lucide lucide-play h-4 w-4"><path d="M5 5a2 2 0 0 1 3.008-1.728l11.997 6.998a2 2 0 0 1 .003 3.458l-12 7A2 2 0 0 1 5 19z"></path></svg>
+              Watch demo
+            </a>
+          </div>
+        </div>
+
+        <!-- App Preview -->
+        <div class="group sm:mt-0 z-10 mt-16 relative">
+  <section class="z-10 bg-gradient-to-b from-white/10 via-white/5 to-transparent w-full max-w-[1600px] rounded-[24px] mt-24 mr-auto ml-auto pt-[1px] pr-[1px] pb-[1px] pl-[1px] relative shadow-[0px_25px_50px_-12px_rgba(0,0,0,0.8)]">
+    <div class="overflow-hidden backdrop-blur-[64px] bg-[rgba(15,15,15,0.95)] w-full rounded-[23px] relative shadow-[inset_0px_1px_1px_0px_rgba(255,255,255,0.1),inset_0px_-2px_4px_0px_rgba(0,0,0,0.9)]">
+      <!-- Background Texture -->
+      <img src="https://hoirqrkdgbmvpwutwuwj.supabase.co/storage/v1/object/public/assets/assets/de723b43-ec61-46e0-a345-81332b3f4857_1600w.webp" alt="" class="absolute inset-0 w-full h-full object-cover grayscale opacity-15 transition-transform duration-[15000ms] ease-out group-hover:scale-110 pointer-events-none">
+      <div class="absolute inset-0 bg-gradient-to-t from-[#000000]/95 via-[#000000]/80 to-transparent pointer-events-none"></div>
+
+      <!-- Sidebar -->
+      <nav class="hidden sm:flex flex-col z-10 w-16 border-white/5 border-r py-6 px-2 absolute top-0 bottom-0 left-0 bg-[rgba(15,15,15,0.6)] backdrop-blur-[64px] items-center justify-between" aria-label="Primary">
+        <div class="flex flex-col gap-4 items-center w-full">
+          <button type="button" class="h-10 w-10 rounded-[8px] bg-[#A855F7]/10 border border-[#A855F7]/30 text-[#A855F7] flex items-center justify-center transition-all" title="Home" aria-label="Home">
+            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-layout-grid"><rect width="7" height="7" x="3" y="3" rx="1"></rect><rect width="7" height="7" x="14" y="3" rx="1"></rect><rect width="7" height="7" x="14" y="14" rx="1"></rect><rect width="7" height="7" x="3" y="14" rx="1"></rect></svg>
+          </button>
+          <div class="h-px w-8 bg-white/10 my-2"></div>
+          <button type="button" class="h-10 w-10 rounded-[8px] border border-transparent hover:border-white/10 hover:bg-white/5 text-[#A3A3A3] hover:text-[#FFFFFF] flex items-center justify-center transition-all" title="Search" aria-label="Search">
+            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-search"><path d="m21 21-4.34-4.34"></path><circle cx="11" cy="11" r="8"></circle></svg>
+          </button>
+          <button type="button" class="h-10 w-10 rounded-[8px] border border-transparent hover:border-white/10 hover:bg-white/5 text-[#A3A3A3] hover:text-[#FFFFFF] flex items-center justify-center transition-all" title="Roadmap" aria-label="Roadmap">
+            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-map"><path d="M14.106 5.553a2 2 0 0 0 1.788 0l3.659-1.83A1 1 0 0 1 21 4.619v12.764a1 1 0 0 1-.553.894l-4.553 2.277a2 2 0 0 1-1.788 0l-4.212-2.106a2 2 0 0 0-1.788 0l-3.659 1.83A1 1 0 0 1 3 19.381V6.618a1 1 0 0 1 .553-.894l4.553-2.277a2 2 0 0 1 1.788 0z"></path><path d="M15 5.764v15"></path><path d="M9 3.236v15"></path></svg>
+          </button>
+          <button type="button" class="h-10 w-10 rounded-[8px] border border-transparent hover:border-white/10 hover:bg-white/5 text-[#A3A3A3] hover:text-[#FFFFFF] flex items-center justify-center transition-all" title="Tasks" aria-label="Tasks">
+            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-list-checks"><path d="M13 5h8"></path><path d="M13 12h8"></path><path d="M13 19h8"></path><path d="m3 17 2 2 4-4"></path><path d="m3 7 2 2 4-4"></path></svg>
+          </button>
+          <button type="button" class="h-10 w-10 rounded-[8px] border border-transparent hover:border-white/10 hover:bg-white/5 text-[#A3A3A3] hover:text-[#FFFFFF] flex items-center justify-center transition-all" title="Team" aria-label="Team">
+            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-users"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"></path><path d="M16 3.128a4 4 0 0 1 0 7.744"></path><path d="M22 21v-2a4 4 0 0 0-3-3.87"></path><circle cx="9" cy="7" r="4"></circle></svg>
+          </button>
+          <button type="button" class="h-10 w-10 rounded-[8px] border border-transparent hover:border-white/10 hover:bg-white/5 text-[#A3A3A3] hover:text-[#FFFFFF] flex items-center justify-center transition-all" title="Docs" aria-label="Docs">
+            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-file-text"><path d="M6 22a2 2 0 0 1-2-2V4a2 2 0 0 1 2-2h8a2.4 2.4 0 0 1 1.704.706l3.588 3.588A2.4 2.4 0 0 1 20 8v12a2 2 0 0 1-2 2z"></path><path d="M14 2v5a1 1 0 0 0 1 1h5"></path><path d="M10 9H8"></path><path d="M16 13H8"></path><path d="M16 17H8"></path></svg>
+          </button>
+        </div>
+        <div class="flex flex-col gap-4 items-center w-full">
+          <button type="button" class="h-10 w-10 rounded-[8px] border border-transparent hover:border-white/10 hover:bg-white/5 text-[#A3A3A3] hover:text-[#FFFFFF] flex items-center justify-center transition-all" title="Settings" aria-label="Settings">
+            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-settings-2"><path d="M14 17H5"></path><path d="M19 7h-9"></path><circle cx="17" cy="17" r="3"></circle><circle cx="7" cy="7" r="3"></circle></svg>
+          </button>
+          <button type="button" class="h-10 w-10 rounded-[8px] border border-transparent hover:border-white/10 hover:bg-white/5 text-[#A3A3A3] hover:text-[#FFFFFF] flex items-center justify-center transition-all" title="Help" aria-label="Help">
+            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-help-circle"><circle cx="12" cy="12" r="10"></circle><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"></path><path d="M12 17h.01"></path></svg>
+          </button>
+        </div>
+      </nav>
+
+      <!-- Main Content Grid -->
+      <div class="grid grid-cols-1 lg:grid-cols-2 z-10 sm:pl-16 w-full relative">
+        <!-- Left: Sprint Timeline -->
+        <div class="sm:p-6 lg:p-6 p-6">
+          <div class="space-y-6">
+            <div class="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
+              <h2 class="text-3xl sm:text-4xl text-[#FFFFFF] font-medium tracking-tight uppercase font-sans">Sprint 12 · Week 3</h2>
+              <div class="flex items-center gap-2 px-3 py-1.5 bg-white/5 border border-white/10 rounded-[8px] w-fit">
+                <div class="w-1.5 h-1.5 rounded-full bg-[#A855F7]"></div>
+                <span class="text-[#A3A3A3] text-[12px] font-light leading-[19.5px] uppercase font-sans">Roadmap</span>
+              </div>
+            </div>
+
+            <div class="space-y-6 mt-6">
+              <div class="space-y-4">
+                <div class="flex items-start gap-4">
+                  <div class="mt-1.5 h-2 w-2 rounded-full bg-[#A855F7]"></div>
+                  <p class="text-[#A3A3A3] text-[12px] font-light leading-[19.5px] uppercase font-sans">
+                    Launched <a href="#" class="text-[#FFFFFF] hover:text-[#A855F7] underline underline-offset-4 decoration-white/20 transition-colors">v2.3 Dashboard</a> to beta users
+                  </p>
+                </div>
+                <div class="ml-5 pl-5 border-l border-white/10 space-y-4">
+                  <div class="flex items-center gap-3 text-[#A3A3A3]">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-check-circle text-[#A855F7]"><path d="M21.801 10A10 10 0 1 1 17 3.335"></path><path d="m9 11 3 3L22 4"></path></svg>
+                    <p class="text-[12px] font-light leading-[19.5px] uppercase font-sans">98% positive feedback</p>
+                  </div>
+                  <div class="flex items-center gap-3 text-[#A3A3A3]">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-users text-[#A855F7]"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"></path><path d="M16 3.128a4 4 0 0 1 0 7.744"></path><path d="M22 21v-2a4 4 0 0 0-3-3.87"></path><circle cx="9" cy="7" r="4"></circle></svg>
+                    <p class="text-[12px] font-light leading-[19.5px] uppercase font-sans">1,247 active beta testers</p>
+                  </div>
+                  <div class="flex items-center gap-3 text-[#A855F7]">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-arrow-right"><path d="M5 12h14"></path><path d="m12 5 7 7-7 7"></path></svg>
+                    <p class="text-[12px] font-light leading-[19.5px] uppercase font-sans text-[#A3A3A3]">Moving to GA next sprint</p>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Team integrations -->
+              <div class="relative space-y-3 border-t border-white/10 pt-6">
+                <div class="flex flex-col sm:flex-row gap-4">
+                  <div class="flex flex-1 gap-4 border border-white/10 bg-[rgba(15,15,15,0.9)] rounded-[16px] p-4 shadow-[inset_0px_1px_1px_0px_rgba(255,255,255,0.05),inset_0px_-1px_2px_0px_rgba(0,0,0,0.8)] backdrop-blur-[24px] items-center group hover:bg-white/10 transition-all">
+                    <div class="h-10 w-10 rounded-[8px] border border-white/10 bg-white/5 flex items-center justify-center text-[#FFFFFF]">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-github"><path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"></path><path d="M9 18c-4.51 2-5-2-7-2"></path></svg>
+                    </div>
+                    <div class="min-w-0">
+                      <p class="text-[#FFFFFF] text-[16px] font-normal leading-[24px] uppercase font-sans">GitHub</p>
+                      <p class="text-[#A3A3A3] text-[12px] font-light leading-[19.5px] uppercase mt-1 font-sans">24 PRs merged</p>
+                    </div>
+                  </div>
+                  
+                  <div class="flex flex-1 gap-4 border border-white/10 bg-[rgba(15,15,15,0.9)] rounded-[16px] p-4 shadow-[inset_0px_1px_1px_0px_rgba(255,255,255,0.05),inset_0px_-1px_2px_0px_rgba(0,0,0,0.8)] backdrop-blur-[24px] items-center group hover:bg-white/10 transition-all">
+                    <div class="h-10 w-10 rounded-[8px] border border-white/10 bg-[#000000] flex items-center justify-center text-[#A3A3A3] group-hover:text-[#FFFFFF] transition-colors">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="luc 0 1 8.5 2H12v7H8.5A3.5 3.5 5 5.5z"><path d="M12 2h3.5a3.5 3.5 0 1 1 0 7H12V2z"></path><path d="M12 12.5a3.5 3.5 0 1 1 7 0 3.5 3.5 0 1 1-7 0z"></path><path d="M5 19.5A3.5 3.5 0 0 1 8.5 16H12v3.5a3.5 3.5 0 1 1-7 0z"></path><path d="M5 12.5A3.5 3.5 0 0 1 8.5 9H12v7H8.5A3.5 3.5 0 0 1 5 12.5z"></path></svg>
+                    </div>
+                    <div class="min-w-0">
+                      <p class="text-[#FFFFFF] text-[16px] font-normal leading-[24px] uppercase font-sans">Figma</p>
+                      <p class="text-[#A3A3A3] text-[12px] font-light leading-[19.5px] uppercase mt-1 group-hover:text-[#FFFFFF] transition-colors font-sans">8 designs ready</p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <!-- Feature list -->
+              <div class="space-y-4 pt-6 border-t border-white/10">
+                <h3 class="text-2xl text-[#FFFFFF] font-medium tracking-tight uppercase font-sans">In Progress</h3>
+                <div class="space-y-2">
+                  <div class="flex items-center justify-between px-5 py-4 rounded-[8px] border border-white/10 bg-[#000000] hover:bg-white/5 transition-colors group">
+                    <div class="flex items-center gap-4">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-zap text-[#A855F7]"><path d="M4 14a1 1 0 0 1-.78-1.63l9.9-10.2a.5.5 0 0 1 .86.46l-1.92 6.02A1 1 0 0 0 13 10h7a1 1 0 0 1 .78 1.63l-9.9 10.2a.5.5 0 0 1-.86-.46l1.92-6.02A1 1 0 0 0 11 14z"></path></svg>
+                      <p class="text-[#A3A3A3] group-hover:text-[#FFFFFF] transition-colors text-[12px] font-light leading-[19.5px] uppercase truncate font-sans">Real-time collaboration mode</p>
+                    </div>
+                    <span class="text-[#A3A3A3] text-[12px] font-light leading-[19.5px] uppercase bg-white/5 px-2 py-1 rounded-[4px] border border-white/10 font-sans">Due in 3 days</span>
+                  </div>
+                  
+                  <div class="flex items-center justify-between px-5 py-4 rounded-[8px] border border-white/10 bg-[#000000] hover:bg-white/5 transition-colors group">
+                    <div class="flex items-center gap-4">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-activity text-[#A3A3A3] group-hover:text-[#A855F7] transition-colors"><path d="M22 12h-2.48a2 2 0 0 0-1.93 1.46l-2.35 8.36a.25.25 0 0 1-.48 0L9.24 2.18a.25.25 0 0 0-.48 0l-2.35 8.36A2 2 0 0 1 4.49 12H2"></path></svg>
+                      <p class="text-[#A3A3A3] group-hover:text-[#FFFFFF] transition-colors text-[12px] font-light leading-[19.5px] uppercase truncate font-sans">Advanced analytics dashboard</p>
+                    </div>
+                    <span class="text-[#A3A3A3] text-[12px] font-light leading-[19.5px] uppercase font-sans">On track</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Right: Sprint Planning -->
+        <div class="lg:border-t-0 lg:border-l border-white/10 border-t pr-4 pl-4 relative">
+          <div class="absolute inset-y-0 left-0 w-px bg-gradient-to-b from-transparent via-[#A855F7]/30 to-transparent hidden lg:block"></div>
+          <div class="sm:p-6 lg:p-6 pt-6 pr-6 pb-6 pl-6 space-y-6">
+            <!-- Sprint header -->
+            <div class="flex items-center justify-between">
+              <div class="flex items-center gap-2">
+                <button class="p-2.5 rounded-[8px] border border-white/10 bg-white/5 hover:bg-white/10 text-[#A3A3A3] hover:text-[#FFFFFF] transition-colors" type="button" aria-label="Previous sprint" data-nav="prev">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-chevron-left"><path d="m15 18-6-6 6-6"></path></svg>
+                </button>
+                <button class="p-2.5 rounded-[8px] border border-white/10 bg-white/5 hover:bg-white/10 text-[#A3A3A3] hover:text-[#FFFFFF] transition-colors" type="button" aria-label="Next sprint" data-nav="next">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-chevron-right"><path d="m9 18 6-6-6-6" class=""></path></svg>
+                </button>
+              </div>
+              <h3 class="text-3xl text-[#FFFFFF] font-medium tracking-tight uppercase font-sans" id="sprint-label">Sprint 12</h3>
+              <button class="p-2.5 rounded-[8px] bg-[#FFFFFF] hover:opacity-80 text-[#A3A3A3] transition-colors" type="button" id="add-task-btn" aria-label="Add task">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-plus"><path d="M5 12h14"></path><path d="M12 5v14"></path></svg>
+              </button>
+            </div>
+
+            <!-- Progress overview -->
+            <div class="border border-white/10 bg-[rgba(15,15,15,0.9)] shadow-[inset_0px_1px_1px_0px_rgba(255,255,255,0.05),inset_0px_-1px_2px_0px_rgba(0,0,0,0.8)] rounded-[16px] p-6 backdrop-blur-[24px]">
+              <div class="flex items-center justify-between mb-6">
+                <h4 class="text-[16px] font-normal leading-[24px] uppercase text-[#A3A3A3] font-sans">Progress</h4>
+                <div class="flex items-center gap-2 px-2 py-1 bg-white/5 border border-white/10 rounded-[4px]">
+                  <span class="text-[#A3A3A3] text-[12px] font-light leading-[19.5px] uppercase font-sans">67% COMPLETE</span>
+                </div>
+              </div>
+              
+              <div class="relative h-1.5 bg-[#000000] border border-white/10 rounded-full overflow-hidden mb-6">
+                <div class="absolute inset-y-0 left-0 bg-[#A855F7]" style="width: 67%;"></div>
+              </div>
+
+              <div class="grid grid-cols-3 gap-4 text-center">
+                <div class="rounded-[8px] border border-white/10 bg-white/5 p-4 flex flex-col items-center justify-center hover:bg-white/10 transition-colors">
+                  <div class="text-3xl text-[#FFFFFF] font-medium tracking-tight font-sans">18</div>
+                  <div class="text-[12px] text-[#A3A3A3] font-light leading-[19.5px] uppercase mt-2 font-sans">Completed</div>
+                </div>
+                <div class="rounded-[8px] border border-white/10 bg-[#000000] p-4 flex flex-col items-center justify-center hover:bg-white/5 transition-colors">
+                  <div class="text-3xl text-[#FFFFFF] font-medium tracking-tight font-sans">9</div>
+                  <div class="text-[12px] text-[#A3A3A3] font-light leading-[19.5px] uppercase mt-2 font-sans">In Progress</div>
+                </div>
+                <div class="rounded-[8px] border border-white/10 bg-[#000000] p-4 flex flex-col items-center justify-center hover:bg-white/5 transition-colors">
+                  <div class="text-3xl text-[#A3A3A3] font-medium tracking-tight font-sans">27</div>
+                  <div class="text-[12px] text-[#A3A3A3] font-light leading-[19.5px] uppercase mt-2 font-sans">Total</div>
+                </div>
+              </div>
+            </div>
+
+            <!-- Team tasks -->
+            <div class="border border-white/10 bg-[rgba(15,15,15,0.9)] shadow-[inset_0px_1px_1px_0px_rgba(255,255,255,0.05),inset_0px_-1px_2px_0px_rgba(0,0,0,0.8)] rounded-[16px] p-6 backdrop-blur-[24px]">
+              <div class="flex items-center justify-between mb-6 border-b border-white/10 pb-4">
+                <h4 class="text-[16px] font-normal leading-[24px] uppercase text-[#A3A3A3] font-sans">Team Tasks</h4>
+                <div class="flex items-center gap-2">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-users text-[#A855F7]"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"></path><path d="M16 3.128a4 4 0 0 1 0 7.744"></path><path d="M22 21v-2a4 4 0 0 0-3-3.87"></path><circle cx="9" cy="7" r="4"></circle></svg>
+                  <span class="text-[#A3A3A3] text-[12px] font-light leading-[19.5px] uppercase font-sans">8 Members</span>
+                </div>
+              </div>
+
+              <div class="space-y-3">
+                <div class="flex items-center gap-4 px-4 py-3 rounded-[8px] border border-white/10 bg-[#000000] hover:border-white/20 transition-colors group">
+                  <div class="w-8 h-8 rounded-[4px] flex items-center justify-center text-[12px] font-light text-[#FFFFFF] border border-white/10 bg-white/5 font-sans">
+                    SL
+                  </div>
+                  <div class="min-w-0 flex-1">
+                    <p class="text-[12px] font-normal leading-[19.5px] text-[#FFFFFF] uppercase truncate font-sans">Sarah Lee</p>
+                    <p class="text-[12px] font-light leading-[19.5px] text-[#A3A3A3] uppercase mt-1 truncate font-sans">API integration · 3 tasks</p>
+                  </div>
+                  <div class="flex items-center gap-2">
+                    <span class="h-1.5 w-1.5 rounded-full bg-[#A855F7]"></span>
+                  </div>
+                </div>
+
+                <div class="flex items-center gap-4 px-4 py-3 rounded-[8px] border border-white/10 bg-[#000000] hover:border-white/20 transition-colors group">
+                  <div class="w-8 h-8 rounded-[4px] flex items-center justify-center text-[12px] font-light text-[#FFFFFF] border border-white/10 bg-[#000000] group-hover:bg-white/5 transition-colors font-sans">
+                    MK
+                  </div>
+                  <div class="min-w-0 flex-1">
+                    <p class="text-[12px] font-normal leading-[19.5px] text-[#FFFFFF] uppercase truncate font-sans">Marcus Kim</p>
+                    <p class="text-[12px] font-light leading-[19.5px] text-[#A3A3A3] uppercase mt-1 truncate group-hover:text-[#FFFFFF] transition-colors font-sans">UI components · 5 tasks</p>
+                  </div>
+                  <div class="flex items-center gap-2">
+                    <span class="h-1.5 w-1.5 rounded-full bg-[#A3A3A3] group-hover:bg-[#A855F7] transition-all"></span>
+                  </div>
+                </div>
+
+                <div class="flex items-center gap-4 px-4 py-3 rounded-[8px] border border-white/10 bg-[#000000] hover:border-white/20 transition-colors group opacity-70 hover:opacity-100">
+                  <div class="w-8 h-8 rounded-[4px] flex items-center justify-center text-[12px] font-light text-[#FFFFFF] border border-white/10 bg-[#000000] font-sans">
+                    JP
+                  </div>
+                  <div class="min-w-0 flex-1">
+                    <p class="text-[12px] font-normal leading-[19.5px] text-[#FFFFFF] uppercase truncate font-sans">Jessica Park</p>
+                    <p class="text-[12px] font-light leading-[19.5px] text-[#A3A3A3] uppercase mt-1 truncate font-sans">Testing · 2 tasks</p>
+                  </div>
+                  <div class="flex items-center gap-2">
+                    <span class="h-1.5 w-1.5 rounded-full bg-white/20"></span>
+                  </div>
+                </div>
+              </div>
+
+              <div class="mt-6 pt-6 flex flex-col sm:flex-row items-center justify-between border-t border-white/10 gap-3">
+                <button class="w-full sm:w-auto justify-center text-[16px] font-normal leading-[24px] text-[#A3A3A3] hover:text-[#FFFFFF] bg-transparent rounded-none p-0 border-0 inline-flex items-center gap-2 uppercase transition-colors font-sans" type="button">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-download"><path d="M12 15V3"></path><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"></path><path d="m7 10 5 5 5-5"></path></svg>
+                  Export report
+                </button>
+                <button class="w-full sm:w-auto justify-center text-[16px] font-normal leading-[24px] text-[#A3A3A3] bg-[#FFFFFF] hover:opacity-80 px-[10px] py-[10px] rounded-[8px] border border-white/10 inline-flex items-center gap-2 uppercase transition-colors font-sans" type="button">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-bar-chart-3"><path d="M3 3v16a2 2 0 0 0 2 2h16"></path><path d="M18 17V9"></path><path d="M13 17V5"></path><path d="M8 17v-3"></path></svg>
+                  View metrics
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+      </div>
+    </section>
+
+    <!-- Features -->
+    <section class="overflow-hidden bg-[#0F0F0F] w-full pt-24 pb-24 relative">
+  <!-- Grid backdrop lines -->
+  <div class="absolute inset-0 pointer-events-none flex justify-center w-full max-w-[1600px] mx-auto z-0">
+    <div class="h-full w-full border-x border-white/5 relative flex justify-between">
+      <div class="h-full w-px bg-white/5 absolute left-1/3 hidden lg:block"></div>
+      <div class="h-full w-px bg-white/5 absolute right-1/3 hidden lg:block"></div>
+      <div class="absolute top-0 w-full h-[8px]" style="background-image: repeating-linear-gradient(45deg, rgba(255,255,255,0.05) 0px, rgba(255,255,255,0.05) 1px, transparent 1px, transparent 8px);"></div>
+      <div class="absolute bottom-0 w-full h-[8px]" style="background-image: repeating-linear-gradient(45deg, rgba(255,255,255,0.05) 0px, rgba(255,255,255,0.05) 1px, transparent 1px, transparent 8px);"></div>
+    </div>
+  </div>
+
+  <div class="z-10 md:px-8 max-w-6xl mr-auto ml-auto pr-6 pl-6 relative">
+    <!-- Header -->
+    <div class="flex flex-col items-center text-center mb-24">
+      <div class="text-[#A855F7] text-[12px] uppercase font-light mb-6 tracking-[1.2px] font-sans">
+        [ SYS.FEATURES ]
+      </div>
+      <h2 class="text-5xl sm:text-6xl text-[#FFFFFF] tracking-tight font-medium uppercase font-sans">
+        Everything you need to ship faster
+      </h2>
+      <p class="mt-6 text-[#A3A3A3] text-[12px] uppercase font-light tracking-[0.1em] max-w-2xl leading-[19.5px] font-sans">
+        Powerful features designed for modern product teams. Connect the neural fabric and automate workflows.
+      </p>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+      <!-- Card 1 -->
+      <div class="flashlight-card p-[1px] rounded-[24px] bg-gradient-to-b from-white/10 via-white/5 to-transparent shadow-[0px_25px_50px_-12px_rgba(0,0,0,0.8)] relative group h-full" style="--mouse-x: 234px; --mouse-y: 14.5px;">
+        <!-- Border Glow -->
+        <div class="absolute inset-0 rounded-[24px] opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none overflow-hidden z-0">
+          <div class="absolute inset-0" style="background: radial-gradient(600px circle at var(--mouse-x, 50%) var(--mouse-y, 50%), rgba(255,255,255,0.3), transparent 40%);"></div>
+        </div>
+
+        <div class="h-full rounded-[23px] bg-[rgba(15,15,15,0.95)] overflow-hidden relative shadow-[inset_0px_1px_1px_0px_rgba(255,255,255,0.1),inset_0px_-2px_4px_0px_rgba(0,0,0,0.9)] flex flex-col p-[24px] backdrop-blur-[64px] z-10">
+          <img src="https://hoirqrkdgbmvpwutwuwj.supabase.co/storage/v1/object/public/assets/assets/f3bdbcbe-2888-4441-b281-4cd36a0f1baf_800w.webp" alt="Roadmap Texture" class="absolute inset-0 w-full h-full object-cover grayscale opacity-15 transition-transform duration-[15000ms] ease-out group-hover:scale-110 pointer-events-none">
+          <div class="absolute inset-0 bg-gradient-to-t from-[#000000]/95 via-[#000000]/80 to-transparent pointer-events-none"></div>
+
+          <!-- Background Glow -->
+          <div class="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" style="background: radial-gradient(800px circle at var(--mouse-x, 50%) var(--mouse-y, 50%), rgba(255,255,255,0.08), transparent 40%);"></div>
+
+          <div class="relative z-10 flex flex-col h-full">
+            <div class="flex justify-between items-start mb-16">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-map text-[#A855F7]"><path d="M14.106 5.553a2 2 0 0 0 1.788 0l3.659-1.83A1 1 0 0 1 21 4.619v12.764a1 1 0 0 1-.553.894l-4.553 2.277a2 2 0 0 1-1.788 0l-4.212-2.106a2 2 0 0 0-1.788 0l-3.659 1.83A1 1 0 0 1 3 19.381V6.618a1 1 0 0 1 .553-.894l4.553-2.277a2 2 0 0 1 1.788 0z"></path><path d="M15 5.764v15"></path><path d="M9 3.236v15"></path></svg>
+              <div class="flex items-center gap-2 px-2 py-1 bg-white/5 border border-white/10 rounded-[4px]">
+                <div class="w-1.5 h-1.5 rounded-full bg-[#A855F7] shadow-[0_0_8px_#A855F7]"></div>
+                <span class="text-[#A3A3A3] text-[10px] tracking-[1.2px] uppercase font-sans">Visual Plan</span>
+              </div>
+            </div>
+
+            <h3 class="text-[16px] text-[#FFFFFF] font-normal leading-[24px] uppercase mb-2 font-sans">
+              Interactive Roadmaps
+            </h3>
+            <p class="text-[#A3A3A3] text-[12px] uppercase font-light leading-[19.5px] mb-8 flex-grow font-sans">
+              Plan quarters ahead with drag-and-drop roadmaps. Share timelines and keep everyone aligned.
+            </p>
+
+            <div class="mt-8 relative w-full h-[180px] flex items-center justify-center border-t border-white/10 pt-8">
+              <svg class="absolute w-[140px] h-[140px] -rotate-90 top-8" viewBox="0 0 100 100">
+                <circle cx="50" cy="50" r="46" fill="none" stroke="#FFFFFF" stroke-width="1" stroke-dasharray="2 4" stroke-opacity="0.1"></circle>
+                <circle cx="50" cy="50" r="46" fill="none" stroke="#A855F7" stroke-width="2" stroke-dasharray="2 4" stroke-dashoffset="120" style="filter: drop-shadow(0 0 4px rgba(168,85,247,0.6));"></circle>
+              </svg>
+              <div class="w-[110px] h-[110px] rounded-full flex items-center justify-center relative mt-4 bg-[rgba(15,15,15,0.9)] border border-white/5 shadow-[inset_0px_1px_1px_0px_rgba(255,255,255,0.05),inset_0px_-1px_2px_0px_rgba(0,0,0,0.8)] backdrop-blur-[24px]">
+                <div class="w-[90px] h-[90px] rounded-full flex flex-col items-center justify-center cursor-pointer border border-white/10 bg-[#000000] hover:bg-white/5 transition-colors group">
+                  <span class="text-[16px] text-[#FFFFFF] font-normal leading-[24px] uppercase font-sans">Q1</span>
+                  <span class="text-[8px] font-light tracking-[1.2px] text-[#A855F7] mt-1 font-sans">LAUNCH</span>
+                </div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+
+      <!-- Card 2 -->
+      <div class="flashlight-card p-[1px] rounded-[24px] bg-gradient-to-b from-white/10 via-white/5 to-transparent shadow-[0px_25px_50px_-12px_rgba(0,0,0,0.8)] relative group h-full mt-0 lg:-mt-6 lg:mb-6" style="--mouse-x: 14.3359375px; --mouse-y: 214.5px;">
+        <!-- Border Glow -->
+        <div class="absolute inset-0 rounded-[24px] opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none overflow-hidden z-0">
+          <div class="absolute inset-0" style="background: radial-gradient(600px circle at var(--mouse-x, 50%) var(--mouse-y, 50%), rgba(255,255,255,0.3), transparent 40%);"></div>
+        </div>
+
+        <div class="h-full rounded-[23px] bg-[rgba(15,15,15,0.95)] overflow-hidden relative shadow-[inset_0px_1px_1px_0px_rgba(255,255,255,0.1),inset_0px_-2px_4px_0px_rgba(0,0,0,0.9)] flex flex-col p-[24px] backdrop-blur-[64px] z-10">
+          <img src="https://hoirqrkdgbmvpwutwuwj.supabase.co/storage/v1/object/public/assets/assets/c95f7d32-72bb-4f19-aaa8-215f6abe141c_800w.jpg" alt="AI Planning" class="absolute inset-0 w-full h-full object-cover grayscale opacity-20 transition-transform duration-[15000ms] ease-out group-hover:scale-110 pointer-events-none">
+          <div class="absolute inset-0 bg-gradient-to-t from-[#000000]/95 via-[#000000]/80 to-transparent pointer-events-none"></div>
+
+          <!-- Background Glow -->
+          <div class="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" style(--mouse-y,="" 50%),="" rgba(255,255,255,0.08),="" transparent="" 40%);"=""></div>
+
+          <div class="relative z-10 flex flex-col h-full">
+            <div class="flex justify-between items-start mb-16">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-cpu text-[#A855F7]"><rect width="16" height="16" x="4" y="4" rx="2"></rect><path d="M9 9h6v6H9z"></path><path d="M9 1v3"></path><path d="M15 1v3"></path><path d="M9 20v3"></path><path d="M15 20v3"></path><path d="M20 9h3"></path><path d="M20 14h3"></path><path d="M1 9h3"></path><path d="M1 14h3"></path></svg>
+              <div class="flex items-center gap-2 px-2 py-1 bg-white/5 border border-white/10 rounded-[4px]">
+                <div class="w-1.5 h-1.5 rounded-full bg-[#A855F7] shadow-[0_0_8px_#A855F7] animate-pulse"></div>
+                <span class="text-[#A3A3A3] text-[10px] tracking-[1.2px] uppercase font-sans">AI Planning</span>
+              </div>
+            </div>
+
+            <h3 class="text-[16px] text-[#FFFFFF] font-normal leading-[24px] uppercase mb-2 font-sans">
+              AI Sprint Planning
+            </h3>
+            <p class="text-[#A3A3A3] text-[12px] uppercase font-light leading-[19.5px] mb-8 flex-grow font-sans">
+              Auto-prioritize high-impact features and map dependencies instantly.
+            </p>
+
+            <div class="flex flex-col gap-5 mt-auto border-t border-white/10 pt-6">
+              <div class="flex justify-between items-center group">
+                <span class="text-[10px] tracking-[1.2px] text-[#A3A3A3] uppercase font-sans">Analyzed Backlog</span>
+                <div class="px-3 py-1 rounded-[4px] border border-white/10 bg-[#000000]">
+                  <span class="text-[#FFFFFF] text-[12px] font-light font-sans">43</span>
+                </div>
+              </div>
+              <div class="flex justify-between items-center group">
+                <span class="text-[10px] tracking-[1.2px] text-[#A855F7] uppercase font-sans">Suggested Tasks</span>
+                <div class="px-3 py-1 rounded-[4px] border border-[#A855F7]/30 bg-[#A855F7]/10 shadow-[inset_0_0_8px_rgba(168,85,247,0.2)]">
+                  <span class="text-[#A855F7] text-[12px] font-normal shadow-[0_0_4px_#A855F7] font-sans">27</span>
+                </div>
+              </div>
+              
+              <div class="flex flex-col mt-2">
+                <div class="flex justify-between items-center mb-2 text-[10px] tracking-[1.2px] text-[#A3A3A3] uppercase font-sans">
+                  <span>Team Capacity</span>
+                  <span class="text-[#A855F7]">85%</span>
+                </div>
+                <div class="w-full h-1.5 rounded-full relative overflow-hidden bg-[#000000] border border-white/10">
+                  <div class="absolute top-0 left-0 h-full bg-[#A855F7] shadow-[0_0_8px_#A855F7]" style="width: 85%;"></div>
+                </div>
+              </div>
+
+              <button class="mt-4 w-full bg-[#FFFFFF] text-[#A3A3A3] hover:text-[#0F0F0F] transition-colors duration-300 py-[10px] rounded-[8px] border border-white/10 uppercase text-[16px] font-normal flex items-center justify-center gap-2 font-sans">
+                Generate Sprint
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Card 3 -->
+      <div class="flashlight-card p-[1px] rounded-[24px] bg-gradient-to-b from-white/10 via-white/5 to-transparent shadow-[0px_25px_50px_-12px_rgba(0,0,0,0.8)] relative group h-full" style="--mouse-x: 184.671875px; --mouse-y: 185.5px;">
+        <!-- Border Glow -->
+        <div class="absolute inset-0 rounded-[24px] opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none overflow-hidden z-0">
+          <div class="absolute inset-0" style="background: radial-gradient(600px circle at var(--mouse-x, 50%) var(--mouse-y, 50%), rgba(255,255,255,0.3), transparent 40%);"></div>
+        </div>
+
+        <div class="h-full rounded-[23px] bg-[rgba(15,15,15,0.95)] overflow-hidden relative shadow-[inset_0px_1px_1px_0px_rgba(255,255,255,0.1),inset_0px_-2px_4px_0px_rgba(0,0,0,0.9)] flex flex-col p-[24px] backdrop-blur-[64px] z-10">
+          <img src="https://hoirqrkdgbmvpwutwuwj.supabase.co/storage/v1/object/public/assets/assets/8aa0d98a-387e-492b-9bea-7172f4ea0c1a_800w.webp" alt="Real-time Sync" class="absolute inset-0 w-full h-full object-cover grayscale opacity-15 transition-transform duration-[15000ms] ease-out group-hover:scale-110 pointer-events-none">
+          <div class="absolute inset-0 bg-gradient-to-t from-[#000000]/95 via-[#000000]/80 to-transparent pointer-events-none"></div>
+
+          <!-- Background Glow -->
+          <div class="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" style="background: radial-gradient(800px circle at var(--mouse-x, 50%) var(--mouse-y, 50%), rgba(255,255,255,0.08), transparent 40%);"></div>
+
+          <div class="relative z-10 flex flex-col h-full">
+            <div class="flex justify-between items-start mb-16">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-radio text-[#A3A3A3]"><path d="M4.9 19.1C1 15.2 1 8.8 4.9 4.9"></path><path d="M7.8 16.2c-2.3-2.3-2.3-6.1 0-8.5"></path><circle cx="12" cy="12" r="2"></circle><path d="M16.2 7.8c2.3 2.3 2.3 6.1 0 8.5"></path><path d="M19.1 4.9C23 8.8 23 15.2 19.1 19.1"></path></svg>
+              <div class="flex items-center gap-2 px-2 py-1 bg-white/5 border border-white/10 rounded-[4px]">
+                <div class="w-1.5 h-1.5 rounded-full bg-[#A3A3A3]"></div>
+                <span class="text-[#A3A3A3] text-[10px] tracking-[1.2px] uppercase font-sans">Your Team</span>
+              </div>
+            </div>
+
+            <h3 class="text-[16px] text-[#FFFFFF] font-normal leading-[24px] uppercase mb-2 font-sans">
+              Real-Time Sync
+            </h3>
+            <p class="text-[#A3A3A3] text-[12px] uppercase font-light leading-[19.5px] mb-8 flex-grow font-sans">
+              Live updates across devices. Keep your team aligned and moving forward together.
+            </p>
+
+            <div class="flex flex-col gap-4 mt-auto border-t border-white/10 pt-6 mb-6">
+              <!-- User 1 -->
+              <div class="flex items-center justify-between px-3 py-2 rounded-[8px] bg-[#000000] border border-white/5">
+                <div class="flex items-center gap-3">
+                  <div class="w-8 h-8 rounded-[4px] flex items-center justify-center text-[12px] font-light text-[#FFFFFF] border border-white/10 bg-white/5 font-sans">S</div>
+                  <div class="flex flex-col">
+                    <span class="text-[12px] font-normal leading-[19.5px] text-[#FFFFFF] uppercase font-sans">Sarah</span>
+                    <span class="text-[10px] font-light tracking-[0.1em] text-[#A3A3A3] uppercase mt-0.5 font-sans">Engineering</span>
+                  </div>
+                </div>
+                <div class="w-1.5 h-1.5 rounded-full bg-[#A855F7] shadow-[0_0_8px_#A855F7]"></div>
+              </div>
+              <!-- User 2 -->
+              <div class="flex items-center justify-between px-3 py-2 rounded-[8px] bg-[#000000] border border-white/5">
+                <div class="flex items-center gap-3">
+                  <div class="w-8 h-8 rounded-[4px] flex items-center justify-center text-[12px] font-light text-[#A3A3A3] border border-white/10 bg-white/5 font-sans">M</div>
+                  <div class="flex flex-col">
+                    <span class="text-[12px] font-normal leading-[19.5px] text-[#A3A3A3] uppercase font-sans">Marcus</span>
+                    <span class="text-[10px] font-light tracking-[0.1em] text-[#A3A3A3] uppercase mt-0.5 font-sans">Design</span>
+                  </div>
+                </div>
+                <div class="w-1.5 h-1.5 rounded-full bg-[#000000] border border-white/20"></div>
+              </div>
+              <!-- User 3 -->
+              <div class="flex items-center justify-between px-3 py-2 rounded-[8px] bg-[#000000] border border-white/5">
+                <div class="flex items-center gap-3">
+                  <div class="w-8 h-8 rounded-[4px] flex items-center justify-center text-[12px] font-light text-[#FFFFFF] border border-white/10 bg-white/5 font-sans">J</div>
+                  <div class="flex flex-col">
+                    <span class="text-[12px] font-normal leading-[19.5px] text-[#FFFFFF] uppercase font-sans">Jessica</span>
+                    <span class="text-[10px] font-light tracking-[0.1em] text-[#A3A3A3] uppercase mt-0.5 font-sans">Product</span>
+                  </div>
+                </div>
+                <div class="w-1.5 h-1.5 rounded-full bg-[#A855F7] shadow-[0_0_8px_#A855F7]"></div>
+              </div>
+            </div>
+
+            <div class="w-full flex justify-between gap-3">
+              <button class="flex-1 py-[10px] px-[10px] rounded-[8px] flex items-center justify-center text-[16px] font-normal leading-[24px] text-[#A3A3A3] border border-white/10 bg-[#FFFFFF] hover:text-[#0F0F0F] transition-colors uppercase font-sans">Invite</button>
+              <button class="flex-1 py-[10px] px-[10px] rounded-none flex items-center justify-center text-[16px] font-normal leading-[24px] text-[#A3A3A3] border-0 hover:text-[#FFFFFF] transition-colors uppercase font-sans">Settings</button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    document.querySelectorAll('.flashlight-card').forEach(card => {
+      card.addEventListener('mousemove', (e) => {
+        const rect = card.getBoundingClientRect();
+        const x = e.clientX - rect.left;
+        const y = e.clientY - rect.top;
+        card.style.setProperty('--mouse-x', `${x}px`);
+        card.style.setProperty('--mouse-y', `${y}px`);
+      });
+    });
+  </script>
+</section><section class="overflow-hidden bg-[#0F0F0F] w-full pt-24 pb-24 relative" style="font-family: 'Inter', sans-serif">
+  <!-- Grid backdrop lines -->
+  <div class="absolute inset-0 pointer-events-none flex justify-center w-full max-w-[1600px] mx-auto z-0">
+    <div class="h-full w-full border-x border-white/5 relative flex justify-between">
+      <!-- Vertical lines -->
+      <div class="h-full w-px bg-white/5 absolute left-1/3 hidden lg:block"></div>
+      <div class="h-full w-px bg-white/5 absolute right-1/3 hidden lg:block"></div>
+      <!-- Top/bottom technical borders -->
+      <div class="absolute top-0 w-full h-[8px]" style="background-image: repeating-linear-gradient(45deg, rgba(255,255,255,0.05) 0px, rgba(255,255,255,0.05) 1px, transparent 1px, transparent 8px);"></div>
+      <div class="absolute bottom-0 w-full h-[8px]" style="background-image: repeating-linear-gradient(45deg, rgba(255,255,255,0.05) 0px, rgba(255,255,255,0.05) 1px, transparent 1px, transparent 8px);"></div>
+    </div>
+  </div>
+
+  <div class="z-10 md:px-8 max-w-6xl mr-auto ml-auto pr-6 pl-6 relative">
+    <!-- Header -->
+    <div class="flex flex-col text-center mb-24 items-center">
+      <div class="text-[#A855F7] text-[12px] uppercase font-light mb-6 tracking-[1.2px] font-sans">
+        [ SYS.INTEGRATIONS ]
+      </div>
+      <h2 class="text-5xl sm:text-6xl text-[#FFFFFF] tracking-tight font-medium uppercase font-sans">
+        Works With Your Favorite Tools
+      </h2>
+      <p class="mt-6 text-[#A3A3A3] text-[12px] uppercase font-light tracking-[0.1em] max-w-2xl leading-[19.5px] font-sans">
+        Connect the neural fabric with the tools you already use every day. Synchronize datasets and automate workflows.
+      </p>
+    </div>
+
+    <!-- ChromaGrid Container -->
+    <div id="chroma-grid-container" class="relative w-full" style="--r: 300px; --x: 50%; --y: 50%;">
+      <!-- Grid -->
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 gap-x-6 gap-y-6 relative z-10">
+        
+        <!-- Card 1: GITHUB -->
+        <div class="chroma-card p-[1px] rounded-[24px] bg-gradient-to-b from-white/10 via-white/5 to-transparent shadow-[0px_25px_50px_-12px_rgba(0,0,0,0.8)] relative group h-full cursor-pointer" style="--mouse-x: 343px; --mouse-y: 84px;">
+          <div class="h-full rounded-[23px] bg-[rgba(15,15,15,0.95)] overflow-hidden relative shadow-[inset_0px_1px_1px_0px_rgba(255,255,255,0.1),inset_0px_-2px_4px_0px_rgba(0,0,0,0.9)] flex flex-col p-[24px] backdrop-blur-[64px]">
+            <img src="https://hoirqrkdgbmvpwutwuwj.supabase.co/storage/v1/object/public/assets/assets/be4d1bcf-7feb-4d86-bf4f-5ca227af720f_800w.jpg" alt="GitHub Network" class="absolute inset-0 w-full h-full object-cover grayscale opacity-15 transition-transform duration-[15000ms] ease-out group-hover:scale-110 pointer-events-none">
+            <div class="absolute inset-0 bg-gradient-to-t from-[#000000]/95 via-[#000000]/80 to-transparent pointer-events-none"></div>
+            
+            <div class="absolute inset-0 pointer-events-none transition-opacity duration-500 z-0 opacity-0 group-hover:opacity-100" style="background: radial-gradient(circle at var(--mouse-x, 50%) var(--mouse-y, 50%), rgba(255,255,255,0.1), transparent 60%);"></div>
+
+            <div class="relative z-10 flex flex-col h-full">
+              <div class="flex justify-between items-start mb-16">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="text-[#A855F7]"><path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4" class=""></path><path d="M9 18c-4.51 2-5-2-7-2"></path></svg>
+                <div class="flex items-center gap-2 px-2 py-1 bg-white/5 border border-white/10 rounded-[4px]">
+                  <div class="w-1.5 h-1.5 rounded-full bg-[#A855F7] shadow-[0_0_8px_#A855F7]"></div>
+                  <span class="text-[#A3A3A3] text-[10px] tracking-[1.2px] uppercase font-sans">Connected</span>
+                </div>
+              </div>
+
+              <h3 class="text-[16px] text-[#FFFFFF] font-normal leading-[24px] uppercase mb-2 font-sans">
+                GitHub
+              </h3>
+              <p class="text-[#A3A3A3] text-[12px] uppercase font-light leading-[19.5px] flex-grow mb-8 font-sans">
+                Link pull requests to features. Auto-update task status when PRs merge into the neural fabric.
+              </p>
+
+              <div class="flex justify-between items-end border-t border-white/10 pt-4">
+                <div class="flex -space-x-2">
+                  <div class="w-6 h-6 bg-[#000000] border border-white/10 rounded-full flex items-center justify-center text-[8px] text-[#FFFFFF] font-sans relative z-30">U1</div>
+                  <div class="w-6 h-6 bg-[#000000] border border-white/10 rounded-full flex items-center justify-center text-[8px] text-[#FFFFFF] font-sans relative z-20">U2</div>
+                  <div class="w-6 h-6 bg-[#000000] border border-white/10 rounded-full flex items-center justify-center text-[8px] text-[#FFFFFF] font-sans relative z-10">U3</div>
+                </div>
+                <span class="text-[#A3A3A3] text-[10px] tracking-[1.2px] uppercase font-sans">847 TEAMS</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 2: SLACK -->
+        <div class="chroma-card p-[1px] rounded-[24px] bg-gradient-to-b from-white/10 via-white/5 to-transparent shadow-[0px_25px_50px_-12px_rgba(0,0,0,0.8)] relative group h-full cursor-pointer" style="--mouse-x: 109.3359375px; --mouse-y: 8px;">
+          <div class="h-full rounded-[23px] bg-[rgba(15,15,15,0.95)] overflow-hidden relative shadow-[inset_0px_1px_1px_0px_rgba(255,255,255,0.1),inset_0px_-2px_4px_0px_rgba(0,0,0,0.9)] flex flex-col p-[24px] backdrop-blur-[64px]">
+            <img src="https://hoirqrkdgbmvpwutwuwj.supabase.co/storage/v1/object/public/assets/assets/888350e7-324c-4318-a356-ff129608b385_800w.webp" alt="Slack Network" class="absolute inset-0 w-full h-full object-cover grayscale opacity-15 transition-transform duration-[15000ms] ease-out group-hover:scale-110 pointer-events-none">
+            <div class="absolute inset-0 bg-gradient-to-t from-[#000000]/95 via-[#000000]/80 to-transparent pointer-events-none"></div>
+
+            <div class="absolute inset-0 pointer-events-none transition-opacity duration-500 z-0 opacity-0 group-hover:opacity-100" style="background: radial-gradient(circle at var(--mouse-x, 50%) var(--mouse-y, 50%), rgba(255,255,255,0.1), transparent 60%);"></div>
+
+            <div class="relative z-10 flex flex-col h-full">
+              <div class="flex justify-between items-start mb-16">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="text-[#A3A3A3]"><path d="M21 16V8a2 2 0 0 0-1-1.73l-7-4a2 2 0 0 0-2 0l-7 4A2 2 0 0 0 3 8v8a2 2 0 0 0 1 1.73l7 4a2 2 0 0 0 2 0l7-4A2 2 0 0 0 21 16z"></path><path d="m7.5 4.21 4.5 2.6 4.5-2.6"></path><path d="M12 17.5V22"></path><path d="M3.27 6.96 8 12.01 8 17"></path><path d="M12 17.5V12l-5-3"></path></svg>
+                <div class="flex items-center gap-2 px-2 py-1 bg-white/5 border border-white/10 rounded-[4px]">
+                  <div class="w-1.5 h-1.5 rounded-full bg-[#A3A3A3]"></div>
+                  <span class="text-[#A3A3A3] text-[10px] tracking-[1.2px] uppercase font-sans">Available</span>
+                </div>
+              </div>
+
+              <h3 class="text-[16px] text-[#FFFFFF] font-normal leading-[24px] uppercase mb-2 font-sans">
+                Slack
+              </h3>
+              <p class="text-[#A3A3A3] text-[12px] uppercase font-light leading-[19.5px] flex-grow mb-8 font-sans">
+                Get notified about sprint updates, task assignments, and mentions directly in your terminal channels.
+              </p>
+
+              <div class="flex justify-between items-end border-t border-white/10 pt-4">
+                <div class="flex -space-x-2">
+                  <div class="w-6 h-6 bg-[#000000] border border-white/10 rounded-full flex items-center justify-center text-[8px] text-[#FFFFFF] font-sans relative z-20">U4</div>
+                  <div class="w-6 h-6 bg-[#000000] border border-white/10 rounded-full flex items-center justify-center text-[8px] text-[#FFFFFF] font-sans relative z-10">U5</div>
+                </div>
+                <span class="text-[#A3A3A3] text-[10px] tracking-[1.2px] uppercase font-sans">623 TEAMS</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 3: FIGMA -->
+        <div class="chroma-card p-[1px] rounded-[24px] bg-gradient-to-b from-white/10 via-white/5 to-transparent shadow-[0px_25px_50px_-12px_rgba(0,0,0,0.8)] relative group h-full cursor-pointer" style="--mouse-x: 101.671875px; --mouse-y: 210px;">
+          <div class="h-full rounded-[23px] bg-[rgba(15,15,15,0.95)] overflow-hidden relative shadow-[inset_0px_1px_1px_0px_rgba(255,255,255,0.1),inset_0px_-2px_4px_0px_rgba(0,0,0,0.9)] flex flex-col p-[24px] backdrop-blur-[64px]">
+            <img src="https://hoirqrkdgbmvpwutwuwj.supabase.co/storage/v1/object/public/assets/assets/c9104c6d-9521-4057-b664-ed476bf3039e_800w.webp" alt="Figma Design" class="absolute inset-0 w-full h-full object-cover grayscale opacity-15 transition-transform duration-[15000ms] ease-out group-hover:scale-110 pointer-events-none">
+            <div class="absolute inset-0 bg-gradient-to-t from-[#000000]/95 via-[#000000]/80 to-transparent pointer-events-none"></div>
+
+            <div class="absolute inset-0 pointer-events-none transition-opacity duration-500 z-0 opacity-0 group-hover:opacity-100" style="background: radial-gradient(circle at var(--mouse-x, 50%) var(--mouse-y, 50%), rgba(255,255,255,0.1), transparent 60%);"></div>
+
+            <div class="relative z-10 flex flex-col h-full">
+              <div class="flex justify-between items-start mb-16">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="text-[#A855F7]"><path d="M5 5.5A3.5 3.5 0 0 1 8.5 2H12v7H8.5A3.5 3.5 0 0 1 5 5.5z"></path><path d="M12 2h3.5a3.5 3.5 0 1 1 0 7H12V2z"></path><path d="M12 12.5a3.5 3.5 0 1 1 7 0 3.5 3.5 0 1 1-7 0z"></path><path d="M5 19.5A3.5 3.5 0 0 1 8.5 16H12v3.5a3.5 3.5 0 1 1-7 0z"></path><path d="M5 12.5A3.5 3.5 0 0 1 8.5 9H12v7H8.5A3.5 3.5 0 0 1 5 12.5z"></path></svg>
+                <div class="flex items-center gap-2 px-2 py-1 bg-white/5 border border-white/10 rounded-[4px]">
+                  <div class="w-1.5 h-1.5 rounded-full bg-[#A855F7] shadow-[0_0_8px_#A855F7]"></div>
+                  <span class="text-[#A3A3A3] text-[10px] tracking-[1.2px] uppercase font-sans">Connected</span>
+                </div>
+              </div>
+
+              <h3 class="text-[16px] text-[#FFFFFF] font-normal leading-[24px] uppercase mb-2 font-sans">
+                Figma
+              </h3>
+              <p class="text-[#A3A3A3] text-[12px] uppercase font-light leading-[19.5px] flex-grow mb-8 font-sans">
+                Embed designs in tasks. Keep UI mockups and implementation sequences in sync automatically.
+              </p>
+
+              <div class="flex justify-between items-end border-t border-white/10 pt-4">
+                <div class="flex -space-x-2">
+                  <div class="w-6 h-6 bg-[#000000] border border-white/10 rounded-full flex items-center justify-center text-[8px] text-[#FFFFFF] font-sans relative z-30">U6</div>
+                  <div class="w-6 h-6 bg-[#000000] border border-white/10 rounded-full flex items-center justify-center text-[8px] text-[#FFFFFF] font-sans relative z-20">U7</div>
+                  <div class="w-6 h-6 bg-[#000000] border border-white/10 rounded-full flex items-center justify-center text-[8px] text-[#FFFFFF] font-sans relative z-10">U8</div>
+                </div>
+                <span class="text-[#A3A3A3] text-[10px] tracking-[1.2px] uppercase font-sans">512 TEAMS</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 4: NOTION -->
+        <div class="chroma-card p-[1px] rounded-[24px] bg-gradient-to-b from-white/10 via-white/5 to-transparent shadow-[0px_25px_50px_-12px_rgba(0,0,0,0.8)] relative group h-full cursor-pointer">
+          <div class="h-full rounded-[23px] bg-[rgba(15,15,15,0.95)] overflow-hidden relative shadow-[inset_0px_1px_1px_0px_rgba(255,255,255,0.1),inset_0px_-2px_4px_0px_rgba(0,0,0,0.9)] flex flex-col p-[24px] backdrop-blur-[64px]">
+            <img src="https://hoirqrkdgbmvpwutwuwj.supabase.co/storage/v1/object/public/assets/assets/20e4f973-d255-4520-bfe1-23b36f92e7c9_800w.webp" alt="Notion Docs" class="absolute inset-0 w-full h-full object-cover grayscale opacity-15 transition-transform duration-[15000ms] ease-out group-hover:scale-110 pointer-events-none">
+            <div class="absolute inset-0 bg-gradient-to-t from-[#000000]/95 via-[#000000]/80 to-transparent pointer-events-none"></div>
+
+            <div class="absolute inset-0 pointer-events-none transition-opacity duration-500 z-0 opacity-0 group-hover:opacity-100" style="background: radial-gradient(circle at var(--mouse-x, 50%) var(--mouse-y, 50%), rgba(255,255,255,0.1), transparent 60%);"></div>
+
+            <div class="relative z-10 flex flex-col h-full">
+              <div class="flex justify-between items-start mb-16">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="text-[#A3A3A3]"><rect width="18" height="18" x="3" y="3" rx="2"></rect><path d="M9 3v18"></path></svg>
+                <div class="flex items-center gap-2 px-2 py-1 bg-white/5 border border-white/10 rounded-[4px]">
+                  <div class="w-1.5 h-1.5 rounded-full bg-[#A3A3A3]"></div>
+                  <span class="text-[#A3A3A3] text-[10px] tracking-[1.2px] uppercase font-sans">Available</span>
+                </div>
+              </div>
+
+              <h3 class="text-[16px] text-[#FFFFFF] font-normal leading-[24px] uppercase mb-2 font-sans">
+                Notion
+              </h3>
+              <p class="text-[#A3A3A3] text-[12px] uppercase font-light leading-[19.5px] flex-grow mb-8 font-sans">
+                Sync roadmaps with your team docs. Two-way dataset updates keep everyone aligned at large scale.
+              </p>
+
+              <div class="flex justify-between items-end border-t border-white/10 pt-4">
+                <div class="flex -space-x-2">
+                  <div class="w-6 h-6 bg-[#000000] border border-white/10 rounded-full flex items-center justify-center text-[8px] text-[#FFFFFF] font-sans relative z-20">U9</div>
+                  <div class="w-6 h-6 bg-[#000000] border border-white/10 rounded-full flex items-center justify-center text-[8px] text-[#FFFFFF] font-sans relative z-10">U10</div>
+                </div>
+                <span class="text-[#A3A3A3] text-[10px] tracking-[1.2px] uppercase font-sans">389 TEAMS</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 5: LINEAR -->
+        <div class="chroma-card p-[1px] rounded-[24px] bg-gradient-to-b from-white/10 via-white/5 to-transparent shadow-[0px_25px_50px_-12px_rgba(0,0,0,0.8)] relative group h-full cursor-pointer">
+          <div class="h-full rounded-[23px] bg-[rgba(15,15,15,0.95)] overflow-hidden relative shadow-[inset_0px_1px_1px_0px_rgba(255,255,255,0.1),inset_0px_-2px_4px_0px_rgba(0,0,0,0.9)] flex flex-col p-[24px] backdrop-blur-[64px]">
+            <img src="https://hoirqrkdgbmvpwutwuwj.supabase.co/storage/v1/object/public/assets/assets/d570847f-b2be-4b89-b79a-648e283b7f4e_800w.webp" alt="Linear Integration" class="absolute inset-0 w-full h-full object-cover grayscale opacity-15 transition-transform duration-[15000ms] ease-out group-hover:scale-110 pointer-events-none">
+            <div class="absolute inset-0 bg-gradient-to-t from-[#000000]/95 via-[#000000]/80 to-transparent pointer-events-none"></div>
+
+            <div class="absolute inset-0 pointer-events-none transition-opacity duration-500 z-0 opacity-0 group-hover:opacity-100" style="background: radial-gradient(circle at var(--mouse-x, 50%) var(--mouse-y, 50%), rgba(255,255,255,0.1), transparent 60%);"></div>
+
+            <div class="relative z-10 flex flex-col h-full">
+              <div class="flex justify-between items-start mb-16">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="text-[#A3A3A3]"><path d="M20 7h-9"></path><path d="M14 17H5"></path><circle cx="17" cy="17" r="3"></circle><circle cx="7" cy="7" r="3"></circle></svg>
+                <div class="flex items-center gap-2 px-2 py-1 bg-white/5 border border-white/10 rounded-[4px]">
+                  <div class="w-1.5 h-1.5 rounded-full bg-[#A3A3A3]"></div>
+                  <span class="text-[#A3A3A3] text-[10px] tracking-[1.2px] uppercase font-sans">Available</span>
+                </div>
+              </div>
+
+              <h3 class="text-[16px] text-[#FFFFFF] font-normal leading-[24px] uppercase mb-2 font-sans">
+                Linear
+              </h3>
+              <p class="text-[#A3A3A3] text-[12px] uppercase font-light leading-[19.5px] flex-grow mb-8 font-sans">
+                Import existing issues and sync logic states. Maintain your workflow across systems seamlessly.
+              </p>
+
+              <div class="flex justify-between items-end border-t border-white/10 pt-4">
+                <div class="flex -space-x-2">
+                  <div class="w-6 h-6 bg-[#000000] border border-white/10 rounded-full flex items-center justify-center text-[8px] text-[#FFFFFF] font-sans relative z-20">U11</div>
+                  <div class="w-6 h-6 bg-[#000000] border border-white/10 rounded-full flex items-center justify-center text-[8px] text-[#FFFFFF] font-sans relative z-10">U12</div>
+                </div>
+                <span class="text-[#A3A3A3] text-[10px] tracking-[1.2px] uppercase font-sans">294 TEAMS</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 6: CUSTOM API -->
+        <div class="chroma-card p-[1px] rounded-[24px] bg-gradient-to-b from-[#A855F7]/30 via-white/5 to-transparent shadow-[0px_25px_50px_-12px_rgba(0,0,0,0.8)] relative group h-full cursor-pointer">
+          <div class="h-full rounded-[23px] bg-[rgba(15,15,15,0.95)] overflow-hidden relative shadow-[inset_0px_1px_1px_0px_rgba(255,255,255,0.1),inset_0px_-2px_4px_0px_rgba(0,0,0,0.9)] flex flex-col p-[24px] backdrop-blur-[64px]">
+            <img src="https://hoirqrkdgbmvpwutwuwj.supabase.co/storage/v1/object/public/assets/assets/08e0d7be-ab43-4f31-8421-2f7f95df2cc8_800w.webp" alt="API Gateway" class="absolute inset-0 w-full h-full object-cover grayscale opacity-20 transition-transform duration-[15000ms] ease-out group-hover:scale-110 pointer-events-none">
+            <div class="absolute inset-0 bg-gradient-to-t from-[#000000]/95 via-[#000000]/80 to-transparent pointer-events-none"></div>
+            <div class="absolute inset-0 shadow-[inset_0px_0px_25px_0px_rgba(168,85,247,0.1)] pointer-events-none"></div>
+
+            <div class="absolute inset-0 pointer-events-none transition-opacity duration-500 z-0 opacity-0 group-hover:opacity-100" style="background: radial-gradient(circle at var(--mouse-x, 50%) var(--mouse-y, 50%), rgba(255,255,255,0.1), transparent 60%);"></div>
+
+            <div class="relative z-10 flex flex-col h-full">
+              <div class="flex justify-between items-start mb-16">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="text-[#A855F7]"><path d="M9.671 4.136a2.34 2.34 0 0 1 4.659 0 2.34 2.34 0 0 0 3.319 1.915 2.34 2.34 0 0 1 2.33 4.033 2.34 2.34 0 0 0 0 3.831 2.34 2.34 0 0 1-2.33 4.033 2.34 2.34 0 0 0-3.319 1.915 2.34 2.34 0 0 1-4.659 0 2.34 2.34 0 0 0-3.32-1.915 2.34 2.34 0 0 1-2.33-4.033 2.34 2.34 0 0 0 0-3.831A2.34 2.34 0 0 1 6.35 6.051a2.34 2.34 0 0 0 3.319-1.915"></path><circle cx="12" cy="12" r="3"></circle></svg>
+                <div class="flex items-center gap-2 px-2 py-1 bg-[#A855F7]/10 border border-[#A855F7]/30 rounded-[4px]">
+                  <div class="w-1.5 h-1.5 rounded-full bg-[#A855F7] shadow-[0_0_8px_#A855F7] animate-pulse"></div>
+                  <span class="text-[#A855F7] text-[10px] tracking-[1.2px] uppercase font-sans">API Gateway</span>
+                </div>
+              </div>
+
+              <h3 class="text-[16px] text-[#FFFFFF] font-normal leading-[24px] uppercase mb-2 font-sans">
+                Custom Integration
+              </h3>
+              <p class="text-[#A3A3A3] text-[12px] uppercase font-light leading-[19.5px] flex-grow mb-8 font-sans">
+                Build your own data bridges with our REST API and secure webhooks. Full technical documentation available.
+              </p>
+
+              <div class="flex justify-between items-end border-t border-white/10 pt-4">
+                <a href="#" class="inline-flex items-center gap-2 text-[#A855F7] text-[10px] uppercase tracking-[1.2px] hover:text-[#FFFFFF] transition-colors duration-300 font-sans">
+                  View API Docs
+                  <svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"></path><path d="m12 5 7 7-7 7"></path></svg>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- ChromaGrid Overlays -->
+      <div class="absolute inset-[-20px] pointer-events-none z-30 rounded-[32px]" style="backdrop-filter: grayscale(1) brightness(0.78); -webkit-backdrop-filter: grayscale(1) brightness(0.78); background: rgba(0,0,0,0.001); mask-image: radial-gradient(circle var(--r) at var(--x) var(--y), transparent 0%, transparent 15%, rgba(0,0,0,0.10) 30%, rgba(0,0,0,0.22) 45%, rgba(0,0,0,0.35) 60%, rgba(0,0,0,0.50) 75%, rgba(0,0,0,0.68) 88%, white 100%); -webkit-mask-image: radial-gradient(circle var(--r) at var(--x) var(--y), transparent 0%, transparent 15%, rgba(0,0,0,0.10) 30%, rgba(0,0,0,0.22) 45%, rgba(0,0,0,0.35) 60%, rgba(0,0,0,0.50) 75%, rgba(0,0,0,0.68) 88%, white 100%);"></div>
+      <div id="chroma-fade" class="absolute inset-[-20px] pointer-events-none transition-opacity duration-[250ms] z-40 rounded-[32px]" style="backdrop-filter: grayscale(1) brightness(0.78); -webkit-backdrop-filter: grayscale(1) brightness(0.78); background: rgba(0,0,0,0.001); mask-image: radial-gradient(circle var(--r) at var(--x) var(--y), white 0%, white 15%, rgba(255,255,255,0.90) 30%, rgba(255,255,255,0.78) 45%, rgba(255,255,255,0.65) 60%, rgba(255,255,255,0.50) 75%, rgba(255,255,255,0.32) 88%, transparent 100%); -webkit-mask-image: radial-gradient(circle var(--r) at var(--x) var(--y), white 0%, white 15%, rgba(255,255,255,0.90) 30%, rgba(255,255,255,0.78) 45%, rgba(255,255,255,0.65) 60%, rgba(255,255,255,0.50) 75%, rgba(255,255,255,0.32) 88%, transparent 100%);"></div>
+    </div>
+
+    <!-- CTA Area -->
+    <div class="mt-24 text-center">
+      <button class="flex items-center justify-center gap-2 text-[#0F0F0F] text-[16px] font-normal leading-[24px] bg-[#FFFFFF] hover:bg-white/80 transition-colors duration-300 px-[24px] py-[10px] rounded-[8px] border border-white/10 mx-auto group uppercase font-sans">
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"></path><path d="M12 5v14"></path></svg>
+        <span>Initialize New Node</span>
+      </button>
+      <p class="mt-6 text-[#A3A3A3] text-[12px] uppercase font-light tracking-[0.1em] font-sans">
+        Can't find your tool? Request a custom neural link.
+      </p>
+    </div>
+  </div>
+
+  <script>
+    (function() {
+      const container = document.getElementById('chroma-grid-container');
+      const fade = document.getElementById('chroma-fade');
+      if (!container || !fade) return;
+
+      let currentX = container.offsetWidth / 2;
+      let currentY = container.offsetHeight / 2;
+      let targetX = currentX;
+      let targetY = currentY;
+
+      function animate() {
+        currentX += (targetX - currentX) * 0.15;
+        currentY += (targetY - currentY) * 0.15;
+        container.style.setProperty('--x', `${currentX}px`);
+        container.style.setProperty('--y', `${currentY}px`);
+        requestAnimationFrame(animate);
+      }
+      requestAnimationFrame(animate);
+
+      container.addEventListener('pointermove', (e) => {
+        const rect = container.getBoundingClientRect();
+        targetX = e.clientX - rect.left;
+        targetY = e.clientY - rect.top;
+        fade.style.opacity = '0';
+      });
+
+      container.addEventListener('pointerleave', () => {
+        fade.style.opacity = '1';
+      });
+
+      document.querySelectorAll('.chroma-card').forEach(card => {
+        card.addEventListener('mousemove', (e) => {
+          const rect = card.getBoundingClientRect();
+          card.style.setProperty('--mouse-x', `${e.clientX - rect.left}px`);
+          card.style.setProperty('--mouse-y', `${e.clientY - rect.top}px`);
+        });
+      });
+    })();
+  </script>
+</section>
+
+    
+
+    <!-- CTA -->
+    <section class="relative">
+      <div class="sm:px-6 lg:px-8 max-w-6xl mr-auto ml-auto pr-4 pb-8 pl-4">
+  <div class="grid gap-10 pt-4 md:grid-cols-12 md:gap-8 md:pt-8">
+    <div class="md:col-span-7 lg:col-span-8">
+      <h1 class="leading-none sm:text-7xl lg:text-[128px] lg:leading-[128px] text-5xl font-medium text-white tracking-tight uppercase font-sans">
+        <span class="block text-[#FFFFFF] pt-0 pb-3">Plan smart.</span>
+        <span class="block bg-clip-text text-transparent bg-gradient-to-r from-[#A855F7]/50 to-[#A855F7] pt-0 pb-3">Build faster.</span>
+      </h1>
+      <div class="mt-6 flex flex-wrap items-center gap-4 text-[12px] font-light leading-[19.5px] text-[#A3A3A3] uppercase">
+        <div class="flex items-center gap-2 font-sans">
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" data-lucide="zap" aria-hidden="true" class="lucide lucide-zap h-4 w-4 text-[#A855F7]"><path d="M4 14a1 1 0 0 1-.78-1.63l9.9-10.2a.5.5 0 0 1 .86.46l-1.92 6.02A1 1 0 0 0 13 10h7a1 1 0 0 1 .78 1.63l-9.9 10.2a.5.5 0 0 1-.86-.46l1.92-6.02A1 1 0 0 0 11 14z"></path></svg>
+          AI-powered
+        </div>
+        <div class="h-px w-12 bg-white/10 hidden sm:block"></div>
+        <div class="flex items-center gap-2 font-sans">
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" data-lucide="users" aria-hidden="true" class="lucide lucide-users h-4 w-4 text-[#A855F7]"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"></path><path d="M16 3.128a4 4 0 0 1 0 7.744"></path><path d="M22 21v-2a4 4 0 0 0-3-3.87"></path><circle cx="9" cy="7" r="4"></circle></svg>
+          Team collaboration
+        </div>
+      </div>
+    </div>
+    <div class="md:col-span-5 lg:col-span-4 flex flex-col justify-center">
+      <p class="text-[12px] font-light leading-[19.5px] text-[#A3A3A3] font-sans uppercase">Turn ideas into shipped features. Plan sprints, track progress, and collaborate seamlessly—all in one powerful workspace.</p>
+      <div class="mt-8 flex flex-wrap items-center gap-6">
+        <button class="inline-flex items-center gap-2 text-[#0F0F0F] text-[16px] font-normal leading-[24px] bg-[#FFFFFF] rounded-[8px] p-[10px] border border-white/10 uppercase transition-colors hover:bg-white/80">
+          Start free trial
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" data-lucide="arrow-right" aria-hidden="true" class="lucide lucide-arrow-right w-4 h-4"><path d="M5 12h14"></path><path d="m12 5 7 7-7 7"></path></svg>
+        </button>
+        <button class="inline-flex items-center gap-2 rounded-none p-0 text-[16px] font-normal leading-[24px] text-[#A3A3A3] uppercase hover:text-[#FFFFFF] transition-colors">
+          Watch demo
+          <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" data-lucide="play" aria-hidden="true" class="lucide lucide-play h-4 w-4"><path d="M5 5a2 2 0 0 1 3.008-1.728l11.997 6.998a2 2 0 0 1 .003 3.458l-12 7A2 2 0 0 1 5 19z"></path></svg>
+        </button>
+      </div>
+    </div>
+  </div>
+  
+  <div class="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3 mt-16">
+    <!-- Card 1 -->
+    <article class="p-[1px] rounded-[24px] bg-gradient-to-b from-white/10 via-white/5 to-transparent relative group">
+      <div class="relative overflow-hidden h-full bg-[rgba(15,15,15,0.95)] rounded-[23px] p-[24px] shadow-[inset_0px_1px_1px_0px_rgba(255,255,255,0.1),inset_0px_-2px_4px_0px_rgba(0,0,0,0.9)] backdrop-blur-[64px] flex flex-col">
+        <div class="flex items-start justify-between z-10">
+          <span class="inline-flex items-center rounded-[4px] bg-white/5 border border-white/10 px-2 py-1 text-[12px] font-light uppercase text-[#A3A3A3] font-sans">Popular</span>
+          <button class="inline-flex h-8 w-8 items-center justify-center rounded-[8px] border border-white/10 bg-white/5 text-[#A3A3A3] hover:text-[#FFFFFF] transition-colors" aria-label="Open">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" data-lucide="expand" aria-hidden="true" class="lucide lucide-expand h-4 w-4"><path d="m15 15 6 6"></path><path d="m15 9 6-6"></path><path d="M21 16v5h-5"></path><path d="M21 8V3h-5"></path><path d="M3 16v5h5"></path><path d="m3 21 6-6"></path><path d="M3 8V3h5"></path><path d="M9 9 3 3"></path></svg>
+          </button>
+        </div>
+        <div class="z-10 mt-6 flex-grow">
+          <h3 class="text-[16px] font-normal leading-[24px] uppercase text-[#FFFFFF] font-sans">Sprint planning</h3>
+          <p class="text-[12px] font-light leading-[19.5px] text-[#A3A3A3] mt-2 uppercase">Organize features into sprints. Track velocity and team capacity.</p>
+        </div>
+        <div class="mt-6 overflow-hidden rounded-[16px] border border-white/5 z-10">
+          <img alt="planning board" class="aspect-[3/4] w-full object-cover grayscale opacity-70 group-hover:opacity-100 transition-opacity duration-700" src="https://hoirqrkdgbmvpwutwuwj.supabase.co/storage/v1/object/public/assets/assets/29dd441c-b152-4b38-9344-09c4c69cf4d3_800w.webp">
+        </div>
+      </div>
+    </article>
+
+    <!-- Card 2 -->
+    <article class="p-[1px] rounded-[24px] bg-gradient-to-b from-white/10 via-white/5 to-transparent relative group">
+      <div class="relative overflow-hidden h-full bg-[rgba(15,15,15,0.95)] rounded-[23px] p-[24px] shadow-[inset_0px_1px_1px_0px_rgba(255,255,255,0.1),inset_0px_-2px_4px_0px_rgba(0,0,0,0.9)] backdrop-blur-[64px] flex flex-col">
+        <div class="flex items-start justify-between z-10">
+          <span class="inline-flex items-center rounded-[4px] bg-white/5 border border-white/10 px-2 py-1 text-[12px] font-light uppercase text-[#A3A3A3] font-sans">Real-time</span>
+          <button class="inline-flex h-8 w-8 items-center justify-center rounded-[8px] border border-white/10 bg-white/5 text-[#A3A3A3] hover:text-[#FFFFFF] transition-colors" aria-label="Open">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" data-lucide="users" aria-hidden="true" class="lucide lucide-users h-4 w-4"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"></path><path d="M16 3.128a4 4 0 0 1 0 7.744"></path><path d="M22 21v-2a4 4 0 0 0-3-3.87"></path><circle cx="9" cy="7" r="4"></circle></svg>
+          </button>
+        </div>
+        <div class="z-10 mt-6 flex-grow">
+          <h3 class="text-[16px] font-normal leading-[24px] uppercase text-[#FFFFFF] font-sans">Team collaboration</h3>
+          <p class="text-[12px] font-light leading-[19.5px] text-[#A3A3A3] mt-2 uppercase">Work together seamlessly. Live cursors, comments, and updates.</p>
+        </div>
+        <div class="mt-6 overflow-hidden rounded-[16px] border border-white/5 z-10">
+          <img alt="team working" class="aspect-[3/4] w-full object-cover grayscale opacity-70 group-hover:opacity-100 transition-opacity duration-700" src="https://hoirqrkdgbmvpwutwuwj.supabase.co/storage/v1/object/public/assets/assets/4affdc79-17b4-44eb-bcc9-3e1e2650e990_800w.webp">
+        </div>
+      </div>
+    </article>
+
+    <!-- Card 3 -->
+    <article class="p-[1px] rounded-[24px] bg-gradient-to-b from-white/10 via-white/5 to-transparent relative group">
+      <div class="relative overflow-hidden h-full bg-[rgba(15,15,15,0.95)] rounded-[23px] p-[24px] shadow-[inset_0px_1px_1px_0px_rgba(255,255,255,0.1),inset_0px_-2px_4px_0px_rgba(0,0,0,0.9)] backdrop-blur-[64px] flex flex-col">
+        <div class="flex items-start justify-between z-10">
+          <span class="inline-flex items-center rounded-[4px] bg-white/5 border border-white/10 px-2 py-1 text-[12px] font-light uppercase text-[#A3A3A3] font-sans">Insights</span>
+          <button class="inline-flex h-8 w-8 items-center justify-center rounded-[8px] border border-white/10 bg-white/5 text-[#A3A3A3] hover:text-[#FFFFFF] transition-colors" aria-label="Open">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" data-lucide="trending-up" aria-hidden="true" class="lucide lucide-trending-up h-4 w-4"><path d="M16 7h6v6"></path><path d="m22 7-8.5 8.5-5-5L2 17"></path></svg>
+          </button>
+        </div>
+        <div class="z-10 mt-6 flex-grow">
+          <h3 class="text-[16px] font-normal leading-[24px] uppercase text-[#FFFFFF] font-sans">Analytics dashboard</h3>
+          <p class="text-[12px] font-light leading-[19.5px] text-[#A3A3A3] mt-2 uppercase">Track progress with burndown charts, velocity metrics, and forecasts.</p>
+        </div>
+        <div class="mt-6 overflow-hidden rounded-[16px] border border-white/5 z-10">
+          <img alt="analytics" class="aspect-[3/4] w-full object-cover grayscale opacity-70 group-hover:opacity-100 transition-opacity duration-700" src="https://hoirqrkdgbmvpwutwuwj.supabase.co/storage/v1/object/public/assets/assets/849bf312-6777-4fc7-bc02-17940cb1f1e1_800w.webp">
+        </div>
+      </div>
+    </article>
+  </div>
+</div>
+    </section><section class="z-10 relative py-24">
+  <div class="max-w-[1600px] sm:px-6 lg:px-8 mx-auto px-4">
+    <div class="text-center mb-16 flex flex-col items-center">
+      <div class="text-[#A855F7] text-[12px] uppercase font-light mb-6 tracking-[1.2px]">
+        [ SYS.TRUSTED ]
+      </div>
+      <h2 class="sm:text-5xl text-4xl font-medium text-[#FFFFFF] tracking-tight uppercase font-sans">Trusted by innovative teams</h2>
+      <p class="mt-6 text-[12px] text-[#A3A3A3] font-light uppercase tracking-[0.1em] max-w-2xl leading-[19.5px]">Join thousands of product teams shipping faster with Nova</p>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 max-w-6xl mx-auto">
+      <div class="p-[1px] rounded-[24px] bg-gradient-to-b from-white/10 via-white/5 to-transparent relative group">
+        <div class="relative overflow-hidden h-full bg-[rgba(15,15,15,0.95)] rounded-[23px] p-[24px] shadow-[inset_0px_1px_1px_0px_rgba(255,255,255,0.1),inset_0px_-2px_4px_0px_rgba(0,0,0,0.9)] backdrop-blur-[64px] flex flex-col">
+          <div class="flex items-start gap-4 z-10">
+            <div class="flex flex-shrink-0 bg-white/5 border border-white/10 w-12 h-12 rounded-[12px] items-center justify-center">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="h-5 w-5 text-[#FFFFFF]"><path d="M12 2v20M2 12h20"></path></svg>
+            </div>
+            <div class="flex-1">
+              <h3 class="text-[16px] font-normal tracking-tight uppercase text-[#FFFFFF] font-sans">TechFlow Inc</h3>
+              <p class="mt-3 text-[12px] font-light leading-[19.5px] text-[#A3A3A3] uppercase">"Nova transformed how we plan sprints. Our team velocity increased by 40% in just two quarters."</p>
+              <div class="mt-6 pt-6 border-t border-white/10 flex items-center gap-3">
+                <div class="w-10 h-10 bg-[url(https://hoirqrkdgbmvpwutwuwj.supabase.co/storage/v1/object/public/assets/assets/029a3dbc-6c87-4223-b3c1-e98710044e50_320w.webp)] bg-cover bg-center rounded-[8px] border border-white/10 grayscale opacity-80 group-hover:opacity-100 transition-opacity"></div>
+                <div class="">
+                  <p class="text-[12px] font-normal text-[#FFFFFF] uppercase">Sarah Chen</p>
+                  <p class="text-[10px] font-light text-[#A855F7] uppercase tracking-[0.1em] mt-0.5">VP of Engineering</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="p-[1px] rounded-[24px] bg-gradient-to-b from-white/10 via-white/5 to-transparent relative group">
+        <div class="relative overflow-hidden h-full bg-[rgba(15,15,15,0.95)] rounded-[23px] p-[24px] shadow-[inset_0px_1px_1px_0px_rgba(255,255,255,0.1),inset_0px_-2px_4px_0px_rgba(0,0,0,0.9)] backdrop-blur-[64px] flex flex-col">
+          <div class="flex items-start gap-4 z-10">
+            <div class="flex flex-shrink-0 bg-white/5 border border-white/10 w-12 h-12 rounded-[12px] items-center justify-center">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="h-5 w-5 text-[#FFFFFF]"><circle cx="12" cy="12" r="10"></circle><path d="m9 12 2 2 4-4"></path></svg>
+            </div>
+            <div class="flex-1">
+              <h3 class="text-[16px] font-normal tracking-tight uppercase text-[#FFFFFF] font-sans">Pixel Studios</h3>
+              <p class="mt-3 text-[12px] font-light leading-[19.5px] text-[#A3A3A3] uppercase">"The roadmap visualization helped us align stakeholders and ship our biggest feature on time."</p>
+              <div class="mt-6 pt-6 border-t border-white/10 flex items-center gap-3">
+                <div class="w-10 h-10 bg-[url(https://hoirqrkdgbmvpwutwuwj.supabase.co/storage/v1/object/public/assets/assets/e922b9a1-2ac4-4361-a852-37eedd0618d4_320w.webp)] bg-cover bg-center rounded-[8px] border border-white/10 grayscale opacity-80 group-hover:opacity-100 transition-opacity"></div>
+                <div>
+                  <p class="text-[12px] font-normal text-[#FFFFFF] uppercase">Marcus Rodriguez</p>
+                  <p class="text-[10px] font-light text-[#A855F7] uppercase tracking-[0.1em] mt-0.5">Head of Product</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="p-[1px] rounded-[24px] bg-gradient-to-b from-white/10 via-white/5 to-transparent relative group">
+        <div class="relative overflow-hidden h-full bg-[rgba(15,15,15,0.95)] rounded-[23px] p-[24px] shadow-[inset_0px_1px_1px_0px_rgba(255,255,255,0.1),inset_0px_-2px_4px_0px_rgba(0,0,0,0.9)] backdrop-blur-[64px] flex flex-col">
+          <div class="flex items-start gap-4 z-10">
+            <div class="flex flex-shrink-0 bg-white/5 border border-white/10 w-12 h-12 rounded-[12px] items-center justify-center">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="h-5 w-5 text-[#FFFFFF]"><path d="M4 14a1 1 0 0 1-.78-1.63l9.9-10.2a.5.5 0 0 1 .86.46l-1.92 6.02A1 1 0 0 0 13 10h7a1 1 0 0 1 .78 1.63l-9.9 10.2a.5.5 0 0 1-.86-.46l1.92-6.02A1 1 0 0 0 11 14z"></path></svg>
+            </div>
+            <div class="flex-1">
+              <h3 class="text-[16px] font-normal tracking-tight uppercase text-[#FFFFFF] font-sans">CloudScale</h3>
+              <p class="mt-3 text-[12px] font-light leading-[19.5px] text-[#A3A3A3] uppercase">"AI sprint planning saves us hours every week. It's like having an extra product manager on the team."</p>
+              <div class="mt-6 pt-6 border-t border-white/10 flex items-center gap-3">
+                <div class="w-10 h-10 bg-[url(https://hoirqrkdgbmvpwutwuwj.supabase.co/storage/v1/object/public/assets/assets/5225bc30-0a01-41cb-a743-72d80d0ebc8b_320w.webp)] bg-cover bg-center rounded-[8px] border border-white/10 grayscale opacity-80 group-hover:opacity-100 transition-opacity"></div>
+                <div>
+                  <p class="text-[12px] font-normal text-[#FFFFFF] uppercase">Jessica Park</p>
+                  <p class="text-[10px] font-light text-[#A855F7] uppercase tracking-[0.1em] mt-0.5">CTO</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="mt-24 max-w-4xl mx-auto">
+      <div class="text-center mb-8">
+        <p class="text-[10px] font-light text-[#A3A3A3] uppercase tracking-[0.2em]">Synchronized Across Networks</p>
+      </div>
+      <div class="grid grid-cols-2 md:grid-cols-4 gap-8 items-center justify-items-center opacity-60">
+        <div class="text-[#FFFFFF] text-[16px] font-medium tracking-[0.1em] uppercase">Acme Corp</div>
+        <div class="text-[#FFFFFF] text-[16px] font-medium tracking-[0.1em] uppercase">BuildFast</div>
+        <div class="text-[#FFFFFF] text-[16px] font-medium tracking-[0.1em] uppercase">DevStream</div>
+        <div class="text-[#FFFFFF] text-[16px] font-medium tracking-[0.1em] uppercase">NextGen</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+    <section class="z-10 mt-10 relative">
+      <div class="max-w-5xl sm:px-6 lg:px-8 mr-auto ml-auto pr-4 pb-20 pl-4">
+        <div class="p-[1px] rounded-[24px] bg-gradient-to-b from-white/10 via-white/5 to-transparent shadow-[0px_25px_50px_-12px_rgba(0,0,0,0.8)] relative group max-w-4xl mx-auto">
+          <div class="relative overflow-hidden h-full bg-[rgba(15,15,15,0.95)] rounded-[23px] px-[24px] py-[64px] sm:px-[64px] sm:py-[80px] shadow-[inset_0px_1px_1px_0px_rgba(255,255,255,0.1),inset_0px_-2px_4px_0px_rgba(0,0,0,0.9)] backdrop-blur-[64px] flex flex-col items-center text-center">
+            
+            <img src="https://hoirqrkdgbmvpwutwuwj.supabase.co/storage/v1/object/public/assets/assets/9e0e0c01-d572-4307-82b4-b6b6b6027522_1600w.webp" alt="Background Texture" class="absolute inset-0 w-full h-full object-cover grayscale opacity-15 transition-transform duration-[15000ms] ease-out group-hover:scale-110 pointer-events-none">
+            <div class="absolute inset-0 bg-gradient-to-t from-[#000000]/95 via-[#000000]/80 to-transparent pointer-events-none"></div>
+
+            <div class="relative z-10 flex flex-col items-center">
+              <div class="text-[#A855F7] text-[12px] uppercase font-light mb-6 tracking-[1.2px] font-sans">
+                [ SYS.DEPLOY ]
+              </div>
+              <h2 class="text-4xl sm:text-5xl font-medium tracking-tight text-[#FFFFFF] uppercase font-sans">Ship your best work yet</h2>
+              <p class="mt-6 text-[12px] text-[#A3A3A3] font-light uppercase tracking-[0.1em] max-w-2xl leading-[19.5px] font-sans">Start planning smarter today. Free for small teams.</p>
+              
+              <div class="mt-10 flex flex-col sm:flex-row items-center justify-center gap-6 w-full sm:w-auto">
+                <a href="#" class="inline-flex items-center justify-center gap-2 text-[#0F0F0F] text-[16px] font-normal leading-[24px] bg-[#FFFFFF] hover:bg-white/80 transition-colors duration-300 px-[24px] py-[10px] rounded-[8px] border border-white/10 uppercase font-sans w-full sm:w-auto">
+                  Start building
+                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" data-lucide="arrow-right" aria-hidden="true" class="lucide lucide-arrow-right"><path d="M5 12h14"></path><path d="m12 5 7 7-7 7"></path></svg>
+                </a>
+                <a href="#" class="inline-flex items-center justify-center gap-2 rounded-none p-0 text-[16px] font-normal leading-[24px] text-[#A3A3A3] uppercase hover:text-[#FFFFFF] transition-colors font-sans w-full sm:w-auto">
+                  Talk to sales
+                  <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" data-lucide="arrow-right" aria-hidden="true" class="lucide lucide-arrow-right"><path d="M5 12h14"></path><path d="m12 5 7 7-7 7"></path></svg>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="z-10 border-white/10 border-t relative">
+  <div class="max-w-7xl sm:px-6 lg:px-8 mr-auto ml-auto pt-16 pr-4 pb-8 pl-4">
+    <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-8 mb-16">
+      <div class="col-span-2 lg:col-span-2">
+        <a href="#" class="inline-flex items-center justify-center bg-center w-[80px] h-[36px] bg-[url(https://hoirqrkdgbmvpwutwuwj.supabase.co/storage/v1/object/public/assets/assets/f7466370-2832-4fdd-84c2-0932bb0dd850_800w.png)] bg-cover rounded-full mb-6"></a>
+        <p class="text-[#A3A3A3] text-[14px] max-w-sm font-light leading-[24px]">
+          Plan smarter, ship faster. Nova helps you plan product roadmaps, collaborate with your team, and ship features seamlessly.
+        </p>
+        <div class="flex items-center gap-4 mt-6">
+          <a href="#" class="text-[#A3A3A3] hover:text-[#FFFFFF] transition-colors">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-twitter"><path d="M22 4s-.7 2.1-2 3.4c1.6 10-9.4 17.3-18 11.6 2.2.1 4.4-.6 6-2C3 15.5.5 9.6 3 5c2.2 2.6 5.6 4.1 9 4-.9-4.2 4-6.6 7-3.8 1.1 0 3-1.2 3-1.2z"></path></svg>
+          </a>
+          <a href="#" class="text-[#A3A3A3] hover:text-[#FFFFFF] transition-colors">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-github"><path d="M15 22v-4a4.8 4.8 0 0 0-1-3.5c3 0 6-2 6-5.5.08-1.25-.27-2.48-1-3.5.28-1.15.28-2.35 0-3.5 0 0-1 0-3 1.5-2.64-.5-5.36-.5-8 0C6 2 5 2 5 2c-.3 1.15-.3 2.35 0 3.5A5.403 5.403 0 0 0 4 9c0 3.5 3 5.5 6 5.5-.39.49-.68 1.05-.85 1.65-.17.6-.22 1.23-.15 1.85v4"></path><path d="M9 18c-4.51 2-5-2-7-2"></path></svg>
+          </a>
+          <a href="#" class="text-[#A3A3A3] hover:text-[#FFFFFF] transition-colors">
+            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-linkedin"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect width="4" height="12" x="2" y="9"></rect><circle cx="4" cy="4" r="2"></circle></svg>
+          </a>
+        </div>
+      </div>
+      
+      <div>
+        <h3 class="text-[#FFFFFF] font-medium text-[14px] mb-4">Product</h3>
+        <ul class="space-y-3">
+          <li><a href="#" class="text-[#A3A3A3] hover:text-[#FFFFFF] text-[14px] transition-colors font-light">Features</a></li>
+          <li><a href="#" class="text-[#A3A3A3] hover:text-[#FFFFFF] text-[14px] transition-colors font-light">Integrations</a></li>
+          <li><a href="#" class="text-[#A3A3A3] hover:text-[#FFFFFF] text-[14px] transition-colors font-light">Pricing</a></li>
+          <li><a href="#" class="text-[#A3A3A3] hover:text-[#FFFFFF] text-[14px] transition-colors font-light">Changelog</a></li>
+          <li><a href="#" class="text-[#A3A3A3] hover:text-[#FFFFFF] text-[14px] transition-colors font-light">Docs</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h3 class="text-[#FFFFFF] font-medium text-[14px] mb-4">Company</h3>
+        <ul class="space-y-3">
+          <li><a href="#" class="text-[#A3A3A3] hover:text-[#FFFFFF] text-[14px] transition-colors font-light">About Us</a></li>
+          <li><a href="#" class="text-[#A3A3A3] hover:text-[#FFFFFF] text-[14px] transition-colors font-light">Careers</a></li>
+          <li><a href="#" class="text-[#A3A3A3] hover:text-[#FFFFFF] text-[14px] transition-colors font-light">Blog</a></li>
+          <li><a href="#" class="text-[#A3A3A3] hover:text-[#FFFFFF] text-[14px] transition-colors font-light">Contact</a></li>
+          <li><a href="#" class="text-[#A3A3A3] hover:text-[#FFFFFF] text-[14px] transition-colors font-light">Customers</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h3 class="text-[#FFFFFF] font-medium text-[14px] mb-4">Legal</h3>
+        <ul class="space-y-3">
+          <li><a href="#" class="text-[#A3A3A3] hover:text-[#FFFFFF] text-[14px] transition-colors font-light">Privacy Policy</a></li>
+          <li><a href="#" class="text-[#A3A3A3] hover:text-[#FFFFFF] text-[14px] transition-colors font-light">Terms of Service</a></li>
+          <li><a href="#" class="text-[#A3A3A3] hover:text-[#FFFFFF] text-[14px] transition-colors font-light">Cookie Policy</a></li>
+          <li><a href="#" class="text-[#A3A3A3] hover:text-[#FFFFFF] text-[14px] transition-colors font-light">Security</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="flex flex-col md:flex-row items-center justify-between gap-4 pt-8 border-t border-white/10">
+      <div class="flex items-center gap-3">
+        <span class="text-[14px] font-light text-[#A3A3A3]">© 2025 Nova Labs. All rights reserved.</span>
+      </div>
+      <div class="flex items-center gap-4 text-[14px] text-[#A3A3A3] font-light">
+        <div class="flex items-center gap-2">
+          <span class="w-2 h-2 rounded-full bg-emerald-500 shadow-[0_0_8px_rgba(16,185,129,0.5)]"></span>
+          <a href="#" class="hover:text-[#FFFFFF] transition-colors">All systems operational</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</footer>
+
+    <script src="https://unpkg.com/lucide@latest" class=""></script>
+    <script class="">
+      window.addEventListener('DOMContentLoaded', () => {
+        lucide.createIcons();
+      });
+    </script>
+  
+</body></html>

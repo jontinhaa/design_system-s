@@ -1,0 +1,402 @@
+<!DOCTYPE html><html lang="fr" dir="ltr" style="overflow-x: hidden;"> <head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover"><!-- Transitions inter-pages : le voile doit être posé AVANT le premier paint,
+         sinon la page apparaît puis se recouvre. Garde-fou : si le bundle ne se
+         charge pas, le voile est levé au bout de 2,5 s. --><script>
+      (function () {
+        try {
+          var raw = sessionStorage.getItem("studiors:pt");
+          var r = document.documentElement;
+          if (!raw) {
+            /* Retour navigateur SANS bfcache (rechargement complet) : voile sombre
+               pré-paint, levé en fondu par le bundle après resynchro des vidéos. */
+            var nav = performance.getEntriesByType("navigation")[0];
+            if (
+              nav && nav.type === "back_forward" &&
+              !window.matchMedia("(prefers-reduced-motion: reduce)").matches
+            ) {
+              r.classList.add("is-arriving", "is-arriving-back");
+              setTimeout(function () {
+                r.classList.remove("is-arriving", "is-arriving-back", "is-veil-lift");
+              }, 2500);
+            }
+            return;
+          }
+          var d = JSON.parse(raw);
+          r.classList.add("is-arriving");
+          if (d.type === "img" && d.src) {
+            r.classList.add("is-arriving-img");
+            r.style.setProperty("--pt-img", 'url("' + String(d.src).split(String.fromCharCode(34)).join("") + '")');
+          } else if (d.type !== "vid") {
+            r.classList.add("is-arriving-hyb");
+          }
+          /* type "vid" : voile sombre nu ; le ghost vidéo posé par le bundle
+             reprend le film au timecode quitté dès qu'il s'exécute. */
+          setTimeout(function () {
+            r.classList.remove("is-arriving", "is-arriving-img", "is-arriving-hyb");
+          }, 2500);
+        } catch (e) {}
+      })();
+    </script><!-- Sans JavaScript, les éléments animés à l'entrée resteraient invisibles :
+         on rétablit leur état final (contenu complet, statique). --><noscript><style>.preloader{display:none}[data-reveal],[data-split]{opacity:1!important;transform:none!important}.manifesto__text .w{opacity:1!important}.archive__filters{display:none!important}</style></noscript><!-- Origine média : DNS+TLS payés AVANT la première image (hero, logos, vidéos). --><link rel="preconnect" href="https://media.studiors.be"><!-- Favicons & Icons.
+         ⚠ Le SVG seul ne suffit PAS pour la SERP : Google et Bing exigent un raster
+         carré d'au moins 48×48 et vont chercher /favicon.ico en priorité (il était
+         absent → 404 → aucune icône affichée dans les résultats). Le glyphe brut est
+         crème sur fond TRANSPARENT : posé sur le blanc d'une page de résultats, il
+         disparaît. Les rasters (scripts/build-favicons.mjs) le composent donc sur le
+         fond dark de la DA. Ordre : .ico d'abord (moteurs), SVG ensuite (navigateurs
+         modernes, qui préfèrent le vectoriel). --><link rel="icon" href="/favicon.ico" sizes="32x32"><link rel="icon" type="image/png" sizes="48x48" href="/favicon-48.png"><link rel="icon" type="image/svg+xml" href="/favicon.svg"><link rel="apple-touch-icon" sizes="180x180" href="/favicon-180.png"><link rel="manifest" href="/site.webmanifest"><meta name="theme-color" content="#0E0E0D"><meta name="mobile-web-app-capable" content="yes"><!-- Polices studiors (woff2 auto-hébergées, public/fonts/) : les @font-face sont
+         DÉRIVÉS des fichiers réellement déposés (src/lib/fonts.ts). Tant qu'un woff2
+         manque, aucune règle ne le réclame — donc zéro 404 mis en cache. --><!-- Preload des coupes visibles au-dessus de la ligne de flottaison. --><!-- Preload Hero (Above the Fold) : imagesrcset/imagesizes identiques au <img>
+         du hero (même helper fleetImage), sinon double téléchargement original+variante.
+         Pas de preload vidéo (as="video" non fiable + le <video preload> gère). --><!-- Generator --><meta name="generator" content="Astro v6.4.5"><!-- SEO Principal --><title>studiors — studio web en Brabant wallon | UI/UX &amp; sites sur mesure</title><meta name="description" content="studiors est le studio de web design de Romain Savigny, en Brabant wallon : UI/UX design, création de sites web sur mesure et développement full-stack."><meta name="keywords" content="studiors, web design Belgique, UI design, UX design, création de site web sur mesure, développement web full-stack, développeur Astro, motion design, Romain Savigny"><meta name="author" content="studiors"><link rel="canonical" href="https://studiors.be/"><!-- Robots --><meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1"><meta name="googlebot" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1"><meta name="bingbot" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1"><!-- Open Graph / Facebook --><meta property="og:type" content="website"><meta property="og:url" content="https://studiors.be/"><meta property="og:title" content="studiors — studio web en Brabant wallon | UI/UX &amp; sites sur mesure"><meta property="og:description" content="studiors est le studio de web design de Romain Savigny, en Brabant wallon : UI/UX design, création de sites web sur mesure et développement full-stack."><meta property="og:image" content="https://studiors.be/og-default.png"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630"><meta property="og:image:alt" content="studiors — studio web en Brabant wallon | UI/UX &amp; sites sur mesure"><meta property="og:locale" content="fr_FR"><meta property="og:site_name" content="studiors"><meta property="og:updated_time" content="2026-10-06T15:02:06+02:00"><!-- Twitter Card --><meta name="twitter:card" content="summary_large_image"><meta name="twitter:url" content="https://studiors.be/"><meta name="twitter:title" content="studiors — studio web en Brabant wallon | UI/UX &amp; sites sur mesure"><meta name="twitter:description" content="studiors est le studio de web design de Romain Savigny, en Brabant wallon : UI/UX design, création de sites web sur mesure et développement full-stack."><meta name="twitter:image" content="https://studiors.be/og-default.png"><meta name="twitter:image:alt" content="studiors — studio web en Brabant wallon | UI/UX &amp; sites sur mesure"><!-- Additional SEO --><meta name="format-detection" content="telephone=no"><meta name="apple-mobile-web-app-capable" content="yes"><meta name="apple-mobile-web-app-status-bar-style" content="black-translucent"><!-- Structured Data (JSON-LD) --><script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@type":"ProfessionalService","@id":"https://studiors.be/#organization","name":"studiors","alternateName":["studiors.be","studiors, studio web"],"disambiguatingDescription":"studiors (en un seul mot, tout en minuscules) est le studio de web design et de développement web de Romain Savigny, basé en Brabant wallon (Belgique) et actif à Bruxelles. Il conçoit des interfaces (UI/UX design) et développe des sites web sur mesure.","url":"https://studiors.be","mainEntityOfPage":{"@id":"https://studiors.be/#website"},"logo":{"@type":"ImageObject","url":"https://studiors.be/favicon-512.png","width":512,"height":512,"caption":"Logo studiors"},"image":"https://studiors.be/og-default.png","description":"Studio web indépendant en Brabant wallon (Belgique) : UI/UX design, direction visuelle, motion design et développement web sur mesure.","slogan":"Des sites sur mesure, dessinés et développés par la même personne.","founder":{"@id":"https://studiors.be/#romain-sav"},"founders":[{"@id":"https://studiors.be/#romain-sav"}],"employee":{"@id":"https://studiors.be/#romain-sav"},"knowsAbout":["Web design","UI design","UX design","Direction artistique web","Motion design","Développement web full-stack","Développement front-end","Création de site internet sur mesure","Astro","JavaScript","TinaCMS","GSAP","WebGL"],"serviceType":["Web design","UI/UX design","Création de site web sur mesure","Développement web full-stack","Motion design"],"hasOfferCatalog":{"@type":"OfferCatalog","name":"Prestations studiors","itemListElement":[{"@type":"Offer","position":1,"itemOffered":{"@type":"Service","name":"Direction visuelle","description":"Identité web, couleurs, typographies et logo.","provider":{"@id":"https://studiors.be/#organization"},"areaServed":[{"@type":"AdministrativeArea","name":"Brabant wallon"},{"@type":"City","name":"Bruxelles"},{"@type":"Country","name":"Belgique"},{"@type":"Country","name":"France"},{"@type":"Country","name":"Luxembourg"}],"url":"https://studiors.be/services/direction-visuelle/"}},{"@type":"Offer","position":2,"itemOffered":{"@type":"Service","name":"UI / UX design","description":"Maquettes d'interface, parcours utilisateur et prototypes.","provider":{"@id":"https://studiors.be/#organization"},"areaServed":[{"@type":"AdministrativeArea","name":"Brabant wallon"},{"@type":"City","name":"Bruxelles"},{"@type":"Country","name":"Belgique"},{"@type":"Country","name":"France"},{"@type":"Country","name":"Luxembourg"}],"url":"https://studiors.be/services/ui-ux-design/"}},{"@type":"Offer","position":3,"itemOffered":{"@type":"Service","name":"Sites web sur mesure","description":"Sites vitrines, portfolios et landing pages conçus et développés sur mesure.","provider":{"@id":"https://studiors.be/#organization"},"areaServed":[{"@type":"AdministrativeArea","name":"Brabant wallon"},{"@type":"City","name":"Bruxelles"},{"@type":"Country","name":"Belgique"},{"@type":"Country","name":"France"},{"@type":"Country","name":"Luxembourg"}],"url":"https://studiors.be/services/site-web-sur-mesure/"}},{"@type":"Offer","position":4,"itemOffered":{"@type":"Service","name":"Développement web","description":"Développement front-end et back-end, performance, CMS et contenus éditables.","provider":{"@id":"https://studiors.be/#organization"},"areaServed":[{"@type":"AdministrativeArea","name":"Brabant wallon"},{"@type":"City","name":"Bruxelles"},{"@type":"Country","name":"Belgique"},{"@type":"Country","name":"France"},{"@type":"Country","name":"Luxembourg"}],"url":"https://studiors.be/services/developpement-web/"}},{"@type":"Offer","position":5,"itemOffered":{"@type":"Service","name":"Motion design & WebGL","description":"Animations d'interface GSAP, transitions et expériences 3D temps réel.","provider":{"@id":"https://studiors.be/#organization"},"areaServed":[{"@type":"AdministrativeArea","name":"Brabant wallon"},{"@type":"City","name":"Bruxelles"},{"@type":"Country","name":"Belgique"},{"@type":"Country","name":"France"},{"@type":"Country","name":"Luxembourg"}],"url":"https://studiors.be/services/motion-design-webgl/"}}]},"areaServed":[{"@type":"AdministrativeArea","name":"Brabant wallon"},{"@type":"City","name":"Bruxelles"},{"@type":"Country","name":"Belgique"},{"@type":"Country","name":"France"},{"@type":"Country","name":"Luxembourg"}],"address":{"@type":"PostalAddress","addressLocality":"Mont-Saint-Guibert","addressRegion":"Brabant wallon","addressCountry":"BE"},"contactPoint":{"@type":"ContactPoint","contactType":"Customer Service","email":"romain@studiors.be","url":"https://studiors.be/#contact","availableLanguage":["fr"]},"email":"romain@studiors.be","inLanguage":"fr-FR","sameAs":["https://www.instagram.com/studio.rs.be/","https://www.linkedin.com/company/studiors-be"]},{"@type":"Person","@id":"https://studiors.be/#romain-sav","name":"Romain Savigny","alternateName":"Romain Sav","jobTitle":"Web designer & développeur web full-stack","description":"Romain Savigny est le designer et développeur web indépendant qui fonde et opère studiors, studio de web design basé en Brabant wallon (Belgique).","url":"https://studiors.be/studio/","email":"romain@studiors.be","knowsAbout":["Web design","UI design","UX design","Développement web full-stack","Motion design","Astro","JavaScript"],"knowsLanguage":"fr","nationality":{"@type":"Country","name":"Belgique"},"worksFor":{"@id":"https://studiors.be/#organization"},"owns":{"@id":"https://studiors.be/#organization"},"brand":{"@id":"https://studiors.be/#organization"},"workLocation":{"@type":"Place","address":{"@type":"PostalAddress","addressLocality":"Mont-Saint-Guibert","addressRegion":"Brabant wallon","addressCountry":"BE"}}},{"@type":"WebSite","@id":"https://studiors.be/#website","url":"https://studiors.be","name":"studiors","alternateName":["studiors.be","studiors, studio web"],"description":"Site officiel de studiors, studio de web design et de développement web de Romain Savigny, en Brabant wallon (Belgique).","publisher":{"@id":"https://studiors.be/#organization"},"about":{"@id":"https://studiors.be/#organization"},"copyrightHolder":{"@id":"https://studiors.be/#organization"},"inLanguage":"fr-FR"},{"@type":"WebPage","@id":"https://studiors.be/#webpage","url":"https://studiors.be/","name":"studiors — studio web en Brabant wallon | UI/UX & sites sur mesure","description":"studiors est le studio de web design de Romain Savigny, en Brabant wallon : UI/UX design, création de sites web sur mesure et développement full-stack.","isPartOf":{"@id":"https://studiors.be/#website"},"datePublished":"2026-08-09T00:00:00+02:00","dateModified":"2026-10-06T15:02:06+02:00","inLanguage":"fr-FR","primaryImageOfPage":"https://studiors.be/og-default.png","about":{"@id":"https://studiors.be/#organization"},"publisher":{"@id":"https://studiors.be/#organization"},"breadcrumb":{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Accueil","item":"https://studiors.be"}]}}]}</script><!-- Performance hints: preload CSS retiré pendant le dev pour éviter les warnings inutiles --><!-- Tracking & consent (consent-gated ; rien si tout désactivé dans Tina) --><link rel="stylesheet" href="/_astro/Layout.CL8-T7qQ.css">
+<link rel="stylesheet" href="/_astro/index.6Z34nksz.css">
+<link rel="stylesheet" href="/_astro/responsive.Bk8G_f8R.css"><script type="module" src="/_astro/page.C3zhh8Lx.js"></script></head> <body data-page="home"> <div id="page-wrapper"> <div class="grain" aria-hidden="true"></div>  <script>(function(){const publishApiUrl = "https://api.studiors.be";
+const projectSlug = "studiors";
+const mainSiteUrl = "";
+
+  // Exécuter immédiatement (pas de DOMContentLoaded pour éviter le flash)
+  (function checkPreviewStatus() {
+    // SITE-3 : sans identité projet, le guard est inerte (jamais de check
+    // contre le projet d'un autre tenant).
+    if (!projectSlug) {
+      console.log('[PreviewGuard] PUBLISH_PROJECT_SLUG absent, guard désactivé');
+      return;
+    }
+
+    // Ne jamais bloquer l'admin TinaCMS
+    const pathname = window.location.pathname;
+    if (pathname.startsWith('/admin')) {
+      console.log('[PreviewGuard] Admin path detected, skipping');
+      return;
+    }
+
+    // DÉTECTION PREVIEW 100% DYNAMIQUE - Aucune URL en dur
+    const hostname = window.location.hostname.toLowerCase();
+    let isPreviewDomain = false;
+    
+    // 1. Localhost = jamais preview
+    if (hostname === 'localhost' || hostname === '127.0.0.1' || hostname.startsWith('192.168.')) {
+      isPreviewDomain = false;
+    }
+    // 2. Cloudflare Pages: xxx.project.pages.dev (4+ parties) = preview
+    else if (hostname.endsWith('.pages.dev')) {
+      const parts = hostname.split('.');
+      isPreviewDomain = parts.length > 3;
+    }
+    // 3. Sous-domaine "preview" explicite
+    else if (hostname.startsWith('preview.') || hostname.includes('.preview.') || hostname.includes('-preview')) {
+      isPreviewDomain = true;
+    }
+    // 4. Vercel/Netlify preview URLs
+    else if (hostname.match(/^[a-z0-9]+-[a-z0-9-]+\.(vercel\.app|netlify\.app)$/)) {
+      isPreviewDomain = true;
+    }
+    // 5. Tout autre domaine = production
+    else {
+      isPreviewDomain = false;
+    }
+    
+    if (!isPreviewDomain) {
+      return;
+    }
+
+    console.log('[PreviewGuard] Preview domain detected:', hostname);
+
+    // Injection des overlays : UNIQUEMENT ici, donc jamais sur la prod (cf. le
+    // commentaire au-dessus du script). Même structure, mêmes ids et mêmes classes
+    // que l'ancien markup statique : les styles <style is:global> s'appliquent tels quels.
+    const href = (mainSiteUrl || '/').replace(/"/g, '&quot;');
+    const shell = document.createElement('div');
+    shell.innerHTML = [
+      '<div id="preview-loading-screen">',
+      '  <div class="loading-content">',
+      '    <div class="loading-spinner"></div>',
+      '    <p class="loading-text">Vérification du mode preview...</p>',
+      '  </div>',
+      '</div>',
+      '<div id="preview-maintenance-overlay">',
+      '  <div class="maintenance-page">',
+      '    <header class="maintenance-header">',
+      '      <div class="header-brand">Studio <em>RS</em></div>',
+      '    </header>',
+      '    <main class="maintenance-main">',
+      '      <div class="overline"><span class="overline-label">studiors</span></div>',
+      '      <h2 class="title"><span>Preview</span><span>Désactivé</span></h2>',
+      '      <div class="footer-section">',
+      '        <p class="message">Le mode preview est actuellement désactivé. Le site principal est en ligne avec la dernière version publiée.</p>',
+      '        <div class="actions">',
+      '          <a href="' + href + '" class="btn btn-primary" id="main-site-btn">Voir le site en ligne<span class="btn-arrow">→</span></a>',
+      '          <a href="https://studiors.be" target="_blank" rel="noopener" class="btn btn-secondary">fleet création<span class="btn-arrow">→</span></a>',
+      '        </div>',
+      '      </div>',
+      '    </main>',
+      '  </div>',
+      '</div>',
+      '<div id="preview-building-overlay">',
+      '  <div class="maintenance-page building-page">',
+      '    <header class="maintenance-header">',
+      '      <div class="header-brand">Studio <em>RS</em></div>',
+      '    </header>',
+      '    <main class="maintenance-main">',
+      '      <div class="overline"><span class="overline-label">studiors</span></div>',
+      '      <h2 class="title"><span>Build en</span><span>cours...</span></h2>',
+      '      <div class="footer-section">',
+      '        <div class="building-indicator">',
+      '          <div class="building-spinner"></div>',
+      '          <span class="building-status">Déploiement en cours</span>',
+      '        </div>',
+      '        <p class="message">Une nouvelle version du preview est en cours de construction. Cette page se rechargera automatiquement une fois le build terminé.</p>',
+      '        <div class="actions">',
+      '          <a href="' + href + '" class="btn btn-secondary" id="main-site-btn-building">Voir le site en ligne<span class="btn-arrow">→</span></a>',
+      '        </div>',
+      '      </div>',
+      '    </main>',
+      '  </div>',
+      '</div>',
+    ].join('');
+    while (shell.firstChild) document.body.appendChild(shell.firstChild);
+
+    const loadingScreen = document.getElementById('preview-loading-screen');
+    const maintenanceOverlay = document.getElementById('preview-maintenance-overlay');
+    const buildingOverlay = document.getElementById('preview-building-overlay');
+
+    if (!loadingScreen || !maintenanceOverlay || !buildingOverlay) {
+      console.log('[PreviewGuard] Elements not found');
+      return;
+    }
+
+    // Afficher l'écran de chargement IMMÉDIATEMENT
+    loadingScreen.classList.add('active');
+
+    // Variable globale pour stocker preview_custom_url depuis l'API
+    let storedPreviewCustomUrl = null;
+    
+    // Calculer l'URL du site principal dynamiquement (100% dynamique)
+    function getMainSiteUrl() {
+      // Priorité 1: preview_custom_url depuis l'API (URL personnalisée stockée en DB)
+      if (storedPreviewCustomUrl) {
+        return storedPreviewCustomUrl;
+      }
+      
+      // Priorité 2: URL configurée via .env
+      if (mainSiteUrl) return mainSiteUrl;
+      
+      // Priorité 3: Calcul dynamique basé sur le hostname actuel
+      const origin = window.location.origin;
+      const hostname = window.location.hostname;
+      
+      // Cloudflare Pages: xxx.project.pages.dev -> project.pages.dev
+      if (hostname.endsWith('.pages.dev')) {
+        const parts = hostname.split('.');
+        if (parts.length > 3) {
+          const mainDomain = parts.slice(1).join('.');
+          return 'https://' + mainDomain;
+        }
+      }
+      
+      // Pattern: preview.example.com -> example.com
+      if (hostname.startsWith('preview.')) {
+        return origin.replace('preview.', '');
+      }
+      
+      // Pattern: example-preview.xxx -> example.xxx
+      if (hostname.includes('-preview.')) {
+        return origin.replace('-preview.', '.');
+      }
+      if (hostname.includes('-preview')) {
+        return origin.replace('-preview', '');
+      }
+      
+      // Fallback: même origine
+      return origin;
+    }
+
+    // Fonction pour cacher le loading et révéler le site
+    function showSite() {
+      loadingScreen.classList.remove('active');
+    }
+    
+    // Fonction pour afficher la maintenance (set_preview=false)
+    function showMaintenance() {
+      loadingScreen.classList.remove('active');
+      maintenanceOverlay.classList.add('visible');
+      document.body.style.overflow = 'hidden';
+      
+      const mainBtn = document.getElementById('main-site-btn');
+      if (mainBtn) {
+        mainBtn.href = getMainSiteUrl();
+      }
+    }
+    
+    // Fonction pour afficher "Build en cours" (set_preview=true mais is_build_preview=false)
+    function showBuilding(apiUrl) {
+      loadingScreen.classList.remove('active');
+      buildingOverlay.classList.add('visible');
+      document.body.style.overflow = 'hidden';
+      
+      const mainBtn = document.getElementById('main-site-btn-building');
+      if (mainBtn) {
+        mainBtn.href = getMainSiteUrl();
+      }
+      
+      // Polling RAPIDE: vérifier toutes les 3 secondes si le build est terminé
+      // Démarrage immédiat puis polling régulier
+      let pollCount = 0;
+      const maxPolls = 200; // ~10 minutes max (200 * 3s)
+      
+      async function pollOnce() {
+        try {
+          const checkUrl = apiUrl + '/check-preview?project=' + encodeURIComponent(projectSlug) + '&_t=' + Date.now();
+          const response = await fetch(checkUrl, {
+            method: 'GET',
+            headers: { 'Content-Type': 'application/json' },
+            cache: 'no-store'
+          });
+          
+          if (response.ok) {
+            const data = await response.json();
+            console.log('[PreviewGuard] Poll #' + pollCount + ':', JSON.stringify(data));
+            
+            // Stocker preview_custom_url si disponible
+            if (data.preview_custom_url) {
+              storedPreviewCustomUrl = data.preview_custom_url;
+            }
+            
+            // Si is_build_preview devient true, recharger la page
+            if (data.is_build_preview === true) {
+              console.log('[PreviewGuard] Build complete! Reloading...');
+              clearInterval(pollInterval);
+              window.location.reload();
+              return;
+            }
+            
+            // Si set_preview devient false, passer en maintenance
+            if (data.set_preview === false) {
+              console.log('[PreviewGuard] set_preview became false, switching to maintenance');
+              clearInterval(pollInterval);
+              buildingOverlay.classList.remove('visible');
+              showMaintenance();
+              return;
+            }
+          }
+        } catch (e) {
+          console.warn('[PreviewGuard] Poll error:', e.message);
+        }
+        
+        pollCount++;
+        if (pollCount >= maxPolls) {
+          console.warn('[PreviewGuard] Max polls reached, stopping');
+          clearInterval(pollInterval);
+        }
+      }
+      
+      // Premier check immédiat puis toutes les 3 secondes
+      pollOnce();
+      const pollInterval = setInterval(pollOnce, 3000);
+    }
+
+    // Timeout de sécurité: si l'API ne répond pas en 5s, afficher le site
+    const safetyTimeout = setTimeout(function() {
+      console.log('[PreviewGuard] Safety timeout - showing site');
+      showSite();
+    }, 5000);
+
+    // Déterminer l'URL de l'API
+    const apiUrl = publishApiUrl;
+    console.log('[PreviewGuard] API URL utilisée:', apiUrl);
+    
+    async function checkApi() {
+      // Si pas d'API configurée, on ne peut pas vérifier le preview
+      if (!apiUrl) {
+        console.log('[PreviewGuard] No API URL configured (PUBLISH_API_URL) - showing site');
+        clearTimeout(safetyTimeout);
+        showSite();
+        return;
+      }
+
+      try {
+        const checkUrl = apiUrl + '/check-preview?project=' + encodeURIComponent(projectSlug);
+        console.log('[PreviewGuard] Checking:', checkUrl);
+        
+        const response = await fetch(checkUrl, {
+          method: 'GET',
+          headers: { 'Content-Type': 'application/json' }
+        });
+
+        clearTimeout(safetyTimeout);
+
+        if (!response.ok) {
+          console.warn('[PreviewGuard] API error:', response.status, '- showing site');
+          showSite();
+          return;
+        }
+
+        const data = await response.json();
+        console.log('[PreviewGuard] API response:', JSON.stringify(data));
+
+        // Stocker preview_custom_url pour les redirections
+        if (data.preview_custom_url) {
+          storedPreviewCustomUrl = data.preview_custom_url;
+          console.log('[PreviewGuard] preview_custom_url stored:', storedPreviewCustomUrl);
+        }
+
+        // DÉCISION: afficher maintenance, build en cours, ou site
+        if (data.set_preview === false) {
+          // Cas 1: Preview désactivé -> page maintenance
+          console.log('[PreviewGuard] set_preview=false -> MAINTENANCE');
+          showMaintenance();
+        } else if (data.is_build_preview === false) {
+          // Cas 2: Preview activé mais build pas terminé -> page "build en cours"
+          console.log('[PreviewGuard] set_preview=true, is_build_preview=false -> BUILDING');
+          showBuilding(apiUrl);
+        } else {
+          // Cas 3: Preview activé et build terminé -> afficher le site
+          console.log('[PreviewGuard] set_preview=true, is_build_preview=true -> SITE');
+          showSite();
+        }
+      } catch (error) {
+        clearTimeout(safetyTimeout);
+        console.warn('[PreviewGuard] Fetch error:', error.message, '- showing site');
+        showSite();
+      }
+    }
+
+    // Lancer la vérification
+    checkApi();
+  })();
+})();</script>  <!-- In-iframe bridge bootstrap for prerendered pages (the middleware only
+     injects on SSR responses). No-op outside the admin iframe; the
+     window flag dedupes across multiple <TinaIsland> on one page. --><script type="module">const adminOrigin = null;
+
+  if (window.self !== window.top && !window.__tinaBootstrap) {
+    window.__tinaBootstrap = 1;
+    const { init, refreshForms } = await import('/admin/bridge.js');
+    init(adminOrigin ? { adminOrigin } : undefined);
+    document.addEventListener('astro:page-load', refreshForms);
+  }
+</script> <div class="tina-island tina-island--navbar" data-tina-island="/tina-island/global-navbar?currentPage=%2F">  <header class="nav" id="nav"> <a class="nav__brand" href="#main-content" aria-label="studiors, retour en haut"> <svg class="nav__mark" viewBox="0 0 332 303" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"> <path d="M0 0V271.015L75.5081 190.67V71.9509H159.406C200.316 71.3114 186.839 98.0665 174.987 111.524L117.058 171.483C28.765 253.827 67.5178 299.796 133.837 302.194H331.996L252.093 227.045H181.379C170.992 227.045 162.602 225.446 208.946 183.875L242.505 151.097C320.81 58.7603 251.294 0.000390359 185.774 0H0Z"></path> </svg> <span class="nav__name">studio<span>rs</span></span> </a> <nav class="nav__links" aria-label="Navigation principale"> <a href="/projects/">Projets</a><a href="/services/">Services</a><a href="/studio/">Studio</a> </nav> <a class="nav__cta" href="#contact"> <span class="nav__cta-dot"></span>Démarrer un projet </a> <button class="nav__burger" id="navBurger" type="button" aria-label="Ouvrir le menu" aria-expanded="false" aria-controls="mobileMenu"> <span></span><span></span> </button> </header> <div class="mnav" id="mobileMenu" aria-hidden="true"> <p class="mnav__label">(Menu)</p> <nav class="mnav__links" aria-label="Navigation mobile"> <a href="/projects/" style="--i:0"><i>01</i>Projets</a><a href="/services/" style="--i:1"><i>02</i>Services</a><a href="/studio/" style="--i:2"><i>03</i>Studio</a><a href="#contact" style="--i:3"><i>04</i>Démarrer un projet</a> </nav> <p class="mnav__foot"> <span>studiors · Studio web indépendant</span> <a href="mailto:romain@studiors.be">romain@studiors.be</a> </p> </div>  </div> <main id="main-content" role="main">  <!-- In-iframe bridge bootstrap for prerendered pages (the middleware only
+     injects on SSR responses). No-op outside the admin iframe; the
+     window flag dedupes across multiple <TinaIsland> on one page. --><script type="module">const adminOrigin = null;
+
+  if (window.self !== window.top && !window.__tinaBootstrap) {
+    window.__tinaBootstrap = 1;
+    const { init, refreshForms } = await import('/admin/bridge.js');
+    init(adminOrigin ? { adminOrigin } : undefined);
+    document.addEventListener('astro:page-load', refreshForms);
+  }
+</script> <script type="module">globalThis.process??={};globalThis.process.env??={};const r=Array.from(document.querySelectorAll("video[data-motion-video]")),i=window.matchMedia("(max-width: 900px)").matches,n=window.matchMedia("(prefers-reduced-motion: reduce)").matches;for(const e of r){const o=e.dataset.verticalSrc;i&&o&&(e.dataset.verticalPoster&&(e.poster=e.dataset.verticalPoster),e.querySelectorAll("source").forEach(a=>{a.src=a.type==="video/webm"?o.replace(/\.mp4$/,".webm"):o}),e.parentElement?.classList.add("is-vertical"),e.load())}if(n)for(const e of r)e.pause(),e.load();else if(r.length){const e=new Set,o=()=>{for(const t of r){const s=e.has(t);s&&t.paused?(t.muted=!0,t.play().catch(()=>{})):!s&&!t.paused&&t.pause()}},a=new IntersectionObserver(t=>{for(const s of t){const c=s.target;s.isIntersecting?e.add(c):e.delete(c)}o()},{rootMargin:"80px"});r.forEach(t=>a.observe(t)),window.addEventListener("touchend",o,{passive:!0,once:!0}),window.addEventListener("pointerdown",o,{passive:!0,once:!0})}</script><div class="tina-island tina-island--page" data-tina-island="/tina-island/page?relativePath=home.json&amp;lang=fr" data-tina-island-primary>  <div class="preloader" id="preloader" aria-hidden="true"><svg class="preloader__logo" id="preloaderLogo" viewBox="-8 -8 348 319" fill="none" xmlns="http://www.w3.org/2000/svg"><path id="preloaderPath" d="M0 0V271.015L75.5081 190.67V71.9509H159.406C200.316 71.3114 186.839 98.0665 174.987 111.524L117.058 171.483C28.765 253.827 67.5178 299.796 133.837 302.194H331.996L252.093 227.045H181.379C170.992 227.045 162.602 225.446 208.946 183.875L242.505 151.097C320.81 58.7603 251.294 0.000390359 185.774 0H0Z"></path></svg><div class="preloader__marquee"><div class="preloader__track" id="preloaderTrack"><span>STUDIORS  ·  PORTFOLIO 2026  ·  </span><span>STUDIORS  ·  PORTFOLIO 2026  ·  </span><span>STUDIORS  ·  PORTFOLIO 2026  ·  </span><span>STUDIORS  ·  PORTFOLIO 2026  ·  </span></div></div><div class="preloader__counter"><span id="preloaderCount">0</span><em>%</em></div><div class="preloader__curtain"></div></div><section class="hero" id="hero"> <canvas class="hero__canvas" id="logoCanvas" aria-hidden="true"></canvas> <div class="hero__inner"> <h1 class="hero__title">  <span class="sr-only">studiors, studio de web design et de développement web en Brabant wallon</span> <span class="hero__line hero__line--grotesk" data-split> STUDIO </span> <span class="hero__line hero__line--serif" data-split> Créatif </span> </h1> <div class="hero__aside"> <p class="hero__desc" data-reveal> studiors est le studio de web design et de développement web de Romain Savigny, en Belgique. Interface dessinée et site développé sur mesure, soignés jusque dans leurs interactions. </p> <ul class="hero__index"> <li> <a href="/projet/azzato/"><i>01</i>Azzato</a> </li><li> <a href="/projet/celine-savigny/"><i>02</i>Céline Savigny</a> </li><li> <a href="/projet/vertical-view/"><i>03</i>Vertical View</a> </li> </ul> </div> </div> <div class="hero__marquee" aria-hidden="true"> <div class="hero__marquee-track" id="heroMarquee"> <span>studio<span>rs</span></span><span>studio<span>rs</span></span><span>studio<span>rs</span></span> </div> </div> </section><section class="manifesto" id="studio"> <div class="manifesto__rail"> <p class="manifesto__label"> (Le studio) </p> <div class="manifesto__stats"> <div class="manifesto__stat" data-reveal> <strong>01</strong> <span>indépendant, du premier échange à la mise en ligne</span> </div><div class="manifesto__stat" data-reveal> <strong>3</strong> <span>expertises reliées : UI design, motion, code</span> </div> </div> </div> <div class="manifesto__body"> <p class="manifesto__text" id="manifestoText"> Chaque projet mérite mieux qu’un assemblage de blocs. Des interfaces conçues sur mesure, puis développées pour que l’intention reste intacte jusque dans le navigateur. </p> <p class="manifesto__sub" data-reveal> Un seul interlocuteur, de la première esquisse à la mise en ligne. Vous savez toujours qui dessine, qui développe et qui répond. </p> </div> </section><section class="strip" aria-labelledby="stripTitle" data-strip-carousel> <div class="strip__pin"> <header class="strip__head"> <p class="strip__eyebrow"> <span>02</span> <span>Projets en image</span> </p> <h2 class="strip__title" id="stripTitle"> <span>Voir,</span> <em>avant de lire.</em> </h2> <div class="strip__intro"> <p>Cinq projets, cinq univers construits jusque dans leurs interactions.</p> <span aria-hidden="true">↘</span> </div> </header> <div class="strip__viewport"> <div class="strip__rail" aria-label="5 projets sélectionnés"> <a class="strip-card strip-card--wide" data-project-index="0" href="/projet/azzato/"> <div class="strip-card__float"> <figure class="strip-card__media"> <video class="project-motion-thumb project-motion-video" poster="https://media.studiors.be/studiors/uploads/projects/azzato/motion-poster.jpg" aria-label="Aperçu animé du site web Azzato : UI design et web design réalisés chez vdb creation" muted loop playsinline preload="none" width="1200" height="800" data-motion-video><source src="https://media.studiors.be/studiors/videos/azzato/motion.mp4" type="video/mp4"><source src="https://media.studiors.be/studiors/videos/azzato/motion.webm" type="video/webm"></video> <span class="strip-card__open">Voir le projet <i aria-hidden="true">↗</i></span> </figure> <div class="strip-card__meta"> <p><span>01</span> Azzato</p> <p>Refonte éditoriale · 2026</p> </div> </div> </a><a class="strip-card strip-card--portrait" data-project-index="1" href="/projet/celine-savigny/"> <div class="strip-card__float"> <figure class="strip-card__media"> <video class="project-motion-thumb project-motion-video" poster="https://media.studiors.be/studiors/uploads/projects/celine-savigny/motion-vertical-poster.jpg" aria-label="Aperçu animé du site web Céline Savigny, projet de branding &amp; site de logopède, conçu et développé par studiors" muted loop playsinline preload="none" width="1200" height="800" data-motion-video><source src="https://media.studiors.be/studiors/videos/celine-savigny/motion-vertical.mp4" type="video/mp4"><source src="https://media.studiors.be/studiors/videos/celine-savigny/motion-vertical.webm" type="video/webm"></video> <span class="strip-card__open">Voir le projet <i aria-hidden="true">↗</i></span> </figure> <div class="strip-card__meta"> <p><span>02</span> Céline Savigny</p> <p>Branding &amp; web · 2026</p> </div> </div> </a><a class="strip-card strip-card--tall" data-project-index="2" href="/projet/vertical-view/"> <div class="strip-card__float"> <figure class="strip-card__media"> <video class="project-motion-thumb project-motion-video" poster="https://media.studiors.be/studiors/uploads/projects/vertical-view/motion-vertical-poster.jpg" aria-label="Aperçu animé du site web Vertical View : UI design et web design réalisés chez vdb creation" muted loop playsinline preload="none" width="1200" height="800" data-motion-video><source src="https://media.studiors.be/studiors/videos/vertical-view/motion-vertical.mp4" type="video/mp4"><source src="https://media.studiors.be/studiors/videos/vertical-view/motion-vertical.webm" type="video/webm"></video> <span class="strip-card__open">Voir le projet <i aria-hidden="true">↗</i></span> </figure> <div class="strip-card__meta"> <p><span>03</span> Vertical View</p> <p>UX/UI &amp; SEO/GEO · 2025</p> </div> </div> </a><a class="strip-card strip-card--landscape" data-project-index="3" href="/projet/david-dieu/"> <div class="strip-card__float"> <figure class="strip-card__media"> <video class="project-motion-thumb project-motion-video" poster="https://media.studiors.be/studiors/uploads/projects/david-dieu/motion-poster.jpg" aria-label="Aperçu animé du site web David Dieu : UI design et web design réalisés chez vdb creation" muted loop playsinline preload="none" width="1200" height="800" data-motion-video><source src="https://media.studiors.be/studiors/videos/david-dieu/motion.mp4" type="video/mp4"><source src="https://media.studiors.be/studiors/videos/david-dieu/motion.webm" type="video/webm"></video> <span class="strip-card__open">Voir le projet <i aria-hidden="true">↗</i></span> </figure> <div class="strip-card__meta"> <p><span>04</span> David Dieu</p> <p>Plateforme créateur · 2026</p> </div> </div> </a><a class="strip-card strip-card--square" data-project-index="4" href="/projet/simontarea/"> <div class="strip-card__float"> <figure class="strip-card__media"> <video class="project-motion-thumb project-motion-video" poster="https://media.studiors.be/studiors/uploads/projects/simontarea/motion-vertical-poster.jpg" aria-label="Aperçu animé du site web Simon Tarea : UI design et web design réalisés chez vdb creation" muted loop playsinline preload="none" width="1200" height="800" data-motion-video><source src="https://media.studiors.be/studiors/videos/simontarea/motion-vertical.mp4" type="video/mp4"><source src="https://media.studiors.be/studiors/videos/simontarea/motion-vertical.webm" type="video/webm"></video> <span class="strip-card__open">Voir le projet <i aria-hidden="true">↗</i></span> </figure> <div class="strip-card__meta"> <p><span>05</span> Simon Tarea</p> <p>UX &amp; conversion · 2026</p> </div> </div> </a> </div> </div> <p class="strip__progress" aria-hidden="true"> <span id="stripCurrent">01</span><span>/</span><span id="stripTotal">05</span> </p> </div> <footer class="strip__foot"> <p>Sélection phare · 05 projets</p> <div class="works__more"> <a href="/projects/"> Tous les projets <sup>(07)</sup> </a> </div> </footer> </section><section class="process" id="methode" aria-labelledby="processTitle"> <div class="process__head"> <div class="process__head-top"> <p class="process__eyebrow"> <span>03</span> <span>Approche</span> </p> <p class="process__promise"> Une direction tenue du premier échange au dernier détail : assez rigoureuse pour avancer, assez souple pour laisser place à l’inattendu. </p> </div> <h2 class="process__title" id="processTitle"> <span class="process__title-serif"> La </span> <span class="process__title-main"> Méthode </span> </h2> <div class="process__head-bottom"> <p class="process__sub"> <span>Quatre temps.</span> <em>Aucun raccourci.</em> </p> <p class="process__scroll" aria-hidden="true"> Faites défiler <span>↓</span> </p> </div> <ol class="process__legend" aria-label="Les étapes de la méthode"> <li><span>01</span> Écouter</li><li><span>02</span> Dessiner</li><li><span>03</span> Construire</li><li><span>04</span> Livrer</li> </ol> </div> <div class="process__cards" id="processCards"> <article class="process-card"> <div class="process-card__inner"> <p class="process-card__index"> <span class="process-card__num">01</span> <span class="process-card__phase"> Immersion </span> </p> <div class="process-card__body"> <h3 class="process-card__name"> Écouter </h3> <p class="process-card__text"> Immersion dans votre métier, vos clients et vos concurrents. Aucun dessin avant d’avoir compris ce qui vous rend différent. </p> <p class="process-card__meta"> Brief · Ateliers · Audit </p> </div>  <span class="process-card__ghost" aria-hidden="true">01</span> </div>  <span class="process-card__shade" aria-hidden="true"></span> </article><article class="process-card"> <div class="process-card__inner"> <p class="process-card__index"> <span class="process-card__num">02</span> <span class="process-card__phase"> Direction </span> </p> <div class="process-card__body"> <h3 class="process-card__name"> Dessiner </h3> <p class="process-card__text"> Direction visuelle claire : couleurs, typographies, rythme et composants. Une identité simple, mais cohérente. </p> <p class="process-card__meta"> UI · Direction visuelle · Prototypes </p> </div>  <span class="process-card__ghost" aria-hidden="true">02</span> </div>  <span class="process-card__shade" aria-hidden="true"></span> </article><article class="process-card"> <div class="process-card__inner"> <p class="process-card__index"> <span class="process-card__num">03</span> <span class="process-card__phase"> Production </span> </p> <div class="process-card__body"> <h3 class="process-card__name"> Construire </h3> <p class="process-card__text"> Front-end développé sur mesure, mouvement ajouté là où il sert l’expérience, du détail GSAP à la scène WebGL. </p> <p class="process-card__meta"> Front-end · GSAP · WebGL </p> </div>  <span class="process-card__ghost" aria-hidden="true">03</span> </div>  <span class="process-card__shade" aria-hidden="true"></span> </article><article class="process-card"> <div class="process-card__inner"> <p class="process-card__index"> <span class="process-card__num">04</span> <span class="process-card__phase"> Lancement </span> </p> <div class="process-card__body"> <h3 class="process-card__name"> Livrer </h3> <p class="process-card__text"> Mise en ligne avec des contenus faciles à modifier, puis suivi pour mesurer, ajuster et faire évoluer. </p> <p class="process-card__meta"> Mise en ligne · Contenus · Suivi </p> </div>  <span class="process-card__ghost" aria-hidden="true">04</span> </div>  <span class="process-card__shade" aria-hidden="true"></span> </article> </div> </section><section class="services" id="services"> <div class="services__left"> <p class="services__label"> Prestations </p> <ul class="services__list" id="servicesList"> <li class="services__item" data-img> <a class="services__link" href="/services/direction-visuelle/"> <span class="services__name"> Direction visuelle </span> <span class="services__meta"> Identité web, couleurs, typographies, logo </span> </a> </li><li class="services__item" data-img> <a class="services__link" href="/services/ui-ux-design/"> <span class="services__name"> UI / UX design </span> <span class="services__meta"> Maquettes d’interface, parcours utilisateur, prototypes </span> </a> </li><li class="services__item" data-img> <a class="services__link" href="/services/site-web-sur-mesure/"> <span class="services__name"> Sites web sur mesure </span> <span class="services__meta"> Vitrines, portfolios, landing pages </span> </a> </li><li class="services__item" data-img> <a class="services__link" href="/services/developpement-web/"> <span class="services__name"> Développement web </span> <span class="services__meta"> Front-end, back-end, performance, contenus éditables </span> </a> </li><li class="services__item" data-img> <a class="services__link" href="/services/motion-design-webgl/"> <span class="services__name"> Motion design &amp; WebGL </span> <span class="services__meta"> GSAP, animations, expériences 3D </span> </a> </li> </ul> </div>  </section><section class="about" id="a-propos" aria-labelledby="aboutTitle"> <div class="about__rail"> <p class="about__label">(En clair)</p> </div> <div class="about__body"> <h2 class="about__title" id="aboutTitle"> studiors, en deux mots </h2> <p class="about__lead" data-reveal> studiors est le studio de web design et de développement web de Romain Savigny, basé en Belgique. Il conçoit l’interface (UI design et UX design), puis développe le site sur mesure : sites vitrines, portfolios et landing pages, de la direction visuelle jusqu’au code. Le développement est fait maison, en Astro et JavaScript, avec un CMS que vous administrez vous-même. Une seule personne dessine et développe, donc l’intention validée en maquette arrive intacte dans le navigateur. </p>  </div> </section><section class="contact" id="contact">  <div class="contact__grid"> <div class="contact__intro"> <p class="contact__avail"> <span class="contact__avail-dot" aria-hidden="true"></span>Un créneau disponible ce trimestre </p> <p class="contact__hook" data-split>Un projet en tête ?</p> <a class="contact__mail" href="mailto:romain@studiors.be" data-split>romain@studiors.be</a> <p class="contact__sub"> Trois questions, deux minutes. Réponse sous 48 h ouvrées, avec une première lecture du projet.  </p> </div> <form class="cform" id="contactForm" novalidate data-submit-label="Envoyer" data-next-label="Continuer" data-success="Message envoyé. Réponse sous 48 h ouvrées." data-error="L’envoi a échoué. Réessayez ou écrivez à romain@studiors.be."> <div class="cform__head"> <p class="cform__count" aria-live="polite"><span id="cfStepNow">01</span><em>/ 03</em></p> <p class="cform__steplabel" id="cfStepLabel">Qui êtes-vous ?</p> </div> <div class="cform__steps"> <fieldset class="cform__step is-active" data-step="1" data-label="Qui êtes-vous ?"> <legend class="sr-only">Vos coordonnées</legend> <div class="cform__field"> <label for="cfName">Prénom &amp; nom</label> <input id="cfName" name="name" type="text" autocomplete="name" placeholder="Camille Dupont" required> </div> <div class="cform__field"> <label for="cfEmail">Email</label> <input id="cfEmail" name="email" type="email" autocomplete="email" placeholder="camille@exemple.be" required> </div> </fieldset> <fieldset class="cform__step" data-step="2" data-label="Le projet"> <legend class="sr-only">Sujet et budget</legend> <div class="cform__group"> <p class="cform__grouplabel" id="cfSujetLabel">Il s’agit de…</p> <div class="cform__pills" role="radiogroup" aria-labelledby="cfSujetLabel"> <label class="cform__choice"> <input type="radio" name="sujet" value="Site web" required> <span>Site web</span> </label><label class="cform__choice"> <input type="radio" name="sujet" value="UI design"> <span>UI design</span> </label><label class="cform__choice"> <input type="radio" name="sujet" value="Autre"> <span>Autre</span> </label> </div> </div> <div class="cform__group"> <p class="cform__grouplabel" id="cfBudgetLabel"> Budget envisagé <em>· facultatif</em> </p> <div class="cform__pills" role="radiogroup" aria-labelledby="cfBudgetLabel"> <label class="cform__choice"> <input type="radio" name="budget" value="1,5 K – 3 K"> <span>1,5 K – 3 K</span> </label><label class="cform__choice"> <input type="radio" name="budget" value="3 K – 5 K"> <span>3 K – 5 K</span> </label><label class="cform__choice"> <input type="radio" name="budget" value="5 K – 15 K"> <span>5 K – 15 K</span> </label><label class="cform__choice"> <input type="radio" name="budget" value="> 15 K"> <span>&gt; 15 K</span> </label> </div> </div> </fieldset> <fieldset class="cform__step" data-step="3" data-label="Racontez-moi"> <legend class="sr-only">Votre message</legend> <div class="cform__field"> <label for="cfMsg">Votre projet en quelques lignes</label> <textarea id="cfMsg" name="message" rows="5" placeholder="Contexte, envies, échéances…" required></textarea> </div> <div class="cform__consent"> <label class="cform__choice cform__choice--check"> <input id="cfConsent" type="checkbox" name="consent" required> <span>J’accepte que mes informations soient utilisées pour répondre à ma demande.</span> </label>  <p class="cform__consent-note">
+Données traitées comme décrit dans la
+<a href="/politique-de-confidentialite/">politique de confidentialité</a>.
+</p> </div> </fieldset> </div> <!-- Écran de fin : remplace le stepper une fois l'envoi confirmé.
+       Masqué par `hidden` ET par l'absence de `.cform.is-sent` (le CSS des
+       enfants pose un `display`, qui l'emporterait sur le `hidden` de l'UA). --> <div class="cform__done" id="cfDone" hidden> <span class="cform__done-mark" aria-hidden="true"> <svg viewBox="0 0 48 48" fill="none" aria-hidden="true"> <circle cx="24" cy="24" r="22" stroke="currentColor" stroke-width="1" opacity="0.35"></circle> <path d="M15 24.5 L21.5 31 L33.5 18" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"></path> </svg> </span> <h3 class="cform__done-title" id="cfDoneTitle" tabindex="-1">Bien reçu.</h3> <p class="cform__done-text">Message envoyé. Réponse sous 48 h ouvrées.</p> </div> <!-- Leurre anti-robots : invisible et hors tabulation pour les humains. --> <div class="cform__hp" aria-hidden="true"> <label for="cfHp">Ne pas remplir</label> <input id="cfHp" name="hp_contact" type="text" tabindex="-1" autocomplete="off"> </div> <div class="cform__nav"> <button class="cform__back" type="button" id="cfBack" hidden>Retour</button> <button class="cform__submit" type="submit" id="cfNext"> <span class="nav__cta-dot"></span><span id="cfNextLabel">Continuer</span> </button> </div> <div class="cform__progress" aria-hidden="true"><span class="cform__progress-bar" id="cfProgress"></span></div> <p class="cform__note" id="cfNote" role="status">Réponse sous 48 h ouvrées.</p> </form> </div> </section>  </div>  </main>   <!-- In-iframe bridge bootstrap for prerendered pages (the middleware only
+     injects on SSR responses). No-op outside the admin iframe; the
+     window flag dedupes across multiple <TinaIsland> on one page. --><script type="module">const adminOrigin = null;
+
+  if (window.self !== window.top && !window.__tinaBootstrap) {
+    window.__tinaBootstrap = 1;
+    const { init, refreshForms } = await import('/admin/bridge.js');
+    init(adminOrigin ? { adminOrigin } : undefined);
+    document.addEventListener('astro:page-load', refreshForms);
+  }
+</script> <div class="tina-island tina-island--footer" data-tina-island="/tina-island/global-footer?lang=fr&amp;home=1">  <footer class="footer"> <div class="footer__grid"> <div class="footer__brand"> <svg class="footer__brand-logo" viewBox="0 0 332 303" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"> <path d="M0 0V271.015L75.5081 190.67V71.9509H159.406C200.316 71.3114 186.839 98.0665 174.987 111.524L117.058 171.483C28.765 253.827 67.5178 299.796 133.837 302.194H331.996L252.093 227.045H181.379C170.992 227.045 162.602 225.446 208.946 183.875L242.505 151.097C320.81 58.7603 251.294 0.000390359 185.774 0H0Z"></path> </svg> <p>Studio web indépendant.<br />UI design, motion & front-end sur mesure.</p> </div> <nav class="footer__col" aria-label="Navigation de pied de page"> <p class="footer__col-title"> Menu </p> <a href="/projects/"> Projets </a><a href="/services/"> Services </a><a href="/studio/"> Studio </a><a href="#contact"> Contact </a> </nav><nav class="footer__col"> <p class="footer__col-title"> Réseaux </p> <a href="https://www.instagram.com/studio.rs.be/" rel="noopener" target="_blank"> Instagram </a><a href="https://www.linkedin.com/company/studiors-be" rel="noopener" target="_blank"> LinkedIn </a> </nav> <div class="footer__col"> <p class="footer__col-title">Contact</p> <a href="mailto:romain@studiors.be">romain@studiors.be</a> <p>Brabant wallon, Belgique</p> </div> </div> <div class="footer__meta"> <p>©2026 studiors</p>  <nav class="footer__legal" aria-label="Informations légales"> <a href="/mentions-legales/">Mentions légales</a> <a href="/politique-de-confidentialite/">Politique de confidentialité</a> </nav> <p>Tous droits réservés</p> </div> <div class="footer__wordmark" aria-hidden="true"> <svg class="footer__logo" viewBox="0 0 332 303" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true"> <path d="M0 0V271.015L75.5081 190.67V71.9509H159.406C200.316 71.3114 186.839 98.0665 174.987 111.524L117.058 171.483C28.765 253.827 67.5178 299.796 133.837 302.194H331.996L252.093 227.045H181.379C170.992 227.045 162.602 225.446 208.946 183.875L242.505 151.097C320.81 58.7603 251.294 0.000390359 185.774 0H0Z"></path> </svg> <span class="footer__giant">studio<em>rs</em></span> </div> </footer>  </div>    <div id="awwwards" class="awwwards astro-plbyeut2"> <a href="https://www.awwwards.com/sites/studiors" target="_blank" rel="noopener noreferrer" aria-label="studiors, nommé sur Awwwards — voir la fiche (nouvel onglet)" data-cursor-label="AWWWARDS" data-cursor-icon="↗" class="astro-plbyeut2"> <svg width="53.08" height="171.358" viewBox="0 0 53.08 171.358" aria-hidden="true" focusable="false" class="astro-plbyeut2"> <path class="js-color-bg astro-plbyeut2" fill="white" d="M0 0h53.08v171.358H0z"></path> <g class="js-color-text astro-plbyeut2" fill="black"> <path d="M20.048 153.585v-2.002l6.752-3.757h-6.752v-1.9h10.23v2.002l-6.752 3.757h6.752v1.9zM29.899 142.382a3.317 3.317 0 0 1-1.359 1.293c-.575.297-1.223.446-1.944.446-.721 0-1.369-.149-1.944-.446a3.317 3.317 0 0 1-1.359-1.293c-.331-.564-.497-1.232-.497-2.003 0-.769.166-1.437.497-2.002a3.332 3.332 0 0 1 1.359-1.294c.575-.297 1.224-.445 1.944-.445.722 0 1.369.148 1.944.445a3.326 3.326 0 0 1 1.359 1.294c.33.565.496 1.233.496 2.002.001.77-.166 1.438-.496 2.003m-1.703-3.348c-.435-.331-.967-.497-1.601-.497s-1.167.166-1.601.497c-.434.332-.65.78-.65 1.345s.217 1.014.65 1.346c.434.33.967.496 1.601.496s1.166-.166 1.601-.496c.434-.332.649-.78.649-1.346.001-.565-.215-1.013-.649-1.345M22.912 134.996v-1.812h1.185c-.43-.283-.752-.593-.973-.929-.219-.336-.329-.732-.329-1.19 0-.479.127-.902.38-1.272.254-.37.635-.633 1.141-.79-.478-.262-.851-.591-1.118-.985a2.221 2.221 0 0 1-.402-1.265c0-.682.2-1.218.599-1.607.4-.391.957-.585 1.668-.585h5.218v1.812H25.37c-.682 0-1.023.303-1.023.907 0 .467.264.85.789 1.146.527.299 1.286.446 2.28.446h2.865v1.813H25.37c-.682 0-1.023.303-1.023.906 0 .468.275.851.826 1.147.551.298 1.352.446 2.404.446h2.704v1.812h-7.369zM21.626 122.457c-.225.224-.502.336-.833.336s-.608-.112-.833-.336a1.128 1.128 0 0 1-.336-.833c0-.331.111-.609.336-.833.225-.225.502-.336.833-.336s.608.111.833.336c.225.224.337.502.337.833 0 .332-.112.608-.337.833m1.286-1.739h7.366v1.813h-7.366v-1.813zM22.912 118.668v-1.812h1.185a3.348 3.348 0 0 1-.951-1.009 2.434 2.434 0 0 1-.351-1.272c0-.681.19-1.229.57-1.644.38-.414.931-.621 1.651-.621h5.263v1.812h-4.722c-.418 0-.727.096-.92.285-.195.19-.293.447-.293.769 0 .302.116.58.351.833.233.254.577.458 1.03.613.453.156.992.234 1.615.234h2.938v1.812h-7.366zM29.833 109.129a3.33 3.33 0 0 1-1.432 1.169 4.535 4.535 0 0 1-1.805.373 4.537 4.537 0 0 1-1.807-.373c-.579-.248-1.057-.638-1.432-1.169s-.563-1.196-.563-1.995c0-.771.183-1.413.549-1.93a3.28 3.28 0 0 1 1.382-1.141 4.221 4.221 0 0 1 1.709-.364h.746v5.071c.447-.02.838-.183 1.168-.49.332-.307.498-.724.498-1.248 0-.41-.093-.754-.277-1.031-.186-.278-.473-.529-.863-.753l.542-1.462c.69.303 1.224.724 1.592 1.265.371.541.556 1.235.556 2.083 0 .799-.188 1.464-.563 1.995m-4.085-3.574c-.41.088-.746.261-1.009.52-.262.258-.395.61-.395 1.06 0 .428.137.784.409 1.067.272.282.604.458.994.525v-3.172zM29.833 100.878c-.375.531-.852.921-1.432 1.169a4.552 4.552 0 0 1-3.612 0c-.579-.248-1.057-.638-1.432-1.169s-.563-1.196-.563-1.995c0-.77.183-1.412.549-1.93a3.278 3.278 0 0 1 1.382-1.14 4.222 4.222 0 0 1 1.709-.365h.746v5.072a1.794 1.794 0 0 0 1.168-.49c.332-.307.498-.724.498-1.249 0-.41-.093-.753-.277-1.031-.186-.277-.473-.528-.863-.753l.542-1.462c.69.302 1.224.724 1.592 1.265.371.541.556 1.234.556 2.083 0 .799-.188 1.464-.563 1.995m-4.085-3.573c-.41.088-.746.261-1.009.519-.262.258-.395.611-.395 1.06 0 .429.137.784.409 1.067.272.282.604.458.994.526v-3.172zM35.481 16.926l-4.782 14.969h-3.266l-2.584-9.682-2.584 9.682h-3.268l-4.781-14.969h3.713l2.673 10.276 2.524-10.276h3.445l2.524 10.276 2.674-10.276zM37.979 27.083c1.426 0 2.495 1.068 2.495 2.495 0 1.425-1.069 2.495-2.495 2.495-1.425 0-2.495-1.07-2.495-2.495-.001-1.427 1.07-2.495 2.495-2.495" class="astro-plbyeut2"></path> </g> </svg> </a> </div>  <script type="module" src="/_astro/Layout.astro_astro_type_script_index_0_lang.DpEzEFIN.js"></script> </div><!-- #page-wrapper --> <script type="module" src="https://static.cloudflareinsights.com/beacon.min.js/v4bc70e2c01a94c73b74392e4234840661791215815920" integrity="sha512-L0ha0OXavK/8okipN9F8BtP84dg9DUhPERbBXzwI6dgTA55d2+yweo3pn5CSFYs45/r8md2+xvUPtTdvTNRfjA==" data-cf-beacon='{"version":"2024.11.0","token":"52524afbe26d43579ae8154aa25c7221","r":1,"spa":2}' crossorigin="anonymous"></script>
+</body></html> <script type="module" src="/_astro/index.astro_astro_type_script_index_0_lang.BUoC_grT.js"></script>

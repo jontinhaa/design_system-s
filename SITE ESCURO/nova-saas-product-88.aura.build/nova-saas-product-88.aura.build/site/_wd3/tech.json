@@ -1,0 +1,58 @@
+{
+ "builders": [
+  "aura (aura-html)"
+ ],
+ "libraries": [
+  {
+   "name": "lucide",
+   "version": "1.48.0",
+   "sources": [
+    "https://unpkg.com/lucide@1.48.0/dist/umd/lucide.min.js"
+   ]
+  },
+  {
+   "name": "tailwindcss (Play CDN)",
+   "version": "3.4.17",
+   "sources": [
+    "https://cdn.tailwindcss.com/3.4.17"
+   ]
+  },
+  {
+   "name": "unicornstudio",
+   "version": null,
+   "sources": [
+    "página",
+    "https://cdn.jsdelivr.net/gh/hiunicornstudio/unicornstudio.js@v1.4.33/dist/unicornStudio.umd.js",
+    "https://storage.googleapis.com/unicornstudio-production/embeds/GE8mpmmCRgK6XBF57jgF?v=1790622811474",
+    "https://storage.googleapis.com/unicornstudio-production/embeds/GE8mpmmCRgK6XBF57jgF?v=1790622811486"
+   ]
+  }
+ ],
+ "runtime": {
+  "contexts": {
+   "webgl2": 2,
+   "2d": 2
+  },
+  "wasm": 0,
+  "workers": 0,
+  "webgpu": false,
+  "shadowRoots": 0,
+  "canvases": 1
+ },
+ "cssFeatures": [],
+ "fonts": {
+  "families": [
+   "Inter"
+  ],
+  "sources": [
+   "google fonts"
+  ]
+ },
+ "videos": [],
+ "files": {
+  "text": 6,
+  "image": 20,
+  "font": 1,
+  "application": 1
+ }
+}

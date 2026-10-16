@@ -1,0 +1,1690 @@
+{
+ "version": 1,
+ "tool": "wd3 0.1.0",
+ "captureId": "lil-boxes.com-bc12e9d1",
+ "capturedAt": "2026-10-14T16:55:43+00:00",
+ "entry": {
+  "url": "https://lil-boxes.com/",
+  "path": "/",
+  "search": "",
+  "file": "site/lil-boxes.com/index.html",
+  "contentType": "text/html; charset=UTF-8"
+ },
+ "blocked": [
+  "^https?://([^/?#]+\\.)?(google\\-analytics\\.com|analytics\\.google\\.com|googletagmanager\\.com|googleadservices\\.com|doubleclick\\.net|googlesyndication\\.com|googleoptimize\\.com|connect\\.facebook\\.net|bat\\.bing\\.com|snap\\.licdn\\.com|px\\.ads\\.linkedin\\.com|analytics\\.tiktok\\.com|ct\\.pinterest\\.com|static\\.ads\\-twitter\\.com|analytics\\.twitter\\.com|tr\\.snapchat\\.com|sc\\-static\\.net|mc\\.yandex\\.ru|hotjar\\.com|hotjar\\.io|clarity\\.ms|cdn\\.segment\\.com|api\\.segment\\.io|cdn\\.mxpnl\\.com|api\\-js\\.mixpanel\\.com|api\\.mixpanel\\.com|api\\.amplitude\\.com|api2\\.amplitude\\.com|api\\-secure\\.amplitude\\.com|api\\-sr\\.amplitude\\.com|sr\\-client\\-cfg\\.amplitude\\.com|plausible\\.io|cloud\\.umami\\.is|analytics\\.umami\\.is|static\\.cloudflareinsights\\.com|cloudflareinsights\\.com|vitals\\.vercel\\-insights\\.com|browser\\-intake\\-datadoghq\\.com|browser\\-intake\\-datadoghq\\.eu|js\\-agent\\.newrelic\\.com|bam\\.nr\\-data\\.net|bam\\-cell\\.nr\\-data\\.net|fullstory\\.com|script\\.crazyegg\\.com|mouseflow\\.com|smartlook\\.com|heapanalytics\\.com|i\\.posthog\\.com|stats\\.wp\\.com|pixel\\.wp\\.com|promotekit\\.com|ingest\\.sentry\\.io|ingest\\.us\\.sentry\\.io|ingest\\.de\\.sentry\\.io|widget\\.intercom\\.io|js\\.intercomcdn\\.com|api\\-iam\\.intercom\\.io|js\\.hs\\-scripts\\.com|js\\.hs\\-analytics\\.net|js\\.hs\\-banner\\.com|js\\.hscollectedforms\\.net|js\\.usemessages\\.com|track\\.hubspot\\.com|client\\.crisp\\.chat|embed\\.tawk\\.to|js\\.driftt\\.com|static\\.zdassets\\.com|ekr\\.zdassets\\.com|cdn\\.cookielaw\\.org|geolocation\\.onetrust\\.com|consent\\.cookiebot\\.com|consentcdn\\.cookiebot\\.com|app\\.usercentrics\\.eu|api\\.usercentrics\\.eu|cdn\\.iubenda\\.com|cmp\\.osano\\.com|cdn\\.termly\\.io)(:\\d+)?([/?#]|$)",
+  "/rpc/increment_shared_code_views",
+  "^https?://(umami|analytics|stats|plausible)\\.[^/]+/(api/send|api/collect|api/event|script\\.js)",
+  "/g/c(ollect)?\\?v=2&",
+  "sentry\\.io/api/\\d+/(envelope|store)",
+  "/api/meta-capi",
+  "^https?://(leadtracker|tracking|track|events?|collect)\\.[^/]+/",
+  "^https?://a\\.vturb\\.com/",
+  "facebook\\.com/tr[/?]",
+  "/_vercel/(speed-)?insights/",
+  "/cdn-cgi/rum",
+  "/cdn-cgi/challenge-platform/",
+  "google\\.com/(pagead|ads)/"
+ ],
+ "volatileParams": [
+  "v",
+  "_rsc",
+  "dpl",
+  "_",
+  "t",
+  "ts",
+  "timestamp",
+  "cb",
+  "cachebust",
+  "cacheBust",
+  "nocache",
+  "rnd",
+  "rand",
+  "random",
+  "_t"
+ ],
+ "entries": [
+  {
+   "url": "https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap&family=Shadows+Into+Light+Two:wght@400&display=swap&family=Urbanist:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap",
+   "method": "GET",
+   "status": 200,
+   "contentType": "text/css; charset=utf-8",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "content-type": "text/css; charset=utf-8",
+    "timing-allow-origin": "*"
+   },
+   "resourceType": "stylesheet",
+   "passes": [
+    "mobile",
+    "desktop"
+   ],
+   "file": "site/fonts.googleapis.com/css2__q93c80ab9.css",
+   "size": 61693,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://lil-boxes.com/",
+   "method": "GET",
+   "status": 200,
+   "contentType": "text/html; charset=UTF-8",
+   "headers": {
+    "content-type": "text/html; charset=UTF-8",
+    "host-header": "8441280b0c35cbc1147f8ba998a563a7",
+    "sg-f-cache": "HIT",
+    "x-cdn-c": "static",
+    "x-ce": "us-east1-ztvd",
+    "x-httpd-modphp": "1",
+    "x-proxy-cache": "MISS",
+    "x-proxy-cache-info": "0 NC:000000 UP:",
+    "x-sg-cdn": "1"
+   },
+   "resourceType": "document",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "file": "site/lil-boxes.com/index.html",
+   "size": 192858,
+   "modes": [
+    "navigate"
+   ]
+  },
+  {
+   "url": "https://lil-boxes.com/wp-content/themes/bricks/assets/css/libs/animate-layer.min.css?ver=1791915750",
+   "method": "GET",
+   "status": 200,
+   "contentType": "text/css",
+   "headers": {
+    "content-type": "text/css",
+    "host-header": "8441280b0c35cbc1147f8ba998a563a7",
+    "x-cdn-c": "static",
+    "x-ce": "us-east1-h1vr",
+    "x-proxy-cache": "MISS",
+    "x-proxy-cache-info": "0 NC:000000 UP:",
+    "x-sg-cdn": "1"
+   },
+   "resourceType": "stylesheet",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "file": "site/lil-boxes.com/wp-content/themes/bricks/assets/css/libs/animate-layer.min__qafc2db7c.css",
+   "size": 39858,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://lil-boxes.com/wp-content/themes/bricks/assets/css/libs/photoswipe.min.css?ver=1791915750",
+   "method": "GET",
+   "status": 200,
+   "contentType": "text/css",
+   "headers": {
+    "content-type": "text/css",
+    "host-header": "8441280b0c35cbc1147f8ba998a563a7",
+    "x-cdn-c": "static",
+    "x-ce": "us-east1-0dff",
+    "x-proxy-cache": "MISS",
+    "x-proxy-cache-info": "0 NC:000000 UP:",
+    "x-sg-cdn": "1"
+   },
+   "resourceType": "stylesheet",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "file": "site/lil-boxes.com/wp-content/themes/bricks/assets/css/libs/photoswipe.min__qafc2db7c.css",
+   "size": 6736,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://lil-boxes.com/wp-content/themes/bricks/assets/css/libs/font-awesome-6-brands-layer.min.css?ver=1791915750",
+   "method": "GET",
+   "status": 200,
+   "contentType": "text/css",
+   "headers": {
+    "content-type": "text/css",
+    "host-header": "8441280b0c35cbc1147f8ba998a563a7",
+    "x-cdn-c": "static",
+    "x-ce": "us-east1-h1vr",
+    "x-proxy-cache": "MISS",
+    "x-proxy-cache-info": "0 NC:000000 UP:",
+    "x-sg-cdn": "1"
+   },
+   "resourceType": "stylesheet",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "file": "site/lil-boxes.com/wp-content/themes/bricks/assets/css/libs/font-awesome-6-brands-layer.min__qafc2db7c.css",
+   "size": 18777,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://lil-boxes.com/wp-content/plugins/bricksable/includes/elements/back-to-top/assets/css/style.1.4.css?ver=1.6.84",
+   "method": "GET",
+   "status": 200,
+   "contentType": "text/css",
+   "headers": {
+    "content-type": "text/css",
+    "host-header": "8441280b0c35cbc1147f8ba998a563a7",
+    "x-cdn-c": "static",
+    "x-ce": "us-east1-h1vr",
+    "x-proxy-cache": "MISS",
+    "x-proxy-cache-info": "0 NC:000000 UP:",
+    "x-sg-cdn": "1"
+   },
+   "resourceType": "stylesheet",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "file": "site/lil-boxes.com/wp-content/plugins/bricksable/includes/elements/back-to-top/assets/css/style.1.4__q1a15101f.css",
+   "size": 413,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://lil-boxes.com/wp-content/themes/bricks/assets/css/libs/splide-layer.min.css?ver=1791915750",
+   "method": "GET",
+   "status": 200,
+   "contentType": "text/css",
+   "headers": {
+    "content-type": "text/css",
+    "host-header": "8441280b0c35cbc1147f8ba998a563a7",
+    "x-cdn-c": "static",
+    "x-ce": "us-east1-h1vr",
+    "x-proxy-cache": "MISS",
+    "x-proxy-cache-info": "0 NC:000000 UP:",
+    "x-sg-cdn": "1"
+   },
+   "resourceType": "stylesheet",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "file": "site/lil-boxes.com/wp-content/themes/bricks/assets/css/libs/splide-layer.min__qafc2db7c.css",
+   "size": 3613,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://lil-boxes.com/wp-content/themes/bricks-child/style.css?ver=1789911943",
+   "method": "GET",
+   "status": 200,
+   "contentType": "text/css",
+   "headers": {
+    "content-type": "text/css",
+    "host-header": "8441280b0c35cbc1147f8ba998a563a7",
+    "x-cdn-c": "static",
+    "x-ce": "us-east1-0dff",
+    "x-proxy-cache": "MISS",
+    "x-proxy-cache-info": "0 NC:000000 UP:",
+    "x-sg-cdn": "1"
+   },
+   "resourceType": "stylesheet",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "file": "site/lil-boxes.com/wp-content/themes/bricks-child/style__qd705f052.css",
+   "size": 260,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://lil-boxes.com/wp-content/themes/bricks/assets/css/libs/font-awesome-6-layer.min.css?ver=1791915750",
+   "method": "GET",
+   "status": 200,
+   "contentType": "text/css",
+   "headers": {
+    "content-type": "text/css",
+    "host-header": "8441280b0c35cbc1147f8ba998a563a7",
+    "x-cdn-c": "static",
+    "x-ce": "us-east1-h1vr",
+    "x-proxy-cache": "MISS",
+    "x-proxy-cache-info": "0 NC:000000 UP:",
+    "x-sg-cdn": "1"
+   },
+   "resourceType": "stylesheet",
+   "passes": [
+    "mobile",
+    "desktop"
+   ],
+   "file": "site/lil-boxes.com/wp-content/themes/bricks/assets/css/libs/font-awesome-6-layer.min__qafc2db7c.css",
+   "size": 80986,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://lil-boxes.com/wp-content/plugins/bricksforge/assets/css/style.css?ver=1791948836",
+   "method": "GET",
+   "status": 200,
+   "contentType": "text/css",
+   "headers": {
+    "content-type": "text/css",
+    "host-header": "8441280b0c35cbc1147f8ba998a563a7",
+    "x-cdn-c": "static",
+    "x-ce": "us-east1-ztvd",
+    "x-proxy-cache": "MISS",
+    "x-proxy-cache-info": "0 NC:000000 UP:",
+    "x-sg-cdn": "1"
+   },
+   "resourceType": "stylesheet",
+   "passes": [
+    "mobile",
+    "desktop"
+   ],
+   "file": "site/lil-boxes.com/wp-content/plugins/bricksforge/assets/css/style__qc355faf2.css",
+   "size": 28447,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://lil-boxes.com/wp-content/plugins/bricksable/includes/elements/scrolling-image/assets/css/style.1.4.css?ver=1.6.84",
+   "method": "GET",
+   "status": 200,
+   "contentType": "text/css",
+   "headers": {
+    "content-type": "text/css",
+    "host-header": "8441280b0c35cbc1147f8ba998a563a7",
+    "x-cdn-c": "static",
+    "x-ce": "us-east1-ztvd",
+    "x-proxy-cache": "MISS",
+    "x-proxy-cache-info": "0 NC:000000 UP:",
+    "x-sg-cdn": "1"
+   },
+   "resourceType": "stylesheet",
+   "passes": [
+    "mobile",
+    "desktop"
+   ],
+   "file": "site/lil-boxes.com/wp-content/plugins/bricksable/includes/elements/scrolling-image/assets/css/style.1.4__q1a15101f.css",
+   "size": 5933,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://lil-boxes.com/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js",
+   "method": "GET",
+   "status": 200,
+   "contentType": "application/javascript",
+   "headers": {
+    "content-type": "application/javascript"
+   },
+   "resourceType": "script",
+   "passes": [
+    "mobile",
+    "desktop"
+   ],
+   "file": "site/lil-boxes.com/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js",
+   "size": 1239,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://lil-boxes.com/wp-content/themes/bricks/assets/css/frontend-layer.min.css?ver=1791915750",
+   "method": "GET",
+   "status": 200,
+   "contentType": "text/css",
+   "headers": {
+    "content-type": "text/css",
+    "host-header": "8441280b0c35cbc1147f8ba998a563a7",
+    "x-cdn-c": "static",
+    "x-ce": "us-east1-ztvd",
+    "x-proxy-cache": "MISS",
+    "x-proxy-cache-info": "0 NC:000000 UP:",
+    "x-sg-cdn": "1"
+   },
+   "resourceType": "stylesheet",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "file": "site/lil-boxes.com/wp-content/themes/bricks/assets/css/frontend-layer.min__qafc2db7c.css",
+   "size": 151801,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://lil-boxes.com/wp-content/uploads/2025/11/Lil-Boxes_Favicon_Light_555x550.png",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/png",
+   "headers": {
+    "content-type": "image/png",
+    "host-header": "8441280b0c35cbc1147f8ba998a563a7",
+    "x-cdn-c": "static",
+    "x-ce": "us-east1-h1vr",
+    "x-proxy-cache": "MISS",
+    "x-proxy-cache-info": "0 NC:000000 UP:",
+    "x-sg-cdn": "1"
+   },
+   "resourceType": "image",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "file": "site/lil-boxes.com/wp-content/uploads/2025/11/Lil-Boxes_Favicon_Light_555x550.png",
+   "size": 31970,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://fonts.gstatic.com/s/inter/v20/UcC73FwrK3iLTeHuS_nVMrMxCp50SjIa1ZL7W0Q5nw.woff2",
+   "method": "GET",
+   "status": 200,
+   "contentType": "font/woff2",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "content-type": "font/woff2",
+    "timing-allow-origin": "*"
+   },
+   "resourceType": "font",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "file": "site/fonts.gstatic.com/s/inter/v20/UcC73FwrK3iLTeHuS_nVMrMxCp50SjIa1ZL7W0Q5nw.woff2",
+   "size": 48432,
+   "modes": [
+    "cors"
+   ]
+  },
+  {
+   "url": "https://fonts.gstatic.com/s/shadowsintolighttwo/v19/4iC86LVlZsRSjQhpWGedwyOoW-0A6_kpsyNmpAzHGZFkMFw.woff2",
+   "method": "GET",
+   "status": 200,
+   "contentType": "font/woff2",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "content-type": "font/woff2",
+    "timing-allow-origin": "*"
+   },
+   "resourceType": "font",
+   "passes": [
+    "desktop"
+   ],
+   "file": "site/fonts.gstatic.com/s/shadowsintolighttwo/v19/4iC86LVlZsRSjQhpWGedwyOoW-0A6_kpsyNmpAzHGZFkMFw.woff2",
+   "size": 15160,
+   "modes": [
+    "cors"
+   ]
+  },
+  {
+   "url": "https://fonts.gstatic.com/s/urbanist/v18/L0x-DF02iFML4hGCyMqlbS1miXK2.woff2",
+   "method": "GET",
+   "status": 200,
+   "contentType": "font/woff2",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "content-type": "font/woff2",
+    "timing-allow-origin": "*"
+   },
+   "resourceType": "font",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "file": "site/fonts.gstatic.com/s/urbanist/v18/L0x-DF02iFML4hGCyMqlbS1miXK2.woff2",
+   "size": 27812,
+   "modes": [
+    "cors"
+   ]
+  },
+  {
+   "url": "https://lil-boxes.com/wp-content/plugins/bricksable/includes/elements/back-to-top/assets/js/frontend.min.js?ver=1.6.84",
+   "method": "GET",
+   "status": 200,
+   "contentType": "application/javascript",
+   "headers": {
+    "content-type": "application/javascript",
+    "host-header": "8441280b0c35cbc1147f8ba998a563a7",
+    "x-cdn-c": "static",
+    "x-ce": "us-east4-ll1c",
+    "x-proxy-cache": "MISS",
+    "x-proxy-cache-info": "0 NC:000000 UP:",
+    "x-sg-cdn": "1"
+   },
+   "resourceType": "script",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "file": "site/lil-boxes.com/wp-content/plugins/bricksable/includes/elements/back-to-top/assets/js/frontend.min__q1a15101f.js",
+   "size": 1159,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://lil-boxes.com/wp-content/themes/bricks/assets/js/libs/typed.min.js?ver=2.0.9",
+   "method": "GET",
+   "status": 200,
+   "contentType": "application/javascript",
+   "headers": {
+    "content-type": "application/javascript",
+    "host-header": "8441280b0c35cbc1147f8ba998a563a7",
+    "x-cdn-c": "static",
+    "x-ce": "us-east4-9w93",
+    "x-proxy-cache": "MISS",
+    "x-proxy-cache-info": "0 NC:000000 UP:",
+    "x-sg-cdn": "1"
+   },
+   "resourceType": "script",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "file": "site/lil-boxes.com/wp-content/themes/bricks/assets/js/libs/typed.min__qec2d63d8.js",
+   "size": 11852,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://lil-boxes.com/wp-content/plugins/bricksable/includes/elements/scrolling-image/assets/js/frontend.min.js?ver=1.6.84",
+   "method": "GET",
+   "status": 200,
+   "contentType": "application/javascript",
+   "headers": {
+    "content-type": "application/javascript",
+    "host-header": "8441280b0c35cbc1147f8ba998a563a7",
+    "priority": "u=2,i=?0",
+    "x-cdn-c": "static",
+    "x-ce": "us-east4-bncz",
+    "x-proxy-cache": "MISS",
+    "x-proxy-cache-info": "0 NC:000000 UP:",
+    "x-sg-cdn": "1"
+   },
+   "resourceType": "script",
+   "passes": [
+    "mobile",
+    "desktop"
+   ],
+   "file": "site/lil-boxes.com/wp-content/plugins/bricksable/includes/elements/scrolling-image/assets/js/frontend.min__q1a15101f.js",
+   "size": 1011,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://lil-boxes.com/wp-content/uploads/2026/01/B_bg.webp",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/webp",
+   "headers": {
+    "content-type": "image/webp",
+    "host-header": "8441280b0c35cbc1147f8ba998a563a7",
+    "x-cdn-c": "static",
+    "x-ce": "us-east4-9w93",
+    "x-proxy-cache": "MISS",
+    "x-proxy-cache-info": "0 NC:000000 UP:",
+    "x-sg-cdn": "1"
+   },
+   "resourceType": "image",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "file": "site/lil-boxes.com/wp-content/uploads/2026/01/B_bg.webp",
+   "size": 66322,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://lil-boxes.com/wp-content/uploads/2026/01/L_bg.webp",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/webp",
+   "headers": {
+    "content-type": "image/webp",
+    "host-header": "8441280b0c35cbc1147f8ba998a563a7",
+    "x-cdn-c": "static",
+    "x-ce": "us-east4-bncz",
+    "x-proxy-cache": "MISS",
+    "x-proxy-cache-info": "0 NC:000000 UP:",
+    "x-sg-cdn": "1"
+   },
+   "resourceType": "image",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "file": "site/lil-boxes.com/wp-content/uploads/2026/01/L_bg.webp",
+   "size": 11752,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://lil-boxes.com/wp-content/uploads/2026/01/L2_bg.webp",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/webp",
+   "headers": {
+    "content-type": "image/webp",
+    "host-header": "8441280b0c35cbc1147f8ba998a563a7",
+    "x-cdn-c": "static",
+    "x-ce": "us-east4-bncz",
+    "x-proxy-cache": "MISS",
+    "x-proxy-cache-info": "0 NC:000000 UP:",
+    "x-sg-cdn": "1"
+   },
+   "resourceType": "image",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "file": "site/lil-boxes.com/wp-content/uploads/2026/01/L2_bg.webp",
+   "size": 13326,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://lil-boxes.com/wp-content/uploads/2026/01/O_bg.webp",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/webp",
+   "headers": {
+    "content-type": "image/webp",
+    "host-header": "8441280b0c35cbc1147f8ba998a563a7",
+    "x-cdn-c": "static",
+    "x-ce": "us-east4-bncz",
+    "x-proxy-cache": "MISS",
+    "x-proxy-cache-info": "0 NC:000000 UP:",
+    "x-sg-cdn": "1"
+   },
+   "resourceType": "image",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "file": "site/lil-boxes.com/wp-content/uploads/2026/01/O_bg.webp",
+   "size": 58612,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://lil-boxes.com/wp-content/themes/bricks/assets/js/libs/splide.min.js?ver=4.1.4",
+   "method": "GET",
+   "status": 200,
+   "contentType": "application/javascript",
+   "headers": {
+    "content-type": "application/javascript",
+    "host-header": "8441280b0c35cbc1147f8ba998a563a7",
+    "x-cdn-c": "static",
+    "x-ce": "us-east4-9w93",
+    "x-proxy-cache": "MISS",
+    "x-proxy-cache-info": "0 NC:000000 UP:",
+    "x-sg-cdn": "1"
+   },
+   "resourceType": "script",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "file": "site/lil-boxes.com/wp-content/themes/bricks/assets/js/libs/splide.min__q413d4c4b.js",
+   "size": 30363,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://lil-boxes.com/wp-content/themes/bricks/assets/js/libs/photoswipe.umd.min.js?ver=5.4.4",
+   "method": "GET",
+   "status": 200,
+   "contentType": "application/javascript",
+   "headers": {
+    "content-type": "application/javascript",
+    "host-header": "8441280b0c35cbc1147f8ba998a563a7",
+    "x-cdn-c": "static",
+    "x-ce": "us-east4-9w93",
+    "x-proxy-cache": "MISS",
+    "x-proxy-cache-info": "0 NC:000000 UP:",
+    "x-sg-cdn": "1"
+   },
+   "resourceType": "script",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "file": "site/lil-boxes.com/wp-content/themes/bricks/assets/js/libs/photoswipe.umd.min__q5af8f89f.js",
+   "size": 54496,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://lil-boxes.com/wp-content/uploads/2026/01/I_bg.webp",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/webp",
+   "headers": {
+    "content-type": "image/webp",
+    "host-header": "8441280b0c35cbc1147f8ba998a563a7",
+    "x-cdn-c": "static",
+    "x-ce": "us-east4-ll1c",
+    "x-proxy-cache": "MISS",
+    "x-proxy-cache-info": "0 NC:000000 UP:",
+    "x-sg-cdn": "1"
+   },
+   "resourceType": "image",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "file": "site/lil-boxes.com/wp-content/uploads/2026/01/I_bg.webp",
+   "size": 12196,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://lil-boxes.com/wp-content/themes/bricks/assets/js/libs/photoswipe-lightbox.umd.min.js?ver=5.4.4",
+   "method": "GET",
+   "status": 200,
+   "contentType": "application/javascript",
+   "headers": {
+    "content-type": "application/javascript",
+    "host-header": "8441280b0c35cbc1147f8ba998a563a7",
+    "x-cdn-c": "static",
+    "x-ce": "us-east4-bncz",
+    "x-proxy-cache": "MISS",
+    "x-proxy-cache-info": "0 NC:000000 UP:",
+    "x-sg-cdn": "1"
+   },
+   "resourceType": "script",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "file": "site/lil-boxes.com/wp-content/themes/bricks/assets/js/libs/photoswipe-lightbox.umd.min__q5af8f89f.js",
+   "size": 14569,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://lil-boxes.com/wp-content/plugins/google-site-kit/dist/assets/js/googlesitekit-events-provider-content-events-6b04077d00f0d606ba42.js",
+   "method": "GET",
+   "status": 200,
+   "contentType": "application/javascript",
+   "headers": {
+    "content-type": "application/javascript",
+    "host-header": "8441280b0c35cbc1147f8ba998a563a7",
+    "x-cdn-c": "static",
+    "x-ce": "us-east4-9w93",
+    "x-proxy-cache": "MISS",
+    "x-proxy-cache-info": "0 NC:000000 UP:",
+    "x-sg-cdn": "1"
+   },
+   "resourceType": "script",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "file": "site/lil-boxes.com/wp-content/plugins/google-site-kit/dist/assets/js/googlesitekit-events-provider-content-events-6b04077d00f0d606ba42.js",
+   "size": 14016,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://lil-boxes.com/wp-content/plugins/bricksforge/assets/vendor/SplitText.min.js?ver=1791948836",
+   "method": "GET",
+   "status": 200,
+   "contentType": "application/javascript",
+   "headers": {
+    "content-type": "application/javascript",
+    "host-header": "8441280b0c35cbc1147f8ba998a563a7",
+    "priority": "u=2,i=?0",
+    "x-cdn-c": "static",
+    "x-ce": "us-east1-h1vr",
+    "x-proxy-cache": "MISS",
+    "x-proxy-cache-info": "0 NC:000000 UP:",
+    "x-sg-cdn": "1"
+   },
+   "resourceType": "script",
+   "passes": [
+    "mobile",
+    "desktop"
+   ],
+   "file": "site/lil-boxes.com/wp-content/plugins/bricksforge/assets/vendor/SplitText.min__qc355faf2.js",
+   "size": 7587,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://lil-boxes.com/wp-content/plugins/bricksforge/assets/vendor/ScrollSmoother.min.js?ver=1791948836",
+   "method": "GET",
+   "status": 200,
+   "contentType": "application/javascript",
+   "headers": {
+    "content-type": "application/javascript",
+    "host-header": "8441280b0c35cbc1147f8ba998a563a7",
+    "priority": "u=2,i=?0",
+    "x-cdn-c": "static",
+    "x-ce": "us-east1-0dff",
+    "x-proxy-cache": "MISS",
+    "x-proxy-cache-info": "0 NC:000000 UP:",
+    "x-sg-cdn": "1"
+   },
+   "resourceType": "script",
+   "passes": [
+    "mobile",
+    "desktop"
+   ],
+   "file": "site/lil-boxes.com/wp-content/plugins/bricksforge/assets/vendor/ScrollSmoother.min__qc355faf2.js",
+   "size": 12776,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://lil-boxes.com/wp-content/plugins/bricksforge/assets/js/bricksforge_scrollsmoother.js?ver=1791948836",
+   "method": "GET",
+   "status": 200,
+   "contentType": "application/javascript",
+   "headers": {
+    "content-type": "application/javascript",
+    "host-header": "8441280b0c35cbc1147f8ba998a563a7",
+    "priority": "u=2,i=?0",
+    "x-cdn-c": "static",
+    "x-ce": "us-east1-h1vr",
+    "x-proxy-cache": "MISS",
+    "x-proxy-cache-info": "0 NC:000000 UP:",
+    "x-sg-cdn": "1"
+   },
+   "resourceType": "script",
+   "passes": [
+    "mobile",
+    "desktop"
+   ],
+   "file": "site/lil-boxes.com/wp-content/plugins/bricksforge/assets/js/bricksforge_scrollsmoother__qc355faf2.js",
+   "size": 4187,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://lil-boxes.com/wp-content/themes/bricks/assets/fonts/fontawesome/fa-regular-400.woff2",
+   "method": "GET",
+   "status": 200,
+   "contentType": "font/woff2",
+   "headers": {
+    "content-type": "font/woff2",
+    "host-header": "8441280b0c35cbc1147f8ba998a563a7",
+    "priority": "u=0,i=?0",
+    "x-cdn-c": "static",
+    "x-ce": "us-east4-9w93",
+    "x-proxy-cache": "MISS",
+    "x-proxy-cache-info": "0 NC:000000 UP:",
+    "x-sg-cdn": "1"
+   },
+   "resourceType": "font",
+   "passes": [
+    "mobile",
+    "desktop"
+   ],
+   "file": "site/lil-boxes.com/wp-content/themes/bricks/assets/fonts/fontawesome/fa-regular-400.woff2",
+   "size": 25452,
+   "modes": [
+    "cors"
+   ]
+  },
+  {
+   "url": "https://lil-boxes.com/wp-content/plugins/bricksforge/assets/vendor/ScrollTrigger.min.js?ver=1791948836",
+   "method": "GET",
+   "status": 200,
+   "contentType": "application/javascript",
+   "headers": {
+    "content-type": "application/javascript",
+    "host-header": "8441280b0c35cbc1147f8ba998a563a7",
+    "priority": "u=2,i=?0",
+    "x-cdn-c": "static",
+    "x-ce": "us-east1-ztvd",
+    "x-proxy-cache": "MISS",
+    "x-proxy-cache-info": "0 NC:000000 UP:",
+    "x-sg-cdn": "1"
+   },
+   "resourceType": "script",
+   "passes": [
+    "mobile",
+    "desktop"
+   ],
+   "file": "site/lil-boxes.com/wp-content/plugins/bricksforge/assets/vendor/ScrollTrigger.min__qc355faf2.js",
+   "size": 43650,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://lil-boxes.com/wp-content/plugins/bricksforge/assets/js/bricksforge_nodes_editor.js?ver=1791948836",
+   "method": "GET",
+   "status": 200,
+   "contentType": "application/javascript",
+   "headers": {
+    "content-type": "application/javascript",
+    "host-header": "8441280b0c35cbc1147f8ba998a563a7",
+    "priority": "u=2,i=?0",
+    "x-cdn-c": "static",
+    "x-ce": "us-east1-0dff",
+    "x-proxy-cache": "MISS",
+    "x-proxy-cache-info": "0 NC:000000 UP:",
+    "x-sg-cdn": "1"
+   },
+   "resourceType": "script",
+   "passes": [
+    "mobile",
+    "desktop"
+   ],
+   "file": "site/lil-boxes.com/wp-content/plugins/bricksforge/assets/js/bricksforge_nodes_editor__qc355faf2.js",
+   "size": 53543,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://lil-boxes.com/wp-content/plugins/bricksforge/assets/vendor/gsap.min.js?ver=1791948836",
+   "method": "GET",
+   "status": 200,
+   "contentType": "application/javascript",
+   "headers": {
+    "content-type": "application/javascript",
+    "host-header": "8441280b0c35cbc1147f8ba998a563a7",
+    "priority": "u=2,i=?0",
+    "x-cdn-c": "static",
+    "x-ce": "us-east1-0dff",
+    "x-proxy-cache": "MISS",
+    "x-proxy-cache-info": "0 NC:000000 UP:",
+    "x-sg-cdn": "1"
+   },
+   "resourceType": "script",
+   "passes": [
+    "mobile",
+    "desktop"
+   ],
+   "file": "site/lil-boxes.com/wp-content/plugins/bricksforge/assets/vendor/gsap.min__qc355faf2.js",
+   "size": 70446,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://lil-boxes.com/wp-content/plugins/bricksforge/assets/js/bricksforge_panel.js?ver=1791948836",
+   "method": "GET",
+   "status": 200,
+   "contentType": "application/javascript",
+   "headers": {
+    "content-type": "application/javascript",
+    "host-header": "8441280b0c35cbc1147f8ba998a563a7",
+    "priority": "u=2,i=?0",
+    "x-cdn-c": "static",
+    "x-ce": "us-east1-h1vr",
+    "x-proxy-cache": "MISS",
+    "x-proxy-cache-info": "0 NC:000000 UP:",
+    "x-sg-cdn": "1"
+   },
+   "resourceType": "script",
+   "passes": [
+    "mobile",
+    "desktop"
+   ],
+   "file": "site/lil-boxes.com/wp-content/plugins/bricksforge/assets/js/bricksforge_panel__qc355faf2.js",
+   "size": 98559,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://lil-boxes.com/wp-content/uploads/2026/02/Humane-VF.ttf",
+   "method": "GET",
+   "status": 200,
+   "contentType": "application/x-font-ttf",
+   "headers": {
+    "content-type": "application/x-font-ttf",
+    "host-header": "8441280b0c35cbc1147f8ba998a563a7",
+    "priority": "u=0,i=?0",
+    "x-cdn-c": "static",
+    "x-ce": "us-east1-0dff",
+    "x-proxy-cache": "MISS",
+    "x-proxy-cache-info": "0 NC:000000 UP:",
+    "x-sg-cdn": "1"
+   },
+   "resourceType": "font",
+   "passes": [
+    "mobile",
+    "desktop"
+   ],
+   "file": "site/lil-boxes.com/wp-content/uploads/2026/02/Humane-VF.ttf",
+   "size": 85000,
+   "modes": [
+    "cors"
+   ]
+  },
+  {
+   "url": "https://lil-boxes.com/wp-content/uploads/2026/01/X_bg.webp",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/webp",
+   "headers": {
+    "content-type": "image/webp",
+    "host-header": "8441280b0c35cbc1147f8ba998a563a7",
+    "priority": "u=1,i",
+    "x-cdn-c": "static",
+    "x-ce": "us-east4-9w93",
+    "x-proxy-cache": "MISS",
+    "x-proxy-cache-info": "0 NC:000000 UP:",
+    "x-sg-cdn": "1"
+   },
+   "resourceType": "image",
+   "passes": [
+    "mobile",
+    "desktop"
+   ],
+   "file": "site/lil-boxes.com/wp-content/uploads/2026/01/X_bg.webp",
+   "size": 34754,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://lil-boxes.com/wp-content/themes/bricks/assets/js/bricks.min.js?ver=1791915750",
+   "method": "GET",
+   "status": 200,
+   "contentType": "application/javascript",
+   "headers": {
+    "content-type": "application/javascript",
+    "host-header": "8441280b0c35cbc1147f8ba998a563a7",
+    "priority": "u=2,i=?0",
+    "x-cdn-c": "static",
+    "x-ce": "us-east1-0dff",
+    "x-proxy-cache": "MISS",
+    "x-proxy-cache-info": "0 NC:000000 UP:",
+    "x-sg-cdn": "1"
+   },
+   "resourceType": "script",
+   "passes": [
+    "mobile",
+    "desktop"
+   ],
+   "file": "site/lil-boxes.com/wp-content/themes/bricks/assets/js/bricks.min__qafc2db7c.js",
+   "size": 208582,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://lil-boxes.com/wp-content/plugins/bricksforge/assets/js/bricksforge_elements.js?ver=1791948836",
+   "method": "GET",
+   "status": 200,
+   "contentType": "application/javascript",
+   "headers": {
+    "content-type": "application/javascript",
+    "host-header": "8441280b0c35cbc1147f8ba998a563a7",
+    "priority": "u=2,i=?0",
+    "x-cdn-c": "static",
+    "x-ce": "us-east1-0dff",
+    "x-proxy-cache": "MISS",
+    "x-proxy-cache-info": "0 NC:000000 UP:",
+    "x-sg-cdn": "1"
+   },
+   "resourceType": "script",
+   "passes": [
+    "mobile",
+    "desktop"
+   ],
+   "file": "site/lil-boxes.com/wp-content/plugins/bricksforge/assets/js/bricksforge_elements__qc355faf2.js",
+   "size": 193730,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://lil-boxes.com/wp-content/uploads/2026/01/E_bg.webp",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/webp",
+   "headers": {
+    "content-type": "image/webp",
+    "host-header": "8441280b0c35cbc1147f8ba998a563a7",
+    "priority": "u=1,i",
+    "x-cdn-c": "static",
+    "x-ce": "us-east4-9w93",
+    "x-proxy-cache": "MISS",
+    "x-proxy-cache-info": "0 NC:000000 UP:",
+    "x-sg-cdn": "1"
+   },
+   "resourceType": "image",
+   "passes": [
+    "mobile",
+    "desktop"
+   ],
+   "file": "site/lil-boxes.com/wp-content/uploads/2026/01/E_bg.webp",
+   "size": 48524,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://lil-boxes.com/wp-content/uploads/2026/01/S_bg.webp",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/webp",
+   "headers": {
+    "content-type": "image/webp",
+    "host-header": "8441280b0c35cbc1147f8ba998a563a7",
+    "priority": "u=1,i",
+    "x-cdn-c": "static",
+    "x-ce": "us-east4-bncz",
+    "x-proxy-cache": "MISS",
+    "x-proxy-cache-info": "0 NC:000000 UP:",
+    "x-sg-cdn": "1"
+   },
+   "resourceType": "image",
+   "passes": [
+    "mobile",
+    "desktop"
+   ],
+   "file": "site/lil-boxes.com/wp-content/uploads/2026/01/S_bg.webp",
+   "size": 97194,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://lil-boxes.com/wp-content/uploads/2026/01/whatsit_80.webp",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/webp",
+   "headers": {
+    "content-type": "image/webp",
+    "host-header": "8441280b0c35cbc1147f8ba998a563a7",
+    "priority": "u=1,i",
+    "x-cdn-c": "static",
+    "x-ce": "us-east4-9w93",
+    "x-proxy-cache": "MISS",
+    "x-proxy-cache-info": "0 NC:000000 UP:",
+    "x-sg-cdn": "1"
+   },
+   "resourceType": "image",
+   "passes": [
+    "mobile",
+    "desktop"
+   ],
+   "file": "site/lil-boxes.com/wp-content/uploads/2026/01/whatsit_80.webp",
+   "size": 1556,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://lil-boxes.com/wp-content/uploads/2026/01/whatsit_3_80.webp",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/webp",
+   "headers": {
+    "content-type": "image/webp",
+    "host-header": "8441280b0c35cbc1147f8ba998a563a7",
+    "priority": "u=3,i",
+    "x-cdn-c": "static",
+    "x-ce": "us-east4-bncz",
+    "x-proxy-cache": "MISS",
+    "x-proxy-cache-info": "0 NC:000000 UP:",
+    "x-sg-cdn": "1"
+   },
+   "resourceType": "image",
+   "passes": [
+    "mobile",
+    "desktop"
+   ],
+   "file": "site/lil-boxes.com/wp-content/uploads/2026/01/whatsit_3_80.webp",
+   "size": 1848,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://lil-boxes.com/wp-content/uploads/2026/01/whatsit_4_80.webp",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/webp",
+   "headers": {
+    "content-type": "image/webp",
+    "host-header": "8441280b0c35cbc1147f8ba998a563a7",
+    "priority": "u=3,i",
+    "x-cdn-c": "static",
+    "x-ce": "us-east1-ztvd",
+    "x-proxy-cache": "MISS",
+    "x-proxy-cache-info": "0 NC:000000 UP:",
+    "x-sg-cdn": "1"
+   },
+   "resourceType": "image",
+   "passes": [
+    "mobile",
+    "desktop"
+   ],
+   "file": "site/lil-boxes.com/wp-content/uploads/2026/01/whatsit_4_80.webp",
+   "size": 1750,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://lil-boxes.com/wp-content/uploads/2026/02/Fraunces-VariableFont_SOFTWONKopszwght.ttf",
+   "method": "GET",
+   "status": 200,
+   "contentType": "application/x-font-ttf",
+   "headers": {
+    "content-type": "application/x-font-ttf",
+    "host-header": "8441280b0c35cbc1147f8ba998a563a7",
+    "priority": "u=0,i=?0",
+    "x-cdn-c": "static",
+    "x-ce": "us-east4-ll1c",
+    "x-proxy-cache": "MISS",
+    "x-proxy-cache-info": "0 NC:000000 UP:",
+    "x-sg-cdn": "1"
+   },
+   "resourceType": "font",
+   "passes": [
+    "mobile",
+    "desktop"
+   ],
+   "file": "site/lil-boxes.com/wp-content/uploads/2026/02/Fraunces-VariableFont_SOFTWONKopszwght.ttf",
+   "size": 357632,
+   "modes": [
+    "cors"
+   ]
+  },
+  {
+   "url": "https://lil-boxes.com/wp-content/uploads/2026/01/whatsit_end_80.webp",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/webp",
+   "headers": {
+    "content-type": "image/webp",
+    "host-header": "8441280b0c35cbc1147f8ba998a563a7",
+    "priority": "u=3,i",
+    "x-cdn-c": "static",
+    "x-ce": "us-east4-9w93",
+    "x-proxy-cache": "MISS",
+    "x-proxy-cache-info": "0 NC:000000 UP:",
+    "x-sg-cdn": "1"
+   },
+   "resourceType": "image",
+   "passes": [
+    "mobile",
+    "desktop"
+   ],
+   "file": "site/lil-boxes.com/wp-content/uploads/2026/01/whatsit_end_80.webp",
+   "size": 1494,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://lil-boxes.com/wp-content/uploads/2026/01/whatsit_5_80.webp",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/webp",
+   "headers": {
+    "content-type": "image/webp",
+    "host-header": "8441280b0c35cbc1147f8ba998a563a7",
+    "priority": "u=3,i",
+    "x-cdn-c": "static",
+    "x-ce": "us-east4-ll1c",
+    "x-proxy-cache": "MISS",
+    "x-proxy-cache-info": "0 NC:000000 UP:",
+    "x-sg-cdn": "1"
+   },
+   "resourceType": "image",
+   "passes": [
+    "mobile",
+    "desktop"
+   ],
+   "file": "site/lil-boxes.com/wp-content/uploads/2026/01/whatsit_5_80.webp",
+   "size": 1570,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://lil-boxes.com/wp-content/themes/bricks/assets/fonts/fontawesome/fa-solid-900.woff2",
+   "method": "GET",
+   "status": 200,
+   "contentType": "font/woff2",
+   "headers": {
+    "content-type": "font/woff2",
+    "host-header": "8441280b0c35cbc1147f8ba998a563a7",
+    "priority": "u=0,i=?0",
+    "x-cdn-c": "static",
+    "x-ce": "us-east4-bncz",
+    "x-proxy-cache": "MISS",
+    "x-proxy-cache-info": "0 NC:000000 UP:",
+    "x-sg-cdn": "1"
+   },
+   "resourceType": "font",
+   "passes": [
+    "mobile",
+    "desktop"
+   ],
+   "file": "site/lil-boxes.com/wp-content/themes/bricks/assets/fonts/fontawesome/fa-solid-900.woff2",
+   "size": 156496,
+   "modes": [
+    "cors"
+   ]
+  },
+  {
+   "url": "https://lil-boxes.com/wp-content/themes/bricks/assets/fonts/fontawesome/fa-brands-400.woff2",
+   "method": "GET",
+   "status": 200,
+   "contentType": "font/woff2",
+   "headers": {
+    "content-type": "font/woff2",
+    "host-header": "8441280b0c35cbc1147f8ba998a563a7",
+    "priority": "u=0,i=?0",
+    "x-cdn-c": "static",
+    "x-ce": "us-east4-ll1c",
+    "x-proxy-cache": "MISS",
+    "x-proxy-cache-info": "0 NC:000000 UP:",
+    "x-sg-cdn": "1"
+   },
+   "resourceType": "font",
+   "passes": [
+    "mobile",
+    "desktop"
+   ],
+   "file": "site/lil-boxes.com/wp-content/themes/bricks/assets/fonts/fontawesome/fa-brands-400.woff2",
+   "size": 117372,
+   "modes": [
+    "cors"
+   ]
+  },
+  {
+   "url": "https://lil-boxes.com/wp-content/uploads/2026/01/whatsit_2_80.webp",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/webp",
+   "headers": {
+    "content-type": "image/webp",
+    "host-header": "8441280b0c35cbc1147f8ba998a563a7",
+    "priority": "u=1,i",
+    "x-cdn-c": "static",
+    "x-ce": "us-east4-ll1c",
+    "x-proxy-cache": "MISS",
+    "x-proxy-cache-info": "0 NC:000000 UP:",
+    "x-sg-cdn": "1"
+   },
+   "resourceType": "image",
+   "passes": [
+    "mobile",
+    "desktop"
+   ],
+   "file": "site/lil-boxes.com/wp-content/uploads/2026/01/whatsit_2_80.webp",
+   "size": 1718,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://lil-boxes.com/wp-content/uploads/2025/11/cropped-Lil-Boxes_Favicon_Dark_555x550-32x32.png",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/png",
+   "headers": {
+    "content-type": "image/png",
+    "host-header": "8441280b0c35cbc1147f8ba998a563a7",
+    "priority": "u=1,i",
+    "x-cdn-c": "static",
+    "x-ce": "us-east4-bncz",
+    "x-proxy-cache": "MISS",
+    "x-proxy-cache-info": "0 NC:000000 UP:",
+    "x-sg-cdn": "1"
+   },
+   "resourceType": "other",
+   "passes": [
+    "mobile",
+    "desktop"
+   ],
+   "file": "site/lil-boxes.com/wp-content/uploads/2025/11/cropped-Lil-Boxes_Favicon_Dark_555x550-32x32.png",
+   "size": 1159,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://lil-boxes.com/wp-content/uploads/2026/01/olddusty_1024x2560.webp",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/webp",
+   "headers": {
+    "content-type": "image/webp",
+    "host-header": "8441280b0c35cbc1147f8ba998a563a7",
+    "priority": "u=1,i",
+    "x-cdn-c": "static",
+    "x-ce": "us-east1-0dff",
+    "x-proxy-cache": "MISS",
+    "x-proxy-cache-info": "0 NC:000000 UP:",
+    "x-sg-cdn": "1"
+   },
+   "resourceType": "image",
+   "passes": [
+    "desktop"
+   ],
+   "file": "site/lil-boxes.com/wp-content/uploads/2026/01/olddusty_1024x2560.webp",
+   "size": 190860,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://lil-boxes.com/wp-content/uploads/2026/01/improved_1024x2560.webp",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/webp",
+   "headers": {
+    "content-type": "image/webp",
+    "host-header": "8441280b0c35cbc1147f8ba998a563a7",
+    "priority": "u=3,i",
+    "x-cdn-c": "static",
+    "x-ce": "us-east1-ztvd",
+    "x-proxy-cache": "MISS",
+    "x-proxy-cache-info": "0 NC:000000 UP:",
+    "x-sg-cdn": "1"
+   },
+   "resourceType": "image",
+   "passes": [
+    "desktop"
+   ],
+   "file": "site/lil-boxes.com/wp-content/uploads/2026/01/improved_1024x2560.webp",
+   "size": 729472,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://lil-boxes.com/wp-content/uploads/2026/01/jewelry.lil-boxes.com_.webp",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/webp",
+   "headers": {
+    "content-type": "image/webp",
+    "host-header": "8441280b0c35cbc1147f8ba998a563a7",
+    "priority": "u=3,i",
+    "x-cdn-c": "static",
+    "x-ce": "us-east4-bncz",
+    "x-proxy-cache": "MISS",
+    "x-proxy-cache-info": "0 NC:000000 UP:",
+    "x-sg-cdn": "1"
+   },
+   "resourceType": "image",
+   "passes": [
+    "desktop"
+   ],
+   "file": "site/lil-boxes.com/wp-content/uploads/2026/01/jewelry.lil-boxes.com_.webp",
+   "size": 63270,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://lil-boxes.com/wp-content/uploads/2026/09/american-water.us_home.webp",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/webp",
+   "headers": {
+    "content-type": "image/webp",
+    "host-header": "8441280b0c35cbc1147f8ba998a563a7",
+    "priority": "u=3,i",
+    "x-cdn-c": "static",
+    "x-ce": "us-east4-bncz",
+    "x-proxy-cache": "MISS",
+    "x-proxy-cache-info": "0 NC:000000 UP:",
+    "x-sg-cdn": "1"
+   },
+   "resourceType": "image",
+   "passes": [
+    "desktop"
+   ],
+   "file": "site/lil-boxes.com/wp-content/uploads/2026/09/american-water.us_home.webp",
+   "size": 158172,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://lil-boxes.com/wp-content/uploads/2026/01/thedeeganproject.org_1024.webp",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/webp",
+   "headers": {
+    "content-type": "image/webp",
+    "host-header": "8441280b0c35cbc1147f8ba998a563a7",
+    "priority": "u=3,i",
+    "x-cdn-c": "static",
+    "x-ce": "us-east4-9w93",
+    "x-proxy-cache": "MISS",
+    "x-proxy-cache-info": "0 NC:000000 UP:",
+    "x-sg-cdn": "1"
+   },
+   "resourceType": "image",
+   "passes": [
+    "desktop"
+   ],
+   "file": "site/lil-boxes.com/wp-content/uploads/2026/01/thedeeganproject.org_1024.webp",
+   "size": 146034,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://lil-boxes.com/wp-content/uploads/2026/01/elitestump.com_.webp",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/webp",
+   "headers": {
+    "content-type": "image/webp",
+    "host-header": "8441280b0c35cbc1147f8ba998a563a7",
+    "priority": "u=3,i",
+    "x-cdn-c": "static",
+    "x-ce": "us-east4-ll1c",
+    "x-proxy-cache": "MISS",
+    "x-proxy-cache-info": "0 NC:000000 UP:",
+    "x-sg-cdn": "1"
+   },
+   "resourceType": "image",
+   "passes": [
+    "desktop"
+   ],
+   "file": "site/lil-boxes.com/wp-content/uploads/2026/01/elitestump.com_.webp",
+   "size": 139052,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://lil-boxes.com/wp-content/uploads/2026/03/boc.lil-boxes-scaled.webp",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/webp",
+   "headers": {
+    "content-type": "image/webp",
+    "host-header": "8441280b0c35cbc1147f8ba998a563a7",
+    "priority": "u=3,i",
+    "x-cdn-c": "static",
+    "x-ce": "us-east4-q474",
+    "x-proxy-cache": "MISS",
+    "x-proxy-cache-info": "0 NC:000000 UP:",
+    "x-sg-cdn": "1"
+   },
+   "resourceType": "image",
+   "passes": [
+    "desktop"
+   ],
+   "file": "site/lil-boxes.com/wp-content/uploads/2026/03/boc.lil-boxes-scaled.webp",
+   "size": 184588,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://lil-boxes.com/wp-content/uploads/2025/11/cropped-Lil-Boxes_Favicon_Dark_555x550-192x192.png",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/png",
+   "headers": {
+    "content-type": "image/png",
+    "x-cdn-c": "static",
+    "x-sg-cdn": "1",
+    "x-ce": "us-east4-ll1c",
+    "x-proxy-cache": "MISS",
+    "x-proxy-cache-info": "0 NC:000000 UP:",
+    "host-header": "8441280b0c35cbc1147f8ba998a563a7"
+   },
+   "resourceType": "other",
+   "passes": [
+    "mobile"
+   ],
+   "file": "site/lil-boxes.com/wp-content/uploads/2025/11/cropped-Lil-Boxes_Favicon_Dark_555x550-192x192.png",
+   "size": 12461
+  },
+  {
+   "url": "https://lil-boxes.com/wp-content/uploads/2026/01/arrow_red_right.webm",
+   "method": "GET",
+   "status": 200,
+   "contentType": "video/webm",
+   "headers": {
+    "content-type": "video/webm",
+    "x-cdn-c": "static",
+    "x-sg-cdn": "1",
+    "x-ce": "us-east4-ll1c",
+    "x-proxy-cache": "MISS",
+    "x-proxy-cache-info": "0 NC:000000 UP:",
+    "host-header": "8441280b0c35cbc1147f8ba998a563a7"
+   },
+   "resourceType": "media",
+   "passes": [
+    "desktop"
+   ],
+   "file": "site/lil-boxes.com/wp-content/uploads/2026/01/arrow_red_right.webm",
+   "size": 151710,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://lil-boxes.com/wp-content/uploads/2025/11/cropped-Lil-Boxes_Favicon_Dark_555x550-180x180.png",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/png",
+   "headers": {
+    "content-type": "image/png",
+    "x-cdn-c": "static",
+    "x-sg-cdn": "1",
+    "x-ce": "us-east4-q474",
+    "x-proxy-cache": "MISS",
+    "x-proxy-cache-info": "0 NC:000000 UP:",
+    "host-header": "8441280b0c35cbc1147f8ba998a563a7"
+   },
+   "resourceType": "other",
+   "passes": [
+    "desktop"
+   ],
+   "file": "site/lil-boxes.com/wp-content/uploads/2025/11/cropped-Lil-Boxes_Favicon_Dark_555x550-180x180.png",
+   "size": 11145
+  },
+  {
+   "url": "https://lil-boxes.com/wp-content/uploads/2026/01/arrow_red_left.webm",
+   "method": "GET",
+   "status": 200,
+   "contentType": "video/webm",
+   "headers": {
+    "content-type": "video/webm",
+    "x-cdn-c": "static",
+    "x-sg-cdn": "1",
+    "x-ce": "us-east4-ll1c",
+    "x-proxy-cache": "MISS",
+    "x-proxy-cache-info": "0 NC:000000 UP:",
+    "host-header": "8441280b0c35cbc1147f8ba998a563a7"
+   },
+   "resourceType": "media",
+   "passes": [
+    "desktop"
+   ],
+   "file": "site/lil-boxes.com/wp-content/uploads/2026/01/arrow_red_left.webm",
+   "size": 83034,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://lil-boxes.com/favicon.ico",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/png",
+   "headers": {
+    "content-type": "image/png",
+    "x-cdn-c": "static",
+    "x-sg-cdn": "1",
+    "x-ce": "us-east4-bncz",
+    "x-proxy-cache": "MISS",
+    "x-proxy-cache-info": "0 NC:000000 UP:",
+    "host-header": "8441280b0c35cbc1147f8ba998a563a7"
+   },
+   "resourceType": "other",
+   "passes": [
+    "mobile"
+   ],
+   "file": "site/lil-boxes.com/favicon.ico",
+   "size": 1159
+  },
+  {
+   "url": "https://lil-boxes.com/wp-content/uploads/2026/01/LittleBoxes.mp3",
+   "method": "GET",
+   "status": 200,
+   "contentType": "audio/mpeg",
+   "headers": {
+    "content-type": "audio/mpeg",
+    "x-cdn-c": "static",
+    "x-sg-cdn": "1",
+    "x-ce": "us-east4-bncz",
+    "x-proxy-cache": "MISS",
+    "x-proxy-cache-info": "0 NC:000000 UP:",
+    "host-header": "8441280b0c35cbc1147f8ba998a563a7"
+   },
+   "resourceType": "media",
+   "passes": [
+    "mobile"
+   ],
+   "file": "site/lil-boxes.com/wp-content/uploads/2026/01/LittleBoxes.mp3",
+   "size": 2370402,
+   "modes": [
+    "no-cors"
+   ]
+  }
+ ],
+ "videos": {
+  "posters": {},
+  "onlineHosts": []
+ }
+}

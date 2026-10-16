@@ -1,0 +1,754 @@
+{
+ "entryUrl": "https://nereo-seafood-restaurant.aura.build/",
+ "capturedAt": "2026-09-28T19:12:35+00:00",
+ "indexHtml": {
+  "kind": "snapshot",
+  "description": "DOM renderizado (depois do JS), sem os scripts do site; CSS gerado em runtime em site/_runtime/style-*.css; <canvas> ficam vazios (o desenho só existe no site vivo)",
+  "runtimeStyles": 3
+ },
+ "files": [
+  {
+   "url": "https://nereo-seafood-restaurant.aura.build/__wd3/aura-modules.json",
+   "file": "site/nereo-seafood-restaurant.aura.build/__wd3/aura-modules.json",
+   "type": "application/json",
+   "resourceType": "fetch",
+   "size": 117488,
+   "status": 200,
+   "party": "first",
+   "passes": [
+    "desktop",
+    "mobile"
+   ]
+  },
+  {
+   "url": "https://nereo-seafood-restaurant.aura.build/favicon.ico",
+   "file": "site/nereo-seafood-restaurant.aura.build/favicon.ico",
+   "type": "image/vnd.microsoft.icon",
+   "resourceType": "other",
+   "size": 696,
+   "status": 200,
+   "party": "first",
+   "passes": [
+    "desktop"
+   ]
+  },
+  {
+   "url": "https://nereo-seafood-restaurant.aura.build/",
+   "file": "site/nereo-seafood-restaurant.aura.build/index.html",
+   "type": "text/html",
+   "resourceType": "document",
+   "size": 139958,
+   "status": 200,
+   "party": "first",
+   "passes": [
+    "desktop",
+    "mobile"
+   ]
+  },
+  {
+   "url": "https://api.iconify.design/simple-icons.json?icons=facebook%2Cinstagram",
+   "file": "site/api.iconify.design/simple-icons__q2638ce02.json",
+   "type": "application/json",
+   "resourceType": "fetch",
+   "size": 2161,
+   "status": 200,
+   "party": "third",
+   "passes": [
+    "mobile",
+    "desktop"
+   ]
+  },
+  {
+   "url": "https://api.iconify.design/solar.json?icons=anchor-linear%2Cbook-2-linear%2Ccalendar-linear%2Cchat-round-line-linear%2Cchef-hat-linear%2Cclock-circle-linear%2Ccrown-star-linear%2Ccup-linear%2Cfire-square-linear%2Cglass-water-linear%2Chamburger-menu-linear%2Cleaf-linear%2Cletter-linear%2Cmap-point-linear%2Cmedal-ribbon-linear%2Cphone-linear%2Cshield-check-linear%2Csprout-linear%2Cstar-bold%2Cwater-drop-linear%2Cwineglass-linear",
+   "file": "site/api.iconify.design/solar__q5fc70606.json",
+   "type": "application/json",
+   "resourceType": "fetch",
+   "size": 12521,
+   "status": 200,
+   "party": "third",
+   "passes": [
+    "mobile",
+    "desktop"
+   ]
+  },
+  {
+   "url": "https://cdn.tailwindcss.com/3.4.17",
+   "file": "site/cdn.tailwindcss.com/3.4.17.js",
+   "type": "text/javascript",
+   "resourceType": "script",
+   "size": 407279,
+   "status": 200,
+   "party": "third",
+   "passes": [
+    "mobile",
+    "desktop"
+   ],
+   "library": {
+    "name": "tailwindcss (Play CDN)",
+    "version": "3.4.17"
+   },
+   "role": "library"
+  },
+  {
+   "url": "https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.7/ScrollTrigger.min.js",
+   "file": "site/cdnjs.cloudflare.com/ajax/libs/gsap/3.12.7/ScrollTrigger.min.js",
+   "type": "application/javascript",
+   "resourceType": "script",
+   "size": 43974,
+   "status": 200,
+   "party": "third",
+   "passes": [
+    "mobile",
+    "desktop"
+   ],
+   "library": {
+    "name": "gsap",
+    "version": "3.12.7"
+   },
+   "role": "library"
+  },
+  {
+   "url": "https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.7/gsap.min.js",
+   "file": "site/cdnjs.cloudflare.com/ajax/libs/gsap/3.12.7/gsap.min.js",
+   "type": "application/javascript",
+   "resourceType": "script",
+   "size": 72304,
+   "status": 200,
+   "party": "third",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "library": {
+    "name": "gsap",
+    "version": "3.12.7"
+   },
+   "role": "library"
+  },
+  {
+   "url": "https://code.iconify.design/iconify-icon/3.0.0/iconify-icon.min.js",
+   "file": "site/code.iconify.design/iconify-icon/3.0.0/iconify-icon.min.js",
+   "type": "application/javascript",
+   "resourceType": "script",
+   "size": 22273,
+   "status": 200,
+   "party": "third",
+   "passes": [
+    "mobile",
+    "desktop"
+   ],
+   "library": {
+    "name": "iconify",
+    "version": "3.0.0"
+   },
+   "role": "library"
+  },
+  {
+   "url": "https://esm.sh/@remix-run/router@1.21.0/es2022/router.mjs",
+   "file": "site/esm.sh/@remix-run/router@1.21.0/es2022/router.mjs",
+   "type": "application/javascript",
+   "resourceType": "script",
+   "size": 58979,
+   "status": 200,
+   "party": "third",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "role": "third-party"
+  },
+  {
+   "url": "https://esm.sh/lucide-react@0.462.0/X-ZXJlYWN0LHJlYWN0LWRvbQ/es2022/lucide-react.mjs",
+   "file": "site/esm.sh/lucide-react@0.462.0/X-ZXJlYWN0LHJlYWN0LWRvbQ/es2022/lucide-react.mjs",
+   "type": "application/javascript",
+   "resourceType": "script",
+   "size": 598389,
+   "status": 200,
+   "party": "third",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "library": {
+    "name": "lucide",
+    "version": "0.462.0"
+   },
+   "role": "library"
+  },
+  {
+   "url": "https://esm.sh/lucide-react@0.462.0?external=react,react-dom",
+   "file": "site/esm.sh/lucide-react@0.462.0__q2fa58858.js",
+   "type": "application/javascript",
+   "resourceType": "script",
+   "size": 124,
+   "status": 200,
+   "party": "third",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "library": {
+    "name": "lucide",
+    "version": "0.462.0"
+   },
+   "role": "library"
+  },
+  {
+   "url": "https://esm.sh/react-dom@18.3.1/X-ZXJlYWN0/es2022/cjs/react-dom.development.development.mjs",
+   "file": "site/esm.sh/react-dom@18.3.1/X-ZXJlYWN0/es2022/cjs/react-dom.development.development.mjs",
+   "type": "application/javascript",
+   "resourceType": "script",
+   "size": 916708,
+   "status": 200,
+   "party": "third",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "library": {
+    "name": "react-dom",
+    "version": "18.3.1"
+   },
+   "role": "library"
+  },
+  {
+   "url": "https://esm.sh/react-dom@18.3.1/X-ZXJlYWN0/es2022/client.development.mjs",
+   "file": "site/esm.sh/react-dom@18.3.1/X-ZXJlYWN0/es2022/client.development.mjs",
+   "type": "application/javascript",
+   "resourceType": "script",
+   "size": 3056,
+   "status": 200,
+   "party": "third",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "library": {
+    "name": "react-dom",
+    "version": "18.3.1"
+   },
+   "role": "library"
+  },
+  {
+   "url": "https://esm.sh/react-dom@18.3.1/X-ZXJlYWN0/es2022/react-dom.development.mjs",
+   "file": "site/esm.sh/react-dom@18.3.1/X-ZXJlYWN0/es2022/react-dom.development.mjs",
+   "type": "application/javascript",
+   "resourceType": "script",
+   "size": 3013,
+   "status": 200,
+   "party": "third",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "library": {
+    "name": "react-dom",
+    "version": "18.3.1"
+   },
+   "role": "library"
+  },
+  {
+   "url": "https://esm.sh/react-dom@18.3.1/client?dev&external=react",
+   "file": "site/esm.sh/react-dom@18.3.1/client__q161831d8.js",
+   "type": "application/javascript",
+   "resourceType": "script",
+   "size": 273,
+   "status": 200,
+   "party": "third",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "library": {
+    "name": "react-dom",
+    "version": "18.3.1"
+   },
+   "role": "library"
+  },
+  {
+   "url": "https://esm.sh/react-dom@18.3.1?dev&external=react",
+   "file": "site/esm.sh/react-dom@18.3.1__q161831d8.js",
+   "type": "application/javascript",
+   "resourceType": "script",
+   "size": 288,
+   "status": 200,
+   "party": "third",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "library": {
+    "name": "react-dom",
+    "version": "18.3.1"
+   },
+   "role": "library"
+  },
+  {
+   "url": "https://esm.sh/react-router-dom@6.28.0/X-ZXJlYWN0LHJlYWN0LWRvbQ/es2022/react-router-dom.mjs",
+   "file": "site/esm.sh/react-router-dom@6.28.0/X-ZXJlYWN0LHJlYWN0LWRvbQ/es2022/react-router-dom.mjs",
+   "type": "application/javascript",
+   "resourceType": "script",
+   "size": 20218,
+   "status": 200,
+   "party": "third",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "library": {
+    "name": "react-router",
+    "version": "6.28.0"
+   },
+   "role": "library"
+  },
+  {
+   "url": "https://esm.sh/react-router-dom@6.28.0?external=react%2Creact-dom",
+   "file": "site/esm.sh/react-router-dom@6.28.0__q8d8aa02b.js",
+   "type": "application/javascript",
+   "resourceType": "script",
+   "size": 254,
+   "status": 200,
+   "party": "third",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "library": {
+    "name": "react-router",
+    "version": "6.28.0"
+   },
+   "role": "library"
+  },
+  {
+   "url": "https://esm.sh/react-router@6.28.0/X-ZXJlYWN0/es2022/react-router.mjs",
+   "file": "site/esm.sh/react-router@6.28.0/X-ZXJlYWN0/es2022/react-router.mjs",
+   "type": "application/javascript",
+   "resourceType": "script",
+   "size": 17978,
+   "status": 200,
+   "party": "third",
+   "passes": [
+    "mobile",
+    "desktop"
+   ],
+   "library": {
+    "name": "react-router",
+    "version": "6.28.0"
+   },
+   "role": "library"
+  },
+  {
+   "url": "https://esm.sh/react@18.3.1&dev/jsx-runtime",
+   "file": "site/esm.sh/react@18.3.1&dev/jsx-runtime.js",
+   "type": "application/javascript",
+   "resourceType": "script",
+   "size": 235,
+   "status": 200,
+   "party": "third",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "library": {
+    "name": "react",
+    "version": "18.3.1"
+   },
+   "role": "library"
+  },
+  {
+   "url": "https://esm.sh/react@18.3.1/es2022/jsx-runtime.development.mjs",
+   "file": "site/esm.sh/react@18.3.1/es2022/jsx-runtime.development.mjs",
+   "type": "application/javascript",
+   "resourceType": "script",
+   "size": 39375,
+   "status": 200,
+   "party": "third",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "library": {
+    "name": "react",
+    "version": "18.3.1"
+   },
+   "role": "library"
+  },
+  {
+   "url": "https://esm.sh/react@18.3.1/es2022/react.development.mjs",
+   "file": "site/esm.sh/react@18.3.1/es2022/react.development.mjs",
+   "type": "application/javascript",
+   "resourceType": "script",
+   "size": 80361,
+   "status": 200,
+   "party": "third",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "library": {
+    "name": "react",
+    "version": "18.3.1"
+   },
+   "role": "library"
+  },
+  {
+   "url": "https://esm.sh/react@18.3.1?dev",
+   "file": "site/esm.sh/react@18.3.1__q34c6fcec.js",
+   "type": "application/javascript",
+   "resourceType": "script",
+   "size": 158,
+   "status": 200,
+   "party": "third",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "library": {
+    "name": "react",
+    "version": "18.3.1"
+   },
+   "role": "library"
+  },
+  {
+   "url": "https://esm.sh/scheduler@0.23.2/es2022/scheduler.development.mjs",
+   "file": "site/esm.sh/scheduler@0.23.2/es2022/scheduler.development.mjs",
+   "type": "application/javascript",
+   "resourceType": "script",
+   "size": 20237,
+   "status": 200,
+   "party": "third",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "role": "third-party"
+  },
+  {
+   "url": "https://esm.sh/scheduler@%5E0.23.2?target=es2022&dev",
+   "file": "site/esm.sh/scheduler@^0.23.2__qe16f0dd6.js",
+   "type": "application/javascript",
+   "resourceType": "script",
+   "size": 178,
+   "status": 200,
+   "party": "third",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "role": "third-party"
+  },
+  {
+   "url": "https://esm.sh/unicornstudio-react@2.1.4-1/X-ZXJlYWN0LHJlYWN0LWRvbQ/es2022/unicornstudio-react.mjs",
+   "file": "site/esm.sh/unicornstudio-react@2.1.4-1/X-ZXJlYWN0LHJlYWN0LWRvbQ/es2022/unicornstudio-react.mjs",
+   "type": "application/javascript",
+   "resourceType": "script",
+   "size": 6542,
+   "status": 200,
+   "party": "third",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "library": {
+    "name": "unicornstudio",
+    "version": null
+   },
+   "role": "library"
+  },
+  {
+   "url": "https://esm.sh/unicornstudio-react@2.1.4-1?external=react,react-dom",
+   "file": "site/esm.sh/unicornstudio-react@2.1.4-1__q2fa58858.js",
+   "type": "application/javascript",
+   "resourceType": "script",
+   "size": 257,
+   "status": 200,
+   "party": "third",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "library": {
+    "name": "unicornstudio",
+    "version": null
+   },
+   "role": "library"
+  },
+  {
+   "url": "https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400&family=Montserrat:wght@200;300;400;500;600;700&display=swap",
+   "file": "site/fonts.googleapis.com/css2__q8348d4a9.css",
+   "type": "text/css",
+   "resourceType": "stylesheet",
+   "size": 25818,
+   "status": 200,
+   "party": "third",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "role": "third-party"
+  },
+  {
+   "url": "https://fonts.gstatic.com/s/cormorantgaramond/v21/co3ZmX5slCNuHLi8bLeY9MK7whWMhyjYrEtImSqn7B6D.woff2",
+   "file": "site/fonts.gstatic.com/s/cormorantgaramond/v21/co3ZmX5slCNuHLi8bLeY9MK7whWMhyjYrEtImSqn7B6D.woff2",
+   "type": "font/woff2",
+   "resourceType": "font",
+   "size": 39304,
+   "status": 200,
+   "party": "third",
+   "passes": [
+    "desktop",
+    "mobile"
+   ]
+  },
+  {
+   "url": "https://fonts.gstatic.com/s/cormorantgaramond/v21/co3bmX5slCNuHLi8bLeY9MK7whWMhyjYqXtKky2F7g.woff2",
+   "file": "site/fonts.gstatic.com/s/cormorantgaramond/v21/co3bmX5slCNuHLi8bLeY9MK7whWMhyjYqXtKky2F7g.woff2",
+   "type": "font/woff2",
+   "resourceType": "font",
+   "size": 37776,
+   "status": 200,
+   "party": "third",
+   "passes": [
+    "desktop",
+    "mobile"
+   ]
+  },
+  {
+   "url": "https://fonts.gstatic.com/s/montserrat/v31/JTUSjIg1_i6t8kCHKm459WlhyyTh89Y.woff2",
+   "file": "site/fonts.gstatic.com/s/montserrat/v31/JTUSjIg1_i6t8kCHKm459WlhyyTh89Y.woff2",
+   "type": "font/woff2",
+   "resourceType": "font",
+   "size": 35508,
+   "status": 200,
+   "party": "third",
+   "passes": [
+    "desktop",
+    "mobile"
+   ]
+  },
+  {
+   "url": "https://hoirqrkdgbmvpwutwuwj.supabase.co/storage/v1/object/public/assets/assets/012e23e6-f6f6-4823-8d02-f0db54528945_3840w.png",
+   "file": "site/hoirqrkdgbmvpwutwuwj.supabase.co/storage/v1/object/public/assets/assets/012e23e6-f6f6-4823-8d02-f0db54528945_3840w.png",
+   "type": "image/png",
+   "resourceType": "image",
+   "size": 5487985,
+   "status": 200,
+   "party": "third",
+   "passes": [
+    "desktop",
+    "mobile"
+   ]
+  },
+  {
+   "url": "https://hoirqrkdgbmvpwutwuwj.supabase.co/storage/v1/object/public/assets/assets/02cf60ad-d7d1-4bac-b30e-5852d4ba78dc_800w.jpg",
+   "file": "site/hoirqrkdgbmvpwutwuwj.supabase.co/storage/v1/object/public/assets/assets/02cf60ad-d7d1-4bac-b30e-5852d4ba78dc_800w.jpg",
+   "type": "image/jpeg",
+   "resourceType": "image",
+   "size": 77313,
+   "status": 200,
+   "party": "third",
+   "passes": [
+    "desktop",
+    "mobile"
+   ]
+  },
+  {
+   "url": "https://hoirqrkdgbmvpwutwuwj.supabase.co/storage/v1/object/public/assets/assets/04577f05-e08d-4287-9412-e42e69e0216a_1600w.jpg",
+   "file": "site/hoirqrkdgbmvpwutwuwj.supabase.co/storage/v1/object/public/assets/assets/04577f05-e08d-4287-9412-e42e69e0216a_1600w.jpg",
+   "type": "image/jpeg",
+   "resourceType": "image",
+   "size": 527489,
+   "status": 200,
+   "party": "third",
+   "passes": [
+    "desktop",
+    "mobile"
+   ]
+  },
+  {
+   "url": "https://hoirqrkdgbmvpwutwuwj.supabase.co/storage/v1/object/public/assets/assets/08c9c58c-2d57-4ca7-8332-4bf4b4ba27b6_3840w.png",
+   "file": "site/hoirqrkdgbmvpwutwuwj.supabase.co/storage/v1/object/public/assets/assets/08c9c58c-2d57-4ca7-8332-4bf4b4ba27b6_3840w.png",
+   "type": "image/png",
+   "resourceType": "image",
+   "size": 5451833,
+   "status": 200,
+   "party": "third",
+   "passes": [
+    "mobile",
+    "desktop"
+   ]
+  },
+  {
+   "url": "https://hoirqrkdgbmvpwutwuwj.supabase.co/storage/v1/object/public/assets/assets/3cfd7acb-9b13-466b-9197-b4fc2cac7bcd_800w.jpg",
+   "file": "site/hoirqrkdgbmvpwutwuwj.supabase.co/storage/v1/object/public/assets/assets/3cfd7acb-9b13-466b-9197-b4fc2cac7bcd_800w.jpg",
+   "type": "image/jpeg",
+   "resourceType": "image",
+   "size": 84948,
+   "status": 200,
+   "party": "third",
+   "passes": [
+    "desktop",
+    "mobile"
+   ]
+  },
+  {
+   "url": "https://hoirqrkdgbmvpwutwuwj.supabase.co/storage/v1/object/public/assets/assets/54bdb70d-a08c-4469-a481-ccb5a0020c58_3840w.png",
+   "file": "site/hoirqrkdgbmvpwutwuwj.supabase.co/storage/v1/object/public/assets/assets/54bdb70d-a08c-4469-a481-ccb5a0020c58_3840w.png",
+   "type": "image/png",
+   "resourceType": "image",
+   "size": 5714544,
+   "status": 200,
+   "party": "third",
+   "passes": [
+    "mobile",
+    "desktop"
+   ]
+  },
+  {
+   "url": "https://hoirqrkdgbmvpwutwuwj.supabase.co/storage/v1/object/public/assets/assets/6b410888-a2e7-4260-ac4a-8179b07b8bc0_3840w.png",
+   "file": "site/hoirqrkdgbmvpwutwuwj.supabase.co/storage/v1/object/public/assets/assets/6b410888-a2e7-4260-ac4a-8179b07b8bc0_3840w.png",
+   "type": "image/png",
+   "resourceType": "image",
+   "size": 5471135,
+   "status": 200,
+   "party": "third",
+   "passes": [
+    "mobile",
+    "desktop"
+   ]
+  },
+  {
+   "url": "https://hoirqrkdgbmvpwutwuwj.supabase.co/storage/v1/object/public/assets/assets/7ad3cb03-d76b-4c0f-9d82-8e7a31948eac_1600w.png",
+   "file": "site/hoirqrkdgbmvpwutwuwj.supabase.co/storage/v1/object/public/assets/assets/7ad3cb03-d76b-4c0f-9d82-8e7a31948eac_1600w.png",
+   "type": "image/png",
+   "resourceType": "image",
+   "size": 5516937,
+   "status": 200,
+   "party": "third",
+   "passes": [
+    "mobile",
+    "desktop"
+   ]
+  },
+  {
+   "url": "https://hoirqrkdgbmvpwutwuwj.supabase.co/storage/v1/object/public/assets/assets/83fa49d8-9835-4cea-8d39-9e6015e75de6_800w.jpg",
+   "file": "site/hoirqrkdgbmvpwutwuwj.supabase.co/storage/v1/object/public/assets/assets/83fa49d8-9835-4cea-8d39-9e6015e75de6_800w.jpg",
+   "type": "image/jpeg",
+   "resourceType": "image",
+   "size": 95377,
+   "status": 200,
+   "party": "third",
+   "passes": [
+    "desktop",
+    "mobile"
+   ]
+  },
+  {
+   "url": "https://hoirqrkdgbmvpwutwuwj.supabase.co/storage/v1/object/public/assets/assets/8c340cc1-02b0-44de-863c-32ac61fcc6dc_3840w.png",
+   "file": "site/hoirqrkdgbmvpwutwuwj.supabase.co/storage/v1/object/public/assets/assets/8c340cc1-02b0-44de-863c-32ac61fcc6dc_3840w.png",
+   "type": "image/png",
+   "resourceType": "image",
+   "size": 8051759,
+   "status": 200,
+   "party": "third",
+   "passes": [
+    "desktop",
+    "mobile"
+   ]
+  },
+  {
+   "url": "https://hoirqrkdgbmvpwutwuwj.supabase.co/storage/v1/object/public/assets/assets/a130615c-68c2-4525-b229-afb2938ed03e_3840w.png",
+   "file": "site/hoirqrkdgbmvpwutwuwj.supabase.co/storage/v1/object/public/assets/assets/a130615c-68c2-4525-b229-afb2938ed03e_3840w.png",
+   "type": "image/png",
+   "resourceType": "image",
+   "size": 6867210,
+   "status": 200,
+   "party": "third",
+   "passes": [
+    "desktop",
+    "mobile"
+   ]
+  },
+  {
+   "url": "https://hoirqrkdgbmvpwutwuwj.supabase.co/storage/v1/object/public/assets/assets/b4eff543-522e-40bc-b177-d1b8a1ddf42d_3840w.png",
+   "file": "site/hoirqrkdgbmvpwutwuwj.supabase.co/storage/v1/object/public/assets/assets/b4eff543-522e-40bc-b177-d1b8a1ddf42d_3840w.png",
+   "type": "image/png",
+   "resourceType": "image",
+   "size": 7303336,
+   "status": 200,
+   "party": "third",
+   "passes": [
+    "desktop",
+    "mobile"
+   ]
+  },
+  {
+   "url": "https://hoirqrkdgbmvpwutwuwj.supabase.co/storage/v1/object/public/assets/assets/eb2984cf-e10e-45e4-87df-7e337b4004cb_3840w.png",
+   "file": "site/hoirqrkdgbmvpwutwuwj.supabase.co/storage/v1/object/public/assets/assets/eb2984cf-e10e-45e4-87df-7e337b4004cb_3840w.png",
+   "type": "image/png",
+   "resourceType": "image",
+   "size": 6113073,
+   "status": 200,
+   "party": "third",
+   "passes": [
+    "desktop",
+    "mobile"
+   ]
+  },
+  {
+   "url": "https://hoirqrkdgbmvpwutwuwj.supabase.co/storage/v1/object/public/generated-videos/8bd0314a-9525-4a13-996e-2c37cbd9e514/1779678842660-589ad283-7901-4385-af29-aedcbe6e68c9.mp4",
+   "file": "site/hoirqrkdgbmvpwutwuwj.supabase.co/storage/v1/object/public/generated-videos/8bd0314a-9525-4a13-996e-2c37cbd9e514/1779678842660-589ad283-7901-4385-af29-aedcbe6e68c9.mp4",
+   "type": "video/mp4",
+   "resourceType": "media",
+   "size": 5584748,
+   "status": 200,
+   "party": "third",
+   "passes": [
+    "desktop"
+   ]
+  },
+  {
+   "url": "https://hoirqrkdgbmvpwutwuwj.supabase.co/storage/v1/object/public/generated-videos/8bd0314a-9525-4a13-996e-2c37cbd9e514/1779679066962-3a057e1e-bfc6-416d-9aed-468d7b6efb7d.mp4",
+   "file": "site/hoirqrkdgbmvpwutwuwj.supabase.co/storage/v1/object/public/generated-videos/8bd0314a-9525-4a13-996e-2c37cbd9e514/1779679066962-3a057e1e-bfc6-416d-9aed-468d7b6efb7d.mp4",
+   "type": "video/mp4",
+   "resourceType": "media",
+   "size": 2284639,
+   "status": 200,
+   "party": "third",
+   "passes": [
+    "desktop"
+   ]
+  },
+  {
+   "url": "https://images.unsplash.com/photo-1514362545857-3bc16c4c7d1b?w=800&q=80",
+   "file": "site/images.unsplash.com/photo-1514362545857-3bc16c4c7d1b__q01172a98.jpg",
+   "type": "image/jpeg",
+   "resourceType": "image",
+   "size": 39508,
+   "status": 200,
+   "party": "third",
+   "passes": [
+    "desktop",
+    "mobile"
+   ]
+  },
+  {
+   "url": "https://unpkg.com/@babel/standalone@7.24.0/babel.min.js",
+   "file": "site/unpkg.com/@babel/standalone@7.24.0/babel.min.js",
+   "type": "text/javascript",
+   "resourceType": "script",
+   "size": 2867392,
+   "status": 200,
+   "party": "third",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "library": {
+    "name": "babel-standalone",
+    "version": "7.24.0"
+   },
+   "role": "library"
+  }
+ ]
+}

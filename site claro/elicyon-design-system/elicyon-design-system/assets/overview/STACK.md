@@ -1,0 +1,14 @@
+- **Next.js** — React framework that originally rendered this page (evidenced by `__NEXT_DATA__` script, `_next/image` URLs, prefetch manifests and `data-nimg` attributes)
+- **React** — UI library underlying the Next.js page (hydration target for the markup)
+- **Tailwind CSS** — utility-first CSS framework used for all layout, spacing, typography variants and responsive breakpoints
+- **Sanity CMS** — content source for images and copy (CDN URLs under `cdn.sanity.io/images/mllsbgdp`)
+- **GSAP / ScrollTrigger** — drives the pinned project carousel, parallax containers (`data-parallax="wrapper|container|inner"`) and reveal-line animations (heavy use of `transform: translate3d(...)` inline styles)
+- **Lenis** — smooth scrolling library (root element carries `class="lenis"`)
+- **Custom Elicyon font** — display typeface used for the wordmark and `font-elicyon` headings (preloaded WOFF2)
+- **Antique Legacy font** — secondary serif used in `font-antique-legacy` service tile labels (preloaded WOFF2)
+- **Google Tag Manager (GTM-MGQ939Z)** — analytics container injected into `<head>`
+- **Google Ads gtag (AW-871490078) / Google Analytics (G-ZMEXNJTNQN)** — conversion + measurement tracking
+- **DoubleClick (googleads.g.doubleclick.net)** — view-through conversion pixel
+- **Custom offline asset rewriter** — inline IIFE that swaps remote Sanity/`_next/image` URLs to local `assets/*` files via an `IMG_MAP` and forces visibility on stalled hydration nodes
+- **Cookiebot-style consent banner** — custom-built consent UI with necessary/preferences/marketing/unclassified categories
+- **HubSpot-style newsletter form** — bottom-bordered minimal inputs for name/email subscription

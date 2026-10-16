@@ -1,0 +1,25 @@
+
+  .swiper-slide:not(:first-child) {
+    position: absolute !important;
+    top: 0;
+    left: 0;
+    width: 100%;
+  }
+
+ 
+    .slide_mask {
+  will-change: clip-path;
+  transform: translateZ(0); /* force GPU layer, prevents compositing seam */
+}
+
+  .slide_content_wrap {
+    opacity: 0;
+  }
+
+  /* Hide entire stack until GSAP is ready */
+  .slides-stack {
+    visibility: hidden;
+  }
+
+  .swiper-button-prev::after,
+  .swiper-button-next::after { display: none; }

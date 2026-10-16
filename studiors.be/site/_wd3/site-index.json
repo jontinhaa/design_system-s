@@ -1,0 +1,910 @@
+{
+ "version": 1,
+ "tool": "wd3 0.1.0",
+ "captureId": "studiors.be-677e7f5d",
+ "capturedAt": "2026-10-14T17:06:03+00:00",
+ "entry": {
+  "url": "https://studiors.be/",
+  "path": "/",
+  "search": "",
+  "file": "site/studiors.be/index.html",
+  "contentType": "text/html"
+ },
+ "blocked": [
+  "^https?://([^/?#]+\\.)?(google\\-analytics\\.com|analytics\\.google\\.com|googletagmanager\\.com|googleadservices\\.com|doubleclick\\.net|googlesyndication\\.com|googleoptimize\\.com|connect\\.facebook\\.net|bat\\.bing\\.com|snap\\.licdn\\.com|px\\.ads\\.linkedin\\.com|analytics\\.tiktok\\.com|ct\\.pinterest\\.com|static\\.ads\\-twitter\\.com|analytics\\.twitter\\.com|tr\\.snapchat\\.com|sc\\-static\\.net|mc\\.yandex\\.ru|hotjar\\.com|hotjar\\.io|clarity\\.ms|cdn\\.segment\\.com|api\\.segment\\.io|cdn\\.mxpnl\\.com|api\\-js\\.mixpanel\\.com|api\\.mixpanel\\.com|api\\.amplitude\\.com|api2\\.amplitude\\.com|api\\-secure\\.amplitude\\.com|api\\-sr\\.amplitude\\.com|sr\\-client\\-cfg\\.amplitude\\.com|plausible\\.io|cloud\\.umami\\.is|analytics\\.umami\\.is|static\\.cloudflareinsights\\.com|cloudflareinsights\\.com|vitals\\.vercel\\-insights\\.com|browser\\-intake\\-datadoghq\\.com|browser\\-intake\\-datadoghq\\.eu|js\\-agent\\.newrelic\\.com|bam\\.nr\\-data\\.net|bam\\-cell\\.nr\\-data\\.net|fullstory\\.com|script\\.crazyegg\\.com|mouseflow\\.com|smartlook\\.com|heapanalytics\\.com|i\\.posthog\\.com|stats\\.wp\\.com|pixel\\.wp\\.com|promotekit\\.com|ingest\\.sentry\\.io|ingest\\.us\\.sentry\\.io|ingest\\.de\\.sentry\\.io|widget\\.intercom\\.io|js\\.intercomcdn\\.com|api\\-iam\\.intercom\\.io|js\\.hs\\-scripts\\.com|js\\.hs\\-analytics\\.net|js\\.hs\\-banner\\.com|js\\.hscollectedforms\\.net|js\\.usemessages\\.com|track\\.hubspot\\.com|client\\.crisp\\.chat|embed\\.tawk\\.to|js\\.driftt\\.com|static\\.zdassets\\.com|ekr\\.zdassets\\.com|cdn\\.cookielaw\\.org|geolocation\\.onetrust\\.com|consent\\.cookiebot\\.com|consentcdn\\.cookiebot\\.com|app\\.usercentrics\\.eu|api\\.usercentrics\\.eu|cdn\\.iubenda\\.com|cmp\\.osano\\.com|cdn\\.termly\\.io)(:\\d+)?([/?#]|$)",
+  "/rpc/increment_shared_code_views",
+  "^https?://(umami|analytics|stats|plausible)\\.[^/]+/(api/send|api/collect|api/event|script\\.js)",
+  "/g/c(ollect)?\\?v=2&",
+  "sentry\\.io/api/\\d+/(envelope|store)",
+  "/api/meta-capi",
+  "^https?://(leadtracker|tracking|track|events?|collect)\\.[^/]+/",
+  "^https?://a\\.vturb\\.com/",
+  "facebook\\.com/tr[/?]",
+  "/_vercel/(speed-)?insights/",
+  "/cdn-cgi/rum",
+  "/cdn-cgi/challenge-platform/",
+  "google\\.com/(pagead|ads)/"
+ ],
+ "volatileParams": [
+  "v",
+  "_rsc",
+  "dpl",
+  "_",
+  "t",
+  "ts",
+  "timestamp",
+  "cb",
+  "cachebust",
+  "cacheBust",
+  "nocache",
+  "rnd",
+  "rand",
+  "random",
+  "_t"
+ ],
+ "entries": [
+  {
+   "url": "https://studiors.be/",
+   "method": "GET",
+   "status": 200,
+   "contentType": "text/html",
+   "headers": {
+    "cf-placement": "local-IAD",
+    "content-type": "text/html",
+    "referrer-policy": "strict-origin-when-cross-origin",
+    "speculation-rules": "\"/cdn-cgi/speculation\""
+   },
+   "resourceType": "document",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "file": "site/studiors.be/index.html",
+   "size": 57378,
+   "modes": [
+    "navigate"
+   ]
+  },
+  {
+   "url": "https://studiors.be/cdn-cgi/speculation",
+   "method": "GET",
+   "status": 200,
+   "contentType": "application/speculationrules+json",
+   "headers": {
+    "access-control-allow-origin": "https://studiors.be",
+    "content-type": "application/speculationrules+json",
+    "speculation-rules": "\"/cdn-cgi/speculation\""
+   },
+   "resourceType": "other",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "file": "site/studiors.be/cdn-cgi/speculation.json",
+   "size": 151,
+   "modes": [
+    "cors"
+   ]
+  },
+  {
+   "url": "https://studiors.be/_astro/index.6Z34nksz.css",
+   "method": "GET",
+   "status": 200,
+   "contentType": "text/css",
+   "headers": {
+    "content-type": "text/css",
+    "priority": "u=0,i=?0",
+    "referrer-policy": "strict-origin-when-cross-origin",
+    "speculation-rules": "\"/cdn-cgi/speculation\""
+   },
+   "resourceType": "stylesheet",
+   "passes": [
+    "mobile",
+    "desktop"
+   ],
+   "file": "site/studiors.be/_astro/index.6Z34nksz.css",
+   "size": 21492,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://studiors.be/_astro/Layout.CL8-T7qQ.css",
+   "method": "GET",
+   "status": 200,
+   "contentType": "text/css",
+   "headers": {
+    "content-type": "text/css",
+    "priority": "u=0,i=?0",
+    "referrer-policy": "strict-origin-when-cross-origin",
+    "speculation-rules": "\"/cdn-cgi/speculation\""
+   },
+   "resourceType": "stylesheet",
+   "passes": [
+    "mobile",
+    "desktop"
+   ],
+   "file": "site/studiors.be/_astro/Layout.CL8-T7qQ.css",
+   "size": 52820,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://studiors.be/_astro/responsive.Bk8G_f8R.css",
+   "method": "GET",
+   "status": 200,
+   "contentType": "text/css",
+   "headers": {
+    "content-type": "text/css",
+    "referrer-policy": "strict-origin-when-cross-origin",
+    "speculation-rules": "\"/cdn-cgi/speculation\""
+   },
+   "resourceType": "stylesheet",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "file": "site/studiors.be/_astro/responsive.Bk8G_f8R.css",
+   "size": 11675,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://studiors.be/_astro/index.astro_astro_type_script_index_0_lang.BUoC_grT.js",
+   "method": "GET",
+   "status": 200,
+   "contentType": "text/javascript",
+   "headers": {
+    "content-type": "text/javascript",
+    "referrer-policy": "strict-origin-when-cross-origin",
+    "speculation-rules": "\"/cdn-cgi/speculation\""
+   },
+   "resourceType": "script",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "file": "site/studiors.be/_astro/index.astro_astro_type_script_index_0_lang.BUoC_grT.js",
+   "size": 6424,
+   "modes": [
+    "cors"
+   ]
+  },
+  {
+   "url": "https://studiors.be/_astro/Layout.astro_astro_type_script_index_0_lang.DpEzEFIN.js",
+   "method": "GET",
+   "status": 200,
+   "contentType": "text/javascript",
+   "headers": {
+    "content-type": "text/javascript",
+    "referrer-policy": "strict-origin-when-cross-origin",
+    "speculation-rules": "\"/cdn-cgi/speculation\""
+   },
+   "resourceType": "script",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "file": "site/studiors.be/_astro/Layout.astro_astro_type_script_index_0_lang.DpEzEFIN.js",
+   "size": 20180,
+   "modes": [
+    "cors"
+   ]
+  },
+  {
+   "url": "https://studiors.be/_astro/page.C3zhh8Lx.js",
+   "method": "GET",
+   "status": 200,
+   "contentType": "text/javascript",
+   "headers": {
+    "content-type": "text/javascript",
+    "referrer-policy": "strict-origin-when-cross-origin",
+    "speculation-rules": "\"/cdn-cgi/speculation\""
+   },
+   "resourceType": "script",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "file": "site/studiors.be/_astro/page.C3zhh8Lx.js",
+   "size": 2333,
+   "modes": [
+    "cors"
+   ]
+  },
+  {
+   "url": "https://studiors.be/_astro/logo.Do7g3Ytr.js",
+   "method": "GET",
+   "status": 200,
+   "contentType": "text/javascript",
+   "headers": {
+    "content-type": "text/javascript",
+    "priority": "u=1,i=?0",
+    "referrer-policy": "strict-origin-when-cross-origin",
+    "speculation-rules": "\"/cdn-cgi/speculation\""
+   },
+   "resourceType": "script",
+   "passes": [
+    "mobile",
+    "desktop"
+   ],
+   "file": "site/studiors.be/_astro/logo.Do7g3Ytr.js",
+   "size": 377,
+   "modes": [
+    "cors"
+   ]
+  },
+  {
+   "url": "https://studiors.be/_astro/preload-helper.C6pNqXq6.js",
+   "method": "GET",
+   "status": 200,
+   "contentType": "text/javascript",
+   "headers": {
+    "content-type": "text/javascript",
+    "priority": "u=1,i=?0",
+    "referrer-policy": "strict-origin-when-cross-origin",
+    "speculation-rules": "\"/cdn-cgi/speculation\""
+   },
+   "resourceType": "script",
+   "passes": [
+    "mobile",
+    "desktop"
+   ],
+   "file": "site/studiors.be/_astro/preload-helper.C6pNqXq6.js",
+   "size": 1306,
+   "modes": [
+    "cors"
+   ]
+  },
+  {
+   "url": "https://studiors.be/_astro/page-transitions.D0xPx2OW.js",
+   "method": "GET",
+   "status": 200,
+   "contentType": "text/javascript",
+   "headers": {
+    "content-type": "text/javascript",
+    "priority": "u=1,i=?0",
+    "referrer-policy": "strict-origin-when-cross-origin",
+    "speculation-rules": "\"/cdn-cgi/speculation\""
+   },
+   "resourceType": "script",
+   "passes": [
+    "mobile",
+    "desktop"
+   ],
+   "file": "site/studiors.be/_astro/page-transitions.D0xPx2OW.js",
+   "size": 11340,
+   "modes": [
+    "cors"
+   ]
+  },
+  {
+   "url": "https://studiors.be/services/",
+   "method": "GET",
+   "status": 503,
+   "contentType": "",
+   "headers": {
+    "cf-speculation-refused": "prefetch refused: disabled for worker requests",
+    "referrer-policy": "same-origin"
+   },
+   "resourceType": "other",
+   "passes": [
+    "mobile",
+    "desktop"
+   ],
+   "file": "site/studiors.be/services/index.bin",
+   "size": 0,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://studiors.be/projects/",
+   "method": "GET",
+   "status": 503,
+   "contentType": "",
+   "headers": {
+    "cf-speculation-refused": "prefetch refused: disabled for worker requests",
+    "referrer-policy": "same-origin"
+   },
+   "resourceType": "other",
+   "passes": [
+    "mobile",
+    "desktop"
+   ],
+   "file": "site/studiors.be/projects/index.bin",
+   "size": 0,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://studiors.be/projet/vertical-view/",
+   "method": "GET",
+   "status": 503,
+   "contentType": "",
+   "headers": {
+    "cf-speculation-refused": "prefetch refused: disabled for worker requests",
+    "referrer-policy": "same-origin"
+   },
+   "resourceType": "other",
+   "passes": [
+    "mobile",
+    "desktop"
+   ],
+   "file": "site/studiors.be/projet/vertical-view/index.bin",
+   "size": 0,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://studiors.be/projet/celine-savigny/",
+   "method": "GET",
+   "status": 503,
+   "contentType": "",
+   "headers": {
+    "cf-speculation-refused": "prefetch refused: disabled for worker requests",
+    "referrer-policy": "same-origin"
+   },
+   "resourceType": "other",
+   "passes": [
+    "mobile",
+    "desktop"
+   ],
+   "file": "site/studiors.be/projet/celine-savigny/index.bin",
+   "size": 0,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://studiors.be/projet/azzato/",
+   "method": "GET",
+   "status": 503,
+   "contentType": "",
+   "headers": {
+    "cf-speculation-refused": "prefetch refused: disabled for worker requests",
+    "referrer-policy": "same-origin"
+   },
+   "resourceType": "other",
+   "passes": [
+    "mobile",
+    "desktop"
+   ],
+   "file": "site/studiors.be/projet/azzato/index.bin",
+   "size": 0,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://media.studiors.be/studiors/uploads/projects/simontarea/motion-vertical-poster.jpg",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/jpeg",
+   "headers": {
+    "content-type": "image/jpeg",
+    "priority": "u=2,i",
+    "speculation-rules": "\"/cdn-cgi/speculation\""
+   },
+   "resourceType": "image",
+   "passes": [
+    "mobile",
+    "desktop"
+   ],
+   "file": "site/media.studiors.be/studiors/uploads/projects/simontarea/motion-vertical-poster.jpg",
+   "size": 66167,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://media.studiors.be/studiors/uploads/projects/celine-savigny/motion-vertical-poster.jpg",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/jpeg",
+   "headers": {
+    "content-type": "image/jpeg",
+    "priority": "u=2,i",
+    "speculation-rules": "\"/cdn-cgi/speculation\""
+   },
+   "resourceType": "image",
+   "passes": [
+    "mobile",
+    "desktop"
+   ],
+   "file": "site/media.studiors.be/studiors/uploads/projects/celine-savigny/motion-vertical-poster.jpg",
+   "size": 70835,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://media.studiors.be/studiors/uploads/projects/azzato/motion-poster.jpg",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/jpeg",
+   "headers": {
+    "content-type": "image/jpeg",
+    "priority": "u=2,i",
+    "speculation-rules": "\"/cdn-cgi/speculation\""
+   },
+   "resourceType": "image",
+   "passes": [
+    "mobile",
+    "desktop"
+   ],
+   "file": "site/media.studiors.be/studiors/uploads/projects/azzato/motion-poster.jpg",
+   "size": 82914,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://studiors.be/_astro/motion.DWDv84-K.js",
+   "method": "GET",
+   "status": 200,
+   "contentType": "text/javascript",
+   "headers": {
+    "content-type": "text/javascript",
+    "priority": "u=1,i=?0",
+    "referrer-policy": "strict-origin-when-cross-origin",
+    "speculation-rules": "\"/cdn-cgi/speculation\""
+   },
+   "resourceType": "script",
+   "passes": [
+    "mobile",
+    "desktop"
+   ],
+   "file": "site/studiors.be/_astro/motion.DWDv84-K.js",
+   "size": 133514,
+   "modes": [
+    "cors"
+   ]
+  },
+  {
+   "url": "https://media.studiors.be/studiors/uploads/projects/david-dieu/motion-poster.jpg",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/jpeg",
+   "headers": {
+    "content-type": "image/jpeg",
+    "priority": "u=2,i",
+    "speculation-rules": "\"/cdn-cgi/speculation\""
+   },
+   "resourceType": "image",
+   "passes": [
+    "mobile",
+    "desktop"
+   ],
+   "file": "site/media.studiors.be/studiors/uploads/projects/david-dieu/motion-poster.jpg",
+   "size": 84323,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://media.studiors.be/studiors/uploads/projects/vertical-view/motion-vertical-poster.jpg",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/jpeg",
+   "headers": {
+    "content-type": "image/jpeg",
+    "priority": "u=2,i",
+    "speculation-rules": "\"/cdn-cgi/speculation\""
+   },
+   "resourceType": "image",
+   "passes": [
+    "mobile",
+    "desktop"
+   ],
+   "file": "site/media.studiors.be/studiors/uploads/projects/vertical-view/motion-vertical-poster.jpg",
+   "size": 68830,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://studiors.be/studio/",
+   "method": "GET",
+   "status": 503,
+   "contentType": "",
+   "headers": {
+    "cf-speculation-refused": "prefetch refused: disabled for worker requests",
+    "referrer-policy": "same-origin"
+   },
+   "resourceType": "other",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "file": "site/studiors.be/studio/index.bin",
+   "size": 0,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://studiors.be/favicon.svg",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/svg+xml",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "cf-placement": "local-IAD",
+    "content-type": "image/svg+xml",
+    "priority": "u=1,i",
+    "referrer-policy": "strict-origin-when-cross-origin",
+    "speculation-rules": "\"/cdn-cgi/speculation\""
+   },
+   "resourceType": "other",
+   "passes": [
+    "mobile",
+    "desktop"
+   ],
+   "file": "site/studiors.be/favicon.svg",
+   "size": 394,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://studiors.be/_astro/logo3d-scene.Brv4_Egr.js",
+   "method": "GET",
+   "status": 200,
+   "contentType": "text/javascript",
+   "headers": {
+    "content-type": "text/javascript",
+    "priority": "u=1,i=?0",
+    "referrer-policy": "strict-origin-when-cross-origin",
+    "speculation-rules": "\"/cdn-cgi/speculation\""
+   },
+   "resourceType": "script",
+   "passes": [
+    "mobile",
+    "desktop"
+   ],
+   "file": "site/studiors.be/_astro/logo3d-scene.Brv4_Egr.js",
+   "size": 528743,
+   "modes": [
+    "cors"
+   ]
+  },
+  {
+   "url": "https://studiors.be/projet/david-dieu/",
+   "method": "GET",
+   "status": 503,
+   "contentType": "",
+   "headers": {
+    "cf-speculation-refused": "prefetch refused: disabled for worker requests",
+    "referrer-policy": "same-origin"
+   },
+   "resourceType": "other",
+   "passes": [
+    "mobile",
+    "desktop"
+   ],
+   "file": "site/studiors.be/projet/david-dieu/index.bin",
+   "size": 0,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://studiors.be/projet/simontarea/",
+   "method": "GET",
+   "status": 503,
+   "contentType": "",
+   "headers": {
+    "cf-speculation-refused": "prefetch refused: disabled for worker requests",
+    "referrer-policy": "same-origin"
+   },
+   "resourceType": "other",
+   "passes": [
+    "mobile",
+    "desktop"
+   ],
+   "file": "site/studiors.be/projet/simontarea/index.bin",
+   "size": 0,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://studiors.be/services/direction-visuelle/",
+   "method": "GET",
+   "status": 503,
+   "contentType": "",
+   "headers": {
+    "cf-speculation-refused": "prefetch refused: disabled for worker requests",
+    "referrer-policy": "same-origin"
+   },
+   "resourceType": "other",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "file": "site/studiors.be/services/direction-visuelle/index.bin",
+   "size": 0,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://studiors.be/services/ui-ux-design/",
+   "method": "GET",
+   "status": 503,
+   "contentType": "",
+   "headers": {
+    "cf-speculation-refused": "prefetch refused: disabled for worker requests",
+    "referrer-policy": "same-origin"
+   },
+   "resourceType": "other",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "file": "site/studiors.be/services/ui-ux-design/index.bin",
+   "size": 0,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://studiors.be/services/site-web-sur-mesure/",
+   "method": "GET",
+   "status": 503,
+   "contentType": "",
+   "headers": {
+    "cf-speculation-refused": "prefetch refused: disabled for worker requests",
+    "referrer-policy": "same-origin"
+   },
+   "resourceType": "other",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "file": "site/studiors.be/services/site-web-sur-mesure/index.bin",
+   "size": 0,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://studiors.be/services/developpement-web/",
+   "method": "GET",
+   "status": 503,
+   "contentType": "",
+   "headers": {
+    "cf-speculation-refused": "prefetch refused: disabled for worker requests",
+    "referrer-policy": "same-origin"
+   },
+   "resourceType": "other",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "file": "site/studiors.be/services/developpement-web/index.bin",
+   "size": 0,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://studiors.be/services/motion-design-webgl/",
+   "method": "GET",
+   "status": 503,
+   "contentType": "",
+   "headers": {
+    "cf-speculation-refused": "prefetch refused: disabled for worker requests",
+    "referrer-policy": "same-origin"
+   },
+   "resourceType": "other",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "file": "site/studiors.be/services/motion-design-webgl/index.bin",
+   "size": 0,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://studiors.be/mentions-legales/",
+   "method": "GET",
+   "status": 503,
+   "contentType": "",
+   "headers": {
+    "cf-speculation-refused": "prefetch refused: disabled for worker requests",
+    "referrer-policy": "same-origin"
+   },
+   "resourceType": "other",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "file": "site/studiors.be/mentions-legales/index.bin",
+   "size": 0,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://studiors.be/politique-de-confidentialite/",
+   "method": "GET",
+   "status": 503,
+   "contentType": "",
+   "headers": {
+    "cf-speculation-refused": "prefetch refused: disabled for worker requests",
+    "referrer-policy": "same-origin"
+   },
+   "resourceType": "other",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "file": "site/studiors.be/politique-de-confidentialite/index.bin",
+   "size": 0,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://media.studiors.be/studiors/videos/simontarea/motion-vertical.mp4",
+   "method": "GET",
+   "status": 200,
+   "contentType": "video/mp4",
+   "headers": {
+    "content-type": "video/mp4",
+    "speculation-rules": "\"/cdn-cgi/speculation\""
+   },
+   "resourceType": "media",
+   "passes": [
+    "desktop"
+   ],
+   "file": "site/media.studiors.be/studiors/videos/simontarea/motion-vertical.mp4",
+   "size": 1436659,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://media.studiors.be/studiors/videos/david-dieu/motion.mp4",
+   "method": "GET",
+   "status": 200,
+   "contentType": "video/mp4",
+   "headers": {
+    "content-type": "video/mp4",
+    "speculation-rules": "\"/cdn-cgi/speculation\""
+   },
+   "resourceType": "media",
+   "passes": [
+    "desktop"
+   ],
+   "file": "site/media.studiors.be/studiors/videos/david-dieu/motion.mp4",
+   "size": 3538806,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://media.studiors.be/studiors/videos/azzato/motion.mp4",
+   "method": "GET",
+   "status": 200,
+   "contentType": "video/mp4",
+   "headers": {
+    "content-type": "video/mp4",
+    "speculation-rules": "\"/cdn-cgi/speculation\""
+   },
+   "resourceType": "media",
+   "passes": [
+    "desktop"
+   ],
+   "file": "site/media.studiors.be/studiors/videos/azzato/motion.mp4",
+   "size": 3934288,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://media.studiors.be/studiors/videos/vertical-view/motion-vertical.mp4",
+   "method": "GET",
+   "status": 200,
+   "contentType": "video/mp4",
+   "headers": {
+    "content-type": "video/mp4",
+    "speculation-rules": "\"/cdn-cgi/speculation\""
+   },
+   "resourceType": "media",
+   "passes": [
+    "desktop"
+   ],
+   "file": "site/media.studiors.be/studiors/videos/vertical-view/motion-vertical.mp4",
+   "size": 1290318,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://media.studiors.be/studiors/videos/celine-savigny/motion-vertical.mp4",
+   "method": "GET",
+   "status": 200,
+   "contentType": "video/mp4",
+   "headers": {
+    "content-type": "video/mp4",
+    "speculation-rules": "\"/cdn-cgi/speculation\""
+   },
+   "resourceType": "media",
+   "passes": [
+    "desktop"
+   ],
+   "file": "site/media.studiors.be/studiors/videos/celine-savigny/motion-vertical.mp4",
+   "size": 1582433,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://studiors.be/favicon.ico",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/vnd.microsoft.icon",
+   "headers": {
+    "content-type": "image/vnd.microsoft.icon",
+    "cf-placement": "local-IAD",
+    "referrer-policy": "strict-origin-when-cross-origin",
+    "speculation-rules": "\"/cdn-cgi/speculation\""
+   },
+   "resourceType": "other",
+   "passes": [
+    "desktop"
+   ],
+   "file": "site/studiors.be/favicon.ico",
+   "size": 1446
+  },
+  {
+   "url": "https://studiors.be/favicon-48.png",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/png",
+   "headers": {
+    "content-type": "image/png",
+    "cf-placement": "local-IAD",
+    "referrer-policy": "strict-origin-when-cross-origin",
+    "speculation-rules": "\"/cdn-cgi/speculation\""
+   },
+   "resourceType": "other",
+   "passes": [
+    "desktop"
+   ],
+   "file": "site/studiors.be/favicon-48.png",
+   "size": 667
+  },
+  {
+   "url": "https://studiors.be/favicon-180.png",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/png",
+   "headers": {
+    "content-type": "image/png",
+    "cf-placement": "local-IAD",
+    "referrer-policy": "strict-origin-when-cross-origin",
+    "speculation-rules": "\"/cdn-cgi/speculation\""
+   },
+   "resourceType": "other",
+   "passes": [
+    "desktop"
+   ],
+   "file": "site/studiors.be/favicon-180.png",
+   "size": 2194
+  }
+ ],
+ "videos": {
+  "posters": {},
+  "onlineHosts": []
+ }
+}

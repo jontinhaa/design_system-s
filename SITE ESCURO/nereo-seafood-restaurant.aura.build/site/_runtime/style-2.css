@@ -1,0 +1,96 @@
+@import url("../fonts.googleapis.com/css2__q8348d4a9.css");
+
+/* Custom Variable Mappings to support original class names faithfully */
+:root {
+  --gold-primary: #D8A94F;
+  --gold-secondary: #E4B760;
+  --bg-primary: #050505;
+  --bg-secondary: #070605;
+  --text-primary: #F7F1E6;
+  --text-secondary: rgba(247, 241, 230, 0.72);
+  --text-muted: rgba(247, 241, 230, 0.45);
+  --border-gold: rgba(216, 169, 79, 0.22);
+}
+
+body {
+  font-family: 'Montserrat', sans-serif;
+  background-color: var(--bg-primary);
+  color: var(--text-primary);
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+}
+
+.font-serif { font-family: 'Cormorant Garamond', serif; }
+.font-sans { font-family: 'Montserrat', sans-serif; }
+
+/* Emulated source color utilities */
+.text-goldPrimary { color: var(--gold-primary); }
+.text-textPrimary { color: var(--text-primary); }
+.text-textSecondary { color: var(--text-secondary); }
+.text-textMuted { color: var(--text-muted); }
+
+.bg-bgPrimary { background-color: var(--bg-primary); }
+.bg-bgSecondary { background-color: var(--bg-secondary); }
+.bg-goldPrimary { background-color: var(--gold-primary); }
+.bg-goldPrimary\/5 { background-color: rgba(216, 169, 79, 0.05); }
+.bg-goldPrimary\/15 { background-color: rgba(216, 169, 79, 0.15); }
+.bg-goldSecondary\/5 { background-color: rgba(228, 183, 96, 0.05); }
+.bg-goldSecondary\/10 { background-color: rgba(228, 183, 96, 0.1); }
+
+.border-borderGold { border-color: var(--border-gold); }
+.border-borderGold\/10 { border-color: rgba(216, 169, 79, 0.1); }
+.border-borderGold\/20 { border-color: rgba(216, 169, 79, 0.2); }
+.border-borderGold\/30 { border-color: rgba(216, 169, 79, 0.3); }
+.border-borderGold\/40 { border-color: rgba(216, 169, 79, 0.4); }
+.border-borderGold\/50 { border-color: rgba(216, 169, 79, 0.5); }
+.border-goldPrimary { border-color: var(--gold-primary); }
+.border-goldPrimary\/20 { border-color: rgba(216, 169, 79, 0.2); }
+.border-goldPrimary\/40 { border-color: rgba(216, 169, 79, 0.4); }
+.border-goldPrimary\/60 { border-color: rgba(216, 169, 79, 0.6); }
+
+/* Hover States emulated */
+.hover\:text-goldPrimary:hover { color: var(--gold-primary); }
+.hover\:text-bgPrimary:hover { color: var(--bg-primary); }
+.hover\:border-goldPrimary:hover { border-color: var(--gold-primary); }
+.hover\:bg-goldPrimary:hover { background-color: var(--gold-primary); }
+
+/* Core Effects & Surfaces */
+.glass-card {
+  background: rgba(255, 255, 255, 0.03);
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(216, 169, 79, 0.12);
+  box-shadow: 0 20px 40px -20px rgba(0, 0, 0, 0.8);
+}
+
+.ambient-glow {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(100px);
+  pointer-events: none;
+  z-index: 0;
+}
+
+.img-zoom-container img {
+  transition: transform 1.2s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+}
+.img-zoom-container:hover img {
+  transform: scale(1.08);
+}
+
+/* Animations */
+@keyframes shimmer {
+  0% { transform: translateX(-100%); }
+  100% { transform: translateX(200%); }
+}
+
+/* Scroll Reveals */
+.reveal-on-scroll {
+  opacity: 0;
+  transform: translateY(30px);
+  transition: opacity 1s cubic-bezier(0.2, 0.8, 0.2, 1), transform 1s cubic-bezier(0.2, 0.8, 0.2, 1);
+}
+.reveal-on-scroll.is-visible {
+  opacity: 1;
+  transform: translateY(0);
+}

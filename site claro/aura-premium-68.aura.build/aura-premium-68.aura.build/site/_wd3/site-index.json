@@ -1,0 +1,618 @@
+{
+ "version": 1,
+ "tool": "wd3 0.1.0",
+ "captureId": "aura-premium-68.aura.build-36beaaa4",
+ "capturedAt": "2026-09-28T19:23:04+00:00",
+ "entry": {
+  "url": "https://aura-premium-68.aura.build/",
+  "path": "/",
+  "search": "",
+  "file": "site/aura-premium-68.aura.build/index.html",
+  "contentType": "text/html; charset=utf-8"
+ },
+ "blocked": [
+  "^https?://([^/?#]+\\.)?(google\\-analytics\\.com|analytics\\.google\\.com|googletagmanager\\.com|googleadservices\\.com|doubleclick\\.net|googlesyndication\\.com|googleoptimize\\.com|connect\\.facebook\\.net|bat\\.bing\\.com|snap\\.licdn\\.com|px\\.ads\\.linkedin\\.com|analytics\\.tiktok\\.com|ct\\.pinterest\\.com|static\\.ads\\-twitter\\.com|analytics\\.twitter\\.com|tr\\.snapchat\\.com|sc\\-static\\.net|mc\\.yandex\\.ru|hotjar\\.com|hotjar\\.io|clarity\\.ms|cdn\\.segment\\.com|api\\.segment\\.io|cdn\\.mxpnl\\.com|api\\-js\\.mixpanel\\.com|api\\.mixpanel\\.com|api\\.amplitude\\.com|api2\\.amplitude\\.com|api\\-secure\\.amplitude\\.com|api\\-sr\\.amplitude\\.com|sr\\-client\\-cfg\\.amplitude\\.com|plausible\\.io|cloud\\.umami\\.is|analytics\\.umami\\.is|static\\.cloudflareinsights\\.com|cloudflareinsights\\.com|vitals\\.vercel\\-insights\\.com|browser\\-intake\\-datadoghq\\.com|browser\\-intake\\-datadoghq\\.eu|js\\-agent\\.newrelic\\.com|bam\\.nr\\-data\\.net|bam\\-cell\\.nr\\-data\\.net|fullstory\\.com|script\\.crazyegg\\.com|mouseflow\\.com|smartlook\\.com|heapanalytics\\.com|i\\.posthog\\.com|stats\\.wp\\.com|pixel\\.wp\\.com|promotekit\\.com|ingest\\.sentry\\.io|ingest\\.us\\.sentry\\.io|ingest\\.de\\.sentry\\.io|widget\\.intercom\\.io|js\\.intercomcdn\\.com|api\\-iam\\.intercom\\.io|js\\.hs\\-scripts\\.com|js\\.hs\\-analytics\\.net|js\\.hs\\-banner\\.com|js\\.hscollectedforms\\.net|js\\.usemessages\\.com|track\\.hubspot\\.com|client\\.crisp\\.chat|embed\\.tawk\\.to|js\\.driftt\\.com|static\\.zdassets\\.com|ekr\\.zdassets\\.com|cdn\\.cookielaw\\.org|geolocation\\.onetrust\\.com|consent\\.cookiebot\\.com|consentcdn\\.cookiebot\\.com|app\\.usercentrics\\.eu|api\\.usercentrics\\.eu|cdn\\.iubenda\\.com|cmp\\.osano\\.com|cdn\\.termly\\.io)(:\\d+)?([/?#]|$)",
+  "/rpc/increment_shared_code_views",
+  "^https?://(umami|analytics|stats|plausible)\\.[^/]+/(api/send|api/collect|api/event|script\\.js)",
+  "/g/c(ollect)?\\?v=2&",
+  "sentry\\.io/api/\\d+/(envelope|store)",
+  "/api/meta-capi",
+  "^https?://(leadtracker|tracking|track|events?|collect)\\.[^/]+/",
+  "^https?://a\\.vturb\\.com/",
+  "facebook\\.com/tr[/?]",
+  "/_vercel/(speed-)?insights/",
+  "/cdn-cgi/rum",
+  "/cdn-cgi/challenge-platform/",
+  "google\\.com/(pagead|ads)/"
+ ],
+ "volatileParams": [
+  "v",
+  "_rsc",
+  "dpl",
+  "_",
+  "t",
+  "ts",
+  "timestamp",
+  "cb",
+  "cachebust",
+  "cacheBust",
+  "nocache",
+  "rnd",
+  "rand",
+  "random",
+  "_t"
+ ],
+ "entries": [
+  {
+   "url": "https://aura-premium-68.aura.build/",
+   "method": "GET",
+   "status": 200,
+   "contentType": "text/html; charset=utf-8",
+   "headers": {
+    "content-type": "text/html; charset=utf-8"
+   },
+   "resourceType": "document",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "file": "site/aura-premium-68.aura.build/index.html",
+   "size": 30546
+  },
+  {
+   "url": "https://images.unsplash.com/photo-1600093463592-8e36ae95ef56?auto=format&fit=crop&q=80&w=1000",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/avif",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "content-type": "image/avif",
+    "timing-allow-origin": "*",
+    "x-imgix-id": "6400d9cd7b7dd746bf76b6f66f67e8e9a6493386"
+   },
+   "resourceType": "image",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "file": "site/images.unsplash.com/photo-1600093463592-8e36ae95ef56__qd63fae44.avif",
+   "size": 133785,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://cdn.tailwindcss.com/",
+   "method": "GET",
+   "status": 302,
+   "contentType": "",
+   "headers": {
+    "location": "/3.4.17"
+   },
+   "resourceType": "script",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "size": 0,
+   "redirect": "https://cdn.tailwindcss.com/3.4.17",
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://images.unsplash.com/photo-1554118811-1e0d58224f24?auto=format&fit=crop&q=80&w=2000",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/avif",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "content-type": "image/avif",
+    "timing-allow-origin": "*",
+    "x-imgix-id": "2fdeb3ee08f9b308b5c89bf2842cf080e4f98303"
+   },
+   "resourceType": "image",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "file": "site/images.unsplash.com/photo-1554118811-1e0d58224f24__qfbed69c2.avif",
+   "size": 368939,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js",
+   "method": "GET",
+   "status": 200,
+   "contentType": "application/javascript; charset=utf-8",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "content-type": "application/javascript; charset=utf-8",
+    "x-cache-hits": "1",
+    "x-fastly-request-id": "b3f9989ac3bcf1a027df49d1d0896fdd4e714e79",
+    "x-github-edge-region": "iad",
+    "x-github-request-id": "692A:14FCB2:189586:1DC95B:6ABA7ED2",
+    "x-origin-cache": "HIT",
+    "x-proxy-cache": "HIT"
+   },
+   "resourceType": "script",
+   "passes": [
+    "mobile",
+    "desktop"
+   ],
+   "file": "site/code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js",
+   "size": 22003,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,500;1,400&display=swap",
+   "method": "GET",
+   "status": 200,
+   "contentType": "text/css; charset=utf-8",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "content-type": "text/css; charset=utf-8",
+    "link": "<https://fonts.gstatic.com>; rel=preconnect; crossorigin",
+    "timing-allow-origin": "*"
+   },
+   "resourceType": "stylesheet",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "file": "site/fonts.googleapis.com/css2__qc0424ffb.css",
+   "size": 15103,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://images.unsplash.com/photo-1541167760496-1628856ab772?auto=format&fit=crop&q=80&w=800",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/avif",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "content-type": "image/avif",
+    "timing-allow-origin": "*",
+    "x-imgix-id": "2432de636455996d9b3e643287a679f0304ddaf3"
+   },
+   "resourceType": "image",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "file": "site/images.unsplash.com/photo-1541167760496-1628856ab772__qf005d9fa.avif",
+   "size": 17267,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://images.unsplash.com/photo-1628840042765-356cda07504e?auto=format&fit=crop&q=80&w=800",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/avif",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "content-type": "image/avif",
+    "timing-allow-origin": "*",
+    "x-imgix-id": "c670fd29a69b97e00ccdc2b80e38de619ae059b2"
+   },
+   "resourceType": "image",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "file": "site/images.unsplash.com/photo-1628840042765-356cda07504e__qf005d9fa.avif",
+   "size": 180443,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://cdn.tailwindcss.com/3.4.17",
+   "method": "GET",
+   "status": 200,
+   "contentType": "text/javascript",
+   "headers": {
+    "content-type": "text/javascript"
+   },
+   "resourceType": "script",
+   "passes": [
+    "mobile",
+    "desktop"
+   ],
+   "file": "site/cdn.tailwindcss.com/3.4.17.js",
+   "size": 407279,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://images.unsplash.com/photo-1515516089376-88db1e26e9c0?auto=format&fit=crop&q=80&w=800",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/avif",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "content-type": "image/avif",
+    "timing-allow-origin": "*",
+    "x-imgix-id": "bd07b59e08de3f30633c5ebbd50ef523c413db03"
+   },
+   "resourceType": "image",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "file": "site/images.unsplash.com/photo-1515516089376-88db1e26e9c0__qf005d9fa.avif",
+   "size": 47697,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://images.unsplash.com/photo-1509042239860-f550ce710b93?auto=format&fit=crop&q=80&w=600",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/avif",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "content-type": "image/avif",
+    "timing-allow-origin": "*",
+    "x-imgix-id": "d655d17988a71b200d7ac7bc38c54c0336932239"
+   },
+   "resourceType": "image",
+   "passes": [
+    "mobile",
+    "desktop"
+   ],
+   "file": "site/images.unsplash.com/photo-1509042239860-f550ce710b93__q64308636.avif",
+   "size": 59881,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://images.unsplash.com/photo-1497935586351-b67a49e012bf?auto=format&fit=crop&q=80&w=600",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/avif",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "content-type": "image/avif",
+    "timing-allow-origin": "*",
+    "x-imgix-id": "78bfc56be8d4693e09353e473ed8b4f7eba9e778"
+   },
+   "resourceType": "image",
+   "passes": [
+    "mobile",
+    "desktop"
+   ],
+   "file": "site/images.unsplash.com/photo-1497935586351-b67a49e012bf__q64308636.avif",
+   "size": 39634,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://images.unsplash.com/photo-1525351484163-7529414344d8?auto=format&fit=crop&q=80&w=600",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/avif",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "content-type": "image/avif",
+    "timing-allow-origin": "*",
+    "x-imgix-id": "163b89b09811509587b3ecfcda9b0115ab3f85a6"
+   },
+   "resourceType": "image",
+   "passes": [
+    "mobile",
+    "desktop"
+   ],
+   "file": "site/images.unsplash.com/photo-1525351484163-7529414344d8__q64308636.avif",
+   "size": 36166,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://images.unsplash.com/photo-1497935586351-b67a49e012bf?auto=format&fit=crop&q=80&w=1000",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/avif",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "content-type": "image/avif",
+    "timing-allow-origin": "*",
+    "x-imgix-id": "ebde49cfd70e73803c6ee0f7d027844ecf9ebbc2"
+   },
+   "resourceType": "image",
+   "passes": [
+    "mobile",
+    "desktop"
+   ],
+   "file": "site/images.unsplash.com/photo-1497935586351-b67a49e012bf__qd63fae44.avif",
+   "size": 96542,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://images.unsplash.com/photo-1493770348161-369560ae357d?auto=format&fit=crop&q=80&w=1000",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/avif",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "content-type": "image/avif",
+    "timing-allow-origin": "*",
+    "x-imgix-id": "c559f129cbf4710027028bef3857fd05e11ab7c6"
+   },
+   "resourceType": "image",
+   "passes": [
+    "mobile",
+    "desktop"
+   ],
+   "file": "site/images.unsplash.com/photo-1493770348161-369560ae357d__qd63fae44.avif",
+   "size": 114575,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://images.unsplash.com/photo-1559525839-b184a4d698c7?auto=format&fit=crop&q=80&w=600",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/avif",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "content-type": "image/avif",
+    "timing-allow-origin": "*",
+    "x-imgix-id": "b32220dc999bdbd3a30f78b113be0a983394e680"
+   },
+   "resourceType": "image",
+   "passes": [
+    "mobile",
+    "desktop"
+   ],
+   "file": "site/images.unsplash.com/photo-1559525839-b184a4d698c7__q64308636.avif",
+   "size": 48433,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://images.unsplash.com/photo-1524661135-423995f22d0b?auto=format&fit=crop&q=80&w=1000",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/avif",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "content-type": "image/avif",
+    "timing-allow-origin": "*",
+    "x-imgix-id": "3f437607f5a3e20cd7160de75e5e266da5850f67"
+   },
+   "resourceType": "image",
+   "passes": [
+    "mobile",
+    "desktop"
+   ],
+   "file": "site/images.unsplash.com/photo-1524661135-423995f22d0b__qd63fae44.avif",
+   "size": 130992,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://images.unsplash.com/photo-1600093463592-8e36ae95ef56?auto=format&fit=crop&q=80&w=600",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/avif",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "content-type": "image/avif",
+    "timing-allow-origin": "*",
+    "x-imgix-id": "45de7ef2706bbaf158966aed994140a61aa9959e"
+   },
+   "resourceType": "image",
+   "passes": [
+    "mobile",
+    "desktop"
+   ],
+   "file": "site/images.unsplash.com/photo-1600093463592-8e36ae95ef56__q64308636.avif",
+   "size": 62234,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://images.unsplash.com/photo-1511920170033-f8396924c348?auto=format&fit=crop&q=80&w=600",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/avif",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "content-type": "image/avif",
+    "timing-allow-origin": "*",
+    "x-imgix-id": "b8ebf751085a69c3e734a0c5c968ea56027a2b6b"
+   },
+   "resourceType": "image",
+   "passes": [
+    "mobile",
+    "desktop"
+   ],
+   "file": "site/images.unsplash.com/photo-1511920170033-f8396924c348__q64308636.avif",
+   "size": 42834,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://fonts.gstatic.com/s/inter/v20/UcC73FwrK3iLTeHuS_nVMrMxCp50SjIa1ZL7W0Q5nw.woff2",
+   "method": "GET",
+   "status": 200,
+   "contentType": "font/woff2",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "content-type": "font/woff2",
+    "timing-allow-origin": "*"
+   },
+   "resourceType": "font",
+   "passes": [
+    "mobile",
+    "desktop"
+   ],
+   "file": "site/fonts.gstatic.com/s/inter/v20/UcC73FwrK3iLTeHuS_nVMrMxCp50SjIa1ZL7W0Q5nw.woff2",
+   "size": 48432,
+   "modes": [
+    "cors"
+   ]
+  },
+  {
+   "url": "https://api.iconify.design/solar.json?icons=star-linear",
+   "method": "GET",
+   "status": 200,
+   "contentType": "application/json; charset=utf-8",
+   "headers": {
+    "access-control-allow-headers": "Origin, X-Requested-With, Content-Type, Accept, Accept-Encoding",
+    "access-control-allow-methods": "GET, OPTIONS",
+    "access-control-allow-origin": "*",
+    "access-control-max-age": "86400",
+    "content-type": "application/json; charset=utf-8"
+   },
+   "resourceType": "fetch",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "file": "site/api.iconify.design/solar__q3577e8c8.json",
+   "size": 1312,
+   "modes": [
+    "cors"
+   ]
+  },
+  {
+   "url": "https://api.iconify.design/solar.json?icons=map-point-linear",
+   "method": "GET",
+   "status": 200,
+   "contentType": "application/json; charset=utf-8",
+   "headers": {
+    "access-control-allow-headers": "Origin, X-Requested-With, Content-Type, Accept, Accept-Encoding",
+    "access-control-allow-methods": "GET, OPTIONS",
+    "access-control-allow-origin": "*",
+    "access-control-max-age": "86400",
+    "content-type": "application/json; charset=utf-8"
+   },
+   "resourceType": "fetch",
+   "passes": [
+    "desktop"
+   ],
+   "file": "site/api.iconify.design/solar__qc38f6b23.json",
+   "size": 458,
+   "modes": [
+    "cors"
+   ]
+  },
+  {
+   "url": "https://api.iconify.design/solar.json?icons=camera-linear%2Cclock-circle-linear%2Cmap-point-linear",
+   "method": "GET",
+   "status": 200,
+   "contentType": "application/json; charset=utf-8",
+   "headers": {
+    "access-control-allow-headers": "Origin, X-Requested-With, Content-Type, Accept, Accept-Encoding",
+    "access-control-allow-methods": "GET, OPTIONS",
+    "access-control-allow-origin": "*",
+    "access-control-max-age": "86400",
+    "content-type": "application/json; charset=utf-8"
+   },
+   "resourceType": "fetch",
+   "passes": [
+    "mobile"
+   ],
+   "file": "site/api.iconify.design/solar__q8d8460a5.json",
+   "size": 1559,
+   "modes": [
+    "cors"
+   ]
+  },
+  {
+   "url": "https://api.iconify.design/solar.json?icons=letter-linear%2Cmap-arrow-linear",
+   "method": "GET",
+   "status": 200,
+   "contentType": "application/json; charset=utf-8",
+   "headers": {
+    "access-control-allow-headers": "Origin, X-Requested-With, Content-Type, Accept, Accept-Encoding",
+    "access-control-allow-methods": "GET, OPTIONS",
+    "access-control-allow-origin": "*",
+    "access-control-max-age": "86400",
+    "content-type": "application/json; charset=utf-8"
+   },
+   "resourceType": "fetch",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "file": "site/api.iconify.design/solar__q1b61772c.json",
+   "size": 651,
+   "modes": [
+    "cors"
+   ]
+  },
+  {
+   "url": "https://api.iconify.design/solar.json?icons=camera-linear%2Cclock-circle-linear",
+   "method": "GET",
+   "status": 200,
+   "contentType": "application/json; charset=utf-8",
+   "headers": {
+    "access-control-allow-headers": "Origin, X-Requested-With, Content-Type, Accept, Accept-Encoding",
+    "access-control-allow-methods": "GET, OPTIONS",
+    "access-control-allow-origin": "*",
+    "access-control-max-age": "86400",
+    "content-type": "application/json; charset=utf-8"
+   },
+   "resourceType": "fetch",
+   "passes": [
+    "desktop"
+   ],
+   "file": "site/api.iconify.design/solar__qd81ab07a.json",
+   "size": 1191,
+   "modes": [
+    "cors"
+   ]
+  },
+  {
+   "url": "https://aura-premium-68.aura.build/favicon.ico",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/vnd.microsoft.icon",
+   "headers": {
+    "cache-status": "\"Netlify Edge\"; fwd=miss; fwd-status=200; stored",
+    "content-type": "image/vnd.microsoft.icon",
+    "referrer-policy": "strict-origin-when-cross-origin",
+    "x-nf-request-id": "01M3MQHXJ75G90MVJHN0930VRY"
+   },
+   "resourceType": "other",
+   "passes": [
+    "desktop"
+   ],
+   "file": "site/aura-premium-68.aura.build/favicon.ico",
+   "size": 696
+  }
+ ],
+ "adapter": {
+  "name": "aura-html",
+  "notes": [
+   "site extraído do iframe srcdoc; 3 scripts do Aura removidos"
+  ]
+ },
+ "videos": {
+  "posters": {},
+  "onlineHosts": []
+ }
+}

@@ -1,0 +1,132 @@
+{
+ "builders": [
+  "aura (aura-react)",
+  "react"
+ ],
+ "libraries": [
+  {
+   "name": "babel-standalone",
+   "version": "7.24.0",
+   "sources": [
+    "https://unpkg.com/@babel/standalone@7.24.0/babel.min.js"
+   ]
+  },
+  {
+   "name": "gsap",
+   "version": "3.12.7",
+   "sources": [
+    "página",
+    "https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.7/gsap.min.js",
+    "https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.7/ScrollTrigger.min.js"
+   ]
+  },
+  {
+   "name": "gsap/ScrollTrigger",
+   "version": null,
+   "sources": [
+    "página"
+   ]
+  },
+  {
+   "name": "iconify",
+   "version": "3.0.0",
+   "sources": [
+    "https://code.iconify.design/iconify-icon/3.0.0/iconify-icon.min.js"
+   ]
+  },
+  {
+   "name": "lucide",
+   "version": "0.462.0",
+   "sources": [
+    "https://esm.sh/lucide-react@0.462.0?external=react,react-dom",
+    "https://esm.sh/lucide-react@0.462.0/X-ZXJlYWN0LHJlYWN0LWRvbQ/es2022/lucide-react.mjs"
+   ]
+  },
+  {
+   "name": "react",
+   "version": "18.3.1",
+   "sources": [
+    "https://esm.sh/react@18.3.1?dev",
+    "https://esm.sh/react@18.3.1/es2022/react.development.mjs",
+    "https://esm.sh/react@18.3.1&dev/jsx-runtime",
+    "https://esm.sh/react@18.3.1/es2022/jsx-runtime.development.mjs"
+   ]
+  },
+  {
+   "name": "react-dom",
+   "version": "18.3.1",
+   "sources": [
+    "https://esm.sh/react-dom@18.3.1/client?dev&external=react",
+    "https://esm.sh/react-dom@18.3.1?dev&external=react",
+    "https://esm.sh/react-dom@18.3.1/X-ZXJlYWN0/es2022/client.development.mjs",
+    "https://esm.sh/react-dom@18.3.1/X-ZXJlYWN0/es2022/react-dom.development.mjs",
+    "https://esm.sh/react-dom@18.3.1/X-ZXJlYWN0/es2022/cjs/react-dom.development.development.mjs"
+   ]
+  },
+  {
+   "name": "react-router",
+   "version": "6.28.0",
+   "sources": [
+    "https://esm.sh/react-router-dom@6.28.0?external=react%2Creact-dom",
+    "https://esm.sh/react-router-dom@6.28.0/X-ZXJlYWN0LHJlYWN0LWRvbQ/es2022/react-router-dom.mjs",
+    "https://esm.sh/react-router@6.28.0/X-ZXJlYWN0/es2022/react-router.mjs"
+   ]
+  },
+  {
+   "name": "tailwindcss (Play CDN)",
+   "version": "3.4.17",
+   "sources": [
+    "https://cdn.tailwindcss.com/3.4.17"
+   ]
+  },
+  {
+   "name": "unicornstudio",
+   "version": null,
+   "sources": [
+    "https://esm.sh/unicornstudio-react@2.1.4-1?external=react,react-dom",
+    "https://esm.sh/unicornstudio-react@2.1.4-1/X-ZXJlYWN0LHJlYWN0LWRvbQ/es2022/unicornstudio-react.mjs"
+   ]
+  }
+ ],
+ "runtime": {
+  "contexts": {},
+  "wasm": 0,
+  "workers": 0,
+  "webgpu": false,
+  "shadowRoots": 28,
+  "canvases": 0
+ },
+ "cssFeatures": [],
+ "fonts": {
+  "families": [
+   "Cormorant Garamond",
+   "Montserrat"
+  ],
+  "sources": [
+   "google fonts"
+  ]
+ },
+ "videos": [
+  {
+   "src": "https://hoirqrkdgbmvpwutwuwj.supabase.co/storage/v1/object/public/generated-videos/8bd0314a-9525-4a13-996e-2c37cbd9e514/1779678842660-589ad283-7901-4385-af29-aedcbe6e68c9.mp4",
+   "kind": "decorativo",
+   "reason": "curto, sem controles e sem som",
+   "hosting": "próprio site",
+   "action": "baixado"
+  },
+  {
+   "src": "https://hoirqrkdgbmvpwutwuwj.supabase.co/storage/v1/object/public/generated-videos/8bd0314a-9525-4a13-996e-2c37cbd9e514/1779679066962-3a057e1e-bfc6-416d-9aed-468d7b6efb7d.mp4",
+   "kind": "decorativo",
+   "reason": "curto, sem controles e sem som",
+   "hosting": "próprio site",
+   "action": "baixado"
+  }
+ ],
+ "files": {
+  "text": 4,
+  "application": 25,
+  "image": 15,
+  "font": 3,
+  "video": 2
+ }
+}

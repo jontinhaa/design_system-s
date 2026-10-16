@@ -1,0 +1,141 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Money in Check Design System</title>
+  <meta name="description" content="Money in Check Design System" />
+  <meta name="theme-color" content="#e9e9e9" />
+
+  <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+  <link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png" />
+  <link rel="icon" type="image/png" sizes="16x16" href="favicon-16.png" />
+  <link rel="icon" type="image/png" sizes="192x192" href="icon-192.png" />
+  <link rel="apple-touch-icon" href="apple-touch-icon.png" />
+
+  <!-- LCP image (hero horse) — sections are injected via JS -->
+  <link rel="preload" href="img/horse.webp" as="image" type="image/webp" fetchpriority="high" />
+
+  <link rel="stylesheet" href="assets/index-DkOBDRn4.css">
+
+  <!-- catalog copy map: merged over the page's English dictionary before the sections render
+       (the bundle's i18n fills every {{key}} of the section templates from it) -->
+  <script>
+  window.__DS_COPY = {
+    "meta.title": "Money in Check Design System",
+    "meta.description": "Money in Check Design System",
+    "meta.ogDescription": "Money in Check Design System",
+    "hero.kicker": "Ink-green serif on gridded paper",
+    "hero.titleLine1": "{w.ds-title-left|Money in} {w.ds-title-right|Check}",
+    "hero.titleLine2": "{w.ds-title-left|Design} {w.ds-title-right|System}",
+    "hero.bylineLead": "Lorem ipsum",
+    "hero.bylineName": "Dolor Sitam",
+    "intro.metaTheme": "Lorem Ipsum of Dolorem.",
+    "intro.metaPlace": "Lorem, IP",
+    "intro.manifesto1": "{g}Lorem ipsum dolor {gif:2} sitamet consectetur as if they adipiscing elit sed do eiusmod tempor for the first time, incididunt ut {gif:3} labore, without dolore magna which aliqua minim veniam, and nostrud exercitation ullamco laboris nisi ut aliquip ex ea {gif:4} commodo.{/g}",
+    "intro.manifesto2": "{g}Sed ut perspiciatis unde omnis, iste {gif:5} natus, error sit, and voluptatem. Accusantium doloremque laudantium totam rem aperiam eaque ipsa, and quae ab illo inventore veritatis et quasi {gif:6} architecto is not beatae vitae, but dicta sunt explicabo nemo and ipsam, and quia voluptas sit aspernatur aut odit you fugit sed quia.{/g}",
+    "book.metaTitle": "Sit Amet",
+    "book.metaSubline": "5 Loremis. 3 Ipsums. One Dolor.",
+    "book.buyLabel": "Lorem ipsum",
+    "book.kindleNote": "(*) Lorem ipsum dolor sit amet consectetur",
+    "book.claim": "Lorem ipsum dolor sitamet.{br}Consectetur adipis.{br}Sed do eiusmod tempor incidi{br}dunt ut labore et.",
+    "book.synopsis1": "{em.book__em.book__em--name}Lorem Ipsum{/em} dolor sit amet consectetur adipiscing, with an elit sed do eiusmod and the tempor that he is incididunt ut labore et dolore that was not magna aliqua. Ut enim ad minim veniam where quis was always nostrud, exercitation ullamco came at a high laboris, and nisi weighed as ut aliquip ex ea commodo.",
+    "book.synopsis2": "Duis aute irure dolor in reprehenderit in voluptate velit esse cillum, {em.book__em}Lorem fugiat nulla pariatur, excepteur sint occaecat: cupidatat non proident sunt in culpa qui officia deserunt, but mollit anim id est laborum sed perspiciatis unde omnis iste natus error.{/em}",
+    "book.synopsis3": "Nemo enim ipsam voluptatem quia voluptas sit aspernatur, odit, fugit, and consequuntur. Magni dolores eos qui ratione, but voluptatem sequi nesciunt over the neque porro quisquam: est qui dolorem ipsum, quia dolor, sit amet consectetur and adipisci velit sed quia non numquam.",
+    "book.cta": "Lorem ipsum dolor sit amet consectetur",
+    "author.heading": "Lorem Ipsum",
+    "author.origin": "LOR, IPSUM. 1973",
+    "author.bio": "{em}Lorem Ipsum{/em} dolor sit amet consectetur adipiscing elit, sed do eiusmod tempor incididunt as an {em}labore et dolore magna{/em}. Ut enim ad minim veniam quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo, consequat duis aute irure dolor in reprehenderit voluptate, velit esse cillum dolore and fugiat nulla pariatur such as {em}Excepteur, Sint, and Occaecat{/em}.{br}{br}Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium: {em}doloremque laudantium totam rem aperiam eaque ipsa quae ab illo inventore veritatis et quasi architecto{/em}, and of beatae vitae dicta sunt explicabo nemo.",
+    "author.name": "LOREM IPSUM",
+    "author.role": "Lorem & Ipsum Dolor of Sitametur",
+    "author.caption1": "Lorem Ipsum Dolor",
+    "author.caption2": "Dolor Sit Amet Consectetur.",
+    "author.caption3": "Lorem Ipsum / Dolor Sitamet",
+    "author.caption4": "Lorem Ipsum Dolor",
+    "author.caption5": "Sit Amet Elit, Loremis.",
+    "author.caption6": "Ipsum Consectetur.",
+    "claim.lineA": "{words}Lorem, ipsum, and dolor sitam amet elit:{/words}",
+    "claim.lineB": "{words}consectetur adipiscing sed do eiusmod the tempor.{/words}"
+  };
+  </script>
+
+  <style>
+  /* catalog copy: each title line is split by the page's own {w.class|text} token into a left and a right
+     word group that sit either side of the knight, the way "Money / in Check" used the page's central gap.
+     Same two absolutely placed lines; the gap column is the knight's visible width (26% of .hero__horse,
+     centred), and the size is what lets "Money in" fit its half (4.73em wide). */
+  .hero__title-line { display: grid; grid-template-columns: 1fr var(--ds-knight-gap) 1fr; align-items: baseline; }
+  .hero__title-line .ds-title-left { grid-column: 1; justify-self: end; white-space: nowrap; }
+  .hero__title-line .ds-title-right { grid-column: 3; justify-self: start; white-space: nowrap; }
+  @media (min-width: 1081px) {
+    .hero__title { --ds-knight-gap: 34.8rem; font-size: 14rem; }
+    .hero__title-line--1 { top: 33rem; }
+    .hero__title-line--2 { top: 46.2rem; }
+  }
+  @media (max-width: 1080px) {
+    .hero__title { --ds-knight-gap: calc(min(70vw, 58rem) * .29); font-size: calc((100vw - 4.8rem - var(--ds-knight-gap)) / 9.7); }
+  }
+
+  /* design-system catalog bridge (only inside the catalog iframe): the catalog draws this page's own
+     header above the frame at the same spot, so the page keeps its box but hides its copy; in "bg"
+     mode (Components view) only the fixed paper grid and the #decor layer stay (chess coordinates,
+     WebGL cloth bills, coin), scrolled by the catalog */
+  html.ds-embedded #header { visibility: hidden; }
+  html.ds-bg-only #app > section:not(#decor),
+  html.ds-bg-only #lightbox, html.ds-bg-only #language, html.ds-bg-only .book-zoom,
+  html.ds-bg-only .hero__compass, html.ds-bg-only .doodle-grid { visibility: hidden !important; }
+  </style>
+  <script>
+  (function () {
+    if (window.parent === window) return;
+    var root = document.documentElement, bg = false, saved = 0;
+    root.classList.add('ds-embedded');
+    function post(m) { try { window.parent.postMessage(m, '*'); } catch (e) {} }
+    function maxY() { return Math.max(0, root.scrollHeight - innerHeight); }
+    function jump(y) {
+      if (window.__lenis) window.__lenis.scrollTo(y, { immediate: true, force: true });
+      else scrollTo(0, y);
+    }
+    addEventListener('message', function (e) {
+      var d = e.data;
+      if (e.source !== window.parent || !d || !d.ds) return;
+      if (d.ds === 'bg' && !bg) { bg = true; saved = scrollY; root.classList.add('ds-bg-only'); jump((d.p || 0) * maxY()); }
+      else if (d.ds === 'page' && bg) { bg = false; root.classList.remove('ds-bg-only'); jump(saved); }
+      else if (d.ds === 'scroll' && bg) jump(d.p * maxY());
+    });
+    /* hand the page's grid metrics (set by the bundle from this viewport) to the catalog header */
+    var last = '';
+    function grid() {
+      var cs = getComputedStyle(root), v = {};
+      ['--g-px', '--g-py', '--g-ox', '--g-oy', '--g-line'].forEach(function (k) { v[k] = cs.getPropertyValue(k).trim(); });
+      var s = JSON.stringify(v);
+      if (v['--g-px'] && s !== last) { last = s; post({ ds: 'grid', vars: v }); }
+    }
+    addEventListener('resize', function () { requestAnimationFrame(grid); });
+    addEventListener('load', grid);
+    /* ready = loader curtain gone and the hero entrance finished (lines, horse, byline, smoker,
+       bills faded in ~2.35 s after the curtain) */
+    var t0 = Date.now();
+    (function wait() {
+      if (window.__loaderDone) {
+        window.__loaderDone.then(function () { grid(); setTimeout(function () { post({ ds: 'ready' }); }, 2800); });
+        return;
+      }
+      if (Date.now() - t0 > 15000) { post({ ds: 'ready' }); return; }
+      setTimeout(wait, 50);
+    })();
+    /* the language list links to server routes (/es/, /fr/…) that only exist on the live site */
+    document.addEventListener('click', function (e) {
+      var a = e.target.closest && e.target.closest('a[href^="/"]');
+      if (a && a.getAttribute('href').charAt(1) !== '/') e.preventDefault();
+    }, true);
+  })();
+  </script>
+
+  <script defer src="assets/bill-textures.js"></script>
+  <script defer src="assets/moneyincheck.bundle.js"></script>
+</head>
+<body>
+  <div id="app"></div>
+</body>
+</html>

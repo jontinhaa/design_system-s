@@ -1,0 +1,66 @@
+{
+ "builders": [
+  "aura (aura-html)"
+ ],
+ "libraries": [
+  {
+   "name": "gsap",
+   "version": "3.12.5",
+   "sources": [
+    "página",
+    "https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js",
+    "https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"
+   ]
+  },
+  {
+   "name": "gsap/ScrollTrigger",
+   "version": null,
+   "sources": [
+    "página"
+   ]
+  },
+  {
+   "name": "lenis",
+   "version": "1.1.13",
+   "sources": [
+    "página",
+    "https://unpkg.com/lenis@1.1.13/dist/lenis.min.js"
+   ]
+  },
+  {
+   "name": "tailwindcss (Play CDN)",
+   "version": "3.4.17",
+   "sources": [
+    "https://cdn.tailwindcss.com/3.4.17"
+   ]
+  }
+ ],
+ "runtime": {
+  "contexts": {
+   "2d": 2
+  },
+  "wasm": 0,
+  "workers": 0,
+  "webgpu": false,
+  "shadowRoots": 0,
+  "canvases": 1
+ },
+ "cssFeatures": [],
+ "fonts": {
+  "families": [
+   "Hanken Grotesk",
+   "Instrument Serif",
+   "Shippori Mincho"
+  ],
+  "sources": [
+   "google fonts"
+  ]
+ },
+ "videos": [],
+ "files": {
+  "text": 4,
+  "application": 2,
+  "image": 12,
+  "font": 15
+ }
+}

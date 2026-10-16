@@ -1,0 +1,62 @@
+
+
+/* Testimonial Cards */
+.gsap-slider__item:last-child .testimonial_card {
+	border-right: solid;
+  border-right-width: var(--border-width--main);
+  border-right-color: var(--_theme---border--primary);
+}
+
+
+/* Testimonial Swiper */
+[data-gsap-slider-init] {
+  --slider-status: on; /* Turn slider on/off */
+  --slider-spv: 3; /* Slides per view */ 
+  --slider-gap: 0rem; /* Slides Gap */
+}
+
+@media screen and (max-width: 991px) {
+   [data-gsap-slider-init] {
+    --slider-status: on; /* Turn slider on/off */
+    --slider-spv: 2; /* Slides per view */ 
+    --slider-gap: 0rem; /* Slides Gap */
+  } 
+}
+
+@media screen and (max-width: 767px) {
+  [data-gsap-slider-init] { 
+    --slider-status: on; /* Turn slider on/off */
+    --slider-spv: 1; /* Slides per view */ 
+    --slider-gap: 0rem; /* Gap */
+  }
+}
+
+[data-gsap-slider-item]:last-child {
+  margin-right: 0;
+}
+
+/* Controls */
+[data-gsap-slider-status="not-active"] [data-gsap-slider-controls] {
+  display: none;
+}
+
+[data-gsap-slider-control-status="not-active"] { 
+  opacity: 0.2;
+  pointer-events: none;
+}
+
+/* Customization */
+.gsap-slider__control {
+  transition: opacity 0.3s ease;
+}
+
+.testimonial_card {
+  transition: all 0.3s ease;
+}
+
+/*
+[data-gsap-slider-item-status="not-active"] .testimonial_card {
+  background-color: color-mix(in srgb, var(--_color---swatch--white) 40%, var(--_color---swatch--transparent));
+}
+*/
+

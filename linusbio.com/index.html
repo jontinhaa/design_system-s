@@ -1,0 +1,1953 @@
+<!DOCTYPE html>
+<html lang="en-US" class="template--home" style="scroll-behavior: smooth;"><head itemscope="" itemtype="http://schema.org/WebSite"><meta charset="utf-8">
+<!-- Website Downloader 3.0: este arquivo é o retrato estático do site (DOM renderizado). Aberto via servidor
+     local (serve.py, ver Como rodar.md), o bootstrap abaixo carrega o site vivo; via file://, mostra este retrato. -->
+<meta name="referrer" content="no-referrer">
+<script data-wd3>window.__WD3__ = {"entryUrl": "https://www.linusbio.com/", "replayHost": "www.linusbio.com.localhost", "entryPath": "/", "captureId": "linusbio.com-97e2eb1a", "capturedAt": "2026-10-14T17:06:46+00:00", "snapshot": true, "fileFonts": null};</script>
+<script data-wd3>/* Website Downloader 3.0 — bootstrap do index.html.
+ * file://  → fica no retrato estático (e carrega as fontes embutidas, que o Chrome bloqueia em file://).
+ * http(s)  → para de carregar o retrato, registra o Service Worker de replay e abre o site vivo.
+ */
+(function () {
+  var cfg = window.__WD3__ || {};
+  var root = document.documentElement;
+  if (location.protocol === 'file:') {
+    root.setAttribute('data-wd3', 'file');
+    if (cfg.fileFonts) {
+      var link = document.createElement('link');
+      link.rel = 'stylesheet';
+      link.href = cfg.fileFonts;
+      (document.head || root).appendChild(link);
+    }
+    return;
+  }
+  root.setAttribute('data-wd3', 'loading');
+  if (cfg.snapshot) {
+    try { window.stop(); } catch (e) { /* o retrato não precisa carregar: o site vivo vem do SW */ }
+  }
+
+  function fail(msg) {
+    root.setAttribute('data-wd3', 'error');
+    var el = document.getElementById('wd3-error');
+    if (!el) {
+      var body = document.body || root.appendChild(document.createElement('body'));
+      body.innerHTML = '<p style="font:15px system-ui,sans-serif;padding:24px;color:#e8e8e8;background:#050505;margin:0">' +
+        'Não foi possível iniciar o replay: <span id="wd3-error"></span></p>';
+      el = document.getElementById('wd3-error');
+    }
+    el.textContent = msg;
+  }
+  if (!('serviceWorker' in navigator)) return fail('este navegador não suporta Service Workers.');
+
+  function go() { location.replace(cfg.entryPath); }
+  function start() {
+    navigator.serviceWorker.register('/site/_wd3/sw.js', { scope: '/' })
+      .then(function () { return navigator.serviceWorker.ready; })
+      .then(function () {
+        if (navigator.serviceWorker.controller) return go();
+        navigator.serviceWorker.addEventListener('controllerchange', go);
+      })
+      .catch(function (err) { fail(String(err && err.message || err)); });
+  }
+  // Aberto em localhost puro: tenta <domínio>.localhost (mesmo servidor), para sites que checam location.hostname.
+  var plain = location.hostname === 'localhost' || location.hostname === '127.0.0.1';
+  if (!plain || !cfg.replayHost || cfg.replayHost === 'localhost') return start();
+  var target = location.protocol + '//' + cfg.replayHost + (location.port ? ':' + location.port : '');
+  var decided = false;
+  function decide(fn) { if (!decided) { decided = true; fn(); } }
+  setTimeout(function () { decide(start); }, 1500);
+  fetch(target + '/site/_wd3/site-index.json', { mode: 'no-cors', cache: 'no-store' })
+    .then(function () { decide(function () { location.replace(target + cfg.entryPath); }); })
+    .catch(function () { decide(start); });
+})();
+</script>
+<style data-wd3>
+  [data-wd3-banner] { display: none; }
+  html[data-wd3="file"] [data-wd3-banner] { display: flex; }
+  html[data-wd3-unlock], html[data-wd3-unlock] body { overflow-y: auto !important; }
+</style>
+
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<meta name="referrer" content="origin-when-cross-origin">
+
+		<link rel="icon" type="image/svg+xml" href="site/www.linusbio.com/assets/site/favicon__q14d8865b.svg">
+		<link rel="apple-touch-icon" sizes="180x180" href="site/www.linusbio.com/assets/site/apple-touch-icon__qeecd49c3.png">
+				<meta name="apple-mobile-web-app-title" content="LinusBio">
+		<meta name="application-name" content="LinusBio">
+		<meta name="msapplication-TileColor" content="#317EA6">
+		<meta name="theme-color" content="#317EA6">
+
+    
+
+		
+		
+
+		<link rel="stylesheet" href="site/www.linusbio.com/assets/main-corporate.min__qe0c1875a.css">
+		<link rel="stylesheet" href="site/_runtime/style-0.css" data-wd3-runtime-style="">
+
+
+          <!-- Google tag (gtag.js) -->
+
+
+    	<title>LinusBio | The Next Revolution in Precision Medicine | LinusBio</title><meta name="generator" content="SEOmatic">
+<meta name="description" content="LinusBio, a platform company, is developing precision environmental exposure biomarkers to support early diagnosis, patient monitoring and drug…">
+<meta name="referrer" content="no-referrer-when-downgrade">
+<meta name="robots" content="all">
+<meta content="en_US" property="og:locale">
+<meta content="LinusBio" property="og:site_name">
+<meta content="website" property="og:type">
+<meta content="https://www.linusbio.com/" property="og:url">
+<meta content="The Next Revolution in Precision Medicine | LinusBio" property="og:title">
+<meta content="LinusBio, a platform company, is developing precision environmental exposure biomarkers to support early diagnosis, patient monitoring and drug…" property="og:description">
+<meta content="https://linusbio-cs.transforms.svdcdn.com/production/publications-hero-bg_2025-01-15-170851_qilc_2025-02-12-140111_qsri.jpg?w=1200&amp;h=630&amp;q=82&amp;auto=format&amp;fit=crop&amp;dm=1739368871&amp;s=f7b198d55326f5b915191699e8e6b326" property="og:image">
+<meta content="1200" property="og:image:width">
+<meta content="630" property="og:image:height">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:creator" content="@">
+<meta name="twitter:title" content="The Next Revolution in Precision Medicine | LinusBio">
+<meta name="twitter:description" content="LinusBio, a platform company, is developing precision environmental exposure biomarkers to support early diagnosis, patient monitoring and drug…">
+<meta name="twitter:image" content="https://linusbio-cs.transforms.svdcdn.com/production/publications-hero-bg_2025-01-15-170851_qilc_2025-02-12-140111_qsri.jpg?w=1200&amp;h=630&amp;q=82&amp;auto=format&amp;fit=crop&amp;dm=1739368871&amp;s=f7b198d55326f5b915191699e8e6b326">
+<meta name="twitter:image:width" content="1200">
+<meta name="twitter:image:height" content="630">
+<link href="site/www.linusbio.com/index.html" rel="canonical">
+<link href="site/www.linusbio.com/index.html" rel="home">
+<link type="text/plain" href="https://www.linusbio.com/humans.txt" rel="author"><link rel="stylesheet" href="site/_runtime/style-1.css" data-wd3-runtime-style=""><link rel="stylesheet" href="site/_runtime/style-2.css" data-wd3-runtime-style=""><link rel="stylesheet" href="site/_runtime/style-3.css" data-wd3-runtime-style=""></head>
+
+	<body class="" style="">
+		<a class="skip-link" href="#main">Skip to content</a>
+
+		
+		
+					<header x-data="
+    {
+      mobileMenuOpen: false,
+      lastScrollTop: window.pageYOffset || document.documentElement.scrollTop,
+      isVisible: true,
+      isPastThreshold: window.pageYOffset &gt; 200 || document.documentElement.scrollTop &gt; 200,
+      dropDownOpen: '',
+      handleScroll() {
+        if (this.mobileMenuOpen) return;
+        const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+        const scrollDelta = scrollTop - this.lastScrollTop;
+
+        // Only hide header when actively scrolling down AND past the fold
+        if (scrollDelta &gt; 0 &amp;&amp; scrollTop &gt; window.innerHeight) {
+          this.isVisible = false;
+        } else {
+          // Show header when scrolling up or when scroll is static (page load)
+          this.isVisible = true;
+        }
+
+        // Update color when scrolling past 200px
+        this.isPastThreshold = scrollTop &gt; 200;
+        this.lastScrollTop = scrollTop;
+      }
+    }
+  " x-init="
+      // Force initial state to be visible
+      isVisible = true;
+      window.addEventListener('scroll', () =&gt; handleScroll());
+      $nextTick(() =&gt; {
+        const initialScroll = window.pageYOffset || document.documentElement.scrollTop;
+        isPastThreshold = initialScroll &gt; 200;
+      });" class="fixed z-20 top-0 left-0 w-full lg:px-[12px] lg:py-[16px] lg:overflow-visible text-white layout--header overflow-y-auto max-h-screen" x-trap.noscroll="mobileMenuOpen" @resize.window="if(window.innerWidth &gt; 1200) mobileMenuOpen = false" @click.outside="if(mobileMenuOpen &amp;&amp; window.innerWidth &lt;= 1200) mobileMenuOpen = false">
+	<nav class="z-0 flex-wrap lg:flex-nowrap
+     flex lg:items-stretch items-center justify-between relative lg:px-[24px] transition-opacity duration-300 rounded-b-[8px] lg:rounded-[8px]" :class="
+      {
+        'opacity-0': !isVisible,
+                   'bg-[#0E3D5580] backdrop-blur-[20px]': mobileMenuOpen || isPastThreshold,
+              }
+    ">
+    		<ul class="lg:px-0 pl-[24px]">
+			<li class="py-[16px]">
+				<a aria-label="Home" href="https://www.linusbio.com/" class="flex items-center gap-x-[8px] group">
+                      <svg class="" width="161" height="38" viewBox="0 0 161 38" fill="none" xmlns="http://www.w3.org/2000/svg">
+	<path d="M56.9803 23.1902H51.5438C51.4799 23.1902 51.4264 23.1387 51.4264 23.0728V12.9081C51.4264 12.7577 51.3049 12.6362 51.1546 12.6362H49.4515C49.3012 12.6362 49.1797 12.7577 49.1797 12.9081V25.0106C49.1797 25.1609 49.3012 25.2824 49.4515 25.2824H56.9783C57.1286 25.2824 57.2501 25.1609 57.2501 25.0106V23.462C57.2522 23.3117 57.1307 23.1902 56.9803 23.1902Z" fill="currentColor"></path>
+	<path d="M65.7249 12.6387H64.0218C63.8715 12.6387 63.75 12.7602 63.75 12.9105V25.0131C63.75 25.1634 63.8715 25.2849 64.0218 25.2849H65.7249C65.8752 25.2849 65.9967 25.1634 65.9967 25.0131V12.9105C65.9967 12.7602 65.8752 12.6387 65.7249 12.6387Z" fill="currentColor"></path>
+	<path d="M83.006 12.6387H81.478C81.4059 12.6387 81.3359 12.6675 81.2844 12.719C81.233 12.7705 81.2041 12.8405 81.2062 12.9126L81.2618 21.1148C81.2618 21.1663 81.2268 21.2136 81.1444 21.2322C81.1032 21.2322 81.0662 21.2116 81.0456 21.1766L75.8149 12.7663C75.7655 12.686 75.6769 12.6387 75.5843 12.6387H73.805C73.6547 12.6387 73.5332 12.7602 73.5332 12.9105V25.0131C73.5332 25.1634 73.6547 25.2849 73.805 25.2849H75.331C75.4031 25.2849 75.4731 25.2561 75.5246 25.2046C75.576 25.1531 75.6049 25.0831 75.6028 25.011L75.5493 16.8088C75.5493 16.7573 75.5822 16.7099 75.6666 16.6914C75.7058 16.6914 75.7449 16.712 75.7655 16.747L81.0147 25.1572C81.0641 25.2375 81.1506 25.2849 81.2453 25.2849H83.006C83.1564 25.2849 83.2779 25.1634 83.2779 25.0131V12.9105C83.2779 12.7602 83.1564 12.6387 83.006 12.6387Z" fill="currentColor"></path>
+	<path d="M100.269 12.6387H98.5472C98.3969 12.6387 98.2754 12.7602 98.2754 12.9105V20.4023C98.2754 21.8232 97.8017 23.518 95.5447 23.518C93.6811 23.518 92.7379 22.4698 92.7379 20.4023V12.9105C92.7379 12.7602 92.6164 12.6387 92.4661 12.6387H90.763C90.6127 12.6387 90.4912 12.7602 90.4912 12.9105L90.4727 20.2684C90.4727 23.7507 92.2272 25.5917 95.5468 25.5917C98.8149 25.5917 100.543 23.7507 100.543 20.2684V12.9105C100.541 12.7602 100.419 12.6387 100.269 12.6387Z" fill="currentColor"></path>
+	<path d="M113.562 18.1903L111.558 17.6899C110.331 17.3357 109.513 16.8826 109.513 15.8282C109.513 15.4658 109.513 14.3661 111.995 14.3661C113.467 14.3661 114.505 14.8027 115.36 15.7809C115.458 15.8941 115.627 15.9065 115.741 15.8097L116.795 14.916C116.906 14.8212 116.923 14.6586 116.834 14.5432C115.673 13.0358 114.122 12.3315 111.956 12.3315C108.963 12.3315 107.248 13.6063 107.248 15.8282C107.248 17.661 108.331 18.9378 110.388 19.5206L112.87 20.1363C113.865 20.3999 114.783 20.7974 114.783 21.9217C114.783 22.9329 113.79 23.5383 112.129 23.5383C110.46 23.5383 109.363 23.0461 108.566 21.9423C108.523 21.8826 108.457 21.8435 108.385 21.8332C108.311 21.8229 108.236 21.8414 108.179 21.8888L107.052 22.7661C106.941 22.8525 106.914 23.0091 106.991 23.1264C108.086 24.8563 109.624 25.5935 112.131 25.5935C115.244 25.5935 117.032 24.2343 117.032 21.8661C117.03 19.8851 116.025 18.8204 113.562 18.1903Z" fill="currentColor"></path>
+	<path d="M130.83 18.6726C131.732 18.3492 132.696 17.3731 132.696 15.5959C132.696 13.5758 131.565 12.6367 129.14 12.6367H124.24C124.133 12.6367 124.047 12.7232 124.047 12.8303V25.2047C124.047 25.3118 124.133 25.3983 124.24 25.3983H129.313C131.965 25.3983 133.31 24.2018 133.31 21.8418C133.312 20.1429 132.36 18.9279 130.83 18.6726ZM125.083 13.5778H129.043C130.814 13.5778 131.637 14.28 131.637 15.7895C131.637 17.3772 130.703 18.4028 129.255 18.4028H125.083V13.5778ZM129.889 19.2306C131.324 19.2306 132.253 20.2047 132.253 21.71C132.253 23.5469 131.254 24.4386 129.197 24.4386H125.083V19.2286L129.889 19.2306Z" fill="currentColor"></path>
+	<path d="M141.209 12.6362H140.561C140.454 12.6362 140.367 12.7227 140.367 12.8298V25.2042C140.367 25.3113 140.454 25.3978 140.561 25.3978H141.209C141.317 25.3978 141.403 25.3113 141.403 25.2042V12.8298C141.403 12.7227 141.317 12.6362 141.209 12.6362Z" fill="currentColor"></path>
+	<path d="M154.148 12.3667C151.718 12.3667 148.822 13.2769 148.822 17.6138V20.363C148.822 23.8823 150.614 25.6678 154.148 25.6678C157.745 25.6678 159.568 23.8823 159.568 20.363V17.6138C159.568 13.2769 156.621 12.3667 154.148 12.3667ZM154.148 24.7081C151.355 24.7081 149.881 23.2193 149.881 20.4021V17.5973C149.881 14.7926 151.357 13.3099 154.148 13.3099C156.961 13.3099 158.511 14.8317 158.511 17.5973V20.4021C158.511 23.2193 157.002 24.7081 154.148 24.7081Z" fill="currentColor"></path>
+	<path d="M154.197 19.7401C154.596 19.7401 154.919 19.4167 154.919 19.0178C154.919 18.6188 154.596 18.2954 154.197 18.2954C153.798 18.2954 153.475 18.6188 153.475 19.0178C153.475 19.4167 153.798 19.7401 154.197 19.7401Z" fill="currentColor"></path>
+	<path d="M19.3461 20.9218C19.2452 20.9218 19.1443 20.9135 19.0434 20.8971C17.9993 20.7303 17.2827 19.7438 17.4474 18.6998C17.5936 17.7751 18.407 17.0791 19.3399 17.0791C19.4408 17.0791 19.5417 17.0853 19.6426 17.1018C20.6867 17.2686 21.4033 18.255 21.2386 19.299C21.0924 20.2237 20.2789 20.9218 19.3461 20.9218Z" fill="currentColor"></path>
+	<path d="M36.6636 22.126C36.5565 22.126 36.4515 22.1034 36.3547 22.056C36.1776 21.9736 36.0438 21.8274 35.9758 21.6441C35.9078 21.4609 35.9181 21.2611 36.0005 21.084C36.12 20.8266 36.3815 20.6619 36.6657 20.6619C36.7728 20.6619 36.8757 20.6845 36.9746 20.7298C37.1517 20.8122 37.2855 20.9584 37.3514 21.1417C37.4194 21.327 37.4091 21.5247 37.3267 21.7018C37.2073 21.9592 36.9478 22.126 36.6636 22.126ZM36.7954 18.5449C37.2752 18.5449 37.6665 18.168 37.683 17.6862C37.6994 17.196 37.3144 16.7842 36.7934 16.7657C36.3115 16.7657 35.9223 17.1425 35.9058 17.6244C35.8975 17.8612 35.982 18.0877 36.1447 18.2607C36.3074 18.4358 36.5277 18.5346 36.7645 18.5428H36.7954V18.5449ZM35.6875 14.7722C36.2353 14.5622 36.5092 13.9444 36.2991 13.3966C36.1426 12.9889 35.7431 12.715 35.3065 12.715C35.1768 12.715 35.0491 12.7397 34.9256 12.7871C34.6599 12.888 34.4499 13.0877 34.3345 13.3472C34.2192 13.6067 34.211 13.895 34.3139 14.1606C34.4725 14.5745 34.8638 14.8443 35.3065 14.8443C35.4363 14.8443 35.5639 14.8196 35.6875 14.7722ZM32.9733 11.3641C33.4717 10.8822 33.4861 10.0832 33.0042 9.58484C32.7653 9.33773 32.4441 9.19975 32.0981 9.19975C31.7707 9.19975 31.4618 9.32537 31.225 9.55395C30.7266 10.0358 30.7122 10.8328 31.1941 11.3332C31.433 11.5803 31.7542 11.7162 32.1002 11.7162C32.4276 11.7162 32.7386 11.5927 32.9733 11.3641ZM28.7353 9.03089C28.8897 8.66845 28.8918 8.26689 28.7456 7.90239C28.5994 7.53789 28.3172 7.25165 27.9548 7.09926C27.7715 7.021 27.5779 6.98188 27.3803 6.98188C26.7872 6.98188 26.2538 7.33402 26.0232 7.8818C25.8687 8.24423 25.8667 8.64374 26.0129 9.0103C26.1591 9.37479 26.4412 9.66104 26.8036 9.81343C26.9869 9.89168 27.1805 9.93081 27.3782 9.93081C27.9713 9.92875 28.5046 9.57661 28.7353 9.03089ZM23.3955 8.45634C23.3955 7.51112 22.6274 6.743 21.6821 6.743C20.739 6.743 19.9709 7.51112 19.9709 8.45634C19.9709 9.39951 20.739 10.1676 21.6821 10.1676C22.6274 10.1676 23.3955 9.39951 23.3955 8.45634ZM30.4939 5.79572C30.6546 5.68245 30.7616 5.51565 30.7946 5.32413C30.8296 5.13056 30.7863 4.93699 30.6731 4.77636C30.5372 4.58072 30.3106 4.46335 30.0718 4.46335C29.9214 4.46335 29.7773 4.50865 29.6517 4.5972C29.491 4.7084 29.386 4.87726 29.351 5.06878C29.316 5.26236 29.3592 5.45593 29.4725 5.61656C29.6105 5.81219 29.8349 5.92957 30.0738 5.92957C30.2242 5.92751 30.3704 5.88221 30.4939 5.79572ZM27.6583 3.68493C27.7839 3.48517 27.823 3.24629 27.7695 3.01359C27.7159 2.78089 27.5759 2.58526 27.3741 2.45964C27.232 2.37109 27.0693 2.32372 26.9045 2.32372C26.5957 2.32372 26.3135 2.48023 26.1488 2.74382C26.0232 2.94563 25.982 3.18245 26.0355 3.41516C26.0891 3.64786 26.2291 3.84349 26.4309 3.96911C26.573 4.05766 26.7357 4.10502 26.9004 4.10502C27.2114 4.10502 27.4935 3.94852 27.6583 3.68493ZM23.8527 2.73147C23.9433 2.1528 23.5479 1.60502 22.9692 1.51236C22.9136 1.50412 22.8559 1.5 22.8003 1.5C22.2835 1.5 21.8325 1.88509 21.7501 2.39786C21.6574 2.97652 22.0549 3.5243 22.6335 3.61491C22.6891 3.62315 22.7468 3.62726 22.8024 3.62726C23.3193 3.62932 23.7703 3.24423 23.8527 2.73147ZM18.6282 4.90198C19.3016 4.73517 19.7134 4.04942 19.5446 3.37809C19.4045 2.8159 18.9021 2.42257 18.3234 2.42257C18.2204 2.42257 18.1175 2.43493 18.0186 2.45964C17.3452 2.6285 16.9354 3.31219 17.1022 3.98558C17.2423 4.54778 17.7447 4.93904 18.3214 4.93904C18.4243 4.9411 18.5273 4.92669 18.6282 4.90198ZM15.115 7.94357C15.428 7.70675 15.6319 7.36285 15.6875 6.97158C15.7431 6.58237 15.6422 6.19522 15.4054 5.88015C15.1232 5.50741 14.6949 5.29325 14.2274 5.29325C13.9062 5.29325 13.5994 5.39621 13.3419 5.59185C13.0269 5.82867 12.8251 6.17257 12.7695 6.56384C12.7139 6.95305 12.8148 7.3402 13.0516 7.65527C13.3337 8.02801 13.762 8.24218 14.2295 8.24218C14.5508 8.24012 14.8576 8.13921 15.115 7.94357ZM12.8621 12.5585C13.3337 11.7409 13.0536 10.6907 12.2361 10.2191C11.9746 10.0688 11.6801 9.98847 11.3815 9.98847C10.7699 9.98847 10.2015 10.3159 9.89672 10.8451C9.42514 11.6627 9.70521 12.7129 10.5228 13.1845C10.7843 13.3348 11.0788 13.4152 11.3774 13.4152C11.989 13.4152 12.5574 13.0877 12.8621 12.5585ZM12.8168 3.5346C13.0125 3.51812 13.1875 3.42545 13.3131 3.27512C13.4387 3.12479 13.4985 2.93534 13.482 2.7397C13.449 2.36491 13.1319 2.07249 12.6953 2.07249C12.6933 2.07249 12.6912 2.07249 12.6891 2.07249C12.4935 2.08896 12.3164 2.18163 12.1908 2.33196C12.0652 2.48229 12.0055 2.67175 12.0219 2.86738C12.0549 3.24217 12.3761 3.53666 12.7509 3.53666L12.8168 3.5346ZM9.86995 5.34473C10.3024 5.11409 10.4672 4.57455 10.2365 4.14003C10.0821 3.84967 9.7814 3.66845 9.44985 3.66845C9.30364 3.66845 9.16361 3.70346 9.03387 3.77348C8.60142 4.00412 8.43461 4.54366 8.66526 4.97817C8.8197 5.26853 9.12242 5.44975 9.45191 5.44975C9.60018 5.44975 9.74021 5.41475 9.86995 5.34473ZM7.66443 8.45634C7.84359 8.236 7.92596 7.95799 7.89508 7.67587C7.86624 7.39374 7.72827 7.14045 7.50586 6.96129C7.31435 6.80478 7.08165 6.7224 6.83659 6.7224C6.51328 6.7224 6.21262 6.86656 6.01081 7.11573C5.64219 7.5729 5.71221 8.24423 6.16731 8.61285C6.35883 8.7673 6.58947 8.84967 6.83453 8.84967C7.1599 8.85173 7.46262 8.70758 7.66443 8.45634ZM6.77481 12.5688C6.86748 12.2455 6.82835 11.9057 6.66567 11.6133C6.50298 11.3188 6.23527 11.1067 5.91196 11.014C5.7987 10.9811 5.68132 10.9646 5.56394 10.9646C5.00587 10.9646 4.50957 11.3394 4.35512 11.8769C4.26245 12.2002 4.30158 12.5379 4.46427 12.8324C4.62695 13.1269 4.89466 13.339 5.21797 13.4316C5.33124 13.4646 5.44862 13.4811 5.566 13.4811C6.12407 13.4811 6.62036 13.1063 6.77481 12.5688ZM6.37119 18.7735C7.17638 18.6746 7.75298 17.9374 7.65413 17.1322C7.56353 16.395 6.9375 15.839 6.19615 15.839C6.13643 15.839 6.07465 15.8431 6.01081 15.8493C5.61954 15.8987 5.27151 16.0943 5.03058 16.4032C4.78964 16.7121 4.68255 17.0993 4.72992 17.4905C4.82053 18.2278 5.44656 18.7838 6.18791 18.7838C6.24763 18.7858 6.30941 18.7817 6.37119 18.7735ZM9.89672 23.7282C10.2921 23.4996 10.5763 23.131 10.6937 22.6882C10.8111 22.2455 10.7513 21.7842 10.5228 21.3888C10.218 20.8596 9.6496 20.5321 9.03799 20.5321C8.73939 20.5321 8.44285 20.6124 8.18338 20.7628C7.36583 21.2343 7.08577 22.2846 7.55735 23.1021C7.86212 23.6314 8.4305 23.9588 9.04211 23.9588C9.34071 23.9588 9.63519 23.8806 9.89672 23.7282ZM2.68502 16.9201C2.85595 16.5535 2.69738 16.1149 2.33082 15.944C2.23198 15.8966 2.12901 15.874 2.02193 15.874C1.73774 15.874 1.47827 16.0408 1.35677 16.2982C1.2744 16.4753 1.26616 16.673 1.33206 16.8583C1.40002 17.0416 1.53387 17.1899 1.71097 17.2722C1.80982 17.3175 1.91278 17.3402 2.01987 17.3402C2.30405 17.3423 2.56558 17.1755 2.68502 16.9201ZM1.89013 21.2364C2.37201 21.2364 2.76328 20.8596 2.77975 20.3777C2.78799 20.1388 2.70356 19.9123 2.54087 19.7393C2.37819 19.5663 2.15784 19.4654 1.89013 19.4572C1.40825 19.4572 1.01904 19.834 1.00051 20.3159C0.984035 20.806 1.36913 21.2179 1.85924 21.2385H1.89013V21.2364ZM3.75998 25.2171C4.02563 25.1161 4.23568 24.9164 4.351 24.6569C4.46632 24.3974 4.47456 24.1071 4.3716 23.8435C4.21509 23.4358 3.81558 23.1598 3.37695 23.1598C3.24722 23.1598 3.11954 23.1825 2.99598 23.2298C2.4482 23.4399 2.17226 24.0577 2.38231 24.6034C2.53881 25.0132 2.93832 25.2871 3.37695 25.2871C3.50875 25.2871 3.63642 25.2624 3.75998 25.2171ZM7.4585 28.446C7.69944 28.2133 7.83741 27.8983 7.84359 27.5647C7.84977 27.229 7.72415 26.9098 7.49145 26.6689C7.25257 26.4217 6.93132 26.2858 6.58741 26.2858C6.25998 26.2858 5.94903 26.4114 5.71221 26.638C5.21385 27.1199 5.19944 27.9189 5.68132 28.4172C5.9202 28.6643 6.24145 28.8002 6.58535 28.8002C6.91073 28.8002 7.22168 28.6746 7.4585 28.446ZM12.6603 30.1203C12.8148 29.7578 12.8168 29.3583 12.6706 28.9918C12.5244 28.6273 12.2423 28.341 11.8798 28.1886C11.6966 28.1104 11.503 28.0713 11.3053 28.0713C10.7122 28.0713 10.1809 28.4234 9.9482 28.9712C9.79376 29.3336 9.7917 29.7311 9.93791 30.0976C10.0862 30.4621 10.3662 30.7484 10.7287 30.9028C10.912 30.9811 11.1055 31.0202 11.3032 31.0202C11.8963 31.0181 12.4297 30.666 12.6603 30.1203ZM18.7147 29.5457C18.7147 28.6005 17.9466 27.8324 17.0013 27.8324C16.0582 27.8324 15.288 28.6005 15.288 29.5457C15.288 30.4889 16.0561 31.257 17.0013 31.257C17.9466 31.257 18.7147 30.4889 18.7147 29.5457ZM9.02975 33.4049C9.19038 33.2937 9.29746 33.1248 9.33041 32.9333C9.36336 32.7397 9.32218 32.5461 9.20891 32.3855C9.07094 32.1899 8.84648 32.0725 8.6076 32.0725C8.45727 32.0725 8.31311 32.1178 8.19161 32.2043C7.86007 32.437 7.77975 32.8942 8.0104 33.2257C8.14631 33.4213 8.37283 33.5387 8.61171 33.5387C8.76204 33.5367 8.90619 33.4914 9.02975 33.4049ZM12.5347 35.2562C12.7942 34.8402 12.6665 34.2904 12.2505 34.0309C12.1105 33.9423 11.9478 33.897 11.783 33.897C11.4721 33.897 11.19 34.0535 11.0252 34.3151C10.7658 34.7311 10.8934 35.2809 11.3094 35.5424C11.4515 35.631 11.6121 35.6783 11.7769 35.6783C12.0878 35.6763 12.372 35.5177 12.5347 35.2562ZM16.9334 35.6021C17.024 35.0235 16.6265 34.4778 16.0479 34.3851C15.9902 34.3769 15.9346 34.3727 15.879 34.3727C15.3539 34.3727 14.9132 34.7516 14.8308 35.2706C14.7876 35.5507 14.8535 35.8328 15.0203 36.0634C15.1871 36.2941 15.4342 36.4444 15.7143 36.4876C15.7719 36.4959 15.8275 36.5 15.8831 36.5C16.4103 36.5 16.851 36.1211 16.9334 35.6021ZM20.6648 35.5404C20.9902 35.4601 21.2662 35.2562 21.4391 34.9679C21.6121 34.6796 21.6636 34.3398 21.5812 34.0144C21.4412 33.4522 20.9387 33.061 20.3621 33.061C20.2592 33.061 20.1562 33.0733 20.0573 33.098C19.7299 33.1783 19.456 33.3822 19.283 33.6705C19.1101 33.9588 19.0606 34.2965 19.141 34.6219C19.281 35.1841 19.7835 35.5774 20.3601 35.5774C20.463 35.5774 20.5639 35.5651 20.6648 35.5404ZM25.3415 32.4082C25.6566 32.1713 25.8584 31.8274 25.914 31.4382C25.9696 31.049 25.8687 30.6619 25.6319 30.3468C25.3498 29.9741 24.9214 29.7599 24.454 29.7599C24.1327 29.7599 23.8259 29.8629 23.5685 30.0585C22.9198 30.5465 22.7901 31.4712 23.2781 32.1199C23.5582 32.4926 23.9886 32.7068 24.456 32.7068C24.7773 32.7068 25.0841 32.6038 25.3415 32.4082ZM28.7868 27.1549C29.0153 26.7595 29.0771 26.2982 28.9577 25.8554C28.8382 25.4127 28.5561 25.0441 28.1607 24.8155C27.8992 24.6652 27.6047 24.5869 27.3061 24.5869C26.6945 24.5869 26.1261 24.9143 25.8214 25.4436C25.3498 26.2611 25.6298 27.3114 26.4474 27.7829C26.7069 27.9333 27.0034 28.0136 27.302 28.0136C27.9136 28.0136 28.482 27.6841 28.7868 27.1549ZM25.9943 35.9255C26.398 35.8904 26.6966 35.5342 26.6616 35.1326C26.6286 34.7599 26.3115 34.4654 25.8749 34.4654C25.8728 34.4654 25.8708 34.4654 25.8687 34.4654C25.4651 34.5004 25.1665 34.8567 25.2015 35.2603C25.2345 35.6351 25.5536 35.9296 25.9305 35.9296L25.9943 35.9255ZM29.6496 34.2265C29.8597 34.1153 30.012 33.9279 30.0821 33.7014C30.1521 33.4749 30.1274 33.2339 30.0162 33.0239C29.8617 32.7335 29.559 32.5523 29.2295 32.5523C29.0833 32.5523 28.9433 32.5873 28.8135 32.6573C28.6035 32.7685 28.449 32.9559 28.379 33.1845C28.309 33.411 28.3337 33.6499 28.4449 33.862C28.5994 34.1544 28.9 34.3336 29.2316 34.3336C29.3798 34.3316 29.5199 34.2965 29.6496 34.2265ZM32.6727 30.8822C33.0413 30.4271 32.9713 29.7558 32.5162 29.3871C32.3246 29.2327 32.094 29.1503 31.8489 29.1503C31.5256 29.1503 31.2229 29.2945 31.019 29.5437C30.6504 29.9988 30.7204 30.6722 31.1756 31.0408C31.3671 31.1952 31.5998 31.2776 31.8448 31.2776C32.1681 31.2776 32.4688 31.1334 32.6727 30.8822ZM34.3263 26.1231C34.419 25.8019 34.3798 25.4621 34.2172 25.1676C34.0545 24.8731 33.7868 24.661 33.4634 24.5684C33.3502 24.5354 33.2328 24.5189 33.1154 24.5189C32.5574 24.5189 32.0611 24.8937 31.9087 25.4292C31.7172 26.0964 32.1043 26.7945 32.7695 26.986C32.8827 27.0189 33.0001 27.0354 33.1175 27.0354C33.6756 27.0375 34.1739 26.6606 34.3263 26.1231ZM32.6727 22.1507C33.4799 22.0519 34.0545 21.3147 33.9556 20.5095C33.865 19.7722 33.239 19.2162 32.4976 19.2162C32.4379 19.2162 32.3761 19.2203 32.3123 19.2265C31.921 19.2739 31.573 19.4716 31.3321 19.7805C31.0891 20.0894 30.982 20.4765 31.0314 20.8678C31.122 21.605 31.748 22.161 32.4894 22.161C32.5491 22.161 32.6109 22.1569 32.6727 22.1507ZM30.5001 17.2372C30.8955 17.0086 31.1797 16.64 31.2971 16.1973C31.4144 15.7566 31.3547 15.2953 31.1241 14.8979C30.8193 14.3686 30.2509 14.0412 29.6393 14.0412C29.3407 14.0412 29.0442 14.1194 28.7847 14.2718C28.3893 14.5004 28.1051 14.869 27.9877 15.3097C27.8683 15.7525 27.9301 16.2138 28.1587 16.6091C28.4634 17.1384 29.0318 17.4658 29.6434 17.4658C29.9441 17.4679 30.2406 17.3876 30.5001 17.2372Z" fill="currentColor" class="group-hover:rotate-[-360deg] transition-all duration-[600ms] ease" style="transform-box: fill-box; transform-origin:center;"></path>
+</svg>
+          				</a>
+			</li>
+		</ul>
+		<ul class="w-auto lg:flex-1 flex lg:gap-x-[32px] lg:pl-[64px] lg:pr-0 pr-[24px]">
+      				
+									<li class="hidden lg:flex relative overflow-visible z-[100] items-center" @mouseenter="dropDownOpen = '13402'" ;="" @mouseleave="dropDownOpen = null">
+						<button class="flex items-center gap-x-[6px] text-white" @click="dropDownOpen = '13402'">
+							Platform
+              <span class="text-[12px] transition-all duration-300" :class="dropDownOpen == '13402' ? 'rotate-180' : ''">
+                <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" class="">
+    <path d="M12.6699 6L8.00326 10.6667L3.33659 6" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>              </span>
+						</button>
+						<ul x-transition:enter="transition ease-out duration-300" x-transition:enter-start="opacity-0" x-transition:enter-end="opacity-100" x-transition:leave="transition ease-in duration-300" x-transition:leave-start="opacity-100" x-transition:leave-end="opacity-0" x-show="dropDownOpen == '13402'" class="bg-[#0E3D5580] backdrop-blur-[80px] overflow-hidden absolute top-full w-[191px] shadow-[0_36px_80px_0_rgba(0,0,0,0.25)] mt-[-8px] rounded-[8px]" :class="isPastThreshold ? 'rounded-b-[8px]' : 'mt-[-8px] rounded-[8px]'" style="display: none;">
+																								<li class="group p-[16px] border-b hover:bg-white/10 transition-all duration-300 border-b-grey/15 last:border-b-0">
+										<a href="https://www.linusbio.com/platform" class="text-white flex items-center">
+											<span>Our Platform</span>
+                      <span class="ml-[12px] opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                        <svg width="6" height="10" viewBox="0 0 6 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+                          <path d="M1 9L5 5L1 1" stroke="currentColor"></path>
+                        </svg>
+                      </span>
+										</a>
+									</li>
+																																<li class="group p-[16px] border-b hover:bg-white/10 transition-all duration-300 border-b-grey/15 last:border-b-0">
+										<a href="https://www.linusbio.com/our-science" class="text-white flex items-center">
+											<span>Our Science</span>
+                      <span class="ml-[12px] opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                        <svg width="6" height="10" viewBox="0 0 6 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+                          <path d="M1 9L5 5L1 1" stroke="currentColor"></path>
+                        </svg>
+                      </span>
+										</a>
+									</li>
+																																<li class="group p-[16px] border-b hover:bg-white/10 transition-all duration-300 border-b-grey/15 last:border-b-0">
+										<a href="https://www.linusbio.com/publications" class="text-white flex items-center">
+											<span>Publications</span>
+                      <span class="ml-[12px] opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                        <svg width="6" height="10" viewBox="0 0 6 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+                          <path d="M1 9L5 5L1 1" stroke="currentColor"></path>
+                        </svg>
+                      </span>
+										</a>
+									</li>
+																					</ul>
+					</li>
+																<li class="items-center hidden lg:flex layout--header__nav-link ">
+						<a class="" href="https://www.linusbio.com/pipeline">
+							<span>Pipeline</span>
+						</a>
+					</li>
+				
+											
+									<li class="hidden lg:flex relative overflow-visible z-[100] items-center" @mouseenter="dropDownOpen = '13860'" ;="" @mouseleave="dropDownOpen = null">
+            <div class="flex items-center gap-x-[6px]">
+              <a href="https://www.linusbio.com/conditions" class="inline-block text-white">
+
+                <span>Conditions</span>
+              </a>
+              <button class="flex items-center transition-all duration-300 text-white" @click="dropDownOpen = '13860'" :class="dropDownOpen == '13860' ? 'rotate-180' : ''">
+                <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" class="">
+    <path d="M12.6699 6L8.00326 10.6667L3.33659 6" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>              </button>
+            </div>
+						<ul x-transition:enter="transition ease-out duration-300" x-transition:enter-start="opacity-0" x-transition:enter-end="opacity-100" x-transition:leave="transition ease-in duration-300" x-transition:leave-start="opacity-100" x-transition:leave-end="opacity-0" x-show="dropDownOpen == '13860'" class="bg-[#0E3D5580] backdrop-blur-[80px] overflow-hidden absolute top-full w-[191px] shadow-[0_36px_80px_0_rgba(0,0,0,0.25)] mt-[-8px] rounded-[8px]" :class="isPastThreshold ? 'rounded-b-[8px]' : 'mt-[-8px] rounded-[8px]'" style="display: none;">
+																								<li class="p-[16px] border-b border-b-grey/15 last:border-b-0">
+										<a href="https://www.linusbio.com/conditions/autism-spectrum-disorder" class="inline-block text-white">
+											<span>Autism Spectrum Disorder</span>
+										</a>
+									</li>
+																					</ul>
+					</li>
+											
+									<li class="hidden lg:flex relative overflow-visible z-[100] items-center" @mouseenter="dropDownOpen = '13861'" ;="" @mouseleave="dropDownOpen = null">
+						<button class="flex items-center gap-x-[6px] text-white" @click="dropDownOpen = '13861'">
+							Company
+              <span class="text-[12px] transition-all duration-300" :class="dropDownOpen == '13861' ? 'rotate-180' : ''">
+                <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" class="">
+    <path d="M12.6699 6L8.00326 10.6667L3.33659 6" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>              </span>
+						</button>
+						<ul x-transition:enter="transition ease-out duration-300" x-transition:enter-start="opacity-0" x-transition:enter-end="opacity-100" x-transition:leave="transition ease-in duration-300" x-transition:leave-start="opacity-100" x-transition:leave-end="opacity-0" x-show="dropDownOpen == '13861'" class="bg-[#0E3D5580] backdrop-blur-[80px] overflow-hidden absolute top-full w-[191px] shadow-[0_36px_80px_0_rgba(0,0,0,0.25)] mt-[-8px] rounded-[8px]" :class="isPastThreshold ? 'rounded-b-[8px]' : 'mt-[-8px] rounded-[8px]'" style="display: none;">
+																								<li class="group p-[16px] border-b hover:bg-white/10 transition-all duration-300 border-b-grey/15 last:border-b-0">
+										<a href="https://www.linusbio.com/about" class="text-white flex items-center">
+											<span>About</span>
+                      <span class="ml-[12px] opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                        <svg width="6" height="10" viewBox="0 0 6 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+                          <path d="M1 9L5 5L1 1" stroke="currentColor"></path>
+                        </svg>
+                      </span>
+										</a>
+									</li>
+																																<li class="group p-[16px] border-b hover:bg-white/10 transition-all duration-300 border-b-grey/15 last:border-b-0">
+										<a href="https://www.linusbio.com/news" class="text-white flex items-center">
+											<span>News &amp; Events</span>
+                      <span class="ml-[12px] opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                        <svg width="6" height="10" viewBox="0 0 6 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+                          <path d="M1 9L5 5L1 1" stroke="currentColor"></path>
+                        </svg>
+                      </span>
+										</a>
+									</li>
+																																<li class="group p-[16px] border-b hover:bg-white/10 transition-all duration-300 border-b-grey/15 last:border-b-0">
+										<a href="https://www.linusbio.com/careers" class="text-white flex items-center">
+											<span>Careers</span>
+                      <span class="ml-[12px] opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                        <svg width="6" height="10" viewBox="0 0 6 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+                          <path d="M1 9L5 5L1 1" stroke="currentColor"></path>
+                        </svg>
+                      </span>
+										</a>
+									</li>
+																					</ul>
+					</li>
+																<li class="items-center hidden lg:flex layout--header__nav-link ">
+						<a class="" href="https://www.linusbio.com/partnerships">
+							<span>Partnerships</span>
+						</a>
+					</li>
+				
+											
+									<li class="hidden lg:flex relative overflow-visible z-[100] items-center" @mouseenter="dropDownOpen = '15345'" ;="" @mouseleave="dropDownOpen = null">
+						<button class="flex items-center gap-x-[6px] text-white" @click="dropDownOpen = '15345'">
+							Products
+              <span class="text-[12px] transition-all duration-300" :class="dropDownOpen == '15345' ? 'rotate-180' : ''">
+                <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" class="">
+    <path d="M12.6699 6L8.00326 10.6667L3.33659 6" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>              </span>
+						</button>
+						<ul x-transition:enter="transition ease-out duration-300" x-transition:enter-start="opacity-0" x-transition:enter-end="opacity-100" x-transition:leave="transition ease-in duration-300" x-transition:leave-start="opacity-100" x-transition:leave-end="opacity-0" x-show="dropDownOpen == '15345'" class="bg-[#0E3D5580] backdrop-blur-[80px] overflow-hidden absolute top-full w-[191px] shadow-[0_36px_80px_0_rgba(0,0,0,0.25)] mt-[-8px] rounded-[8px]" :class="isPastThreshold ? 'rounded-b-[8px]' : 'mt-[-8px] rounded-[8px]'" style="display: none;">
+																								<li class="group p-[16px] border-b hover:bg-white/10 transition-all duration-300 border-b-grey/15 last:border-b-0">
+										<a href="https://www.clearstrandasd.com/" rel="noopener noreferrer" target="_blank" class="text-white flex items-center">
+											<span>ClearStrand™ASD</span>
+                      <span class="ml-[12px] opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                        <svg width="6" height="10" viewBox="0 0 6 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+                          <path d="M1 9L5 5L1 1" stroke="currentColor"></path>
+                        </svg>
+                      </span>
+										</a>
+									</li>
+																																<li class="group p-[16px] border-b hover:bg-white/10 transition-all duration-300 border-b-grey/15 last:border-b-0">
+										<a href="https://traced.life/" rel="noopener noreferrer" target="_blank" class="text-white flex items-center">
+											<span>Traced™ Environmental Exposure Test</span>
+                      <span class="ml-[12px] opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                        <svg width="6" height="10" viewBox="0 0 6 10" fill="none" xmlns="http://www.w3.org/2000/svg">
+                          <path d="M1 9L5 5L1 1" stroke="currentColor"></path>
+                        </svg>
+                      </span>
+										</a>
+									</li>
+																					</ul>
+					</li>
+							                    <li class="flex items-center lg:ml-auto">
+          <a class="bg-[#16425866] backdrop-blur-[20px] p-[8px_8px_8px_16px] group hover:bg-white hover:text-blue transition-all duration-300 lg:flex hidden rounded-full items-center gap-[8px] font-normal" href="https://www.linusbio.com/contact">
+            <span>Contact us</span>
+                            <div class="w-[24px] h-[24px] bg-white rounded-full flex items-center justify-center transition-all duration-300 group-hover:bg-blue group-hover:rotate-[-45deg]">
+                <svg class="text-[--hero-bg] w-[16px] group-hover:text-white" viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M3.33594 9.99967H15.7169M10.0026 3.33301L16.6693 9.99967L10.0026 16.6663" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"></path>
+                </svg>
+              </div>
+              
+          </a>
+        </li>
+                  <li class="lg:hidden">
+				<button class="h-[32px]  flex items-center gap-[8px]" @click="mobileMenuOpen = !mobileMenuOpen">
+					<div class="w-[32px] h-[22px] bg-[#16425866] backdrop-blur-[20px] text-white border border-transparent rounded-full flex items-center justify-center" :class="mobileMenuOpen &amp;&amp; '!border-grey/15 !bg-transparent'">
+						<div x-show="!mobileMenuOpen">
+							<svg width="16" height="6" viewBox="0 0 16 6" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <line y1="0.5" x2="16" y2="0.5" stroke="currentColor"></line>
+    <line y1="5.5" x2="16" y2="5.5" stroke="currentColor"></line>
+</svg>						</div>
+						<div x-show="mobileMenuOpen" style="display: none;">
+                              <svg width="16" height="12" viewBox="0 0 16 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <path d="M13 1L3 11" stroke="white" stroke-linejoin="round"></path>
+    <path d="M13 11L3 1" stroke="white" stroke-linejoin="round"></path>
+</svg>              
+						</div>
+					</div>
+					<span x-text="mobileMenuOpen ? 'Close' : 'Menu'">Menu</span>
+				</button>
+			</li>
+		</ul>
+    <div class="w-full" x-show="mobileMenuOpen" x-collapse="" style="display: none; height: 0px; overflow: hidden;" hidden="">
+			<ul class="px-[24px] pt-[16px] pb-[8px] flex flex-col border-t border-grey/15
+                  nav-blur
+              ">
+                  
+                      <li class="flex flex-wrap items-center justify-between border-b border-grey/15 py-[16px]" :class="dropDownOpen == '13402' || dropDownOpen == '' ? '' : 'opacity-50'">
+              <button class="w-full justify-between flex items-center gap-x-[6px] mdw:h2 h4" :class="dropDownOpen == '13402' ? 'border-b border-grey pb-[16px]' : ''" @click="dropDownOpen == '13402' ? dropDownOpen = '' : dropDownOpen = '13402'">
+                Platform
+                <span class="text-[12px] transition-all duration-300" :class="dropDownOpen == '13402' ? 'rotate-180' : ''">
+                  <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" class="">
+    <path d="M12.6699 6L8.00326 10.6667L3.33659 6" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>                </span>
+              </button>
+              <ul x-transition:enter="transition ease-out duration-300" x-transition:enter-start="opacity-0" x-transition:enter-end="opacity-100" x-transition:leave="transition ease-in duration-300" x-transition:leave-start="opacity-100" x-transition:leave-end="opacity-0" x-show="dropDownOpen == '13402'" class="flex flex-col w-full mb-[-16px]" style="display: none;">
+                                                      <li class="p-[16px] border-b border-b-grey/15 last:border-b-0">
+                      <a class="h5" href="https://www.linusbio.com/platform">
+                        <span>Our Platform</span>
+                      </a>
+                    </li>
+                                                                        <li class="p-[16px] border-b border-b-grey/15 last:border-b-0">
+                      <a class="h5" href="https://www.linusbio.com/our-science">
+                        <span>Our Science</span>
+                      </a>
+                    </li>
+                                                                        <li class="p-[16px] border-b border-b-grey/15 last:border-b-0">
+                      <a class="h5" href="https://www.linusbio.com/publications">
+                        <span>Publications</span>
+                      </a>
+                    </li>
+                                                </ul>
+            </li>
+                                        <li class="items-center py-[12px] border-b border-grey/15" :class="dropDownOpen !== '' ? 'opacity-50' : ''">
+              <a class="mdw:h2 h4" href="https://www.linusbio.com/pipeline">
+                <span>Pipeline</span>
+              </a>
+            </li>
+          
+                            
+                      <li class="flex flex-wrap items-center justify-between border-b border-grey/15 py-[16px]" :class="dropDownOpen == '13860' || dropDownOpen == '' ? '' : 'opacity-50'">
+              <div class="w-full justify-between flex items-center gap-x-[6px] mdw:h2 h4" :class="dropDownOpen == '13860' ? 'border-b border-grey pb-[16px]' : ''">
+                <a style="text-decoration: none;" href="https://www.linusbio.com/conditions" class="inline-block text-white layout--header__nav-link">
+                  <span>Conditions</span>
+                </a>
+                <button class="flex-1" @click="dropDownOpen == '13860' ? dropDownOpen = '' : dropDownOpen = '13860'">
+                  
+                  <svg class="transition-all duration-300 ml-auto" :class="dropDownOpen == '13860' ? 'rotate-180' : ''" width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M12.6699 6L8.00326 10.6667L3.33659 6" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"></path>
+                  </svg>
+                </button>
+              </div>
+              <ul x-transition:enter="transition ease-out duration-300" x-transition:enter-start="opacity-0" x-transition:enter-end="opacity-100" x-transition:leave="transition ease-in duration-300" x-transition:leave-start="opacity-100" x-transition:leave-end="opacity-0" x-show="dropDownOpen == '13860'" class="flex flex-col w-full mb-[-16px]" style="display: none;">
+                                                      <li class="p-[16px] border-b border-b-grey/15 last:border-b-0">
+                      <a class="h5" href="https://www.linusbio.com/conditions/autism-spectrum-disorder">
+                        <span>Autism Spectrum Disorder</span>
+                      </a>
+                    </li>
+                                                </ul>
+            </li>
+                            
+                      <li class="flex flex-wrap items-center justify-between border-b border-grey/15 py-[16px]" :class="dropDownOpen == '13861' || dropDownOpen == '' ? '' : 'opacity-50'">
+              <button class="w-full justify-between flex items-center gap-x-[6px] mdw:h2 h4" :class="dropDownOpen == '13861' ? 'border-b border-grey pb-[16px]' : ''" @click="dropDownOpen == '13861' ? dropDownOpen = '' : dropDownOpen = '13861'">
+                Company
+                <span class="text-[12px] transition-all duration-300" :class="dropDownOpen == '13861' ? 'rotate-180' : ''">
+                  <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" class="">
+    <path d="M12.6699 6L8.00326 10.6667L3.33659 6" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>                </span>
+              </button>
+              <ul x-transition:enter="transition ease-out duration-300" x-transition:enter-start="opacity-0" x-transition:enter-end="opacity-100" x-transition:leave="transition ease-in duration-300" x-transition:leave-start="opacity-100" x-transition:leave-end="opacity-0" x-show="dropDownOpen == '13861'" class="flex flex-col w-full mb-[-16px]" style="display: none;">
+                                                      <li class="p-[16px] border-b border-b-grey/15 last:border-b-0">
+                      <a class="h5" href="https://www.linusbio.com/about">
+                        <span>About</span>
+                      </a>
+                    </li>
+                                                                        <li class="p-[16px] border-b border-b-grey/15 last:border-b-0">
+                      <a class="h5" href="https://www.linusbio.com/news">
+                        <span>News &amp; Events</span>
+                      </a>
+                    </li>
+                                                                        <li class="p-[16px] border-b border-b-grey/15 last:border-b-0">
+                      <a class="h5" href="https://www.linusbio.com/careers">
+                        <span>Careers</span>
+                      </a>
+                    </li>
+                                                </ul>
+            </li>
+                                        <li class="items-center py-[12px] border-b border-grey/15" :class="dropDownOpen !== '' ? 'opacity-50' : ''">
+              <a class="mdw:h2 h4" href="https://www.linusbio.com/partnerships">
+                <span>Partnerships</span>
+              </a>
+            </li>
+          
+                            
+                      <li class="flex flex-wrap items-center justify-between border-b border-grey/15 py-[16px]" :class="dropDownOpen == '15345' || dropDownOpen == '' ? '' : 'opacity-50'">
+              <button class="w-full justify-between flex items-center gap-x-[6px] mdw:h2 h4" :class="dropDownOpen == '15345' ? 'border-b border-grey pb-[16px]' : ''" @click="dropDownOpen == '15345' ? dropDownOpen = '' : dropDownOpen = '15345'">
+                Products
+                <span class="text-[12px] transition-all duration-300" :class="dropDownOpen == '15345' ? 'rotate-180' : ''">
+                  <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" class="">
+    <path d="M12.6699 6L8.00326 10.6667L3.33659 6" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>                </span>
+              </button>
+              <ul x-transition:enter="transition ease-out duration-300" x-transition:enter-start="opacity-0" x-transition:enter-end="opacity-100" x-transition:leave="transition ease-in duration-300" x-transition:leave-start="opacity-100" x-transition:leave-end="opacity-0" x-show="dropDownOpen == '15345'" class="flex flex-col w-full mb-[-16px]" style="display: none;">
+                                                      <li class="p-[16px] border-b border-b-grey/15 last:border-b-0">
+                      <a class="h5" href="https://www.clearstrandasd.com/" rel="noopener noreferrer" target="_blank">
+                        <span>ClearStrand™ASD</span>
+                      </a>
+                    </li>
+                                                                        <li class="p-[16px] border-b border-b-grey/15 last:border-b-0">
+                      <a class="h5" href="https://traced.life/" rel="noopener noreferrer" target="_blank">
+                        <span>Traced™ Environmental Exposure Test</span>
+                      </a>
+                    </li>
+                                                </ul>
+            </li>
+                                    <li class="py-[16px]" :class="dropDownOpen !== '' ? 'opacity-50' : ''">
+            <a href="https://www.linusbio.com/contact">
+              <span class="mdw:h2 h4">Contact us</span>
+            </a>
+          </li>
+        			</ul>
+		</div>
+	</nav>
+</header>
+		
+		<main class="" id="main">
+
+			  
+
+
+  
+
+
+
+                                
+
+      
+
+                                
+
+  
+
+
+  
+  <section id="block-13571" class="relative mdw:pb-[110px] mdw:pt-[197px] pt-[210px] pb-[72px] bg-blue" x-data="{
+    previewPaused: false,
+    video: $refs.video,
+  }">
+  <div class="absolute top-[0px] left-0 right-0 h-[60%] z-[1]" style="background: linear-gradient(180deg, var(--hero-bg) 0%, rgba(49, 126, 166, 0) 100%);"></div>
+			<video x-ref="video" src="site/servd-linusbio-cs.b-cdn.net/production/videos/404-bg-optimized_2025-02-12-124224_iaxf.mp4" autoplay="" muted="" loop="" playsinline="" class="w-full h-full inset-0 z-0 object-cover absolute transition-all duration-[500ms]"></video>
+    <div class="lg:pt-[110px] pt-[40px] absolute items-end mdw:pb-[32px] pb-[72px] inset-0 flex justify-end z-[10] pointer-events-none site-container" x-ref="controls">
+      <div class="flex items-center pointer-events-auto">
+        <button aria-label="Pause/Play video" class="inline-flex gap-x-[9px] items-center text-white group" @click="previewPaused ? video.play() : video.pause(); previewPaused = !previewPaused">
+          <span class="nav hidden lg:inline-block" x-text="previewPaused ? 'Play' : 'Pause'">Pause</span>
+          <div class="w-[24px] h-[24px] rounded-full flex items-center justify-center bg-[#16425866] backdrop-blur-[20px] group-hover:bg-white group-hover:text-[--hero-bg] text-white transition-all duration-300">
+            <svg x-show="previewPaused" width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" style="display: none;">
+              <path d="M13 8L5 3V13L13 8Z" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"></path>
+            </svg>
+            <svg x-show="!previewPaused" width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M5 4V12" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"></path>
+              <path d="M11 4V12" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"></path>
+            </svg>
+          </div>
+        </button>
+      </div>
+    </div>
+		<div class="site-container relative z-[3]">
+		<div class="text-white site-grid">
+      <div class="mdw:col-span-10 col-span-full">
+        					<h1 class="text-[56px] h1 lg:text-[130px] text-balance md:text-wrap">The Next Revolution in Precision Medicine</h1>
+				      </div>
+      <div class="mdw:col-span-4 mdw:col-start-3 col-span-full">
+        					<div class="body-m text-white/60 mdw:mt-[70px] mt-[157px]">
+						<p>LinusBio, a pioneering platform company, is developing precision exposome biomarkers to enable earlier diagnoses, enhance patient monitoring, and accelerate drug development.</p>
+					</div>
+													<a href="#early-autism-detection" class="inline-block lg:mt-[40px] mt-[16px] font-normal">
+						
+	<div href="#" class="
+					group inline-flex leading-[.9] items-center rounded-[84px] transition-all duration-300
+					bg-blue-transparent backdrop-blur-[20px] hover:bg-white hover:text-blue border border-transparent hover:border-white text-white pl-[18px] pr-[8px] py-[8px] gap-[16px]
+					pl-[18px] pr-[8px] py-[8px] gap-[16px]
+				">
+		<span class="">Discover more</span>
+		<div class="bg-white rounded-full p-[6px] text-blue w-[32px] h-[32px] transition-all duration-300 group-hover:bg-blue group-hover:text-white group-hover:rotate-[-45deg] ">
+			<svg viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+				<path d="M3.33594 9.99967H15.7169M10.0026 3.33301L16.6693 9.99967L10.0026 16.6663" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"></path>
+			</svg>
+		</div>
+	</div>
+					</a>
+				      </div>
+		</div>
+	</div>
+
+	<div class="absolute bottom-[-10%] left-0 right-0 h-[60%] z-[1]" style="background: linear-gradient(0deg, var(--hero-bg) 0%, var(--hero-bg) 20%, rgba(49, 126, 166, 0) 100%);"></div>
+
+</section>
+        
+
+                                
+
+  
+
+
+  
+  <section id="block-13572" class="bg-[--hero-bg] transition-colors duration-150 relative z-[3]" x-data="homepageAccordion({
+    totalItems: 3,
+  })">
+	<div class="md:site-container">
+		<div class="bg-white overflow-hidden px-[24px] mdw:px-0 border-b border-grey mdw:border-b-0 rounded-t-[8px] mdw:pt-[120px] mdw:pb-[40px] py-[64px]">
+      <div class="site-grid">
+        <div class="mdw:col-span-8 mdw:col-start-2 col-span-full">
+                      <h2 class="body-m text-black/60">
+              Our propietary technology
+            </h2>
+                                <div class="h3 styled-heading mt-[16px] mdw:mt-[32px]">
+              <p>Temporal <strong>exposomics</strong> sequencing powering novel biomarkers.</p>
+            </div>
+          
+
+
+        </div>
+        <div class="mdw:col-span-10 mdw:col-start-2 col-span-full my-[64px] border-b border-grey mx-[-24px] mdw:mx-0"></div>
+        <div x-ref="images" class="hidden  relative mdw:flex col-span-5 md:col-start-2 flex-col items-stretch gap-y-[16px]">
+
+                                                            <div class="w-full relative h-[688px] rounded-[8px] overflow-hidden" x-data="{
+                  previewPaused: false,
+                  video: $refs.video,
+                }">
+              <div class="absolute top-[24px] right-[24px] flex justify-end z-[11]" x-ref="controls">
+                <div class="flex items-center">
+                  <button aria-label="Pause/Play video" class="inline-flex gap-x-[9px] items-center text-white group" @click="previewPaused ? video.play() : video.pause(); previewPaused = !previewPaused">
+                    <span class="nav" x-text="previewPaused ? 'Play' : 'Pause'">Pause</span>
+                    <div class="w-[24px] h-[24px] rounded-full flex items-center justify-center bg-black/20 backdrop-blur-[20px]">
+                      <svg x-show="previewPaused" width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" style="display: none;">
+                        <path d="M13 8L5 3V13L13 8Z" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"></path>
+                      </svg>
+                      <svg x-show="!previewPaused" width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M5 4V12" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"></path>
+                        <path d="M11 4V12" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"></path>
+                      </svg>
+                    </div>
+                  </button>
+                </div>
+              </div>
+
+                <video x-ref="video" class="w-full h-full object-cover transition-all duration-[500ms]" src="site/servd-linusbio-cs.b-cdn.net/production/videos/Hair-Slicing-hero-compressed.mp4" playsinline="" muted="" loop="" autoplay="" style="object-position: center;"></video>
+              </div>
+                                                                        <div class="w-full relative h-[688px] rounded-[8px] overflow-hidden" x-data="{
+                  previewPaused: false,
+                  video: $refs.video,
+                }">
+              <div class="absolute top-[24px] right-[24px] flex justify-end z-[11]" x-ref="controls">
+                <div class="flex items-center">
+                  <button aria-label="Pause/Play video" class="inline-flex gap-x-[9px] items-center text-white group" @click="previewPaused ? video.play() : video.pause(); previewPaused = !previewPaused">
+                    <span class="nav" x-text="previewPaused ? 'Play' : 'Pause'">Pause</span>
+                    <div class="w-[24px] h-[24px] rounded-full flex items-center justify-center bg-black/20 backdrop-blur-[20px]">
+                      <svg x-show="previewPaused" width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" style="display: none;">
+                        <path d="M13 8L5 3V13L13 8Z" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"></path>
+                      </svg>
+                      <svg x-show="!previewPaused" width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M5 4V12" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"></path>
+                        <path d="M11 4V12" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"></path>
+                      </svg>
+                    </div>
+                  </button>
+                </div>
+              </div>
+
+                <video x-ref="video" class="w-full h-full object-cover transition-all duration-[500ms]" src="site/servd-linusbio-cs.b-cdn.net/production/videos/Ablation-Section-Compressed_2025-02-12-171852_vxrb.mp4" playsinline="" muted="" loop="" autoplay="" style="object-position: right;"></video>
+              </div>
+                                                                        <div class="w-full relative h-[688px] rounded-[8px] overflow-hidden" x-data="{
+                  previewPaused: false,
+                  video: $refs.video,
+                }">
+              <div class="absolute top-[24px] right-[24px] flex justify-end z-[11]" x-ref="controls">
+                <div class="flex items-center">
+                  <button aria-label="Pause/Play video" class="inline-flex gap-x-[9px] items-center text-white group" @click="previewPaused ? video.play() : video.pause(); previewPaused = !previewPaused">
+                    <span class="nav" x-text="previewPaused ? 'Play' : 'Pause'">Pause</span>
+                    <div class="w-[24px] h-[24px] rounded-full flex items-center justify-center bg-black/20 backdrop-blur-[20px]">
+                      <svg x-show="previewPaused" width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" style="display: none;">
+                        <path d="M13 8L5 3V13L13 8Z" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"></path>
+                      </svg>
+                      <svg x-show="!previewPaused" width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M5 4V12" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"></path>
+                        <path d="M11 4V12" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"></path>
+                      </svg>
+                    </div>
+                  </button>
+                </div>
+              </div>
+
+                <video x-ref="video" class="w-full h-full object-cover transition-all duration-[500ms]" src="site/servd-linusbio-cs.b-cdn.net/production/videos/Spectrometry-Hero-Compressed_2025-02-12-171650_ayhy.mp4" playsinline="" muted="" loop="" autoplay="" style="object-position: center;"></video>
+              </div>
+                              </div>
+        <div class="pin-spacer" style="order: 0; place-self: auto; grid-area: auto / 8 / auto / span 4; z-index: auto; float: none; flex-shrink: 1; display: block; margin: 0px; inset: auto; position: relative; flex-basis: auto; overflow: visible; box-sizing: border-box; width: 437px; height: 2096px; padding: 0px;"><div class="mdw:col-span-4 mdw:col-start-8 col-span-full" x-ref="pin" style="translate: none; rotate: none; scale: none; inset: 0px auto auto 0px; margin: 0px; max-width: 437.328px; width: 437.328px; max-height: 2096px; height: 2096px; padding: 0px; transform: translate(0px, 0px);">
+          <div class="w-full">
+            <ul class="flex flex-col items-stretch" x-ref="items">
+                                                                                                              
+                <li class="accordion__item border-b border-grey pb-[32px] mb-[32px] last:border-none last:pb-0 last:mb-0">
+                  <h3 class="accordion__heading !h4 md:!h5" aria-label="Mapping human physiology over time" style="font-size: 24px;">
+                    <button class="relative hidden w-full text-left md:block" @click.prevent="goToItem(0)">
+                      <span class="block pr-[50px]">Mapping human physiology over time</span>
+
+                      <span class="accordion__icon absolute top-1/2 right-[25px] -translate-y-1/2" style="opacity: 0;">
+                        <span class="absolute top/1-2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[20px] h-[1px] bg-black rounded-[10px]"></span>
+                        <span class="accordion__icon--extra absolute top/1-2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[20px] h-[1px] bg-black rounded-[10px] rotate-90" style="translate: none; rotate: none; scale: none; transform: translate(-50%, -50%);"></span>
+                      </span>
+                    </button>
+
+                    <button class="relative block w-full text-left accordion__mobile md:hidden" @click.prevent="toggleItem(0)">
+                      <span class="block pr-[40px]">Mapping human physiology over time</span>
+
+                      <span class="accordion__icon absolute top-1/2 right-[20px] -translate-y-1/2" style="opacity: 0;">
+                        <span class="absolute top/1-2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[14px] h-[1px] bg-black rounded-[10px]"></span>
+                        
+                      <span class="accordion__icon--extra absolute top/1-2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[14px] h-[1px] bg-black rounded-[10px] rotate-90" style="translate: none; rotate: none; scale: none; transform: translate(-7px, -0.5px);"></span></span>
+                    </button>
+                  </h3>
+
+                  <div class="block overflow-hidden accordion__text" style="height: auto;">
+                    <p class="para-2 mt-[24px] text-black/60">The LinusBio platform maps the growth rings in hair to reveal thousands of molecular features at multiple time points. A single assay provides as much information as hundreds of blood tests, taken over years, revealing how biology changes over time.</p>
+
+                                          <a class="inline-block mt-[24px] font-normal" href="https://www.linusbio.com/platform">
+                        
+	<div href="#" class="
+					group inline-flex leading-[.9] items-center rounded-[84px] transition-all duration-300
+					bg-blue text-white pl-[18px] pr-[8px] py-[8px] gap-[16px] hover:bg-white hover:text-blue border border-blue
+					pl-[18px] pr-[8px] py-[8px] gap-[16px]
+				">
+		<span class="">Go to platform</span>
+		<div class="bg-white rounded-full p-[6px] text-blue w-[32px] h-[32px] transition-all duration-300 group-hover:bg-blue group-hover:text-white group-hover:rotate-[-45deg] ">
+			<svg viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+				<path d="M3.33594 9.99967H15.7169M10.0026 3.33301L16.6693 9.99967L10.0026 16.6663" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"></path>
+			</svg>
+		</div>
+	</div>
+                      </a>
+                    
+                                                              <div class="w-full mt-[32px] relative aspect-square md:aspect-video mdw:hidden rounded-[8px] overflow-hidden" x-data="{
+                          previewPaused: false,
+                          video: $refs.video,
+                        }">
+                      <div class="absolute top-[24px] right-[24px] flex justify-end z-[11]" x-ref="controls">
+                        <div class="flex items-center">
+                          <button aria-label="Pause/Play video" class="inline-flex gap-x-[9px] items-center text-white group" @click="previewPaused ? video.play() : video.pause(); previewPaused = !previewPaused">
+                            <span class="nav" x-text="previewPaused ? 'Play' : 'Pause'">Pause</span>
+                            <div class="w-[24px] h-[24px] rounded-full flex items-center justify-center bg-[--hero-bg] backdrop-blur-[20px] group-hover:bg-white group-hover:text-[--hero-bg] text-white transition-all duration-300">
+                              <svg x-show="previewPaused" width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" style="display: none;">
+                                <path d="M13 8L5 3V13L13 8Z" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"></path>
+                              </svg>
+                              <svg x-show="!previewPaused" width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M5 4V12" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"></path>
+                                <path d="M11 4V12" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"></path>
+                              </svg>
+                            </div>
+                          </button>
+                        </div>
+                      </div>
+
+                        <video x-ref="video" class="w-full h-full object-cover transition-all duration-[500ms]" src="site/servd-linusbio-cs.b-cdn.net/production/videos/Hair-Slicing-hero-compressed.mp4" playsinline="" muted="" loop="" autoplay="" style="object-position: center;"></video>
+                      </div>
+                                      </div>
+
+                </li>
+                                                                                                              
+                <li class="accordion__item border-b border-grey pb-[32px] mb-[32px] last:border-none last:pb-0 last:mb-0">
+                  <h3 class="accordion__heading !h4 md:!h5" aria-label="Proprietary technology" style="font-size: 18px;">
+                    <button class="relative hidden w-full text-left md:block" @click.prevent="goToItem(1)">
+                      <span class="block pr-[50px]">Proprietary technology</span>
+
+                      <span class="accordion__icon absolute top-1/2 right-[25px] -translate-y-1/2" style="opacity: 1;">
+                        <span class="absolute top/1-2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[20px] h-[1px] bg-black rounded-[10px]"></span>
+                        <span class="accordion__icon--extra absolute top/1-2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[20px] h-[1px] bg-black rounded-[10px] rotate-90" style="translate: none; rotate: none; scale: none; transform: translate(-50%, -50%) rotate(90deg);"></span>
+                      </span>
+                    </button>
+
+                    <button class="relative block w-full text-left accordion__mobile md:hidden" @click.prevent="toggleItem(1)">
+                      <span class="block pr-[40px]">Proprietary technology</span>
+
+                      <span class="accordion__icon absolute top-1/2 right-[20px] -translate-y-1/2" style="opacity: 1;">
+                        <span class="absolute top/1-2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[14px] h-[1px] bg-black rounded-[10px]"></span>
+                        
+                      <span class="accordion__icon--extra absolute top/1-2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[14px] h-[1px] bg-black rounded-[10px] rotate-90" style="translate: none; rotate: none; scale: none; transform: translate(-7px, -0.5px) rotate(90deg);"></span></span>
+                    </button>
+                  </h3>
+
+                  <div class="block overflow-hidden accordion__text" style="height: 0px;">
+                    <p class="para-2 mt-[24px] text-black/60">Leveraging proprietary robotics and laser systems, our platform releases complex biomolecules, analyzes them with mass spectrometry and runs the data through a powerful AI pipeline, identifying molecular signatures no other assays can find. These biomarkers can be used to rapidly and comprehensively facilitate discovery across central nervous system disorders, gastrointestinal diseases, cancer and other conditions.</p>
+
+                                          <a class="inline-block mt-[24px] font-normal" href="https://www.linusbio.com/our-science">
+                        
+	<div href="#" class="
+					group inline-flex leading-[.9] items-center rounded-[84px] transition-all duration-300
+					bg-blue text-white pl-[18px] pr-[8px] py-[8px] gap-[16px] hover:bg-white hover:text-blue border border-blue
+					pl-[18px] pr-[8px] py-[8px] gap-[16px]
+				">
+		<span class="">Our Science</span>
+		<div class="bg-white rounded-full p-[6px] text-blue w-[32px] h-[32px] transition-all duration-300 group-hover:bg-blue group-hover:text-white group-hover:rotate-[-45deg] ">
+			<svg viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+				<path d="M3.33594 9.99967H15.7169M10.0026 3.33301L16.6693 9.99967L10.0026 16.6663" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"></path>
+			</svg>
+		</div>
+	</div>
+                      </a>
+                    
+                                                              <div class="w-full mt-[32px] relative aspect-square md:aspect-video mdw:hidden rounded-[8px] overflow-hidden" x-data="{
+                          previewPaused: false,
+                          video: $refs.video,
+                        }">
+                      <div class="absolute top-[24px] right-[24px] flex justify-end z-[11]" x-ref="controls">
+                        <div class="flex items-center">
+                          <button aria-label="Pause/Play video" class="inline-flex gap-x-[9px] items-center text-white group" @click="previewPaused ? video.play() : video.pause(); previewPaused = !previewPaused">
+                            <span class="nav" x-text="previewPaused ? 'Play' : 'Pause'">Pause</span>
+                            <div class="w-[24px] h-[24px] rounded-full flex items-center justify-center bg-[--hero-bg] backdrop-blur-[20px] group-hover:bg-white group-hover:text-[--hero-bg] text-white transition-all duration-300">
+                              <svg x-show="previewPaused" width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" style="display: none;">
+                                <path d="M13 8L5 3V13L13 8Z" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"></path>
+                              </svg>
+                              <svg x-show="!previewPaused" width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M5 4V12" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"></path>
+                                <path d="M11 4V12" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"></path>
+                              </svg>
+                            </div>
+                          </button>
+                        </div>
+                      </div>
+
+                        <video x-ref="video" class="w-full h-full object-cover transition-all duration-[500ms]" src="site/servd-linusbio-cs.b-cdn.net/production/videos/Ablation-Section-Compressed_2025-02-12-171852_vxrb.mp4" playsinline="" muted="" loop="" autoplay="" style="object-position: right;"></video>
+                      </div>
+                                      </div>
+
+                </li>
+                                                                                                              
+                <li class="accordion__item border-b border-grey pb-[32px] mb-[32px] last:border-none last:pb-0 last:mb-0">
+                  <h3 class="accordion__heading !h4 md:!h5" aria-label="AI-powered health insights" style="font-size: 18px;">
+                    <button class="relative hidden w-full text-left md:block" @click.prevent="goToItem(2)">
+                      <span class="block pr-[50px]">AI-powered health insights</span>
+
+                      <span class="accordion__icon absolute top-1/2 right-[25px] -translate-y-1/2" style="opacity: 1;">
+                        <span class="absolute top/1-2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[20px] h-[1px] bg-black rounded-[10px]"></span>
+                        <span class="accordion__icon--extra absolute top/1-2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[20px] h-[1px] bg-black rounded-[10px] rotate-90" style="translate: none; rotate: none; scale: none; transform: translate(-50%, -50%) rotate(90deg);"></span>
+                      </span>
+                    </button>
+
+                    <button class="relative block w-full text-left accordion__mobile md:hidden" @click.prevent="toggleItem(2)">
+                      <span class="block pr-[40px]">AI-powered health insights</span>
+
+                      <span class="accordion__icon absolute top-1/2 right-[20px] -translate-y-1/2" style="opacity: 1;">
+                        <span class="absolute top/1-2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[14px] h-[1px] bg-black rounded-[10px]"></span>
+                        
+                      <span class="accordion__icon--extra absolute top/1-2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[14px] h-[1px] bg-black rounded-[10px] rotate-90" style="translate: none; rotate: none; scale: none; transform: translate(-7px, -0.5px) rotate(90deg);"></span></span>
+                    </button>
+                  </h3>
+
+                  <div class="block overflow-hidden accordion__text" style="height: 0px;">
+                    <p class="para-2 mt-[24px] text-black/60">LinusBio has created an AI-powered pipeline and a one-of-a-kind global dataset that transforms exposomic readouts into meaningful insights. By harnessing big data and AI, we uncover biological pathways and mechanisms to drive target discovery.</p>
+
+                                          <a class="inline-block mt-[24px] font-normal" href="https://www.linusbio.com/pipeline">
+                        
+	<div href="#" class="
+					group inline-flex leading-[.9] items-center rounded-[84px] transition-all duration-300
+					bg-blue text-white pl-[18px] pr-[8px] py-[8px] gap-[16px] hover:bg-white hover:text-blue border border-blue
+					pl-[18px] pr-[8px] py-[8px] gap-[16px]
+				">
+		<span class="">Go to pipeline</span>
+		<div class="bg-white rounded-full p-[6px] text-blue w-[32px] h-[32px] transition-all duration-300 group-hover:bg-blue group-hover:text-white group-hover:rotate-[-45deg] ">
+			<svg viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+				<path d="M3.33594 9.99967H15.7169M10.0026 3.33301L16.6693 9.99967L10.0026 16.6663" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"></path>
+			</svg>
+		</div>
+	</div>
+                      </a>
+                    
+                                                              <div class="w-full mt-[32px] relative aspect-square md:aspect-video mdw:hidden rounded-[8px] overflow-hidden" x-data="{
+                          previewPaused: false,
+                          video: $refs.video,
+                        }">
+                      <div class="absolute top-[24px] right-[24px] flex justify-end z-[11]" x-ref="controls">
+                        <div class="flex items-center">
+                          <button aria-label="Pause/Play video" class="inline-flex gap-x-[9px] items-center text-white group" @click="previewPaused ? video.play() : video.pause(); previewPaused = !previewPaused">
+                            <span class="nav" x-text="previewPaused ? 'Play' : 'Pause'">Pause</span>
+                            <div class="w-[24px] h-[24px] rounded-full flex items-center justify-center bg-[--hero-bg] backdrop-blur-[20px] group-hover:bg-white group-hover:text-[--hero-bg] text-white transition-all duration-300">
+                              <svg x-show="previewPaused" width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" style="display: none;">
+                                <path d="M13 8L5 3V13L13 8Z" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"></path>
+                              </svg>
+                              <svg x-show="!previewPaused" width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                <path d="M5 4V12" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"></path>
+                                <path d="M11 4V12" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"></path>
+                              </svg>
+                            </div>
+                          </button>
+                        </div>
+                      </div>
+
+                        <video x-ref="video" class="w-full h-full object-cover transition-all duration-[500ms]" src="site/servd-linusbio-cs.b-cdn.net/production/videos/Spectrometry-Hero-Compressed_2025-02-12-171650_ayhy.mp4" playsinline="" muted="" loop="" autoplay="" style="object-position: center;"></video>
+                      </div>
+                                      </div>
+
+                </li>
+                          </ul>
+          </div>
+        </div></div>
+      </div>
+
+		</div>
+	</div>
+</section>
+        
+
+                                
+
+  
+
+
+  
+  <section id="block-13576" class="bg-[--hero-bg] transition-colors duration-150 relative z-[3]">
+	<div class="md:site-container">
+		<div class="bg-white overflow-hidden px-[24px] mdw:px-0 rounded-b-[8px] mdw:pt-[120px] pb-0 py-[64px] ">
+      <div class="site-grid">
+        <div class="relative flex flex-wrap mdw:col-span-10 mdw:col-start-2 col-span-full">
+                      <div class="relative group w-full mdw:w-1/2 mdw:pb-[120px] pb-[32px] z-[1] 
+              
+              
+              
+              ">
+                              <div class="w-full h-auto aspect-[327/216] mdw:aspect-[560/389] mb-[32px] mdw:mb-[48px] overflow-hidden rounded-[8px]
+                                      mdw:rounded-tr-none mdw:rounded-br-none
+                                    ">
+                  			<picture>
+		<source media="(-webkit-min-device-pixel-ratio: 1.5)" srcset="https://linusbio-cs.transforms.svdcdn.com/production/our-science-image_2025-02-12-124800_sjqy.jpg?w=800&amp;h=555&amp;q=80&amp;auto=format&amp;fit=crop&amp;dm=1739364480&amp;s=0f83f02a622375cfeff2ff00d86bb8e3 800w, site/linusbio-cs.transforms.svdcdn.com/production/our-science-image_2025-02-12-124800_sjqy__qfab447bc.jpg 1200w, https://linusbio-cs.transforms.svdcdn.com/production/our-science-image_2025-02-12-124800_sjqy.jpg?w=1800&amp;h=1250&amp;q=80&amp;auto=format&amp;fit=crop&amp;dm=1739364480&amp;s=e8df312ffc92bb671a7f31a8c0175821 1800w, https://linusbio-cs.transforms.svdcdn.com/production/our-science-image_2025-02-12-124800_sjqy.jpg?w=2400&amp;h=1667&amp;q=80&amp;auto=format&amp;fit=crop&amp;dm=1739364480&amp;s=7297d13a67dd829d0f102a1fb15cdb82 2400w, site/linusbio-cs.transforms.svdcdn.com/production/our-science-image_2025-02-12-124800_sjqy__q2b453bfd.jpg 3000w, https://linusbio-cs.transforms.svdcdn.com/production/our-science-image_2025-02-12-124800_sjqy.jpg?w=4000&amp;h=2778&amp;q=80&amp;auto=format&amp;fit=crop&amp;dm=1739364480&amp;s=9f7a5776a47fa2f6517f5bb16ef70a8d 4000w" sizes="(min-width: 1400px) 1400px, calc(100vw - 32px)">
+		<img class="w-full h-full object-cover group-hover:scale-110 transition-all duration-300" src="https://linusbio-cs.transforms.svdcdn.com/production/our-science-image_2025-02-12-124800_sjqy.jpg?w=2000&amp;h=1389&amp;q=100&amp;auto=format&amp;fit=crop&amp;dm=1739364480&amp;s=da06ed95d5fadd57ae10a19b4db2d9dd" srcset="https://linusbio-cs.transforms.svdcdn.com/production/our-science-image_2025-02-12-124800_sjqy.jpg?w=400&amp;h=277&amp;q=100&amp;auto=format&amp;fit=crop&amp;dm=1739364480&amp;s=c146acff13bbd7d4f06d590064faa3eb 400w, https://linusbio-cs.transforms.svdcdn.com/production/our-science-image_2025-02-12-124800_sjqy.jpg?w=600&amp;h=416&amp;q=100&amp;auto=format&amp;fit=crop&amp;dm=1739364480&amp;s=c852feeea278c78d09e6898c590f47ed 600w, https://linusbio-cs.transforms.svdcdn.com/production/our-science-image_2025-02-12-124800_sjqy.jpg?w=900&amp;h=625&amp;q=100&amp;auto=format&amp;fit=crop&amp;dm=1739364480&amp;s=2fa89c2f5933fcfe1d253fa93130b89c 900w, https://linusbio-cs.transforms.svdcdn.com/production/our-science-image_2025-02-12-124800_sjqy.jpg?w=1200&amp;h=833&amp;q=100&amp;auto=format&amp;fit=crop&amp;dm=1739364480&amp;s=2024d6364bc72650bbe9432c0a0ae5a1 1200w, https://linusbio-cs.transforms.svdcdn.com/production/our-science-image_2025-02-12-124800_sjqy.jpg?w=1500&amp;h=1041&amp;q=100&amp;auto=format&amp;fit=crop&amp;dm=1739364480&amp;s=7715435e49d2ffdd797712ad2dbd7859 1500w, https://linusbio-cs.transforms.svdcdn.com/production/our-science-image_2025-02-12-124800_sjqy.jpg?w=2000&amp;h=1389&amp;q=100&amp;auto=format&amp;fit=crop&amp;dm=1739364480&amp;s=da06ed95d5fadd57ae10a19b4db2d9dd 2000w" sizes="(min-width: 1400px) 1400px, calc(100vw - 32px)" width="2000" height="1389.29" alt="" loading="lazy" decoding="async">
+	</picture>                </div>
+                            <div class="
+                                  mdw:pr-[122px]
+                                ">
+                                  <h2 class="pb-[16px] md:pb-[24px]
+                                          h4
+                                        ">
+                    Our science
+                  </h2>
+                                                  <div class="body-m opacity-60">
+                    <p>LinusBio has developed a cutting-edge exposomic platform to better understand diseases and their pathogenesis.</p>
+                  </div>
+                                                  <div class="mt-[24px]">
+                    <a class="box-link" href="https://www.linusbio.com/our-science" target="_blank" rel="noopener noreferrer">
+                      <div class="
+    inline-flex leading-[.9] items-center gap-[16px] rounded-[84px] group transition-all duration-300
+    text-black hover:text-blue
+  ">
+	<div class="border border-grey rounded-full p-[7px] w-[24px] h-[24px] flex justify-center items-center transition-all duration-300
+  group-hover:text-white text-black group-hover:bg-blue group-hover:border-blue group-hover:rotate-[-45deg]">
+		<svg class="absolute" width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+			<path d="M1.33594 5.99967H10.0026M6.0026 1.33301L10.6693 5.99967L6.0026 10.6663" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"></path>
+		</svg>
+	</div>
+	<span class="font-normal">Read more</span>
+</div>
+                    </a>
+                  </div>
+                              </div>
+            </div>
+                          <hr class="border-grey mdw:hidden w-[900px] mx-[-24px]">
+                                  <div class="relative group w-full mdw:w-1/2 mdw:pb-[120px] pb-[32px] z-[1] 
+              pt-[64px] mdw:pt-0 
+              
+              
+              ">
+                              <div class="w-full h-auto aspect-[327/216] mdw:aspect-[560/389] mb-[32px] mdw:mb-[48px] overflow-hidden rounded-[8px]
+                                      mdw:rounded-tl-none mdw:rounded-bl-none
+                                    ">
+                  			<picture>
+		<source media="(-webkit-min-device-pixel-ratio: 1.5)" srcset="https://linusbio-cs.transforms.svdcdn.com/production/ClearStrand-ASD-Kit.webp?w=800&amp;h=570&amp;q=80&amp;auto=format&amp;fit=crop&amp;dm=1739364607&amp;s=74793f9c8b73d5252a412931a9b7e61b 800w, site/linusbio-cs.transforms.svdcdn.com/production/ClearStrand-ASD-Kit__q4858db02.webp 1200w, https://linusbio-cs.transforms.svdcdn.com/production/ClearStrand-ASD-Kit.webp?w=1800&amp;h=1284&amp;q=80&amp;auto=format&amp;fit=crop&amp;dm=1739364607&amp;s=495dee6aea4fe546827bf89e1085ccaf 1800w, https://linusbio-cs.transforms.svdcdn.com/production/ClearStrand-ASD-Kit.webp?w=2400&amp;h=1712&amp;q=80&amp;auto=format&amp;fit=crop&amp;dm=1739364607&amp;s=fa043a3e6b3d80121f7b2174af4236ec 2400w, site/linusbio-cs.transforms.svdcdn.com/production/ClearStrand-ASD-Kit__qc402dac7.webp 3000w, https://linusbio-cs.transforms.svdcdn.com/production/ClearStrand-ASD-Kit.webp?w=4000&amp;h=2854&amp;q=80&amp;auto=format&amp;fit=crop&amp;dm=1739364607&amp;s=cc80a18f38f39cfc6b97b969129292bc 4000w" sizes="(min-width: 1400px) 1400px, calc(100vw - 32px)">
+		<img class="w-full h-full object-cover group-hover:scale-110 transition-all duration-300" src="https://linusbio-cs.transforms.svdcdn.com/production/ClearStrand-ASD-Kit.webp?w=2000&amp;h=1427&amp;q=100&amp;auto=format&amp;fit=crop&amp;dm=1739364607&amp;s=2d6e8c163df750add5d1147c2d5b543e" srcset="https://linusbio-cs.transforms.svdcdn.com/production/ClearStrand-ASD-Kit.webp?w=400&amp;h=285&amp;q=100&amp;auto=format&amp;fit=crop&amp;dm=1739364607&amp;s=64e8c86a5dc4d3d3e6b097c6a7b1b1d7 400w, https://linusbio-cs.transforms.svdcdn.com/production/ClearStrand-ASD-Kit.webp?w=600&amp;h=428&amp;q=100&amp;auto=format&amp;fit=crop&amp;dm=1739364607&amp;s=75be23eeabe23d9cf2d69801502a6d32 600w, https://linusbio-cs.transforms.svdcdn.com/production/ClearStrand-ASD-Kit.webp?w=900&amp;h=642&amp;q=100&amp;auto=format&amp;fit=crop&amp;dm=1739364607&amp;s=47e0b18c25f7af292cc9cacfe19d6930 900w, https://linusbio-cs.transforms.svdcdn.com/production/ClearStrand-ASD-Kit.webp?w=1200&amp;h=856&amp;q=100&amp;auto=format&amp;fit=crop&amp;dm=1739364607&amp;s=42634e785aeee830ae48ddd701ae7d95 1200w, https://linusbio-cs.transforms.svdcdn.com/production/ClearStrand-ASD-Kit.webp?w=1500&amp;h=1070&amp;q=100&amp;auto=format&amp;fit=crop&amp;dm=1739364607&amp;s=c13c32ee1d17db595678dae8b8a0be69 1500w, https://linusbio-cs.transforms.svdcdn.com/production/ClearStrand-ASD-Kit.webp?w=2000&amp;h=1427&amp;q=100&amp;auto=format&amp;fit=crop&amp;dm=1739364607&amp;s=2d6e8c163df750add5d1147c2d5b543e 2000w" sizes="(min-width: 1400px) 1400px, calc(100vw - 32px)" width="2000" height="1427.43" alt="" loading="lazy" decoding="async">
+	</picture>                </div>
+                            <div class="
+                                  mdw:pl-[60px] lg:pl-[121px]
+                                ">
+                                  <h2 class="pb-[16px] md:pb-[24px]
+                                          h4
+                                        ">
+                    ClearStrand-ASD Now Available
+                  </h2>
+                                                  <div class="body-m opacity-60">
+                    <p>A non-invasive diagnostic aid for Autism Spectrum Disorder. Our mission is to empower healthcare providers and families in making informed choices for their child's care. Rx Only.</p>
+                  </div>
+                                                  <div class="mt-[24px]">
+                    <a class="box-link" href="https://www.clearstrandasd.com/" target="_blank" rel="noopener noreferrer">
+                      <div class="
+    inline-flex leading-[.9] items-center gap-[16px] rounded-[84px] group transition-all duration-300
+    text-black hover:text-blue
+  ">
+	<div class="border border-grey rounded-full p-[7px] w-[24px] h-[24px] flex justify-center items-center transition-all duration-300
+  group-hover:text-white text-black group-hover:bg-blue group-hover:border-blue group-hover:rotate-[-45deg]">
+		<svg class="absolute" width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+			<path d="M1.33594 5.99967H10.0026M6.0026 1.33301L10.6693 5.99967L6.0026 10.6663" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"></path>
+		</svg>
+	</div>
+	<span class="font-normal">Learn more</span>
+</div>
+                    </a>
+                  </div>
+                              </div>
+            </div>
+                                <div class="absolute hidden mdw:block w-[1px] h-full left-0 right-0 top-0 bottom-0 z-0 bg-grey mx-auto"></div>
+        </div>
+      </div>
+      <hr class="border-grey mx-[-24px] ">
+    </div>
+	</div>
+</section>
+        
+
+                                      
+
+  
+
+
+  
+  
+
+<section id="block-14232" class="relative flex flex-col justify-center min-h-[500px] mdw:justify-center mdw:min-h-screen bg-[--hero-bg] overflow-hidden transition-colors duration-150" x-data="{
+    previewPaused: false,
+    video: $refs.video,
+  }">
+		<div class="absolute inset-0 size-full z-[1] transition-opacity duration-500">
+		<div class="lg:h-[250px] h-[100px] absolute left-0 right-0 top-0 z-[3]" style="background: linear-gradient(180deg, var(--hero-bg) 0%, rgba(49, 126, 166, 0) 100%);"></div>
+    <div class="mdw:hidden absolute w-full h-[100px] inset-x-0 bottom-0 bg-gradient-to-t from-[#317EA6] to-transparent" style="background: linear-gradient(0deg, var(--hero-bg) 30%, rgba(49, 126, 166, 0) 100%);"></div>
+		<div class="hidden mdw:block w-full h-[250px] absolute inset-x-0 bottom-0 z-[3]" style="background: linear-gradient(0deg, var(--hero-bg) 0%, rgba(49, 126, 166, 0) 100%);"></div>
+	</div>
+				<video x-ref="video" class="w-full h-full object-cover absolute transition-all duration-[500ms]" src="site/servd-linusbio-cs.b-cdn.net/production/videos/Processing-Selection-hero-compressed.mp4" playsinline="" muted="" loop="" autoplay=""></video>
+		<div x-ref="controls" class="site-container absolute top-[40px] lg:top-[110px] left-0 right-0 z-[11]">
+			<button aria-label="Pause/Play video" class="group flex gap-[9px] items-center ml-auto" @click="previewPaused ? video.play() : video.pause(); previewPaused = !previewPaused">
+				<span class="nav text-white" x-text="previewPaused ? 'Play' : 'Pause'">Pause</span>
+				<span class="size-[24px] rounded-full flex items-center justify-center bg-[--hero-bg] backdrop-blur-[20px] group-hover:bg-white group-hover:text-[--hero-bg] text-white transition-all duration-300">
+					<svg x-show="previewPaused" width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" style="display: none;">
+						<path d="M13 8L5 3V13L13 8Z" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"></path>
+					</svg>
+					<svg x-show="!previewPaused" width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+						<path d="M5 4V12" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"></path>
+						<path d="M11 4V12" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"></path>
+					</svg>
+				</span>
+			</button>
+		</div>
+			<div class="max-mdw:px-[24px] site-container relative z-[10] py-[64px] md:py-[128px]">
+		<div class="site-grid">
+			<div class="mdw:col-span-6 lg:pr-[80px] mdw:col-start-2 col-span-full">
+				<div class="flex flex-col justify-end h-full mdw:justify-center">
+					<h2 class="h2 text-white">It all begins with a single strand of hair</h2>
+																<a href="https://www.linusbio.com/platform" class="inline-block mt-[24px] 	 lg:mt-[48px]  font-normal">
+							
+	<div href="#" class="
+					group inline-flex leading-[.9] items-center rounded-[84px] transition-all duration-300
+					bg-blue-transparent backdrop-blur-[20px] hover:bg-white hover:text-blue border border-transparent hover:border-white text-white pl-[18px] pr-[8px] py-[8px] gap-[16px]
+					pl-[18px] pr-[8px] py-[8px] gap-[16px]
+				">
+		<span class="">Discover our platform</span>
+		<div class="bg-white rounded-full p-[6px] text-blue w-[32px] h-[32px] transition-all duration-300 group-hover:bg-blue group-hover:text-white group-hover:rotate-[-45deg] ">
+			<svg viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+				<path d="M3.33594 9.99967H15.7169M10.0026 3.33301L16.6693 9.99967L10.0026 16.6663" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"></path>
+			</svg>
+		</div>
+	</div>
+						</a>
+									</div>
+			</div>
+		</div>
+	</div>
+</section>
+        
+
+                                
+
+  
+
+
+  
+  
+<section id="early-autism-detection" class="bg-[--hero-bg] transition-colors duration-150 relative z-[3]">
+	<div class="md:site-container">
+		<div class="bg-white overflow-clip rounded-[8px] mdw:pt-[120px] pt-[64px]">
+			<div class="site-grid md:gap-y-[32px] gap-y-[24px] border-b border-grey">
+        <div class="mdw:col-span-10 mdw:col-start-2 col-span-full mdw:pb-[88px] px-[24px] mdw:px-0 pb-[40px]">
+                      <h2 class="body-m text-black/60 mb-[24px] mdw:mb-[32px] ">
+              A comprehensive pipeline
+            </h2>
+                                <div class="h3 styled-heading ">
+              <p>Our <strong>pipeline</strong> unites precision exposomic biomarkers with target discovery to advance precision medicine</p>
+            </div>
+                                <div class="mdw:hidden body-m richtext text-black/60 mt-[32px]">
+              <p>LinusBio has developed the first molecular autism spectrum disorder (ASD) diagnostic biomarker - StrandDx. The test has received FDA Breakthrough designation and can identify a biomarker associated with ASD in children as young as one month. Our rule-out diagnostic aid, <a href="https://www.clearstrandasd.com/" target="_blank" rel="noreferrer noopener">ClearStrand-ASD</a>, is now commercially available. Early diagnosis means better care.</p>
+<p>Alongside this, LinusBio’s researchers are developing advanced tests for other central nervous system disorders, including Amyotrophic Lateral Sclerosis (ALS), Attention Deficit Hyperactivity Disorder (ADHD), and Schizophrenia or Psychosis.</p>
+            </div>
+                                <a class="mdw:hidden inline-block mt-[32px] font-normal" href="https://www.linusbio.com/pipeline">
+              
+	<div href="#" class="
+					group inline-flex leading-[.9] items-center rounded-[84px] transition-all duration-300
+					bg-blue text-white pl-[18px] pr-[8px] py-[8px] gap-[16px] hover:bg-white hover:text-blue border border-blue
+					pl-[18px] pr-[8px] py-[8px] gap-[16px]
+				">
+		<span class="">View full pipeline</span>
+		<div class="bg-white rounded-full p-[6px] text-blue w-[32px] h-[32px] transition-all duration-300 group-hover:bg-blue group-hover:text-white group-hover:rotate-[-45deg] ">
+			<svg viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+				<path d="M3.33594 9.99967H15.7169M10.0026 3.33301L16.6693 9.99967L10.0026 16.6663" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"></path>
+			</svg>
+		</div>
+	</div>
+            </a>
+                  </div>
+
+        <div class="border-t mdw:grid mdw:site-grid border-grey col-span-full px-[24px] mdw:p-0 py-[32px]">
+          <div class="hidden mdw:col-span-4 mdw:col-start-2 mdw:block">
+            <div class="sticky top-[140px] pb-[64px]">
+                              <div class="text-black h4 mt-[40px] mdw:mt-[120px]">Featured projects</div>
+              
+                              <div class="body-m richtext text-black/60 mt-[32px]">
+                  <p>LinusBio has developed the first molecular autism spectrum disorder (ASD) diagnostic biomarker - StrandDx. The test has received FDA Breakthrough designation and can identify a biomarker associated with ASD in children as young as one month. Our rule-out diagnostic aid, <a href="https://www.clearstrandasd.com/" target="_blank" rel="noreferrer noopener">ClearStrand-ASD</a>, is now commercially available. Early diagnosis means better care.</p>
+<p>Alongside this, LinusBio’s researchers are developing advanced tests for other central nervous system disorders, including Amyotrophic Lateral Sclerosis (ALS), Attention Deficit Hyperactivity Disorder (ADHD), and Schizophrenia or Psychosis.</p>
+                </div>
+                                            <a class="inline-block mt-[32px] font-normal" href="https://www.linusbio.com/pipeline">
+                  
+	<div href="#" class="
+					group inline-flex leading-[.9] items-center rounded-[84px] transition-all duration-300
+					bg-blue text-white pl-[18px] pr-[8px] py-[8px] gap-[16px] hover:bg-white hover:text-blue border border-blue
+					pl-[18px] pr-[8px] py-[8px] gap-[16px]
+				">
+		<span class="">View full pipeline</span>
+		<div class="bg-white rounded-full p-[6px] text-blue w-[32px] h-[32px] transition-all duration-300 group-hover:bg-blue group-hover:text-white group-hover:rotate-[-45deg] ">
+			<svg viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+				<path d="M3.33594 9.99967H15.7169M10.0026 3.33301L16.6693 9.99967L10.0026 16.6663" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"></path>
+			</svg>
+		</div>
+	</div>
+                </a>
+                          </div>
+          </div>
+          <div class="col-span-full mdw:col-span-6 mdw:col-start-7">
+                                                      <div class="mdw:py-[64px] lg:pt-[125px] lg:px-[113px] mdw:px-[24px] border-b mdw:border-l border-grey last:border-b-0 py-[32px] ">
+                <div class="grid grid-cols-1 gap-y-[24px]">
+                  <div class=" flex flex-col gap-[16px]">
+                    <div class="flex flex-col mdw:flex-row gap-x-[16px]">
+                      <div class="flex items-center gap-[12px]">
+                        <div class="min-w-[32px] w-fit h-[20px] rounded-full border border-grey flex items-center justify-center bg-[#E6E6E61A] -mt-px">
+                          <span class="caption-light leading-[1] -ml-px">01</span>
+                        </div>
+                      </div>
+                      <div class="text-[20px] text-black mt-[16px] mdw:mt-0">Early Autism Detection - ClearStrand-ASD</div>
+                    </div>
+                    <div class="body-m text-black/60 richtext">
+                                              <p>ClearStrand-ASD is a non-invasive test that detects a biomarker associated with autism using a strand of hair.</p>
+                                          </div>
+                  </div>
+                  <div class="flex flex-col items-start gap-y-[8px]">
+                    <ul class="bg-green/[.09] p-[10px] mdw:pt-[24px] mdw:pb-[18px] rounded-[8px] relative w-full isolate flex lg:flex-nowrap flex-wrap gap-y-[10px] justify-between mdw:gap-[10px]  before:absolute before:-z-[1] before:mdw:top-[48px] before:top-[38px] lg:before:left-[10%] before:left-[3%] lg:before:right-[10%] before:right-[3%] before:h-[1px] before:bg-[#C4E2CC]">
+	<li class="flex flex-col gap-[16px] items-center justify-center text-center lg:w-[25%]">
+		<div class="w-[56px] h-[48px] flex items-center justify-center text-green border-t-[3px] rounded-b-[8px]
+      bg-white
+    ">
+							<svg width="33" height="23" viewBox="0 0 33 23" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M1.91016 12.5L10.8789 21.25L31.3789 1.25" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+					</div>
+		<p class="hidden mdw:inline-block caption-light text-[9px] mdw:text-[13px] text-black">Patent<br>submitted</p>
+	</li>
+	<li class="flex flex-col gap-[16px] items-center justify-center text-center lg:w-[25%]">
+		<div class="w-[56px] h-[48px] flex items-center justify-center text-green border-t-[3px] rounded-b-[8px]
+      bg-white
+    ">
+							<svg width="33" height="23" viewBox="0 0 33 23" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M1.91016 12.5L10.8789 21.25L31.3789 1.25" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+					</div>
+		<p class="hidden mdw:inline-block caption-light text-[9px] mdw:text-[13px] text-black">Clinical<br>studies</p>
+	</li>
+	<li class="flex flex-col gap-[16px] items-center justify-center text-center lg:w-[25%]">
+		<div class="w-[56px] h-[48px] flex items-center justify-center text-green border-t-[3px] rounded-b-[8px]
+      bg-white
+    ">
+							<svg width="33" height="23" viewBox="0 0 33 23" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M1.91016 12.5L10.8789 21.25L31.3789 1.25" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+					</div>
+		<p class="hidden mdw:inline-block caption-light text-[9px] mdw:text-[13px] text-black">Pathway<br>characterization</p>
+	</li>
+	<li class="flex flex-col gap-[16px] items-center justify-center text-center lg:w-[25%]">
+		<div class="w-[56px] h-[48px] flex items-center justify-center  text-green border-t-[3px] rounded-b-[8px]
+      bg-white
+    ">
+							<svg width="33" height="23" viewBox="0 0 33 23" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M1.91016 12.5L10.8789 21.25L31.3789 1.25" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+					</div>
+		<p class="hidden mdw:inline-block caption-light text-[9px] mdw:text-[13px] text-black">Commercially<br>available</p>
+	</li>
+</ul>
+<ul class="mdw:hidden px-[10px] rounded-[8px] relative w-full isolate flex flex-wrap gap-y-[10px] justify-between lg:gap-[32px]">
+	<li class=" flex flex-col gap-[16px] items-center justify-center text-center w-[56px]">
+		<p class="caption-light text-[9px] mdw:text-[13px] text-black">Patent<br>submitted</p>
+	</li>
+	<li class=" flex flex-col gap-[16px] items-center justify-center text-center w-[56px]">
+		<p class="caption-light text-[9px] mdw:text-[13px] text-black">Clinical<br>studies</p>
+	</li>
+	<li class=" flex flex-col gap-[16px] items-center justify-center text-center w-[56px]">
+		<p class="caption-light text-[9px] mdw:text-[13px] text-black">Pathway<br>characterization</p>
+	</li>
+	<li class=" flex flex-col gap-[16px] items-center justify-center text-center w-[56px]">
+		<p class="caption-light text-[9px] mdw:text-[13px] text-black">Commercially<br>available</p>
+	</li>
+</ul>
+                  </div>
+                </div>
+              </div>
+                                                      <div class="mdw:py-[64px]  lg:px-[113px] mdw:px-[24px] border-b mdw:border-l border-grey last:border-b-0 py-[32px] ">
+                <div class="grid grid-cols-1 gap-y-[24px]">
+                  <div class=" flex flex-col gap-[16px]">
+                    <div class="flex flex-col mdw:flex-row gap-x-[16px]">
+                      <div class="flex items-center gap-[12px]">
+                        <div class="min-w-[32px] w-fit h-[20px] rounded-full border border-grey flex items-center justify-center bg-[#E6E6E61A] -mt-px">
+                          <span class="caption-light leading-[1] -ml-px">02</span>
+                        </div>
+                      </div>
+                      <div class="text-[20px] text-black mt-[16px] mdw:mt-0">Attention Deficit Hyperactive Disorder</div>
+                    </div>
+                    <div class="body-m text-black/60 richtext">
+                                              <p>In development</p>
+                                          </div>
+                  </div>
+                  <div class="flex flex-col items-start gap-y-[8px]">
+                    <ul class="bg-blue/[.09] p-[10px] mdw:pt-[24px] mdw:pb-[18px] rounded-[8px] relative w-full isolate flex lg:flex-nowrap flex-wrap gap-y-[10px] justify-between mdw:gap-[10px]  before:absolute before:-z-[1] before:mdw:top-[48px] before:top-[38px] lg:before:left-[10%] before:left-[3%] lg:before:right-[10%] before:right-[3%] before:h-[1px] before:bg-[#C0D2DD]">
+	<li class="flex flex-col gap-[16px] items-center justify-center text-center lg:w-[25%]">
+		<div class="w-[56px] h-[48px] flex items-center justify-center text-blue border-t-[3px] rounded-b-[8px]
+      bg-white
+    ">
+							<svg width="33" height="23" viewBox="0 0 33 23" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M1.91016 12.5L10.8789 21.25L31.3789 1.25" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+					</div>
+		<p class="hidden mdw:inline-block caption-light text-[9px] mdw:text-[13px] text-black">Patent<br>submitted</p>
+	</li>
+	<li class="flex flex-col gap-[16px] items-center justify-center text-center lg:w-[25%]">
+		<div class="w-[56px] h-[48px] flex items-center justify-center text-blue border-t-[3px] rounded-b-[8px]
+      bg-white
+    ">
+							<svg width="33" height="23" viewBox="0 0 33 23" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M1.91016 12.5L10.8789 21.25L31.3789 1.25" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+					</div>
+		<p class="hidden mdw:inline-block caption-light text-[9px] mdw:text-[13px] text-black">Clinical<br>studies</p>
+	</li>
+	<li class="flex flex-col gap-[16px] items-center justify-center text-center lg:w-[25%]">
+		<div class="w-[56px] h-[48px] flex items-center justify-center text-blue border-t-[3px] rounded-b-[8px]
+      bg-white
+    ">
+							<svg width="33" height="23" viewBox="0 0 33 23" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M1.91016 12.5L10.8789 21.25L31.3789 1.25" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+					</div>
+		<p class="hidden mdw:inline-block caption-light text-[9px] mdw:text-[13px] text-black">Pathway<br>characterization</p>
+	</li>
+	<li class="flex flex-col gap-[16px] items-center justify-center text-center lg:w-[25%]">
+		<div class="w-[56px] h-[48px] flex items-center justify-center  text-blue border-t-[3px] rounded-b-[8px]
+      border border-[#C0D2DD] bg-[#ECF4F7]
+    ">
+					</div>
+		<p class="hidden mdw:inline-block caption-light text-[9px] mdw:text-[13px] text-black/70">Commercially<br>available</p>
+	</li>
+</ul>
+<ul class="mdw:hidden px-[10px] rounded-[8px] relative w-full isolate flex flex-wrap gap-y-[10px] justify-between lg:gap-[32px]">
+	<li class=" flex flex-col gap-[16px] items-center justify-center text-center w-[56px]">
+		<p class="caption-light text-[9px] mdw:text-[13px] text-black">Patent<br>submitted</p>
+	</li>
+	<li class=" flex flex-col gap-[16px] items-center justify-center text-center w-[56px]">
+		<p class="caption-light text-[9px] mdw:text-[13px] text-black">Clinical<br>studies</p>
+	</li>
+	<li class=" flex flex-col gap-[16px] items-center justify-center text-center w-[56px]">
+		<p class="caption-light text-[9px] mdw:text-[13px] text-black">Pathway<br>characterization</p>
+	</li>
+	<li class=" flex flex-col gap-[16px] items-center justify-center text-center w-[56px]">
+		<p class="caption-light text-[9px] mdw:text-[13px] text-black/70">Commercially<br>available</p>
+	</li>
+</ul>
+                  </div>
+                </div>
+              </div>
+                                                      <div class="mdw:py-[64px]  lg:px-[113px] mdw:px-[24px] border-b mdw:border-l border-grey last:border-b-0 py-[32px] ">
+                <div class="grid grid-cols-1 gap-y-[24px]">
+                  <div class=" flex flex-col gap-[16px]">
+                    <div class="flex flex-col mdw:flex-row gap-x-[16px]">
+                      <div class="flex items-center gap-[12px]">
+                        <div class="min-w-[32px] w-fit h-[20px] rounded-full border border-grey flex items-center justify-center bg-[#E6E6E61A] -mt-px">
+                          <span class="caption-light leading-[1] -ml-px">03</span>
+                        </div>
+                      </div>
+                      <div class="text-[20px] text-black mt-[16px] mdw:mt-0">Psychosis and Schizophrenia</div>
+                    </div>
+                    <div class="body-m text-black/60 richtext">
+                                              <p>In development</p>
+                                          </div>
+                  </div>
+                  <div class="flex flex-col items-start gap-y-[8px]">
+                    <ul class="bg-blue/[.09] p-[10px] mdw:pt-[24px] mdw:pb-[18px] rounded-[8px] relative w-full isolate flex lg:flex-nowrap flex-wrap gap-y-[10px] justify-between mdw:gap-[10px]  before:absolute before:-z-[1] before:mdw:top-[48px] before:top-[38px] lg:before:left-[10%] before:left-[3%] lg:before:right-[10%] before:right-[3%] before:h-[1px] before:bg-[#C0D2DD]">
+	<li class="flex flex-col gap-[16px] items-center justify-center text-center lg:w-[25%]">
+		<div class="w-[56px] h-[48px] flex items-center justify-center text-blue border-t-[3px] rounded-b-[8px]
+      bg-white
+    ">
+							<svg width="33" height="23" viewBox="0 0 33 23" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M1.91016 12.5L10.8789 21.25L31.3789 1.25" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+					</div>
+		<p class="hidden mdw:inline-block caption-light text-[9px] mdw:text-[13px] text-black">Patent<br>submitted</p>
+	</li>
+	<li class="flex flex-col gap-[16px] items-center justify-center text-center lg:w-[25%]">
+		<div class="w-[56px] h-[48px] flex items-center justify-center text-blue border-t-[3px] rounded-b-[8px]
+      bg-white
+    ">
+							<svg width="33" height="23" viewBox="0 0 33 23" fill="none" xmlns="http://www.w3.org/2000/svg">
+<path d="M1.91016 12.5L10.8789 21.25L31.3789 1.25" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"></path>
+</svg>
+					</div>
+		<p class="hidden mdw:inline-block caption-light text-[9px] mdw:text-[13px] text-black">Clinical<br>studies</p>
+	</li>
+	<li class="flex flex-col gap-[16px] items-center justify-center text-center lg:w-[25%]">
+		<div class="w-[56px] h-[48px] flex items-center justify-center text-blue border-t-[3px] rounded-b-[8px]
+      border border-[#C0D2DD] bg-[#ECF4F7]
+    ">
+					</div>
+		<p class="hidden mdw:inline-block caption-light text-[9px] mdw:text-[13px] text-black/70">Pathway<br>characterization</p>
+	</li>
+	<li class="flex flex-col gap-[16px] items-center justify-center text-center lg:w-[25%]">
+		<div class="w-[56px] h-[48px] flex items-center justify-center  text-blue border-t-[3px] rounded-b-[8px]
+      border border-[#C0D2DD] bg-[#ECF4F7]
+    ">
+					</div>
+		<p class="hidden mdw:inline-block caption-light text-[9px] mdw:text-[13px] text-black/70">Commercially<br>available</p>
+	</li>
+</ul>
+<ul class="mdw:hidden px-[10px] rounded-[8px] relative w-full isolate flex flex-wrap gap-y-[10px] justify-between lg:gap-[32px]">
+	<li class=" flex flex-col gap-[16px] items-center justify-center text-center w-[56px]">
+		<p class="caption-light text-[9px] mdw:text-[13px] text-black">Patent<br>submitted</p>
+	</li>
+	<li class=" flex flex-col gap-[16px] items-center justify-center text-center w-[56px]">
+		<p class="caption-light text-[9px] mdw:text-[13px] text-black">Clinical<br>studies</p>
+	</li>
+	<li class=" flex flex-col gap-[16px] items-center justify-center text-center w-[56px]">
+		<p class="caption-light text-[9px] mdw:text-[13px] text-black/70">Pathway<br>characterization</p>
+	</li>
+	<li class=" flex flex-col gap-[16px] items-center justify-center text-center w-[56px]">
+		<p class="caption-light text-[9px] mdw:text-[13px] text-black/70">Commercially<br>available</p>
+	</li>
+</ul>
+                  </div>
+                </div>
+              </div>
+                      </div>
+        </div>
+			</div>
+		</div>
+	</div>
+</section>
+<div class="bg-blue/[.09] bg-green/[.09] bg-[#ECF4F7] border-[#C0D2DD] before:bg-[#C0D2DD] before:bg-[#C4E2CC] text-green"></div>        
+
+                                
+
+  
+
+
+  
+  <section id="block-13580" class="text-white lg:min-h-screen mdw:py-[64px] pt-[427px] pb-[32px] bg-[--hero-bg] overflow-clip transition-colors duration-150 relative z-0" x-data="{
+    previewPaused: false,
+    video: $refs.video,
+  }">
+      <div class="lg:pt-[110px] pt-[40px] absolute top-0 left-0 right-0 flex justify-end z-[11] site-container" x-ref="controls">
+      <div class="flex items-center">
+        <button aria-label="Pause/Play video" class="inline-flex gap-x-[9px] items-center text-white group" @click="previewPaused ? video.play() : video.pause(); previewPaused = !previewPaused">
+          <span class="nav" x-text="previewPaused ? 'Play' : 'Pause'">Pause</span>
+          <div class="w-[24px] h-[24px] rounded-full flex items-center justify-center bg-[--hero-bg] backdrop-blur-[20px] group-hover:bg-white group-hover:text-[--hero-bg] text-white transition-all duration-300">
+            <svg x-show="previewPaused" width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg" style="display: none;">
+              <path d="M13 8L5 3V13L13 8Z" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"></path>
+            </svg>
+            <svg x-show="!previewPaused" width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M5 4V12" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"></path>
+              <path d="M11 4V12" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"></path>
+            </svg>
+          </div>
+        </button>
+      </div>
+    </div>
+    <div class="absolute inset-x-0 top-0 w-full h-[475px] mdw:h-full">
+    <div class="relative size-full inset-0">
+            <div class="lg:h-[250px] h-[475px] absolute inset-x-0 top-0 z-[1]" style="background: linear-gradient(180deg, var(--hero-bg) 0%, rgba(49, 126, 166, 0) 100%);"></div>
+                    <video x-ref="video" class="size-full inset-0 object-cover absolute transition-all duration-[500ms] opacity-70" src="site/servd-linusbio-cs.b-cdn.net/production/videos/Spectrometry-Section-Compressed_2025-02-12-171912_ddye.mp4" playsinline="" muted="" loop="" autoplay=""></video>
+                  <div class="h-[200px] md:h-[360px] absolute inset-x-0 bottom-0 z-[1]" style="background: linear-gradient(0deg, var(--hero-bg) 0%, rgba(49, 126, 166, 0) 100%);"></div>
+    </div> 
+  </div>
+
+  <div class="site-container relative z-[2] h-full max-md:px-[24px] md:sticky md:top-[90px]">
+    <div class="flex items-center h-full">
+      <div class="mdw:max-w-[410px]">
+        <div class="lg:flex flex-col justify-between lg:z-[2] lg:w-[410px] mdw:min-h-[491px] rounded-[8px] backdrop-blur-[40px] bg-[#1B434F4D] text-white mdw:p-[32px] p-[24px]">
+          <div class="flex flex-col justify-between flex-1">
+            <div>
+                          <div class="text-white mdw:mb-[64px] mb-[32px]">
+                <svg class="h-[40px] mdw:h-[50px]" viewBox="0 0 33 25" fill="none" xmlns="http://www.w3.org/2000/svg">
+                  <path d="M19.8662 13.209C19.3139 13.209 18.8662 12.7612 18.8662 12.209L18.8662 1C18.8662 0.447717 19.3139 1.15276e-06 19.8662 1.10448e-06L31.5 8.74228e-08C32.0523 3.91405e-08 32.5 0.447716 32.5 1L32.5 13.6472C32.5 13.8479 32.4396 14.0439 32.3267 14.2099L25.2807 24.5626C25.0944 24.8363 24.7849 25 24.454 25L19.4428 25C18.6843 25 18.202 24.1886 18.5643 23.5223L23.3688 14.6867C23.7311 14.0203 23.2488 13.209 22.4903 13.209L19.8662 13.209ZM2.10544 13.209C1.55316 13.209 1.10544 12.7612 1.10544 12.209L1.10544 1C1.10544 0.447719 1.55316 2.70546e-06 2.10544 2.65718e-06L13.7392 1.64012e-06C14.2915 1.59184e-06 14.7392 0.447717 14.7392 1L14.7392 13.6472C14.7392 13.8479 14.6788 14.0439 14.5659 14.2099L7.51988 24.5626C7.33367 24.8363 7.02415 25 6.69319 25L1.68205 25C0.923565 25 0.441196 24.1886 0.80353 23.5223L5.60804 14.6867C5.97037 14.0203 5.48801 13.209 4.72952 13.209L2.10544 13.209Z" fill="currentColor"></path>
+                </svg>
+              </div>
+              <div class="mdw:text-[24px] mdw:leading-[33.6px] text-[19px] leading-[26.6px] tracking-[0.01em] body-l richtext mb-[24px] mdw:mb-[48px]">
+                <p>“We are a group of individuals shaping LinusBio's mission to transform healthcare through groundbreaking research and development.”</p>
+              </div>
+                        </div>
+
+            <div class="flex flex-col mdw:flex-row gap-y-[4px] mt-auto">
+                              <span class="nav pr-[9px]">Dr. Manish Arora</span>
+                                            <span class="nav opacity-70">Co-Founder and CEO</span>
+                          </div>
+          </div>
+                      <a class="inline-block mt-[40px] font-normal" href="https://www.linusbio.com/about">
+              
+	<div href="#" class="
+					group inline-flex leading-[.9] items-center rounded-[84px] transition-all duration-300
+					bg-[blue-transparent] backdrop-blur-[20px] hover:bg-white hover:text-blue border border-transparent hover:border-white text-white pl-[18px] pr-[8px] py-[8px] gap-[16px]
+					pl-[18px] pr-[8px] py-[8px] gap-[16px]
+				">
+		<span class="">Meet the team</span>
+		<div class="bg-white rounded-full p-[6px] text-blue w-[32px] h-[32px] transition-all duration-300 group-hover:bg-blue group-hover:text-white group-hover:rotate-[-45deg] ">
+			<svg viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+				<path d="M3.33594 9.99967H15.7169M10.0026 3.33301L16.6693 9.99967L10.0026 16.6663" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"></path>
+			</svg>
+		</div>
+	</div>
+            </a>
+                  </div>
+      </div>
+    </div>
+
+  </div>
+</section>
+        
+
+                                
+
+  
+
+
+  
+  
+<section id="block-13581" class="bg-[--hero-bg] transition-colors duration-150 relative z-[3]">
+	<div class="md:site-container">
+		<div class="bg-white overflow-hidden px-[24px] mdw:px-0 rounded-t-[8px] mdw:pt-[80px] mdw:pb-[120px] py-[64px]">
+			<div class="site-grid gap-y-[32px]">
+                                <div class="mdw:col-span-9 mdw:col-start-2 col-span-full mdw:hidden">
+              <h2 class="body-m text-black/60 mb-[24px] mdw:mb-[32px]">
+                Partnerships
+              </h2>
+              <div class="h3 styled-heading ">
+                <p>Collaborate in <strong>leading</strong> the future of healthcare</p>
+              </div>
+            </div>
+            <div class="mdw:col-span-5 mdw:col-start-7 mdw:order-2 col-span-full">
+                              <div class="w-full
+                                      mdw:h-[690px] h-[410px]
+                                      mdw:mb-[32px] mb-[8px] mdw:w-full rounded-[8px] overflow-hidden">
+                  			<picture>
+		<source media="(-webkit-min-device-pixel-ratio: 1.5)" srcset="https://linusbio-cs.transforms.svdcdn.com/production/3d-vertical_2025-02-12-125706_gand.jpg?w=800&amp;h=1000&amp;q=80&amp;auto=format&amp;fit=crop&amp;dm=1739365026&amp;s=83fddcb9c2a2d3235ee4eddf3c1f147c 800w, site/linusbio-cs.transforms.svdcdn.com/production/3d-vertical_2025-02-12-125706_gand__q01e06f3c.jpg 1200w, https://linusbio-cs.transforms.svdcdn.com/production/3d-vertical_2025-02-12-125706_gand.jpg?w=1800&amp;h=2250&amp;q=80&amp;auto=format&amp;fit=crop&amp;dm=1739365026&amp;s=4c06ba852cd4971fdfaea161f72bcf51 1800w, https://linusbio-cs.transforms.svdcdn.com/production/3d-vertical_2025-02-12-125706_gand.jpg?w=2400&amp;h=3000&amp;q=80&amp;auto=format&amp;fit=crop&amp;dm=1739365026&amp;s=216b0981c859bff065b32c682fc4d54d 2400w, site/linusbio-cs.transforms.svdcdn.com/production/3d-vertical_2025-02-12-125706_gand__qd2ecb8f4.jpg 3000w, https://linusbio-cs.transforms.svdcdn.com/production/3d-vertical_2025-02-12-125706_gand.jpg?w=3200&amp;h=4000&amp;q=80&amp;auto=format&amp;fit=crop&amp;dm=1739365026&amp;s=36d1f874b4860918ac2c9f39b9f66092 4000w" sizes="(min-width: 1400px) 1400px, calc(100vw - 32px)">
+		<img class="h-full w-full object-cover mdw:contain" src="https://linusbio-cs.transforms.svdcdn.com/production/3d-vertical_2025-02-12-125706_gand.jpg?w=2000&amp;h=2500&amp;q=100&amp;auto=format&amp;fit=crop&amp;dm=1739365026&amp;s=ef9e5df675ba297a608ead698f59112b" srcset="https://linusbio-cs.transforms.svdcdn.com/production/3d-vertical_2025-02-12-125706_gand.jpg?w=400&amp;h=500&amp;q=100&amp;auto=format&amp;fit=crop&amp;dm=1739365026&amp;s=f7b29eda5cbf7f08c7fc7e87437cfd8f 400w, https://linusbio-cs.transforms.svdcdn.com/production/3d-vertical_2025-02-12-125706_gand.jpg?w=600&amp;h=750&amp;q=100&amp;auto=format&amp;fit=crop&amp;dm=1739365026&amp;s=3cf3ec447e12ed1cb4055fb72be8ee3c 600w, https://linusbio-cs.transforms.svdcdn.com/production/3d-vertical_2025-02-12-125706_gand.jpg?w=900&amp;h=1125&amp;q=100&amp;auto=format&amp;fit=crop&amp;dm=1739365026&amp;s=8d408c008fe46c5bb3b601b4d2164b0a 900w, https://linusbio-cs.transforms.svdcdn.com/production/3d-vertical_2025-02-12-125706_gand.jpg?w=1200&amp;h=1500&amp;q=100&amp;auto=format&amp;fit=crop&amp;dm=1739365026&amp;s=0a424e54a4fd1298e918ab299a412a1b 1200w, https://linusbio-cs.transforms.svdcdn.com/production/3d-vertical_2025-02-12-125706_gand.jpg?w=1500&amp;h=1875&amp;q=100&amp;auto=format&amp;fit=crop&amp;dm=1739365026&amp;s=5b539843db87a492ed31975b39ad0459 1500w, https://linusbio-cs.transforms.svdcdn.com/production/3d-vertical_2025-02-12-125706_gand.jpg?w=2000&amp;h=2500&amp;q=100&amp;auto=format&amp;fit=crop&amp;dm=1739365026&amp;s=ef9e5df675ba297a608ead698f59112b 2000w" sizes="(min-width: 1400px) 1400px, calc(100vw - 32px)" width="2000" height="2500" alt="" loading="lazy" decoding="async">
+	</picture>                </div>
+                          </div>
+            <div class="mdw:col-span-4 mdw:col-start-2 mdw:order-1 col-span-full">
+              <div class="hidden mdw:block">
+                <h2 class="body-m text-black/60 mb-[24px] mdw:mb-[32px]">
+                  Partnerships
+                </h2>
+                <div class="h3 styled-heading tracking-normal">
+                  <p>Collaborate in <strong>leading</strong> the future of healthcare</p>
+                </div>
+              </div>
+                              <div class="body-m mdw:mt-[40px] text-black/60 md:mt-[32px] richtext">
+                  <p>LinusBio’s world-class team of scientists, engineers, and clinical experts is redefining the future of precision medicine. With decades of collective experience in biotechnology, data science, and environmental health, our leadership has pioneered groundbreaking methodologies like temporal exposomic sequencing.</p>
+                </div>
+                                            <a class="inline-block mdw:mt-[32px] mt-[24px] font-normal" href="https://www.linusbio.com/partnerships">
+                  
+	<div href="#" class="
+					group inline-flex leading-[.9] items-center rounded-[84px] transition-all duration-300
+					bg-blue text-white pl-[18px] pr-[8px] py-[8px] gap-[16px] hover:bg-white hover:text-blue border border-blue
+					pl-[18px] pr-[8px] py-[8px] gap-[16px]
+				">
+		<span class="">Partner with us</span>
+		<div class="bg-white rounded-full p-[6px] text-blue w-[32px] h-[32px] transition-all duration-300 group-hover:bg-blue group-hover:text-white group-hover:rotate-[-45deg] ">
+			<svg viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+				<path d="M3.33594 9.99967H15.7169M10.0026 3.33301L16.6693 9.99967L10.0026 16.6663" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"></path>
+			</svg>
+		</div>
+	</div>
+                </a>
+                          </div>
+          
+
+        
+			</div>
+		</div>
+	</div>
+</section>
+        
+
+                                
+
+  
+
+
+  
+  
+
+
+<section id="block-13582" class="bg-[--hero-bg] transition-colors duration-150 relative z-[3]">
+	<div class="md:site-container">
+		<div class="bg-white overflow-hidden rounded-b-[8px]  border-t border-t-grey-primary mdw:border-t-0">
+			<div class="site-grid">
+        <div class="mdw:col-span-7 mdw:col-start-2 col-span-full px-[24px] mdw:px-0">
+                      <div class="text-black/60">
+              News
+            </div>
+                                <div class="h3 styled-heading mdw:mt-[24px] mt-[16px]">
+              <p>Our latest news and events</p>
+            </div>
+                  </div>
+        <div class="flex items-end mdw:justify-end mdw:col-span-3 col-span-full mt-[24px] px-[24px] mdw:px-0">
+                      <a href="https://www.linusbio.com/news" class="font-normal">
+              
+	<div href="#" class="
+					group inline-flex leading-[.9] items-center rounded-[84px] transition-all duration-300
+					bg-blue text-white pl-[18px] pr-[8px] py-[8px] gap-[16px] hover:bg-white hover:text-blue border border-blue
+					pl-[18px] pr-[8px] py-[8px] gap-[16px]
+				">
+		<span class="">View all news</span>
+		<div class="bg-white rounded-full p-[6px] text-blue w-[32px] h-[32px] transition-all duration-300 group-hover:bg-blue group-hover:text-white group-hover:rotate-[-45deg] ">
+			<svg viewBox="0 0 20 20" fill="none" xmlns="http://www.w3.org/2000/svg">
+				<path d="M3.33594 9.99967H15.7169M10.0026 3.33301L16.6693 9.99967L10.0026 16.6663" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"></path>
+			</svg>
+		</div>
+	</div>
+            </a>
+                  </div>
+        <div class="border-t col-span-full border-grey mdw:mt-[80px] mt-[64px]"></div>
+                <div class="relative mdw:hidden col-span-full swiper-initialized swiper-horizontal" x-data="slider({
+            // spaceBetween: 8,
+            centeredSlides: false,
+            slidesPerView: 1.25,
+            loop:false,
+            autoplay: false,
+            slidesOffsetBefore: 0,
+            slidesOffsetAfter: 24,
+            breakpoints: {
+              768:{
+                slidesOffsetBefore: 24,
+                slidesOffsetAfter: 24,
+                slidesPerView: 2.25
+              },
+            }
+          })">
+                      
+                      
+                      
+                  <div class="swiper-wrapper" style="transition-duration: 0ms; transition-delay: 0ms;" id="swiper-wrapper-5c47537d1e79bb1e" aria-live="polite"><div class="relative group py-[48px] px-[24px] lg:px-0 lg:py-0 border-r border-grey last:border-r-0 !flex flex-col swiper-slide" aria-hidden="true">
+              <div class="nav text-black/60 flex items-center gap-[16px] lg:pb-[32px] pb-[13px]">
+                <div>
+                  News
+                </div>
+                <div>
+                  <svg width="3" height="4" viewBox="0 0 3 4" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <circle cx="1.5" cy="2" r="1.5" fill="#164258" fill-opacity="0.4"></circle>
+                  </svg>
+                </div>
+                <div>Jul 07, 2026</div>
+              </div>
+                              <div class="relative h-[137px] rounded-[8px] overflow-hidden lg:mb-[32px] mb-[16px] shrink-0">
+                  			<picture>
+		<source media="(-webkit-min-device-pixel-ratio: 1.5)" srcset="https://linusbio-cs.transforms.svdcdn.com/production/Traced-Photo-Use.jpg?w=800&amp;h=533&amp;q=80&amp;auto=format&amp;fit=crop&amp;dm=1783458895&amp;s=827cf9d7c7e5ca6eb08562ea2cb02cd6 800w, site/linusbio-cs.transforms.svdcdn.com/production/Traced-Photo-Use__q9cb3bb07.jpg 1200w, https://linusbio-cs.transforms.svdcdn.com/production/Traced-Photo-Use.jpg?w=1800&amp;h=1200&amp;q=80&amp;auto=format&amp;fit=crop&amp;dm=1783458895&amp;s=985ca7bff8dfbaa41a67af3b01b1150d 1800w, https://linusbio-cs.transforms.svdcdn.com/production/Traced-Photo-Use.jpg?w=2400&amp;h=1600&amp;q=80&amp;auto=format&amp;fit=crop&amp;dm=1783458895&amp;s=5bbc9c117b7d9d974f6b1bd0df452c44 2400w, site/linusbio-cs.transforms.svdcdn.com/production/Traced-Photo-Use__q75ec0669.jpg 3000w, https://linusbio-cs.transforms.svdcdn.com/production/Traced-Photo-Use.jpg?w=4000&amp;h=2666&amp;q=80&amp;auto=format&amp;fit=crop&amp;dm=1783458895&amp;s=7ee33edc01b63c0ee49cccd2120f4606 4000w" sizes="(min-width: 1400px) 1400px, calc(100vw - 32px)">
+		<img class="h-full w-full absolute inset-0 object-cover" src="https://linusbio-cs.transforms.svdcdn.com/production/Traced-Photo-Use.jpg?w=2000&amp;h=1333&amp;q=100&amp;auto=format&amp;fit=crop&amp;dm=1783458895&amp;s=87ce0a4fce66c8e2452bcaa50b5768c3" srcset="https://linusbio-cs.transforms.svdcdn.com/production/Traced-Photo-Use.jpg?w=400&amp;h=266&amp;q=100&amp;auto=format&amp;fit=crop&amp;dm=1783458895&amp;s=1fd2106565e60f58d2e304d36af6785d 400w, https://linusbio-cs.transforms.svdcdn.com/production/Traced-Photo-Use.jpg?w=600&amp;h=400&amp;q=100&amp;auto=format&amp;fit=crop&amp;dm=1783458895&amp;s=8ca57bc82e480f1a95295790b88327e4 600w, https://linusbio-cs.transforms.svdcdn.com/production/Traced-Photo-Use.jpg?w=900&amp;h=600&amp;q=100&amp;auto=format&amp;fit=crop&amp;dm=1783458895&amp;s=858732ad3c00e6abb4cc4801ba501fcd 900w, https://linusbio-cs.transforms.svdcdn.com/production/Traced-Photo-Use.jpg?w=1200&amp;h=800&amp;q=100&amp;auto=format&amp;fit=crop&amp;dm=1783458895&amp;s=f0078be6c1de05e09d0fbd7c582951b8 1200w, https://linusbio-cs.transforms.svdcdn.com/production/Traced-Photo-Use.jpg?w=1500&amp;h=1000&amp;q=100&amp;auto=format&amp;fit=crop&amp;dm=1783458895&amp;s=13fc84bfa0e097dc7caa29964cb0d571 1500w, https://linusbio-cs.transforms.svdcdn.com/production/Traced-Photo-Use.jpg?w=2000&amp;h=1333&amp;q=100&amp;auto=format&amp;fit=crop&amp;dm=1783458895&amp;s=87ce0a4fce66c8e2452bcaa50b5768c3 2000w" sizes="(min-width: 1400px) 1400px, calc(100vw - 32px)" width="2000" height="1333.33" alt="" loading="lazy" decoding="async">
+	</picture>                </div>
+                            <h3 class="text-black h5 md:h6">LinusBio Launches Traced™, the First Consumer Wellness Test to Track Environmental Exposures Over Time</h3>
+                              <div class="mt-auto pt-[16px] lg:pt-[32px]">
+                  <a class="box-link" href="https://www.linusbio.com/news/linusbio-launches-traced-the-first-consumer-wellness-test-to-track-environmental-exposures-over-time" tabindex="-1">
+                    <div class="
+    inline-flex leading-[.9] items-center gap-[16px] rounded-[84px] group transition-all duration-300
+    text-black hover:text-blue
+  ">
+	<div class="border border-grey rounded-full p-[7px] w-[24px] h-[24px] flex justify-center items-center transition-all duration-300
+  group-hover:text-white text-black group-hover:bg-blue group-hover:border-blue group-hover:rotate-[-45deg]">
+		<svg class="absolute" width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+			<path d="M1.33594 5.99967H10.0026M6.0026 1.33301L10.6693 5.99967L6.0026 10.6663" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"></path>
+		</svg>
+	</div>
+	<span class="font-normal">Read more</span>
+</div>
+                  </a>
+                </div>
+                          </div><div class="relative group py-[48px] px-[24px] lg:px-0 lg:py-0 border-r border-grey last:border-r-0 !flex flex-col swiper-slide" aria-hidden="true">
+              <div class="nav text-black/60 flex items-center gap-[16px] lg:pb-[32px] pb-[13px]">
+                <div>
+                  News
+                </div>
+                <div>
+                  <svg width="3" height="4" viewBox="0 0 3 4" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <circle cx="1.5" cy="2" r="1.5" fill="#164258" fill-opacity="0.4"></circle>
+                  </svg>
+                </div>
+                <div>Mar 19, 2026</div>
+              </div>
+                              <div class="relative h-[137px] rounded-[8px] overflow-hidden lg:mb-[32px] mb-[16px] shrink-0">
+                  			<picture>
+		<source media="(-webkit-min-device-pixel-ratio: 1.5)" srcset="https://linusbio-cs.transforms.svdcdn.com/production/ClearStrand-ASD-collection-kit.jpg?w=800&amp;h=533&amp;q=80&amp;auto=format&amp;fit=crop&amp;dm=1773845428&amp;s=8be1df1075f683545c9b577622efa4ae 800w, site/linusbio-cs.transforms.svdcdn.com/production/ClearStrand-ASD-collection-kit__q79fc79a1.jpg 1200w, https://linusbio-cs.transforms.svdcdn.com/production/ClearStrand-ASD-collection-kit.jpg?w=1800&amp;h=1200&amp;q=80&amp;auto=format&amp;fit=crop&amp;dm=1773845428&amp;s=e7512d56db515f9db363de1ddd50f104 1800w, https://linusbio-cs.transforms.svdcdn.com/production/ClearStrand-ASD-collection-kit.jpg?w=2400&amp;h=1600&amp;q=80&amp;auto=format&amp;fit=crop&amp;dm=1773845428&amp;s=8de9064e45cad35c18c968484383b744 2400w, site/linusbio-cs.transforms.svdcdn.com/production/ClearStrand-ASD-collection-kit__q0047e5e5.jpg 3000w, https://linusbio-cs.transforms.svdcdn.com/production/ClearStrand-ASD-collection-kit.jpg?w=4000&amp;h=2667&amp;q=80&amp;auto=format&amp;fit=crop&amp;dm=1773845428&amp;s=bbfb04a88e58e845a61e9f7146f9efbc 4000w" sizes="(min-width: 1400px) 1400px, calc(100vw - 32px)">
+		<img class="h-full w-full absolute inset-0 object-cover" src="https://linusbio-cs.transforms.svdcdn.com/production/ClearStrand-ASD-collection-kit.jpg?w=2000&amp;h=1333&amp;q=100&amp;auto=format&amp;fit=crop&amp;dm=1773845428&amp;s=0549881044643e74254a927ca9866e29" srcset="https://linusbio-cs.transforms.svdcdn.com/production/ClearStrand-ASD-collection-kit.jpg?w=400&amp;h=266&amp;q=100&amp;auto=format&amp;fit=crop&amp;dm=1773845428&amp;s=10dd7c178628931f16f19e8e671d63f3 400w, https://linusbio-cs.transforms.svdcdn.com/production/ClearStrand-ASD-collection-kit.jpg?w=600&amp;h=400&amp;q=100&amp;auto=format&amp;fit=crop&amp;dm=1773845428&amp;s=9c1fbd490d63cd65ce0cc74d50baea24 600w, https://linusbio-cs.transforms.svdcdn.com/production/ClearStrand-ASD-collection-kit.jpg?w=900&amp;h=600&amp;q=100&amp;auto=format&amp;fit=crop&amp;dm=1773845428&amp;s=e0f81419eb73afaaacfbbe56f4908dc2 900w, https://linusbio-cs.transforms.svdcdn.com/production/ClearStrand-ASD-collection-kit.jpg?w=1200&amp;h=800&amp;q=100&amp;auto=format&amp;fit=crop&amp;dm=1773845428&amp;s=18aed2e357854e7fae141bccc63111a4 1200w, https://linusbio-cs.transforms.svdcdn.com/production/ClearStrand-ASD-collection-kit.jpg?w=1500&amp;h=1000&amp;q=100&amp;auto=format&amp;fit=crop&amp;dm=1773845428&amp;s=b1c33fe566c34bdcf86d7408fc50dfa3 1500w, https://linusbio-cs.transforms.svdcdn.com/production/ClearStrand-ASD-collection-kit.jpg?w=2000&amp;h=1333&amp;q=100&amp;auto=format&amp;fit=crop&amp;dm=1773845428&amp;s=0549881044643e74254a927ca9866e29 2000w" sizes="(min-width: 1400px) 1400px, calc(100vw - 32px)" width="2000" height="1333.98" alt="" loading="lazy" decoding="async">
+	</picture>                </div>
+                            <h3 class="text-black h5 md:h6">ClearStrand-ASD Expands Age Range to Children Up to 10 Years, Bringing Objective Autism Insights to Millions More Families</h3>
+                              <div class="mt-auto pt-[16px] lg:pt-[32px]">
+                  <a class="box-link" href="https://www.linusbio.com/news/clearstrand-asd-expands-age-range-to-children-up-to-10-years-bringing-objective-autism-insights-to-millions-more-families" tabindex="-1">
+                    <div class="
+    inline-flex leading-[.9] items-center gap-[16px] rounded-[84px] group transition-all duration-300
+    text-black hover:text-blue
+  ">
+	<div class="border border-grey rounded-full p-[7px] w-[24px] h-[24px] flex justify-center items-center transition-all duration-300
+  group-hover:text-white text-black group-hover:bg-blue group-hover:border-blue group-hover:rotate-[-45deg]">
+		<svg class="absolute" width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+			<path d="M1.33594 5.99967H10.0026M6.0026 1.33301L10.6693 5.99967L6.0026 10.6663" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"></path>
+		</svg>
+	</div>
+	<span class="font-normal">Read more</span>
+</div>
+                  </a>
+                </div>
+                          </div><div class="relative group py-[48px] px-[24px] lg:px-0 lg:py-0 border-r border-grey last:border-r-0 !flex flex-col swiper-slide" aria-hidden="true">
+              <div class="nav text-black/60 flex items-center gap-[16px] lg:pb-[32px] pb-[13px]">
+                <div>
+                  News
+                </div>
+                <div>
+                  <svg width="3" height="4" viewBox="0 0 3 4" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <circle cx="1.5" cy="2" r="1.5" fill="#164258" fill-opacity="0.4"></circle>
+                  </svg>
+                </div>
+                <div>Sep 09, 2025</div>
+              </div>
+                              <div class="relative h-[137px] rounded-[8px] overflow-hidden lg:mb-[32px] mb-[16px] shrink-0">
+                  			<picture>
+		<source media="(-webkit-min-device-pixel-ratio: 1.5)" srcset="https://linusbio-cs.transforms.svdcdn.com/production/careers-hero_2025-02-12-135135_xako.jpg?w=800&amp;h=450&amp;q=80&amp;auto=format&amp;fit=crop&amp;dm=1739368295&amp;s=6b82c849350b3926e6ec4b16ecc322ba 800w, site/linusbio-cs.transforms.svdcdn.com/production/careers-hero_2025-02-12-135135_xako__qf3516a7d.jpg 1200w, https://linusbio-cs.transforms.svdcdn.com/production/careers-hero_2025-02-12-135135_xako.jpg?w=1800&amp;h=1012&amp;q=80&amp;auto=format&amp;fit=crop&amp;dm=1739368295&amp;s=abda6ec4ac307f6ce58e05e539ec46d7 1800w, https://linusbio-cs.transforms.svdcdn.com/production/careers-hero_2025-02-12-135135_xako.jpg?w=2400&amp;h=1350&amp;q=80&amp;auto=format&amp;fit=crop&amp;dm=1739368295&amp;s=b0785ea99221b4703c39a0577dd49458 2400w, site/linusbio-cs.transforms.svdcdn.com/production/careers-hero_2025-02-12-135135_xako__qbd546973.jpg 3000w, https://linusbio-cs.transforms.svdcdn.com/production/careers-hero_2025-02-12-135135_xako.jpg?w=4000&amp;h=2250&amp;q=80&amp;auto=format&amp;fit=crop&amp;dm=1739368295&amp;s=4bea51d3b9696b2ffdda89960b6ab81d 4000w" sizes="(min-width: 1400px) 1400px, calc(100vw - 32px)">
+		<img class="h-full w-full absolute inset-0 object-cover" src="https://linusbio-cs.transforms.svdcdn.com/production/careers-hero_2025-02-12-135135_xako.jpg?w=2000&amp;h=1125&amp;q=100&amp;auto=format&amp;fit=crop&amp;dm=1739368295&amp;s=af279b3e7114918d4dd4055e739180ae" srcset="https://linusbio-cs.transforms.svdcdn.com/production/careers-hero_2025-02-12-135135_xako.jpg?w=400&amp;h=225&amp;q=100&amp;auto=format&amp;fit=crop&amp;dm=1739368295&amp;s=fe8c96c386b55afdc04a3d5f37ddcd66 400w, https://linusbio-cs.transforms.svdcdn.com/production/careers-hero_2025-02-12-135135_xako.jpg?w=600&amp;h=337&amp;q=100&amp;auto=format&amp;fit=crop&amp;dm=1739368295&amp;s=ee9cda531ccd44db130a148654fe6a48 600w, https://linusbio-cs.transforms.svdcdn.com/production/careers-hero_2025-02-12-135135_xako.jpg?w=900&amp;h=506&amp;q=100&amp;auto=format&amp;fit=crop&amp;dm=1739368295&amp;s=576367e3da3ff2dd342f30bd95055150 900w, https://linusbio-cs.transforms.svdcdn.com/production/careers-hero_2025-02-12-135135_xako.jpg?w=1200&amp;h=675&amp;q=100&amp;auto=format&amp;fit=crop&amp;dm=1739368295&amp;s=08e292f8eb571098403d6809734823e0 1200w, https://linusbio-cs.transforms.svdcdn.com/production/careers-hero_2025-02-12-135135_xako.jpg?w=1500&amp;h=843&amp;q=100&amp;auto=format&amp;fit=crop&amp;dm=1739368295&amp;s=8cfc225f700418a7540a4d21ece8cc69 1500w, https://linusbio-cs.transforms.svdcdn.com/production/careers-hero_2025-02-12-135135_xako.jpg?w=2000&amp;h=1125&amp;q=100&amp;auto=format&amp;fit=crop&amp;dm=1739368295&amp;s=af279b3e7114918d4dd4055e739180ae 2000w" sizes="(min-width: 1400px) 1400px, calc(100vw - 32px)" width="2000" height="1125" alt="" loading="lazy" decoding="async">
+	</picture>                </div>
+                            <h3 class="text-black h5 md:h6">Breakthrough Study by LinusBio Suggests Path to First Biochemical Biomarker for ALS, Detected in a Single Hair Strand</h3>
+                              <div class="mt-auto pt-[16px] lg:pt-[32px]">
+                  <a class="box-link" href="https://www.linusbio.com/news/breakthrough-study-by-linusbio-suggests-path-to-first-biochemical-biomarker-for-als-detected-in-a-single-hair-strand" tabindex="-1">
+                    <div class="
+    inline-flex leading-[.9] items-center gap-[16px] rounded-[84px] group transition-all duration-300
+    text-black hover:text-blue
+  ">
+	<div class="border border-grey rounded-full p-[7px] w-[24px] h-[24px] flex justify-center items-center transition-all duration-300
+  group-hover:text-white text-black group-hover:bg-blue group-hover:border-blue group-hover:rotate-[-45deg]">
+		<svg class="absolute" width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+			<path d="M1.33594 5.99967H10.0026M6.0026 1.33301L10.6693 5.99967L6.0026 10.6663" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"></path>
+		</svg>
+	</div>
+	<span class="font-normal">Read more</span>
+</div>
+                  </a>
+                </div>
+                          </div></div><span class="swiper-notification" aria-live="assertive" aria-atomic="true"></span></div>
+                <div class="col-span-10 relative col-start-2 mdw:grid grid-cols-3 lg:gap-x-[120px] gap-x-[80px] gap-y-[64px] hidden">
+                      <article class="relative col-span-1 group pt-[80px] pb-[120px]">
+              <div class="nav text-black/60 flex items-center gap-[16px] lg:pb-[32px] pb-[13px]">
+                <div>
+                  News
+                </div>
+                <div>
+                  <svg width="3" height="4" viewBox="0 0 3 4" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <circle cx="1.5" cy="2" r="1.5" fill="#164258" fill-opacity="0.4"></circle>
+                  </svg>
+                </div>
+                <div>Jul 07, 2026</div>
+              </div>
+                              <div class="relative h-[178px] rounded-[8px] overflow-hidden lg:mb-[32px] mb-[16px]">
+                  			<picture>
+		<source media="(-webkit-min-device-pixel-ratio: 1.5)" srcset="https://linusbio-cs.transforms.svdcdn.com/production/Traced-Photo-Use.jpg?w=800&amp;h=533&amp;q=80&amp;auto=format&amp;fit=crop&amp;dm=1783458895&amp;s=827cf9d7c7e5ca6eb08562ea2cb02cd6 800w, site/linusbio-cs.transforms.svdcdn.com/production/Traced-Photo-Use__q9cb3bb07.jpg 1200w, https://linusbio-cs.transforms.svdcdn.com/production/Traced-Photo-Use.jpg?w=1800&amp;h=1200&amp;q=80&amp;auto=format&amp;fit=crop&amp;dm=1783458895&amp;s=985ca7bff8dfbaa41a67af3b01b1150d 1800w, https://linusbio-cs.transforms.svdcdn.com/production/Traced-Photo-Use.jpg?w=2400&amp;h=1600&amp;q=80&amp;auto=format&amp;fit=crop&amp;dm=1783458895&amp;s=5bbc9c117b7d9d974f6b1bd0df452c44 2400w, site/linusbio-cs.transforms.svdcdn.com/production/Traced-Photo-Use__q75ec0669.jpg 3000w, https://linusbio-cs.transforms.svdcdn.com/production/Traced-Photo-Use.jpg?w=4000&amp;h=2666&amp;q=80&amp;auto=format&amp;fit=crop&amp;dm=1783458895&amp;s=7ee33edc01b63c0ee49cccd2120f4606 4000w" sizes="(min-width: 1400px) 1400px, calc(100vw - 32px)">
+		<img class="h-full w-full absolute inset-0 object-cover" src="https://linusbio-cs.transforms.svdcdn.com/production/Traced-Photo-Use.jpg?w=2000&amp;h=1333&amp;q=100&amp;auto=format&amp;fit=crop&amp;dm=1783458895&amp;s=87ce0a4fce66c8e2452bcaa50b5768c3" srcset="https://linusbio-cs.transforms.svdcdn.com/production/Traced-Photo-Use.jpg?w=400&amp;h=266&amp;q=100&amp;auto=format&amp;fit=crop&amp;dm=1783458895&amp;s=1fd2106565e60f58d2e304d36af6785d 400w, https://linusbio-cs.transforms.svdcdn.com/production/Traced-Photo-Use.jpg?w=600&amp;h=400&amp;q=100&amp;auto=format&amp;fit=crop&amp;dm=1783458895&amp;s=8ca57bc82e480f1a95295790b88327e4 600w, https://linusbio-cs.transforms.svdcdn.com/production/Traced-Photo-Use.jpg?w=900&amp;h=600&amp;q=100&amp;auto=format&amp;fit=crop&amp;dm=1783458895&amp;s=858732ad3c00e6abb4cc4801ba501fcd 900w, https://linusbio-cs.transforms.svdcdn.com/production/Traced-Photo-Use.jpg?w=1200&amp;h=800&amp;q=100&amp;auto=format&amp;fit=crop&amp;dm=1783458895&amp;s=f0078be6c1de05e09d0fbd7c582951b8 1200w, https://linusbio-cs.transforms.svdcdn.com/production/Traced-Photo-Use.jpg?w=1500&amp;h=1000&amp;q=100&amp;auto=format&amp;fit=crop&amp;dm=1783458895&amp;s=13fc84bfa0e097dc7caa29964cb0d571 1500w, https://linusbio-cs.transforms.svdcdn.com/production/Traced-Photo-Use.jpg?w=2000&amp;h=1333&amp;q=100&amp;auto=format&amp;fit=crop&amp;dm=1783458895&amp;s=87ce0a4fce66c8e2452bcaa50b5768c3 2000w" sizes="(min-width: 1400px) 1400px, calc(100vw - 32px)" width="2000" height="1333.33" alt="" loading="lazy" decoding="async">
+	</picture>                </div>
+                            <h3 class="text-black h5 md:h6">LinusBio Launches Traced™, the First Consumer Wellness Test to Track Environmental Exposures Over Time</h3>
+                              <div class="mt-[16px] lg:mt-[32px]">
+                  <a class="box-link" href="https://www.linusbio.com/news/linusbio-launches-traced-the-first-consumer-wellness-test-to-track-environmental-exposures-over-time">
+                    <div class="
+    inline-flex leading-[.9] items-center gap-[16px] rounded-[84px] group transition-all duration-300
+    text-black hover:text-blue
+  ">
+	<div class="border border-grey rounded-full p-[7px] w-[24px] h-[24px] flex justify-center items-center transition-all duration-300
+  group-hover:text-white text-black group-hover:bg-blue group-hover:border-blue group-hover:rotate-[-45deg]">
+		<svg class="absolute" width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+			<path d="M1.33594 5.99967H10.0026M6.0026 1.33301L10.6693 5.99967L6.0026 10.6663" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"></path>
+		</svg>
+	</div>
+	<span class="font-normal">Read more</span>
+</div>
+                  </a>
+                </div>
+                                            <div class="absolute top-0 bottom-0 w-[1px] bg-grey lg:right-[-60px] mdw:right-[-40px]"></div>
+                          </article>
+                      <article class="relative col-span-1 group pt-[80px] pb-[120px]">
+              <div class="nav text-black/60 flex items-center gap-[16px] lg:pb-[32px] pb-[13px]">
+                <div>
+                  News
+                </div>
+                <div>
+                  <svg width="3" height="4" viewBox="0 0 3 4" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <circle cx="1.5" cy="2" r="1.5" fill="#164258" fill-opacity="0.4"></circle>
+                  </svg>
+                </div>
+                <div>Mar 19, 2026</div>
+              </div>
+                              <div class="relative h-[178px] rounded-[8px] overflow-hidden lg:mb-[32px] mb-[16px]">
+                  			<picture>
+		<source media="(-webkit-min-device-pixel-ratio: 1.5)" srcset="https://linusbio-cs.transforms.svdcdn.com/production/ClearStrand-ASD-collection-kit.jpg?w=800&amp;h=533&amp;q=80&amp;auto=format&amp;fit=crop&amp;dm=1773845428&amp;s=8be1df1075f683545c9b577622efa4ae 800w, site/linusbio-cs.transforms.svdcdn.com/production/ClearStrand-ASD-collection-kit__q79fc79a1.jpg 1200w, https://linusbio-cs.transforms.svdcdn.com/production/ClearStrand-ASD-collection-kit.jpg?w=1800&amp;h=1200&amp;q=80&amp;auto=format&amp;fit=crop&amp;dm=1773845428&amp;s=e7512d56db515f9db363de1ddd50f104 1800w, https://linusbio-cs.transforms.svdcdn.com/production/ClearStrand-ASD-collection-kit.jpg?w=2400&amp;h=1600&amp;q=80&amp;auto=format&amp;fit=crop&amp;dm=1773845428&amp;s=8de9064e45cad35c18c968484383b744 2400w, site/linusbio-cs.transforms.svdcdn.com/production/ClearStrand-ASD-collection-kit__q0047e5e5.jpg 3000w, https://linusbio-cs.transforms.svdcdn.com/production/ClearStrand-ASD-collection-kit.jpg?w=4000&amp;h=2667&amp;q=80&amp;auto=format&amp;fit=crop&amp;dm=1773845428&amp;s=bbfb04a88e58e845a61e9f7146f9efbc 4000w" sizes="(min-width: 1400px) 1400px, calc(100vw - 32px)">
+		<img class="h-full w-full absolute inset-0 object-cover" src="https://linusbio-cs.transforms.svdcdn.com/production/ClearStrand-ASD-collection-kit.jpg?w=2000&amp;h=1333&amp;q=100&amp;auto=format&amp;fit=crop&amp;dm=1773845428&amp;s=0549881044643e74254a927ca9866e29" srcset="https://linusbio-cs.transforms.svdcdn.com/production/ClearStrand-ASD-collection-kit.jpg?w=400&amp;h=266&amp;q=100&amp;auto=format&amp;fit=crop&amp;dm=1773845428&amp;s=10dd7c178628931f16f19e8e671d63f3 400w, https://linusbio-cs.transforms.svdcdn.com/production/ClearStrand-ASD-collection-kit.jpg?w=600&amp;h=400&amp;q=100&amp;auto=format&amp;fit=crop&amp;dm=1773845428&amp;s=9c1fbd490d63cd65ce0cc74d50baea24 600w, https://linusbio-cs.transforms.svdcdn.com/production/ClearStrand-ASD-collection-kit.jpg?w=900&amp;h=600&amp;q=100&amp;auto=format&amp;fit=crop&amp;dm=1773845428&amp;s=e0f81419eb73afaaacfbbe56f4908dc2 900w, https://linusbio-cs.transforms.svdcdn.com/production/ClearStrand-ASD-collection-kit.jpg?w=1200&amp;h=800&amp;q=100&amp;auto=format&amp;fit=crop&amp;dm=1773845428&amp;s=18aed2e357854e7fae141bccc63111a4 1200w, https://linusbio-cs.transforms.svdcdn.com/production/ClearStrand-ASD-collection-kit.jpg?w=1500&amp;h=1000&amp;q=100&amp;auto=format&amp;fit=crop&amp;dm=1773845428&amp;s=b1c33fe566c34bdcf86d7408fc50dfa3 1500w, https://linusbio-cs.transforms.svdcdn.com/production/ClearStrand-ASD-collection-kit.jpg?w=2000&amp;h=1333&amp;q=100&amp;auto=format&amp;fit=crop&amp;dm=1773845428&amp;s=0549881044643e74254a927ca9866e29 2000w" sizes="(min-width: 1400px) 1400px, calc(100vw - 32px)" width="2000" height="1333.98" alt="" loading="lazy" decoding="async">
+	</picture>                </div>
+                            <h3 class="text-black h5 md:h6">ClearStrand-ASD Expands Age Range to Children Up to 10 Years, Bringing Objective Autism Insights to Millions More Families</h3>
+                              <div class="mt-[16px] lg:mt-[32px]">
+                  <a class="box-link" href="https://www.linusbio.com/news/clearstrand-asd-expands-age-range-to-children-up-to-10-years-bringing-objective-autism-insights-to-millions-more-families">
+                    <div class="
+    inline-flex leading-[.9] items-center gap-[16px] rounded-[84px] group transition-all duration-300
+    text-black hover:text-blue
+  ">
+	<div class="border border-grey rounded-full p-[7px] w-[24px] h-[24px] flex justify-center items-center transition-all duration-300
+  group-hover:text-white text-black group-hover:bg-blue group-hover:border-blue group-hover:rotate-[-45deg]">
+		<svg class="absolute" width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+			<path d="M1.33594 5.99967H10.0026M6.0026 1.33301L10.6693 5.99967L6.0026 10.6663" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"></path>
+		</svg>
+	</div>
+	<span class="font-normal">Read more</span>
+</div>
+                  </a>
+                </div>
+                                            <div class="absolute top-0 bottom-0 w-[1px] bg-grey lg:right-[-60px] mdw:right-[-40px]"></div>
+                          </article>
+                      <article class="relative col-span-1 group pt-[80px] pb-[120px]">
+              <div class="nav text-black/60 flex items-center gap-[16px] lg:pb-[32px] pb-[13px]">
+                <div>
+                  News
+                </div>
+                <div>
+                  <svg width="3" height="4" viewBox="0 0 3 4" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <circle cx="1.5" cy="2" r="1.5" fill="#164258" fill-opacity="0.4"></circle>
+                  </svg>
+                </div>
+                <div>Sep 09, 2025</div>
+              </div>
+                              <div class="relative h-[178px] rounded-[8px] overflow-hidden lg:mb-[32px] mb-[16px]">
+                  			<picture>
+		<source media="(-webkit-min-device-pixel-ratio: 1.5)" srcset="https://linusbio-cs.transforms.svdcdn.com/production/careers-hero_2025-02-12-135135_xako.jpg?w=800&amp;h=450&amp;q=80&amp;auto=format&amp;fit=crop&amp;dm=1739368295&amp;s=6b82c849350b3926e6ec4b16ecc322ba 800w, site/linusbio-cs.transforms.svdcdn.com/production/careers-hero_2025-02-12-135135_xako__qf3516a7d.jpg 1200w, https://linusbio-cs.transforms.svdcdn.com/production/careers-hero_2025-02-12-135135_xako.jpg?w=1800&amp;h=1012&amp;q=80&amp;auto=format&amp;fit=crop&amp;dm=1739368295&amp;s=abda6ec4ac307f6ce58e05e539ec46d7 1800w, https://linusbio-cs.transforms.svdcdn.com/production/careers-hero_2025-02-12-135135_xako.jpg?w=2400&amp;h=1350&amp;q=80&amp;auto=format&amp;fit=crop&amp;dm=1739368295&amp;s=b0785ea99221b4703c39a0577dd49458 2400w, site/linusbio-cs.transforms.svdcdn.com/production/careers-hero_2025-02-12-135135_xako__qbd546973.jpg 3000w, https://linusbio-cs.transforms.svdcdn.com/production/careers-hero_2025-02-12-135135_xako.jpg?w=4000&amp;h=2250&amp;q=80&amp;auto=format&amp;fit=crop&amp;dm=1739368295&amp;s=4bea51d3b9696b2ffdda89960b6ab81d 4000w" sizes="(min-width: 1400px) 1400px, calc(100vw - 32px)">
+		<img class="h-full w-full absolute inset-0 object-cover" src="https://linusbio-cs.transforms.svdcdn.com/production/careers-hero_2025-02-12-135135_xako.jpg?w=2000&amp;h=1125&amp;q=100&amp;auto=format&amp;fit=crop&amp;dm=1739368295&amp;s=af279b3e7114918d4dd4055e739180ae" srcset="https://linusbio-cs.transforms.svdcdn.com/production/careers-hero_2025-02-12-135135_xako.jpg?w=400&amp;h=225&amp;q=100&amp;auto=format&amp;fit=crop&amp;dm=1739368295&amp;s=fe8c96c386b55afdc04a3d5f37ddcd66 400w, https://linusbio-cs.transforms.svdcdn.com/production/careers-hero_2025-02-12-135135_xako.jpg?w=600&amp;h=337&amp;q=100&amp;auto=format&amp;fit=crop&amp;dm=1739368295&amp;s=ee9cda531ccd44db130a148654fe6a48 600w, https://linusbio-cs.transforms.svdcdn.com/production/careers-hero_2025-02-12-135135_xako.jpg?w=900&amp;h=506&amp;q=100&amp;auto=format&amp;fit=crop&amp;dm=1739368295&amp;s=576367e3da3ff2dd342f30bd95055150 900w, https://linusbio-cs.transforms.svdcdn.com/production/careers-hero_2025-02-12-135135_xako.jpg?w=1200&amp;h=675&amp;q=100&amp;auto=format&amp;fit=crop&amp;dm=1739368295&amp;s=08e292f8eb571098403d6809734823e0 1200w, https://linusbio-cs.transforms.svdcdn.com/production/careers-hero_2025-02-12-135135_xako.jpg?w=1500&amp;h=843&amp;q=100&amp;auto=format&amp;fit=crop&amp;dm=1739368295&amp;s=8cfc225f700418a7540a4d21ece8cc69 1500w, https://linusbio-cs.transforms.svdcdn.com/production/careers-hero_2025-02-12-135135_xako.jpg?w=2000&amp;h=1125&amp;q=100&amp;auto=format&amp;fit=crop&amp;dm=1739368295&amp;s=af279b3e7114918d4dd4055e739180ae 2000w" sizes="(min-width: 1400px) 1400px, calc(100vw - 32px)" width="2000" height="1125" alt="" loading="lazy" decoding="async">
+	</picture>                </div>
+                            <h3 class="text-black h5 md:h6">Breakthrough Study by LinusBio Suggests Path to First Biochemical Biomarker for ALS, Detected in a Single Hair Strand</h3>
+                              <div class="mt-[16px] lg:mt-[32px]">
+                  <a class="box-link" href="https://www.linusbio.com/news/breakthrough-study-by-linusbio-suggests-path-to-first-biochemical-biomarker-for-als-detected-in-a-single-hair-strand">
+                    <div class="
+    inline-flex leading-[.9] items-center gap-[16px] rounded-[84px] group transition-all duration-300
+    text-black hover:text-blue
+  ">
+	<div class="border border-grey rounded-full p-[7px] w-[24px] h-[24px] flex justify-center items-center transition-all duration-300
+  group-hover:text-white text-black group-hover:bg-blue group-hover:border-blue group-hover:rotate-[-45deg]">
+		<svg class="absolute" width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+			<path d="M1.33594 5.99967H10.0026M6.0026 1.33301L10.6693 5.99967L6.0026 10.6663" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round"></path>
+		</svg>
+	</div>
+	<span class="font-normal">Read more</span>
+</div>
+                  </a>
+                </div>
+                                        </article>
+          
+        </div>
+			</div>
+		</div>
+	</div>
+</section>
+  
+		</main>
+
+					
+<footer class="text-white bg-[--hero-bg] pt-[64px] pb-[24px] lg:pb-[48px] lg:pt-[120px] relative z-[0] footer--corporate">
+		 
+  	<div class="lg:h-[400px] h-[120px] absolute inset-x-0 top-0 z-[1] bg-gradient-to-b from-blue to-[#1F748C00]"></div>
+		
+		<div class="md:site-container relative z-[1]">
+		<div class="lg:px-0 px-[24px] site-grid md:items-start">
+			<div class="lg:col-span-5 xl:pr-[24px] col-span-full mb-[64px] lg:sticky lg:top-[84px] ">
+
+				<h2 class="text-white h2 max-w-[515px pb-[32px] lg:pb-[40px]">
+					Transforming the way complex health conditions are diagnosed and treated
+				</h2>
+							</div>
+			<div class="lg:col-span-6 lg:col-end-13 col-span-full">
+														<div class="py-[40px] mt-[-1px] lg:py-[48px] border-y border-white/10 flex justify-between">
+						<h3 class="nav opacity-80">Contact Us</h3>
+													<ul class="para-1 w-[70%] lg:w-[324px] lg:mt-[-32px] mt-[-28px]">
+																	<li class="
+											text-right lg:text-left last:text-[14px]
+																																	pb-[24px] lg:pb-[32px]
+											border-b
+											border-white/20
+											pt-[24px] lg:pt-[32px]
+                  	">
+										<a href="mailto:hello@linusbio.com" class="transition hover:text-teal h6 footer--corporate-link">
+											hello@linusbio.com
+										</a>
+									</li>
+																	<li class="
+											text-right lg:text-left last:text-[14px]
+																																	pb-[24px] lg:pb-[32px]
+											border-b
+											border-white/20
+											pt-[24px] lg:pt-[32px]
+                  	">
+										<a href="tel:+1 877 546 8724" class="transition hover:text-teal h6 footer--corporate-link">
+											+1 877 546 8724
+										</a>
+									</li>
+																	<li class="
+											text-right lg:text-left last:text-[14px]
+																																	pb-[24px] lg:pb-[32px]
+											border-b
+											border-white/20
+											pt-[24px] lg:pt-[32px]
+                  	">
+										<a href="https://www.linkedin.com/company/linusbio/" rel="noopener noreferrer" target="_blank" class="transition hover:text-teal h6 footer--corporate-link">
+											Reach out on LinkedIn
+										</a>
+									</li>
+																	<li class="
+											text-right lg:text-left last:text-[14px]
+																																	pb-0
+											pb-0
+											border-white/20
+											pt-[24px] lg:pt-[32px]
+                  	">
+										<a href="https://www.google.com/maps/place/675+1st+Ave,+North+Brunswick+Township,+NJ+08902,+USA/@40.4678513,-74.4485796,17z/data=!3m1!4b1!4m6!3m5!1s0x89c3c7ed5ac3b8bd:0xbe8d8641b330ed21!8m2!3d40.4678472!4d-74.4459993!16s%2Fg%2F11w8kqllr2?entry=ttu&amp;g_ep=EgoyMDI1MDIwOS4wIKXMDSoASAFQAw%3D%3D" rel="noopener noreferrer" target="_blank" class="transition hover:text-teal h6 footer--corporate-link">
+											675 US-1, North Brunswick Township, NJ 08902
+										</a>
+									</li>
+															</ul>
+											</div>
+														<div class="py-[40px] mt-[-1px] lg:py-[48px] border-y border-white/10 flex justify-between">
+						<h3 class="nav opacity-80">Sitemap</h3>
+													<ul class="para-1 w-[70%] lg:w-[324px] ">
+																	<li class="
+											text-right lg:text-left last:text-[14px]
+																																	pb-[24px] lg:pb-[32px]
+											pb-0
+											border-white/20
+											pt-0
+                  	">
+										<a href="https://www.linusbio.com/" class="transition hover:text-teal h6 footer--corporate-link">
+											Homepage
+										</a>
+									</li>
+																	<li class="
+											text-right lg:text-left last:text-[14px]
+																																	pb-[24px] lg:pb-[32px]
+											pb-0
+											border-white/20
+											pt-0
+                  	">
+										<a href="https://www.linusbio.com/platform" class="transition hover:text-teal h6 footer--corporate-link">
+											Platform
+										</a>
+									</li>
+																	<li class="
+											text-right lg:text-left last:text-[14px]
+																																	pb-[24px] lg:pb-[32px]
+											pb-0
+											border-white/20
+											pt-0
+                  	">
+										<a href="https://www.linusbio.com/pipeline" class="transition hover:text-teal h6 footer--corporate-link">
+											Pipeline
+										</a>
+									</li>
+																	<li class="
+											text-right lg:text-left last:text-[14px]
+																																	pb-[24px] lg:pb-[32px]
+											pb-0
+											border-white/20
+											pt-0
+                  	">
+										<a href="https://www.linusbio.com/our-science" class="transition hover:text-teal h6 footer--corporate-link">
+											Our Science
+										</a>
+									</li>
+																	<li class="
+											text-right lg:text-left last:text-[14px]
+																																	pb-[24px] lg:pb-[32px]
+											pb-0
+											border-white/20
+											pt-0
+                  	">
+										<a href="https://www.linusbio.com/conditions" class="transition hover:text-teal h6 footer--corporate-link">
+											Conditions
+										</a>
+									</li>
+																	<li class="
+											text-right lg:text-left last:text-[14px]
+																																	pb-[24px] lg:pb-[32px]
+											pb-0
+											border-white/20
+											pt-0
+                  	">
+										<a href="https://www.linusbio.com/publications" class="transition hover:text-teal h6 footer--corporate-link">
+											Publications
+										</a>
+									</li>
+																	<li class="
+											text-right lg:text-left last:text-[14px]
+																																	pb-[24px] lg:pb-[32px]
+											pb-0
+											border-white/20
+											pt-0
+                  	">
+										<a href="https://www.linusbio.com/partnerships" class="transition hover:text-teal h6 footer--corporate-link">
+											Partnerships
+										</a>
+									</li>
+																	<li class="
+											text-right lg:text-left last:text-[14px]
+																																	pb-0
+											pb-0
+											border-white/20
+											pt-0
+                  	">
+										<a href="https://www.linusbio.com/contact" class="transition hover:text-teal h6 footer--corporate-link">
+											Contact
+										</a>
+									</li>
+															</ul>
+											</div>
+														<div class="py-[40px] mt-[-1px] lg:py-[48px] border-y border-white/10 flex justify-between">
+						<h3 class="nav opacity-80">Legal</h3>
+													<ul class="para-1 w-[70%] lg:w-[324px] ">
+																	<li class="
+											text-right lg:text-left last:text-[14px]
+																																	pb-[24px] lg:pb-[32px]
+											pb-0
+											border-white/20
+											pt-0
+                  	">
+										<a href="https://linusbio-host.s3.us-east-1.amazonaws.com/LinusBio+-+Terms+of+Service+01-09-25.pdf" rel="noopener noreferrer" target="_blank" class="transition hover:text-teal h6 footer--corporate-link">
+											Terms and Conditions
+										</a>
+									</li>
+																	<li class="
+											text-right lg:text-left last:text-[14px]
+																																	pb-0
+											pb-0
+											border-white/20
+											pt-0
+                  	">
+										<a href="https://linusbio-host.s3.us-east-1.amazonaws.com/LinusBio+Privacy+Policy+-+Corporate+and+Product+01-09-25.pdf" rel="noopener noreferrer" target="_blank" class="transition hover:text-teal h6 footer--corporate-link">
+											Privacy Policy
+										</a>
+									</li>
+															</ul>
+											</div>
+								<div class="flex flex-wrap justify-between pt-[48px] opacity-80 tracking-[0.01em] leading-[.9] gap-[16px]">
+					<div class="w-auto">
+						©
+						2026
+						Linus Biotechnology, Inc.
+					</div>
+					<div class="">
+						Site by
+						<a href="https://www.serieseight.com/" target="_blank" rel="noopener noreferrer">Series Eight</a>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</footer>
+		
+				
+				
+
+		
+            
+    	
+
+
+<div data-wd3-banner style="position:fixed;z-index:2147483647;left:16px;bottom:16px;max-width:min(560px,calc(100vw - 32px));align-items:center;gap:12px;padding:12px 14px;border-radius:12px;background:rgba(5,5,5,.92);color:#e8e8e8;border:1px solid #1d1d1d;box-shadow:0 8px 30px rgba(0,0,0,.35);font:13px/1.45 ui-sans-serif,system-ui,-apple-system,'Segoe UI',sans-serif;backdrop-filter:blur(8px)">
+  <span style="width:8px;height:8px;border-radius:50%;background:#00ffa3;flex:none"></span>
+  <span>Versão estática, sem animações. Para ver o site vivo, rode no terminal, nesta pasta: <b style="color:#00ffa3">python3 serve.py --open</b> (Windows: <b style="color:#00ffa3">py serve.py --open</b>). Passo a passo em <b style="color:#00ffa3">Como rodar.md</b>.</span>
+  <button type="button" onclick="this.parentNode.remove()" aria-label="Fechar" style="flex:none;background:none;border:0;color:#8a8a8a;font-size:18px;cursor:pointer;padding:0 2px">×</button>
+</div>
+</body></html>

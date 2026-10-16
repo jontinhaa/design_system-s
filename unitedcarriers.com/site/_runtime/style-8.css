@@ -1,0 +1,16 @@
+
+  .debug-area {
+    pointer-events: none;
+    -webkit-user-select: none;
+    user-select: none;
+  }
+  @media only screen and (max-width: 991px) {
+    .debug-area .container-column:not(:nth-child(-n + 8)) {
+      display: none;
+    }
+  }
+  @media only screen and (max-width: 767px) {
+    .debug-area .container-column:not(:nth-child(-n + 4)) {
+      display: none;
+    }
+  }

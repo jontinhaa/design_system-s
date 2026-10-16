@@ -1,0 +1,47 @@
+
+  .article-layout[data-wf--article-master-layout--variant="listing-page"] .article-breadcrumb{
+    pointer-events: none;
+  }
+  .article-breadcrumb .article-breadcrumb-item:not(:first-child):before {
+    content: '/';
+    font-family: var(--font--button);
+    margin-right: 1rem;
+    font-weight: 400;
+    font-size: 1.2rem;
+    line-height: 1.4;
+    pointer-events: none;
+    color: var(--_color---content--disable);
+  }
+  .article-tab-item-link.w--current .article-tab-item-sub {
+    color: var(--_color---content--main);
+  }
+  .article-layout ~ .main:has([data-barba-namespace='article']) {
+    z-index: 0;
+    background-color: transparent;
+  }
+  /*.article-layout ~ .main:has([data-barba-namespace=article]),
+.article-layout ~ .main .main-inner[data-barba-namespace=article] {
+  pointer-events: none;
+}*/
+  .article-layout[data-wf--article-master-layout--variant='detail-page'] .article-hero-label {
+    opacity: 1;
+  }
+  .article-layout[data-wf--article-master-layout--variant='listing-page'] .article-breadcrumb {
+    opacity: 0;
+  }
+  .article-layout[data-wf--article-master-layout--variant='detail-page'] .article-breadcrumb {
+    opacity: 1;
+  }
+  @media (max-width: 767px) {
+    .article-tab.active .article-tab-title-ic {
+      transform: rotate(180deg);
+    }
+  }
+  /* @media (max-width: 767px) {
+    .article-layout[data-wf--article-master-layout--variant='listing-page'] .article-layout-block {
+      top: -15rem;
+    }
+    .article-layout[data-wf--article-master-layout--variant='detail-page'] .article-layout-block {
+      top: -13rem;
+    }
+  } */

@@ -1,0 +1,628 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>ASAGIRI Design System</title>
+<meta name="description" content="Living design system and pattern library for ASAGIRI 朝霧 ceremonial matcha.">
+<!-- Same assets as index.html: fonts, the original stylesheet (style-0), GSAP + ScrollTrigger, Lenis, Tailwind Play CDN -->
+<link href="site/fonts.googleapis.com/css2__q8a48ba46.css" rel="stylesheet">
+<link href="site/_runtime/file-fonts.css" rel="stylesheet">
+<link href="site/_runtime/style-0.css" rel="stylesheet">
+<script src="site/cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+<script src="site/cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+<script src="site/unpkg.com/lenis@1.1.13/dist/lenis.min.js"></script>
+<script src="site/cdn.tailwindcss.com/3.4.17.js"></script>
+<style>
+/* doc chrome only — captions and spec rows, never part of the design */
+.ds-code{display:block;margin-top:.8rem;font:11px/1.6 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;color:var(--stone-d);user-select:text}
+.ds-row{display:grid;grid-template-columns:170px minmax(0,1fr) 140px;gap:2rem;align-items:center;padding:2rem 0;border-top:1px solid rgba(35,39,31,.1)}
+.ds-row .ds-spec{text-align:right;font:11px/1.6 ui-monospace,SFMono-Regular,Menlo,Consolas,monospace;color:var(--stone-d)}
+@media(max-width:820px){.ds-row{grid-template-columns:1fr;gap:1rem}.ds-row .ds-spec{text-align:left}}
+</style>
+</head>
+<body>
+  <div class="page-bg" aria-hidden="true"><div class="pi"></div></div>
+
+  <!-- loader -->
+  <div class="loader" id="loader"><div class="lw">
+    <div class="mk serif">ASAGIRI</div>
+    <span class="jp">朝霧</span>
+    <div class="lbar"><i id="lbar"></i></div>
+    <div class="lsub" id="lsub">steeping · 0%</div>
+  </div></div>
+
+  <!-- nav -->
+  <nav id="nav">
+    <div class="brand serif">ASA<b>GIRI</b></div>
+    <div class="nlinks">
+      <a href="#typography">Type</a>
+      <a href="#colors">Colors</a>
+      <a href="#components">Components</a>
+      <a href="#layout">Layout</a>
+      <a href="#motion">Motion</a>
+      <a href="index.html" class="nbtn">Live site</a>
+    </div>
+  </nav>
+
+  <!-- ═════════ 0 · HERO (exact clone, text adapted) ═════════ -->
+  <header class="hero" id="top">
+    <div class="bg"><img src="site/cdn.jsdelivr.net/gh/VanhDc/aura-assets%40matcha-v4/asagiri/img/hero.jpg" alt="A bowl of freshly whisked ceremonial matcha with a bamboo whisk"></div>
+    <canvas id="steam"></canvas>
+    <div class="vjp">朝霧 · 様式</div>
+    <div class="inner">
+      <h1 class="serif"><span class="hl">Asagiri design</span><span class="hl"><em>system.</em></span></h1>
+      <p class="sub">Tokens, type, surfaces and motion from the Asagiri site, reused verbatim. Not a redesign. A slow, exact reference.</p>
+      <div class="cta">
+        <a href="#colors" class="btn solid">Explore the tokens</a>
+        <a href="#typography" class="btn ghost">Typography</a>
+      </div>
+    </div>
+    <div class="scrolln"><span class="ln"></span> Scroll to read</div>
+  </header>
+
+  <!-- ═════════ 1 · TYPOGRAPHY ═════════ -->
+  <section class="wrap range" id="typography">
+    <div class="head">
+      <span class="eyebrow c" data-rv>01 · Typography</span>
+      <h2 class="serif" data-rv>Three voices, one quiet.</h2>
+      <div class="manifesto"><p class="lead" data-rv>Instrument Serif carries every headline, Hanken Grotesk (300 by default) carries the body, and Shippori Mincho supplies the Japanese accents. There is no bold: emphasis comes from italics, jade and letter-spacing.</p></div>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-16" data-rv>
+      <div class="grade"><div class="body"><span class="g">Display · Headings</span><h3 class="serif">Instrument Serif</h3><p>Regular 400 and <em>italic</em>. Headlines, numerals, prices, wordmark.</p><div class="row"><span class="price">--serif</span><span class="add">.serif</span></div></div></div>
+      <div class="grade"><div class="body"><span class="g">Body · Labels</span><h3 class="serif">Hanken Grotesk</h3><p>Body at 300; labels and eyebrows at 500. Line-height 1.65 on body.</p><div class="row"><span class="price">--sans</span><span class="add">body</span></div></div></div>
+      <div class="grade"><div class="body"><span class="g">Japanese accent</span><h3 class="serif">Shippori Mincho</h3><p><span class="jp">朝霧 · 一服 · 一 二 三 四</span>. Vertical hero mark, step numerals, footer mark.</p><div class="row"><span class="price">--jp</span><span class="add">.jp</span></div></div></div>
+    </div>
+
+    <div class="ds-row">
+      <div><span class="eyebrow">Heading 1</span><div class="lsub">Hero display</div></div>
+      <div><div class="hero !min-h-0 rounded-[6px] bg-[color:var(--jade-d)] px-8 py-10"><h1 class="serif"><span class="hl">Stone-ground</span><span class="hl"><em>stillness.</em></span></h1></div><code class="ds-code">.hero h1.serif › .hl · em → italic var(--stone) · clamp(3.2rem, 9.5vw, 8.5rem) · lh .95 · text-shadow</code></div>
+      <div class="ds-spec">136px / 129px</div>
+    </div>
+    <div class="ds-row">
+      <div><span class="eyebrow">Heading 2</span><div class="lsub">CTA headline</div></div>
+      <div><div class="cta-sec"><h2 class="serif">Start your <em>ninety seconds.</em></h2></div><code class="ds-code">.cta-sec h2.serif · clamp(2.4rem, 6vw, 5rem) · lh 1.02 · em → italic var(--jade)</code></div>
+      <div class="ds-spec">80px / 81.6px</div>
+    </div>
+    <div class="ds-row">
+      <div><span class="eyebrow">Heading 3</span><div class="lsub">Split headline</div></div>
+      <div><div class="copy"><h2 class="serif">Grown in the <em>shade</em>,<br>gathered in the mist.</h2></div><code class="ds-code">.copy h2.serif · clamp(2.1rem, 4.4vw, 3.6rem) · lh 1.06 · ls -.01em</code></div>
+      <div class="ds-spec">57.6px / 61px</div>
+    </div>
+    <div class="ds-row">
+      <div><span class="eyebrow">Heading 4</span><div class="lsub">Card title</div></div>
+      <div><div class="grade max-w-[360px]"><div class="body"><h3 class="serif">Asagiri No.1</h3></div></div><code class="ds-code">.grade h3.serif · 1.6rem · lh 1.65 (inherited)</code></div>
+      <div class="ds-spec">25.6px / 42.2px</div>
+    </div>
+    <div class="ds-row">
+      <div><span class="eyebrow">Label L</span><div class="lsub">Eyebrow · 500</div></div>
+      <div><span class="eyebrow">01 · Origin</span><code class="ds-code">.eyebrow · .66rem · ls .42em · uppercase · 500 · var(--jade) — no bold weight exists; this is the heaviest style</code></div>
+      <div class="ds-spec">10.56px / 17.4px</div>
+    </div>
+    <div class="ds-row">
+      <div><span class="eyebrow">Label S</span><div class="lsub">Micro caption</div></div>
+      <div><div class="lsub">steeping · 100%</div><code class="ds-code">.lsub · .6rem · ls .34em · uppercase · var(--stone-d)</code></div>
+      <div class="ds-spec">9.6px / 15.8px</div>
+    </div>
+    <div class="ds-row">
+      <div><span class="eyebrow">Paragraph</span><div class="lsub">Lead</div></div>
+      <div><div class="manifesto"><p class="lead">A bowl of ASAGIRI is a small, deliberate pause, leaf grown slow in the shade, ground slower on stone, whisked into a moment that belongs only to you.</p></div><code class="ds-code">.manifesto .lead · 1.02rem · 300 · max-width 46ch · var(--ink-2) · centered</code></div>
+      <div class="ds-spec">16.3px / 26.9px</div>
+    </div>
+    <div class="ds-row">
+      <div><span class="eyebrow">Regular L</span><div class="lsub">Body copy</div></div>
+      <div><div class="copy"><p>For the last twenty-one days before harvest, our tea is hidden from the sun. Starved of light, the leaf floods itself with chlorophyll and L-theanine.</p></div><code class="ds-code">.copy p · 1rem · 300 · lh 1.65 · max-width 42ch · var(--ink-2)</code></div>
+      <div class="ds-spec">16px / 26.4px</div>
+    </div>
+    <div class="ds-row">
+      <div><span class="eyebrow">Regular M</span><div class="lsub">Step caption</div></div>
+      <div><div class="microsteps"><div><div class="t">21 days under cover</div></div></div><code class="ds-code">.microsteps .t · .82rem · var(--ink)</code></div>
+      <div class="ds-spec">13.1px / 21.6px</div>
+    </div>
+    <div class="ds-row">
+      <div><span class="eyebrow">Regular S</span><div class="lsub">Fine print</div></div>
+      <div><div class="cta-sec"><div class="fine">Cancel anytime · ships from Kyoto · carbon-neutral delivery</div></div><code class="ds-code">.cta-sec .fine · .66rem · ls .04em · var(--stone-d)</code></div>
+      <div class="ds-spec">10.56px / 17.4px</div>
+    </div>
+
+    <div class="mt-20 mb-4"><span class="eyebrow">Supplementary styles in use</span></div>
+    <div class="ds-row">
+      <div><span class="eyebrow">Manifesto</span><div class="lsub">Statement</div></div>
+      <div><div class="manifesto"><p class="big serif">We sell <em>ninety seconds of quiet.</em></p></div><code class="ds-code">.manifesto .big.serif · clamp(2rem, 5.4vw, 4.6rem) · lh 1.12 · max-width 18ch</code></div>
+      <div class="ds-spec">73.6px / 82.4px</div>
+    </div>
+    <div class="ds-row">
+      <div><span class="eyebrow">Quote</span><div class="lsub">Interlude</div></div>
+      <div><div class="interlude !min-h-0 rounded-[6px] bg-[color:var(--jade-d)] py-12"><div class="q"><span class="jp">朝霧</span><blockquote class="serif">First light, whisked.</blockquote></div></div><code class="ds-code">.interlude .q blockquote.serif · italic · clamp(2rem, 5vw, 4rem) · lh 1.18 · .q .jp 1rem ls .5em var(--stone)</code></div>
+      <div class="ds-spec">64px / 75.5px</div>
+    </div>
+    <div class="ds-row">
+      <div><span class="eyebrow">Stat numeral</span><div class="lsub">Numbers band</div></div>
+      <div><div class="numbers rounded-[6px] py-10"><div class="numgrid !grid-cols-1"><div><div class="v serif"><em>~</em>10<em>µm</em></div><div class="l">stone-ground fineness</div></div></div></div><code class="ds-code">.numgrid .v.serif · clamp(2.6rem, 6vw, 4.6rem) · lh 1 · em → upright, .5em, var(--jade-l) · .l .64rem ls .22em var(--stone)</code></div>
+      <div class="ds-spec">73.6px / 73.6px</div>
+    </div>
+    <div class="ds-row">
+      <div><span class="eyebrow">Step title</span><div class="lsub">On image</div></div>
+      <div><div class="h-[220px] max-w-[430px]"><div class="step !w-full"><img src="site/cdn.jsdelivr.net/gh/VanhDc/aura-assets%40matcha-v4/asagiri/img/froth.jpg" alt=""><div class="lab"><span class="s jp">三 · whisk</span><h3 class="serif">Whisk in a W</h3><p>Quick wrist, never circular, until a fine jade froth rises and holds.</p></div></div></div><code class="ds-code">.step .lab h3.serif 1.7rem var(--bone) · .s.jp .72rem ls .3em var(--stone) · p .84rem bone 78%</code></div>
+      <div class="ds-spec">27.2px / 44.9px</div>
+    </div>
+    <div class="ds-row">
+      <div><span class="eyebrow">Meta figure</span><div class="lsub">Split stats</div></div>
+      <div><div class="copy"><div class="meta !mt-0"><div><div class="k serif">21</div><div class="l">days in shade</div></div><div><div class="k serif">1st</div><div class="l">flush only</div></div></div></div><code class="ds-code">.copy .meta .k.serif 2rem lh 1 var(--jade-d) · .l .62rem ls .2em var(--stone-d)</code></div>
+      <div class="ds-spec">32px / 32px</div>
+    </div>
+    <div class="ds-row">
+      <div><span class="eyebrow">Price</span><div class="lsub">Card figure</div></div>
+      <div><div class="grade max-w-[360px]"><div class="body"><div class="row !mt-0 !pt-0 !border-0"><span class="price">$48</span><span class="add">Add · 30g</span></div></div></div><code class="ds-code">.grade .price · serif 1.4rem var(--jade-d)</code></div>
+      <div class="ds-spec">22.4px / 37px</div>
+    </div>
+    <div class="ds-row">
+      <div><span class="eyebrow">JP numeral</span><div class="lsub">Micro-steps</div></div>
+      <div><div class="microsteps !mt-0"><div><div class="n jp">一 · shade</div></div><div><div class="n jp">二 · steam</div></div><div><div class="n jp">三 · stone</div></div></div><code class="ds-code">.microsteps .n.jp · .7rem · ls .2em · var(--jade) · vertical hero mark: .hero .vjp writing-mode vertical-rl, clamp(2.8rem, 6.5vw, 6.5rem) 500</code></div>
+      <div class="ds-spec">11.2px / 18.5px</div>
+    </div>
+    <div class="ds-row">
+      <div><span class="eyebrow">Wordmark</span><div class="lsub">Loader · footer</div></div>
+      <div><div class="lw !text-left"><div class="mk serif !mb-0">ASAGIRI</div></div><code class="ds-code">.lw .mk.serif 2rem ls .4em var(--jade-d) · nav .brand 1.45rem ls .34em · footer .fbrand .mk 1.7rem ls .3em with b → var(--jade-l)</code></div>
+      <div class="ds-spec">32px / 52.8px</div>
+    </div>
+  </section>
+
+  <!-- ═════════ 2 · COLORS & SURFACES ═════════ -->
+  <section class="wrap range" id="colors">
+    <div class="head">
+      <span class="eyebrow c" data-rv>02 · Colors &amp; Surfaces</span>
+      <h2 class="serif" data-rv>Jade, bone and stone.</h2>
+      <div class="manifesto"><p class="lead" data-rv>Ten custom properties on :root. Light sections are transparent over a fixed misty ground; the ritual and numbers bands drop to deep jade; the footer sits on ink.</p></div>
+    </div>
+
+    <div class="mb-5"><span class="eyebrow">Tokens · :root</span></div>
+    <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-5 mb-4" data-rv>
+      <div class="grade"><div class="pic !h-[110px] bg-[color:var(--jade)]"></div><div class="body"><span class="g">Accent</span><h3 class="serif">--jade</h3><div class="row"><span class="price">#5f7a52</span></div></div></div>
+      <div class="grade"><div class="pic !h-[110px] bg-[color:var(--jade-d)]"></div><div class="body"><span class="g">Deep band</span><h3 class="serif">--jade-d</h3><div class="row"><span class="price">#3a4a31</span></div></div></div>
+      <div class="grade"><div class="pic !h-[110px] bg-[color:var(--jade-l)]"></div><div class="body"><span class="g">On dark</span><h3 class="serif">--jade-l</h3><div class="row"><span class="price">#86a074</span></div></div></div>
+      <div class="grade"><div class="pic !h-[110px] bg-[color:var(--bone)]"></div><div class="body"><span class="g">Ground</span><h3 class="serif">--bone</h3><div class="row"><span class="price">#f4f0e6</span></div></div></div>
+      <div class="grade"><div class="pic !h-[110px] bg-[color:var(--bone-2)]"></div><div class="body"><span class="g">Footer text</span><h3 class="serif">--bone-2</h3><div class="row"><span class="price">#ece6d7</span></div></div></div>
+      <div class="grade"><div class="pic !h-[110px] bg-[color:var(--stone)]"></div><div class="body"><span class="g">Italic accent</span><h3 class="serif">--stone</h3><div class="row"><span class="price">#cdbfa6</span></div></div></div>
+      <div class="grade"><div class="pic !h-[110px] bg-[color:var(--stone-d)]"></div><div class="body"><span class="g">Meta text</span><h3 class="serif">--stone-d</h3><div class="row"><span class="price">#a9997d</span></div></div></div>
+      <div class="grade"><div class="pic !h-[110px] bg-[color:var(--ink)]"></div><div class="body"><span class="g">Text · footer</span><h3 class="serif">--ink</h3><div class="row"><span class="price">#23271f</span></div></div></div>
+      <div class="grade"><div class="pic !h-[110px] bg-[color:var(--ink-2)]"></div><div class="body"><span class="g">Body copy</span><h3 class="serif">--ink-2</h3><div class="row"><span class="price">#41463a</span></div></div></div>
+      <div class="grade"><div class="pic !h-[110px] bg-[#fbf9f2]"></div><div class="body"><span class="g">Literal</span><h3 class="serif">Card</h3><div class="row"><span class="price">#fbf9f2</span></div></div></div>
+    </div>
+    <code class="ds-code mb-16">Also literal: #2c3826 step fill · #fff signup field / solid-button hover. --gold #b89b5e is declared but never used, so it is not shown.</code>
+
+    <div class="mb-5"><span class="eyebrow">Surfaces</span></div>
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-16">
+      <div data-rv><div class="h-[220px] rounded-[6px] border border-[rgba(35,39,31,.12)] flex items-end p-6"><span class="eyebrow">Page ground</span></div><code class="ds-code">.page-bg (fixed, z -1) · mist-bg.jpg cover + ::after bone .3 → .5 veil · light sections are transparent over it</code></div>
+      <div data-rv><div class="numbers h-[220px] rounded-[6px] flex items-end p-6"><span class="eyebrow !text-[color:var(--stone)]">Deep jade band</span></div><code class="ds-code">.numbers / .ritual · background var(--jade-d) · color var(--bone) · eyebrow turns var(--stone)</code></div>
+      <div data-rv><div class="h-[220px] rounded-[6px] bg-[color:var(--ink)] flex items-end p-6"><span class="lsub">Footer ink</span></div><code class="ds-code">footer · background var(--ink) · color var(--bone-2) · divider rgba(244,240,230,.12)</code></div>
+      <div data-rv><div class="grade h-[220px]"><div class="body justify-end"><span class="g">Card</span><h3 class="serif">Paper card</h3></div></div><code class="ds-code">.grade · #fbf9f2 · 1px rgba(35,39,31,.12) · radius 6px</code></div>
+      <div data-rv><div class="media"><img class="!h-[220px]" src="site/cdn.jsdelivr.net/gh/VanhDc/aura-assets%40matcha-v4/asagiri/img/terroir.jpg" alt="Misty terraced tea fields"><span class="cap">Frosted caption · blur 4px</span></div><code class="ds-code">.media .cap · rgba(35,39,31,.4) · backdrop-filter blur(4px) · radius 3px — the only glass in the page besides the docked nav (rgba(244,240,230,.82) blur 12px, scroll to see it)</code></div>
+      <div data-rv><div class="h-[220px] rounded-[6px] bg-[color:var(--jade-d)] flex items-center justify-center px-6"><form class="signup w-full" onsubmit="return false"><input type="email" placeholder="you@morning.com" aria-label="Email"><button type="submit">Subscribe</button></form></div><code class="ds-code">.signup · #fff pill · 1px rgba(35,39,31,.2) · radius 100px</code></div>
+    </div>
+
+    <div class="mb-5"><span class="eyebrow">Overlays &amp; gradients</span></div>
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-16">
+      <div data-rv><div class="hero !min-h-0 h-[260px] rounded-[6px]"><div class="bg"><img src="site/cdn.jsdelivr.net/gh/VanhDc/aura-assets%40matcha-v4/asagiri/img/hero.jpg" alt=""></div></div><code class="ds-code">.hero .bg::after · 180deg ink .30 → .04 (16%) → 0 (34%) → .34 (64%) → rgba(28,32,24,.74)</code></div>
+      <div data-rv><div class="h-[260px]"><div class="step !w-full"><img src="site/cdn.jsdelivr.net/gh/VanhDc/aura-assets%40matcha-v4/asagiri/img/pour.jpg" alt=""><div class="lab"></div></div></div><code class="ds-code">.step .lab · 180deg transparent 40% → rgba(28,34,22,.82) · image opacity .92 on #2c3826</code></div>
+      <div data-rv><div class="interlude !min-h-0 h-[260px] rounded-[6px]"><div class="bg"><img src="site/cdn.jsdelivr.net/gh/VanhDc/aura-assets%40matcha-v4/asagiri/img/hands.jpg" alt=""></div></div><code class="ds-code">.interlude .bg::after · flat rgba(28,34,22,.5)</code></div>
+    </div>
+
+    <div class="mb-5"><span class="eyebrow">Borders &amp; dividers</span></div>
+    <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-8 gap-4" data-rv>
+      <div><div class="h-16 rounded-[6px] border border-[rgba(35,39,31,.1)]"></div><code class="ds-code">ink .10 · card row</code></div>
+      <div><div class="h-16 rounded-[6px] border border-[rgba(35,39,31,.12)]"></div><code class="ds-code">ink .12 · card</code></div>
+      <div><div class="h-16 rounded-[100px] border border-[rgba(35,39,31,.2)]"></div><code class="ds-code">ink .20 · signup</code></div>
+      <div><div class="h-16 rounded-[6px] border border-[rgba(95,122,82,.4)]"></div><code class="ds-code">jade .40 · card hover</code></div>
+      <div><div class="h-16 rounded-[100px] border border-[color:var(--ink)]"></div><code class="ds-code">--ink · add pill</code></div>
+      <div><div class="h-16 rounded-[100px] border border-[rgba(244,240,230,.6)] bg-[color:var(--jade-d)]"></div><code class="ds-code">bone .60 · nav pill</code></div>
+      <div><div class="h-16 rounded-[100px] border border-[rgba(244,240,230,.5)] bg-[color:var(--jade-d)]"></div><code class="ds-code">bone .50 · ghost btn</code></div>
+      <div><div class="h-16 border-t border-[rgba(244,240,230,.12)] bg-[color:var(--ink)]"></div><code class="ds-code">bone .12 · footer rule</code></div>
+    </div>
+  </section>
+
+  <!-- ═════════ 3 · UI COMPONENTS ═════════ -->
+  <section class="wrap range" id="components">
+    <div class="head">
+      <span class="eyebrow c" data-rv>03 · UI Components</span>
+      <h2 class="serif" data-rv>Pills, paper and a pause.</h2>
+      <div class="manifesto"><p class="lead" data-rv>Every control is a 100px pill with tracked uppercase text. "Default" cells are live, so hover them. Other cells pin the declared state. A dash means the source declares no such state; the signup input even removes its focus outline.</p></div>
+    </div>
+
+    <div class="mb-5"><span class="eyebrow">Buttons &amp; links · states</span></div>
+    <div class="overflow-x-auto mb-6" data-rv>
+      <div class="numbers min-w-[980px] rounded-[6px] p-8">
+        <div class="grid grid-cols-[170px_repeat(5,minmax(0,1fr))] gap-6 items-center">
+          <span></span><span class="lsub !mt-0">Default · live</span><span class="lsub !mt-0">Hover</span><span class="lsub !mt-0">Active</span><span class="lsub !mt-0">Focus</span><span class="lsub !mt-0">Disabled</span>
+
+          <span class="eyebrow !text-[color:var(--stone)]">.btn.solid</span>
+          <div><a href="#components" class="btn solid">Begin</a></div>
+          <div><span class="btn solid !bg-white !-translate-y-[2px]">Begin</span></div>
+          <span class="lsub !mt-0">—</span><span class="lsub !mt-0">—</span><span class="lsub !mt-0">—</span>
+
+          <span class="eyebrow !text-[color:var(--stone)]">.btn.ghost</span>
+          <div><a href="#components" class="btn ghost">Origin</a></div>
+          <div><span class="btn ghost !border-[color:var(--bone)] !bg-[rgba(244,240,230,.1)]">Origin</span></div>
+          <span class="lsub !mt-0">—</span><span class="lsub !mt-0">—</span><span class="lsub !mt-0">—</span>
+
+          <span class="eyebrow !text-[color:var(--stone)]">.nbtn</span>
+          <div><a href="#components" class="nbtn">Begin ritual</a></div>
+          <div><span class="nbtn !bg-[color:var(--bone)] !text-[color:var(--ink)]">Begin ritual</span></div>
+          <span class="lsub !mt-0">—</span><span class="lsub !mt-0">—</span><span class="lsub !mt-0">—</span>
+
+          <span class="eyebrow !text-[color:var(--stone)]">.nlinks a</span>
+          <div class="nlinks"><a href="#components">Origin</a></div>
+          <div class="nlinks"><a class="after:!w-full" href="#components">Origin</a></div>
+          <span class="lsub !mt-0">—</span><span class="lsub !mt-0">—</span><span class="lsub !mt-0">—</span>
+
+          <span class="eyebrow !text-[color:var(--stone)]">.fcol a</span>
+          <div class="fcol"><a href="#components">Our origin</a></div>
+          <div class="fcol"><a class="!text-[color:var(--bone)]" href="#components">Our origin</a></div>
+          <span class="lsub !mt-0">—</span><span class="lsub !mt-0">—</span><span class="lsub !mt-0">—</span>
+        </div>
+      </div>
+    </div>
+    <code class="ds-code mb-16">Once the nav docks (scroll > 60px) .nbtn turns jade: border var(--jade), text var(--jade-d), hover fills jade. Nav links turn var(--ink-2) with a jade underline. All transitions: .btn all .4s · .nbtn .35s · underline width .35s · .fcol a color .3s.</code>
+
+    <div class="mb-5"><span class="eyebrow">Signup field · states</span></div>
+    <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-16" data-rv>
+      <div><form class="signup !mx-0" onsubmit="return false"><input type="email" placeholder="you@morning.com" aria-label="Email"><button type="submit">Subscribe</button></form><code class="ds-code">Default · live (input focus: outline none, no visible change)</code></div>
+      <div><form class="signup !mx-0" onsubmit="return false"><input type="email" value="hana@morning.com" aria-label="Email"><button type="submit">Subscribe</button></form><code class="ds-code">Filled · value in var(--ink), .9rem</code></div>
+      <div><form class="signup !mx-0" onsubmit="return false"><input type="email" placeholder="you@morning.com" aria-label="Email"><button type="submit" class="!bg-[color:var(--jade-d)]">Subscribe</button></form><code class="ds-code">Button hover · var(--jade) → var(--jade-d) .35s · no error state exists</code></div>
+    </div>
+
+    <div class="mb-5"><span class="eyebrow">Product cards · .grades</span></div>
+    <div class="grades mb-4">
+      <div class="grade" data-rv>
+        <div class="pic"><img src="site/cdn.jsdelivr.net/gh/VanhDc/aura-assets%40matcha-v4/asagiri/img/tin-ceremonial.jpg" alt="Ceremonial grade matcha tin"></div>
+        <div class="body">
+          <span class="g">Default · live</span>
+          <h3 class="serif">Asagiri No.1</h3>
+          <p>The first flush, whisked with water alone. Vivid, sweet, no bitterness. The bowl this whole ritual is for.</p>
+          <div class="row"><span class="price">$48</span><span class="add">Add · 30g</span></div>
+        </div>
+      </div>
+      <div class="grade !-translate-y-[6px] !shadow-[0_24px_50px_rgba(58,74,49,.14)] !border-[rgba(95,122,82,.4)]" data-rv>
+        <div class="pic"><img class="!scale-[1.06]" src="site/cdn.jsdelivr.net/gh/VanhDc/aura-assets%40matcha-v4/asagiri/img/tin-daily.jpg" alt="Daily grade matcha tin"></div>
+        <div class="body">
+          <span class="g">Hover · pinned</span>
+          <h3 class="serif">Everyday Jade</h3>
+          <p>Lift −6px, soft jade shadow, jade border at 40%, image scales 1.06 over .8s.</p>
+          <div class="row"><span class="price">$32</span><span class="add">Add · 50g</span></div>
+        </div>
+      </div>
+      <div class="grade" data-rv>
+        <div class="pic"><img src="site/cdn.jsdelivr.net/gh/VanhDc/aura-assets%40matcha-v4/asagiri/img/tin-culinary.jpg" alt="Culinary grade matcha tin"></div>
+        <div class="body">
+          <span class="g">Add pill · hover pinned</span>
+          <h3 class="serif">Kitchen Stone</h3>
+          <p>The .add pill inverts to ink with bone text on hover (.35s).</p>
+          <div class="row"><span class="price">$24</span><span class="add !bg-[color:var(--ink)] !text-[color:var(--bone)]">Add · 80g</span></div>
+        </div>
+      </div>
+    </div>
+    <code class="ds-code mb-16">.grade · pic 230px · body padding 1.6rem, gap .5rem · .g .6rem ls .28em jade · .row border-top ink .1 · transform/shadow/border .5s</code>
+
+    <div class="mb-5"><span class="eyebrow">Content blocks</span></div>
+    <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 mb-6">
+      <div class="copy" data-rv>
+        <span class="eyebrow">01 · Origin</span>
+        <h2 class="serif">Grown in the <em>shade</em>,<br>gathered in the mist.</h2>
+        <p>For the last twenty-one days before harvest, our tea is hidden from the sun.</p>
+        <div class="meta">
+          <div><div class="k serif">21</div><div class="l">days in shade</div></div>
+          <div><div class="k serif">1st</div><div class="l">flush only</div></div>
+          <div><div class="k serif">Uji</div><div class="l">Kyoto region</div></div>
+        </div>
+        <div class="microsteps">
+          <div><div class="n jp">一 · shade</div><div class="t">21 days under cover</div></div>
+          <div><div class="n jp">二 · steam</div><div class="t">fixed within hours</div></div>
+          <div><div class="n jp">三 · stone</div><div class="t">ground cool &amp; slow</div></div>
+        </div>
+        <code class="ds-code">.copy: .eyebrow → h2 → p → .meta (gap 2.4rem) or .microsteps (flex, min 120px)</code>
+      </div>
+      <div class="bg-[color:var(--ink)] text-[color:var(--bone-2)] rounded-[6px] p-10" data-rv>
+        <div class="frow">
+          <div class="fbrand"><div class="mk serif">ASA<b>GIRI</b></div><div class="jp">朝霧 · ceremonial matcha</div></div>
+          <div class="fcols">
+            <div class="fcol"><h4>Shop</h4><a href="#components">Ceremonial</a><a href="#components">Daily</a><a href="#components">Culinary</a></div>
+            <div class="fcol"><h4>Learn</h4><a href="#components">Our origin</a><a href="#components">The craft</a></div>
+          </div>
+        </div>
+        <div class="fbot"><span>© 2026 ASAGIRI Tea Co.</span><span>Stillness, daily.</span></div>
+        <code class="ds-code">footer pattern: .frow › .fbrand + .fcols › .fcol (h4 + links) · .fbot legal row</code>
+      </div>
+    </div>
+    <code class="ds-code">↓ Stat band: section.wrap.numbers › .numgrid, counts up once when scrolled into view</code>
+  </section>
+
+  <section class="wrap numbers">
+    <div class="numgrid">
+      <div data-rv><div class="v serif" data-count="21">0</div><div class="l">days shade-grown</div></div>
+      <div data-rv><div class="v serif" data-count="10"><em>~</em>0<em>µm</em></div><div class="l">stone-ground fineness</div></div>
+      <div data-rv><div class="v serif" data-count="137"><em></em>0<em>×</em></div><div class="l">antioxidants vs steeped</div></div>
+      <div data-rv><div class="v serif" data-count="0">0</div><div class="l">bitterness, by design</div></div>
+    </div>
+  </section>
+
+  <!-- ═════════ 4 · LAYOUT & SPACING ═════════ -->
+  <section class="wrap range" id="layout">
+    <div class="head">
+      <span class="eyebrow c" data-rv>04 · Layout &amp; Spacing</span>
+      <h2 class="serif" data-rv>Full bleed, fluid gutters.</h2>
+      <div class="manifesto"><p class="lead" data-rv>There is no max-width container. Every section spans the viewport, and one fluid token (--pad) sets the side gutter. Rhythm comes from viewport-height padding.</p></div>
+    </div>
+
+    <div class="grade mb-16" data-rv><div class="body">
+      <div class="row !mt-0 !pt-0 !border-0"><span class="g">--pad · side gutter</span><code class="ds-code !mt-0">clamp(22px, 6vw, 96px)</code></div>
+      <div class="row"><span class="g">.wrap · section padding</span><code class="ds-code !mt-0">clamp(4rem, 9vh, 7rem) var(--pad) → 64–112px vertical</code></div>
+      <div class="row"><span class="g">.hero</span><code class="ds-code !mt-0">min-height 100svh · flex-end · .inner padding-bottom clamp(3rem, 7vh, 6rem)</code></div>
+      <div class="row"><span class="g">.ritual</span><code class="ds-code !mt-0">height 100vh, pinned · .track gap clamp(1.5rem, 3vw, 3rem) · .step width min(72vw, 430px)</code></div>
+      <div class="row"><span class="g">.interlude</span><code class="ds-code !mt-0">min-height 90vh · grid place-items center</code></div>
+      <div class="row"><span class="g">footer</span><code class="ds-code !mt-0">padding clamp(4rem, 9vh, 7rem) var(--pad) 2.5rem</code></div>
+      <div class="row"><span class="g">Breakpoints</span><code class="ds-code !mt-0">820 split &amp; grades stack · 780 nav links hide, numgrid 2-col · 680 ritual h2 wraps · 600 vertical mark 2.6rem</code></div>
+      <div class="row"><span class="g">Radii</span><code class="ds-code !mt-0">100px pills · 6px cards &amp; steps · 4px media · 3px caption</code></div>
+    </div></div>
+
+    <div class="mb-5"><span class="eyebrow">Pattern A · Split (.split.rev)</span></div>
+    <div class="split rev mb-16">
+      <div class="media" data-rv><img src="site/cdn.jsdelivr.net/gh/VanhDc/aura-assets%40matcha-v4/asagiri/img/mill.jpg" alt="A granite stone mill grinding bright jade matcha powder"><span class="cap">.media · 0.82fr / 1.18fr</span></div>
+      <div class="copy">
+        <span class="eyebrow" data-rv>Pattern A · Split</span>
+        <h2 class="serif" data-rv>Media and copy,<br>weighted <em>unevenly.</em></h2>
+        <p data-rv>.split sets the columns to 1.18fr / 0.82fr. .split.rev flips them to 0.82fr / 1.18fr and moves the media to the right. The gap is clamp(2rem, 4.5vw, 4.5rem) and the image height clamp(440px, 74vh, 760px).</p>
+        <p data-rv>Below 820px both stack into one column and the image drops to 46vh.</p>
+        <div class="meta" data-rv>
+          <div><div class="k serif">1.18</div><div class="l">media fr</div></div>
+          <div><div class="k serif">0.82</div><div class="l">copy fr</div></div>
+          <div><div class="k serif">820</div><div class="l">stack point</div></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="mb-5"><span class="eyebrow">Pattern B · Three-up grid (.grades) and four-up (.numgrid)</span></div>
+    <div class="grades mb-6" data-rv>
+      <div class="grade h-[140px]"><div class="body justify-end"><span class="g">repeat(3, 1fr)</span></div></div>
+      <div class="grade h-[140px]"><div class="body justify-end"><span class="g">gap 1.4rem</span></div></div>
+      <div class="grade h-[140px]"><div class="body justify-end"><span class="g">stretch</span></div></div>
+    </div>
+    <div class="numbers rounded-[6px] py-10 mb-4" data-rv>
+      <div class="numgrid">
+        <div><div class="v serif">1</div><div class="l">repeat(4, 1fr)</div></div>
+        <div><div class="v serif">2</div><div class="l">gap 2rem</div></div>
+        <div><div class="v serif">3</div><div class="l">centered</div></div>
+        <div><div class="v serif">4</div><div class="l">2-col &lt; 780</div></div>
+      </div>
+    </div>
+    <code class="ds-code">.grades stacks below 820px to one column, max 420px, centered.</code>
+    <div class="mt-16"><span class="eyebrow">↓ Pattern C · Full-bleed interlude (min-height 90vh, parallax image)</span></div>
+  </section>
+
+  <section class="interlude">
+    <div class="bg"><img src="site/cdn.jsdelivr.net/gh/VanhDc/aura-assets%40matcha-v4/asagiri/img/hands.jpg" alt="Hands cradling a warm bowl of matcha" data-par></div>
+    <div class="q">
+      <span class="jp">朝霧</span>
+      <blockquote class="serif">First light, whisked.</blockquote>
+    </div>
+  </section>
+
+  <!-- ═════════ 5 · MOTION & INTERACTION ═════════ -->
+  <section class="wrap range" id="motion">
+    <div class="head">
+      <span class="eyebrow c" data-rv>05 · Motion &amp; Interaction</span>
+      <h2 class="serif" data-rv>Nothing hurries.</h2>
+      <div class="manifesto"><p class="lead" data-rv>GSAP and ScrollTrigger drive entrances, reveals, parallax, counters and one pinned horizontal scrub, all on Lenis smooth scroll. CSS handles hovers. Everything calms down under prefers-reduced-motion.</p></div>
+    </div>
+
+    <div class="grade mb-16" data-rv><div class="body">
+      <div class="row !mt-0 !pt-0 !border-0"><span class="g">Lenis</span><code class="ds-code !mt-0">lerp .07 · smoothWheel · shares gsap.ticker · anchors scrollTo offset −10, 1.3s</code></div>
+      <div class="row"><span class="g">Loader</span><code class="ds-code !mt-0">bar width per loaded image (.25s ease) · done +350ms → opacity .9s ease · 6s safety</code></div>
+      <div class="row"><span class="g">Hero entrance</span><code class="ds-code !mt-0">power3.out · .hl y54 1.1s stagger .13 → .sub y24 .9s → .cta y18 .75s stagger .1 → .scrolln → .vjp y70 1.6s power2.out</code></div>
+      <div class="row"><span class="g">Reveal [data-rv]</span><code class="ds-code !mt-0">opacity 0, y52 → 1, 0 · 1.25s power3.out · starts at top 88%</code></div>
+      <div class="row"><span class="g">Parallax</span><code class="ds-code !mt-0">hero img yPercent 14 · page ground yPercent 14 · [data-par] −6 → 6 · all scrub</code></div>
+      <div class="row"><span class="g">Count-up [data-count]</span><code class="ds-code !mt-0">1.6s power2.out · once at top 85% · keeps &lt;em&gt; affixes</code></div>
+      <div class="row"><span class="g">Pinned scrub</span><code class="ds-code !mt-0">.ritual pinned · track x → −(scrollWidth − wrap) · end = dist × 1.18 (short dwell)</code></div>
+      <div class="row"><span class="g">Nav dock</span><code class="ds-code !mt-0">scrollY &gt; 60 → nav.docked · background, padding, shadow .5s · brand color .4s</code></div>
+      <div class="row"><span class="g">Ambient</span><code class="ds-code !mt-0">#steam canvas sprites ~30fps, paused off-screen · .scrolln @keyframes run 2.4s ease-in-out infinite</code></div>
+      <div class="row"><span class="g">Hover</span><code class="ds-code !mt-0">.grade lift .5s + img scale .8s · .btn all .4s · .nbtn / .add / signup .35s · underline .35s · .fcol .3s</code></div>
+    </div></div>
+
+    <div class="mb-5"><span class="eyebrow">Motion gallery</span></div>
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+      <div class="grade"><div class="pic !h-[220px] bg-[color:var(--bone)] grid place-items-center"><div class="lw"><div class="mk serif">ASAGIRI</div><span class="jp">朝霧</span><div class="lbar"><i id="demoBar"></i></div><div class="lsub" id="demoSub">steeping · 0%</div></div></div>
+        <div class="body"><span class="g">Loader</span><h3 class="serif">Steeping bar</h3><p>Fills per loaded image, then the veil fades over .9s.</p><div class="row"><span class="price">.9s</span><span class="add" data-demo="loader">Replay</span></div></div></div>
+
+      <div class="grade"><div class="pic !h-[220px]"><img src="site/cdn.jsdelivr.net/gh/VanhDc/aura-assets%40matcha-v4/asagiri/img/hero.jpg" alt=""></div>
+        <div class="body"><span class="g">Entrance</span><h3 class="serif">Hero timeline</h3><p>Lines rise and stagger in, then the vertical mark drifts up. Replay scrolls to the top.</p><div class="row"><span class="price">1.1s</span><span class="add" data-demo="hero">Replay</span></div></div></div>
+
+      <div class="grade"><div class="pic !h-[220px] bg-[#fbf9f2] flex flex-col justify-center gap-3 px-6" id="rvDemo"><span class="eyebrow">01 · Origin</span><div class="copy"><h2 class="serif !m-0">Revealed on scroll.</h2></div></div>
+        <div class="body"><span class="g">Reveal</span><h3 class="serif">[data-rv]</h3><p>Rise 52px and fade in, 1.25s power3.out.</p><div class="row"><span class="price">1.25s</span><span class="add" data-demo="reveal">Replay</span></div></div></div>
+
+      <div class="grade"><div class="pic !h-[220px] bg-[color:var(--jade-d)]"><div class="scrolln"><span class="ln"></span> Scroll to steep</div></div>
+        <div class="body"><span class="g">Ambient</span><h3 class="serif">Scroll cue</h3><p>A bone sliver runs through the hairline forever: @keyframes run, 2.4s ease-in-out.</p><div class="row"><span class="price">2.4s</span><span class="add">∞</span></div></div></div>
+
+      <div class="grade"><div class="pic !h-[220px] bg-[color:var(--jade-d)] grid place-items-center"><div class="numgrid !grid-cols-1"><div><div class="v serif" id="countDemo" data-count="137"><em></em>0<em>×</em></div><div class="l">antioxidants vs steeped</div></div></div></div>
+        <div class="body"><span class="g">Counter</span><h3 class="serif">Count-up</h3><p>Tweens to its target once, keeping the &lt;em&gt; prefix and suffix.</p><div class="row"><span class="price">1.6s</span><span class="add" data-demo="count">Replay</span></div></div></div>
+
+      <div class="grade"><div class="pic !h-[220px]"><img src="site/cdn.jsdelivr.net/gh/VanhDc/aura-assets%40matcha-v4/asagiri/img/sift.jpg" alt=""></div>
+        <div class="body"><span class="g">Hover</span><h3 class="serif">Lift &amp; zoom</h3><p>Hover this card: −6px lift over .5s, image scale 1.06 over .8s.</p><div class="row"><span class="price">.5s</span><span class="add">Hover</span></div></div></div>
+    </div>
+    <div class="mt-16"><span class="eyebrow">↓ Pinned horizontal scrub (.ritual): scroll through it</span></div>
+  </section>
+
+  <section class="ritual" id="ritual">
+    <div class="head">
+      <span class="eyebrow">03 · The ritual</span>
+      <h2 class="serif">Four movements, ninety seconds.</h2>
+    </div>
+    <div class="track-wrap" id="trackWrap">
+      <div class="track" id="track">
+        <div class="step intro">
+          <div class="big serif">A bowl is not<br>made fast.<br><em>That's the point.</em></div>
+        </div>
+        <div class="step"><img src="site/cdn.jsdelivr.net/gh/VanhDc/aura-assets%40matcha-v4/asagiri/img/sift.jpg" alt=""><div class="lab"><span class="s jp">一 · sift</span><h3 class="serif">Sift the powder</h3><p>Press through a fine mesh so it dissolves without a single clump.</p></div></div>
+        <div class="step"><img src="site/cdn.jsdelivr.net/gh/VanhDc/aura-assets%40matcha-v4/asagiri/img/pour.jpg" alt=""><div class="lab"><span class="s jp">二 · pour</span><h3 class="serif">Pour at seventy</h3><p>Water just off the boil, 70°C, poured down the side of the bowl.</p></div></div>
+        <div class="step"><img src="site/cdn.jsdelivr.net/gh/VanhDc/aura-assets%40matcha-v4/asagiri/img/froth.jpg" alt=""><div class="lab"><span class="s jp">三 · whisk</span><h3 class="serif">Whisk in a W</h3><p>Quick wrist, never circular, until a fine jade froth rises and holds.</p></div></div>
+        <div class="step"><img src="site/cdn.jsdelivr.net/gh/VanhDc/aura-assets%40matcha-v4/asagiri/img/hands.jpg" alt=""><div class="lab"><span class="s jp">四 · drink</span><h3 class="serif">Drink it warm</h3><p>Two hands around the bowl. No phone. Ninety seconds that are only yours.</p></div></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="wrap cta-sec">
+    <span class="eyebrow c" data-rv>End of the system</span>
+    <h2 class="serif" data-rv>Take your <em>ninety seconds.</em></h2>
+    <p data-rv>Every class on this page comes from the original stylesheet. Build new pages from these pieces and they will feel just as unhurried.</p>
+    <form class="signup" data-rv onsubmit="return false">
+      <input type="email" placeholder="you@morning.com" aria-label="Email">
+      <button type="submit">Subscribe</button>
+    </form>
+    <div class="fine" data-rv>Icons: none in the source. Numerals and marks are Shippori Mincho glyphs.</div>
+  </section>
+
+  <footer>
+    <div class="frow">
+      <div class="fbrand">
+        <div class="mk serif">ASA<b>GIRI</b></div>
+        <div class="jp">朝霧 · design system</div>
+      </div>
+      <div class="fcols">
+        <div class="fcol"><h4>Foundations</h4><a href="#typography">Typography</a><a href="#colors">Colors &amp; surfaces</a></div>
+        <div class="fcol"><h4>Patterns</h4><a href="#components">Components</a><a href="#layout">Layout</a><a href="#motion">Motion</a></div>
+        <div class="fcol"><h4>Source</h4><a href="index.html">Live site</a><a href="#top">Back to top</a></div>
+      </div>
+    </div>
+    <div class="fbot"><span>© 2026 ASAGIRI Tea Co. · Design system v2</span><span>Tokens · Type · Stillness, daily.</span></div>
+  </footer>
+
+<script>
+/* Original index.html script, unchanged except: hero selectors scoped to #top (so preview tiles that reuse
+   .hero are not driven by the hero timeline) and heroTl / lenis exposed for the motion gallery. */
+(function(){
+  const REDUCED = matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  /* ---- loader (waits for the hero + key images) ---- */
+  const loader=document.getElementById('loader'), lbar=document.getElementById('lbar'), lsub=document.getElementById('lsub');
+  const imgs=[...document.images]; let done=0;
+  const total=Math.max(1,imgs.length);
+  function bump(){ done++; const p=Math.round(done/total*100); if(lbar)lbar.style.width=p+'%'; if(lsub)lsub.textContent='steeping · '+p+'%'; if(done>=total) finish(); }
+  let finished=false;
+  function finish(){ if(finished)return; finished=true; setTimeout(()=>{ loader.classList.add('done'); start(); }, 350); }
+  imgs.forEach(im=>{ if(im.complete) bump(); else { im.addEventListener('load',bump); im.addEventListener('error',bump); } });
+  setTimeout(finish, 6000); // safety
+
+  /* ---- nav dock ---- */
+  const nav=document.getElementById('nav');
+  addEventListener('scroll',()=>{ nav.classList.toggle('docked', (window.scrollY||0) > 60); }, {passive:true});
+
+  /* ---- hero steam canvas (light, pre-rendered sprites) ---- */
+  (function(){
+    const cv=document.getElementById('steam'); if(!cv) return; const x=cv.getContext('2d');
+    let W=0,H=0, DPR=1, parts=[], spr, running=false, raf=0, lastT=0;
+    function sprite(){ const s=128,c=document.createElement('canvas'); c.width=c.height=s; const g=c.getContext('2d');
+      const gr=g.createRadialGradient(s/2,s/2,0,s/2,s/2,s/2); gr.addColorStop(0,'rgba(244,240,230,.5)'); gr.addColorStop(1,'rgba(244,240,230,0)');
+      g.fillStyle=gr; g.fillRect(0,0,s,s); return c; }
+    function size(){ const r=cv.getBoundingClientRect(); W=cv.width=Math.max(2,r.width*DPR); H=cv.height=Math.max(2,r.height*DPR); }
+    function seed(){ parts=[]; const n=Math.min(14,Math.round(W/130)); for(let i=0;i<n;i++) parts.push(mk()); }
+    function mk(){ return {x:Math.random()*W, y:H*(.5+Math.random()*.6), r:(30+Math.random()*60)*DPR, v:(.15+Math.random()*.35)*DPR, a:0, av:.002+Math.random()*.004, drift:(Math.random()-.5)*.3*DPR, ph:Math.random()*6.28}; }
+    function frame(t){ raf=requestAnimationFrame(frame); if(!running) return; if(t-lastT<33) return; lastT=t; x.clearRect(0,0,W,H); x.globalCompositeOperation='screen';
+      for(const p of parts){ p.y-=p.v; p.x+=p.drift+Math.sin(t*0.0004+p.ph)*0.25*DPR; p.a+=p.av; const life=Math.max(0,Math.min(1,Math.sin(p.a)));
+        if(p.y< H*0.18 || p.a>3.14){ Object.assign(p, mk()); continue; }
+        const s=p.r*(1+p.a*0.35); x.globalAlpha=life*0.5; x.drawImage(spr, p.x-s/2, p.y-s/2, s, s); }
+      x.globalAlpha=1; }
+    spr=sprite(); size(); seed();
+    addEventListener('resize',()=>{ size(); seed(); });
+    try{ new IntersectionObserver(es=>{ running=es[0].isIntersecting && !REDUCED; },{threshold:.02}).observe(cv); }catch(e){ running=!REDUCED; }
+    if(!REDUCED){ running=true; raf=requestAnimationFrame(frame); }
+  })();
+
+  /* ---- everything below needs GSAP ---- */
+  function start(){
+    if(!window.gsap){ document.querySelectorAll('.rv,[data-rv]').forEach(e=>{e.style.opacity=1;e.style.transform='none';}); return; }
+    gsap.registerPlugin(ScrollTrigger);
+    // Lenis ↔ GSAP share one clock so pinned scrubs stay in sync
+    const lenis = (!REDUCED && window.Lenis) ? new Lenis({lerp:0.07, smoothWheel:true, wheelMultiplier:1}) : null;
+    window.lenis = lenis;
+    if(lenis){ lenis.on('scroll', ScrollTrigger.update); gsap.ticker.add(t=>lenis.raf(t*1000)); gsap.ticker.lagSmoothing(0); }
+
+    // anchor links via lenis
+    document.querySelectorAll('a[href^="#"]').forEach(a=>a.addEventListener('click',e=>{
+      const id=a.getAttribute('href'); if(id.length<2) return; const t=document.querySelector(id); if(!t)return;
+      e.preventDefault(); if(lenis) lenis.scrollTo(t,{offset:-10,duration:1.3}); else t.scrollIntoView({behavior:'smooth'});
+    }));
+
+    if(REDUCED){
+      gsap.utils.toArray('[data-rv]').forEach(el=>gsap.fromTo(el,{opacity:0},{opacity:1,duration:.7,ease:'power1.out',scrollTrigger:{trigger:el,start:'top 94%'}}));
+      document.querySelectorAll('[data-count]').forEach(el=>{ const t=+el.getAttribute('data-count'); const em=el.querySelectorAll('em');
+        if(em.length===2) el.innerHTML=em[0].outerHTML+t+em[1].outerHTML; else if(em.length===1) el.innerHTML=t+em[0].outerHTML; else el.textContent=t; });
+      return;
+    }
+
+    // hero parallax
+    gsap.to('#top .bg img',{yPercent:14, ease:'none', scrollTrigger:{trigger:'#top', start:'top top', end:'bottom top', scrub:true}});
+
+    // misty page background parallax (slow drift behind the light sections)
+    gsap.to('.page-bg .pi',{yPercent:14, ease:'none', scrollTrigger:{trigger:document.body, start:'top top', end:'bottom bottom', scrub:true}});
+
+    // hero entrance (plays as the loader clears)
+    const heroTl=gsap.timeline({defaults:{ease:'power3.out'}});
+    heroTl.from('#top h1 .hl',{y:54,opacity:0,duration:1.1,stagger:0.13})
+      .from('#top .sub',{y:24,opacity:0,duration:.9},'-=0.65')
+      .from('#top .cta > *',{y:18,opacity:0,duration:.75,stagger:0.1},'-=0.6')
+      .from('#top .scrolln',{opacity:0,y:10,duration:.7},'-=0.45')
+      .from('#top .vjp',{opacity:0,y:70,duration:1.6,ease:'power2.out'},'-=1.55');
+    window.heroTl = heroTl;
+
+    // generic reveals (more present)
+    gsap.utils.toArray('[data-rv]').forEach(el=>{
+      gsap.fromTo(el,{opacity:0,y:52},{opacity:1,y:0,duration:1.25,ease:'power3.out',
+        scrollTrigger:{trigger:el, start:'top 88%'}});
+    });
+
+    // image parallax inside media frames
+    gsap.utils.toArray('[data-par]').forEach(img=>{
+      gsap.fromTo(img,{yPercent:-6},{yPercent:6,ease:'none',scrollTrigger:{trigger:img.closest('section')||img, start:'top bottom', end:'bottom top', scrub:true}});
+    });
+
+    // numbers count-up
+    gsap.utils.toArray('[data-count]').forEach(el=>{
+      const target=+el.getAttribute('data-count'); const o={v:0};
+      ScrollTrigger.create({trigger:el, start:'top 85%', once:true, onEnter:()=>{
+        gsap.to(o,{v:target,duration:1.6,ease:'power2.out',onUpdate:()=>{
+          const txt=Math.round(o.v); const em=el.querySelectorAll('em');
+          if(em.length===2){ el.innerHTML=em[0].outerHTML+txt+em[1].outerHTML; }
+          else if(em.length===1){ el.innerHTML=txt+em[0].outerHTML; }
+          else el.textContent=txt;
+        }});
+      }});
+    });
+
+    // ritual pinned horizontal scrub
+    const track=document.getElementById('track'), wrap=document.getElementById('trackWrap');
+    if(track && wrap){
+      const dist=()=>Math.max(1, track.scrollWidth - wrap.clientWidth);
+      const sect=document.querySelector('.ritual');
+      const tl=gsap.timeline({scrollTrigger:{trigger:sect, start:'top top', end:()=>'+='+(dist()*1.18),
+        scrub:true, pin:sect, anticipatePin:1, invalidateOnRefresh:true}});
+      tl.to(track,{x:()=>-dist(), ease:'none', duration:1});
+      tl.to(track,{x:()=>-dist(), ease:'none', duration:0.18});
+    }
+
+    setTimeout(()=>ScrollTrigger.refresh(), 300);
+  }
+})();
+
+/* ---- motion gallery replays (doc only; reuse the same tweens as above) ---- */
+(function(){
+  const demos={
+    loader(){ const bar=document.getElementById('demoBar'), sub=document.getElementById('demoSub'); let p=0;
+      bar.style.width='0%'; sub.textContent='steeping · 0%';
+      const id=setInterval(()=>{ p=Math.min(100,p+10); bar.style.width=p+'%'; sub.textContent='steeping · '+p+'%'; if(p>=100) clearInterval(id); },120); },
+    hero(){ if(window.lenis) lenis.scrollTo(0,{duration:1.3}); else scrollTo({top:0,behavior:'smooth'}); setTimeout(()=>window.heroTl&&heroTl.restart(),900); },
+    reveal(){ if(!window.gsap) return; gsap.fromTo('#rvDemo > *',{opacity:0,y:52},{opacity:1,y:0,duration:1.25,ease:'power3.out'}); },
+    count(){ if(!window.gsap) return; const el=document.getElementById('countDemo'), o={v:0};
+      gsap.to(o,{v:137,duration:1.6,ease:'power2.out',onUpdate:()=>{ const em=el.querySelectorAll('em'); el.innerHTML=em[0].outerHTML+Math.round(o.v)+em[1].outerHTML; }}); }
+  };
+  document.querySelectorAll('[data-demo]').forEach(b=>{ b.addEventListener('click',()=>demos[b.dataset.demo]()); });
+  demos.loader();
+})();
+</script>
+</body></html>

@@ -1,0 +1,59 @@
+{
+ "builders": [
+  "next.js",
+  "react"
+ ],
+ "libraries": [
+  {
+   "name": "gsap",
+   "version": "3.11.0",
+   "sources": [
+    "embutido em https://www.awakeagency.dev/_next/static/immutable/chunks/2fynoz9uh28eg.js"
+   ]
+  },
+  {
+   "name": "lenis",
+   "version": null,
+   "sources": [
+    "página"
+   ]
+  },
+  {
+   "name": "three",
+   "version": "r185",
+   "sources": [
+    "página"
+   ]
+  }
+ ],
+ "runtime": {
+  "contexts": {
+   "2d": 15,
+   "webgl2": 5
+  },
+  "wasm": 0,
+  "workers": 0,
+  "webgpu": false,
+  "shadowRoots": 1,
+  "canvases": 5
+ },
+ "cssFeatures": [
+  "scroll-driven animations"
+ ],
+ "fonts": {
+  "families": [
+   "aeonik",
+   "syne"
+  ],
+  "sources": [
+   "self-hosted"
+  ]
+ },
+ "videos": [],
+ "files": {
+  "text": 41,
+  "font": 7,
+  "application": 29,
+  "image": 34
+ }
+}

@@ -1,0 +1,1689 @@
+{
+ "version": 1,
+ "tool": "wd3 0.1.0",
+ "captureId": "guillaumezhu.com-6561772f",
+ "capturedAt": "2026-10-14T17:05:18+00:00",
+ "entry": {
+  "url": "https://guillaumezhu.com/",
+  "path": "/",
+  "search": "",
+  "file": "site/guillaumezhu.com/index.html",
+  "contentType": "text/html; charset=utf-8"
+ },
+ "blocked": [
+  "^https?://([^/?#]+\\.)?(google\\-analytics\\.com|analytics\\.google\\.com|googletagmanager\\.com|googleadservices\\.com|doubleclick\\.net|googlesyndication\\.com|googleoptimize\\.com|connect\\.facebook\\.net|bat\\.bing\\.com|snap\\.licdn\\.com|px\\.ads\\.linkedin\\.com|analytics\\.tiktok\\.com|ct\\.pinterest\\.com|static\\.ads\\-twitter\\.com|analytics\\.twitter\\.com|tr\\.snapchat\\.com|sc\\-static\\.net|mc\\.yandex\\.ru|hotjar\\.com|hotjar\\.io|clarity\\.ms|cdn\\.segment\\.com|api\\.segment\\.io|cdn\\.mxpnl\\.com|api\\-js\\.mixpanel\\.com|api\\.mixpanel\\.com|api\\.amplitude\\.com|api2\\.amplitude\\.com|api\\-secure\\.amplitude\\.com|api\\-sr\\.amplitude\\.com|sr\\-client\\-cfg\\.amplitude\\.com|plausible\\.io|cloud\\.umami\\.is|analytics\\.umami\\.is|static\\.cloudflareinsights\\.com|cloudflareinsights\\.com|vitals\\.vercel\\-insights\\.com|browser\\-intake\\-datadoghq\\.com|browser\\-intake\\-datadoghq\\.eu|js\\-agent\\.newrelic\\.com|bam\\.nr\\-data\\.net|bam\\-cell\\.nr\\-data\\.net|fullstory\\.com|script\\.crazyegg\\.com|mouseflow\\.com|smartlook\\.com|heapanalytics\\.com|i\\.posthog\\.com|stats\\.wp\\.com|pixel\\.wp\\.com|promotekit\\.com|ingest\\.sentry\\.io|ingest\\.us\\.sentry\\.io|ingest\\.de\\.sentry\\.io|widget\\.intercom\\.io|js\\.intercomcdn\\.com|api\\-iam\\.intercom\\.io|js\\.hs\\-scripts\\.com|js\\.hs\\-analytics\\.net|js\\.hs\\-banner\\.com|js\\.hscollectedforms\\.net|js\\.usemessages\\.com|track\\.hubspot\\.com|client\\.crisp\\.chat|embed\\.tawk\\.to|js\\.driftt\\.com|static\\.zdassets\\.com|ekr\\.zdassets\\.com|cdn\\.cookielaw\\.org|geolocation\\.onetrust\\.com|consent\\.cookiebot\\.com|consentcdn\\.cookiebot\\.com|app\\.usercentrics\\.eu|api\\.usercentrics\\.eu|cdn\\.iubenda\\.com|cmp\\.osano\\.com|cdn\\.termly\\.io)(:\\d+)?([/?#]|$)",
+  "/rpc/increment_shared_code_views",
+  "^https?://(umami|analytics|stats|plausible)\\.[^/]+/(api/send|api/collect|api/event|script\\.js)",
+  "/g/c(ollect)?\\?v=2&",
+  "sentry\\.io/api/\\d+/(envelope|store)",
+  "/api/meta-capi",
+  "^https?://(leadtracker|tracking|track|events?|collect)\\.[^/]+/",
+  "^https?://a\\.vturb\\.com/",
+  "facebook\\.com/tr[/?]",
+  "/_vercel/(speed-)?insights/",
+  "/cdn-cgi/rum",
+  "/cdn-cgi/challenge-platform/",
+  "google\\.com/(pagead|ads)/"
+ ],
+ "volatileParams": [
+  "v",
+  "_rsc",
+  "dpl",
+  "_",
+  "t",
+  "ts",
+  "timestamp",
+  "cb",
+  "cachebust",
+  "cacheBust",
+  "nocache",
+  "rnd",
+  "rand",
+  "random",
+  "_t"
+ ],
+ "entries": [
+  {
+   "url": "https://guillaumezhu.com/",
+   "method": "GET",
+   "status": 200,
+   "contentType": "text/html; charset=utf-8",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "content-disposition": "inline",
+    "content-type": "text/html; charset=utf-8"
+   },
+   "resourceType": "document",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "file": "site/guillaumezhu.com/index.html",
+   "size": 26045,
+   "modes": [
+    "navigate"
+   ]
+  },
+  {
+   "url": "https://guillaumezhu.com/assets/setupHeaderVisibility-fOJvfYOR.css",
+   "method": "GET",
+   "status": 200,
+   "contentType": "text/css; charset=utf-8",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "content-disposition": "inline; filename=\"setupHeaderVisibility-fOJvfYOR.css\"",
+    "content-type": "text/css; charset=utf-8"
+   },
+   "resourceType": "stylesheet",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "file": "site/guillaumezhu.com/assets/setupHeaderVisibility-fOJvfYOR.css",
+   "size": 457,
+   "modes": [
+    "cors"
+   ]
+  },
+  {
+   "url": "https://guillaumezhu.com/assets/setupCrossPageTransitions-D60GSfRM.css",
+   "method": "GET",
+   "status": 200,
+   "contentType": "text/css; charset=utf-8",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "content-disposition": "inline; filename=\"setupCrossPageTransitions-D60GSfRM.css\"",
+    "content-type": "text/css; charset=utf-8"
+   },
+   "resourceType": "stylesheet",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "file": "site/guillaumezhu.com/assets/setupCrossPageTransitions-D60GSfRM.css",
+   "size": 963,
+   "modes": [
+    "cors"
+   ]
+  },
+  {
+   "url": "https://guillaumezhu.com/assets/home-Y5hht4vi.js",
+   "method": "GET",
+   "status": 200,
+   "contentType": "application/javascript; charset=utf-8",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "content-disposition": "inline; filename=\"home-Y5hht4vi.js\"",
+    "content-type": "application/javascript; charset=utf-8"
+   },
+   "resourceType": "script",
+   "passes": [
+    "mobile",
+    "desktop"
+   ],
+   "file": "site/guillaumezhu.com/assets/home-Y5hht4vi.js",
+   "size": 104746,
+   "modes": [
+    "cors"
+   ]
+  },
+  {
+   "url": "https://guillaumezhu.com/assets/home-BJ-xnR8D.css",
+   "method": "GET",
+   "status": 200,
+   "contentType": "text/css; charset=utf-8",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "content-disposition": "inline; filename=\"home-BJ-xnR8D.css\"",
+    "content-type": "text/css; charset=utf-8"
+   },
+   "resourceType": "stylesheet",
+   "passes": [
+    "mobile",
+    "desktop"
+   ],
+   "file": "site/guillaumezhu.com/assets/home-BJ-xnR8D.css",
+   "size": 26130,
+   "modes": [
+    "cors"
+   ]
+  },
+  {
+   "url": "https://guillaumezhu.com/home/toolkit/frontend/en/gsap.svg",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/svg+xml",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "content-disposition": "inline; filename=\"gsap.svg\"",
+    "content-type": "image/svg+xml"
+   },
+   "resourceType": "image",
+   "passes": [
+    "mobile",
+    "desktop"
+   ],
+   "file": "site/guillaumezhu.com/home/toolkit/frontend/en/gsap.svg",
+   "size": 16051,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://guillaumezhu.com/assets/setupHeaderVisibility-D-FHk4jp.js",
+   "method": "GET",
+   "status": 200,
+   "contentType": "application/javascript; charset=utf-8",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "content-disposition": "inline; filename=\"setupHeaderVisibility-D-FHk4jp.js\"",
+    "content-type": "application/javascript; charset=utf-8"
+   },
+   "resourceType": "script",
+   "passes": [
+    "mobile",
+    "desktop"
+   ],
+   "file": "site/guillaumezhu.com/assets/setupHeaderVisibility-D-FHk4jp.js",
+   "size": 18274,
+   "modes": [
+    "cors"
+   ]
+  },
+  {
+   "url": "https://guillaumezhu.com/assets/setupCrossPageTransitions-CltNm_Hf.js",
+   "method": "GET",
+   "status": 200,
+   "contentType": "application/javascript; charset=utf-8",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "content-disposition": "inline; filename=\"setupCrossPageTransitions-CltNm_Hf.js\"",
+    "content-type": "application/javascript; charset=utf-8"
+   },
+   "resourceType": "script",
+   "passes": [
+    "mobile",
+    "desktop"
+   ],
+   "file": "site/guillaumezhu.com/assets/setupCrossPageTransitions-CltNm_Hf.js",
+   "size": 127272,
+   "modes": [
+    "cors"
+   ]
+  },
+  {
+   "url": "https://guillaumezhu.com/home/toolkit/frontend/en/vuejs.svg",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/svg+xml",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "content-disposition": "inline; filename=\"vuejs.svg\"",
+    "content-type": "image/svg+xml"
+   },
+   "resourceType": "image",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "file": "site/guillaumezhu.com/home/toolkit/frontend/en/vuejs.svg",
+   "size": 8582,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://guillaumezhu.com/home/toolkit/frontend/en/webflow.svg",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/svg+xml",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "content-disposition": "inline; filename=\"webflow.svg\"",
+    "content-type": "image/svg+xml"
+   },
+   "resourceType": "image",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "file": "site/guillaumezhu.com/home/toolkit/frontend/en/webflow.svg",
+   "size": 12721,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://guillaumezhu.com/home/toolkit/art-direction/en/indesign.svg",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/svg+xml",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "content-disposition": "inline; filename=\"indesign.svg\"",
+    "content-type": "image/svg+xml"
+   },
+   "resourceType": "image",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "file": "site/guillaumezhu.com/home/toolkit/art-direction/en/indesign.svg",
+   "size": 8199,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://guillaumezhu.com/home/toolkit/frontend/en/threejs.svg",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/svg+xml",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "content-disposition": "inline; filename=\"threejs.svg\"",
+    "content-type": "image/svg+xml"
+   },
+   "resourceType": "image",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "file": "site/guillaumezhu.com/home/toolkit/frontend/en/threejs.svg",
+   "size": 7841,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://guillaumezhu.com/home/toolkit/art-direction/en/figma.svg",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/svg+xml",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "content-disposition": "inline; filename=\"figma.svg\"",
+    "content-type": "image/svg+xml"
+   },
+   "resourceType": "image",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "file": "site/guillaumezhu.com/home/toolkit/art-direction/en/figma.svg",
+   "size": 9163,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://guillaumezhu.com/home/toolkit/art-direction/en/aftereffects.svg",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/svg+xml",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "content-disposition": "inline; filename=\"aftereffects.svg\"",
+    "content-type": "image/svg+xml"
+   },
+   "resourceType": "image",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "file": "site/guillaumezhu.com/home/toolkit/art-direction/en/aftereffects.svg",
+   "size": 14079,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://guillaumezhu.com/home/toolkit/frontend/en/javascript.svg",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/svg+xml",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "content-disposition": "inline; filename=\"javascript.svg\"",
+    "content-type": "image/svg+xml"
+   },
+   "resourceType": "image",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "file": "site/guillaumezhu.com/home/toolkit/frontend/en/javascript.svg",
+   "size": 12006,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://guillaumezhu.com/home/toolkit/art-direction/en/lightroom.svg",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/svg+xml",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "content-disposition": "inline; filename=\"lightroom.svg\"",
+    "content-type": "image/svg+xml"
+   },
+   "resourceType": "image",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "file": "site/guillaumezhu.com/home/toolkit/art-direction/en/lightroom.svg",
+   "size": 13208,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://guillaumezhu.com/assets/ScrollTrigger-Or8JzwiZ.js",
+   "method": "GET",
+   "status": 200,
+   "contentType": "application/javascript; charset=utf-8",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "content-disposition": "inline; filename=\"ScrollTrigger-Or8JzwiZ.js\"",
+    "content-type": "application/javascript; charset=utf-8"
+   },
+   "resourceType": "script",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "file": "site/guillaumezhu.com/assets/ScrollTrigger-Or8JzwiZ.js",
+   "size": 33913,
+   "modes": [
+    "cors"
+   ]
+  },
+  {
+   "url": "https://guillaumezhu.com/assets/Observer-C5OqvjuH.js",
+   "method": "GET",
+   "status": 200,
+   "contentType": "application/javascript; charset=utf-8",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "content-disposition": "inline; filename=\"Observer-C5OqvjuH.js\"",
+    "content-type": "application/javascript; charset=utf-8"
+   },
+   "resourceType": "script",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "file": "site/guillaumezhu.com/assets/Observer-C5OqvjuH.js",
+   "size": 8810,
+   "modes": [
+    "cors"
+   ]
+  },
+  {
+   "url": "https://guillaumezhu.com/home/toolkit/art-direction/en/illustrator.svg",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/svg+xml",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "content-disposition": "inline; filename=\"illustrator.svg\"",
+    "content-type": "image/svg+xml"
+   },
+   "resourceType": "image",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "file": "site/guillaumezhu.com/home/toolkit/art-direction/en/illustrator.svg",
+   "size": 13665,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://guillaumezhu.com/assets/chunk-Deb1DmFP.js",
+   "method": "GET",
+   "status": 200,
+   "contentType": "application/javascript; charset=utf-8",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "content-disposition": "inline; filename=\"chunk-Deb1DmFP.js\"",
+    "content-type": "application/javascript; charset=utf-8"
+   },
+   "resourceType": "script",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "file": "site/guillaumezhu.com/assets/chunk-Deb1DmFP.js",
+   "size": 558,
+   "modes": [
+    "cors"
+   ]
+  },
+  {
+   "url": "https://guillaumezhu.com/home/toolkit/art-direction/en/capcut.svg",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/svg+xml",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "content-disposition": "inline; filename=\"capcut.svg\"",
+    "content-type": "image/svg+xml"
+   },
+   "resourceType": "image",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "file": "site/guillaumezhu.com/home/toolkit/art-direction/en/capcut.svg",
+   "size": 12327,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://guillaumezhu.com/home/toolkit/frontend/en/shopify.svg",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/svg+xml",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "content-disposition": "inline; filename=\"shopify.svg\"",
+    "content-type": "image/svg+xml"
+   },
+   "resourceType": "image",
+   "passes": [
+    "mobile",
+    "desktop"
+   ],
+   "file": "site/guillaumezhu.com/home/toolkit/frontend/en/shopify.svg",
+   "size": 13260,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://guillaumezhu.com/home/toolkit/frontend/en/react.svg",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/svg+xml",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "content-disposition": "inline; filename=\"react.svg\"",
+    "content-type": "image/svg+xml"
+   },
+   "resourceType": "image",
+   "passes": [
+    "mobile",
+    "desktop"
+   ],
+   "file": "site/guillaumezhu.com/home/toolkit/frontend/en/react.svg",
+   "size": 17200,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://guillaumezhu.com/home/toolkit/frontend/en/glsl.svg",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/svg+xml",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "content-disposition": "inline; filename=\"glsl.svg\"",
+    "content-type": "image/svg+xml"
+   },
+   "resourceType": "image",
+   "passes": [
+    "mobile",
+    "desktop"
+   ],
+   "file": "site/guillaumezhu.com/home/toolkit/frontend/en/glsl.svg",
+   "size": 19648,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://guillaumezhu.com/home/toolkit/art-direction/en/photoshop.svg",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/svg+xml",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "content-disposition": "inline; filename=\"photoshop.svg\"",
+    "content-type": "image/svg+xml"
+   },
+   "resourceType": "image",
+   "passes": [
+    "mobile",
+    "desktop"
+   ],
+   "file": "site/guillaumezhu.com/home/toolkit/art-direction/en/photoshop.svg",
+   "size": 13886,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://guillaumezhu.com/assets/three.module-fBMLdKIM.js",
+   "method": "GET",
+   "status": 200,
+   "contentType": "application/javascript; charset=utf-8",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "content-disposition": "inline; filename=\"three.module-fBMLdKIM.js\"",
+    "content-type": "application/javascript; charset=utf-8"
+   },
+   "resourceType": "script",
+   "passes": [
+    "mobile",
+    "desktop"
+   ],
+   "file": "site/guillaumezhu.com/assets/three.module-fBMLdKIM.js",
+   "size": 548454,
+   "modes": [
+    "cors"
+   ]
+  },
+  {
+   "url": "https://guillaumezhu.com/assets/CabinetGrotesk-Variable-BZl-SSEF.woff2",
+   "method": "GET",
+   "status": 200,
+   "contentType": "font/woff2",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "content-disposition": "inline; filename=\"CabinetGrotesk-Variable-BZl-SSEF.woff2\"",
+    "content-type": "font/woff2"
+   },
+   "resourceType": "font",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "file": "site/guillaumezhu.com/assets/CabinetGrotesk-Variable-BZl-SSEF.woff2",
+   "size": 41860,
+   "modes": [
+    "cors"
+   ]
+  },
+  {
+   "url": "https://guillaumezhu.com/assets/Satoshi-VariableItalic-Bb7sdEFv.ttf",
+   "method": "GET",
+   "status": 200,
+   "contentType": "font/ttf",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "content-disposition": "inline; filename=\"Satoshi-VariableItalic-Bb7sdEFv.ttf\"",
+    "content-type": "font/ttf"
+   },
+   "resourceType": "font",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "file": "site/guillaumezhu.com/assets/Satoshi-VariableItalic-Bb7sdEFv.ttf",
+   "size": 129748,
+   "modes": [
+    "cors"
+   ]
+  },
+  {
+   "url": "https://guillaumezhu.com/assets/CabinetGrotesk-Bold-ChXdH3YW.woff2",
+   "method": "GET",
+   "status": 200,
+   "contentType": "font/woff2",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "content-disposition": "inline; filename=\"CabinetGrotesk-Bold-ChXdH3YW.woff2\"",
+    "content-type": "font/woff2"
+   },
+   "resourceType": "font",
+   "passes": [
+    "mobile",
+    "desktop"
+   ],
+   "file": "site/guillaumezhu.com/assets/CabinetGrotesk-Bold-ChXdH3YW.woff2",
+   "size": 20896,
+   "modes": [
+    "cors"
+   ]
+  },
+  {
+   "url": "https://guillaumezhu.com/assets/Satoshi-Variable-ChAXbpFa.ttf",
+   "method": "GET",
+   "status": 200,
+   "contentType": "font/ttf",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "content-disposition": "inline; filename=\"Satoshi-Variable-ChAXbpFa.ttf\"",
+    "content-type": "font/ttf"
+   },
+   "resourceType": "font",
+   "passes": [
+    "mobile",
+    "desktop"
+   ],
+   "file": "site/guillaumezhu.com/assets/Satoshi-Variable-ChAXbpFa.ttf",
+   "size": 127420,
+   "modes": [
+    "cors"
+   ]
+  },
+  {
+   "url": "https://guillaumezhu.com/home/hero/textures/desktop/scene-gradient.webp",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/webp",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "content-disposition": "inline; filename=\"scene-gradient.webp\"",
+    "content-type": "image/webp"
+   },
+   "resourceType": "image",
+   "passes": [
+    "desktop"
+   ],
+   "file": "site/guillaumezhu.com/home/hero/textures/desktop/scene-gradient.webp",
+   "size": 216608,
+   "modes": [
+    "cors"
+   ]
+  },
+  {
+   "url": "https://guillaumezhu.com/brand/logo-guillaume-zhu.svg",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/svg+xml",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "content-disposition": "inline; filename=\"logo-guillaume-zhu.svg\"",
+    "content-type": "image/svg+xml"
+   },
+   "resourceType": "image",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "file": "site/guillaumezhu.com/brand/logo-guillaume-zhu.svg",
+   "size": 1224,
+   "modes": [
+    "cors",
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://guillaumezhu.com/home/hero/logo.glb",
+   "method": "GET",
+   "status": 200,
+   "contentType": "model/gltf-binary",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "content-disposition": "inline; filename=\"logo.glb\"",
+    "content-type": "model/gltf-binary"
+   },
+   "resourceType": "fetch",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "file": "site/guillaumezhu.com/home/hero/logo.glb",
+   "size": 293052,
+   "modes": [
+    "cors"
+   ]
+  },
+  {
+   "url": "https://guillaumezhu.com/home/hero/textures/mobile/scene-gradient.webp",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/webp",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "content-disposition": "inline; filename=\"scene-gradient.webp\"",
+    "content-type": "image/webp"
+   },
+   "resourceType": "image",
+   "passes": [
+    "mobile"
+   ],
+   "file": "site/guillaumezhu.com/home/hero/textures/mobile/scene-gradient.webp",
+   "size": 46370,
+   "modes": [
+    "cors"
+   ]
+  },
+  {
+   "url": "https://guillaumezhu.com/home/hero/textures/desktop/texts/text-name.webp",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/webp",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "content-disposition": "inline; filename=\"text-name.webp\"",
+    "content-type": "image/webp"
+   },
+   "resourceType": "image",
+   "passes": [
+    "desktop"
+   ],
+   "file": "site/guillaumezhu.com/home/hero/textures/desktop/texts/text-name.webp",
+   "size": 27316,
+   "modes": [
+    "cors"
+   ]
+  },
+  {
+   "url": "https://guillaumezhu.com/home/hero/textures/desktop/texts/text-art-director-justified.webp",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/webp",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "content-disposition": "inline; filename=\"text-art-director-justified.webp\"",
+    "content-type": "image/webp"
+   },
+   "resourceType": "image",
+   "passes": [
+    "desktop"
+   ],
+   "file": "site/guillaumezhu.com/home/hero/textures/desktop/texts/text-art-director-justified.webp",
+   "size": 28890,
+   "modes": [
+    "cors"
+   ]
+  },
+  {
+   "url": "https://guillaumezhu.com/home/hero/textures/mobile/texts/text-name.webp",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/webp",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "content-disposition": "inline; filename=\"text-name.webp\"",
+    "content-type": "image/webp"
+   },
+   "resourceType": "image",
+   "passes": [
+    "mobile"
+   ],
+   "file": "site/guillaumezhu.com/home/hero/textures/mobile/texts/text-name.webp",
+   "size": 13686,
+   "modes": [
+    "cors"
+   ]
+  },
+  {
+   "url": "https://guillaumezhu.com/home/hero/textures/mobile/texts/text-art-director-justified.webp",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/webp",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "content-disposition": "inline; filename=\"text-art-director-justified.webp\"",
+    "content-type": "image/webp"
+   },
+   "resourceType": "image",
+   "passes": [
+    "mobile"
+   ],
+   "file": "site/guillaumezhu.com/home/hero/textures/mobile/texts/text-art-director-justified.webp",
+   "size": 14432,
+   "modes": [
+    "cors"
+   ]
+  },
+  {
+   "url": "https://guillaumezhu.com/home/hero/textures/desktop/texts/text-creative-developer-justified.webp",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/webp",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "content-disposition": "inline; filename=\"text-creative-developer-justified.webp\"",
+    "content-type": "image/webp"
+   },
+   "resourceType": "image",
+   "passes": [
+    "desktop"
+   ],
+   "file": "site/guillaumezhu.com/home/hero/textures/desktop/texts/text-creative-developer-justified.webp",
+   "size": 51706,
+   "modes": [
+    "cors"
+   ]
+  },
+  {
+   "url": "https://guillaumezhu.com/home/toolkit/art-direction/en/transition.png",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/png",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "content-disposition": "inline; filename=\"transition.png\"",
+    "content-type": "image/png"
+   },
+   "resourceType": "image",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "file": "site/guillaumezhu.com/home/toolkit/art-direction/en/transition.png",
+   "size": 971525,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://guillaumezhu.com/home/hero/textures/mobile/texts/text-creative-developer-justified.webp",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/webp",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "content-disposition": "inline; filename=\"text-creative-developer-justified.webp\"",
+    "content-type": "image/webp"
+   },
+   "resourceType": "image",
+   "passes": [
+    "mobile"
+   ],
+   "file": "site/guillaumezhu.com/home/hero/textures/mobile/texts/text-creative-developer-justified.webp",
+   "size": 25218,
+   "modes": [
+    "cors"
+   ]
+  },
+  {
+   "url": "https://guillaumezhu.com/assets/createImageDistortionScene-DryuzL4t.js",
+   "method": "GET",
+   "status": 200,
+   "contentType": "application/javascript; charset=utf-8",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "content-disposition": "inline; filename=\"createImageDistortionScene-DryuzL4t.js\"",
+    "content-type": "application/javascript; charset=utf-8"
+   },
+   "resourceType": "script",
+   "passes": [
+    "mobile",
+    "desktop"
+   ],
+   "file": "site/guillaumezhu.com/assets/createImageDistortionScene-DryuzL4t.js",
+   "size": 8951,
+   "modes": [
+    "cors"
+   ]
+  },
+  {
+   "url": "https://guillaumezhu.com/assets/createImageDistortionScene-C3VU7ZZE.js",
+   "method": "GET",
+   "status": 200,
+   "contentType": "application/javascript; charset=utf-8",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "content-disposition": "inline; filename=\"createImageDistortionScene-C3VU7ZZE.js\"",
+    "content-type": "application/javascript; charset=utf-8"
+   },
+   "resourceType": "script",
+   "passes": [
+    "mobile",
+    "desktop"
+   ],
+   "file": "site/guillaumezhu.com/assets/createImageDistortionScene-C3VU7ZZE.js",
+   "size": 101,
+   "modes": [
+    "cors"
+   ]
+  },
+  {
+   "url": "https://guillaumezhu.com/home/trajectory/background.webp",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/webp",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "content-disposition": "inline; filename=\"background.webp\"",
+    "content-type": "image/webp"
+   },
+   "resourceType": "image",
+   "passes": [
+    "mobile",
+    "desktop"
+   ],
+   "file": "site/guillaumezhu.com/home/trajectory/background.webp",
+   "size": 764212,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://guillaumezhu.com/assets/matter-D640oHn0.js",
+   "method": "GET",
+   "status": 200,
+   "contentType": "application/javascript; charset=utf-8",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "content-disposition": "inline; filename=\"matter-D640oHn0.js\"",
+    "content-type": "application/javascript; charset=utf-8"
+   },
+   "resourceType": "script",
+   "passes": [
+    "mobile",
+    "desktop"
+   ],
+   "file": "site/guillaumezhu.com/assets/matter-D640oHn0.js",
+   "size": 83968,
+   "modes": [
+    "cors"
+   ]
+  },
+  {
+   "url": "https://guillaumezhu.com/projects/memories-of-ghibli/previews/ghibli-01-square.webp",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/webp",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "content-disposition": "inline; filename=\"ghibli-01-square.webp\"",
+    "content-type": "image/webp"
+   },
+   "resourceType": "image",
+   "passes": [
+    "desktop"
+   ],
+   "file": "site/guillaumezhu.com/projects/memories-of-ghibli/previews/ghibli-01-square.webp",
+   "size": 32930,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://guillaumezhu.com/projects/memories-of-ghibli/previews/ghibli-03-portrait.webp",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/webp",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "content-disposition": "inline; filename=\"ghibli-03-portrait.webp\"",
+    "content-type": "image/webp"
+   },
+   "resourceType": "image",
+   "passes": [
+    "desktop"
+   ],
+   "file": "site/guillaumezhu.com/projects/memories-of-ghibli/previews/ghibli-03-portrait.webp",
+   "size": 8808,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://guillaumezhu.com/projects/memories-of-ghibli/previews/ghibli-05-portrait.webp",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/webp",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "content-disposition": "inline; filename=\"ghibli-05-portrait.webp\"",
+    "content-type": "image/webp"
+   },
+   "resourceType": "image",
+   "passes": [
+    "desktop"
+   ],
+   "file": "site/guillaumezhu.com/projects/memories-of-ghibli/previews/ghibli-05-portrait.webp",
+   "size": 31412,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://guillaumezhu.com/projects/memories-of-ghibli/previews/ghibli-07-carre.webp",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/webp",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "content-disposition": "inline; filename=\"ghibli-07-carre.webp\"",
+    "content-type": "image/webp"
+   },
+   "resourceType": "image",
+   "passes": [
+    "desktop"
+   ],
+   "file": "site/guillaumezhu.com/projects/memories-of-ghibli/previews/ghibli-07-carre.webp",
+   "size": 56386,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://guillaumezhu.com/projects/memories-of-ghibli/previews/ghibli-08-portrait.webp",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/webp",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "content-disposition": "inline; filename=\"ghibli-08-portrait.webp\"",
+    "content-type": "image/webp"
+   },
+   "resourceType": "image",
+   "passes": [
+    "desktop"
+   ],
+   "file": "site/guillaumezhu.com/projects/memories-of-ghibli/previews/ghibli-08-portrait.webp",
+   "size": 77156,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://guillaumezhu.com/projects/ornate/previews/ornate-04-square.webp",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/webp",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "content-disposition": "inline; filename=\"ornate-04-square.webp\"",
+    "content-type": "image/webp"
+   },
+   "resourceType": "image",
+   "passes": [
+    "desktop"
+   ],
+   "file": "site/guillaumezhu.com/projects/ornate/previews/ornate-04-square.webp",
+   "size": 62750,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://guillaumezhu.com/projects/pulse-festival/previews/pulse-08-square.webp",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/webp",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "content-disposition": "inline; filename=\"pulse-08-square.webp\"",
+    "content-type": "image/webp"
+   },
+   "resourceType": "image",
+   "passes": [
+    "desktop"
+   ],
+   "file": "site/guillaumezhu.com/projects/pulse-festival/previews/pulse-08-square.webp",
+   "size": 50736,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://guillaumezhu.com/projects/memories-of-ghibli/previews/ghibli-06-carre.webp",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/webp",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "content-disposition": "inline; filename=\"ghibli-06-carre.webp\"",
+    "content-type": "image/webp"
+   },
+   "resourceType": "image",
+   "passes": [
+    "desktop"
+   ],
+   "file": "site/guillaumezhu.com/projects/memories-of-ghibli/previews/ghibli-06-carre.webp",
+   "size": 29062,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://guillaumezhu.com/projects/pulse-festival/previews/pulse-02-square.webp",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/webp",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "content-disposition": "inline; filename=\"pulse-02-square.webp\"",
+    "content-type": "image/webp"
+   },
+   "resourceType": "image",
+   "passes": [
+    "desktop"
+   ],
+   "file": "site/guillaumezhu.com/projects/pulse-festival/previews/pulse-02-square.webp",
+   "size": 35306,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://guillaumezhu.com/projects/pulse-festival/previews/pulse-05-square.webp",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/webp",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "content-disposition": "inline; filename=\"pulse-05-square.webp\"",
+    "content-type": "image/webp"
+   },
+   "resourceType": "image",
+   "passes": [
+    "desktop"
+   ],
+   "file": "site/guillaumezhu.com/projects/pulse-festival/previews/pulse-05-square.webp",
+   "size": 47690,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://guillaumezhu.com/projects/ornate/previews/ornate-02-square.webp",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/webp",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "content-disposition": "inline; filename=\"ornate-02-square.webp\"",
+    "content-type": "image/webp"
+   },
+   "resourceType": "image",
+   "passes": [
+    "desktop"
+   ],
+   "file": "site/guillaumezhu.com/projects/ornate/previews/ornate-02-square.webp",
+   "size": 62290,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://guillaumezhu.com/projects/pulse-festival/previews/pulse-04-square.webp",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/webp",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "content-disposition": "inline; filename=\"pulse-04-square.webp\"",
+    "content-type": "image/webp"
+   },
+   "resourceType": "image",
+   "passes": [
+    "desktop"
+   ],
+   "file": "site/guillaumezhu.com/projects/pulse-festival/previews/pulse-04-square.webp",
+   "size": 91820,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://guillaumezhu.com/projects/mae-webflow/previews/webflow-03-portrait.webp",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/webp",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "content-disposition": "inline; filename=\"webflow-03-portrait.webp\"",
+    "content-type": "image/webp"
+   },
+   "resourceType": "image",
+   "passes": [
+    "desktop"
+   ],
+   "file": "site/guillaumezhu.com/projects/mae-webflow/previews/webflow-03-portrait.webp",
+   "size": 54744,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://guillaumezhu.com/projects/mae-webflow/previews/webflow-04-portrait.webp",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/webp",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "content-disposition": "inline; filename=\"webflow-04-portrait.webp\"",
+    "content-type": "image/webp"
+   },
+   "resourceType": "image",
+   "passes": [
+    "desktop"
+   ],
+   "file": "site/guillaumezhu.com/projects/mae-webflow/previews/webflow-04-portrait.webp",
+   "size": 170828,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://guillaumezhu.com/projects/mae-webflow/previews/webflow-05-square.webp",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/webp",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "content-disposition": "inline; filename=\"webflow-05-square.webp\"",
+    "content-type": "image/webp"
+   },
+   "resourceType": "image",
+   "passes": [
+    "desktop"
+   ],
+   "file": "site/guillaumezhu.com/projects/mae-webflow/previews/webflow-05-square.webp",
+   "size": 58718,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://guillaumezhu.com/projects/mae-webflow/previews/webflow-02-square.webp",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/webp",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "content-disposition": "inline; filename=\"webflow-02-square.webp\"",
+    "content-type": "image/webp"
+   },
+   "resourceType": "image",
+   "passes": [
+    "desktop"
+   ],
+   "file": "site/guillaumezhu.com/projects/mae-webflow/previews/webflow-02-square.webp",
+   "size": 53270,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://guillaumezhu.com/projects/ornate/previews/ornate-06-square.webp",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/webp",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "content-disposition": "inline; filename=\"ornate-06-square.webp\"",
+    "content-type": "image/webp"
+   },
+   "resourceType": "image",
+   "passes": [
+    "desktop"
+   ],
+   "file": "site/guillaumezhu.com/projects/ornate/previews/ornate-06-square.webp",
+   "size": 82956,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://guillaumezhu.com/projects/pulse-festival/previews/pulse-06-portrait.webp",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/webp",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "content-disposition": "inline; filename=\"pulse-06-portrait.webp\"",
+    "content-type": "image/webp"
+   },
+   "resourceType": "image",
+   "passes": [
+    "desktop"
+   ],
+   "file": "site/guillaumezhu.com/projects/pulse-festival/previews/pulse-06-portrait.webp",
+   "size": 402488,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://guillaumezhu.com/projects/mae-webflow/previews/webflow-06-portrait.webp",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/webp",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "content-disposition": "inline; filename=\"webflow-06-portrait.webp\"",
+    "content-type": "image/webp"
+   },
+   "resourceType": "image",
+   "passes": [
+    "desktop"
+   ],
+   "file": "site/guillaumezhu.com/projects/mae-webflow/previews/webflow-06-portrait.webp",
+   "size": 87316,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://guillaumezhu.com/projects/pulse-festival/previews/pulse-07-portrait.webp",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/webp",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "content-disposition": "inline; filename=\"pulse-07-portrait.webp\"",
+    "content-type": "image/webp"
+   },
+   "resourceType": "image",
+   "passes": [
+    "desktop"
+   ],
+   "file": "site/guillaumezhu.com/projects/pulse-festival/previews/pulse-07-portrait.webp",
+   "size": 67896,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://guillaumezhu.com/projects/mae-webflow/previews/webflow-01-square.webp",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/webp",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "content-disposition": "inline; filename=\"webflow-01-square.webp\"",
+    "content-type": "image/webp"
+   },
+   "resourceType": "image",
+   "passes": [
+    "desktop"
+   ],
+   "file": "site/guillaumezhu.com/projects/mae-webflow/previews/webflow-01-square.webp",
+   "size": 270524,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://guillaumezhu.com/projects/ornate/previews/ornate-05-portrait.webp",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/webp",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "content-disposition": "inline; filename=\"ornate-05-portrait.webp\"",
+    "content-type": "image/webp"
+   },
+   "resourceType": "image",
+   "passes": [
+    "desktop"
+   ],
+   "file": "site/guillaumezhu.com/projects/ornate/previews/ornate-05-portrait.webp",
+   "size": 29030,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://guillaumezhu.com/projects/pulse-festival/previews/pulse-03-portrait.webp",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/webp",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "content-disposition": "inline; filename=\"pulse-03-portrait.webp\"",
+    "content-type": "image/webp"
+   },
+   "resourceType": "image",
+   "passes": [
+    "desktop"
+   ],
+   "file": "site/guillaumezhu.com/projects/pulse-festival/previews/pulse-03-portrait.webp",
+   "size": 415138,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://guillaumezhu.com/projects/mirage/previews/mirage-01-square.webp",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/webp",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "content-disposition": "inline; filename=\"mirage-01-square.webp\"",
+    "content-type": "image/webp"
+   },
+   "resourceType": "image",
+   "passes": [
+    "desktop"
+   ],
+   "file": "site/guillaumezhu.com/projects/mirage/previews/mirage-01-square.webp",
+   "size": 63064,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://guillaumezhu.com/projects/ornate/previews/ornate-03-square.webp",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/webp",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "content-disposition": "inline; filename=\"ornate-03-square.webp\"",
+    "content-type": "image/webp"
+   },
+   "resourceType": "image",
+   "passes": [
+    "desktop"
+   ],
+   "file": "site/guillaumezhu.com/projects/ornate/previews/ornate-03-square.webp",
+   "size": 36256,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://guillaumezhu.com/projects/mirage/previews/mirage-02-square.webp",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/webp",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "content-disposition": "inline; filename=\"mirage-02-square.webp\"",
+    "content-type": "image/webp"
+   },
+   "resourceType": "image",
+   "passes": [
+    "desktop"
+   ],
+   "file": "site/guillaumezhu.com/projects/mirage/previews/mirage-02-square.webp",
+   "size": 32340,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://guillaumezhu.com/projects/mirage/previews/mirage-06-portrait.webp",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/webp",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "content-disposition": "inline; filename=\"mirage-06-portrait.webp\"",
+    "content-type": "image/webp"
+   },
+   "resourceType": "image",
+   "passes": [
+    "desktop"
+   ],
+   "file": "site/guillaumezhu.com/projects/mirage/previews/mirage-06-portrait.webp",
+   "size": 54362,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://guillaumezhu.com/projects/memories-of-ghibli/previews/ghibli-02-square.webp",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/webp",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "content-disposition": "inline; filename=\"ghibli-02-square.webp\"",
+    "content-type": "image/webp"
+   },
+   "resourceType": "image",
+   "passes": [
+    "desktop"
+   ],
+   "file": "site/guillaumezhu.com/projects/memories-of-ghibli/previews/ghibli-02-square.webp",
+   "size": 107262,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://guillaumezhu.com/projects/ornate/previews/ornate-01-portrait.webp",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/webp",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "content-disposition": "inline; filename=\"ornate-01-portrait.webp\"",
+    "content-type": "image/webp"
+   },
+   "resourceType": "image",
+   "passes": [
+    "desktop"
+   ],
+   "file": "site/guillaumezhu.com/projects/ornate/previews/ornate-01-portrait.webp",
+   "size": 54244,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://guillaumezhu.com/projects/mirage/previews/mirage-04-square.webp",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/webp",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "content-disposition": "inline; filename=\"mirage-04-square.webp\"",
+    "content-type": "image/webp"
+   },
+   "resourceType": "image",
+   "passes": [
+    "desktop"
+   ],
+   "file": "site/guillaumezhu.com/projects/mirage/previews/mirage-04-square.webp",
+   "size": 27674,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://guillaumezhu.com/projects/mirage/previews/mirage-05-portrait.webp",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/webp",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "content-disposition": "inline; filename=\"mirage-05-portrait.webp\"",
+    "content-type": "image/webp"
+   },
+   "resourceType": "image",
+   "passes": [
+    "desktop"
+   ],
+   "file": "site/guillaumezhu.com/projects/mirage/previews/mirage-05-portrait.webp",
+   "size": 69068,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://guillaumezhu.com/projects/pulse-festival/previews/pulse-01-portrait.webp",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/webp",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "content-disposition": "inline; filename=\"pulse-01-portrait.webp\"",
+    "content-type": "image/webp"
+   },
+   "resourceType": "image",
+   "passes": [
+    "desktop"
+   ],
+   "file": "site/guillaumezhu.com/projects/pulse-festival/previews/pulse-01-portrait.webp",
+   "size": 203594,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://guillaumezhu.com/projects/mirage/previews/mirage-03-portrait.webp",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/webp",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "content-disposition": "inline; filename=\"mirage-03-portrait.webp\"",
+    "content-type": "image/webp"
+   },
+   "resourceType": "image",
+   "passes": [
+    "desktop"
+   ],
+   "file": "site/guillaumezhu.com/projects/mirage/previews/mirage-03-portrait.webp",
+   "size": 74504,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://guillaumezhu.com/projects/memories-of-ghibli/previews/ghibli-04-carre.webp",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/webp",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "content-disposition": "inline; filename=\"ghibli-04-carre.webp\"",
+    "content-type": "image/webp"
+   },
+   "resourceType": "image",
+   "passes": [
+    "desktop"
+   ],
+   "file": "site/guillaumezhu.com/projects/memories-of-ghibli/previews/ghibli-04-carre.webp",
+   "size": 9026,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://guillaumezhu.com/shared/footer/background.webp",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/webp",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "content-disposition": "inline; filename=\"background.webp\"",
+    "content-type": "image/webp"
+   },
+   "resourceType": "image",
+   "passes": [
+    "desktop"
+   ],
+   "file": "site/guillaumezhu.com/shared/footer/background.webp",
+   "size": 571582,
+   "modes": [
+    "no-cors"
+   ]
+  }
+ ],
+ "videos": {
+  "posters": {},
+  "onlineHosts": []
+ }
+}

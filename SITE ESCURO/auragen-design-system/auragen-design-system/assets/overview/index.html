@@ -1,0 +1,1734 @@
+<html lang="en"><head><meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AuraGen Design System</title>
+<link rel="icon" href="assets/auragen.aura.build/favicon.ico">
+<script src="assets/cdn.tailwindcss.com/3.4.17.js"></script>
+<script src="assets/unpkg.com/lucide@1.48.0/dist/umd/lucide.min.js"></script>
+<link rel="stylesheet" href="assets/auragen.aura.build/fonts.css">
+<link rel="stylesheet" href="assets/auragen.aura.build/auragen.css">
+<script src="assets/auragen.aura.build/tailwind.config.js"></script>
+<style>
+/* design-system catalog bridge (active only inside the catalog iframe): the catalog draws this page's
+   own header above the frame, so the page keeps the header's space but hides its copy; in "bg" mode
+   (Components view) only the Unicorn Studio background component stays visible, parked at the top */
+html.ds-embedded body > header { visibility: hidden; }
+html.ds-bg-only { overflow: hidden; }
+html.ds-bg-only body > *:not(.aura-background-component) { visibility: hidden !important; }
+</style>
+<script>
+(function () {
+  if (window.parent === window) return;
+  var root = document.documentElement, bg = false, saved = 0;
+  root.classList.add('ds-embedded');
+  function post(m) { try { window.parent.postMessage(m, '*'); } catch (e) {} }
+  addEventListener('message', function (e) {
+    var d = e.data;
+    if (e.source !== window.parent || !d || !d.ds) return;
+    if (d.ds === 'bg' && !bg) { bg = true; saved = scrollY; root.classList.add('ds-bg-only'); scrollTo(0, 0); }
+    else if (d.ds === 'page' && bg) { bg = false; root.classList.remove('ds-bg-only'); scrollTo(0, saved); post({ ds: 'scroll', y: scrollY }); }
+  });
+  addEventListener('scroll', function () { if (!bg) post({ ds: 'scroll', y: scrollY }); }, { passive: true });
+  /* ready = the Unicorn Studio canvas exists and has painted a couple of frames */
+  var t0 = Date.now();
+  (function wait() {
+    if (document.querySelector('[data-us-project] canvas') || Date.now() - t0 > 8000) {
+      requestAnimationFrame(function () { requestAnimationFrame(function () { post({ ds: 'ready' }); }); });
+      return;
+    }
+    setTimeout(wait, 100);
+  })();
+})();
+</script>
+</head>
+<body class="min-h-screen selection:bg-fuchsia-500/30 selection:text-white antialiased text-white bg-slate-950">
+
+<!-- Background (component) added by Aura -->
+<div class="aura-background-component top-0 w-full -z-10 absolute h-[900px]" data-alpha-mask="80" style="; mask-image: linear-gradient(to bottom, transparent, black 0%, black 80%, transparent); -webkit-mask-image: linear-gradient(to bottom, transparent, black 0%, black 80%, transparent)"><script src="assets/auragen.aura.build/unicorn-scene.js"></script><div data-us-project="1bY8o6HVTI1oxJxuCJEG" data-us-project-src="auragen-us-scene" class="absolute w-full h-full left-0 top-0 -z-10"></div>
+<script type="text/javascript">
+  !function(){if(!window.UnicornStudio){window.UnicornStudio={isInitialized:!1};var i=document.createElement("script");i.src="assets/cdn.jsdelivr.net/gh/hiunicornstudio/unicornstudio.js@v1.4.31/dist/unicornStudio.umd.js",i.onload=function(){window.UnicornStudio.isInitialized||(UnicornStudio.init(),window.UnicornStudio.isInitialized=!0)},(document.head || document.body).appendChild(i)}}();
+</script></div>
+
+<div class="gradient-blur">
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+    <div></div>
+  </div>
+  <style>
+    .gradient-blur {
+      position: fixed;
+      z-index: 5;
+      inset: 0 0 auto 0;
+      height: 12%;
+      pointer-events: none;
+    }
+
+    .gradient-blur>div,
+    .gradient-blur::before,
+    .gradient-blur::after {
+      position: absolute;
+      inset: 0;
+    }
+
+    .gradient-blur::before {
+      content: "";
+      z-index: 1;
+      backdrop-filter: blur(0.5px);
+      mask: linear-gradient(to top,
+          rgba(0, 0, 0, 0) 0%,
+          rgba(0, 0, 0, 1) 12.5%,
+          rgba(0, 0, 0, 1) 25%,
+          rgba(0, 0, 0, 0) 37.5%);
+    }
+
+    .gradient-blur>div:nth-of-type(1) {
+      z-index: 2;
+      backdrop-filter: blur(1px);
+      mask: linear-gradient(to top,
+          rgba(0, 0, 0, 0) 12.5%,
+          rgba(0, 0, 0, 1) 25%,
+          rgba(0, 0, 0, 1) 37.5%,
+          rgba(0, 0, 0, 0) 50%);
+    }
+
+    .gradient-blur>div:nth-of-type(2) {
+      z-index: 3;
+      backdrop-filter: blur(2px);
+      mask: linear-gradient(to top,
+          rgba(0, 0, 0, 0) 25%,
+          rgba(0, 0, 0, 1) 37.5%,
+          rgba(0, 0, 0, 1) 50%,
+          rgba(0, 0, 0, 0) 62.5%);
+    }
+
+    .gradient-blur>div:nth-of-type(3) {
+      z-index: 4;
+      backdrop-filter: blur(4px);
+      mask: linear-gradient(to top,
+          rgba(0, 0, 0, 0) 37.5%,
+          rgba(0, 0, 0, 1) 50%,
+          rgba(0, 0, 0, 1) 62.5%,
+          rgba(0, 0, 0, 0) 75%);
+    }
+
+    .gradient-blur>div:nth-of-type(4) {
+      z-index: 5;
+      backdrop-filter: blur(8px);
+      mask: linear-gradient(to top,
+          rgba(0, 0, 0, 0) 50%,
+          rgba(0, 0, 0, 1) 62.5%,
+          rgba(0, 0, 0, 1) 75%,
+          rgba(0, 0, 0, 0) 87.5%);
+    }
+
+    .gradient-blur>div:nth-of-type(5) {
+      z-index: 6;
+      backdrop-filter: blur(16px);
+      mask: linear-gradient(to top,
+          rgba(0, 0, 0, 0) 62.5%,
+          rgba(0, 0, 0, 1) 75%,
+          rgba(0, 0, 0, 1) 87.5%,
+          rgba(0, 0, 0, 0) 100%);
+    }
+
+    .gradient-blur>div:nth-of-type(6) {
+      z-index: 7;
+      backdrop-filter: blur(32px);
+      mask: linear-gradient(to top,
+          rgba(0, 0, 0, 0) 75%,
+          rgba(0, 0, 0, 1) 87.5%,
+          rgba(0, 0, 0, 1) 100%);
+    }
+
+    .gradient-blur::after {
+      content: "";
+      z-index: 8;
+      backdrop-filter: blur(64px);
+      mask: linear-gradient(to top,
+          rgba(0, 0, 0, 0) 87.5%,
+          rgba(0, 0, 0, 1) 100%);
+    }
+  </style>
+
+
+    
+    <!-- Glow grid background -->
+    
+
+    <!-- NAVBAR -->
+    <header class="sticky z-20 top-0">
+  <div class="flex max-w-7xl mr-auto ml-auto pt-4 pr-6 pb-4 pl-6 items-center justify-between">
+    <a href="#" class="inline-flex items-center justify-center bg-center mix-blend-normal w-[120px] h-[30px] bg-[url(assets/hoirqrkdgbmvpwutwuwj.supabase.co/storage/v1/object/public/assets/assets/d3473923-ebc4-44bd-a2b8-bcf5197f648b_800w.png)] bg-cover rounded"></a>
+    <nav class="hidden gap-6 md:flex gap-x-6 gap-y-6 items-center">
+      <a href="#features" class="nav-link hover:text-white text-sm text-slate-300 relative">Features</a>
+      <a href="#gallery" class="nav-link relative text-sm text-slate-300 hover:text-white">Gallery</a>
+      <a href="#reviews" class="nav-link relative text-sm text-slate-300 hover:text-white">Reviews</a>
+      <a href="#faq" class="nav-link relative text-sm text-slate-300 hover:text-white">FAQ</a>
+      <a href="#cta" class="inline-flex items-center gap-2 hover:bg-white/10 transition-colors text-sm text-white bg-white/5 ring-white/10 ring-1 rounded-full pt-2 pr-4 pb-2 pl-4">
+        Lorem Ipsum <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="arrow-right" class="lucide lucide-arrow-right h-4 w-4"><path d="M5 12h14"></path><path d="m12 5 7 7-7 7"></path></svg>
+      </a>
+    </nav>
+    <button id="menuBtn" class="md:hidden rounded-lg p-2 text-slate-200 hover:bg-white/5 transition-colors" aria-label="Open menu">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="menu" class="lucide lucide-menu w-[24px] h-[24px]" data-icon-replaced="true" style="width: 24px; height: 24px; color: rgb(226, 232, 240);"><path d="M4 5h16"></path><path d="M4 12h16"></path><path d="M4 19h16"></path></svg>
+            </button>
+  </div>
+
+  <!-- Mobile drawer -->
+  <aside class="mobile-menu fixed z-50 bg-slate-950/95 w-[80%] max-w-sm border-white/10 border-l pt-6 pr-6 pb-6 pl-6 top-0 right-0 bottom-0 backdrop-blur" aria-label="Mobile menu" id="mobileMenu">
+    <div class="flex items-center justify-between">
+      <span class="font-semibold">AuraGen</span>
+      <button id="closeMenuBtn" class="rounded-lg p-2 text-slate-200 hover:bg-white/5 transition-colors" aria-label="Close menu">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="x" class="lucide lucide-x h-6 w-6"><path d="M18 6 6 18"></path><path d="m6 6 12 12"></path></svg>
+                </button>
+    </div>
+    <ul class="mt-6 space-y-4">
+      <li class=""><a href="#features" class="mobile-link block rounded-lg px-2 py-2 text-slate-300 hover:bg-white/5 hover:text-white transition-colors">Features</a>
+      </li>
+      <li><a href="#gallery" class="mobile-link block rounded-lg px-2 py-2 text-slate-300 hover:bg-white/5 hover:text-white transition-colors">Gallery</a>
+      </li>
+      <li class=""><a href="#reviews" class="mobile-link block rounded-lg px-2 py-2 text-slate-300 hover:bg-white/5 hover:text-white transition-colors">Reviews</a>
+      </li>
+      <li class=""><a href="#faq" class="mobile-link block rounded-lg px-2 py-2 text-slate-300 hover:bg-white/5 hover:text-white transition-colors">FAQ</a>
+      </li>
+    </ul>
+    <a href="#cta" class="mobile-link mt-6 inline-flex items-center gap-2 rounded-xl bg-white/5 px-4 py-2 text-sm ring-1 ring-white/10 hover:bg-white/10 transition-colors">
+      Lorem Ipsum <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="arrow-right" class="lucide lucide-arrow-right h-4 w-4"><path d="M5 12h14"></path><path d="m12 5 7 7-7 7"></path></svg>
+    </a>
+  </aside>
+</header>
+
+    <!-- HERO -->
+    <section class="max-w-7xl mr-auto ml-auto pt-16 pb-36 relative">
+        <div class="text-center max-w-3xl mr-auto ml-auto">
+            <h1 class="text-[44px] leading-[0.9] sm:text-6xl lg:text-8xl font-medium text-zinc-100 tracking-tighter font-geist mt-20" style="mask-image: linear-gradient(290deg, transparent, black 0%, black 40%, transparent); -webkit-mask-image: linear-gradient(290deg, transparent, black 0%, black 40%, transparent);">AuraGen Design System</h1>
+            <p class="mt-6 max-w-xl mr-auto ml-auto pr-4 pl-4 text-sm sm:text-base text-slate-400">Slate-black depth, gradient-masked type and hairline glass panels over live ASCII rain and a blue beam.</p>
+            
+            <div class="flex flex-wrap xl:mt-20 mt-40 gap-x-3 gap-y-3 items-center justify-center">
+                <div class="inline-block bg-transparent">
+  <style class="">
+    @property --gradient-angle { syntax: "<angle>"; initial-value: 0deg; inherits: false; } @property --gradient-angle-offset { syntax: "<angle>"; initial-value: 0deg; inherits: false; } @property --gradient-percent { syntax: "<percentage>"; initial-value: 20%; inherits: false; } @property --gradient-shine { syntax: "<color>"; initial-value: #8484ff; inherits: false; } .shiny-cta { --gradient-angle: 0deg; --gradient-angle-offset: 0deg; --gradient-percent: 20%; --gradient-shine: #8484ff; --shadow-size: 2px; position: relative; overflow: hidden; border-radius: 9999px; padding: 1.25rem 2.5rem; font-size: 1.125rem; line-height: 1.2; font-weight: 500; color: #ffffff; background: linear-gradient(#000000, #000000) padding-box, conic-gradient( from calc(var(--gradient-angle) - var(--gradient-angle-offset)), transparent 0%, #1d4ed8 5%, var(--gradient-shine) 15%, #1d4ed8 30%, transparent 40%, transparent 100% ) border-box; border: 2px solid transparent; box-shadow: inset 0 0 0 1px #1a1818; outline: none; transition: --gradient-angle-offset 800ms cubic-bezier(0.25, 1, 0.5, 1), --gradient-percent 800ms cubic-bezier(0.25, 1, 0.5, 1), --gradient-shine 800ms cubic-bezier(0.25, 1, 0.5, 1), box-shadow 0.3s; cursor: pointer; isolation: isolate; outline-offset: 4px; font-family: 'Inter', 'Helvetica Neue', sans-serif; z-index: 0; animation: border-spin 2.5s linear infinite; } @keyframes border-spin { to { --gradient-angle: 360deg; } } .shiny-cta:active { transform: translateY(1px); } .shiny-cta::before { content: ''; pointer-events: none; position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%); z-index: 0; --size: calc(100% - 6px); --position: 2px; --space: 4px; width: var(--size); height: var(--size); background: radial-gradient(circle at var(--position) var(--position), white 0.5px, transparent 0) padding-box; background-size: var(--space) var(--space); background-repeat: space; mask-image: conic-gradient( from calc(var(--gradient-angle) + 45deg), black, transparent 10% 90%, black ); border-radius: inherit; opacity: 0.4; pointer-events: none; } .shiny-cta::after { content: ''; pointer-events: none; position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%); z-index: 1; width: 100%; aspect-ratio: 1; background: linear-gradient(-50deg, transparent, #1d4ed8, transparent); mask-image: radial-gradient(circle at bottom, transparent 40%, black); opacity: 0.6; animation: shimmer 4s linear infinite; animation-play-state: running; } .shiny-cta span { position: relative; z-index: 2; display: inline-block; } .shiny-cta span::before { content: ''; pointer-events: none; position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%); z-index: -1; --size: calc(100% + 1rem); width: var(--size); height: var(--size); box-shadow: inset 0 -1ex 2rem 4px #1d4ed8; opacity: 0; border-radius: inherit; transition: opacity 800ms cubic-bezier(0.25, 1, 0.5, 1); animation: breathe 4.5s linear infinite; } @keyframes shimmer { to { transform: translate(-50%, -50%) rotate(360deg);} } @keyframes breathe { 0%, 100% { transform: translate(-50%, -50%) scale(1);} 50% { transform: translate(-50%, -50%) scale(1.20);} }
+  </style>
+  <button class="shiny-cta focus:outline-none">
+    <span class="">Lorem Ipsum</span>
+  </button>
+</div>
+                <a href="#gallery" class="inline-flex items-center gap-2 hover:bg-white/5 transition-colors text-sm text-white border-white/10 border rounded-full pt-3 pr-5 pb-3 pl-5 backdrop-blur-2xl">
+                    Dolor Sit <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" data-lucide="play-circle" class="lucide lucide-play-circle h-4 w-4"><path d="M9 9.003a1 1 0 0 1 1.517-.859l4.997 2.997a1 1 0 0 1 0 1.718l-4.997 2.997A1 1 0 0 1 9 14.996z"></path><circle cx="12" cy="12" r="10"></circle></svg>
+                </a>
+            </div>
+            <!-- Floating badges -->
+            
+        </div>
+    </section>
+
+    <!-- FEATURES -->
+    <div class="flex xl:pt-0 xl:pb-0 sm:pl-4 sm:pr-4 sm:pt-20 w-screen h-1000 pt-20 pr-2 pb-40 pl-2 scale-100 rotate-x-5 items-center justify-center" style="mask-image: linear-gradient(180deg, transparent, black 0%, black 1%, transparent); -webkit-mask-image: linear-gradient(180deg, transparent, black 0%, black 1%, transparent);">
+  <div class="flex flex-col overflow-hidden xl:bg-neutral-900/20 bg-neutral-900 w-full h-[700px] max-w-7xl max-h-[95vh] border-neutral-800 border rounded-xl shadow-2xl backdrop-blur-xl perspective-none" style="mask-image: linear-gradient(180deg, transparent, black 0%, black 30%, transparent); -webkit-mask-image: linear-gradient(180deg, transparent, black 0%, black 30%, transparent);">
+
+    <!-- Mac Title Bar -->
+    <div class="flex border-neutral-700/50 border-b pt-3 pr-4 pb-3 pl-4 backdrop-blur items-center justify-between" style="background: rgba(40, 40, 40, 0.5)">
+      <div class="flex items-center gap-2">
+        <div class="flex items-center gap-2">
+          <div class="w-3 h-3 rounded-full" style="background: #505050;"></div>
+          <div class="w-3 h-3 rounded-full" style="background: #606060;"></div>
+          <div class="w-3 h-3 rounded-full" style="background: #707070;"></div>
+        </div>
+      </div>
+
+      <div class="flex items-center gap-2">
+        <button class="p-1 rounded hover:bg-neutral-700/50">
+            <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="h-4 w-4 text-neutral-400"><circle cx="12" cy="12" r="1" class=""></circle><circle cx="19" cy="12" r="1" class=""></circle><circle cx="5" cy="12" r="1" class=""></circle></svg>
+          </button>
+      </div>
+    </div>
+
+    <!-- App Content -->
+    <div class="flex-1 flex overflow-hidden">
+
+      <!-- Sidebar -->
+      <aside class="flex flex-col w-64 border-neutral-800/50 border-r" style="background: rgba(30, 30, 30, 0.8);">
+        <!-- Logo -->
+        <div class="p-4 border-b border-neutral-800/50">
+          <a href="#" class="inline-flex items-center justify-center bg-center w-[120px] h-[30px] bg-[url(assets/hoirqrkdgbmvpwutwuwj.supabase.co/storage/v1/object/public/assets/assets/d3473923-ebc4-44bd-a2b8-bcf5197f648b_800w.png)] bg-cover rounded"></a>
+          <div class="text-xs text-neutral-500 mt-0.5 pl-4">AI Image Generator</div>
+        </div>
+
+        <!-- Navigation -->
+        <nav class="flex-1 overflow-y-auto">
+          <div class="pt-3 pr-3 pl-3">
+            <a class="flex items-center gap-2 rounded-md px-2 py-1.5 text-sm text-white" style="background: rgba(60, 60, 60, 0.7);">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="h-4 w-4">
+                <path d="M12 3v18" class=""></path>
+                <rect width="18" height="18" x="3" y="3" rx="2" class=""></rect>
+                <path d="M3 9h18" class=""></path>
+                <path d="M9 21V9" class=""></path>
+              </svg>
+              Generate
+            </a>
+            <a class="flex items-center gap-2 rounded-md px-2 py-1.5 text-sm text-neutral-300 hover:bg-neutral-800/50">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="h-4 w-4">
+                <rect width="18" height="18" x="3" y="3" rx="2" ry="2" class=""></rect>
+                <circle cx="9" cy="9" r="2" class=""></circle>
+                <path d="m21 15-3.086-3.086a2 2 0 0 0-2.828 0L6 21" class=""></path>
+              </svg>
+              Gallery
+            </a>
+            <a class="flex items-center gap-2 rounded-md px-2 py-1.5 text-sm text-neutral-300 hover:bg-neutral-800/50">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="h-4 w-4">
+                <path d="M19 21v-2a4 4 0 0 0-4-4H9a4 4 0 0 0-4 4v2" class=""></path>
+                <circle cx="12" cy="7" r="4" class=""></circle>
+              </svg>
+              Community
+            </a>
+            <a class="flex items-center gap-2 rounded-md px-2 py-1.5 text-sm text-neutral-300 hover:bg-neutral-800/50">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="h-4 w-4">
+                <path d="M11.017 2.814a1 1 0 0 1 1.966 0l1.051 5.558a2 2 0 0 0 1.594 1.594l5.558 1.051a1 1 0 0 1 0 1.966l-5.558 1.051a2 2 0 0 0-1.594 1.594l-1.051 5.558a1 1 0 0 1-1.966 0l-1.051-5.558a2 2 0 0 0-1.594-1.594l-5.558-1.051a1 1 0 0 1 0-1.966l5.558-1.051a2 2 0 0 0 1.594-1.594z" class=""></path>
+              </svg>
+              Explore
+            </a>
+          </div>
+
+          <div class="px-3 pt-4">
+            <div class="text-[11px] uppercase tracking-wide text-neutral-500 mb-2 px-2">Recent Projects</div>
+            <a class="flex items-center gap-2 rounded-md px-2 py-1.5 text-sm text-neutral-300 hover:bg-neutral-800/50">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="h-4 w-4">
+                <path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z" class=""></path>
+                <path d="M14 2v4a2 2 0 0 0 2 2h4" class=""></path>
+              </svg>
+              Cyberpunk City
+            </a>
+            <a class="flex items-center gap-2 rounded-md px-2 py-1.5 text-sm text-neutral-300 hover:bg-neutral-800/50">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="h-4 w-4">
+                <path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z" class=""></path>
+                <path d="M14 2v4a2 2 0 0 0 2 2h4" class=""></path>
+              </svg>
+              Fantasy Landscapes
+            </a>
+            <a class="flex items-center gap-2 rounded-md px-2 py-1.5 text-sm text-neutral-300 hover:bg-neutral-800/50">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="h-4 w-4">
+                <path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z" class=""></path>
+                <path d="M14 2v4a2 2 0 0 0 2 2h4" class=""></path>
+              </svg>
+              Portrait Studies
+            </a>
+            <a class="flex items-center gap-2 rounded-md px-2 py-1.5 text-sm text-neutral-300 hover:bg-neutral-800/50">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="h-4 w-4">
+                <path d="M15 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7Z" class=""></path>
+                <path d="M14 2v4a2 2 0 0 0 2 2h4" class=""></path>
+              </svg>
+              Abstract Art
+            </a>
+          </div>
+
+          <div class="px-3 pt-4 pb-3">
+            <div class="text-[11px] uppercase tracking-wide text-neutral-500 mb-2 px-2">Resources</div>
+            <a class="flex items-center gap-2 rounded-md px-2 py-1.5 text-sm text-neutral-300 hover:bg-neutral-800/50">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="h-4 w-4">
+                <path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z" class=""></path>
+                <path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z" class=""></path>
+              </svg>
+              Documentation
+            </a>
+            <a class="flex items-center gap-2 rounded-md px-2 py-1.5 text-sm text-neutral-300 hover:bg-neutral-800/50">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="h-4 w-4">
+                <path d="M12.22 2h-.44a2 2 0 0 0-2 2v.18a2 2 0 0 1-1 1.73l-.43.25a2 2 0 0 1-2 0l-.15-.08a2 2 0 0 0-2.73.73l-.22.38a2 2 0 0 0 .73 2.73l.15.1a2 2 0 0 1 1 1.72v.51a2 2 0 0 1-1 1.74l-.15.09a2 2 0 0 0-.73 2.73l.22.38a2 2 0 0 0 2.73.73l.15-.08a2 2 0 0 1 2 0l.43.25a2 2 0 0 1 1 1.73V20a2 2 0 0 0 2 2h.44a2 2 0 0 0 2-2v-.18a2 2 0 0 1 1-1.73l.43-.25a2 2 0 0 1 2 0l.15.08a2 2 0 0 0 2.73-.73l.22-.39a2 2 0 0 0-.73-2.73l-.15-.08a2 2 0 0 1-1-1.74v-.5a2 2 0 0 1 1-1.74l.15-.09a2 2 0 0 0 .73-2.73l-.22-.38a2 2 0 0 0-2.73-.73l-.15.08a2 2 0 0 1-2 0l-.43-.25a2 2 0 0 1-1-1.73V4a2 2 0 0 0-2-2z" class=""></path>
+                <circle cx="12" cy="12" r="3" class=""></circle>
+              </svg>
+              Settings
+            </a>
+          </div>
+        </nav>
+
+        <!-- Credits -->
+        <div class="border-t border-neutral-800/50 p-3">
+          <div class="flex items-center justify-between mb-2">
+            <span class="text-xs text-neutral-400">Credits</span>
+            <span class="text-xs font-medium text-white">250 / 500</span>
+          </div>
+          <div class="w-full h-1.5 bg-neutral-800 rounded-full overflow-hidden">
+            <div class="h-full bg-gradient-to-r from-indigo-500 to-purple-600" style="width: 50%;"></div>
+          </div>
+          <button class="mt-2 w-full rounded-md px-3 py-1.5 text-sm font-medium text-white hover:bg-neutral-700/70" style="background: #606060;">
+              Get More Credits
+            </button>
+        </div>
+      </aside>
+
+      <!-- Main Content -->
+      <main class="flex-1 flex flex-col xl:bg-neutral-950/80">
+        <!-- Header -->
+        <div class="flex items-center justify-between border-b border-neutral-800/50 px-5 py-3" style="background: rgba(30, 30, 30, 0.5);">
+          <div class="flex items-center gap-3">
+            <h1 class="text-lg font-semibold tracking-tight">Generate</h1>
+          </div>
+          <div class="flex items-center gap-2">
+            <button class="flex items-center gap-2 px-3 py-1.5 rounded-md text-sm text-neutral-300 hover:bg-neutral-800/50">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="h-4 w-4"><polyline points="21 8 21 21 3 21 3 8" class=""></polyline><rect width="18" height="5" x="3" y="3" rx="2" class=""></rect><line x1="10" x2="10" y1="12" y2="17" class=""></line><line x1="14" x2="14" y1="12" y2="17" class=""></line></svg>
+                History
+              </button>
+            <button class="p-2 rounded-md hover:bg-neutral-800/50">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="h-5 w-5 text-neutral-300"><circle cx="12" cy="12" r="1" class=""></circle><circle cx="19" cy="12" r="1" class=""></circle><circle cx="5" cy="12" r="1" class=""></circle></svg>
+              </button>
+          </div>
+        </div>
+
+        <!-- Generated Images Grid -->
+        <div class="flex-1 overflow-y-auto p-5">
+          <div class="grid grid-cols-2 gap-4 mb-5">
+            <!-- Image Card -->
+            <div class="group relative aspect-square rounded-lg overflow-hidden border border-neutral-800/50 hover:border-neutral-700">
+              <img alt="Generated image 1" class="w-full h-full object-cover" src="assets/hoirqrkdgbmvpwutwuwj.supabase.co/storage/v1/object/public/assets/assets/e230abf5-bdd2-4209-acf5-4a6dd6b37e1c_800w.jpg" style="filter: grayscale(100%);">
+              <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/0 to-black/0 opacity-0 group-hover:opacity-100 transition-opacity">
+                <div class="absolute bottom-0 left-0 right-0 p-4">
+                  <div class="flex items-center gap-2">
+                    <button class="flex-1 rounded-md px-3 py-2 text-sm font-medium text-white hover:bg-white/20" style="background: rgba(255,255,255,0.1);">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="h-4 w-4 inline mr-1"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" class=""></path><polyline points="7 10 12 15 17 10" class=""></polyline><line x1="12" x2="12" y1="15" y2="3" class=""></line></svg>
+                        Download
+                      </button>
+                    <button class="rounded-md px-3 py-2 text-sm font-medium text-white hover:bg-white/20" style="background: rgba(255,255,255,0.1);">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="h-4 w-4"><path d="M7 10v12" class=""></path><path d="M15 5.88 14 10h5.83a2 2 0 0 1 1.92 2.56l-2.33 8A2 2 0 0 1 17.5 22H4a2 2 0 0 1-2-2v-8a2 2 0 0 1 2-2h2.76a2 2 0 0 0 1.79-1.11L12 2a3.13 3.13 0 0 1 3 3.88Z" class=""></path></svg>
+                      </button>
+                  </div>
+                </div>
+              </div>
+              <div class="absolute top-2 right-2">
+                <span class="text-xs rounded-full border border-neutral-700 bg-black/60 backdrop-blur px-2 py-0.5 text-neutral-300">1/4</span>
+              </div>
+            </div>
+
+            <!-- Image Card -->
+            <div class="group relative aspect-square rounded-lg overflow-hidden border border-neutral-800/50 hover:border-neutral-700">
+              <img alt="Generated image 2" class="w-full h-full object-cover" src="assets/hoirqrkdgbmvpwutwuwj.supabase.co/storage/v1/object/public/assets/assets/dbdc5b42-1ade-4607-8a26-3418307156a0_800w.webp" style="filter: grayscale(100%);">
+              <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/0 to-black/0 opacity-0 group-hover:opacity-100 transition-opacity">
+                <div class="absolute bottom-0 left-0 right-0 p-4">
+                  <div class="flex items-center gap-2">
+                    <button class="flex-1 rounded-md px-3 py-2 text-sm font-medium text-white hover:bg-white/20" style="background: rgba(255,255,255,0.1);">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="h-4 w-4 inline mr-1"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" class=""></path><polyline points="7 10 12 15 17 10" class=""></polyline><line x1="12" x2="12" y1="15" y2="3" class=""></line></svg>
+                        Download
+                      </button>
+                    <button class="rounded-md px-3 py-2 text-sm font-medium text-white hover:bg-white/20" style="background: rgba(255,255,255,0.1);">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="h-4 w-4"><path d="M7 10v12" class=""></path><path d="M15 5.88 14 10h5.83a2 2 0 0 1 1.92 2.56l-2.33 8A2 2 0 0 1 17.5 22H4a2 2 0 0 1-2-2v-8a2 2 0 0 1 2-2h2.76a2 2 0 0 0 1.79-1.11L12 2a3.13 3.13 0 0 1 3 3.88Z" class=""></path></svg>
+                      </button>
+                  </div>
+                </div>
+              </div>
+              <div class="absolute top-2 right-2">
+                <span class="text-xs rounded-full border border-neutral-700 bg-black/60 backdrop-blur px-2 py-0.5 text-neutral-300">2/4</span>
+              </div>
+            </div>
+
+            <!-- Image Card -->
+            <div class="group relative aspect-square rounded-lg overflow-hidden border border-neutral-800/50 hover:border-neutral-700">
+              <img alt="Generated image 3" class="w-full h-full object-cover" src="assets/hoirqrkdgbmvpwutwuwj.supabase.co/storage/v1/object/public/assets/assets/d84e4a08-d7bc-4dfe-8eeb-2449c350464f_800w.jpg" style="filter: grayscale(100%);">
+              <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/0 to-black/0 opacity-0 group-hover:opacity-100 transition-opacity">
+                <div class="absolute bottom-0 left-0 right-0 p-4">
+                  <div class="flex items-center gap-2">
+                    <button class="flex-1 rounded-md px-3 py-2 text-sm font-medium text-white hover:bg-white/20" style="background: rgba(255,255,255,0.1);">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="h-4 w-4 inline mr-1"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" class=""></path><polyline points="7 10 12 15 17 10" class=""></polyline><line x1="12" x2="12" y1="15" y2="3" class=""></line></svg>
+                        Download
+                      </button>
+                    <button class="rounded-md px-3 py-2 text-sm font-medium text-white hover:bg-white/20" style="background: rgba(255,255,255,0.1);">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="h-4 w-4"><path d="M7 10v12" class=""></path><path d="M15 5.88 14 10h5.83a2 2 0 0 1 1.92 2.56l-2.33 8A2 2 0 0 1 17.5 22H4a2 2 0 0 1-2-2v-8a2 2 0 0 1 2-2h2.76a2 2 0 0 0 1.79-1.11L12 2a3.13 3.13 0 0 1 3 3.88Z" class=""></path></svg>
+                      </button>
+                  </div>
+                </div>
+              </div>
+              <div class="absolute top-2 right-2">
+                <span class="text-xs rounded-full border border-neutral-700 bg-black/60 backdrop-blur px-2 py-0.5 text-neutral-300">3/4</span>
+              </div>
+            </div>
+
+            <!-- Image Card -->
+            <div class="group relative aspect-square rounded-lg overflow-hidden border border-neutral-800/50 hover:border-neutral-700">
+              <img alt="Generated image 4" class="w-full h-full object-cover" src="assets/hoirqrkdgbmvpwutwuwj.supabase.co/storage/v1/object/public/assets/assets/bd7142dc-e78f-43dd-8dba-3b22e39c8cbb_800w.jpg" style="filter: grayscale(100%);">
+              <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-black/0 to-black/0 opacity-0 group-hover:opacity-100 transition-opacity">
+                <div class="absolute bottom-0 left-0 right-0 p-4">
+                  <div class="flex items-center gap-2">
+                    <button class="flex-1 rounded-md px-3 py-2 text-sm font-medium text-white hover:bg-white/20" style="background: rgba(255,255,255,0.1);">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="h-4 w-4 inline mr-1"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4" class=""></path><polyline points="7 10 12 15 17 10" class=""></polyline><line x1="12" x2="12" y1="15" y2="3" class=""></line></svg>
+                        Download
+                      </button>
+                    <button class="rounded-md px-3 py-2 text-sm font-medium text-white hover:bg-white/20" style="background: rgba(255,255,255,0.1);">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="h-4 w-4"><path d="M7 10v12" class=""></path><path d="M15 5.88 14 10h5.83a2 2 0 0 1 1.92 2.56l-2.33 8A2 2 0 0 1 17.5 22H4a2 2 0 0 1-2-2v-8a2 2 0 0 1 2-2h2.76a2 2 0 0 0 1.79-1.11L12 2a3.13 3.13 0 0 1 3 3.88Z" class=""></path></svg>
+                      </button>
+                  </div>
+                </div>
+              </div>
+              <div class="absolute top-2 right-2">
+                <span class="text-xs rounded-full border border-neutral-700 bg-black/60 backdrop-blur px-2 py-0.5 text-neutral-300">4/4</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Prompt Used -->
+          <div class="rounded-lg border border-neutral-800/50 p-4" style="background: rgba(30, 30, 30, 0.5);">
+            <div class="flex items-start justify-between mb-2">
+              <div class="text-sm font-medium text-neutral-300">Prompt Used</div>
+              <button class="p-1 rounded hover:bg-neutral-800/50">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="h-4 w-4 text-neutral-400"><rect width="14" height="14" x="8" y="8" rx="2" ry="2" class=""></rect><path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2" class=""></path></svg>
+                </button>
+            </div>
+            <p class="text-sm text-neutral-400 leading-relaxed">
+              Futuristic cyberpunk cityscape at night, neon lights reflecting on wet streets, holographic
+              advertisements, flying cars, detailed architecture, cinematic lighting, 8k, highly detailed
+            </p>
+            <div class="flex flex-wrap gap-2 mt-3">
+              <span class="text-xs rounded-full border border-neutral-700 bg-neutral-800/40 px-2 py-1 text-neutral-300">Aspect: 1:1</span>
+              <span class="text-xs rounded-full border border-neutral-700 bg-neutral-800/40 px-2 py-1 text-neutral-300">Quality: High</span>
+              <span class="text-xs rounded-full border border-neutral-700 bg-neutral-800/40 px-2 py-1 text-neutral-300">Style: Photorealistic</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Prompt Input -->
+        <div class="border-t border-neutral-800/50 p-4" style="background: rgba(30, 30, 30, 0.5);">
+          <div class="rounded-lg border border-neutral-700 bg-neutral-800/40 focus-within:ring-2 focus-within:ring-indigo-500/40">
+            <div class="px-4 py-3">
+              <textarea class="w-full bg-transparent text-sm placeholder-neutral-500 focus:outline-none resize-none" rows="3" placeholder="Describe the image you want to generate..."></textarea>
+            </div>
+            <div class="flex items-center justify-between border-t border-neutral-700/50 px-4 py-3">
+              <div class="flex items-center gap-2">
+                <button class="flex items-center gap-1.5 px-2.5 py-1.5 rounded-md text-xs text-neutral-300 hover:bg-neutral-700/50 border border-neutral-700">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="h-3.5 w-3.5"><rect width="18" height="18" x="3" y="3" rx="2" ry="2" class=""></rect><circle cx="9" cy="9" r="2" class=""></circle><path d="m21 15-3.086-3.086a2 2 0 0 0-2.828 0L6 21" class=""></path></svg>
+                    Upload Image
+                  </button>
+                <button class="flex items-center gap-1.5 px-2.5 py-1.5 rounded-md text-xs text-neutral-300 hover:bg-neutral-700/50 border border-neutral-700">
+                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="h-3.5 w-3.5"><path d="M11.017 2.814a1 1 0 0 1 1.966 0l1.051 5.558a2 2 0 0 0 1.594 1.594l5.558 1.051a1 1 0 0 1 0 1.966l-5.558 1.051a2 2 0 0 0-1.594 1.594l-1.051 5.558a1 1 0 0 1-1.966 0l-1.051-5.558a2 2 0 0 0-1.594-1.594l-5.558-1.051a1 1 0 0 1 0-1.966l5.558-1.051a2 2 0 0 0 1.594-1.594z" class=""></path></svg>
+                    Random Prompt
+                  </button>
+              </div>
+              <button class="flex items-center gap-2 rounded-md px-4 py-2 text-sm font-medium text-white" style="background: #606060;">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="h-4 w-4"><path d="m21.73 18-8-14a2 2 0 0 0-3.48 0l-8 14A2 2 0 0 0 4 21h16a2 2 0 0 0 1.73-3" class=""></path><path d="M12 9v4" class=""></path><path d="M12 17h.01" class=""></path></svg>
+                  Generate (4 credits)
+                </button>
+            </div>
+          </div>
+        </div>
+      </main>
+
+      <!-- Settings Panel -->
+      <aside class="w-80 border-l border-neutral-800/50 flex flex-col" style="background: rgba(30, 30, 30, 0.8);">
+        <div class="px-4 py-3 border-b border-neutral-800/50">
+          <div class="text-sm font-semibold tracking-tight">Settings</div>
+        </div>
+
+        <div class="flex-1 overflow-y-auto p-4 space-y-5">
+          <!-- Model -->
+          <div class="">
+            <label class="text-xs text-neutral-400 mb-2 block">Model</label>
+            <div class="space-y-2">
+              <button class="w-full text-left px-3 py-2 rounded-md text-sm text-white" style="background: rgba(60, 60, 60, 0.7);">
+                  <div class="font-medium">AuraGen</div>
+                  <div class="text-xs text-neutral-400 mt-0.5">Latest model, best quality</div>
+                </button>
+              <button class="w-full text-left px-3 py-2 rounded-md text-sm text-neutral-300 hover:bg-neutral-800/50 border border-neutral-800/50">
+                  <div class="font-medium">AuraGen</div>
+                  <div class="text-xs text-neutral-400 mt-0.5">Fast generation</div>
+                </button>
+            </div>
+          </div>
+
+          <!-- Aspect Ratio -->
+          <div class="">
+            <label class="text-xs text-neutral-400 mb-2 block">Aspect Ratio</label>
+            <div class="grid grid-cols-3 gap-2">
+              <button class="px-3 py-2 rounded-md text-sm text-white border border-neutral-600" style="background: rgba(60, 60, 60, 0.7);">1:1</button>
+              <button class="px-3 py-2 rounded-md text-sm text-neutral-300 hover:bg-neutral-800/50 border border-neutral-800/50">16:9</button>
+              <button class="px-3 py-2 rounded-md text-sm text-neutral-300 hover:bg-neutral-800/50 border border-neutral-800/50">9:16</button>
+              <button class="px-3 py-2 rounded-md text-sm text-neutral-300 hover:bg-neutral-800/50 border border-neutral-800/50">4:3</button>
+              <button class="px-3 py-2 rounded-md text-sm text-neutral-300 hover:bg-neutral-800/50 border border-neutral-800/50">3:4</button>
+              <button class="px-3 py-2 rounded-md text-sm text-neutral-300 hover:bg-neutral-800/50 border border-neutral-800/50">21:9</button>
+            </div>
+          </div>
+
+          <!-- Quality -->
+          <div class="">
+            <label class="text-xs text-neutral-400 mb-2 block">Quality</label>
+            <div class="space-y-2">
+              <button class="w-full text-left px-3 py-2 rounded-md text-sm text-neutral-300 hover:bg-neutral-800/50 border border-neutral-800/50">
+                  <div class="flex items-center justify-between">
+                    <span class="">Standard</span>
+                    <span class="text-xs text-neutral-500">2 credits</span>
+                  </div>
+                </button>
+              <button class="w-full text-left px-3 py-2 rounded-md text-sm text-white border border-neutral-600" style="background: rgba(60, 60, 60, 0.7);">
+                  <div class="flex items-center justify-between">
+                    <span class="">High</span>
+                    <span class="text-xs text-neutral-500">4 credits</span>
+                  </div>
+                </button>
+              <button class="w-full text-left px-3 py-2 rounded-md text-sm text-neutral-300 hover:bg-neutral-800/50 border border-neutral-800/50">
+                  <div class="flex items-center justify-between">
+                    <span>Ultra</span>
+                    <span class="text-xs text-neutral-500">8 credits</span>
+                  </div>
+                </button>
+            </div>
+          </div>
+
+          <!-- Style Preset -->
+          <div class="">
+            <label class="text-xs text-neutral-400 mb-2 block">Style Preset</label>
+            <div class="space-y-2">
+              <button class="w-full text-left px-3 py-2 rounded-md text-sm text-white border border-neutral-600" style="background: rgba(60, 60, 60, 0.7);">Photorealistic</button>
+              <button class="w-full text-left px-3 py-2 rounded-md text-sm text-neutral-300 hover:bg-neutral-800/50 border border-neutral-800/50">Artistic</button>
+              <button class="w-full text-left px-3 py-2 rounded-md text-sm text-neutral-300 hover:bg-neutral-800/50 border border-neutral-800/50">Anime</button>
+              <button class="w-full text-left px-3 py-2 rounded-md text-sm text-neutral-300 hover:bg-neutral-800/50 border border-neutral-800/50">Digital Art</button>
+              <button class="w-full text-left px-3 py-2 rounded-md text-sm text-neutral-300 hover:bg-neutral-800/50 border border-neutral-800/50">3D Render</button>
+            </div>
+          </div>
+
+          <!-- Number of Images -->
+          <div>
+            <label class="text-xs text-neutral-400 mb-2 block">Number of Images</label>
+            <div class="grid grid-cols-4 gap-2">
+              <button class="px-3 py-2 rounded-md text-sm text-neutral-300 hover:bg-neutral-800/50 border border-neutral-800/50">1</button>
+              <button class="px-3 py-2 rounded-md text-sm text-neutral-300 hover:bg-neutral-800/50 border border-neutral-800/50">2</button>
+              <button class="px-3 py-2 rounded-md text-sm text-white border border-neutral-600" style="background: rgba(60, 60, 60, 0.7);">4</button>
+              <button class="px-3 py-2 rounded-md text-sm text-neutral-300 hover:bg-neutral-800/50 border border-neutral-800/50">8</button>
+            </div>
+          </div>
+
+          <!-- Advanced -->
+          <div class="pt-2 border-t border-neutral-800/50">
+            <button class="flex items-center gap-2 text-sm text-neutral-300 hover:text-white">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" class="h-4 w-4"><path d="m9 18 6-6-6-6" class=""></path></svg>
+                Advanced Settings
+              </button>
+          </div>
+        </div>
+      </aside>
+
+    </div>
+  </div>
+</div><section class="[animation:fadeSlideIn_0.8s_ease-out_0.6s_both] animate-on-scroll animate sm:px-6 lg:px-8 lg:pt-6 max-w-7xl z-10 mt-8 mr-auto mb-16 ml-auto pt-16 pr-4 pb-6 pl-4 relative">
+  <div class="text-center">
+    <p class="uppercase text-sm font-medium text-slate-400 tracking-wide">
+      Lorem ipsum dolor sit amet consectetur
+    </p>
+  </div>
+  <div class="overflow-hidden mt-6 relative">
+    <style>
+      @keyframes smoothCarousel {
+        0% { transform: translateX(0); }
+        100% { transform: translateX(-50%); }
+      }
+      .carousel-wrapper {
+        animation: smoothCarousel 40s linear infinite;
+      }
+      .carousel-wrapper:hover {
+        animation-play-state: paused;
+      }
+    </style>
+
+    <div style="mask-image: linear-gradient(to right, transparent, black 15%, black 85%, transparent); -webkit-mask-image: linear-gradient(to right, transparent, black 15%, black 85%, transparent);" class="">
+      <div class="flex carousel-wrapper gap-x-6 lg:gap-x-20">
+        <div class="flex gap-6 shrink-0 gap-x-6 lg:gap-x-20">
+          <a href="#" class="inline-flex items-center justify-center bg-center mix-blend-screen w-[150px] h-[40px] bg-[url(assets/hoirqrkdgbmvpwutwuwj.supabase.co/storage/v1/object/public/assets/assets/e5f2922d-4fb6-4f7c-8795-cd9ba63105a4_1600w.png)] bg-cover rounded-lg transition-transform hover:scale-110"></a>
+          <a href="#" class="inline-flex items-center justify-center bg-center mix-blend-screen w-[150px] h-[40px] bg-[url(assets/hoirqrkdgbmvpwutwuwj.supabase.co/storage/v1/object/public/assets/assets/92287bc0-bc70-4864-bf05-a89c1b99a218_1600w.png)] bg-cover rounded-lg transition-transform hover:scale-110"></a>
+          <a href="#" class="inline-flex items-center justify-center bg-center mix-blend-screen w-[150px] h-[40px] bg-[url(assets/hoirqrkdgbmvpwutwuwj.supabase.co/storage/v1/object/public/assets/assets/8284c62f-bfed-4d35-aaa2-956d0a8969b3_1600w.png)] bg-cover rounded-lg transition-transform hover:scale-110"></a>
+          <a href="#" class="inline-flex items-center justify-center bg-center mix-blend-screen w-[120px] h-[40px] bg-[url(assets/hoirqrkdgbmvpwutwuwj.supabase.co/storage/v1/object/public/assets/assets/3764a6eb-78e1-495f-9143-c85a648446c4_1600w.png)] bg-cover rounded-lg transition-transform hover:scale-110"></a>
+          <a href="#" class="inline-flex items-center justify-center bg-center mix-blend-screen w-[120px] h-[40px] bg-[url(assets/hoirqrkdgbmvpwutwuwj.supabase.co/storage/v1/object/public/assets/assets/dea31d52-7076-423f-bace-53eeec3014d3_1600w.png)] bg-cover rounded-lg transition-transform hover:scale-110"></a>
+          <a href="#" class="inline-flex items-center justify-center bg-center mix-blend-screen w-[150px] h-[40px] bg-[url(assets/hoirqrkdgbmvpwutwuwj.supabase.co/storage/v1/object/public/assets/assets/b16a9cf6-6be1-4d0d-bc63-07a471092998_1600w.png)] bg-cover rounded-lg transition-transform hover:scale-110"></a>
+        </div>
+        <div class="flex shrink-0 gap-x-6 lg:gap-x-20">
+          <a href="#" class="inline-flex items-center justify-center bg-center mix-blend-screen w-[150px] h-[40px] bg-[url(assets/hoirqrkdgbmvpwutwuwj.supabase.co/storage/v1/object/public/assets/assets/e5f2922d-4fb6-4f7c-8795-cd9ba63105a4_1600w.png)] bg-cover rounded-lg transition-transform hover:scale-110"></a>
+          <a href="#" class="inline-flex items-center justify-center bg-center mix-blend-screen w-[150px] h-[40px] bg-[url(assets/hoirqrkdgbmvpwutwuwj.supabase.co/storage/v1/object/public/assets/assets/92287bc0-bc70-4864-bf05-a89c1b99a218_1600w.png)] bg-cover rounded-lg transition-transform hover:scale-110"></a>
+          <a href="#" class="inline-flex items-center justify-center bg-center mix-blend-screen w-[150px] h-[40px] bg-[url(assets/hoirqrkdgbmvpwutwuwj.supabase.co/storage/v1/object/public/assets/assets/8284c62f-bfed-4d35-aaa2-956d0a8969b3_1600w.png)] bg-cover rounded-lg transition-transform hover:scale-110"></a>
+          <a href="#" class="inline-flex items-center justify-center bg-center mix-blend-screen w-[100px] h-[40px] bg-[url(assets/hoirqrkdgbmvpwutwuwj.supabase.co/storage/v1/object/public/assets/assets/3764a6eb-78e1-495f-9143-c85a648446c4_1600w.png)] bg-cover rounded-lg transition-transform hover:scale-110"></a>
+          <a href="#" class="inline-flex items-center justify-center bg-center mix-blend-screen w-[100px] h-[40px] bg-[url(assets/hoirqrkdgbmvpwutwuwj.supabase.co/storage/v1/object/public/assets/assets/dea31d52-7076-423f-bace-53eeec3014d3_1600w.png)] bg-cover rounded-lg transition-transform hover:scale-110"></a>
+          <a href="#" class="inline-flex items-center justify-center bg-center mix-blend-screen w-[150px] h-[40px] bg-[url(assets/hoirqrkdgbmvpwutwuwj.supabase.co/storage/v1/object/public/assets/assets/b16a9cf6-6be1-4d0d-bc63-07a471092998_1600w.png)] bg-cover rounded-lg transition-transform hover:scale-110"></a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section><section class="mt-10 mb-0 pt-0 pb-0 relative">
+      <div class="sm:px-6 lg:px-8 lg:pb-0 max-w-7xl mr-auto ml-auto pt-16 pr-4 pb-16 pl-4">
+        <h2 class="text-2xl font-medium text-white tracking-tighter text-left mb-0 sm:text-5xl" style="mask-image: linear-gradient(90deg, transparent, black 0%, black 10%, transparent); -webkit-mask-image: linear-gradient(90deg, transparent, black 0%, black 10%, transparent);">Lorem Ipsum Dolor Sit Amet</h2>
+
+        <section class="mt-10 mb-20 pt-0 pb-0 relative">
+      <div class="sm:px-6 lg:px-8 lg:pt-8 max-w-full pt-16 pr-4 pb-16 pl-4">
+        
+
+        <div class="rounded-2xl mt-10 backdrop-blur" style="mask-image: linear-gradient(90deg, transparent, black 20%, black 80%, transparent); -webkit-mask-image: linear-gradient(90deg, transparent, black 20%, black 80%, transparent);">
+          <div class="grid grid-cols-1 md:grid-cols-3 border-white/10 border-b" style="mask-image: linear-gradient(0deg, transparent, black 0%, black 100%, transparent); -webkit-mask-image: linear-gradient(0deg, transparent, black 0%, black 100%, transparent);">
+            <div class="hover:bg-white/10 transition-all duration-300 cursor-pointer overflow-hidden group text-center pt-8 pr-8 pb-8 pl-8 relative" style="mask-image: linear-gradient(0deg, transparent, black 0%, black 10%, transparent); -webkit-mask-image: linear-gradient(0deg, transparent, black 0%, black 10%, transparent);">
+              <div class="inline-flex group-hover:bg-white/10 transition-colors duration-300 text-slate-200 bg-white/5 w-10 h-10 ring-white/10 ring-1 rounded-lg mr-auto mb-4 ml-auto items-center justify-center">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-5 w-5"><path d="M11.017 2.814a1 1 0 0 1 1.966 0l1.051 5.558a2 2 0 0 0 1.594 1.594l5.558 1.051a1 1 0 0 1 0 1.966l-5.558 1.051a2 2 0 0 0-1.594 1.594l-1.051 5.558a1 1 0 0 1-1.966 0l-1.051-5.558a2 2 0 0 0-1.594-1.594l-5.558-1.051a1 1 0 0 1 0-1.966l5.558-1.051a2 2 0 0 0 1.594-1.594z" class=""></path></svg>
+              </div>
+              <h3 class="text-lg text-white">Lorem Ipsum</h3>
+              <p class="text-sm text-zinc-400 mt-1">lorem ipsum dolor sit</p>
+            </div>
+            <div class="md:border-l md:border-white/10 hover:bg-white/10 transition-all duration-300 cursor-pointer overflow-hidden group text-center pt-8 pr-8 pb-8 pl-8 relative" style="mask-image: linear-gradient(0deg, transparent, black 0%, black 10%, transparent); -webkit-mask-image: linear-gradient(0deg, transparent, black 0%, black 10%, transparent);">
+              <div class="inline-flex group-hover:bg-white/10 transition-colors duration-300 text-slate-200 bg-white/5 w-10 h-10 ring-white/10 ring-1 rounded-lg mr-auto mb-4 ml-auto items-center justify-center">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-5 w-5"><rect width="18" height="18" x="3" y="3" rx="2" ry="2" class=""></rect><circle cx="9" cy="9" r="2"></circle><path d="m21 15-3.086-3.086a2 2 0 0 0-2.828 0L6 21" class=""></path></svg>
+              </div>
+              <h3 class="text-lg font-semibold text-white tracking-tight">Dolor Sit Amet</h3>
+              <p class="text-sm text-zinc-400 mt-1">consectetur adipiscing</p>
+            </div>
+            <div class="md:border-l md:border-white/10 hover:bg-white/10 transition-all duration-300 cursor-pointer overflow-hidden group text-center pt-8 pr-8 pb-8 pl-8 relative" style="mask-image: linear-gradient(0deg, transparent, black 0%, black 10%, transparent); -webkit-mask-image: linear-gradient(0deg, transparent, black 0%, black 10%, transparent);">
+              <div class="inline-flex group-hover:bg-white/10 transition-colors duration-300 text-slate-200 bg-white/5 w-10 h-10 ring-white/10 ring-1 rounded-lg mr-auto mb-4 ml-auto items-center justify-center">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-5 w-5"><polyline points="16 18 22 12 16 6"></polyline><polyline points="8 6 2 12 8 18"></polyline></svg>
+              </div>
+              <h3 class="text-lg font-semibold text-white tracking-tight">Magna Aliqua</h3>
+              <p class="text-sm text-zinc-400 mt-1">sed do eiusmod tempor</p>
+            </div>
+          </div>
+
+          <div class="grid grid-cols-1 md:grid-cols-2">
+            <div class="md:border-r md:border-white/10 hover:bg-white/10 transition-all duration-300 cursor-pointer overflow-hidden group text-center pt-8 pr-8 pb-8 pl-8 relative" style="mask-image: linear-gradient(180deg, transparent, black 0%, black 20%, transparent); -webkit-mask-image: linear-gradient(180deg, transparent, black 0%, black 20%, transparent);">
+              <div class="inline-flex group-hover:bg-white/10 transition-colors duration-300 text-slate-200 bg-white/5 w-10 h-10 ring-white/10 ring-1 rounded-lg mr-auto mb-4 ml-auto items-center justify-center">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-5 w-5"><circle cx="12" cy="12" r="10" class=""></circle><path d="M12 6v6l4 2" class=""></path></svg>
+              </div>
+              <h3 class="text-lg font-semibold text-white tracking-tight">Tempor Elit</h3>
+              <p class="text-sm text-zinc-400 mt-1">ut enim ad minim</p>
+            </div>
+            <div class="hover:bg-white/10 transition-all duration-300 cursor-pointer overflow-hidden group text-center pt-8 pr-8 pb-8 pl-8 relative" style="mask-image: linear-gradient(180deg, transparent, black 0%, black 20%, transparent); -webkit-mask-image: linear-gradient(180deg, transparent, black 0%, black 20%, transparent);">
+              <div class="inline-flex group-hover:bg-white/10 transition-colors duration-300 text-slate-200 bg-white/5 w-10 h-10 ring-white/10 ring-1 rounded-lg mr-auto mb-4 ml-auto items-center justify-center">
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-5 w-5"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"></path></svg>
+              </div>
+              <h3 class="text-lg font-semibold text-white tracking-tight">Quis &amp; Nostrud</h3>
+              <p class="text-sm text-zinc-400 mt-1">nisi ut aliquip</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+      </div>
+    </section><section class="sm:pt-24 md:pt-10 max-w-7xl mr-auto ml-auto pt-24 pb-20 relative">
+  <!-- Ambient gradient -->
+  
+
+  <div class="max-w-7xl mr-auto ml-auto pr-6 pl-6">
+    <!-- Section Title -->
+    <div class="text-center mb-12">
+      <h2 class="text-2xl font-medium text-white tracking-tighter text-left pt-6 pb-6 sm:text-5xl" style="mask-image: linear-gradient(90deg, transparent, black 0%, black 10%, transparent); -webkit-mask-image: linear-gradient(90deg, transparent, black 0%, black 10%, transparent);">Consectetur Adipiscing Elit</h2>
+      
+    </div>
+
+    <!-- Cards -->
+    <div class="grid grid-cols-1 sm:grid-cols-3 gap-5">
+      <!-- Card 1 -->
+      <div class="group overflow-hidden hover:bg-[radial-gradient(circle_at_top,var(--tw-gradient-stops))] hover:from-indigo-400/30 hover:to-indigo-400/0 hover:border-slate-50/20 transition-all duration-300 sm:pl-8 sm:pr-8 sm:pt-8 sm:pb-8 bg-white/5 border-white/10 border rounded-2xl pt-5 pr-5 pb-5 pl-5 relative" style="mask-image: linear-gradient(160deg, transparent, black 30%, black 75%, transparent); -webkit-mask-image: linear-gradient(160deg, transparent, black 30%, black 75%, transparent);">
+        <div class="pointer-events-none absolute inset-0 opacity-[0.08]" style="background-image: radial-gradient(circle at 1px 1px, rgba(255,255,255,0.9) 1px, transparent 1px); background-size: 14px 14px;"></div>
+        <div class="relative flex w-10 h-10 ring-1 ring-white/20 bg-slate-50/5 rounded-full shadow-lg items-center justify-center">
+          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-[20px] h-[20px]" style="width: 20px; height: 20px; color: rgb(255, 255, 255);"><path d="M11.017 2.814a1 1 0 0 1 1.966 0l1.051 5.558a2 2 0 0 0 1.594 1.594l5.558 1.051a1 1 0 0 1 0 1.966l-5.558 1.051a2 2 0 0 0-1.594 1.594l-1.051 5.558a1 1 0 0 1-1.966 0l-1.051-5.558a2 2 0 0 0-1.594-1.594l-5.558-1.051a1 1 0 0 1 0-1.966l5.558-1.051a2 2 0 0 0 1.594-1.594z" class=""></path><path d="M20 2v4"></path><path d="M22 4h-4"></path><circle cx="4" cy="20" r="2"></circle></svg>
+        </div>
+        <h3 class="relative sm:text-3xl text-2xl font-semibold tracking-tight font-manrope mt-5">Lorem Ipsum</h3>
+        <p class="relative mt-2 text-white/70 text-sm sm:text-base font-sans">Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore.</p>
+
+        <!-- Illustration -->
+        <div class="bg-neutral-50/5 ring-white/10 ring-1 rounded-2xl mt-6 pt-4 pr-4 pb-4 pl-4 relative" style="mask-image: linear-gradient(180deg, transparent, black 0%, black 25%, transparent); -webkit-mask-image: linear-gradient(180deg, transparent, black 0%, black 25%, transparent);">
+          <div class="absolute inset-0 rounded-2xl bg-gradient-to-b from-blue-600/10 via-indigo-700/10 to-transparent pointer-events-none"></div>
+
+          <!-- Prompt UI -->
+          <div class="relative bg-black/40 rounded-xl px-3 py-2 text-xs text-white/80 font-mono">
+            "futuristic city at sunset..."
+          </div>
+
+          <svg class="opacity-60 max-w-[320px] mt-4 mr-auto ml-auto relative w-[320px] h-[16px]" viewBox="0 0 320 60" fill="none" stroke-width="2" style="width: 320px; height: 16px; color: rgb(255, 255, 255);" data-icon-replaced="true">
+            <path d="M160 5 L160 55" stroke="currentColor" stroke-width="1.5" opacity="0.5" stroke-dasharray="3 3"></path>
+          </svg>
+
+          <div class="flex bg-neutral-50/5 w-full h-20 ring-white/20 ring-1 rounded-lg mt-4 relative shadow-xl items-center justify-center">
+            <svg xmlns="http://www.w3.org/2000/svg" class="w-8 h-8 text-white/60" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect width="18" height="18" x="3" y="3" rx="2" ry="2" class=""></rect><circle cx="9" cy="9" r="2"></circle><path d="m21 15-3.086-3.086a2 2 0 0 0-2.828 0L6 21" class=""></path></svg>
+          </div>
+        </div>
+      </div>
+
+      <!-- Card 2 -->
+      <div class="group overflow-hidden hover:bg-[radial-gradient(circle_at_top,var(--tw-gradient-stops))] hover:from-indigo-400/30 hover:to-indigo-400/0 hover:border-slate-50/20 transition-all duration-300 sm:pl-8 sm:pr-8 sm:pt-8 sm:pb-8 bg-white/5 border-white/10 border rounded-2xl pt-5 pr-5 pb-5 pl-5 relative" style="mask-image: linear-gradient(90deg, transparent, black 0%, black 100%, transparent); -webkit-mask-image: linear-gradient(90deg, transparent, black 0%, black 100%, transparent);">
+        <div class="pointer-events-none absolute inset-0 opacity-[0.08]" style="background-image: radial-gradient(circle at 1px 1px, rgba(255,255,255,0.9) 1px, transparent 1px); background-size: 14px 14px;"></div>
+        <div class="relative flex w-10 h-10 ring-1 ring-white/20 bg-slate-50/5 rounded-full shadow-lg items-center justify-center">
+          <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M9 9.003a1 1 0 0 1 1.517-.859l4.997 2.997a1 1 0 0 1 0 1.718l-4.997 2.997A1 1 0 0 1 9 14.996z"></path><circle cx="12" cy="12" r="10"></circle></svg>
+        </div>
+        <h3 class="relative mt-5 text-2xl sm:text-3xl font-semibold tracking-tight font-manrope">Dolor Sit Amet</h3>
+        <p class="relative mt-2 text-white/70 text-sm sm:text-base font-sans">Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo.</p>
+
+        <!-- Illustration -->
+        <div class="bg-neutral-50/5 rounded-2xl ring-white/10 ring-1 mt-6 pt-4 pr-4 pb-4 pl-4 relative" style="mask-image: linear-gradient(0deg, transparent, black 75%, black 100%, transparent); -webkit-mask-image: linear-gradient(0deg, transparent, black 75%, black 100%, transparent);">
+          <div class="absolute inset-0 rounded-2xl bg-gradient-to-b from-indigo-600/10 via-blue-700/10 to-transparent pointer-events-none"></div>
+
+          <div class="relative flex items-center gap-3">
+            <div class="flex-1 flex bg-white/10 h-16 rounded-lg ring-white/10 ring-1 items-center justify-center">
+              <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 text-white/50" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect width="18" height="18" x="3" y="3" rx="2" class=""></rect><path d="M9 3v18"></path></svg>
+            </div>
+            
+            <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 text-white/60 shrink-0" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14"></path><path d="m12 5 7 7-7 7" class=""></path></svg>
+            
+            <div class="flex-1 flex bg-slate-50/5 h-16 ring-white/20 ring-1 rounded-lg shadow-md items-center justify-center">
+              <svg xmlns="http://www.w3.org/2000/svg" class="w-6 h-6 text-white/70" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M11.017 2.814a1 1 0 0 1 1.966 0l1.051 5.558a2 2 0 0 0 1.594 1.594l5.558 1.051a1 1 0 0 1 0 1.966l-5.558 1.051a2 2 0 0 0-1.594 1.594l-1.051 5.558a1 1 0 0 1-1.966 0l-1.051-5.558a2 2 0 0 0-1.594-1.594l-5.558-1.051a1 1 0 0 1 0-1.966l5.558-1.051a2 2 0 0 0 1.594-1.594z"></path></svg>
+            </div>
+          </div>
+
+          <div class="flex gap-2 mt-3 gap-x-2 gap-y-2" style="mask-image: linear-gradient(230deg, transparent, black 50%, black 100%, transparent); -webkit-mask-image: linear-gradient(230deg, transparent, black 50%, black 100%, transparent);">
+            <span class="px-2 py-1 text-[10px] rounded-full bg-white/5 border border-white/10 text-white/70">Style Transfer</span>
+            <span class="px-2 py-1 text-[10px] rounded-full bg-white/5 border border-white/10 text-white/70">Upscale</span>
+            <span class="px-2 py-1 text-[10px] rounded-full bg-white/5 border border-white/10 text-white/70">Enhance</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Card 3 -->
+      <div class="group overflow-hidden hover:bg-[radial-gradient(circle_at_top,var(--tw-gradient-stops))] hover:from-indigo-400/30 hover:to-indigo-400/0 hover:border-slate-50/20 transition-all duration-300 sm:pl-8 sm:pr-8 sm:pt-8 sm:pb-8 bg-white/5 border-white/10 border rounded-2xl pt-5 pr-5 pb-5 pl-5 relative" style="mask-image: linear-gradient(210deg, transparent, black 45%, black 55%, transparent); -webkit-mask-image: linear-gradient(210deg, transparent, black 45%, black 55%, transparent);">
+        <div class="pointer-events-none absolute inset-0 opacity-[0.08]" style="background-image: radial-gradient(circle at 1px 1px, rgba(255,255,255,0.9) 1px, transparent 1px); background-size: 14px 14px;"></div>
+        <div class="relative flex w-10 h-10 ring-1 ring-white/20 bg-slate-50/5 rounded-full shadow-lg items-center justify-center">
+          <svg xmlns="http://www.w3.org/2000/svg" class="w-5 h-5 text-white" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 13c0 5-3.5 7.5-7.66 8.95a1 1 0 0 1-.67-.01C7.5 20.5 4 18 4 13V6a1 1 0 0 1 1-1c2 0 4.5-1.2 6.24-2.72a1.17 1.17 0 0 1 1.52 0C14.51 3.81 17 5 19 5a1 1 0 0 1 1 1z"></path></svg>
+        </div>
+        <h3 class="relative mt-5 text-2xl sm:text-3xl font-semibold tracking-tight font-manrope">Magna Aliqua</h3>
+        <p class="relative mt-2 text-white/70 text-sm sm:text-base font-sans">Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.</p>
+
+        <!-- Illustration -->
+        <div class="bg-neutral-50/5 rounded-2xl ring-white/10 ring-1 mt-6 pt-4 pr-4 pb-4 pl-4 relative" style="mask-image: linear-gradient(180deg, transparent, black 0%, black 10%, transparent); -webkit-mask-image: linear-gradient(180deg, transparent, black 0%, black 10%, transparent);">
+          <div class="absolute inset-0 rounded-2xl bg-gradient-to-b from-blue-600/10 via-indigo-700/10 to-transparent pointer-events-none"></div>
+
+          <div class="relative space-y-2">
+            <div class="flex items-center gap-2 px-3 py-2 rounded-lg bg-white/5 border border-white/10">
+              <div class="w-5 h-5 rounded-full bg-green-500/20 flex items-center justify-center">
+                <svg xmlns="http://www.w3.org/2000/svg" class="w-[12px] h-[12px]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" data-icon-replaced="true" style="color: rgb(74, 222, 128); width: 12px; height: 12px"><polyline points="20 6 9 17 4 12" class=""></polyline></svg>
+              </div>
+              <span class="text-xs text-white/80">Content Filter Active</span>
+            </div>
+            
+            <div class="flex items-center gap-2 px-3 py-2 rounded-lg bg-white/5 border border-white/10">
+              <div class="w-5 h-5 rounded-full bg-green-500/20 flex items-center justify-center">
+                <svg xmlns="http://www.w3.org/2000/svg" class="w-3 h-3 text-slate-50" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>
+              </div>
+              <span class="text-xs text-white/80">Commercial Rights</span>
+            </div>
+            
+            <div class="flex items-center gap-2 px-3 py-2 rounded-lg bg-white/5 border border-white/10">
+              <div class="w-5 h-5 rounded-full bg-green-500/20 flex items-center justify-center">
+                <svg xmlns="http://www.w3.org/2000/svg" class="w-3 h-3 text-slate-50" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"></polyline></svg>
+              </div>
+              <span class="text-xs text-white/80">Privacy Protected</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Feature bullets -->
+    <div class="sm:mt-12 border-white/10 border-t mt-10 pt-8" style="mask-image: linear-gradient(90deg, transparent, black 15%, black 85%, transparent); -webkit-mask-image: linear-gradient(90deg, transparent, black 15%, black 85%, transparent);">
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div class="flex items-start gap-3">
+          <span class="inline-flex w-9 h-9 ring-1 ring-white/15 items-center justify-center bg-white/5 rounded-full">
+            <svg xmlns="http://www.w3.org/2000/svg" class="w-[18px] h-[18px]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" style="width: 18px; height: 18px; color: rgb(255, 255, 255);"><circle cx="12" cy="12" r="10" class=""></circle><path d="M12 6v6l4 2"></path></svg>
+          </span>
+          <div class="">
+            <p class="text-sm font-medium text-white/90 font-sans">Lorem Ipsum</p>
+            <p class="text-sm text-white/60 mt-1 font-sans">Lorem ipsum dolor sit amet consectetur.</p>
+          </div>
+        </div>
+        <div class="flex items-start gap-3">
+          <span class="inline-flex w-9 h-9 ring-1 ring-white/15 items-center justify-center bg-white/5 rounded-full">
+            <svg xmlns="http://www.w3.org/2000/svg" class="w-[18px] h-[18px]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" style="width: 18px; height: 18px; color: rgb(255, 255, 255);"><rect width="18" height="18" x="3" y="3" rx="2" ry="2"></rect><path d="M9 3v18"></path><path d="M15 3v18"></path></svg>
+          </span>
+          <div class="">
+            <p class="text-sm font-medium text-white/90 font-sans">Dolor Sit Amet</p>
+            <p class="text-sm text-white/60 mt-1 font-sans">Sed do eiusmod tempor incididunt labore.</p>
+          </div>
+        </div>
+        <div class="flex items-start gap-3">
+          <span class="inline-flex w-9 h-9 ring-1 ring-white/15 items-center justify-center bg-white/5 rounded-full">
+            <svg xmlns="http://www.w3.org/2000/svg" class="w-[18px] h-[18px]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" style="width: 18px; height: 18px; color: rgb(255, 255, 255);"><path d="M3 3v18h18" class=""></path><path d="M19 9l-5 5-4-4-3 3"></path></svg>
+          </span>
+          <div class="">
+            <p class="text-sm font-medium text-white/90 font-sans">Magna Aliqua</p>
+            <p class="text-sm text-white/60 mt-1 font-sans">Ut enim ad minim veniam quis nostrud.</p>
+          </div>
+        </div>
+        <div class="flex items-start gap-3">
+          <span class="inline-flex w-9 h-9 ring-1 ring-white/15 items-center justify-center bg-white/5 rounded-full">
+            <svg xmlns="http://www.w3.org/2000/svg" class="w-[18px] h-[18px]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" style="width: 18px; height: 18px; color: rgb(255, 255, 255);"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"></path><circle cx="9" cy="7" r="4"></circle><path d="M22 21v-2a4 4 0 0 0-3-3.87"></path><path d="M16 3.13a4 4 0 0 1 0 7.75"></path></svg>
+          </span>
+          <div class="">
+            <p class="text-sm font-medium text-white/90 font-sans">Duis Aute</p>
+            <p class="text-sm text-white/60 mt-1 font-sans">Excepteur sint occaecat cupidatat.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+    <!-- GALLERY -->
+    
+
+    <!-- REVIEWS -->
+    <section class="sm:pt-24 md:pt-20 pt-24 pb-20 relative">
+  <!-- Ambient portfolio glow -->
+  
+
+  <div class="max-w-7xl mr-auto ml-auto pr-6 pl-6" style="mask-image: linear-gradient(180deg, transparent, black 0%, black 10%, transparent); -webkit-mask-image: linear-gradient(180deg, transparent, black 0%, black 10%, transparent);">
+    <!-- Header -->
+    <div class="text-center" style="mask-image: linear-gradient(90deg, transparent, black 0%, black 100%, transparent); -webkit-mask-image: linear-gradient(90deg, transparent, black 0%, black 100%, transparent);">
+      
+      <h2 class="text-2xl font-medium text-white tracking-tighter text-left pt-6 pb-6 sm:text-5xl" style="mask-image: linear-gradient(90deg, transparent, black 0%, black 0%, transparent); -webkit-mask-image: linear-gradient(90deg, transparent, black 0%, black 0%, transparent);">Lorem Ipsum Dolor</h2>
+      
+      
+    </div>
+
+    <!-- Row 1 -->
+    <div class="grid grid-cols-1 lg:grid-cols-4 mt-10 pt-0 pr-0 pb-0 pl-0 gap-x-4 gap-y-4">
+      <!-- Info card -->
+      <div class="group overflow-hidden hover:bg-[radial-gradient(circle_at_top,var(--tw-gradient-stops))] hover:from-indigo-400/30 hover:to-indigo-400/0 hover:border-slate-50/20 transition-all duration-300 sm:p-6 bg-gradient-to-b from-[#ffffff]/10 to-[#000000]/10 rounded-2xl ring-[#ffffff]/10 ring-1 pt-5 pr-5 pb-5 pl-5 relative">
+    <div class="pointer-events-none absolute inset-0 opacity-[0.07]" style="background-image: radial-gradient(circle at 1px 1px, rgba(255,255,255,0.9) 1px, transparent 1px); background-size: 14px 14px;">
+    </div>
+    <div class="flex gap-3 gap-x-3 gap-y-3 items-center">
+      <span class="inline-flex items-center justify-center rounded-full bg-white/5 ring-1 ring-white/15 px-2.5 py-1 text-xs text-white/80">2024</span>
+      
+    </div>
+    <h3 class="mt-3 text-xl sm:text-2xl font-semibold tracking-tight font-manrope">Lorem Ipsum Dolor</h3>
+    <ul class="mt-4 grid grid-cols-1 gap-2">
+      <li class="inline-flex items-center gap-2 text-sm text-white/80">
+        <span class="inline-flex w-5 h-5 items-center justify-center ring-1 ring-indigo-300/20 bg-indigo-500/10 rounded-full">
+          <svg xmlns="http://www.w3.org/2000/svg" class="w-[14px] h-[14px]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="color: rgb(165, 180, 252);"><path d="m20 6-11 11-5-5"></path></svg>
+        </span>
+        Consectetur adipiscing
+      </li>
+      <li class="inline-flex items-center gap-2 text-sm text-white/80">
+        <span class="inline-flex w-5 h-5 items-center justify-center ring-1 ring-indigo-300/20 bg-indigo-500/10 rounded-full">
+          <svg xmlns="http://www.w3.org/2000/svg" class="w-[14px] h-[14px]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="color: rgb(165, 180, 252);"><path d="m20 6-11 11-5-5"></path></svg>
+        </span>
+        Sed do eiusmod
+      </li>
+      <li class="inline-flex items-center gap-2 text-sm text-white/80">
+        <span class="inline-flex w-5 h-5 items-center justify-center ring-1 ring-indigo-300/20 bg-indigo-500/10 rounded-full">
+          <svg xmlns="http://www.w3.org/2000/svg" class="w-[14px] h-[14px]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="color: rgb(165, 180, 252);"><path d="m20 6-11 11-5-5"></path></svg>
+        </span>
+        Tempor incididunt
+      </li>
+    </ul>
+    <div class="mt-4 flex flex-wrap gap-2">
+      <span class="inline-flex items-center gap-1 rounded-full bg-white/5 px-2.5 py-1 text-xs text-white/70 ring-1 ring-white/10">Lorem Ipsum</span>
+      <span class="inline-flex items-center gap-1 rounded-full bg-white/5 px-2.5 py-1 text-xs text-white/70 ring-1 ring-white/10">Dolor Sit</span>
+    </div>
+  </div>
+      <!-- Gallery -->
+      <div class="lg:col-span-3 grid grid-cols-2 md:grid-cols-3 gap-x-4 gap-y-4">
+  <div class="group overflow-hidden hover:ring-white/20 hover:shadow-xl transition ring-white/10 ring-1 rounded-2xl bg-zinc-900">
+    <div class="relative">
+      <img src="assets/hoirqrkdgbmvpwutwuwj.supabase.co/storage/v1/object/public/assets/assets/95221975-49b7-4db6-a8fe-15f9a78f1303_800w.webp" alt="Cyberpunk City" class="w-full h-[224px] object-cover grayscale group-hover:grayscale-0 transition-all duration-300">
+      <div class="absolute top-3 right-3 opacity-0 group-hover:opacity-100 transition">
+        <button class="px-3.5 py-1.5 rounded-full text-black text-xs bg-purple-50 hover:bg-purple-200" style="font-family:'Inter',sans-serif">Collect</button>
+      </div>
+    </div>
+    <div class="pt-4 pr-4 pb-4 pl-4">
+      <h4 class="text-sm font-medium text-slate-100" style="font-family:'Inter',sans-serif">Lorem Ipsum</h4>
+      <p class="text-xs text-slate-400 mt-1" style="font-family:'Inter',sans-serif">Dolor sit amet</p>
+    </div>
+  </div>
+  <div class="group overflow-hidden hover:ring-white/20 hover:shadow-xl transition ring-white/10 ring-1 rounded-2xl bg-zinc-900">
+    <div class="relative">
+      <img src="assets/hoirqrkdgbmvpwutwuwj.supabase.co/storage/v1/object/public/assets/assets/46ed20b9-8613-42c5-b728-617b435290b4_800w.webp" alt="Fantasy Landscape" class="w-full h-[224px] object-cover grayscale group-hover:grayscale-0 transition-all duration-300">
+      <div class="absolute top-3 right-3 opacity-0 group-hover:opacity-100 transition">
+        <button class="px-3.5 py-1.5 rounded-full text-black text-xs bg-purple-50 hover:bg-purple-200" style="font-family:'Inter',sans-serif">Collect</button>
+      </div>
+    </div>
+    <div class="pt-4 pr-4 pb-4 pl-4">
+      <h4 class="text-sm font-medium text-slate-100" style="font-family:'Inter',sans-serif">Dolor Sit Amet</h4>
+      <p class="text-xs text-slate-400 mt-1" style="font-family:'Inter',sans-serif">Consectetur elit</p>
+    </div>
+  </div>
+  <div class="group overflow-hidden hover:ring-white/20 hover:shadow-xl transition ring-white/10 ring-1 rounded-2xl bg-zinc-900">
+    <div class="relative">
+      <img src="assets/hoirqrkdgbmvpwutwuwj.supabase.co/storage/v1/object/public/assets/assets/48805e96-414c-4480-b758-2938cccff968_800w.webp" alt="Abstract Art" class="w-full h-[224px] object-cover grayscale group-hover:grayscale-0 transition-all duration-300">
+      <div class="absolute top-3 right-3 opacity-0 group-hover:opacity-100 transition">
+        <button class="px-3.5 py-1.5 rounded-full text-black text-xs bg-purple-50 hover:bg-purple-200" style="font-family:'Inter',sans-serif">Collect</button>
+      </div>
+    </div>
+    <div class="pt-4 pr-4 pb-4 pl-4">
+      <h4 class="text-sm font-medium text-slate-100" style="font-family:'Inter',sans-serif">Magna Aliqua</h4>
+      <p class="text-xs text-slate-400 mt-1" style="font-family:'Inter',sans-serif">Sed do eiusmod</p>
+    </div>
+  </div>
+</div>
+    </div>
+
+    
+
+    <!-- Row 3 -->
+    <main class="mt-6 px-4">
+  <div class="max-w-7xl mx-auto">
+    <div id="masonry" class="columns-1 sm:columns-2 lg:columns-3 xl:columns-4 gap-4">
+      <!-- Item -->
+      <article class="mb-4 reveal" data-tags="interior minimal workspace" data-title="Calm modern workspace" data-date="2024-10-01" style="break-inside: avoid; opacity: 1; transform: translateY(0px);">
+        <div class="group overflow-hidden hover:ring-white/20 hover:shadow-xl transition ring-white/10 ring-1 rounded-2xl bg-zinc-900">
+          <div class="relative">
+            <img src="assets/hoirqrkdgbmvpwutwuwj.supabase.co/storage/v1/object/public/assets/assets/f6a30d42-6743-483d-9bcf-9eb702125518_800w.jpg" alt="Calm modern workspace" class="w-full h-auto object-cover grayscale group-hover:grayscale-0 transition-all duration-300">
+            <div class="absolute top-3 right-3 opacity-0 group-hover:opacity-100 transition">
+              <button class="px-3.5 py-1.5 rounded-full text-black text-xs bg-purple-50 hover:bg-purple-200" style="font-family:'Inter',sans-serif">Collect</button>
+            </div>
+          </div>
+          <div class="pt-4 pr-4 pb-4 pl-4">
+            <h4 class="text-sm font-medium text-slate-100" style="font-family:'Inter',sans-serif">Lorem ipsum dolor sit</h4>
+            <p class="text-xs text-slate-400 mt-1" style="font-family:'Inter',sans-serif">Consectetur adipiscing elit</p>
+          </div>
+        </div>
+      </article>
+
+      <article class="mb-4 reveal" data-tags="nature landscape travel" data-title="Mountain Landscape" data-date="2024-08-11" style="break-inside: avoid; opacity: 1; transform: translateY(0px);">
+        <div class="group overflow-hidden hover:ring-white/20 hover:shadow-xl transition rounded-2xl ring-white/10 ring-1 bg-zinc-900">
+          <div class="relative">
+            <img src="assets/hoirqrkdgbmvpwutwuwj.supabase.co/storage/v1/object/public/assets/assets/1a40bff5-bbf9-4bda-b05d-e479626177de_800w.jpg" alt="Mountain Landscape" class="w-full h-auto object-cover grayscale group-hover:grayscale-0 transition-all duration-300">
+            <div class="absolute top-3 right-3 opacity-0 group-hover:opacity-100 transition">
+              <button class="px-3.5 py-1.5 rounded-full text-black text-xs bg-purple-50 hover:bg-purple-200" style="font-family:'Inter',sans-serif">Collect</button>
+            </div>
+          </div>
+          <div class="p-4">
+            <h4 class="text-sm font-medium text-slate-100" style="font-family:'Inter',sans-serif">Sit Amet Elit</h4>
+            <p class="text-xs text-slate-400 mt-1" style="font-family:'Inter',sans-serif">Sed do eiusmod</p>
+          </div>
+        </div>
+      </article>
+
+      <article class="mb-4 reveal" data-tags="interior zen workspace minimal" data-title="Zen workspace aesthetic" data-date="2024-09-12" style="break-inside: avoid; opacity: 1; transform: translateY(0px);">
+        <div class="group overflow-hidden hover:ring-white/20 hover:shadow-xl transition ring-white/10 ring-1 rounded-2xl bg-zinc-900">
+          <div class="relative">
+            <img src="assets/hoirqrkdgbmvpwutwuwj.supabase.co/storage/v1/object/public/assets/assets/cbd42f6a-8433-4bf4-bfa8-34c942421611_800w.webp" alt="Zen workspace aesthetic" class="w-full h-auto object-cover grayscale group-hover:grayscale-0 transition-all duration-300">
+            <div class="absolute top-3 right-3 opacity-0 group-hover:opacity-100 transition">
+              <button class="px-3.5 py-1.5 rounded-full text-black text-xs bg-purple-50 hover:bg-purple-200" style="font-family:'Inter',sans-serif">Collect</button>
+            </div>
+          </div>
+          <div class="p-4">
+            <h4 class="text-sm font-medium text-slate-100" style="font-family:'Inter',sans-serif">Tempor incididunt ut</h4>
+            <p class="text-xs text-slate-400 mt-1" style="font-family:'Inter',sans-serif">Labore et dolore magna</p>
+          </div>
+        </div>
+      </article>
+
+      <article class="mb-4 reveal" data-tags="interior decor home" data-title="Interior Design" data-date="2024-06-30" style="break-inside: avoid; opacity: 1; transform: translateY(0px);">
+        <div class="group overflow-hidden hover:ring-white/20 hover:shadow-xl transition ring-white/10 ring-1 rounded-2xl bg-zinc-900">
+          <div class="relative">
+            <img src="assets/hoirqrkdgbmvpwutwuwj.supabase.co/storage/v1/object/public/assets/assets/0507dacd-8de9-4e89-818e-41aaa3f63eff_800w.webp" alt="Interior Design" class="w-full h-auto object-cover grayscale group-hover:grayscale-0 transition-all duration-300">
+            <div class="absolute top-3 right-3 opacity-0 group-hover:opacity-100 transition">
+              <button class="px-3.5 py-1.5 rounded-full text-black text-xs bg-purple-50 hover:bg-purple-200" style="font-family:'Inter',sans-serif">Collect</button>
+            </div>
+          </div>
+          <div class="p-4">
+            <h4 class="text-sm font-medium text-slate-100" style="font-family:'Inter',sans-serif">Ut Enim Minim</h4>
+            <p class="text-xs text-slate-400 mt-1" style="font-family:'Inter',sans-serif">Quis nostrud ex</p>
+          </div>
+        </div>
+      </article>
+
+      <article class="mb-4 reveal" data-tags="nature forest travel" data-title="Forest Path" data-date="2024-07-18" style="break-inside: avoid; opacity: 1; transform: translateY(0px);">
+        <div class="group overflow-hidden hover:ring-white/20 hover:shadow-xl transition ring-white/10 ring-1 rounded-2xl bg-zinc-900">
+          <div class="relative">
+            <img src="assets/hoirqrkdgbmvpwutwuwj.supabase.co/storage/v1/object/public/assets/assets/886fdf92-24b5-46a8-929e-6b489c693321_800w.webp" alt="Forest Path" class="w-full h-auto object-cover grayscale group-hover:grayscale-0 transition-all duration-300">
+            <div class="absolute top-3 right-3 opacity-0 group-hover:opacity-100 transition">
+              <button class="px-3.5 py-1.5 rounded-full text-black text-xs bg-purple-50 hover:bg-purple-200" style="font-family:'Inter',sans-serif">Collect</button>
+            </div>
+          </div>
+          <div class="p-4">
+            <h4 class="text-sm font-medium text-slate-100" style="font-family:'Inter',sans-serif">Duis Aute</h4>
+            <p class="text-xs text-slate-400 mt-1" style="font-family:'Inter',sans-serif">Irure dolor in</p>
+          </div>
+        </div>
+      </article>
+
+      <article class="mb-4 reveal" data-tags="fashion style editorial" data-title="Fashion Style" data-date="2024-05-26" style="break-inside: avoid; opacity: 1; transform: translateY(0px);">
+        <div class="group overflow-hidden hover:ring-white/20 hover:shadow-xl transition ring-white/10 ring-1 rounded-2xl bg-zinc-900">
+          <div class="relative">
+            <img src="assets/hoirqrkdgbmvpwutwuwj.supabase.co/storage/v1/object/public/assets/assets/4b03cd7d-42d4-44d2-b798-b0d2bdb875d9_800w.webp" alt="Fashion Style" class="w-full h-auto object-cover grayscale group-hover:grayscale-0 transition-all duration-300">
+            <div class="absolute top-3 right-3 opacity-0 group-hover:opacity-100 transition">
+              <button class="px-3.5 py-1.5 rounded-full text-black text-xs bg-purple-50 hover:bg-purple-200" style="font-family:'Inter',sans-serif">Collect</button>
+            </div>
+          </div>
+          <div class="p-4">
+            <h4 class="text-sm font-medium text-slate-100" style="font-family:'Inter',sans-serif">Velit Esse</h4>
+            <p class="text-xs text-slate-400 mt-1" style="font-family:'Inter',sans-serif">Cillum dolore eu</p>
+          </div>
+        </div>
+      </article>
+
+      <article class="mb-4 reveal" data-tags="tech innovation digital 3d" data-title="Tech Innovation" data-date="2024-09-02" style="break-inside: avoid; opacity: 1; transform: translateY(0px);">
+        <div class="group overflow-hidden hover:ring-white/20 hover:shadow-xl transition ring-white/10 ring-1 rounded-2xl bg-zinc-900">
+          <div class="relative">
+            <img src="assets/hoirqrkdgbmvpwutwuwj.supabase.co/storage/v1/object/public/assets/assets/0b6d5bfd-1b46-4b40-ab34-933ab71441a3_800w.webp" alt="Tech Innovation" class="w-full h-auto object-cover grayscale group-hover:grayscale-0 transition-all duration-300">
+            <div class="absolute top-3 right-3 opacity-0 group-hover:opacity-100 transition">
+              <button class="px-3.5 py-1.5 rounded-full text-black text-xs bg-purple-50 hover:bg-purple-200" style="font-family:'Inter',sans-serif">Collect</button>
+            </div>
+          </div>
+          <div class="pt-4 pr-4 pb-4 pl-4">
+            <h4 class="text-sm font-medium text-slate-100" style="font-family:'Inter',sans-serif">Fugiat Nulla</h4>
+            <p class="text-xs text-slate-400 mt-1" style="font-family:'Inter',sans-serif">Excepteur sint</p>
+          </div>
+        </div>
+      </article>
+
+      <article class="mb-4 reveal" data-tags="travel ocean seascape motion" data-title="Ocean Views" data-date="2024-04-14" style="break-inside: avoid; opacity: 1; transform: translateY(0px);">
+        <div class="group overflow-hidden hover:ring-white/20 hover:shadow-xl transition ring-white/10 ring-1 rounded-2xl bg-zinc-900">
+          <div class="relative">
+            <img src="assets/hoirqrkdgbmvpwutwuwj.supabase.co/storage/v1/object/public/assets/assets/72c0a942-8db1-4109-b875-9ccb3cee3299_800w.jpg" alt="Ocean Views" class="w-full h-auto object-cover grayscale group-hover:grayscale-0 transition-all duration-300">
+            <div class="absolute top-3 right-3 opacity-0 group-hover:opacity-100 transition">
+              <button class="px-3.5 py-1.5 rounded-full text-black text-xs bg-purple-50 hover:bg-purple-200" style="font-family:'Inter',sans-serif">Collect</button>
+            </div>
+          </div>
+          <div class="p-4">
+            <h4 class="text-sm font-medium text-slate-100" style="font-family:'Inter',sans-serif">Culpa Qui</h4>
+            <p class="text-xs text-slate-400 mt-1" style="font-family:'Inter',sans-serif">Officia deserunt</p>
+          </div>
+        </div>
+      </article>
+    </div>
+
+    <!-- Empty state -->
+    <div id="emptyState" class="hidden text-center py-16">
+      <div class="inline-flex items-center justify-center w-12 h-12 rounded-xl border border-white/10 mb-4 bg-zinc-900">
+        <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" data-lucide="search" class="lucide lucide-search text-slate-400"><path d="m21 21-4.34-4.34"></path><circle cx="11" cy="11" r="8"></circle></svg>
+      </div>
+      <h4 class="text-lg font-medium mb-1" style="font-family:'Inter',sans-serif">No results found</h4>
+      <p class="text-sm text-slate-400" style="font-family:'Inter',sans-serif">Try a different keyword or filter.</p>
+    </div>
+  </div>
+</main>
+  </div>
+</section><section class="sm:px-6 sm:py-10 md:py-12 lg:pl-8 lg:pr-8 max-w-7xl mr-auto ml-auto pt-8 pr-4 pb-8 pl-4">
+  <div class="flex items-center justify-between">
+    <div class="space-y-1">
+      <p class="text-xs sm:text-sm text-zinc-400">Lorem ipsum dolor</p>
+      <h2 class="text-2xl font-medium text-white tracking-tighter text-left pt-6 pb-6 sm:text-5xl" style="mask-image: linear-gradient(250deg, transparent, black 25%, black 70%, transparent); -webkit-mask-image: linear-gradient(250deg, transparent, black 25%, black 70%, transparent);">Lorem Ipsum</h2>
+    </div>
+    
+  </div>
+
+  <div class="sm:mt-8 overflow-hidden sm:rounded-3xl mt-6 relative" style="mask-image: linear-gradient(90deg, transparent, black 10%, black 90%, transparent); -webkit-mask-image: linear-gradient(90deg, transparent, black 10%, black 90%, transparent);">
+    <div class="pointer-events-none absolute inset-y-0 left-0 w-24 sm:w-40 bg-gradient-to-r from-zinc-950 to-transparent z-10">
+    </div>
+    <div class="pointer-events-none absolute inset-y-0 right-0 w-24 sm:w-40 bg-gradient-to-l from-zinc-950 to-transparent z-10">
+    </div>
+
+    <!-- Row 1 — left to right -->
+    <div class="sm:py-8 pt-6 pb-6 relative">
+      <div class="flex gap-4 sm:gap-5 will-change-transform animate-[marquee-ltr_45s_linear_infinite]">
+        <!-- Group A -->
+        <article class="shrink-0 w-[280px] sm:w-[360px] md:w-[420px] rounded-2xl border border-zinc-900 bg-zinc-900/40 p-5">
+          <div class="flex items-center gap-3">
+            <img src="assets/hoirqrkdgbmvpwutwuwj.supabase.co/storage/v1/object/public/assets/assets/e0bbf4a4-5f58-4644-bea6-85d2fef73d4a_320w.jpg" alt="Avatar" class="size-9 object-cover rounded-full">
+            <div>
+              <div class="flex items-center gap-1">
+                <span class="text-sm font-medium text-zinc-100">Ava Thompson</span>
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-3.5 h-3.5 text-blue-400"><circle cx="12" cy="12" r="10"></circle><path d="m9 12 2 2 4-4"></path></svg>
+              </div>
+              <p class="text-xs text-zinc-400">@ava_builds</p>
+            </div>
+          </div>
+          <p class="mt-4 text-sm sm:text-base text-zinc-300">
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna.
+          </p>
+        </article>
+
+        <article class="shrink-0 w-[280px] sm:w-[360px] md:w-[420px] rounded-2xl border border-zinc-900 bg-zinc-900/40 p-5">
+          <div class="flex items-center gap-3">
+            <img src="assets/hoirqrkdgbmvpwutwuwj.supabase.co/storage/v1/object/public/assets/assets/27a2c31e-38f3-479f-a831-858e91b9bd84_320w.jpg" alt="Avatar" class="size-9 object-cover rounded-full">
+            <div class="">
+              <div class="flex items-center gap-1">
+                <span class="text-sm font-medium text-zinc-100">Noah Patel</span>
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-3.5 h-3.5 text-blue-400"><circle cx="12" cy="12" r="10" class=""></circle><path d="m9 12 2 2 4-4"></path></svg>
+              </div>
+              <p class="text-xs text-zinc-400">@noah_ops</p>
+            </div>
+          </div>
+          <p class="mt-4 text-sm sm:text-base text-zinc-300">
+            Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris. Nisi ut aliquip ex ea commodo consequat.
+          </p>
+        </article>
+
+        <article class="shrink-0 w-[280px] sm:w-[360px] md:w-[420px] rounded-2xl border border-zinc-900 bg-zinc-900/40 p-5">
+          <div class="flex items-center gap-3">
+            <img src="assets/hoirqrkdgbmvpwutwuwj.supabase.co/storage/v1/object/public/assets/assets/86a541ae-1b5d-4597-8538-e55c0858f4ff_320w.jpg" alt="Avatar" class="size-9 object-cover rounded-full">
+            <div>
+              <div class="flex items-center gap-1">
+                <span class="text-sm font-medium text-zinc-100">Maya Kim</span>
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-3.5 h-3.5 text-blue-400"><circle cx="12" cy="12" r="10"></circle><path d="m9 12 2 2 4-4"></path></svg>
+              </div>
+              <p class="text-xs text-zinc-400">@mayak</p>
+            </div>
+          </div>
+          <p class="mt-4 text-sm sm:text-base text-zinc-300">
+            Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur sint.
+          </p>
+        </article>
+
+        <article class="shrink-0 w-[280px] sm:w-[360px] md:w-[420px] rounded-2xl border border-zinc-900 bg-zinc-900/40 p-5">
+          <div class="flex items-center gap-3">
+            <img src="assets/images.unsplash.com/photo-1544723795-3fb6469f5b39__q2deb1774.jpg" alt="Avatar" class="size-9 rounded-full object-cover">
+            <div>
+              <div class="flex items-center gap-1">
+                <span class="text-sm font-medium text-zinc-100">Ethan Garcia</span>
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-3.5 h-3.5 text-blue-400"><circle cx="12" cy="12" r="10"></circle><path d="m9 12 2 2 4-4"></path></svg>
+              </div>
+              <p class="text-xs text-zinc-400">@egarcia</p>
+            </div>
+          </div>
+          <p class="mt-4 text-sm sm:text-base text-zinc-300">
+            Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est.
+          </p>
+        </article>
+
+        <!-- Group B (duplicate for seamless loop) -->
+        <article class="shrink-0 w-[280px] sm:w-[360px] md:w-[420px] rounded-2xl border border-zinc-900 bg-zinc-900/40 p-5">
+          <div class="flex items-center gap-3">
+            <img src="assets/hoirqrkdgbmvpwutwuwj.supabase.co/storage/v1/object/public/assets/assets/e0bbf4a4-5f58-4644-bea6-85d2fef73d4a_320w.jpg" alt="Avatar" class="size-9 rounded-full object-cover">
+            <div>
+              <div class="flex items-center gap-1">
+                <span class="text-sm font-medium text-zinc-100">Ava Thompson</span>
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-3.5 h-3.5 text-blue-400"><circle cx="12" cy="12" r="10"></circle><path d="m9 12 2 2 4-4"></path></svg>
+              </div>
+              <p class="text-xs text-zinc-400">@ava_builds</p>
+            </div>
+          </div>
+          <p class="mt-4 text-sm sm:text-base text-zinc-300">
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna.
+          </p>
+        </article>
+
+        <article class="shrink-0 w-[280px] sm:w-[360px] md:w-[420px] rounded-2xl border border-zinc-900 bg-zinc-900/40 p-5">
+          <div class="flex items-center gap-3">
+            <img src="assets/hoirqrkdgbmvpwutwuwj.supabase.co/storage/v1/object/public/assets/assets/27a2c31e-38f3-479f-a831-858e91b9bd84_320w.jpg" alt="Avatar" class="size-9 rounded-full object-cover">
+            <div>
+              <div class="flex items-center gap-1">
+                <span class="text-sm font-medium text-zinc-100">Noah Patel</span>
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-3.5 h-3.5 text-blue-400"><circle cx="12" cy="12" r="10"></circle><path d="m9 12 2 2 4-4"></path></svg>
+              </div>
+              <p class="text-xs text-zinc-400">@noah_ops</p>
+            </div>
+          </div>
+          <p class="mt-4 text-sm sm:text-base text-zinc-300">
+            Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris. Nisi ut aliquip ex ea commodo consequat.
+          </p>
+        </article>
+
+        <article class="shrink-0 w-[280px] sm:w-[360px] md:w-[420px] rounded-2xl border border-zinc-900 bg-zinc-900/40 p-5">
+          <div class="flex items-center gap-3">
+            <img src="assets/hoirqrkdgbmvpwutwuwj.supabase.co/storage/v1/object/public/assets/assets/86a541ae-1b5d-4597-8538-e55c0858f4ff_320w.jpg" alt="Avatar" class="size-9 rounded-full object-cover">
+            <div>
+              <div class="flex items-center gap-1">
+                <span class="text-sm font-medium text-zinc-100">Maya Kim</span>
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-3.5 h-3.5 text-blue-400"><circle cx="12" cy="12" r="10"></circle><path d="m9 12 2 2 4-4"></path></svg>
+              </div>
+              <p class="text-xs text-zinc-400">@mayak</p>
+            </div>
+          </div>
+          <p class="mt-4 text-sm sm:text-base text-zinc-300">
+            Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur sint.
+          </p>
+        </article>
+
+        <article class="shrink-0 w-[280px] sm:w-[360px] md:w-[420px] rounded-2xl border border-zinc-900 bg-zinc-900/40 p-5">
+          <div class="flex items-center gap-3">
+            <img src="assets/images.unsplash.com/photo-1544723795-3fb6469f5b39__q2deb1774.jpg" alt="Avatar" class="size-9 rounded-full object-cover">
+            <div>
+              <div class="flex items-center gap-1">
+                <span class="text-sm font-medium text-zinc-100">Ethan Garcia</span>
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-3.5 h-3.5 text-blue-400"><circle cx="12" cy="12" r="10"></circle><path d="m9 12 2 2 4-4"></path></svg>
+              </div>
+              <p class="text-xs text-zinc-400">@egarcia</p>
+            </div>
+          </div>
+          <p class="mt-4 text-sm sm:text-base text-zinc-300">
+            Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est.
+          </p>
+        </article>
+      </div>
+    </div>
+
+    <div class="border-t border-zinc-900/80"></div>
+
+    <!-- Row 2 — right to left -->
+    <div class="sm:py-8 pt-6 pb-6 relative">
+      <div class="flex gap-4 sm:gap-5 will-change-transform animate-[marquee-rtl_45s_linear_infinite]">
+        <!-- Group A -->
+        <article class="shrink-0 w-[280px] sm:w-[360px] md:w-[420px] bg-zinc-900/40 border-zinc-900 border rounded-2xl p-5">
+          <div class="flex items-center gap-3">
+            <img src="assets/hoirqrkdgbmvpwutwuwj.supabase.co/storage/v1/object/public/assets/assets/358aaa92-ba50-4778-b2a2-7c8f7310e44c_320w.jpg" alt="Avatar" class="size-9 object-cover rounded-full">
+            <div>
+              <div class="flex items-center gap-1">
+                <span class="text-sm font-medium text-zinc-100">Priya Singh</span>
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-3.5 h-3.5 text-blue-400"><circle cx="12" cy="12" r="10"></circle><path d="m9 12 2 2 4-4"></path></svg>
+              </div>
+              <p class="text-xs text-zinc-400">@priya_dev</p>
+            </div>
+          </div>
+          <p class="mt-4 text-sm sm:text-base text-zinc-300">
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante venenatis.
+          </p>
+        </article>
+
+        <article class="shrink-0 w-[280px] sm:w-[360px] md:w-[420px] bg-zinc-900/40 border-zinc-900 border rounded-2xl p-5">
+          <div class="flex items-center gap-3">
+            <img src="assets/hoirqrkdgbmvpwutwuwj.supabase.co/storage/v1/object/public/assets/assets/b6d79211-32f1-430e-96b3-9b4d857c1482_320w.jpg" alt="Avatar" class="size-9 object-cover rounded-full">
+            <div>
+              <div class="flex items-center gap-1">
+                <span class="text-sm font-medium text-zinc-100">Leo Martin</span>
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-3.5 h-3.5 text-blue-400"><circle cx="12" cy="12" r="10"></circle><path d="m9 12 2 2 4-4"></path></svg>
+              </div>
+              <p class="text-xs text-zinc-400">@leom</p>
+            </div>
+          </div>
+          <p class="mt-4 text-sm sm:text-base text-zinc-300">
+            Curabitur blandit tempus porttitor. Nullam quis risus eget urna mollis ornare vel eu leo.
+          </p>
+        </article>
+
+        <article class="shrink-0 w-[280px] sm:w-[360px] md:w-[420px] bg-zinc-900/40 border-zinc-900 border rounded-2xl p-5">
+          <div class="flex items-center gap-3">
+            <img src="assets/hoirqrkdgbmvpwutwuwj.supabase.co/storage/v1/object/public/assets/assets/ec17a2e2-e4f4-4164-b631-f074e640a0c1_320w.jpg" alt="Avatar" class="size-9 object-cover rounded-full">
+            <div>
+              <div class="flex items-center gap-1">
+                <span class="text-sm font-medium text-zinc-100">Sofia Alvarez</span>
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-3.5 h-3.5 text-blue-400"><circle cx="12" cy="12" r="10"></circle><path d="m9 12 2 2 4-4"></path></svg>
+              </div>
+              <p class="text-xs text-zinc-400">@sofialabs</p>
+            </div>
+          </div>
+          <p class="mt-4 text-sm sm:text-base text-zinc-300">
+            Maecenas faucibus mollis interdum. Donec ullamcorper nulla non metus auctor fringilla, vitae elit.
+          </p>
+        </article>
+
+        <article class="shrink-0 w-[280px] sm:w-[360px] md:w-[420px] rounded-2xl border border-zinc-900 bg-zinc-900/40 p-5">
+          <div class="flex items-center gap-3">
+            <img src="assets/hoirqrkdgbmvpwutwuwj.supabase.co/storage/v1/object/public/assets/assets/c0aab170-b3d3-4816-9435-0ac1e1d853a3_320w.jpg" alt="Avatar" class="size-9 rounded-full object-cover">
+            <div>
+              <div class="flex items-center gap-1">
+                <span class="text-sm font-medium text-zinc-100">Jackson Lee</span>
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-3.5 h-3.5 text-blue-400"><circle cx="12" cy="12" r="10"></circle><path d="m9 12 2 2 4-4"></path></svg>
+              </div>
+              <p class="text-xs text-zinc-400">@jacksonlee</p>
+            </div>
+          </div>
+          <p class="mt-4 text-sm sm:text-base text-zinc-300">
+            Vestibulum id ligula porta felis euismod semper. Cras mattis consectetur purus sit amet fermentum.
+          </p>
+        </article>
+
+        <!-- Group B (duplicate for seamless loop) -->
+        <article class="shrink-0 w-[280px] sm:w-[360px] md:w-[420px] rounded-2xl border border-zinc-900 bg-zinc-900/40 p-5">
+          <div class="flex items-center gap-3">
+            <img src="assets/hoirqrkdgbmvpwutwuwj.supabase.co/storage/v1/object/public/assets/assets/358aaa92-ba50-4778-b2a2-7c8f7310e44c_320w.jpg" alt="Avatar" class="size-9 rounded-full object-cover">
+            <div>
+              <div class="flex items-center gap-1">
+                <span class="text-sm font-medium text-zinc-100">Priya Singh</span>
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-3.5 h-3.5 text-blue-400"><circle cx="12" cy="12" r="10"></circle><path d="m9 12 2 2 4-4"></path></svg>
+              </div>
+              <p class="text-xs text-zinc-400">@priya_dev</p>
+            </div>
+          </div>
+          <p class="mt-4 text-sm sm:text-base text-zinc-300">
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante venenatis.
+          </p>
+        </article>
+
+        <article class="shrink-0 w-[280px] sm:w-[360px] md:w-[420px] rounded-2xl border border-zinc-900 bg-zinc-900/40 p-5">
+          <div class="flex items-center gap-3">
+            <img src="assets/hoirqrkdgbmvpwutwuwj.supabase.co/storage/v1/object/public/assets/assets/b6d79211-32f1-430e-96b3-9b4d857c1482_320w.jpg" alt="Avatar" class="size-9 rounded-full object-cover">
+            <div>
+              <div class="flex items-center gap-1">
+                <span class="text-sm font-medium text-zinc-100">Leo Martin</span>
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-3.5 h-3.5 text-blue-400"><circle cx="12" cy="12" r="10"></circle><path d="m9 12 2 2 4-4"></path></svg>
+              </div>
+              <p class="text-xs text-zinc-400">@leom</p>
+            </div>
+          </div>
+          <p class="mt-4 text-sm sm:text-base text-zinc-300">
+            Curabitur blandit tempus porttitor. Nullam quis risus eget urna mollis ornare vel eu leo.
+          </p>
+        </article>
+
+        <article class="shrink-0 w-[280px] sm:w-[360px] md:w-[420px] rounded-2xl border border-zinc-900 bg-zinc-900/40 p-5">
+          <div class="flex items-center gap-3">
+            <img src="assets/hoirqrkdgbmvpwutwuwj.supabase.co/storage/v1/object/public/assets/assets/ec17a2e2-e4f4-4164-b631-f074e640a0c1_320w.jpg" alt="Avatar" class="size-9 rounded-full object-cover">
+            <div>
+              <div class="flex items-center gap-1">
+                <span class="text-sm font-medium text-zinc-100">Sofia Alvarez</span>
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-3.5 h-3.5 text-blue-400"><circle cx="12" cy="12" r="10"></circle><path d="m9 12 2 2 4-4"></path></svg>
+              </div>
+              <p class="text-xs text-zinc-400">@sofialabs</p>
+            </div>
+          </div>
+          <p class="mt-4 text-sm sm:text-base text-zinc-300">
+            Maecenas faucibus mollis interdum. Donec ullamcorper nulla non metus auctor fringilla, vitae elit.
+          </p>
+        </article>
+
+        <article class="shrink-0 w-[280px] sm:w-[360px] md:w-[420px] rounded-2xl border border-zinc-900 bg-zinc-900/40 p-5">
+          <div class="flex items-center gap-3">
+            <img src="assets/hoirqrkdgbmvpwutwuwj.supabase.co/storage/v1/object/public/assets/assets/c0aab170-b3d3-4816-9435-0ac1e1d853a3_320w.jpg" alt="Avatar" class="size-9 rounded-full object-cover">
+            <div>
+              <div class="flex items-center gap-1">
+                <span class="text-sm font-medium text-zinc-100">Jackson Lee</span>
+                <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="w-3.5 h-3.5 text-blue-400"><circle cx="12" cy="12" r="10"></circle><path d="m9 12 2 2 4-4"></path></svg>
+              </div>
+              <p class="text-xs text-zinc-400">@jacksonlee</p>
+            </div>
+          </div>
+          <p class="mt-4 text-sm sm:text-base text-zinc-300">
+            Vestibulum id ligula porta felis euismod semper. Cras mattis consectetur purus sit amet fermentum.
+          </p>
+        </article>
+      </div>
+    </div>
+  </div>
+
+  <style class="">
+    @keyframes marquee-rtl {
+      0% {
+        transform: translateX(0);
+      }
+
+      100% {
+        transform: translateX(-50%);
+      }
+    }
+
+    @keyframes marquee-ltr {
+      0% {
+        transform: translateX(-50%);
+      }
+
+      100% {
+        transform: translateX(0);
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+
+      .animate-\[marquee-rtl_45s_linear_infinite\],
+      .animate-\[marquee-ltr_45s_linear_infinite\] {
+        animation: none !important;
+      }
+    }
+  </style>
+</section>
+
+    <!-- FAQ -->
+    <section class="md:p-10 bg-zinc-500/5 max-w-7xl border-white/10 border ring-white/10 ring-1 rounded-3xl mr-auto ml-auto pt-6 pr-6 pb-6 pl-6 shadow-2xl backdrop-blur-xl" style="mask-image: linear-gradient(200deg, transparent, black 25%, black 65%, transparent); -webkit-mask-image: linear-gradient(200deg, transparent, black 25%, black 65%, transparent);">
+        <!-- Header -->
+        <div class="mb-8 flex items-center justify-between">
+          <div class="flex items-center gap-3">
+            
+            <div class="">
+              <h1 class="sm:text-5xl text-2xl font-medium text-white tracking-tighter text-left pt-6 pb-6" style="mask-image: linear-gradient(90deg, transparent, black 0%, black 45%, transparent); -webkit-mask-image: linear-gradient(90deg, transparent, black 0%, black 45%, transparent);">Lorem — Ipsum &amp; Dolor</h1>
+              <p class="mt-1 text-sm text-slate-400">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- FAQ Grid -->
+        <div class="grid grid-cols-1 gap-4 md:grid-cols-2 md:gap-6">
+          <!-- Item 1 -->
+          <div class="faq-item rounded-2xl border border-white/10 bg-white/5 p-4 md:p-5">
+            <button type="button" class="faq-trigger flex text-left w-full gap-x-4 gap-y-4 items-center justify-between">
+              <span class="text-base md:text-lg font-semibold leading-6 tracking-tight text-slate-100">Lorem ipsum dolor sit?</span>
+              <span class="inline-flex h-8 w-8 shrink-0 items-center justify-center rounded-full border border-white/10 bg-white/10">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="faq-icon"><path d="M5 12h14"></path><path d="M12 5v14"></path></svg>
+              </span>
+            </button>
+            <div class="faq-content mt-3 text-sm leading-6 text-slate-300" style="display: none;">
+              Arcade AI is a powerful image generation platform that transforms your text descriptions into stunning visuals. Using advanced AI models, we create photorealistic, artistic, and stylized images in seconds.
+            </div>
+          </div>
+
+          <!-- Item 2 -->
+          <div class="faq-item rounded-2xl border border-white/10 bg-white/5 p-4 md:p-5">
+            <button type="button" class="faq-trigger flex w-full items-center justify-between gap-4 text-left">
+              <span class="text-base md:text-lg font-semibold leading-6 tracking-tight text-slate-100">Consectetur adipiscing elit sed?</span>
+              <span class="inline-flex h-8 w-8 shrink-0 items-center justify-center rounded-full border border-white/10 bg-white/10">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="faq-icon"><path d="M5 12h14"></path><path d="M12 5v14"></path></svg>
+              </span>
+            </button>
+            <div class="faq-content mt-3 text-sm leading-6 text-slate-300" style="display: none;">
+              Most images are generated in 5-15 seconds depending on quality settings. High-resolution outputs may take up to 30 seconds. We prioritize speed without compromising quality.
+            </div>
+          </div>
+
+          <!-- Item 3 -->
+          <div class="faq-item rounded-2xl border border-white/10 bg-white/5 p-4 md:p-5">
+            <button type="button" class="faq-trigger flex w-full items-center justify-between gap-4 text-left">
+              <span class="text-base md:text-lg font-semibold leading-6 tracking-tight text-slate-100">Sed do eiusmod tempor?</span>
+              <span class="inline-flex h-8 w-8 shrink-0 items-center justify-center rounded-full border border-white/10 bg-white/10">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="faq-icon"><path d="M5 12h14"></path><path d="M12 5v14"></path></svg>
+              </span>
+            </button>
+            <div class="faq-content mt-3 text-sm leading-6 text-slate-300" style="display: none;">
+              We support photorealistic, artistic, anime, digital art, 3D render, and many more styles. Each preset can be customized with additional parameters for complete creative control.
+            </div>
+          </div>
+
+          <!-- Item 4 -->
+          <div class="faq-item rounded-2xl border border-white/10 bg-white/5 p-4 md:p-5">
+            <button type="button" class="faq-trigger flex w-full items-center justify-between gap-4 text-left">
+              <span class="text-base md:text-lg font-semibold leading-6 tracking-tight text-slate-100">Ut enim ad minim veniam quis?</span>
+              <span class="inline-flex h-8 w-8 shrink-0 items-center justify-center rounded-full border border-white/10 bg-white/10">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="faq-icon"><path d="M5 12h14"></path><path d="M12 5v14"></path></svg>
+              </span>
+            </button>
+            <div class="faq-content mt-3 text-sm leading-6 text-slate-300" style="display: none;">
+              Yes! All images generated on paid plans come with full commercial usage rights. You own the rights to use, modify, and sell your generated images.
+            </div>
+          </div>
+
+          <!-- Item 5 -->
+          <div class="faq-item rounded-2xl border border-white/10 bg-white/5 p-4 md:p-5">
+            <button type="button" class="faq-trigger flex w-full items-center justify-between gap-4 text-left">
+              <span class="text-base md:text-lg font-semibold leading-6 tracking-tight text-slate-100">Duis aute irure dolor?</span>
+              <span class="inline-flex h-8 w-8 shrink-0 items-center justify-center rounded-full border border-white/10 bg-white/10">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="faq-icon"><path d="M5 12h14"></path><path d="M12 5v14"></path></svg>
+              </span>
+            </button>
+            <div class="faq-content mt-3 text-sm leading-6 text-slate-300" style="display: none;">
+              Credits are used to generate images. Standard quality uses 2 credits, high quality uses 4 credits, and ultra quality uses 8 credits per image. Credits refill monthly based on your plan.
+            </div>
+          </div>
+
+          <!-- Item 6 -->
+          <div class="faq-item rounded-2xl border border-white/10 bg-white/5 p-4 md:p-5">
+            <button type="button" class="faq-trigger flex w-full items-center justify-between gap-4 text-left">
+              <span class="text-base md:text-lg font-semibold leading-6 tracking-tight text-slate-100">Excepteur sint occaecat cupidatat?</span>
+              <span class="inline-flex h-8 w-8 shrink-0 items-center justify-center rounded-full border border-white/10 bg-white/10">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="faq-icon"><path d="M5 12h14"></path><path d="M12 5v14"></path></svg>
+              </span>
+            </button>
+            <div class="faq-content mt-3 text-sm leading-6 text-slate-300" style="display: none;">
+              Absolutely. Your prompts and generated images are completely private by default. We use industry-standard encryption and never train our models on your private content.
+            </div>
+          </div>
+
+          <!-- Item 7 -->
+          <div class="faq-item rounded-2xl border border-white/10 bg-white/5 p-4 md:p-5">
+            <button type="button" class="faq-trigger flex w-full items-center justify-between gap-4 text-left">
+              <span class="text-base md:text-lg font-semibold leading-6 tracking-tight text-slate-100">Nulla pariatur sint?</span>
+              <span class="inline-flex h-8 w-8 shrink-0 items-center justify-center rounded-full border border-white/10 bg-white/10">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="faq-icon"><path d="M5 12h14"></path><path d="M12 5v14"></path></svg>
+              </span>
+            </button>
+            <div class="faq-content mt-3 text-sm leading-6 text-slate-300" style="display: none;">
+              Yes! Pro and Enterprise plans include full API access with comprehensive documentation. Integrate AI image generation directly into your applications and workflows.
+            </div>
+          </div>
+
+          <!-- Item 8 -->
+          <div class="faq-item rounded-2xl border border-white/10 bg-white/5 p-4 md:p-5">
+            <button type="button" class="faq-trigger flex w-full items-center justify-between gap-4 text-left">
+              <span class="text-base md:text-lg font-semibold leading-6 tracking-tight text-slate-100">Culpa qui officia?</span>
+              <span class="inline-flex h-8 w-8 shrink-0 items-center justify-center rounded-full border border-white/10 bg-white/10">
+                <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="faq-icon"><path d="M5 12h14"></path><path d="M12 5v14"></path></svg>
+              </span>
+            </button>
+            <div class="faq-content mt-3 text-sm leading-6 text-slate-300" style="display: none;">
+              Our support team is available 24/7 via chat and email. We also provide comprehensive documentation, video tutorials, and an active community forum.
+            </div>
+          </div>
+        </div>
+
+        <!-- Footer CTA -->
+        <div class="mt-6 flex flex-col items-center justify-between gap-4 rounded-2xl border border-white/10 bg-white/5 p-4 sm:flex-row">
+          <div class="flex items-center gap-3">
+            <span class="inline-flex h-9 w-9 items-center justify-center rounded-full border border-white/10 bg-white/10">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-5 w-5 text-sky-300"><circle cx="12" cy="12" r="10"></circle><path d="M9.09 9a3 3 0 0 1 5.83 1c0 2-3 3-3 3"></path><path d="M12 17h.01"></path></svg>
+            </span>
+            <p class="text-sm text-slate-300">Lorem ipsum dolor? Sit amet consectetur elit.</p>
+          </div>
+          <div class="flex items-center gap-3">
+            <button class="inline-flex hover:bg-white/10 text-sm font-medium text-slate-200 bg-white/5 border-white/10 border rounded-full pt-3 pr-4 pb-3 pl-4 gap-x-2 gap-y-2 items-center">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="h-4 w-4"><path d="M22 17a2 2 0 0 1-2 2H6.828a2 2 0 0 0-1.414.586l-2.202 2.202A.71.71 0 0 1 2 21.286V5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2z" class=""></path></svg>
+              Lorem Ipsum
+            </button>
+            <a href="#" class="hover:shadow-lg transition-shadow text-sm font-medium text-slate-900 bg-white rounded-full pt-3 pr-5 pb-3 pl-5 shadow">
+              Dolor Sit Amet
+            </a>
+          </div>
+        </div>
+
+        <script class="">
+        (function() {
+          const faqItems = document.querySelectorAll('[data-element-id="aura-emh906t4ngsde0i5h"] .faq-item');
+          
+          faqItems.forEach(item => {
+            const trigger = item.querySelector('.faq-trigger');
+            const content = item.querySelector('.faq-content');
+            const icon = item.querySelector('.faq-icon');
+            
+            trigger.addEventListener('click', () => {
+              const isOpen = content.style.display === 'block';
+              
+              if (isOpen) {
+                content.style.display = 'none';
+                icon.innerHTML = '<path d="M5 12h14"></path><path d="M12 5v14"></path>';
+                trigger.setAttribute('aria-expanded', 'false');
+              } else {
+                content.style.display = 'block';
+                icon.innerHTML = '<path d="M5 12h14"></path>';
+                trigger.setAttribute('aria-expanded', 'true');
+              }
+            });
+          });
+        })();
+        </script>
+      </section>
+
+    <!-- CTA -->
+    <section class="overflow-hidden my-10 relative" id="cta">
+        <div class="text-white max-w-7xl mr-auto ml-auto pr-0 pb-24 pl-0">
+            <div class="md:p-10 bg-zinc-500/5 max-w-7xl border-white/10 border rounded-3xl ring-white/10 ring-1 mr-auto ml-auto pt-6 pr-6 pb-6 pl-6 shadow-2xl backdrop-blur-xl" style="mask-image: linear-gradient(150deg, transparent, black 0%, black 60%, transparent); -webkit-mask-image: linear-gradient(150deg, transparent, black 0%, black 60%, transparent);">
+                
+                <div class="grid gap-6 md:grid-cols-[1.2fr_1fr] md:p-12 pt-8 pr-8 pb-8 pl-8 gap-x-6 gap-y-6 items-center">
+                    <div class="">
+                        <h3 class="text-2xl font-semibold tracking-tight">Lorem ipsum dolor sit amet elit?</h3>
+                        <p class="mt-2 max-w-prose text-slate-200">Lorem ipsum dolor sit amet, consectetur adipiscing elit—sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+                        <div class="mt-5 flex gap-3 flex-wrap">
+                            <a href="#" class="hover:shadow-lg transition-shadow text-sm font-medium text-slate-900 bg-white rounded-full pt-3 pr-5 pb-3 pl-5 shadow">Lorem Ipsum</a>
+                            <a href="#features" class="hover:bg-white/5 transition-colors text-sm text-white border-white/20 border rounded-full pt-3 pr-5 pb-3 pl-5">Dolor Sit</a>
+                        </div>
+                    </div>
+                    <div class="text-sm text-slate-200 bg-white/5 border-white/10 border rounded-2xl pt-4 pr-4 pb-4 pl-4">
+                        <p class="font-medium">Lorem ipsum dolor</p>
+                        <ul class="mt-2 list-disc space-y-1 pl-5">
+                            <li class="">Sed do eiusmod tempor.</li>
+                            <li class="">Ut enim ad minim veniam quis nostrud.</li>
+                            <li class="">Duis aute irure dolor.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="border-white/10 border-t pt-16 pb-10" style="mask-image: linear-gradient(100deg, transparent, black 25%, black 75%, transparent); -webkit-mask-image: linear-gradient(100deg, transparent, black 25%, black 75%, transparent);">
+  <div class="max-w-7xl mx-auto px-6">
+    <!-- Main Footer Content -->
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
+      <!-- Brand Column -->
+      <div class="space-y-4">
+        <a href="#" class="inline-flex items-center justify-center bg-center mix-blend-normal w-[120px] h-[30px] bg-[url(assets/hoirqrkdgbmvpwutwuwj.supabase.co/storage/v1/object/public/assets/assets/d3473923-ebc4-44bd-a2b8-bcf5197f648b_800w.png)] bg-cover rounded"></a>
+        <p class="text-sm text-slate-400 max-w-xs">Lorem ipsum dolor sit amet, consectetur adipiscing elit sed do eiusmod tempor.</p>
+        <div class="flex items-center gap-3">
+          <a href="#" class="flex items-center justify-center w-9 h-9 rounded-lg bg-white/5 border border-white/10 text-slate-300 hover:bg-white/10 hover:text-white transition-colors">
+            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="currentColor" class=""><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z" class=""></path></svg>
+          </a>
+          <a href="#" class="flex items-center justify-center w-9 h-9 rounded-lg bg-white/5 border border-white/10 text-slate-300 hover:bg-white/10 hover:text-white transition-colors">
+            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="currentColor" class=""><path d="M23.953 4.57a10 10 0 01-2.825.775 4.958 4.958 0 002.163-2.723c-.951.555-2.005.959-3.127 1.184a4.92 4.92 0 00-8.384 4.482C7.69 8.095 4.067 6.13 1.64 3.162a4.822 4.822 0 00-.666 2.475c0 1.71.87 3.213 2.188 4.096a4.904 4.904 0 01-2.228-.616v.06a4.923 4.923 0 003.946 4.827 4.996 4.996 0 01-2.212.085 4.936 4.936 0 004.604 3.417 9.867 9.867 0 01-6.102 2.105c-.39 0-.779-.023-1.17-.067a13.995 13.995 0 007.557 2.209c9.053 0 13.998-7.496 13.998-13.985 0-.21 0-.42-.015-.63A9.935 9.935 0 0024 4.59z" class=""></path></svg>
+          </a>
+          <a href="#" class="flex items-center justify-center w-9 h-9 rounded-lg bg-white/5 border border-white/10 text-slate-300 hover:bg-white/10 hover:text-white transition-colors">
+            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="currentColor" class=""><path d="M12 0C5.374 0 0 5.373 0 12c0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23A11.509 11.509 0 0112 5.803c1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576C20.566 21.797 24 17.3 24 12c0-6.627-5.373-12-12-12z" class=""></path></svg>
+          </a>
+          <a href="#" class="flex items-center justify-center w-9 h-9 rounded-lg bg-white/5 border border-white/10 text-slate-300 hover:bg-white/10 hover:text-white transition-colors">
+            <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="currentColor" class=""><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z" class=""></path></svg>
+          </a>
+        </div>
+      </div>
+
+      <!-- Product Column -->
+      <div class="">
+        <h3 class="text-sm font-semibold text-white mb-4">Product</h3>
+        <ul class="space-y-3">
+          <li class=""><a href="#features" class="text-sm text-slate-400 hover:text-white transition-colors">Features</a></li>
+          <li class=""><a href="#" class="text-sm text-slate-400 hover:text-white transition-colors">Pricing</a></li>
+          <li><a href="#" class="text-sm text-slate-400 hover:text-white transition-colors">API</a></li>
+          <li class=""><a href="#gallery" class="text-sm text-slate-400 hover:text-white transition-colors">Gallery</a></li>
+          <li class=""><a href="#" class="text-sm text-slate-400 hover:text-white transition-colors">Changelog</a></li>
+          <li class=""><a href="#" class="text-sm text-slate-400 hover:text-white transition-colors">Roadmap</a></li>
+        </ul>
+      </div>
+
+      <!-- Company Column -->
+      <div class="">
+        <h3 class="text-sm font-semibold text-white mb-4">Company</h3>
+        <ul class="space-y-3">
+          <li class=""><a href="#" class="text-sm text-slate-400 hover:text-white transition-colors">About</a></li>
+          <li class=""><a href="#" class="text-sm text-slate-400 hover:text-white transition-colors">Blog</a></li>
+          <li class=""><a href="#" class="text-sm text-slate-400 hover:text-white transition-colors">Careers</a></li>
+          <li class=""><a href="#" class="text-sm text-slate-400 hover:text-white transition-colors">Press</a></li>
+          <li class=""><a href="#" class="text-sm text-slate-400 hover:text-white transition-colors">Partners</a></li>
+          <li class=""><a href="#reviews" class="text-sm text-slate-400 hover:text-white transition-colors">Reviews</a></li>
+        </ul>
+      </div>
+
+      <!-- Resources Column -->
+      <div class="">
+        <h3 class="text-sm font-semibold text-white mb-4">Resources</h3>
+        <ul class="space-y-3">
+          <li class=""><a href="#" class="text-sm text-slate-400 hover:text-white transition-colors">Documentation</a></li>
+          <li><a href="#" class="text-sm text-slate-400 hover:text-white transition-colors">Help Center</a></li>
+          <li class=""><a href="#faq" class="text-sm text-slate-400 hover:text-white transition-colors">FAQ</a></li>
+          <li class=""><a href="#" class="text-sm text-slate-400 hover:text-white transition-colors">Community</a></li>
+          <li class=""><a href="#" class="text-sm text-slate-400 hover:text-white transition-colors">Contact</a></li>
+          <li class=""><a href="#" class="text-sm text-slate-400 hover:text-white transition-colors">Status</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <!-- Newsletter Section -->
+    <div class="border-t border-white/10 pt-8 pb-8">
+      <div class="max-w-xl mx-auto text-center">
+        <h3 class="text-lg font-semibold text-white mb-2">Lorem Ipsum</h3>
+        <p class="text-sm text-slate-400 mb-4">Consectetur adipiscing elit, sed do eiusmod tempor incididunt.</p>
+        <form class="flex gap-2 max-w-md mx-auto">
+          <input type="email" placeholder="Enter your email" class="flex-1 px-4 py-2 bg-white/5 border border-white/10 rounded-lg text-sm text-white placeholder-slate-500 focus:outline-none focus:ring-2 focus:ring-indigo-500/40">
+          <button type="submit" class="px-4 py-2 bg-white text-slate-900 rounded-lg text-sm font-medium hover:bg-white/90 transition-colors">Subscribe</button>
+        </form>
+      </div>
+    </div>
+
+    <!-- Bottom Bar -->
+    <div class="border-t border-white/10 pt-8 flex flex-col sm:flex-row items-center justify-between gap-4">
+      <p class="text-sm text-slate-400">
+        © <span id="year">2025</span> Arcade AI. All rights reserved.
+      </p>
+      <div class="flex items-center gap-6">
+        <a href="#" class="text-sm text-slate-400 hover:text-white transition-colors">Privacy Policy</a>
+        <a href="#" class="text-sm text-slate-400 hover:text-white transition-colors">Terms of Service</a>
+        <a href="#" class="text-sm text-slate-400 hover:text-white transition-colors">Cookie Policy</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+    <script class="">
+        lucide.createIcons();
+        
+        // Mobile menu
+        const menuBtn = document.getElementById('menuBtn');
+        const closeMenuBtn = document.getElementById('closeMenuBtn');
+        const mobileMenu = document.getElementById('mobileMenu');
+        const mobileLinks = document.querySelectorAll('.mobile-link');
+        
+        menuBtn.addEventListener('click', () => mobileMenu.classList.add('open'));
+        closeMenuBtn.addEventListener('click', () => mobileMenu.classList.remove('open'));
+        mobileLinks.forEach(link => link.addEventListener('click', () => mobileMenu.classList.remove('open')));
+        
+        // Accordion
+        document.querySelectorAll('.accordion-trigger').forEach(trigger => {
+            trigger.addEventListener('click', () => {
+                const item = trigger.closest('.accordion-item');
+                const content = item.querySelector('.accordion-content');
+                const icon = item.querySelector('.accordion-icon');
+                const isOpen = content.classList.contains('open');
+                
+                content.classList.toggle('open');
+                icon.classList.toggle('open');
+                trigger.setAttribute('aria-expanded', !isOpen);
+            });
+        });
+        
+        // Review rotation
+        const reviewCards = document.querySelectorAll('.review-card');
+        let currentReview = 0;
+        setInterval(() => {
+            reviewCards[currentReview].classList.remove('review-active');
+            currentReview = (currentReview + 1) % reviewCards.length;
+            reviewCards[currentReview].classList.add('review-active');
+        }, 4000);
+        reviewCards[0].classList.add('review-active');
+        
+        // Year
+        document.getElementById('year').textContent = new Date().getFullYear();
+    </script>
+
+</body></html>

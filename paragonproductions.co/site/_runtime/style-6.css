@@ -1,0 +1,50 @@
+
+
+/* CSS Responsive */
+
+/* Tablet */
+@media screen and (max-width: 991px) {:root {} }
+
+/* Landscape */
+@media screen and (max-width: 767px) {:root {} }
+
+/* Portrait */
+@media screen and (max-width: 479px) {:root {} }
+
+/* Portrait Small */
+@media screen and (max-width: 279px) {:root {} }
+
+/* Responsive Above */
+@container threshold-large (width >= 62em) {
+	.u-order-unset-above { order: unset !important; }
+	.u-all-unset-above { all: unset !important; }
+	.u-grid-below { display: flex !important; }
+}
+@container threshold-medium (width >= 48em) {
+	.u-order-unset-above { order: unset !important; }
+	.u-all-unset-above { all: unset !important; }
+	.u-grid-below { display: flex !important; }
+}
+@container threshold-small (width >= 30em) {
+	.u-order-unset-above { order: unset !important; }
+	.u-all-unset-above { all: unset !important; }
+	.u-grid-below { display: flex !important; }
+}
+
+/* Responsive Below */
+@container threshold-large (width < 62em) {
+	.u-order-unset-below { order: unset !important; }
+	.u-all-unset-below { all: unset !important; }
+	.u-grid-above { display: flex !important; }
+}
+@container threshold-medium (width < 48em) {
+	.u-order-unset-below { order: unset !important; }
+	.u-all-unset-below { all: unset !important; }
+	.u-grid-above { display: flex !important; }
+}
+@container threshold-small (width < 30em) {
+	.u-order-unset-below { order: unset !important; }
+	.u-all-unset-below { all: unset !important; }
+	.u-grid-above { display: flex !important; }
+}
+

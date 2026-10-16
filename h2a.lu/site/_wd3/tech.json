@@ -1,0 +1,82 @@
+{
+ "builders": [
+  "wordpress"
+ ],
+ "libraries": [
+  {
+   "name": "gsap",
+   "version": null,
+   "sources": [
+    "https://www.h2a.lu/wp-content/cache/min/1/wp-content/themes/gouttenberg-h2a/build/gsap.js?ver=1791974437"
+   ]
+  }
+ ],
+ "runtime": {
+  "contexts": {
+   "2d": 2
+  },
+  "wasm": 0,
+  "workers": 0,
+  "webgpu": false,
+  "shadowRoots": 0,
+  "canvases": 1
+ },
+ "cssFeatures": [
+  "scroll-driven animations",
+  "view transitions",
+  "container queries"
+ ],
+ "fonts": {
+  "families": [
+   "gouttenberg-h2a-icon",
+   "Chillax"
+  ],
+  "sources": [
+   "self-hosted"
+  ]
+ },
+ "videos": [
+  {
+   "src": "https://www.h2a.lu/wp-content/uploads/2026/10/h2a_homepage_video_CMPR.mp4",
+   "kind": "decorativo",
+   "reason": "curto, sem controles e sem som",
+   "hosting": "próprio site",
+   "action": "baixado"
+  },
+  {
+   "src": "",
+   "kind": "decorativo",
+   "reason": "controlado pelo scroll",
+   "hosting": "próprio site",
+   "action": "baixado"
+  },
+  {
+   "src": "",
+   "kind": "decorativo",
+   "reason": "controlado pelo scroll",
+   "hosting": "próprio site",
+   "action": "baixado"
+  },
+  {
+   "src": "",
+   "kind": "decorativo",
+   "reason": "controlado pelo scroll",
+   "hosting": "próprio site",
+   "action": "baixado"
+  },
+  {
+   "src": "",
+   "kind": "decorativo",
+   "reason": "controlado pelo scroll",
+   "hosting": "próprio site",
+   "action": "baixado"
+  }
+ ],
+ "files": {
+  "text": 24,
+  "image": 32,
+  "font": 2,
+  "application": 20,
+  "video": 5
+ }
+}

@@ -1,0 +1,246 @@
+
+  .header.on-scroll .header-linkedin {
+    opacity: 1;
+  }
+  .related-news-item .related-news-link {
+    overflow: hidden;
+  }
+  .related-news-item .related-news-title {
+    opacity: 1;
+    transform: translateY(100%);
+  }
+  .related-news-item.active .related-news-title {
+    transform: translateY(0%);
+  }
+  .related-news-item.de-active .related-news-title {
+    transform: translateY(-100%);
+  }
+  .related-news-item.opacity .related-news-title {
+    opacity: 0;
+    transform: translateY(100%);
+  }
+  .header.show-menu .header-menu-toggle {
+    pointer-events: none;
+  }
+  .header.on-scroll .header-logo-char {
+    grid-template-columns: auto 0fr;
+  }
+  .header-menu-toggle-dot:nth-child(1) {
+    display: none;
+  }
+  .header-menu-toggle-dot:nth-child(2) {
+    display: none;
+  }
+  .header-menu-toggle-dot:nth-child(3) {
+    opacity: 0.24;
+  }
+  .header-menu-toggle-dot:nth-child(4) {
+    opacity: 0.5;
+  }
+  .header-menu-toggle-dot:nth-child(5) {
+    opacity: 0.7;
+  }
+  .header.on-hide {
+    pointer-events: none;
+  }
+  .header.on-hide {
+    transform: translateY(-101%);
+  }
+  /* .header.on-hide .header-inner {
+    transform: translateY(-101%);
+  } */
+  .header.on-scroll .header-inner {
+    background-color: white;
+    color: #111;
+  }
+
+  .header.on-scroll .header-inner .header-locale {
+    color: rgba(17, 17, 17, 0.72);
+  }
+  .header.on-scroll.on-dark .header-inner {
+    background-color: transparent;
+    color: white;
+  }
+  .header.on-scroll.on-dark .header-inner .header-locale {
+    color: rgba(255, 255, 255, 0.5);
+  }
+  .header.on-scroll:not(.on-dark) .btn {
+    background: var(--_color---m-black);
+    border-color: var(--_color---m-black);
+    color: var(--_color---m-white);
+  }
+  .header.show-menu .header-menu-toggle-wrap {
+    pointer-events: none;
+  }
+  .header.show-menu .header-link {
+    transform: translate(0, 0%);
+  }
+  .header .header-menu-toggle-dots-inner,
+  .header .header-menu-toggle-text-inner {
+    transform: translate(0, 0%);
+  }
+  .header.show-menu .header-menu-toggle-dots-inner,
+  .header.show-menu .header-menu-toggle-text-inner {
+    transform: translate(0, 105%);
+  }
+  .header .header-menu-toggle-dots-inner {
+    opacity: 1;
+  }
+  .header.show-menu .header-menu-toggle-dots-inner {
+    opacity: 0;
+  }
+  .header.show-menu .header-menu-list {
+    opacity: 1;
+    pointer-events: auto;
+  }
+  .header-menu.active .header-menu-toggle {
+    color: var(--_color---m-white);
+  }
+  .header-menu.active .header-menu-toggle-menu {
+    opacity: 0;
+  }
+  .header-menu.active .header-menu-toggle-text-close {
+    opacity: 1;
+  }
+  .header-logo-char {
+    transition: grid-template-columns 0.5s ease 0.3s;
+  }
+  .header-logo-char-full {
+    transition: width 0.45s ease 0.3s;
+  }
+  .header.on-scroll .header-logo-char-full {
+    width: 0px;
+  }
+  .header.on-loader{
+    opacity: 0;
+}
+  @media (hover: hover) and (min-width: 992px) {
+    .header.on-scroll:not(.on-dark) .btn:hover {
+      background: var(--_color---secondary);
+      border-color: var(--_color---secondary);
+    }
+  }
+  @media only screen and (max-width: 767px) {
+    .header.show-menu .header-menu-toggle {
+      pointer-events: auto;
+    }
+    .header-menu-toggle.active .header-menu-toggle-menu {
+      opacity: 0;
+    }
+    .header-menu-toggle.active .header-menu-toggle-text-close {
+      opacity: 1;
+    }
+    .header.on-scroll .header-inner {
+      padding-top: 1.2rem;
+    }
+    .header.show-menu .header-menu-toggle-wrap {
+      pointer-events: auto;
+    }
+    .header.show-menu .header-menu-toggle,
+    .header .header-menu-toggle {
+      transform: translate(0, 0%);
+    }
+    .header .header-menu-toggle-dots-inner,
+    .header .header-menu-toggle-text-inner,
+    .header.show-menu .header-menu-toggle-dots-inner,
+    .header.show-menu .header-menu-toggle-text-inner {
+      transform: translate(0, 0%);
+    }
+    .header.show-menu .header-menu-toggle-dots-inner,
+    .header .header-menu-toggle-dots-inner {
+      opacity: 1;
+    }
+    .header.on-scroll .header-dropdown-inner {
+      padding-top: 4.8rem;
+    }
+
+    .header.on-open-nav:not(.on-dark) .header-menu-toggle {
+      color: var(--_color---m-white);
+    }
+    .header.on-open-nav:not(.on-dark) .header-dropdown-bot-cta .btn {
+      color: var(--_color---m-black);
+      background-color: var(--_color---m-white);
+    }
+
+    .header-menu-toggle-wrap:has(.header-menu-toggle.active) {
+      transform: translateX(calc((var(--container--one-column) * 2 + var(--container--column-gap) * 2 + 1.2rem) * -1));
+    }
+    .header-inner:has(.header-menu-toggle.active) .header-act {
+      opacity: 0;
+      transition-duration: 0.3s;
+    }
+    .header-dropdown-bot-label-inner,
+    .header-dropdown-bot-link,
+    .header-dropdown-link,
+    .header-btn.hidden-dsk {
+      transform: translateX(5rem);
+      opacity: 0;
+
+      transition:
+        opacity 0.5s,
+        transform 0.6s;
+
+      transition-delay: 0s;
+    }
+    .header-dropdown.active .header-dropdown-bot-label-inner,
+    .header-dropdown.active .header-dropdown-bot-link,
+    .header-dropdown.active .header-dropdown-link,
+    .header-dropdown.active .header-btn.hidden-dsk {
+      transform: translateX(0);
+      opacity: 1;
+
+      transition-delay: var(--delay);
+    }
+    .header-dropdown-line {
+      transform: scale(0);
+      transition: transform 0.4s;
+      transition-delay: 0.03s;
+    }
+    .header-dropdown.active .header-dropdown-line {
+      transform: scale(1);
+    }
+    .header-dropdown-bot-line {
+      transform: scale(0);
+      transition: transform 0.4s;
+      transition-delay: 0.24s;
+    }
+    .header-dropdown.active .header-dropdown-bot-line {
+      transform: scale(1);
+    }
+    .header-dropdown-link:nth-child(1) {
+      --delay: 0s;
+    }
+    .header-dropdown-link:nth-child(2) {
+      --delay: 0.03s;
+    }
+    .header-dropdown-link:nth-child(3) {
+      --delay: 0.06s;
+    }
+    .header-dropdown-link:nth-child(4) {
+      --delay: 0.09s;
+    }
+    .header-dropdown-link:nth-child(5) {
+      --delay: 0.12s;
+    }
+    .header-dropdown-link:nth-child(6) {
+      --delay: 0.15s;
+    }
+    .header-dropdown-link:nth-child(7) {
+      --delay: 0.18s;
+    }
+    .header-dropdown-link:nth-child(8) {
+      --delay: 0.21s;
+    }
+    .header-dropdown-link:nth-child(9) {
+      --delay: 0.24s;
+    }
+    .header-btn.hidden-dsk {
+      --delay: 0.27s;
+    }
+    .header-dropdown-bot-label-inner {
+      --delay: 0.3s;
+    }
+    .header-dropdown-bot-link {
+      --delay: 0.33s;
+    }
+  }

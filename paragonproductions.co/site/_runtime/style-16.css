@@ -1,0 +1,113 @@
+
+
+/* --- Home Gallery Section --- */
+/* Desktop & Tablet */
+@media screen and (min-width: 767px) {
+  .home-gallery_list_item:nth-child(9n+1) {
+    transform: rotate(8.78deg);
+    margin-left: -4.64%;
+    margin-top: -2.1%;
+  }
+  .home-gallery_list_item:nth-child(9n+2) {
+    transform: rotate(-13.98deg);
+    margin-left: 24.3%;
+    margin-right: 3.25%;
+    margin-top: -6.24%;
+  }
+  .home-gallery_list_item:nth-child(9n+3) {
+    transform: rotate(6.58deg);
+    margin-left: auto;
+    margin-right: 0.64%;
+    margin-top: 6.6%; 
+  }
+  .home-gallery_list_item:nth-child(9n+4) {
+    transform: rotate(-5.97deg); 
+    margin-left: -7.2%;
+    margin-right: 1.2%; 
+    margin-top: -8%;
+  }
+  .home-gallery_list_item:nth-child(9n+5) {
+    transform: rotate(16.22deg); 
+    margin-left: auto;
+    margin-right: 1.2%; 
+    margin-top: -5%;
+  }
+  .home-gallery_list_item:nth-child(9n+6) {
+    transform: rotate(-8.2deg); 
+    margin-left: auto;
+    margin-right: -4.2%; 
+    margin-top: 8%;
+  }
+  .home-gallery_list_item:nth-child(9n+7) {
+    transform: rotate(-13.98deg);
+    margin-left: 24.3%;
+    margin-right: 3.25%;
+    margin-top: 4.24%;
+  }
+  .home-gallery_list_item:nth-child(9n+8) {
+    transform: rotate(-8.2deg); 
+    margin-left: auto;
+    margin-right: -4.2%; 
+    margin-top: 8%;
+  }
+  .home-gallery_list_item:nth-child(9n+9) {
+    transform: rotate(6.58deg);
+    margin-left: auto;
+    margin-right: 0.64%;
+    margin-top: 4.6%; 
+  }
+}
+
+/* Mobile */
+@media screen and (max-width: 767px) {
+  .home-gallery_list_item:nth-child(8n+1) {
+    transform: rotate(8.78deg);
+    margin-left: 0.64%;
+    margin-top: -6.1%;
+  }
+  .home-gallery_list_item:nth-child(8n+2) {
+    transform: rotate(-13.98deg);
+    margin-left: auto;
+    margin-right: -6.25%;
+    margin-top: 24.24%;
+  }
+  .home-gallery_list_item:nth-child(8n+3) {
+    transform: rotate(6.58deg);
+    margin-left: -14.4%;
+    margin-right: auto;
+    margin-top: 32.6%;
+  }
+  .home-gallery_list_item:nth-child(8n+4) {
+    transform: rotate(-5.97deg); 
+    margin-left: auto;
+    margin-right: -15.2%; 
+    margin-top: 45%;
+  }
+  .home-gallery_list_item:nth-child(8n+5) {
+    transform: rotate(16.22deg); 
+    margin-left: -5%;
+    margin-right: auto; 
+    margin-top: 38%;
+  }
+  .home-gallery_list_item:nth-child(8n+6) {
+    transform: rotate(-8.2deg); 
+    margin-left: auto;
+    margin-right: -8.2%; 
+    margin-top: 16%;
+  }
+    .home-gallery_list_item:nth-child(8n+7) {
+    transform: rotate(-5.97deg); 
+    margin-left: auto;
+    margin-right: -15.2%; 
+    margin-top: 45%;
+  }
+  .home-gallery_list_item:nth-child(8n+8) {
+    transform: rotate(6.58deg);
+    margin-left: -14.4%;
+    margin-right: auto;
+    margin-top: 32.6%;
+  }
+  .home-gallery_list_item:last-child {
+		display: none;
+  }
+}

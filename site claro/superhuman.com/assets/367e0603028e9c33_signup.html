@@ -1,0 +1,89 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <title>Login</title>
+    <base href="/" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="icon" type="image/svg+xml" href="/branches/main/favicon.svg" />
+    <!--
+      Transcend airgap.js (consent management). Loaded via a same-origin bootstrap script (rather
+      than a static tag) so it can conditionally set data-regime: the Superhuman Go iOS in-app web
+      view requests the "ATT" consent regime with a "regime=ATT" query param, which the identity
+      backend forwards to this page. Using data-regime (and a query param, not a "#tcm-regime=ATT"
+      URL fragment) avoids the airgap fragment-strip that destroyed the Sign in with Apple OAuth
+      "#code&state" fragment and left users on a blank page. See airgap-bootstrap.js.
+
+      The bootstrap is an external same-origin file, not inline, because the login CSP allows
+      script-src 'self' but not 'unsafe-inline'. The env CSS URL is passed via data-css (index.html
+      is Vite-templated; the bootstrap in public/ is not).
+
+      IMPORTANT: airgap.js loads asynchronously (the bootstrap injects it dynamically to read the
+      "regime" query param, and script-inserted scripts cannot be parser-blocking). Load order
+      therefore does NOT guarantee airgap runs before other code, so any tracker (analytics, pixels,
+      or anything hitting the network for a non-essential purpose) MUST wait for airgap before
+      loading, via airgapReady() (src/lib/airgap-ready.ts) — see SignupTrack for the pattern. Keep
+      the bootstrap limited to loading airgap: it must not do any data collection itself. (Transcend
+      confirmed this dynamic async-load approach is documented and supported, valid precisely
+      because every tracker is gated on airgap being ready.)
+    -->
+    <script src="/branches/main/airgap-bootstrap.js" data-css="https://superhumanstatic.com/super-funnel/main/public/css/v1/transcend-airgap.css"></script>
+    <style>
+      body {
+        background-color: #fcfaf7;
+      }
+    </style>
+    <link rel="preload" as="font" crossorigin href="/branches/main/fonts/SuperSerif-Regular.otf" />
+    <link rel="preload" as="font" crossorigin href="/branches/main/fonts/SuperSans-Regular.otf" />
+
+    <!-- Session Transfer: DNS prefetch for Grammarly and Coda APIs -->
+    <link rel="dns-prefetch" href="https://auth.qagr.io" />
+    <link rel="dns-prefetch" href="https://auth.ppgr.io" />
+    <link rel="dns-prefetch" href="https://auth.grammarly.com" />
+    <link rel="dns-prefetch" href="https://head.coda.io" />
+    <link rel="dns-prefetch" href="https://staging.coda.io" />
+    <link rel="dns-prefetch" href="https://coda.io" />
+
+    <!-- Session Transfer: Preconnect for Grammarly and Coda APIs -->
+    <link rel="preconnect" href="https://auth.qagr.io" crossorigin="use-credentials" />
+    <link rel="preconnect" href="https://auth.ppgr.io" crossorigin="use-credentials" />
+    <link rel="preconnect" href="https://auth.grammarly.com" crossorigin="use-credentials" />
+    <link rel="preconnect" href="https://head.coda.io" crossorigin="use-credentials" />
+    <link rel="preconnect" href="https://staging.coda.io" crossorigin="use-credentials" />
+    <link rel="preconnect" href="https://coda.io" crossorigin="use-credentials" />
+    <script type="module" crossorigin src="/branches/main/assets/index-BBo7n-Jo.js"></script>
+    <link rel="stylesheet" crossorigin href="/branches/main/assets/index-BFPSnIkE.css">
+  </head>
+
+  <body>
+    <div
+      id="gds-loading-element"
+      role="progressbar"
+      aria-label="Loading page"
+      aria-valuetext="In progress"
+    >
+      <div class="gds-branded-loader-container gds-branded-loader-container-size-medium">
+        <svg viewBox="0 0 128 128" fill="#707070" xmlns="http://www.w3.org/2000/svg">
+          <path
+            class="gds-branded-loader-bobble gds-branded-loader-top-left"
+            d="M59.7334 38.4C59.7334 26.6179 50.1821 17.0667 38.4001 17.0667C26.618 17.0667 17.0667 26.6179 17.0667 38.4C17.0667 50.1821 26.618 59.7333 38.4001 59.7333H59.7334V38.4Z"
+          />
+          <path
+            class="gds-branded-loader-bobble gds-branded-loader-bottom-left"
+            d="M59.7334 98.1333C59.7334 114.628 46.3616 128 29.8667 128C13.3718 128 6.48499e-05 114.628 6.48499e-05 98.1333C6.48499e-05 81.6384 13.3718 68.2667 29.8667 68.2667H59.7334V98.1333Z"
+          />
+          <path
+            class="gds-branded-loader-bobble gds-branded-loader-top-right"
+            d="M68.2666 29.8667C68.2666 13.3718 81.6384 0 98.1333 0C114.628 0 128 13.3718 128 29.8667C128 46.3616 114.628 59.7333 98.1333 59.7333H68.2666V29.8667Z"
+          />
+          <path
+            class="gds-branded-loader-bobble gds-branded-loader-bottom-right"
+            d="M68.2666 89.6C68.2666 101.382 77.8179 110.933 89.5999 110.933C101.382 110.933 110.933 101.382 110.933 89.6C110.933 77.8179 101.382 68.2667 89.5999 68.2667H68.2666V89.6Z"
+          />
+        </svg>
+      </div>
+    </div>
+    <div id="root"></div>
+  </body>
+</html>

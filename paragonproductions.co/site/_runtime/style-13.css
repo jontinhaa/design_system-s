@@ -1,0 +1,97 @@
+
+
+/* --- Home Services --- */
+
+.home-services_cards_item.is-active .home-services_cards_content {
+  width: 100vw;
+  max-width: ;
+}
+
+/* Marquee */
+@keyframes homeTranslateX { 
+  to {
+    transform: translateX(-100%);
+  }
+}
+
+[data-service-marquee-list] {
+  animation: homeTranslateX 30s linear;
+  animation-iteration-count: infinite;
+  /* animation-play-state: paused; */
+}
+
+/* Active Class */
+.home-services_cards_item.is-active {
+	width: 100%;
+}
+/* Service Items */
+@media screen and (min-width: 992px) {
+
+  /* Base styles for initial state */
+  [data-service-marquee] {
+    opacity: 0;
+    transform: translateY(-120%);
+    transition: opacity 0.6s, transform 0.9s; /* Base transition without delay */
+  }
+
+  [data-marquee-content] .home-service_image_wrap,
+  [data-marquee-content] .home-service_content_label,
+  [data-marquee-content] .home-service_content_list_item {
+    opacity: 0;
+    transform: translateY(10%);
+    transition: opacity 0.6s, transform 0.9s; /* Base transition without delay */
+  }
+
+  .home-services_cards_item.is-active .home-services_cards_content {
+    pointer-events: auto;
+  }
+
+  /* Active state with delays for "in" animation */
+  .home-services_cards_item.is-active .home-serivce_marquee_wrap { 
+    opacity: 1;
+    transform: translateY(-160%);
+    transition-delay: 400ms; /* Delay only applies on add */
+  }
+  
+  .home-services_cards_item.is-active .home-service_image_wrap {
+    opacity: 1;
+    transform: translateY(0%);
+    transition-delay: 500ms; /* Delay only applies on add */
+  }
+  
+  .home-services_cards_item.is-active .home-service_content_label {
+    opacity: 1;
+    transform: translateY(0%);
+    transition-delay: 560ms; /* Delay only applies on add */
+  }
+  
+  .home-services_cards_item.is-active .home-service_content_list_item:nth-child(1) {
+    opacity: 1;
+    transform: translateY(0%);
+    transition-delay: 620ms; /* Delay only applies on add */
+  }
+  
+  .home-services_cards_item.is-active .home-service_content_list_item:nth-child(2) {
+    opacity: 1;
+    transform: translateY(0%);
+    transition-delay: 650ms; /* Delay only applies on add */
+  }
+  
+  .home-services_cards_item.is-active .home-service_content_list_item:nth-child(3) {
+    opacity: 1;
+    transform: translateY(0%);
+    transition-delay: 670ms; /* Delay only applies on add */
+  }
+  
+  .home-services_cards_item.is-active .home-service_content_list_item:nth-child(4) {
+    opacity: 1;
+    transform: translateY(0%);
+    transition-delay: 680ms; /* Delay only applies on add */
+  }
+
+	/* Hover State */
+  .home-services_cards_item:not(.is-active):has(.home-services_cards_toggle:hover) {
+    width: calc(var(--site--service--content-panel-close) + 1rem);
+  }
+}
+

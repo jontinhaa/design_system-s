@@ -1,0 +1,46 @@
+/* auragen.aura.build — the page's own <head> styles, moved verbatim out of its inline <style> blocks so the
+   Overview page and the design-system catalog share one stylesheet (duplicate .invisible blocks merged). */
+.invisible { visibility: hidden !important; }
+@keyframes fadeInUp {
+from { opacity: 0; transform: translateY(20px); }
+to { opacity: 1; transform: translateY(0); }
+}
+.animate-fade-in-up { animation: fadeInUp 0.6s ease-out forwards; }
+.animate-delay-200 { animation-delay: 0.2s; opacity: 0; }
+.animate-delay-300 { animation-delay: 0.3s; opacity: 0; }
+.hover-blur:hover img { filter: blur(4px); }
+.hover-blur figcaption { opacity: 0; transition: opacity 0.3s; }
+.hover-blur:hover figcaption { opacity: 1; }
+.nav-link::after { content: ''; position: absolute; left: 0; top: 100%; width: 0; height: 2px; background: #e879f9; transition: width 0.3s; }
+.nav-link:hover::after { width: 100%; }
+.card-glow { transition: all 0.3s; }
+.card-glow:hover { transform: translateY(-2px); }
+.card-glow:hover .glow-bg { opacity: 1; }
+.glow-bg { opacity: 0; transition: opacity 0.3s; }
+.accordion-content { max-height: 0; overflow: hidden; transition: max-height 0.3s ease-out; }
+.accordion-content.open { max-height: 500px; }
+.accordion-icon { transition: transform 0.3s; }
+.accordion-icon.open { transform: rotate(90deg); }
+.review-active { transform: scale(1.02); transition: transform 0.3s; }
+.mobile-menu { transform: translateX(100%); transition: transform 0.3s ease-out; }
+.mobile-menu.open { transform: translateX(0); }
+.font-geist { font-family: 'Geist', sans-serif !important; }
+.font-roboto { font-family: 'Roboto', sans-serif !important; }
+.font-montserrat { font-family: 'Montserrat', sans-serif !important; }
+.font-poppins { font-family: 'Poppins', sans-serif !important; }
+.font-playfair { font-family: 'Playfair Display', serif !important; }
+.font-instrument-serif { font-family: 'Instrument Serif', serif !important; }
+.font-merriweather { font-family: 'Merriweather', serif !important; }
+.font-bricolage { font-family: 'Bricolage Grotesque', sans-serif !important; }
+.font-jakarta { font-family: 'Plus Jakarta Sans', sans-serif !important; }
+.font-manrope { font-family: 'Manrope', sans-serif !important; }
+.font-space-grotesk { font-family: 'Space Grotesk', sans-serif !important; }
+.font-work-sans { font-family: 'Work Sans', sans-serif !important; }
+.font-pt-serif { font-family: 'PT Serif', serif !important; }
+.font-geist-mono { font-family: 'Geist Mono', monospace !important; }
+.font-space-mono { font-family: 'Space Mono', monospace !important; }
+.font-quicksand { font-family: 'Quicksand', sans-serif !important; }
+.font-nunito { font-family: 'Nunito', sans-serif !important; }
+/* 3D Transform utilities */
+.rotate-x-5 { --tw-rotate-x: 5deg; transform: translate3d(var(--tw-translate-x, 0), var(--tw-translate-y, 0), var(--tw-translate-z, 0)) rotateX(var(--tw-rotate-x, 0)) rotateY(var(--tw-rotate-y, 0)) rotateZ(var(--tw-rotate-z, 0)) skewX(var(--tw-skew-x, 0)) skewY(var(--tw-skew-y, 0)) scaleX(var(--tw-scale-x, 1)) scaleY(var(--tw-scale-y, 1)) !important; }
+.perspective-none { perspective: none !important; }

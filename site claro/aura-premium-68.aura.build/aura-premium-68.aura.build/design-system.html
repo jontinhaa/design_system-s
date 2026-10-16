@@ -1,0 +1,647 @@
+<html lang="en" class="scroll-smooth"><head><meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AURA Design System</title>
+<meta name="description" content="Living design system and pattern library for the AURA premium café template.">
+<!-- Same assets as index.html: Tailwind Play CDN, Inter + Playfair Display, the page's own <style> (style-0), captured Tailwind output (style-1).
+     Icons use the captured <iconify-icon> markup (declarative shadow DOM), so they render offline without the Iconify runtime. -->
+<link href="site/fonts.googleapis.com/css2__qc0424ffb.css" rel="stylesheet">
+<link href="site/_runtime/file-fonts.css" rel="stylesheet">
+<link href="site/_runtime/style-0.css" rel="stylesheet">
+<link href="site/_runtime/style-1.css" rel="stylesheet">
+<script src="site/cdn.tailwindcss.com/3.4.17.js"></script>
+</head>
+<body class="bg-[#FAFAF9] text-stone-900 antialiased selection:bg-stone-200">
+
+    <!-- Navigation -->
+    <nav class="fixed top-0 z-50 w-full bg-[#FAFAF9]/80 backdrop-blur-md border-b border-stone-200">
+        <div class="max-w-7xl mx-auto px-6 h-16 flex items-center justify-between">
+            <div class="flex items-center gap-8">
+                <a href="#top" class="text-xl font-medium tracking-tight uppercase font-serif">AURA</a>
+                <div class="hidden md:flex items-center gap-6 text-sm text-stone-500 font-normal">
+                    <a href="#typography" class="hover:text-stone-900 transition-colors">Type</a>
+                    <a href="#colors" class="hover:text-stone-900 transition-colors">Colors</a>
+                    <a href="#components" class="hover:text-stone-900 transition-colors">Components</a>
+                    <a href="#layout" class="hover:text-stone-900 transition-colors">Layout</a>
+                    <a href="#motion" class="hover:text-stone-900 transition-colors">Motion</a>
+                    <a href="#icons" class="hover:text-stone-900 transition-colors">Icons</a>
+                </div>
+            </div>
+            <div class="flex items-center gap-4">
+                <a href="index.html" class="text-sm font-normal text-stone-900 hover:text-stone-500 transition-colors hidden sm:block">Live Site</a>
+                <a href="#typography" class="text-sm font-medium bg-stone-900 text-[#FAFAF9] px-4 py-2 rounded-lg hover:bg-stone-800 transition-colors shadow-sm">
+                    Get Started
+                </a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- ═════════ 0 · HERO (exact clone, text adapted) ═════════ -->
+    <header id="top" class="relative w-full h-screen min-h-[600px] flex items-center justify-center text-center">
+        <!-- Background Image -->
+        <div class="absolute inset-0 w-full h-full">
+            <img src="site/images.unsplash.com/photo-1554118811-1e0d58224f24__qfbed69c2.avif" alt="Cinematic café atmosphere" class="w-full h-full object-cover">
+            <div class="absolute inset-0 bg-stone-900/40"></div>
+        </div>
+
+        <!-- Content -->
+        <div class="relative z-10 max-w-3xl mx-auto px-6 space-y-8 mt-16">
+            <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/10 backdrop-blur-sm text-xs font-medium text-[#FAFAF9] border border-white/20">
+                <span class="w-2 h-2 rounded-full bg-stone-300"></span>
+                Now documenting every class &amp; token
+            </div>
+            <h1 class="text-5xl md:text-7xl font-medium tracking-tight text-white leading-[1.1] font-serif">
+                A Quiet Design System, <br> <span class="italic font-normal">Right Here.</span>
+            </h1>
+            <p class="text-lg text-stone-200 font-normal max-w-lg mx-auto leading-relaxed">
+                Type, color, surfaces and components from AURA, reused class for class. A calm reference built for building.
+            </p>
+            <div class="flex flex-col sm:flex-row items-center justify-center gap-4 pt-4">
+                <a href="#colors" class="w-full sm:w-auto text-sm font-medium bg-[#FAFAF9] text-stone-900 px-6 py-3 rounded-lg hover:bg-white transition-colors shadow-sm">
+                    View Tokens
+                </a>
+                <a href="#components" class="w-full sm:w-auto text-sm font-medium text-white bg-transparent border border-white/30 px-6 py-3 rounded-lg hover:bg-white/10 transition-colors">
+                    Components
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- ═════════ 1 · TYPOGRAPHY ═════════ -->
+    <section id="typography" class="py-24 md:py-32">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="mb-12">
+                <h2 class="text-3xl font-medium tracking-tight text-stone-900 font-serif mb-4">Typography</h2>
+                <p class="text-base text-stone-500 max-w-xl">A serif for headlines and Inter for everything else. Medium (500) is the heaviest weight in use, and emphasis comes from serif italics rather than bold.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-16">
+                <div class="p-8 border border-stone-200 rounded-2xl bg-white">
+                    <h3 class="text-sm font-medium text-stone-400 uppercase tracking-widest mb-8 border-b border-stone-100 pb-2">Display · .font-serif</h3>
+                    <p class="text-4xl font-medium tracking-tight text-stone-900 font-serif">Georgia · ui-serif</p>
+                    <p class="text-2xl text-stone-500 font-serif mt-2">Regular 400 · Medium 500 · <span class="italic font-normal">Italic 400</span></p>
+                    <code class="block mt-3 text-xs text-stone-400">Playfair Display is loaded and set on .font-serif in the page style, but the Tailwind CDN's own .font-serif rule loads later and wins, so the original renders the ui-serif / Georgia stack.</code>
+                </div>
+                <div class="p-8 border border-stone-200 rounded-2xl bg-white">
+                    <h3 class="text-sm font-medium text-stone-400 uppercase tracking-widest mb-8 border-b border-stone-100 pb-2">Body · body</h3>
+                    <p class="text-4xl font-medium tracking-tight text-stone-900">Inter</p>
+                    <p class="text-2xl text-stone-500 mt-2">Regular 400 · <span class="font-medium text-stone-900">Medium 500</span></p>
+                </div>
+            </div>
+
+            <ul>
+                <li class="grid grid-cols-1 md:grid-cols-12 gap-4 md:gap-8 md:items-center py-8 border-t border-stone-200">
+                    <div class="md:col-span-2"><p class="text-sm font-medium text-stone-900">Heading 1</p><p class="text-xs text-stone-400">Hero display</p></div>
+                    <div class="md:col-span-8 min-w-0">
+                        <div class="bg-[#2A2522] rounded-2xl p-8"><h1 class="text-5xl md:text-7xl font-medium tracking-tight text-white leading-[1.1] font-serif">A Global Café Experience, <br> <span class="italic font-normal">Right Here.</span></h1></div>
+                        <code class="block mt-3 text-xs text-stone-400">text-5xl md:text-7xl font-medium tracking-tight text-white leading-[1.1] font-serif · span.italic.font-normal</code>
+                    </div>
+                    <p class="md:col-span-2 md:text-right text-xs text-stone-400">72px / 79.2px</p>
+                </li>
+                <li class="grid grid-cols-1 md:grid-cols-12 gap-4 md:gap-8 md:items-center py-8 border-t border-stone-200">
+                    <div class="md:col-span-2"><p class="text-sm font-medium text-stone-900">Heading 2</p><p class="text-xs text-stone-400">Closing headline</p></div>
+                    <div class="md:col-span-8 min-w-0">
+                        <h2 class="text-4xl md:text-5xl font-medium tracking-tight text-stone-900 leading-tight font-serif">Join us for your <br> next ritual.</h2>
+                        <code class="block mt-3 text-xs text-stone-400">text-4xl md:text-5xl font-medium tracking-tight text-stone-900 leading-tight font-serif</code>
+                    </div>
+                    <p class="md:col-span-2 md:text-right text-xs text-stone-400">48px / 60px</p>
+                </li>
+                <li class="grid grid-cols-1 md:grid-cols-12 gap-4 md:gap-8 md:items-center py-8 border-t border-stone-200">
+                    <div class="md:col-span-2"><p class="text-sm font-medium text-stone-900">Heading 3</p><p class="text-xs text-stone-400">Feature section</p></div>
+                    <div class="md:col-span-8 min-w-0">
+                        <h2 class="text-3xl md:text-4xl font-medium tracking-tight text-stone-900 font-serif">Curated Offerings</h2>
+                        <code class="block mt-3 text-xs text-stone-400">text-3xl md:text-4xl font-medium tracking-tight text-stone-900 font-serif</code>
+                    </div>
+                    <p class="md:col-span-2 md:text-right text-xs text-stone-400">36px / 40px</p>
+                </li>
+                <li class="grid grid-cols-1 md:grid-cols-12 gap-4 md:gap-8 md:items-center py-8 border-t border-stone-200">
+                    <div class="md:col-span-2"><p class="text-sm font-medium text-stone-900">Heading 4</p><p class="text-xs text-stone-400">Section title</p></div>
+                    <div class="md:col-span-8 min-w-0">
+                        <h2 class="text-3xl font-medium tracking-tight text-stone-900 font-serif">Signature Creations</h2>
+                        <code class="block mt-3 text-xs text-stone-400">text-3xl font-medium tracking-tight text-stone-900 font-serif</code>
+                    </div>
+                    <p class="md:col-span-2 md:text-right text-xs text-stone-400">30px / 36px</p>
+                </li>
+                <li class="grid grid-cols-1 md:grid-cols-12 gap-4 md:gap-8 md:items-center py-8 border-t border-stone-200">
+                    <div class="md:col-span-2"><p class="text-sm font-medium text-stone-900">Medium L</p><p class="text-xs text-stone-400">Item name · 500</p></div>
+                    <div class="md:col-span-8 min-w-0">
+                        <p class="text-base font-medium text-stone-900">Ricotta Pancakes</p>
+                        <code class="block mt-3 text-xs text-stone-400">text-base font-medium text-stone-900 — no bold weight exists; medium plays the "bold" role</code>
+                    </div>
+                    <p class="md:col-span-2 md:text-right text-xs text-stone-400">16px / 24px</p>
+                </li>
+                <li class="grid grid-cols-1 md:grid-cols-12 gap-4 md:gap-8 md:items-center py-8 border-t border-stone-200">
+                    <div class="md:col-span-2"><p class="text-sm font-medium text-stone-900">Medium M</p><p class="text-xs text-stone-400">Price · button · name</p></div>
+                    <div class="md:col-span-8 min-w-0">
+                        <span class="text-sm font-medium text-stone-900">$13.50</span>
+                        <code class="block mt-3 text-xs text-stone-400">text-sm font-medium text-stone-900</code>
+                    </div>
+                    <p class="md:col-span-2 md:text-right text-xs text-stone-400">14px / 20px</p>
+                </li>
+                <li class="grid grid-cols-1 md:grid-cols-12 gap-4 md:gap-8 md:items-center py-8 border-t border-stone-200">
+                    <div class="md:col-span-2"><p class="text-sm font-medium text-stone-900">Medium S</p><p class="text-xs text-stone-400">Badge</p></div>
+                    <div class="md:col-span-8 min-w-0">
+                        <span class="text-stone-900 text-xs font-medium">Customer Favorite</span>
+                        <code class="block mt-3 text-xs text-stone-400">text-xs font-medium</code>
+                    </div>
+                    <p class="md:col-span-2 md:text-right text-xs text-stone-400">12px / 16px</p>
+                </li>
+                <li class="grid grid-cols-1 md:grid-cols-12 gap-4 md:gap-8 md:items-center py-8 border-t border-stone-200">
+                    <div class="md:col-span-2"><p class="text-sm font-medium text-stone-900">Paragraph</p><p class="text-xs text-stone-400">Lead</p></div>
+                    <div class="md:col-span-8 min-w-0">
+                        <p class="text-lg text-stone-500 font-normal leading-relaxed">We draw inspiration from minimal, intentional living. Every element of AURA is chosen to cultivate a sense of calm.</p>
+                        <code class="block mt-3 text-xs text-stone-400">text-lg text-stone-500 font-normal leading-relaxed</code>
+                    </div>
+                    <p class="md:col-span-2 md:text-right text-xs text-stone-400">18px / 29.25px</p>
+                </li>
+                <li class="grid grid-cols-1 md:grid-cols-12 gap-4 md:gap-8 md:items-center py-8 border-t border-stone-200">
+                    <div class="md:col-span-2"><p class="text-sm font-medium text-stone-900">Regular L</p><p class="text-xs text-stone-400">Body</p></div>
+                    <div class="md:col-span-8 min-w-0">
+                        <p class="text-base text-stone-500 leading-relaxed">AURA began as a pursuit of the perfect cup and evolved into a sanctuary for our community.</p>
+                        <code class="block mt-3 text-xs text-stone-400">text-base text-stone-500 leading-relaxed · quote variant text-stone-600</code>
+                    </div>
+                    <p class="md:col-span-2 md:text-right text-xs text-stone-400">16px / 26px</p>
+                </li>
+                <li class="grid grid-cols-1 md:grid-cols-12 gap-4 md:gap-8 md:items-center py-8 border-t border-stone-200">
+                    <div class="md:col-span-2"><p class="text-sm font-medium text-stone-900">Regular M</p><p class="text-xs text-stone-400">Description</p></div>
+                    <div class="md:col-span-8 min-w-0">
+                        <p class="text-sm text-stone-500">House-smoked vanilla bean syrup, equal parts espresso and textured milk, dusted with raw cacao.</p>
+                        <code class="block mt-3 text-xs text-stone-400">text-sm text-stone-500 · menu variant adds leading-relaxed (22.75px)</code>
+                    </div>
+                    <p class="md:col-span-2 md:text-right text-xs text-stone-400">14px / 20px</p>
+                </li>
+                <li class="grid grid-cols-1 md:grid-cols-12 gap-4 md:gap-8 md:items-center py-8 border-t border-b border-stone-200">
+                    <div class="md:col-span-2"><p class="text-sm font-medium text-stone-900">Regular S</p><p class="text-xs text-stone-400">Meta · legal</p></div>
+                    <div class="md:col-span-8 min-w-0">
+                        <p class="text-xs text-stone-400">© 2024 Aura Cafe. All rights reserved.</p>
+                        <code class="block mt-3 text-xs text-stone-400">text-xs text-stone-400</code>
+                    </div>
+                    <p class="md:col-span-2 md:text-right text-xs text-stone-400">12px / 16px</p>
+                </li>
+            </ul>
+
+            <h3 class="text-sm font-medium text-stone-400 uppercase tracking-widest mb-8 border-b border-stone-100 pb-2 mt-16">Supplementary styles in use</h3>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div><h2 class="text-2xl font-medium tracking-tight font-serif">Hungry for more?</h2><code class="block mt-3 text-xs text-stone-400">Band title · text-2xl font-medium tracking-tight font-serif · 24px / 32px</code></div>
+                <div><h3 class="text-lg font-medium text-stone-900 tracking-tight font-serif">Smoked Vanilla Cortado</h3><code class="block mt-3 text-xs text-stone-400">Card title · text-lg font-medium tracking-tight font-serif · 18px / 28px</code></div>
+                <div><h3 class="text-base font-medium text-stone-900 tracking-tight">Ethiopia Yirgacheffe</h3><code class="block mt-3 text-xs text-stone-400">Product title · text-base font-medium tracking-tight (sans) · 16px / 24px</code></div>
+                <div><span class="text-xl font-medium tracking-tight uppercase font-serif">AURA</span><code class="block mt-3 text-xs text-stone-400">Wordmark · text-xl (nav) / text-2xl (footer) uppercase font-serif · 20px / 28px</code></div>
+                <div><h3 class="text-sm font-medium text-stone-400 uppercase tracking-widest">Breakfast &amp; Brunch</h3><code class="block mt-3 text-xs text-stone-400">Category label · text-sm font-medium text-stone-400 uppercase tracking-widest · 14px / 20px</code></div>
+                <div><h4 class="text-sm font-medium text-stone-900 flex items-center gap-2 uppercase tracking-wide"><iconify-icon icon="solar:map-point-linear" class="text-stone-400 text-lg"><template shadowrootmode="open"><style data-style="data-style">:host{display:inline-block;vertical-align:0}span,svg{display:block}</style><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="1.5"><path d="M4 10.1433C4 5.64588 7.58172 2 12 2C16.4183 2 20 5.64588 20 10.1433C20 14.6055 17.4467 19.8124 13.4629 21.6744C12.5343 22.1085 11.4657 22.1085 10.5371 21.6744C6.55332 19.8124 4 14.6055 4 10.1433Z"></path><circle cx="12" cy="10" r="3"></circle></g></svg></template></iconify-icon> Visit</h4><code class="block mt-3 text-xs text-stone-400">Info label · text-sm font-medium uppercase tracking-wide + icon · 14px / 20px</code></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ═════════ 2 · COLORS & SURFACES ═════════ -->
+    <section id="colors" class="py-24 bg-stone-100/50 border-y border-stone-200">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="mb-12">
+                <h2 class="text-3xl font-medium tracking-tight text-stone-900 font-serif mb-4">Colors &amp; Surfaces</h2>
+                <p class="text-base text-stone-500 max-w-xl">A warm off-white page, Tailwind's stone scale for everything else, and one espresso brown band. There are no gradients: depth comes from hairline borders, soft shadows and frosted glass.</p>
+            </div>
+
+            <h3 class="text-sm font-medium text-stone-400 uppercase tracking-widest mb-8 border-b border-stone-100 pb-2">Palette in use</h3>
+            <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-6 mb-16">
+                <div><div class="aspect-square rounded-xl border border-stone-200 bg-[#FAFAF9] mb-3"></div><p class="text-sm font-medium text-stone-900">#FAFAF9</p><p class="text-xs text-stone-400">Page · light text</p></div>
+                <div><div class="aspect-square rounded-xl border border-stone-200 bg-white mb-3"></div><p class="text-sm font-medium text-stone-900">white</p><p class="text-xs text-stone-400">Cards · sections</p></div>
+                <div><div class="aspect-square rounded-xl border border-stone-200 bg-stone-50 mb-3"></div><p class="text-sm font-medium text-stone-900">stone-50</p><p class="text-xs text-stone-400">Button hover</p></div>
+                <div><div class="aspect-square rounded-xl border border-stone-200 bg-stone-100 mb-3"></div><p class="text-sm font-medium text-stone-900">stone-100</p><p class="text-xs text-stone-400">Tint (/50) · dividers</p></div>
+                <div><div class="aspect-square rounded-xl border border-stone-200 bg-stone-200 mb-3"></div><p class="text-sm font-medium text-stone-900">stone-200</p><p class="text-xs text-stone-400">Borders · selection</p></div>
+                <div><div class="aspect-square rounded-xl border border-stone-200 bg-stone-300 mb-3"></div><p class="text-sm font-medium text-stone-900">stone-300</p><p class="text-xs text-stone-400">Status dot</p></div>
+                <div><div class="aspect-square rounded-xl border border-stone-200 bg-stone-400 mb-3"></div><p class="text-sm font-medium text-stone-900">stone-400</p><p class="text-xs text-stone-400">Meta · icons</p></div>
+                <div><div class="aspect-square rounded-xl border border-stone-200 bg-stone-500 mb-3"></div><p class="text-sm font-medium text-stone-900">stone-500</p><p class="text-xs text-stone-400">Body text</p></div>
+                <div><div class="aspect-square rounded-xl border border-stone-200 bg-stone-600 mb-3"></div><p class="text-sm font-medium text-stone-900">stone-600</p><p class="text-xs text-stone-400">Quotes · secondary btn</p></div>
+                <div><div class="aspect-square rounded-xl border border-stone-200 bg-stone-800 mb-3"></div><p class="text-sm font-medium text-stone-900">stone-800</p><p class="text-xs text-stone-400">Stars · btn hover</p></div>
+                <div><div class="aspect-square rounded-xl border border-stone-200 bg-stone-900 mb-3"></div><p class="text-sm font-medium text-stone-900">stone-900</p><p class="text-xs text-stone-400">Ink · primary btn</p></div>
+                <div><div class="aspect-square rounded-xl border border-stone-200 bg-[#2A2522] mb-3"></div><p class="text-sm font-medium text-stone-900">#2A2522</p><p class="text-xs text-stone-400">Espresso band</p></div>
+            </div>
+
+            <h3 class="text-sm font-medium text-stone-400 uppercase tracking-widest mb-8 border-b border-stone-100 pb-2">Section surfaces</h3>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-16">
+                <div><div class="h-32 rounded-xl border border-stone-200 bg-[#FAFAF9]"></div><code class="block mt-3 text-xs text-stone-400">Default · body bg-[#FAFAF9]</code></div>
+                <div><div class="h-32 rounded-xl border-y border-stone-200 bg-stone-100/50"></div><code class="block mt-3 text-xs text-stone-400">Tinted · bg-stone-100/50 border-y border-stone-200</code></div>
+                <div><div class="h-32 rounded-xl border-t border-stone-200 bg-white"></div><code class="block mt-3 text-xs text-stone-400">Raised · bg-white border-t border-stone-200</code></div>
+                <div><div class="h-32 rounded-xl bg-[#2A2522]"></div><code class="block mt-3 text-xs text-stone-400">Espresso band · bg-[#2A2522] text-[#FAFAF9]</code></div>
+            </div>
+
+            <h3 class="text-sm font-medium text-stone-400 uppercase tracking-widest mb-8 border-b border-stone-100 pb-2">Glass &amp; overlays</h3>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 mb-16">
+                <div>
+                    <div class="relative h-48 rounded-xl overflow-hidden">
+                        <img src="site/images.unsplash.com/photo-1554118811-1e0d58224f24__qfbed69c2.avif" alt="" class="w-full h-full object-cover">
+                        <div class="absolute inset-0 bg-stone-900/40"></div>
+                    </div>
+                    <code class="block mt-3 text-xs text-stone-400">Hero scrim · bg-stone-900/40</code>
+                </div>
+                <div>
+                    <div class="relative h-48 rounded-xl overflow-hidden flex items-center justify-center">
+                        <img src="site/images.unsplash.com/photo-1554118811-1e0d58224f24__qfbed69c2.avif" alt="" class="absolute inset-0 w-full h-full object-cover">
+                        <div class="absolute inset-0 bg-stone-900/40"></div>
+                        <div class="relative inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/10 backdrop-blur-sm text-xs font-medium text-[#FAFAF9] border border-white/20"><span class="w-2 h-2 rounded-full bg-stone-300"></span> Frosted pill</div>
+                    </div>
+                    <code class="block mt-3 text-xs text-stone-400">Pill glass · bg-white/10 backdrop-blur-sm border-white/20</code>
+                </div>
+                <div>
+                    <div class="relative h-48 rounded-xl overflow-hidden">
+                        <img src="site/images.unsplash.com/photo-1509042239860-f550ce710b93__q64308636.avif" alt="" class="w-full h-full object-cover">
+                        <span class="absolute top-6 left-6 z-10 bg-white/90 backdrop-blur text-stone-900 text-xs font-medium px-2.5 py-1 rounded-full shadow-sm">Badge glass</span>
+                    </div>
+                    <code class="block mt-3 text-xs text-stone-400">Badge · bg-white/90 backdrop-blur shadow-sm</code>
+                </div>
+                <div>
+                    <div class="relative h-48 rounded-xl overflow-hidden">
+                        <img src="site/images.unsplash.com/photo-1524661135-423995f22d0b__qd63fae44.avif" alt="" class="w-full h-full object-cover grayscale-[20%]">
+                        <div class="absolute inset-x-0 top-0 h-16 bg-[#FAFAF9]/80 backdrop-blur-md border-b border-stone-200 flex items-center px-6"><span class="text-xl font-medium tracking-tight uppercase font-serif">AURA</span></div>
+                        <div class="absolute inset-0 bg-stone-900/10 pointer-events-none"></div>
+                    </div>
+                    <code class="block mt-3 text-xs text-stone-400">Nav glass · bg-[#FAFAF9]/80 backdrop-blur-md · image tint bg-stone-900/10 · grayscale-[20%]</code>
+                </div>
+            </div>
+
+            <h3 class="text-sm font-medium text-stone-400 uppercase tracking-widest mb-8 border-b border-stone-100 pb-2">Borders, dividers &amp; shadows</h3>
+            <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-7 gap-6">
+                <div><div class="h-20 rounded-xl border border-stone-100 bg-white"></div><code class="block mt-3 text-xs text-stone-400">border-stone-100 · list rule</code></div>
+                <div><div class="h-20 rounded-xl border border-stone-200 bg-white"></div><code class="block mt-3 text-xs text-stone-400">border-stone-200 · default</code></div>
+                <div><div class="h-20 rounded-xl border border-white/20 bg-[#2A2522]"></div><code class="block mt-3 text-xs text-stone-400">border-white/20 · pill</code></div>
+                <div><div class="h-20 rounded-xl border border-white/30 bg-[#2A2522]"></div><code class="block mt-3 text-xs text-stone-400">border-white/30 · ghost btn</code></div>
+                <div><div class="h-20 rounded-xl bg-white shadow-sm"></div><code class="block mt-3 text-xs text-stone-400">shadow-sm · rest</code></div>
+                <div><div class="h-20 rounded-xl bg-white shadow-md"></div><code class="block mt-3 text-xs text-stone-400">shadow-md · card hover</code></div>
+                <div><div class="h-20 rounded-xl bg-stone-200"></div><code class="block mt-3 text-xs text-stone-400">selection:bg-stone-200</code></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ═════════ 3 · UI COMPONENTS ═════════ -->
+    <section id="components" class="py-24 bg-white border-t border-stone-200">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="mb-12">
+                <h2 class="text-3xl font-medium tracking-tight text-stone-900 font-serif mb-4">UI Components</h2>
+                <p class="text-base text-stone-500 max-w-xl">Buttons are rounded-lg with a colour-only hover. The Default column is live, so hover it. Hover pins the declared state. The source defines no active, focus or disabled styles, and there are no form inputs.</p>
+            </div>
+
+            <h3 class="text-sm font-medium text-stone-400 uppercase tracking-widest mb-8 border-b border-stone-100 pb-2">Buttons &amp; links · on light</h3>
+            <div class="overflow-x-auto mb-8">
+                <div class="min-w-[900px] grid grid-cols-[170px_repeat(5,minmax(0,1fr))] gap-6 items-center p-8 border border-stone-200 rounded-2xl bg-[#FAFAF9]">
+                    <span></span><span class="text-xs text-stone-400">Default · live</span><span class="text-xs text-stone-400">Hover</span><span class="text-xs text-stone-400">Active</span><span class="text-xs text-stone-400">Focus</span><span class="text-xs text-stone-400">Disabled</span>
+
+                    <span class="text-sm font-medium text-stone-900">Primary</span>
+                    <div><a href="#components" class="inline-block text-sm font-medium bg-stone-900 text-[#FAFAF9] px-6 py-3 rounded-lg hover:bg-stone-800 transition-colors shadow-sm">Get Directions</a></div>
+                    <div><span class="inline-block text-sm font-medium bg-stone-800 text-[#FAFAF9] px-6 py-3 rounded-lg transition-colors shadow-sm">Get Directions</span></div>
+                    <span class="text-xs text-stone-400">—</span><span class="text-xs text-stone-400">browser default</span><span class="text-xs text-stone-400">—</span>
+
+                    <span class="text-sm font-medium text-stone-900">Primary · compact</span>
+                    <div><a href="#components" class="inline-block text-sm font-medium bg-stone-900 text-[#FAFAF9] px-4 py-2 rounded-lg hover:bg-stone-800 transition-colors shadow-sm">Order Ahead</a></div>
+                    <div><span class="inline-block text-sm font-medium bg-stone-800 text-[#FAFAF9] px-4 py-2 rounded-lg transition-colors shadow-sm">Order Ahead</span></div>
+                    <span class="text-xs text-stone-400">—</span><span class="text-xs text-stone-400">browser default</span><span class="text-xs text-stone-400">—</span>
+
+                    <span class="text-sm font-medium text-stone-900">Secondary</span>
+                    <div><a href="#components" class="inline-block text-sm font-medium text-stone-600 bg-white border border-stone-200 px-6 py-3 rounded-lg hover:bg-stone-50 hover:text-stone-900 transition-colors">Call Us</a></div>
+                    <div><span class="inline-block text-sm font-medium bg-stone-50 text-stone-900 border border-stone-200 px-6 py-3 rounded-lg transition-colors">Call Us</span></div>
+                    <span class="text-xs text-stone-400">—</span><span class="text-xs text-stone-400">browser default</span><span class="text-xs text-stone-400">—</span>
+
+                    <span class="text-sm font-medium text-stone-900">Text link</span>
+                    <div><a href="#components" class="text-sm font-normal text-stone-900 hover:text-stone-500 transition-colors">Book a Table</a></div>
+                    <div><span class="text-sm font-normal text-stone-500 transition-colors">Book a Table</span></div>
+                    <span class="text-xs text-stone-400">—</span><span class="text-xs text-stone-400">browser default</span><span class="text-xs text-stone-400">—</span>
+
+                    <span class="text-sm font-medium text-stone-900">Nav link</span>
+                    <div class="text-sm text-stone-500 font-normal"><a href="#components" class="hover:text-stone-900 transition-colors">Gallery</a></div>
+                    <div class="text-sm text-stone-500 font-normal"><span class="text-stone-900 transition-colors">Gallery</span></div>
+                    <span class="text-xs text-stone-400">—</span><span class="text-xs text-stone-400">browser default</span><span class="text-xs text-stone-400">—</span>
+
+                    <span class="text-sm font-medium text-stone-900">Icon link</span>
+                    <div><a href="#components" class="text-stone-400 hover:text-stone-900 transition-colors"><iconify-icon icon="solar:camera-linear" class="text-xl"><template shadowrootmode="open"><style data-style="data-style">:host{display:inline-block;vertical-align:0}span,svg{display:block}</style><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="1.5"><circle cx="12" cy="13" r="3"></circle><path d="M9.77778 21H14.2222C17.3433 21 18.9038 21 20.0248 20.2646C20.51 19.9462 20.9267 19.5371 21.251 19.0607C22 17.9601 22 16.4279 22 13.3636C22 10.2994 22 8.76721 21.251 7.6666C20.9267 7.19014 20.51 6.78104 20.0248 6.46268C19.3044 5.99013 18.4027 5.82123 17.022 5.76086C16.3631 5.76086 15.7959 5.27068 15.6667 4.63636C15.4728 3.68489 14.6219 3 13.6337 3H10.3663C9.37805 3 8.52715 3.68489 8.33333 4.63636C8.20412 5.27068 7.63685 5.76086 6.978 5.76086C5.59733 5.82123 4.69555 5.99013 3.97524 6.46268C3.48995 6.78104 3.07328 7.19014 2.74902 7.6666C2 8.76721 2 10.2994 2 13.3636C2 16.4279 2 17.9601 2.74902 19.0607C3.07328 19.5371 3.48995 19.9462 3.97524 20.2646C5.09624 21 6.65675 21 9.77778 21Z"></path><path d="M19 10H18"></path></g></svg></template></iconify-icon></a></div>
+                    <div><span class="text-stone-900 transition-colors"><iconify-icon icon="solar:camera-linear" class="text-xl"><template shadowrootmode="open"><style data-style="data-style">:host{display:inline-block;vertical-align:0}span,svg{display:block}</style><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="1.5"><circle cx="12" cy="13" r="3"></circle><path d="M9.77778 21H14.2222C17.3433 21 18.9038 21 20.0248 20.2646C20.51 19.9462 20.9267 19.5371 21.251 19.0607C22 17.9601 22 16.4279 22 13.3636C22 10.2994 22 8.76721 21.251 7.6666C20.9267 7.19014 20.51 6.78104 20.0248 6.46268C19.3044 5.99013 18.4027 5.82123 17.022 5.76086C16.3631 5.76086 15.7959 5.27068 15.6667 4.63636C15.4728 3.68489 14.6219 3 13.6337 3H10.3663C9.37805 3 8.52715 3.68489 8.33333 4.63636C8.20412 5.27068 7.63685 5.76086 6.978 5.76086C5.59733 5.82123 4.69555 5.99013 3.97524 6.46268C3.48995 6.78104 3.07328 7.19014 2.74902 7.6666C2 8.76721 2 10.2994 2 13.3636C2 16.4279 2 17.9601 2.74902 19.0607C3.07328 19.5371 3.48995 19.9462 3.97524 20.2646C5.09624 21 6.65675 21 9.77778 21Z"></path><path d="M19 10H18"></path></g></svg></template></iconify-icon></span></div>
+                    <span class="text-xs text-stone-400">—</span><span class="text-xs text-stone-400">browser default</span><span class="text-xs text-stone-400">—</span>
+                </div>
+            </div>
+
+            <h3 class="text-sm font-medium text-stone-400 uppercase tracking-widest mb-8 border-b border-stone-100 pb-2">Buttons · on image &amp; espresso</h3>
+            <div class="overflow-x-auto mb-16">
+                <div class="min-w-[900px] grid grid-cols-[170px_repeat(5,minmax(0,1fr))] gap-6 items-center p-8 rounded-2xl bg-[#2A2522] text-[#FAFAF9]">
+                    <span></span><span class="text-xs text-stone-400">Default · live</span><span class="text-xs text-stone-400">Hover</span><span class="text-xs text-stone-400">Active</span><span class="text-xs text-stone-400">Focus</span><span class="text-xs text-stone-400">Disabled</span>
+
+                    <span class="text-sm font-medium">Light solid</span>
+                    <div><a href="#components" class="inline-block text-sm font-medium bg-[#FAFAF9] text-stone-900 px-6 py-3 rounded-lg hover:bg-white transition-colors shadow-sm">View Menu</a></div>
+                    <div><span class="inline-block text-sm font-medium bg-white text-stone-900 px-6 py-3 rounded-lg transition-colors shadow-sm">View Menu</span></div>
+                    <span class="text-xs text-stone-400">—</span><span class="text-xs text-stone-400">browser default</span><span class="text-xs text-stone-400">—</span>
+
+                    <span class="text-sm font-medium">Ghost</span>
+                    <div><a href="#components" class="inline-block text-sm font-medium text-white bg-transparent border border-white/30 px-6 py-3 rounded-lg hover:bg-white/10 transition-colors">Visit Us</a></div>
+                    <div><span class="inline-block text-sm font-medium text-white bg-white/10 border border-white/30 px-6 py-3 rounded-lg transition-colors">Visit Us</span></div>
+                    <span class="text-xs text-stone-400">—</span><span class="text-xs text-stone-400">browser default</span><span class="text-xs text-stone-400">—</span>
+
+                    <span class="text-sm font-medium">Band CTA</span>
+                    <div><a href="#components" class="inline-flex items-center justify-center text-sm font-medium bg-[#FAFAF9] text-[#2A2522] px-6 py-3 rounded-lg hover:bg-stone-200 transition-colors shadow-sm">Explore Full Menu</a></div>
+                    <div><span class="inline-flex items-center justify-center text-sm font-medium bg-stone-200 text-[#2A2522] px-6 py-3 rounded-lg transition-colors shadow-sm">Explore Full Menu</span></div>
+                    <span class="text-xs text-stone-400">—</span><span class="text-xs text-stone-400">browser default</span><span class="text-xs text-stone-400">—</span>
+                </div>
+            </div>
+
+            <h3 class="text-sm font-medium text-stone-400 uppercase tracking-widest mb-8 border-b border-stone-100 pb-2">Badges</h3>
+            <div class="flex flex-wrap items-center gap-6 mb-16">
+                <div class="relative h-24 w-72 rounded-xl overflow-hidden flex items-center justify-center">
+                    <img src="site/images.unsplash.com/photo-1554118811-1e0d58224f24__qfbed69c2.avif" alt="" class="absolute inset-0 w-full h-full object-cover">
+                    <div class="absolute inset-0 bg-stone-900/40"></div>
+                    <div class="relative inline-flex items-center gap-2 px-3 py-1 rounded-full bg-white/10 backdrop-blur-sm text-xs font-medium text-[#FAFAF9] border border-white/20"><span class="w-2 h-2 rounded-full bg-stone-300"></span> Now roasting single-origin beans</div>
+                </div>
+                <span class="bg-white/90 backdrop-blur text-stone-900 text-xs font-medium px-2.5 py-1 rounded-full shadow-sm">Customer Favorite</span>
+                <span class="bg-white/90 backdrop-blur text-stone-900 text-xs font-medium px-2.5 py-1 rounded-full shadow-sm">Chef's Pick</span>
+            </div>
+
+            <h3 class="text-sm font-medium text-stone-400 uppercase tracking-widest mb-8 border-b border-stone-100 pb-2">Cards</h3>
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-6">
+                <div class="relative bg-white rounded-xl border border-stone-200 p-4 shadow-sm hover:shadow-md transition-shadow">
+                    <span class="absolute top-6 left-6 z-10 bg-white/90 backdrop-blur text-stone-900 text-xs font-medium px-2.5 py-1 rounded-full shadow-sm">Default · live</span>
+                    <img src="site/images.unsplash.com/photo-1509042239860-f550ce710b93__q64308636.avif" alt="Pour over" class="w-full aspect-square object-cover rounded-lg mb-4">
+                    <h3 class="text-base font-medium text-stone-900 tracking-tight">Ethiopia Yirgacheffe</h3>
+                    <p class="text-sm text-stone-500 mt-1 mb-3 line-clamp-2">Floral notes, jasmine, and bright citrus. Best enjoyed as a pour-over.</p>
+                    <span class="text-sm font-medium text-stone-900">$6.50</span>
+                </div>
+                <div class="relative bg-white rounded-xl border border-stone-200 p-4 shadow-md transition-shadow">
+                    <span class="absolute top-6 left-6 z-10 bg-white/90 backdrop-blur text-stone-900 text-xs font-medium px-2.5 py-1 rounded-full shadow-sm">Hover · shadow-md</span>
+                    <img src="site/images.unsplash.com/photo-1497935586351-b67a49e012bf__q64308636.avif" alt="Espresso" class="w-full aspect-square object-cover rounded-lg mb-4">
+                    <h3 class="text-base font-medium text-stone-900 tracking-tight">AURA House Espresso</h3>
+                    <p class="text-sm text-stone-500 mt-1 mb-3 line-clamp-2">Our signature blend with notes of dark chocolate and caramel.</p>
+                    <span class="text-sm font-medium text-stone-900">$3.50</span>
+                </div>
+                <div class="group cursor-pointer">
+                    <div class="overflow-hidden rounded-xl mb-4 border border-stone-200">
+                        <img src="site/images.unsplash.com/photo-1541167760496-1628856ab772__qf005d9fa.avif" alt="Signature Latte" class="w-full aspect-square object-cover group-hover:scale-105 transition-transform duration-500">
+                    </div>
+                    <h3 class="text-lg font-medium text-stone-900 mb-1 tracking-tight font-serif">Smoked Vanilla Cortado</h3>
+                    <p class="text-sm text-stone-500">Signature card · hover the whole card to zoom the image.</p>
+                </div>
+                <div class="group cursor-pointer">
+                    <div class="overflow-hidden rounded-xl mb-4 border border-stone-200">
+                        <img src="site/images.unsplash.com/photo-1628840042765-356cda07504e__qf005d9fa.avif" alt="Truffle Toast" class="w-full aspect-square object-cover scale-105 transition-transform duration-500">
+                    </div>
+                    <h3 class="text-lg font-medium text-stone-900 mb-1 tracking-tight font-serif">Wild Mushroom Tartine</h3>
+                    <p class="text-sm text-stone-500">Hover pinned · image scale-105.</p>
+                </div>
+            </div>
+            <code class="block mb-12 text-xs text-stone-400">Product card · bg-white rounded-xl border-stone-200 p-4 shadow-sm hover:shadow-md transition-shadow · Signature card · group › overflow-hidden rounded-xl › group-hover:scale-105 duration-500</code>
+
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-6 mb-6">
+                <div class="p-8 border border-stone-200 rounded-2xl bg-[#FAFAF9]">
+                    <div class="flex gap-1 mb-6 text-stone-800">
+                        <iconify-icon icon="solar:star-linear" class="text-sm"><template shadowrootmode="open"><style data-style="data-style">:host{display:inline-block;vertical-align:0}span,svg{display:block}</style><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="1.5" d="M9.15316 5.40838C10.4198 3.13613 11.0531 2 12 2C12.9469 2 13.5802 3.13612 14.8468 5.40837L15.1745 5.99623C15.5345 6.64193 15.7144 6.96479 15.9951 7.17781C16.2757 7.39083 16.6251 7.4699 17.3241 7.62805L17.9605 7.77203C20.4201 8.32856 21.65 8.60682 21.9426 9.54773C22.2352 10.4886 21.3968 11.4691 19.7199 13.4299L19.2861 13.9372C18.8096 14.4944 18.5713 14.773 18.4641 15.1177C18.357 15.4624 18.393 15.8341 18.465 16.5776L18.5306 17.2544C18.7841 19.8706 18.9109 21.1787 18.1449 21.7602C17.3788 22.3417 16.2273 21.8115 13.9243 20.7512L13.3285 20.4768C12.6741 20.1755 12.3469 20.0248 12 20.0248C11.6531 20.0248 11.3259 20.1755 10.6715 20.4768L10.0757 20.7512C7.77268 21.8115 6.62118 22.3417 5.85515 21.7602C5.08912 21.1787 5.21588 19.8706 5.4694 17.2544L5.53498 16.5776C5.60703 15.8341 5.64305 15.4624 5.53586 15.1177C5.42868 14.773 5.19043 14.4944 4.71392 13.9372L4.2801 13.4299C2.60325 11.4691 1.76482 10.4886 2.05742 9.54773C2.35002 8.60682 3.57986 8.32856 6.03954 7.77203L6.67589 7.62805C7.37485 7.4699 7.72433 7.39083 8.00494 7.17781C8.28555 6.96479 8.46553 6.64194 8.82547 5.99623L9.15316 5.40838Z"></path></svg></template></iconify-icon><iconify-icon icon="solar:star-linear" class="text-sm"><template shadowrootmode="open"><style data-style="data-style">:host{display:inline-block;vertical-align:0}span,svg{display:block}</style><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="1.5" d="M9.15316 5.40838C10.4198 3.13613 11.0531 2 12 2C12.9469 2 13.5802 3.13612 14.8468 5.40837L15.1745 5.99623C15.5345 6.64193 15.7144 6.96479 15.9951 7.17781C16.2757 7.39083 16.6251 7.4699 17.3241 7.62805L17.9605 7.77203C20.4201 8.32856 21.65 8.60682 21.9426 9.54773C22.2352 10.4886 21.3968 11.4691 19.7199 13.4299L19.2861 13.9372C18.8096 14.4944 18.5713 14.773 18.4641 15.1177C18.357 15.4624 18.393 15.8341 18.465 16.5776L18.5306 17.2544C18.7841 19.8706 18.9109 21.1787 18.1449 21.7602C17.3788 22.3417 16.2273 21.8115 13.9243 20.7512L13.3285 20.4768C12.6741 20.1755 12.3469 20.0248 12 20.0248C11.6531 20.0248 11.3259 20.1755 10.6715 20.4768L10.0757 20.7512C7.77268 21.8115 6.62118 22.3417 5.85515 21.7602C5.08912 21.1787 5.21588 19.8706 5.4694 17.2544L5.53498 16.5776C5.60703 15.8341 5.64305 15.4624 5.53586 15.1177C5.42868 14.773 5.19043 14.4944 4.71392 13.9372L4.2801 13.4299C2.60325 11.4691 1.76482 10.4886 2.05742 9.54773C2.35002 8.60682 3.57986 8.32856 6.03954 7.77203L6.67589 7.62805C7.37485 7.4699 7.72433 7.39083 8.00494 7.17781C8.28555 6.96479 8.46553 6.64194 8.82547 5.99623L9.15316 5.40838Z"></path></svg></template></iconify-icon><iconify-icon icon="solar:star-linear" class="text-sm"><template shadowrootmode="open"><style data-style="data-style">:host{display:inline-block;vertical-align:0}span,svg{display:block}</style><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="1.5" d="M9.15316 5.40838C10.4198 3.13613 11.0531 2 12 2C12.9469 2 13.5802 3.13612 14.8468 5.40837L15.1745 5.99623C15.5345 6.64193 15.7144 6.96479 15.9951 7.17781C16.2757 7.39083 16.6251 7.4699 17.3241 7.62805L17.9605 7.77203C20.4201 8.32856 21.65 8.60682 21.9426 9.54773C22.2352 10.4886 21.3968 11.4691 19.7199 13.4299L19.2861 13.9372C18.8096 14.4944 18.5713 14.773 18.4641 15.1177C18.357 15.4624 18.393 15.8341 18.465 16.5776L18.5306 17.2544C18.7841 19.8706 18.9109 21.1787 18.1449 21.7602C17.3788 22.3417 16.2273 21.8115 13.9243 20.7512L13.3285 20.4768C12.6741 20.1755 12.3469 20.0248 12 20.0248C11.6531 20.0248 11.3259 20.1755 10.6715 20.4768L10.0757 20.7512C7.77268 21.8115 6.62118 22.3417 5.85515 21.7602C5.08912 21.1787 5.21588 19.8706 5.4694 17.2544L5.53498 16.5776C5.60703 15.8341 5.64305 15.4624 5.53586 15.1177C5.42868 14.773 5.19043 14.4944 4.71392 13.9372L4.2801 13.4299C2.60325 11.4691 1.76482 10.4886 2.05742 9.54773C2.35002 8.60682 3.57986 8.32856 6.03954 7.77203L6.67589 7.62805C7.37485 7.4699 7.72433 7.39083 8.00494 7.17781C8.28555 6.96479 8.46553 6.64194 8.82547 5.99623L9.15316 5.40838Z"></path></svg></template></iconify-icon><iconify-icon icon="solar:star-linear" class="text-sm"><template shadowrootmode="open"><style data-style="data-style">:host{display:inline-block;vertical-align:0}span,svg{display:block}</style><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="1.5" d="M9.15316 5.40838C10.4198 3.13613 11.0531 2 12 2C12.9469 2 13.5802 3.13612 14.8468 5.40837L15.1745 5.99623C15.5345 6.64193 15.7144 6.96479 15.9951 7.17781C16.2757 7.39083 16.6251 7.4699 17.3241 7.62805L17.9605 7.77203C20.4201 8.32856 21.65 8.60682 21.9426 9.54773C22.2352 10.4886 21.3968 11.4691 19.7199 13.4299L19.2861 13.9372C18.8096 14.4944 18.5713 14.773 18.4641 15.1177C18.357 15.4624 18.393 15.8341 18.465 16.5776L18.5306 17.2544C18.7841 19.8706 18.9109 21.1787 18.1449 21.7602C17.3788 22.3417 16.2273 21.8115 13.9243 20.7512L13.3285 20.4768C12.6741 20.1755 12.3469 20.0248 12 20.0248C11.6531 20.0248 11.3259 20.1755 10.6715 20.4768L10.0757 20.7512C7.77268 21.8115 6.62118 22.3417 5.85515 21.7602C5.08912 21.1787 5.21588 19.8706 5.4694 17.2544L5.53498 16.5776C5.60703 15.8341 5.64305 15.4624 5.53586 15.1177C5.42868 14.773 5.19043 14.4944 4.71392 13.9372L4.2801 13.4299C2.60325 11.4691 1.76482 10.4886 2.05742 9.54773C2.35002 8.60682 3.57986 8.32856 6.03954 7.77203L6.67589 7.62805C7.37485 7.4699 7.72433 7.39083 8.00494 7.17781C8.28555 6.96479 8.46553 6.64194 8.82547 5.99623L9.15316 5.40838Z"></path></svg></template></iconify-icon><iconify-icon icon="solar:star-linear" class="text-sm"><template shadowrootmode="open"><style data-style="data-style">:host{display:inline-block;vertical-align:0}span,svg{display:block}</style><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="1.5" d="M9.15316 5.40838C10.4198 3.13613 11.0531 2 12 2C12.9469 2 13.5802 3.13612 14.8468 5.40837L15.1745 5.99623C15.5345 6.64193 15.7144 6.96479 15.9951 7.17781C16.2757 7.39083 16.6251 7.4699 17.3241 7.62805L17.9605 7.77203C20.4201 8.32856 21.65 8.60682 21.9426 9.54773C22.2352 10.4886 21.3968 11.4691 19.7199 13.4299L19.2861 13.9372C18.8096 14.4944 18.5713 14.773 18.4641 15.1177C18.357 15.4624 18.393 15.8341 18.465 16.5776L18.5306 17.2544C18.7841 19.8706 18.9109 21.1787 18.1449 21.7602C17.3788 22.3417 16.2273 21.8115 13.9243 20.7512L13.3285 20.4768C12.6741 20.1755 12.3469 20.0248 12 20.0248C11.6531 20.0248 11.3259 20.1755 10.6715 20.4768L10.0757 20.7512C7.77268 21.8115 6.62118 22.3417 5.85515 21.7602C5.08912 21.1787 5.21588 19.8706 5.4694 17.2544L5.53498 16.5776C5.60703 15.8341 5.64305 15.4624 5.53586 15.1177C5.42868 14.773 5.19043 14.4944 4.71392 13.9372L4.2801 13.4299C2.60325 11.4691 1.76482 10.4886 2.05742 9.54773C2.35002 8.60682 3.57986 8.32856 6.03954 7.77203L6.67589 7.62805C7.37485 7.4699 7.72433 7.39083 8.00494 7.17781C8.28555 6.96479 8.46553 6.64194 8.82547 5.99623L9.15316 5.40838Z"></path></svg></template></iconify-icon>
+                    </div>
+                    <p class="text-base text-stone-600 mb-8 leading-relaxed">"The best pour-over in the city. The space is incredibly calming, making it my go-to spot for deep work sessions."</p>
+                    <div>
+                        <p class="text-sm font-medium text-stone-900">Sarah Jenkins</p>
+                        <p class="text-xs text-stone-400">Local Guide</p>
+                    </div>
+                </div>
+                <div class="p-8 border border-stone-200 rounded-2xl bg-[#FAFAF9] space-y-6">
+                    <div class="flex items-start justify-between gap-4">
+                        <div>
+                            <p class="text-base font-medium text-stone-900">Shakshuka</p>
+                            <p class="text-sm text-stone-500 mt-1 leading-relaxed">Poached farm eggs, spiced tomato ragout, feta, sourdough</p>
+                        </div>
+                        <span class="text-sm font-medium text-stone-900">$14.00</span>
+                    </div>
+                    <div class="flex items-start justify-between gap-4">
+                        <div>
+                            <p class="text-base font-medium text-stone-900">Cold Brew Tonic</p>
+                            <p class="text-sm text-stone-500 mt-1 leading-relaxed">24hr cold brew, artisan tonic water, orange peel</p>
+                        </div>
+                        <span class="text-sm font-medium text-stone-900">$6.00</span>
+                    </div>
+                </div>
+                <div class="p-8 border border-stone-200 rounded-2xl bg-[#FAFAF9]">
+                    <h4 class="text-sm font-medium text-stone-900 mb-3 flex items-center gap-2 uppercase tracking-wide">
+                        <iconify-icon icon="solar:clock-circle-linear" class="text-stone-400 text-lg"><template shadowrootmode="open"><style data-style="data-style">:host{display:inline-block;vertical-align:0}span,svg{display:block}</style><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="1.5"><circle cx="12" cy="12" r="10"></circle><path stroke-linejoin="round" d="M12 8V12L14.5 14.5"></path></g></svg></template></iconify-icon>
+                        Hours
+                    </h4>
+                    <ul class="text-sm text-stone-500 space-y-2 font-normal">
+                        <li class="flex justify-between items-center gap-4"><span>Mon - Fri</span><span class="text-stone-900 font-medium">7am - 4pm</span></li>
+                        <li class="flex justify-between items-center gap-4"><span>Saturday</span><span class="text-stone-900 font-medium">8am - 5pm</span></li>
+                        <li class="flex justify-between items-center gap-4"><span>Sunday</span><span class="text-stone-900 font-medium">8am - 3pm</span></li>
+                    </ul>
+                </div>
+            </div>
+            <code class="block text-xs text-stone-400">Testimonial · p-8 border-stone-200 rounded-2xl bg-[#FAFAF9] · Menu row · flex items-start justify-between gap-4 · Hours list · flex justify-between, value text-stone-900 font-medium</code>
+        </div>
+    </section>
+
+    <!-- ═════════ 4 · LAYOUT & SPACING ═════════ -->
+    <section id="layout" class="py-24 bg-stone-100/50 border-t border-stone-200">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="mb-12">
+                <h2 class="text-3xl font-medium tracking-tight text-stone-900 font-serif mb-4">Layout &amp; Spacing</h2>
+                <p class="text-base text-stone-500 max-w-xl">One 1280px container with 24px gutters, 96px section rhythm, and three recurring arrangements: a 50/50 split, an even card grid and a bento gallery.</p>
+            </div>
+
+            <div class="bg-white p-8 rounded-2xl border border-stone-200 shadow-sm mb-16">
+                <ul class="text-sm text-stone-500 space-y-2 font-normal">
+                    <li class="flex justify-between items-center gap-4"><span>Container</span><span class="text-stone-900 font-medium">max-w-7xl mx-auto px-6 · 1280px / 24px</span></li>
+                    <li class="flex justify-between items-center gap-4"><span>Narrow container</span><span class="text-stone-900 font-medium">max-w-3xl · heading block max-w-2xl</span></li>
+                    <li class="flex justify-between items-center gap-4"><span>Measures</span><span class="text-stone-900 font-medium">max-w-xl · max-w-lg · max-w-md</span></li>
+                    <li class="flex justify-between items-center gap-4"><span>Section padding</span><span class="text-stone-900 font-medium">py-24 · story md:py-32 · band py-16 · footer py-12</span></li>
+                    <li class="flex justify-between items-center gap-4"><span>Header block</span><span class="text-stone-900 font-medium">mb-12 · h2 mb-4 · centered variant mb-16</span></li>
+                    <li class="flex justify-between items-center gap-4"><span>Nav / hero</span><span class="text-stone-900 font-medium">h-16 fixed · hero h-screen min-h-[600px], content mt-16 space-y-8</span></li>
+                    <li class="flex justify-between items-center gap-4"><span>Gaps</span><span class="text-stone-900 font-medium">gap-4 · gap-6 · gap-8 · gap-12 · gap-16 · menu stack space-y-24</span></li>
+                    <li class="flex justify-between items-center gap-4"><span>Radii</span><span class="text-stone-900 font-medium">rounded-lg buttons · rounded-xl cards · rounded-2xl panels · rounded-full pills</span></li>
+                </ul>
+            </div>
+
+            <h3 class="text-sm font-medium text-stone-400 uppercase tracking-widest mb-8 border-b border-stone-100 pb-2">Pattern A · Split (flex md:flex-row, order swap)</h3>
+            <div class="flex flex-col md:flex-row gap-12 items-center mb-16">
+                <div class="flex-1 w-full order-2 md:order-1">
+                    <h3 class="text-sm font-medium text-stone-400 uppercase tracking-widest mb-8 border-b border-stone-100 pb-2">flex-1 · copy</h3>
+                    <div class="space-y-6">
+                        <div class="flex items-start justify-between gap-4">
+                            <div>
+                                <p class="text-base font-medium text-stone-900">Two equal columns</p>
+                                <p class="text-sm text-stone-500 mt-1 leading-relaxed">Stacked on mobile, side by side from md. The image leads on mobile via order-1.</p>
+                            </div>
+                            <span class="text-sm font-medium text-stone-900">gap-12</span>
+                        </div>
+                        <div class="flex items-start justify-between gap-4">
+                            <div>
+                                <p class="text-base font-medium text-stone-900">Story variant</p>
+                                <p class="text-sm text-stone-500 mt-1 leading-relaxed">Same split with gap-16 and a 4/5 portrait image.</p>
+                            </div>
+                            <span class="text-sm font-medium text-stone-900">gap-16</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="flex-1 w-full order-1 md:order-2">
+                    <img src="site/images.unsplash.com/photo-1493770348161-369560ae357d__qd63fae44.avif" alt="Breakfast setup" class="w-full aspect-[4/3] object-cover rounded-2xl shadow-sm border border-stone-100">
+                </div>
+            </div>
+
+            <h3 class="text-sm font-medium text-stone-400 uppercase tracking-widest mb-8 border-b border-stone-100 pb-2">Pattern B · Card grids</h3>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 mb-6">
+                <div class="h-24 rounded-xl border border-stone-200 bg-white p-4"><p class="text-xs text-stone-400">md:grid-cols-3 gap-8</p></div>
+                <div class="h-24 rounded-xl border border-stone-200 bg-white p-4"><p class="text-xs text-stone-400">signature · reviews (gap-6)</p></div>
+                <div class="h-24 rounded-xl border border-stone-200 bg-white p-4"><p class="text-xs text-stone-400">1 col on mobile</p></div>
+            </div>
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-16">
+                <div class="h-24 rounded-xl border border-stone-200 bg-white p-4 shadow-sm"><p class="text-xs text-stone-400">sm:grid-cols-2</p></div>
+                <div class="h-24 rounded-xl border border-stone-200 bg-white p-4 shadow-sm"><p class="text-xs text-stone-400">lg:grid-cols-4</p></div>
+                <div class="h-24 rounded-xl border border-stone-200 bg-white p-4 shadow-sm"><p class="text-xs text-stone-400">gap-6</p></div>
+                <div class="h-24 rounded-xl border border-stone-200 bg-white p-4 shadow-sm"><p class="text-xs text-stone-400">product cards</p></div>
+            </div>
+
+            <h3 class="text-sm font-medium text-stone-400 uppercase tracking-widest mb-8 border-b border-stone-100 pb-2">Pattern C · Bento gallery (auto-rows-[200px], spans)</h3>
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-4 auto-rows-[200px]">
+                <div class="col-span-2 row-span-2 rounded-xl overflow-hidden group">
+                    <img src="site/images.unsplash.com/photo-1497935586351-b67a49e012bf__qd63fae44.avif" alt="Gallery Image" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+                </div>
+                <div class="rounded-xl overflow-hidden group">
+                    <img src="site/images.unsplash.com/photo-1511920170033-f8396924c348__q64308636.avif" alt="Gallery Image" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+                </div>
+                <div class="rounded-xl overflow-hidden group">
+                    <img src="site/images.unsplash.com/photo-1559525839-b184a4d698c7__q64308636.avif" alt="Gallery Image" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+                </div>
+                <div class="col-span-2 md:col-span-1 row-span-2 rounded-xl overflow-hidden group">
+                    <img src="site/images.unsplash.com/photo-1600093463592-8e36ae95ef56__q64308636.avif" alt="Gallery Image" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+                </div>
+                <div class="rounded-xl overflow-hidden group hidden md:block">
+                    <img src="site/images.unsplash.com/photo-1509042239860-f550ce710b93__q64308636.avif" alt="Gallery Image" class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700">
+                </div>
+            </div>
+            <code class="block mt-3 text-xs text-stone-400">grid-cols-2 md:grid-cols-4 gap-4 auto-rows-[200px] · tiles col-span-2 row-span-2 / md:col-span-1 · last tile hidden md:block</code>
+        </div>
+    </section>
+
+    <!-- ═════════ 5 · MOTION & INTERACTION ═════════ -->
+    <section id="motion" class="py-24 bg-white border-t border-stone-200">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="mb-12">
+                <h2 class="text-3xl font-medium tracking-tight text-stone-900 font-serif mb-4">Motion &amp; Interaction</h2>
+                <p class="text-base text-stone-500 max-w-xl">Motion is limited to hover transitions and smooth anchor scrolling. The source has no entrance animations, scroll reveals or keyframes.</p>
+            </div>
+
+            <div class="bg-[#FAFAF9] p-8 rounded-2xl border border-stone-200 mb-16">
+                <ul class="text-sm text-stone-500 space-y-2 font-normal">
+                    <li class="flex justify-between items-center gap-4"><span>Color hovers (buttons, links, icons)</span><span class="text-stone-900 font-medium">transition-colors · 150ms · cubic-bezier(0.4, 0, 0.2, 1)</span></li>
+                    <li class="flex justify-between items-center gap-4"><span>Product card lift</span><span class="text-stone-900 font-medium">transition-shadow · 150ms · shadow-sm → shadow-md</span></li>
+                    <li class="flex justify-between items-center gap-4"><span>Signature image zoom</span><span class="text-stone-900 font-medium">group-hover:scale-105 · transition-transform duration-500</span></li>
+                    <li class="flex justify-between items-center gap-4"><span>Gallery &amp; map zoom</span><span class="text-stone-900 font-medium">group-hover:scale-105 · transition-transform duration-700</span></li>
+                    <li class="flex justify-between items-center gap-4"><span>Anchor navigation</span><span class="text-stone-900 font-medium">html.scroll-smooth</span></li>
+                </ul>
+            </div>
+
+            <h3 class="text-sm font-medium text-stone-400 uppercase tracking-widest mb-8 border-b border-stone-100 pb-2">Motion gallery · hover each tile</h3>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <div class="group cursor-pointer">
+                    <div class="overflow-hidden rounded-xl mb-4 border border-stone-200">
+                        <img src="site/images.unsplash.com/photo-1515516089376-88db1e26e9c0__qf005d9fa.avif" alt="Matcha" class="w-full aspect-[4/3] object-cover group-hover:scale-105 transition-transform duration-500">
+                    </div>
+                    <h3 class="text-lg font-medium text-stone-900 mb-1 tracking-tight font-serif">Zoom · 500ms</h3>
+                    <p class="text-sm text-stone-500">group-hover:scale-105 transition-transform duration-500</p>
+                </div>
+                <div>
+                    <div class="bg-white p-2 rounded-2xl border border-stone-200 shadow-sm relative overflow-hidden group mb-4">
+                        <img src="site/images.unsplash.com/photo-1524661135-423995f22d0b__qd63fae44.avif" alt="Cafe exterior" class="w-full aspect-[4/3] object-cover rounded-xl grayscale-[20%] group-hover:scale-105 transition-transform duration-700">
+                        <div class="absolute inset-0 bg-stone-900/10 pointer-events-none rounded-xl"></div>
+                    </div>
+                    <h3 class="text-lg font-medium text-stone-900 mb-1 tracking-tight font-serif">Zoom · 700ms</h3>
+                    <p class="text-sm text-stone-500">Framed map card: bg-white p-2 · image duration-700</p>
+                </div>
+                <div>
+                    <div class="relative bg-white rounded-xl border border-stone-200 p-4 shadow-sm hover:shadow-md transition-shadow mb-4">
+                        <img src="site/images.unsplash.com/photo-1525351484163-7529414344d8__q64308636.avif" alt="Avocado Toast" class="w-full aspect-[4/3] object-cover rounded-lg mb-4">
+                        <h3 class="text-base font-medium text-stone-900 tracking-tight">Heirloom Avocado Toast</h3>
+                        <span class="text-sm font-medium text-stone-900">$12.00</span>
+                    </div>
+                    <h3 class="text-lg font-medium text-stone-900 mb-1 tracking-tight font-serif">Shadow lift</h3>
+                    <p class="text-sm text-stone-500">hover:shadow-md transition-shadow</p>
+                </div>
+                <div class="p-8 border border-stone-200 rounded-2xl bg-[#FAFAF9] flex flex-wrap items-center gap-4">
+                    <a href="#motion" class="text-sm font-medium bg-stone-900 text-[#FAFAF9] px-6 py-3 rounded-lg hover:bg-stone-800 transition-colors shadow-sm">Get Directions</a>
+                    <a href="#motion" class="text-sm font-medium text-stone-600 bg-white border border-stone-200 px-6 py-3 rounded-lg hover:bg-stone-50 hover:text-stone-900 transition-colors">Call Us</a>
+                    <p class="w-full text-sm text-stone-500">Button colour fades · transition-colors</p>
+                </div>
+                <div class="p-8 border border-stone-200 rounded-2xl bg-[#FAFAF9] flex flex-wrap items-center gap-6">
+                    <div class="flex items-center gap-6 text-sm text-stone-500 font-normal">
+                        <a href="#motion" class="hover:text-stone-900 transition-colors">Story</a>
+                        <a href="#motion" class="hover:text-stone-900 transition-colors">Menu</a>
+                    </div>
+                    <div class="flex items-center gap-4">
+                        <a href="#motion" class="text-stone-400 hover:text-stone-900 transition-colors"><iconify-icon icon="solar:letter-linear" class="text-xl"><template shadowrootmode="open"><style data-style="data-style">:host{display:inline-block;vertical-align:0}span,svg{display:block}</style><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="1.5"><path d="M2 12C2 8.22876 2 6.34315 3.17157 5.17157C4.34315 4 6.22876 4 10 4H14C17.7712 4 19.6569 4 20.8284 5.17157C22 6.34315 22 8.22876 22 12C22 15.7712 22 17.6569 20.8284 18.8284C19.6569 20 17.7712 20 14 20H10C6.22876 20 4.34315 20 3.17157 18.8284C2 17.6569 2 15.7712 2 12Z"></path><path d="M6 8L8.1589 9.79908C9.99553 11.3296 10.9139 12.0949 12 12.0949C13.0861 12.0949 14.0045 11.3296 15.8411 9.79908L18 8"></path></g></svg></template></iconify-icon></a>
+                        <a href="#motion" class="text-stone-400 hover:text-stone-900 transition-colors"><iconify-icon icon="solar:camera-linear" class="text-xl"><template shadowrootmode="open"><style data-style="data-style">:host{display:inline-block;vertical-align:0}span,svg{display:block}</style><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="1.5"><circle cx="12" cy="13" r="3"></circle><path d="M9.77778 21H14.2222C17.3433 21 18.9038 21 20.0248 20.2646C20.51 19.9462 20.9267 19.5371 21.251 19.0607C22 17.9601 22 16.4279 22 13.3636C22 10.2994 22 8.76721 21.251 7.6666C20.9267 7.19014 20.51 6.78104 20.0248 6.46268C19.3044 5.99013 18.4027 5.82123 17.022 5.76086C16.3631 5.76086 15.7959 5.27068 15.6667 4.63636C15.4728 3.68489 14.6219 3 13.6337 3H10.3663C9.37805 3 8.52715 3.68489 8.33333 4.63636C8.20412 5.27068 7.63685 5.76086 6.978 5.76086C5.59733 5.82123 4.69555 5.99013 3.97524 6.46268C3.48995 6.78104 3.07328 7.19014 2.74902 7.6666C2 8.76721 2 10.2994 2 13.3636C2 16.4279 2 17.9601 2.74902 19.0607C3.07328 19.5371 3.48995 19.9462 3.97524 20.2646C5.09624 21 6.65675 21 9.77778 21Z"></path><path d="M19 10H18"></path></g></svg></template></iconify-icon></a>
+                    </div>
+                    <p class="w-full text-sm text-stone-500">Link &amp; icon colour · stone-500/400 → stone-900</p>
+                </div>
+                <div class="p-8 border border-stone-200 rounded-2xl bg-[#2A2522] text-[#FAFAF9] flex flex-col items-start gap-4">
+                    <a href="#top" class="inline-flex items-center justify-center text-sm font-medium bg-[#FAFAF9] text-[#2A2522] px-6 py-3 rounded-lg hover:bg-stone-200 transition-colors shadow-sm">Scroll to top</a>
+                    <p class="text-sm text-stone-400">Smooth anchor scroll · html.scroll-smooth</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ═════════ 6 · ICONS ═════════ -->
+    <section id="icons" class="py-24 bg-stone-100/50 border-t border-stone-200">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="mb-12">
+                <h2 class="text-3xl font-medium tracking-tight text-stone-900 font-serif mb-4">Icons</h2>
+                <p class="text-base text-stone-500 max-w-xl">Solar Linear via the &lt;iconify-icon&gt; web component. Icons are 1em, so a text-* class sets the size, and they inherit currentColor from the parent.</p>
+            </div>
+
+            <h3 class="text-sm font-medium text-stone-400 uppercase tracking-widest mb-8 border-b border-stone-100 pb-2">Set in use</h3>
+            <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-6 mb-4">
+                <div class="p-8 border border-stone-200 rounded-2xl bg-white flex flex-col items-center gap-3 text-stone-900"><iconify-icon icon="solar:star-linear" class="text-xl"><template shadowrootmode="open"><style data-style="data-style">:host{display:inline-block;vertical-align:0}span,svg{display:block}</style><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="1.5" d="M9.15316 5.40838C10.4198 3.13613 11.0531 2 12 2C12.9469 2 13.5802 3.13612 14.8468 5.40837L15.1745 5.99623C15.5345 6.64193 15.7144 6.96479 15.9951 7.17781C16.2757 7.39083 16.6251 7.4699 17.3241 7.62805L17.9605 7.77203C20.4201 8.32856 21.65 8.60682 21.9426 9.54773C22.2352 10.4886 21.3968 11.4691 19.7199 13.4299L19.2861 13.9372C18.8096 14.4944 18.5713 14.773 18.4641 15.1177C18.357 15.4624 18.393 15.8341 18.465 16.5776L18.5306 17.2544C18.7841 19.8706 18.9109 21.1787 18.1449 21.7602C17.3788 22.3417 16.2273 21.8115 13.9243 20.7512L13.3285 20.4768C12.6741 20.1755 12.3469 20.0248 12 20.0248C11.6531 20.0248 11.3259 20.1755 10.6715 20.4768L10.0757 20.7512C7.77268 21.8115 6.62118 22.3417 5.85515 21.7602C5.08912 21.1787 5.21588 19.8706 5.4694 17.2544L5.53498 16.5776C5.60703 15.8341 5.64305 15.4624 5.53586 15.1177C5.42868 14.773 5.19043 14.4944 4.71392 13.9372L4.2801 13.4299C2.60325 11.4691 1.76482 10.4886 2.05742 9.54773C2.35002 8.60682 3.57986 8.32856 6.03954 7.77203L6.67589 7.62805C7.37485 7.4699 7.72433 7.39083 8.00494 7.17781C8.28555 6.96479 8.46553 6.64194 8.82547 5.99623L9.15316 5.40838Z"></path></svg></template></iconify-icon><code class="text-xs text-stone-400">star-linear</code></div>
+                <div class="p-8 border border-stone-200 rounded-2xl bg-white flex flex-col items-center gap-3 text-stone-900"><iconify-icon icon="solar:map-point-linear" class="text-xl"><template shadowrootmode="open"><style data-style="data-style">:host{display:inline-block;vertical-align:0}span,svg{display:block}</style><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="1.5"><path d="M4 10.1433C4 5.64588 7.58172 2 12 2C16.4183 2 20 5.64588 20 10.1433C20 14.6055 17.4467 19.8124 13.4629 21.6744C12.5343 22.1085 11.4657 22.1085 10.5371 21.6744C6.55332 19.8124 4 14.6055 4 10.1433Z"></path><circle cx="12" cy="10" r="3"></circle></g></svg></template></iconify-icon><code class="text-xs text-stone-400">map-point-linear</code></div>
+                <div class="p-8 border border-stone-200 rounded-2xl bg-white flex flex-col items-center gap-3 text-stone-900"><iconify-icon icon="solar:clock-circle-linear" class="text-xl"><template shadowrootmode="open"><style data-style="data-style">:host{display:inline-block;vertical-align:0}span,svg{display:block}</style><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="1.5"><circle cx="12" cy="12" r="10"></circle><path stroke-linejoin="round" d="M12 8V12L14.5 14.5"></path></g></svg></template></iconify-icon><code class="text-xs text-stone-400">clock-circle-linear</code></div>
+                <div class="p-8 border border-stone-200 rounded-2xl bg-white flex flex-col items-center gap-3 text-stone-900"><iconify-icon icon="solar:camera-linear" class="text-xl"><template shadowrootmode="open"><style data-style="data-style">:host{display:inline-block;vertical-align:0}span,svg{display:block}</style><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="1.5"><circle cx="12" cy="13" r="3"></circle><path d="M9.77778 21H14.2222C17.3433 21 18.9038 21 20.0248 20.2646C20.51 19.9462 20.9267 19.5371 21.251 19.0607C22 17.9601 22 16.4279 22 13.3636C22 10.2994 22 8.76721 21.251 7.6666C20.9267 7.19014 20.51 6.78104 20.0248 6.46268C19.3044 5.99013 18.4027 5.82123 17.022 5.76086C16.3631 5.76086 15.7959 5.27068 15.6667 4.63636C15.4728 3.68489 14.6219 3 13.6337 3H10.3663C9.37805 3 8.52715 3.68489 8.33333 4.63636C8.20412 5.27068 7.63685 5.76086 6.978 5.76086C5.59733 5.82123 4.69555 5.99013 3.97524 6.46268C3.48995 6.78104 3.07328 7.19014 2.74902 7.6666C2 8.76721 2 10.2994 2 13.3636C2 16.4279 2 17.9601 2.74902 19.0607C3.07328 19.5371 3.48995 19.9462 3.97524 20.2646C5.09624 21 6.65675 21 9.77778 21Z"></path><path d="M19 10H18"></path></g></svg></template></iconify-icon><code class="text-xs text-stone-400">camera-linear</code></div>
+                <div class="p-8 border border-stone-200 rounded-2xl bg-white flex flex-col items-center gap-3 text-stone-900"><iconify-icon icon="solar:letter-linear" class="text-xl"><template shadowrootmode="open"><style data-style="data-style">:host{display:inline-block;vertical-align:0}span,svg{display:block}</style><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="1.5"><path d="M2 12C2 8.22876 2 6.34315 3.17157 5.17157C4.34315 4 6.22876 4 10 4H14C17.7712 4 19.6569 4 20.8284 5.17157C22 6.34315 22 8.22876 22 12C22 15.7712 22 17.6569 20.8284 18.8284C19.6569 20 17.7712 20 14 20H10C6.22876 20 4.34315 20 3.17157 18.8284C2 17.6569 2 15.7712 2 12Z"></path><path d="M6 8L8.1589 9.79908C9.99553 11.3296 10.9139 12.0949 12 12.0949C13.0861 12.0949 14.0045 11.3296 15.8411 9.79908L18 8"></path></g></svg></template></iconify-icon><code class="text-xs text-stone-400">letter-linear</code></div>
+            </div>
+
+            <code class="block mb-16 text-xs text-stone-400">The footer also references solar:map-arrow-linear, which is not in the Solar set, so it renders as an empty slot in the original. The cloned footer below keeps it that way.</code>
+
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+                <div>
+                    <h3 class="text-sm font-medium text-stone-400 uppercase tracking-widest mb-8 border-b border-stone-100 pb-2">Sizes in use</h3>
+                    <div class="p-8 border border-stone-200 rounded-2xl bg-white flex items-end gap-12 text-stone-900">
+                        <div class="flex flex-col items-center gap-3"><iconify-icon icon="solar:star-linear" class="text-sm"><template shadowrootmode="open"><style data-style="data-style">:host{display:inline-block;vertical-align:0}span,svg{display:block}</style><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="1.5" d="M9.15316 5.40838C10.4198 3.13613 11.0531 2 12 2C12.9469 2 13.5802 3.13612 14.8468 5.40837L15.1745 5.99623C15.5345 6.64193 15.7144 6.96479 15.9951 7.17781C16.2757 7.39083 16.6251 7.4699 17.3241 7.62805L17.9605 7.77203C20.4201 8.32856 21.65 8.60682 21.9426 9.54773C22.2352 10.4886 21.3968 11.4691 19.7199 13.4299L19.2861 13.9372C18.8096 14.4944 18.5713 14.773 18.4641 15.1177C18.357 15.4624 18.393 15.8341 18.465 16.5776L18.5306 17.2544C18.7841 19.8706 18.9109 21.1787 18.1449 21.7602C17.3788 22.3417 16.2273 21.8115 13.9243 20.7512L13.3285 20.4768C12.6741 20.1755 12.3469 20.0248 12 20.0248C11.6531 20.0248 11.3259 20.1755 10.6715 20.4768L10.0757 20.7512C7.77268 21.8115 6.62118 22.3417 5.85515 21.7602C5.08912 21.1787 5.21588 19.8706 5.4694 17.2544L5.53498 16.5776C5.60703 15.8341 5.64305 15.4624 5.53586 15.1177C5.42868 14.773 5.19043 14.4944 4.71392 13.9372L4.2801 13.4299C2.60325 11.4691 1.76482 10.4886 2.05742 9.54773C2.35002 8.60682 3.57986 8.32856 6.03954 7.77203L6.67589 7.62805C7.37485 7.4699 7.72433 7.39083 8.00494 7.17781C8.28555 6.96479 8.46553 6.64194 8.82547 5.99623L9.15316 5.40838Z"></path></svg></template></iconify-icon><code class="text-xs text-stone-400">text-sm · 14px · stars</code></div>
+                        <div class="flex flex-col items-center gap-3"><iconify-icon icon="solar:star-linear" class="text-lg"><template shadowrootmode="open"><style data-style="data-style">:host{display:inline-block;vertical-align:0}span,svg{display:block}</style><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="1.5" d="M9.15316 5.40838C10.4198 3.13613 11.0531 2 12 2C12.9469 2 13.5802 3.13612 14.8468 5.40837L15.1745 5.99623C15.5345 6.64193 15.7144 6.96479 15.9951 7.17781C16.2757 7.39083 16.6251 7.4699 17.3241 7.62805L17.9605 7.77203C20.4201 8.32856 21.65 8.60682 21.9426 9.54773C22.2352 10.4886 21.3968 11.4691 19.7199 13.4299L19.2861 13.9372C18.8096 14.4944 18.5713 14.773 18.4641 15.1177C18.357 15.4624 18.393 15.8341 18.465 16.5776L18.5306 17.2544C18.7841 19.8706 18.9109 21.1787 18.1449 21.7602C17.3788 22.3417 16.2273 21.8115 13.9243 20.7512L13.3285 20.4768C12.6741 20.1755 12.3469 20.0248 12 20.0248C11.6531 20.0248 11.3259 20.1755 10.6715 20.4768L10.0757 20.7512C7.77268 21.8115 6.62118 22.3417 5.85515 21.7602C5.08912 21.1787 5.21588 19.8706 5.4694 17.2544L5.53498 16.5776C5.60703 15.8341 5.64305 15.4624 5.53586 15.1177C5.42868 14.773 5.19043 14.4944 4.71392 13.9372L4.2801 13.4299C2.60325 11.4691 1.76482 10.4886 2.05742 9.54773C2.35002 8.60682 3.57986 8.32856 6.03954 7.77203L6.67589 7.62805C7.37485 7.4699 7.72433 7.39083 8.00494 7.17781C8.28555 6.96479 8.46553 6.64194 8.82547 5.99623L9.15316 5.40838Z"></path></svg></template></iconify-icon><code class="text-xs text-stone-400">text-lg · 18px · info</code></div>
+                        <div class="flex flex-col items-center gap-3"><iconify-icon icon="solar:star-linear" class="text-xl"><template shadowrootmode="open"><style data-style="data-style">:host{display:inline-block;vertical-align:0}span,svg{display:block}</style><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="1.5" d="M9.15316 5.40838C10.4198 3.13613 11.0531 2 12 2C12.9469 2 13.5802 3.13612 14.8468 5.40837L15.1745 5.99623C15.5345 6.64193 15.7144 6.96479 15.9951 7.17781C16.2757 7.39083 16.6251 7.4699 17.3241 7.62805L17.9605 7.77203C20.4201 8.32856 21.65 8.60682 21.9426 9.54773C22.2352 10.4886 21.3968 11.4691 19.7199 13.4299L19.2861 13.9372C18.8096 14.4944 18.5713 14.773 18.4641 15.1177C18.357 15.4624 18.393 15.8341 18.465 16.5776L18.5306 17.2544C18.7841 19.8706 18.9109 21.1787 18.1449 21.7602C17.3788 22.3417 16.2273 21.8115 13.9243 20.7512L13.3285 20.4768C12.6741 20.1755 12.3469 20.0248 12 20.0248C11.6531 20.0248 11.3259 20.1755 10.6715 20.4768L10.0757 20.7512C7.77268 21.8115 6.62118 22.3417 5.85515 21.7602C5.08912 21.1787 5.21588 19.8706 5.4694 17.2544L5.53498 16.5776C5.60703 15.8341 5.64305 15.4624 5.53586 15.1177C5.42868 14.773 5.19043 14.4944 4.71392 13.9372L4.2801 13.4299C2.60325 11.4691 1.76482 10.4886 2.05742 9.54773C2.35002 8.60682 3.57986 8.32856 6.03954 7.77203L6.67589 7.62805C7.37485 7.4699 7.72433 7.39083 8.00494 7.17781C8.28555 6.96479 8.46553 6.64194 8.82547 5.99623L9.15316 5.40838Z"></path></svg></template></iconify-icon><code class="text-xs text-stone-400">text-xl · 20px · footer</code></div>
+                    </div>
+                </div>
+                <div>
+                    <h3 class="text-sm font-medium text-stone-400 uppercase tracking-widest mb-8 border-b border-stone-100 pb-2">Color inheritance</h3>
+                    <div class="p-8 border border-stone-200 rounded-2xl bg-white flex items-end gap-12">
+                        <div class="flex flex-col items-center gap-3 text-stone-800"><iconify-icon icon="solar:star-linear" class="text-xl"><template shadowrootmode="open"><style data-style="data-style">:host{display:inline-block;vertical-align:0}span,svg{display:block}</style><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="1.5" d="M9.15316 5.40838C10.4198 3.13613 11.0531 2 12 2C12.9469 2 13.5802 3.13612 14.8468 5.40837L15.1745 5.99623C15.5345 6.64193 15.7144 6.96479 15.9951 7.17781C16.2757 7.39083 16.6251 7.4699 17.3241 7.62805L17.9605 7.77203C20.4201 8.32856 21.65 8.60682 21.9426 9.54773C22.2352 10.4886 21.3968 11.4691 19.7199 13.4299L19.2861 13.9372C18.8096 14.4944 18.5713 14.773 18.4641 15.1177C18.357 15.4624 18.393 15.8341 18.465 16.5776L18.5306 17.2544C18.7841 19.8706 18.9109 21.1787 18.1449 21.7602C17.3788 22.3417 16.2273 21.8115 13.9243 20.7512L13.3285 20.4768C12.6741 20.1755 12.3469 20.0248 12 20.0248C11.6531 20.0248 11.3259 20.1755 10.6715 20.4768L10.0757 20.7512C7.77268 21.8115 6.62118 22.3417 5.85515 21.7602C5.08912 21.1787 5.21588 19.8706 5.4694 17.2544L5.53498 16.5776C5.60703 15.8341 5.64305 15.4624 5.53586 15.1177C5.42868 14.773 5.19043 14.4944 4.71392 13.9372L4.2801 13.4299C2.60325 11.4691 1.76482 10.4886 2.05742 9.54773C2.35002 8.60682 3.57986 8.32856 6.03954 7.77203L6.67589 7.62805C7.37485 7.4699 7.72433 7.39083 8.00494 7.17781C8.28555 6.96479 8.46553 6.64194 8.82547 5.99623L9.15316 5.40838Z"></path></svg></template></iconify-icon><code class="text-xs text-stone-400">text-stone-800</code></div>
+                        <div class="flex flex-col items-center gap-3"><iconify-icon icon="solar:map-point-linear" class="text-stone-400 text-xl"><template shadowrootmode="open"><style data-style="data-style">:host{display:inline-block;vertical-align:0}span,svg{display:block}</style><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="1.5"><path d="M4 10.1433C4 5.64588 7.58172 2 12 2C16.4183 2 20 5.64588 20 10.1433C20 14.6055 17.4467 19.8124 13.4629 21.6744C12.5343 22.1085 11.4657 22.1085 10.5371 21.6744C6.55332 19.8124 4 14.6055 4 10.1433Z"></path><circle cx="12" cy="10" r="3"></circle></g></svg></template></iconify-icon><code class="text-xs text-stone-400">text-stone-400</code></div>
+                        <div class="flex flex-col items-center gap-3"><a href="#icons" class="text-stone-400 hover:text-stone-900 transition-colors"><iconify-icon icon="solar:camera-linear" class="text-xl"><template shadowrootmode="open"><style data-style="data-style">:host{display:inline-block;vertical-align:0}span,svg{display:block}</style><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="1.5"><circle cx="12" cy="13" r="3"></circle><path d="M9.77778 21H14.2222C17.3433 21 18.9038 21 20.0248 20.2646C20.51 19.9462 20.9267 19.5371 21.251 19.0607C22 17.9601 22 16.4279 22 13.3636C22 10.2994 22 8.76721 21.251 7.6666C20.9267 7.19014 20.51 6.78104 20.0248 6.46268C19.3044 5.99013 18.4027 5.82123 17.022 5.76086C16.3631 5.76086 15.7959 5.27068 15.6667 4.63636C15.4728 3.68489 14.6219 3 13.6337 3H10.3663C9.37805 3 8.52715 3.68489 8.33333 4.63636C8.20412 5.27068 7.63685 5.76086 6.978 5.76086C5.59733 5.82123 4.69555 5.99013 3.97524 6.46268C3.48995 6.78104 3.07328 7.19014 2.74902 7.6666C2 8.76721 2 10.2994 2 13.3636C2 16.4279 2 17.9601 2.74902 19.0607C3.07328 19.5371 3.48995 19.9462 3.97524 20.2646C5.09624 21 6.65675 21 9.77778 21Z"></path><path d="M19 10H18"></path></g></svg></template></iconify-icon></a><code class="text-xs text-stone-400">400 → 900 hover</code></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-white py-12 border-t border-stone-200">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="flex flex-col md:flex-row items-center justify-between gap-8 mb-8 border-b border-stone-100 pb-8">
+                <a href="#top" class="text-2xl font-medium tracking-tight uppercase font-serif text-stone-900">AURA</a>
+
+                <div class="flex flex-wrap items-center justify-center gap-8 text-sm text-stone-500 font-normal">
+                    <a href="#typography" class="hover:text-stone-900 transition-colors">Type</a>
+                    <a href="#colors" class="hover:text-stone-900 transition-colors">Colors</a>
+                    <a href="#components" class="hover:text-stone-900 transition-colors">Components</a>
+                    <a href="#layout" class="hover:text-stone-900 transition-colors">Layout</a>
+                </div>
+
+                <div class="flex items-center gap-4">
+                    <a href="#icons" class="text-stone-400 hover:text-stone-900 transition-colors"><iconify-icon icon="solar:camera-linear" class="text-xl"><template shadowrootmode="open"><style data-style="data-style">:host{display:inline-block;vertical-align:0}span,svg{display:block}</style><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="1.5"><circle cx="12" cy="13" r="3"></circle><path d="M9.77778 21H14.2222C17.3433 21 18.9038 21 20.0248 20.2646C20.51 19.9462 20.9267 19.5371 21.251 19.0607C22 17.9601 22 16.4279 22 13.3636C22 10.2994 22 8.76721 21.251 7.6666C20.9267 7.19014 20.51 6.78104 20.0248 6.46268C19.3044 5.99013 18.4027 5.82123 17.022 5.76086C16.3631 5.76086 15.7959 5.27068 15.6667 4.63636C15.4728 3.68489 14.6219 3 13.6337 3H10.3663C9.37805 3 8.52715 3.68489 8.33333 4.63636C8.20412 5.27068 7.63685 5.76086 6.978 5.76086C5.59733 5.82123 4.69555 5.99013 3.97524 6.46268C3.48995 6.78104 3.07328 7.19014 2.74902 7.6666C2 8.76721 2 10.2994 2 13.3636C2 16.4279 2 17.9601 2.74902 19.0607C3.07328 19.5371 3.48995 19.9462 3.97524 20.2646C5.09624 21 6.65675 21 9.77778 21Z"></path><path d="M19 10H18"></path></g></svg></template></iconify-icon></a>
+                    <a href="#icons" class="text-stone-400 hover:text-stone-900 transition-colors"><iconify-icon icon="solar:letter-linear" class="text-xl"><template shadowrootmode="open"><style data-style="data-style">:host{display:inline-block;vertical-align:0}span,svg{display:block}</style><svg xmlns="http://www.w3.org/2000/svg" width="1em" height="1em" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-linecap="round" stroke-width="1.5"><path d="M2 12C2 8.22876 2 6.34315 3.17157 5.17157C4.34315 4 6.22876 4 10 4H14C17.7712 4 19.6569 4 20.8284 5.17157C22 6.34315 22 8.22876 22 12C22 15.7712 22 17.6569 20.8284 18.8284C19.6569 20 17.7712 20 14 20H10C6.22876 20 4.34315 20 3.17157 18.8284C2 17.6569 2 15.7712 2 12Z"></path><path d="M6 8L8.1589 9.79908C9.99553 11.3296 10.9139 12.0949 12 12.0949C13.0861 12.0949 14.0045 11.3296 15.8411 9.79908L18 8"></path></g></svg></template></iconify-icon></a>
+                    <a href="#icons" class="text-stone-400 hover:text-stone-900 transition-colors"><iconify-icon icon="solar:map-arrow-linear" class="text-xl"><template shadowrootmode="open"><style data-style="data-style">:host{display:inline-block;vertical-align:0}span,svg{display:block}</style></template></iconify-icon></a>
+                </div>
+            </div>
+
+            <div class="flex flex-col md:flex-row items-center justify-between gap-4 text-xs text-stone-400 font-normal">
+                <p>© 2024 Aura Cafe. Design System v2.</p>
+                <div class="flex items-center gap-6">
+                    <a href="index.html" class="hover:text-stone-900 transition-colors">Live Site</a>
+                    <a href="#top" class="hover:text-stone-900 transition-colors">Back to Top</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+</body></html>

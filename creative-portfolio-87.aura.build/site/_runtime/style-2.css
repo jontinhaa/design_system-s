@@ -1,0 +1,36 @@
+
+/* Hide global scrollbars */
+html, body {
+-ms-overflow-style: none;  /* IE and Edge */
+scrollbar-width: none;  /* Firefox */
+}
+html::-webkit-scrollbar, body::-webkit-scrollbar {
+display: none; /* Chrome, Safari and Opera */
+}
+.glass-card {
+background: rgba(255, 255, 255, 0.03);
+backdrop-filter: blur(20px);
+-webkit-backdrop-filter: blur(20px);
+border: 1px solid rgba(255, 255, 255, 0.1);
+box-shadow:
+0 30px 60px -15px rgba(0, 0, 0, 0.8),
+inset 0 1px 1px rgba(255, 255, 255, 0.15),
+inset 0 -1px 1px rgba(0, 0, 0, 0.3);
+border-radius: 1.5rem;
+}
+.glass-highlight {
+position: absolute;
+inset: 0;
+background: linear-gradient(135deg, rgba(255, 255, 255, 0.15) 0%, rgba(255, 255, 255, 0) 40%, rgba(255, 255, 255, 0.05) 100%);
+border-radius: 1.5rem;
+z-index: 10;
+pointer-events: none;
+}
+/* Custom Scrollbar for specific elements (if needed) */
+.dash-scroll::-webkit-scrollbar {
+display: none;
+}
+.dash-scroll {
+-ms-overflow-style: none;
+scrollbar-width: none;
+}

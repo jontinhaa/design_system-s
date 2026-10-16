@@ -1,0 +1,45 @@
+{
+ "builders": [
+  "nuxt",
+  "vue"
+ ],
+ "libraries": [
+  {
+   "name": "three",
+   "version": "r176",
+   "sources": [
+    "página"
+   ]
+  }
+ ],
+ "runtime": {
+  "contexts": {
+   "webgl2": 6
+  },
+  "wasm": 0,
+  "workers": 0,
+  "webgpu": false,
+  "shadowRoots": 0,
+  "canvases": 6
+ },
+ "cssFeatures": [
+  "@property",
+  "cascade layers"
+ ],
+ "fonts": {
+  "families": [
+   "HeadingNow",
+   "Hardbop"
+  ],
+  "sources": [
+   "self-hosted"
+  ]
+ },
+ "videos": [],
+ "files": {
+  "text": 48,
+  "font": 2,
+  "image": 100,
+  "application": 3
+ }
+}

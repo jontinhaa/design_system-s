@@ -1,0 +1,363 @@
+{
+ "builders": [
+  "wordpress"
+ ],
+ "libraries": [
+  {
+   "name": "gsap",
+   "version": "3.15.0",
+   "sources": [
+    "página",
+    "https://lil-boxes.com/wp-content/plugins/bricksforge/assets/vendor/gsap.min.js?ver=1791948836"
+   ]
+  },
+  {
+   "name": "gsap/ScrollSmoother",
+   "version": null,
+   "sources": [
+    "página"
+   ]
+  },
+  {
+   "name": "gsap/ScrollTrigger",
+   "version": null,
+   "sources": [
+    "página",
+    "https://lil-boxes.com/wp-content/plugins/bricksforge/assets/vendor/ScrollTrigger.min.js?ver=1791948836"
+   ]
+  },
+  {
+   "name": "gsap/SplitText",
+   "version": null,
+   "sources": [
+    "página",
+    "https://lil-boxes.com/wp-content/plugins/bricksforge/assets/vendor/SplitText.min.js?ver=1791948836"
+   ]
+  },
+  {
+   "name": "splide",
+   "version": null,
+   "sources": [
+    "página"
+   ]
+  }
+ ],
+ "runtime": {
+  "contexts": {},
+  "wasm": 0,
+  "workers": 1,
+  "webgpu": false,
+  "shadowRoots": 0,
+  "canvases": 0
+ },
+ "cssFeatures": [
+  "view transitions",
+  "cascade layers"
+ ],
+ "fonts": {
+  "families": [
+   "Fraunces",
+   "Humane",
+   "Font Awesome 6 Brands",
+   "Font Awesome 6 Free",
+   "Font Awesome 6 Solid",
+   "Inter",
+   "Shadows Into Light Two",
+   "Urbanist"
+  ],
+  "sources": [
+   "google fonts",
+   "self-hosted"
+  ]
+ },
+ "videos": [
+  {
+   "src": "https://lil-boxes.com/wp-content/uploads/2026/01/arrow_red_left.webm",
+   "kind": "decorativo",
+   "reason": "curto, sem controles e sem som",
+   "hosting": "próprio site",
+   "action": "baixado"
+  },
+  {
+   "src": "https://lil-boxes.com/wp-content/uploads/2026/01/arrow_red_right.webm",
+   "kind": "decorativo",
+   "reason": "curto, sem controles e sem som",
+   "hosting": "próprio site",
+   "action": "baixado"
+  },
+  {
+   "src": "https://lil-boxes.com/wp-content/uploads/2026/01/arrow_red_right.webm",
+   "kind": "decorativo",
+   "reason": "curto, sem controles e sem som",
+   "hosting": "próprio site",
+   "action": "baixado"
+  },
+  {
+   "src": "",
+   "kind": "decorativo",
+   "reason": "controlado pelo scroll",
+   "hosting": "próprio site",
+   "action": "baixado"
+  },
+  {
+   "src": "",
+   "kind": "decorativo",
+   "reason": "curto, sem controles e sem som",
+   "hosting": "próprio site",
+   "action": "baixado"
+  },
+  {
+   "src": "",
+   "kind": "decorativo",
+   "reason": "curto, sem controles e sem som",
+   "hosting": "próprio site",
+   "action": "baixado"
+  },
+  {
+   "src": "",
+   "kind": "decorativo",
+   "reason": "curto, sem controles e sem som",
+   "hosting": "próprio site",
+   "action": "baixado"
+  },
+  {
+   "src": "",
+   "kind": "decorativo",
+   "reason": "curto, sem controles e sem som",
+   "hosting": "próprio site",
+   "action": "baixado"
+  },
+  {
+   "src": "",
+   "kind": "decorativo",
+   "reason": "curto, sem controles e sem som",
+   "hosting": "próprio site",
+   "action": "baixado"
+  },
+  {
+   "src": "",
+   "kind": "decorativo",
+   "reason": "curto, sem controles e sem som",
+   "hosting": "próprio site",
+   "action": "baixado"
+  },
+  {
+   "src": "",
+   "kind": "decorativo",
+   "reason": "curto, sem controles e sem som",
+   "hosting": "próprio site",
+   "action": "baixado"
+  },
+  {
+   "src": "",
+   "kind": "decorativo",
+   "reason": "controlado pelo scroll",
+   "hosting": "próprio site",
+   "action": "baixado"
+  },
+  {
+   "src": "",
+   "kind": "decorativo",
+   "reason": "controlado pelo scroll",
+   "hosting": "próprio site",
+   "action": "baixado"
+  },
+  {
+   "src": "",
+   "kind": "decorativo",
+   "reason": "controlado pelo scroll",
+   "hosting": "próprio site",
+   "action": "baixado"
+  },
+  {
+   "src": "",
+   "kind": "decorativo",
+   "reason": "controlado pelo scroll",
+   "hosting": "próprio site",
+   "action": "baixado"
+  },
+  {
+   "src": "",
+   "kind": "decorativo",
+   "reason": "controlado pelo scroll",
+   "hosting": "próprio site",
+   "action": "baixado"
+  },
+  {
+   "src": "",
+   "kind": "decorativo",
+   "reason": "controlado pelo scroll",
+   "hosting": "próprio site",
+   "action": "baixado"
+  },
+  {
+   "src": "",
+   "kind": "decorativo",
+   "reason": "controlado pelo scroll",
+   "hosting": "próprio site",
+   "action": "baixado"
+  },
+  {
+   "src": "",
+   "kind": "decorativo",
+   "reason": "controlado pelo scroll",
+   "hosting": "próprio site",
+   "action": "baixado"
+  },
+  {
+   "src": "",
+   "kind": "decorativo",
+   "reason": "controlado pelo scroll",
+   "hosting": "próprio site",
+   "action": "baixado"
+  },
+  {
+   "src": "",
+   "kind": "decorativo",
+   "reason": "curto, sem controles e sem som",
+   "hosting": "próprio site",
+   "action": "baixado"
+  },
+  {
+   "src": "",
+   "kind": "decorativo",
+   "reason": "curto, sem controles e sem som",
+   "hosting": "próprio site",
+   "action": "baixado"
+  },
+  {
+   "src": "",
+   "kind": "decorativo",
+   "reason": "curto, sem controles e sem som",
+   "hosting": "próprio site",
+   "action": "baixado"
+  },
+  {
+   "src": "",
+   "kind": "decorativo",
+   "reason": "curto, sem controles e sem som",
+   "hosting": "próprio site",
+   "action": "baixado"
+  },
+  {
+   "src": "",
+   "kind": "decorativo",
+   "reason": "curto, sem controles e sem som",
+   "hosting": "próprio site",
+   "action": "baixado"
+  },
+  {
+   "src": "",
+   "kind": "decorativo",
+   "reason": "curto, sem controles e sem som",
+   "hosting": "próprio site",
+   "action": "baixado"
+  },
+  {
+   "src": "",
+   "kind": "decorativo",
+   "reason": "curto, sem controles e sem som",
+   "hosting": "próprio site",
+   "action": "baixado"
+  },
+  {
+   "src": "",
+   "kind": "decorativo",
+   "reason": "curto, sem controles e sem som",
+   "hosting": "próprio site",
+   "action": "baixado"
+  },
+  {
+   "src": "",
+   "kind": "decorativo",
+   "reason": "curto, sem controles e sem som",
+   "hosting": "próprio site",
+   "action": "baixado"
+  },
+  {
+   "src": "",
+   "kind": "decorativo",
+   "reason": "curto, sem controles e sem som",
+   "hosting": "próprio site",
+   "action": "baixado"
+  },
+  {
+   "src": "",
+   "kind": "decorativo",
+   "reason": "curto, sem controles e sem som",
+   "hosting": "próprio site",
+   "action": "baixado"
+  },
+  {
+   "src": "",
+   "kind": "decorativo",
+   "reason": "curto, sem controles e sem som",
+   "hosting": "próprio site",
+   "action": "baixado"
+  },
+  {
+   "src": "",
+   "kind": "decorativo",
+   "reason": "curto, sem controles e sem som",
+   "hosting": "próprio site",
+   "action": "baixado"
+  },
+  {
+   "src": "",
+   "kind": "decorativo",
+   "reason": "curto, sem controles e sem som",
+   "hosting": "próprio site",
+   "action": "baixado"
+  },
+  {
+   "src": "",
+   "kind": "decorativo",
+   "reason": "controlado pelo scroll",
+   "hosting": "próprio site",
+   "action": "baixado"
+  },
+  {
+   "src": "",
+   "kind": "decorativo",
+   "reason": "curto, sem controles e sem som",
+   "hosting": "próprio site",
+   "action": "baixado"
+  },
+  {
+   "src": "",
+   "kind": "decorativo",
+   "reason": "controlado pelo scroll",
+   "hosting": "próprio site",
+   "action": "baixado"
+  },
+  {
+   "src": "",
+   "kind": "decorativo",
+   "reason": "controlado pelo scroll",
+   "hosting": "próprio site",
+   "action": "baixado"
+  },
+  {
+   "src": "",
+   "kind": "decorativo",
+   "reason": "curto, sem controles e sem som",
+   "hosting": "próprio site",
+   "action": "baixado"
+  },
+  {
+   "src": "",
+   "kind": "decorativo",
+   "reason": "curto, sem controles e sem som",
+   "hosting": "próprio site",
+   "action": "baixado"
+  }
+ ],
+ "files": {
+  "text": 12,
+  "application": 19,
+  "image": 26,
+  "font": 6,
+  "video": 2,
+  "audio": 1
+ }
+}

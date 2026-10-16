@@ -1,0 +1,1033 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Money in Check Design System</title>
+<!-- preview capture: the Overview frame reports once its loader curtain has left and the hero entrance
+     (title lines, horse, byline, smoker doodle, WebGL bills fading in) has finished -->
+<meta name="preview-ready-selector" content="body.ds-overview-ready">
+<meta name="preview-ready-after-ms" content="400">
+<link rel="icon" type="image/svg+xml" href="assets/overview/favicon.svg">
+<link rel="icon" type="image/png" sizes="32x32" href="assets/overview/favicon-32.png">
+<link rel="stylesheet" href="assets/overview/assets/index-DkOBDRn4.css">
+<style>
+/* ================================================================ catalog shell
+   Routing and layout only. The navbar is the Overview's own <header> markup and classes from
+   index-DkOBDRn4.css, drawn where the page draws it; it sits on a band of the page's own paper
+   and fixed grid so content scrolling under it disappears on a grid line. */
+:root { --ds-top: calc(var(--g-oy, 8.3rem) + var(--g-line, 1px)); --ds-mono: ui-monospace, SFMono-Regular, Menlo, monospace; }
+html, body { height: 100%; }
+body { overflow: hidden; }
+#overview-frame { position: fixed; inset: 0; width: 100%; height: 100%; border: 0; display: block; z-index: 0; background: var(--bg); }
+#ds-navwrap { position: fixed; top: 0; left: 0; right: 0; z-index: 50; height: var(--ds-top);
+  background-color: var(--bg);
+  background-image: linear-gradient(to right, rgba(0,0,0,.1) 0 var(--g-line, 1px), transparent var(--g-line, 1px)),
+                    linear-gradient(to bottom, rgba(0,0,0,.1) 0 var(--g-line, 1px), transparent var(--g-line, 1px));
+  background-size: var(--g-px, 20rem) var(--g-py, 20rem); background-position: var(--g-ox, calc(50vw - 70rem)) var(--g-oy, 10rem);
+  background-attachment: fixed; }
+#ds-navwrap .section--header { z-index: 1; }
+#ds-nav .header__link[aria-disabled="true"] { opacity: .35; pointer-events: none; }
+@media (max-width: 1080px) {
+  :root { --ds-top: 6rem; }
+  #ds-navwrap { box-shadow: inset 0 calc(-1 * var(--g-line, 1px)) rgba(0,0,0,.1); }
+}
+/* the page hides its nav links under 700px; the catalog keeps its two views reachable and drops the
+   secondary actions instead */
+@media (max-width: 700px) {
+  #ds-nav .header__nav { display: flex; column-gap: 1.8rem; }
+  #ds-nav .header__actions { display: none; }
+}
+@media (max-width: 480px) { #ds-nav .header__lang { display: none; } }
+
+/* ------------------------------------------------------------ components view */
+#view-components { position: fixed; inset: 0; z-index: 10; overflow-y: auto; overflow-x: hidden; overscroll-behavior: contain; -webkit-overflow-scrolling: touch; }
+#view-components[hidden] { display: none; }
+body.is-components #overview-frame { pointer-events: none; }
+/* one paper scrim holds the specimens off the live decor behind this view (the Overview itself, in
+   decor-only mode: grid, chess coordinates, WebGL cloth bills, falling coin); it lifts over Backgrounds */
+#view-components::before { content: ""; position: fixed; inset: 0; z-index: -1; pointer-events: none;
+  background: rgba(233,233,233,.84); transition: opacity .6s ease; }
+body.ds-bg-clear #view-components::before { opacity: 0; }
+.ds-shell { max-width: 172.8rem; margin: 0 auto; padding: calc(var(--ds-top) + 5.6rem) 3.2rem 0; display: grid;
+  grid-template-columns: minmax(200px, 24rem) minmax(0, 1fr); gap: 0 6.4rem; }
+
+/* sidebar: its own dark ink glass, legible whatever the scene shows behind it */
+#ds-side { position: sticky; top: calc(var(--ds-top) + 2.4rem); align-self: start; z-index: 5; max-height: calc(100vh - var(--ds-top) - 4.8rem);
+  overflow-y: auto; padding: 16px 10px; border-radius: .8rem; color: #e9e9e9; scrollbar-width: none;
+  background: rgba(10,10,10,.88); -webkit-backdrop-filter: blur(18px) saturate(1.1); backdrop-filter: blur(18px) saturate(1.1);
+  box-shadow: 0 2rem 6rem rgba(0,0,0,.22), inset 0 0 0 1px rgba(255,255,255,.06); }
+#ds-side::-webkit-scrollbar { display: none; }
+#ds-side p { margin: 4px 12px 8px; font: 800 11px/1.4 var(--font-serif); letter-spacing: .08em; text-transform: uppercase; color: #a3a3a3; }
+#ds-side a + p { margin-top: 18px; }
+#ds-side a { display: flex; align-items: baseline; gap: 10px; padding: 7px 12px; border-radius: var(--r-pill);
+  font: 400 16px/1.25 var(--font-serif); color: #dcdcdc; transition: background-color .25s ease, color .25s ease; }
+#ds-side a b { font: 400 11px/1 var(--ds-mono); color: #8f8f8f; }
+#ds-side a:hover { color: #fff; background: rgba(255,255,255,.08); }
+#ds-side a.is-current { color: var(--on-green); background: var(--green); }
+#ds-side a.is-current b { color: rgba(233,233,233,.78); }
+
+#ds-main { min-width: 0; padding-bottom: 24rem; }
+.ds-group { padding: 0 0 16rem; }
+.ds-head { margin-bottom: 5.6rem; }
+.ds-eyebrow { font: 800 max(1.3rem, 11px)/2rem var(--font-serif); letter-spacing: .08em; text-transform: uppercase; color: var(--green); }
+.ds-head h2 { margin-top: .8rem; font: 200 8rem/1 var(--font-serif); letter-spacing: -.01em; color: var(--ink); }
+.ds-sub { margin: 6.4rem 0 2.4rem; font: 800 max(1.3rem, 11px)/2rem var(--font-serif); letter-spacing: .08em; text-transform: uppercase; color: var(--green); }
+.ds-head + .ds-sub { margin-top: 0; }
+.ds-spec { margin: 0 0 7.2rem; }
+.ds-spec:last-child { margin-bottom: 0; }
+.ds-spec > h3 { margin: 0 0 1.6rem; font: 400 max(2.4rem, 17px)/1.3 var(--font-serif); color: var(--ink); }
+.ds-meta { display: block; margin-top: 1.4rem; font: 11.5px/1.6 var(--ds-mono); color: #333; overflow-wrap: anywhere; }
+.ds-meta b { color: #000; font-weight: 600; }
+.ds-note { margin-top: .8rem; max-width: 92ch; font: 200 max(1.9rem, 14px)/1.5 var(--font-serif); color: #1f1f1f; }
+.ds-note code { font: 11.5px/1.5 var(--ds-mono); }
+/* chrome labels keep a paper halo so they stay legible over the live scene when the scrim lifts */
+.ds-head, .ds-sub, .ds-spec > h3, .ds-meta, .ds-note, .ds-type .role, .ds-type .face, .ds-type .sizes, .ds-sw strong, .ds-sw code, .ds-sw p,
+.ds-state small, .ds-state code, .ds-icon code, .ds-famname {
+  text-shadow: 0 0 2px var(--bg), 0 0 8px var(--bg), 0 0 16px var(--bg); }
+.ds-row { display: flex; flex-wrap: wrap; align-items: center; gap: 2.4rem 3.2rem; }
+.ds-cell { display: flex; flex-direction: column; align-items: flex-start; gap: 1.2rem; min-width: 0; }
+.ds-cell > small, .ds-state small { font: 800 10.5px/1.4 var(--font-serif); letter-spacing: .08em; text-transform: uppercase; color: #333; }
+/* the page's own paper and 20rem grid as context for specimens that sit on it */
+.ds-stage { position: relative; padding: 4rem; background-color: var(--bg); overflow: hidden; isolation: isolate;
+  background-image: linear-gradient(to right, rgba(0,0,0,.1) 0 1px, transparent 1px), linear-gradient(to bottom, rgba(0,0,0,.1) 0 1px, transparent 1px);
+  background-size: var(--g-px, 20rem) var(--g-py, 20rem); background-position: -1px -1px; box-shadow: inset 0 0 0 1px rgba(0,0,0,.16); }
+.ds-stage.plain { background-image: none; }
+/* on the page each doodle multiplies inside its section's own stacking context, over nothing: the loop's
+   paper-coloured ground is what meets the page. Isolating the specimen keeps that result. */
+.ds-flow .intro__manifesto, .ds-doodles { isolation: isolate; }
+.ds-strip { background-color: var(--bg); box-shadow: inset 0 0 0 1px rgba(0,0,0,.16); }
+.ds-fit { width: 100%; overflow: hidden; }
+.ds-wide { width: 172.8rem; position: relative; }
+.ds-grid2 { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 3.2rem 4rem; align-items: start; }
+
+/* typography: role | live sample | declared size */
+.ds-type { display: grid; grid-template-columns: 22rem minmax(0, 1fr) 25rem; gap: 3.2rem; align-items: center; padding: 3.2rem 0; border-top: 1px solid rgba(0,0,0,.16); }
+.ds-type:last-child { border-bottom: 1px solid rgba(0,0,0,.16); }
+.ds-type .role { font: 800 max(1.7rem, 13px)/1.3 var(--font-serif); }
+.ds-type .face { margin-top: .6rem; font: 200 max(1.7rem, 13px)/1.4 var(--font-serif); color: #1a1a1a; }
+.ds-type .face code { display: block; margin-top: .6rem; font: 11px/1.5 var(--ds-mono); color: #404040; overflow-wrap: anywhere; }
+.ds-type .sample { min-width: 0; overflow-wrap: break-word; }
+.ds-type .sample > * { position: static !important; top: auto !important; left: auto !important; right: auto !important; width: auto !important;
+  margin: 0 !important; transform: none !important; text-align: left !important; white-space: normal !important; }
+.ds-type .sample .hero__title { font-size: 9rem; }
+.ds-type .sample .hero__title-line { position: static; }
+.ds-type .sizes { text-align: right; font: 12px/1.6 var(--ds-mono); color: #111; }
+.ds-coords { display: flex; flex-wrap: wrap; align-items: center; gap: 1.6rem 3.2rem; }
+.ds-coords .coord { position: static; display: inline-block; }
+
+/* colors: live chip on its surface + label, value, token, use */
+.ds-colors { display: grid; grid-template-columns: repeat(auto-fill, minmax(30rem, 1fr)); gap: 3.2rem 4rem; }
+.ds-sw { display: grid; grid-template-columns: 9.6rem minmax(0, 1fr); gap: 1.6rem; align-items: start; }
+.ds-chip { position: relative; height: 9.6rem; overflow: hidden; display: grid; place-items: center; border-radius: .4rem;
+  background: var(--bg); box-shadow: inset 0 0 0 1px rgba(0,0,0,.14); }
+.ds-chip .aa { position: relative; font: 400 3.6rem/1 var(--font-serif); }
+.ds-chip .fill { position: absolute; inset: 0; }
+.ds-sw strong { display: block; font: 800 max(1.6rem, 13px)/1.3 var(--font-serif); }
+.ds-sw code { display: block; margin-top: 3px; font: 11px/1.45 var(--ds-mono); color: #111; overflow-wrap: anywhere; }
+.ds-sw code.tok { color: #555; }
+.ds-sw p { margin-top: 4px; font: 200 max(1.6rem, 13px)/1.4 var(--font-serif); color: #222; }
+.ds-famname { margin: 0 0 1.6rem; font: 400 max(1.9rem, 15px)/1.3 var(--font-serif); }
+.ds-states { display: flex; flex-wrap: wrap; gap: 2.4rem 3.6rem; align-items: flex-start; margin-bottom: 4rem; }
+.ds-state { display: flex; flex-direction: column; gap: .9rem; align-items: flex-start; }
+.ds-state code { font: 11px/1.45 var(--ds-mono); color: #111; }
+
+/* backgrounds */
+.ds-window { position: relative; height: min(64vh, 62rem); min-height: 300px; box-shadow: inset 0 0 0 1px rgba(0,0,0,.28); }
+.ds-live-tag { position: absolute; left: 1.6rem; bottom: 1.6rem; padding: .5rem 1.4rem .6rem; border: 1px solid var(--green); border-radius: var(--r-pill);
+  font: italic 200 max(1.6rem, 13px)/1 var(--font-serif); color: var(--green); background: rgba(233,233,233,.72); }
+.ds-screen { position: relative; overflow: hidden; isolation: isolate; box-shadow: inset 0 0 0 1px rgba(0,0,0,.16); background: var(--bg); }
+.ds-screen #loader, .ds-screen .language, .ds-screen .book-zoom { position: absolute; z-index: 0; }
+.ds-screen--loader { height: 56rem; }
+.ds-screen--lang { height: 100rem; }
+.ds-screen--zoom { height: 64rem; }
+.ds-screen .book-zoom__img { max-width: 86%; max-height: 86%; }
+
+/* icons: five to a row, id under each */
+.ds-icons { display: grid; grid-template-columns: repeat(5, minmax(0, 1fr)); gap: 4rem 2.4rem; }
+.ds-icon { display: flex; flex-direction: column; align-items: flex-start; gap: 1.4rem; min-width: 0; }
+.ds-icon .stage { min-height: 6.4rem; display: flex; align-items: center; }
+.ds-icon code { font: 11px/1.45 var(--ds-mono); color: #111; overflow-wrap: anywhere; }
+.ds-icon code i { display: block; font-style: normal; color: #555; }
+.ds-icon .ds-disc { display: grid; place-items: center; }
+
+/* specimen context: the page positions these at Figma coordinates; here they sit in flow */
+.ds-flow .book__pricing { position: relative; top: auto; left: auto; }
+.ds-flow .book__kindle-note { position: static; margin-top: 1.6rem; }
+.ds-flow .book__content { margin-left: 0; }
+.ds-flow .book__arrows { position: static; }
+.ds-flow .book__slider { position: relative; top: auto; left: auto; width: 100%; padding-left: 0; }
+.ds-flow .book__meta { position: relative; left: auto; }
+.ds-flow .hero__scroll { position: relative; top: auto; left: auto; }
+.ds-flow .hero__smoker, .ds-flow .hero__horse { position: static; }
+.ds-flow .hero__horse { width: 44rem; height: auto; }
+.ds-flow .claim__line { position: static; width: auto; }
+.ds-flow .intro__manifesto { position: static; width: auto; }
+.ds-flow .decor__compass { position: relative; top: auto; right: auto; transform: none; display: block !important; }
+.ds-author { display: flex; flex-direction: column; align-items: center; text-align: center; }
+.ds-author .author__photo, .ds-author .author__heading, .ds-author .author__origin { position: static; width: auto; }
+.ds-author .author__col { position: static; width: auto; max-width: 104.4rem; margin-top: 3.2rem; }
+.ds-polaroids .author__polaroids { display: flex; flex-wrap: wrap; align-items: flex-start; gap: 3.2rem 4.8rem; }
+.ds-polaroids .author__polaroid { position: static; }
+.ds-meta-line { position: relative; height: 6.4rem; }
+.ds-hdr { position: relative; height: 8.3rem; }
+.ds-strip .section--strip { overflow: hidden; }
+.ds-doodles { display: flex; flex-wrap: wrap; align-items: flex-end; gap: 3.2rem 4.8rem; }
+.ds-doodles .intro__doodle, .ds-doodles .hero__smoker { vertical-align: 0; margin: 0; }
+.ds-props { display: flex; flex-wrap: wrap; align-items: center; gap: 4rem; }
+.ds-props img { display: block; height: auto; }
+
+.ds-type .claim__line { text-align: left; }
+.ds-icon .footer__mark { position: static; }
+.ds-polaroids .author__polaroids { margin: 0; padding: 0; overflow: visible; }
+@media (max-width: 1280px) { .ds-type { grid-template-columns: 19rem minmax(0, 1fr); } .ds-type .sizes { grid-column: 2; text-align: left; } }
+@media (max-width: 1080px) {
+  .ds-shell { grid-template-columns: minmax(0, 1fr); padding: calc(var(--ds-top) + 1.2rem) 2.4rem 0; }
+  #ds-side { top: calc(var(--ds-top) + .8rem); display: flex; align-items: center; gap: 2px; overflow-x: auto; overflow-y: hidden;
+    max-height: none; padding: 5px; border-radius: var(--r-pill); }
+  #ds-side p { display: none; }
+  #ds-side a { flex: 0 0 auto; padding: 7px 13px; white-space: nowrap; }
+  #ds-main { padding-top: 4rem; }
+  .ds-group { padding-bottom: 12rem; }
+  .ds-head h2 { font-size: 5.6rem; }
+  .ds-type { grid-template-columns: minmax(0, 1fr); gap: 1.2rem; }
+  .ds-type .sizes { grid-column: auto; }
+  .ds-type .sample .hero__title { font-size: 3.8rem; }
+  .ds-colors { grid-template-columns: minmax(0, 1fr); }
+  .ds-sw { grid-template-columns: 72px minmax(0, 1fr); }
+  .ds-chip { height: 72px; }
+  .ds-icons { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+  .ds-grid2 { grid-template-columns: minmax(0, 1fr); }
+  .ds-stage { padding: 2.4rem 1.6rem; }
+  .ds-wide { width: auto; zoom: 1 !important; }
+  .ds-hdr { height: 6rem; }
+  /* the page header spans the full viewport width on phones: the specimen does too */
+  .ds-bleed { margin-inline: -2.4rem; }
+  .ds-meta-line { height: auto; padding: 2.4rem; }
+  .ds-screen--lang .language { position: relative; }
+  .ds-screen--lang { height: auto; }
+  .ds-screen--lang .language__canvas { min-height: 72rem; }
+  .ds-screen--loader { height: 44rem; }
+  .ds-screen--zoom { height: 40rem; }
+  .ds-flow .hero__horse { width: min(100%, 36rem); }
+}
+</style>
+</head>
+<body>
+
+<!-- NAV: the Overview's own <header> (logo, edition, nav, language pill, buy link); its nav links become
+     the catalog views -->
+<div id="ds-navwrap">
+<header id="ds-nav" class="section section--header">
+  <a class="header__logo" href="#overview">Money in Check</a>
+  <span class="header__edition">2026 Edition</span>
+
+  <div class="header__menu">
+    <nav class="header__nav" aria-label="Main">
+      <a id="nav-overview" class="header__link header__link--intro header__link--active" href="#overview">Overview</a>
+      <a id="nav-components" class="header__link header__link--book" href="#components">Components</a>
+    </nav>
+
+    <button class="header__lang" type="button" aria-label="Language: English">
+      <span class="header__lang-label">En</span>
+      <svg class="header__lang-caret" viewBox="0 0 8 7" aria-hidden="true" focusable="false">
+        <path d="M1 1.5 4 5.5 7 1.5" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" />
+      </svg>
+    </button>
+  </div>
+
+  <div class="header__actions">
+    <a class="header__buy" href="#" data-ds-inert>Buy it now!</a>
+    <span class="header__price">$9.99</span>
+  </div>
+</header>
+</div>
+
+<iframe id="overview-frame" title="Overview" src="assets/overview/index.html"></iframe>
+
+<div id="view-components" hidden>
+<div class="ds-shell">
+<aside id="ds-side" aria-label="Component groups">
+  <p>Foundations</p>
+  <a href="#components-typography"><b>01</b>Typography</a>
+  <a href="#components-colors"><b>02</b>Colors</a>
+  <a href="#components-backgrounds"><b>03</b>Backgrounds</a>
+  <a href="#components-icons"><b>04</b>Icons</a>
+  <p>Components</p>
+  <a href="#components-actions"><b>05</b>Actions</a>
+  <a href="#components-navigation"><b>06</b>Navigation</a>
+  <a href="#components-inputs"><b>07</b>Inputs and forms</a>
+  <a href="#components-data"><b>08</b>Data display</a>
+  <a href="#components-content"><b>09</b>Content groups</a>
+  <a href="#components-media"><b>10</b>Media</a>
+  <a href="#components-overlays"><b>11</b>Overlays</a>
+</aside>
+<main id="ds-main">
+
+<!-- ============================================================ 01 typography -->
+<section class="ds-group" id="components-typography">
+  <div class="ds-head"><p class="ds-eyebrow">Foundations · 01</p><h2>Typography</h2></div>
+
+  <div class="ds-type"><div><div class="role">Display · hero title</div><div class="face">PP Editorial Old · 400 · uppercase · --green<code>.hero__title &gt; .hero__title-line · sample at 9rem</code></div></div>
+    <div class="sample"><h1 class="hero__title"><span class="hero__title-line hero__title-line--1">Money in Check</span></h1></div>
+    <div class="sizes">34rem | clamp(6rem, 19vw, 14rem)</div></div>
+  <div class="ds-type"><div><div class="role">Statement</div><div class="face">PP Editorial Old · 400 · −0.005em · leading 19.2rem<code>.claim__line--a · .claim__line--b (−webkit-text-stroke .1rem ink)</code></div></div>
+    <div class="sample ds-flow"><div><h2 class="claim__line claim__line--a"><span class="word">Lorem,</span> <span class="word">ipsum,</span></h2><p class="claim__line claim__line--b"><span class="word">consectetur</span></p></div></div>
+    <div class="sizes">13rem | clamp(3.6rem, 11vw, 9rem)</div></div>
+  <div class="ds-type"><div><div class="role">Manifesto</div><div class="face">PP Editorial Old · 200 · leading 13rem · inline doodles<code>.intro__manifesto .intro__group .word · unrevealed words rgb(172,172,172)</code></div></div>
+    <div class="sample ds-flow"><div class="intro__manifesto"><p class="intro__paragraph"><span class="intro__group"><span class="word">Lorem</span> <span class="word">ipsum</span> <span class="word">dolor</span> <video class="intro__doodle intro__doodle--walk" src="assets/overview/video/doodle-2.mp4" autoplay muted loop playsinline aria-hidden="true"></video> <span class="word" style="color: rgb(172, 172, 172);">sitamet</span></span></p></div></div>
+    <div class="sizes">9.6rem | clamp(2.4rem, 7vw, 4.6rem)</div></div>
+  <div class="ds-type"><div><div class="role">Heading 2 · claim</div><div class="face">PP Editorial Old · 200 · leading 5.3rem<code>.book__claim</code></div></div>
+    <div class="sample"><h2 class="book__claim">Lorem ipsum dolor sitamet.<br>Consectetur adipis.</h2></div>
+    <div class="sizes">4.8rem | clamp(2.6rem, 7.2vw, 4.3rem)</div></div>
+  <div class="ds-type"><div><div class="role">Lead · bio</div><div class="face">PP Editorial Old · 200 + em italic 400 · −0.01em<code>.author__bio</code></div></div>
+    <div class="sample"><p class="author__bio"><em>Lorem Ipsum</em> dolor sit amet consectetur adipiscing elit, sed do eiusmod tempor incididunt as an <em>labore et dolore magna</em>.</p></div>
+    <div class="sizes">4.4rem | clamp(2rem, 5.6vw, 3.4rem)</div></div>
+  <div class="ds-type"><div><div class="role">Kicker</div><div class="face">PP Editorial Old · 200 · leading 4.8rem<code>.hero__kicker</code></div></div>
+    <div class="sample"><p class="hero__kicker">Ink-green serif on gridded paper</p></div>
+    <div class="sizes">3.2rem | 2.4rem</div></div>
+  <div class="ds-type"><div><div class="role">Heading 3 · section</div><div class="face">PP Editorial Old · 400<code>.author__heading</code></div></div>
+    <div class="sample"><h2 class="author__heading">Lorem Ipsum</h2></div>
+    <div class="sizes">3rem</div></div>
+  <div class="ds-type"><div><div class="role">Handwriting · coordinates</div><div class="face">Liu Jian Mao Cao · 400 · ink at .47 · tilt −7.5° to 8.16°<code>.coord (5n / 7n cycles) · .loader__move 3.5rem · .hero__scroll-letter 2.2rem</code></div></div>
+    <div class="sample"><div class="ds-coords"><span class="coord">e4</span><span class="coord">Nf3</span><span class="coord">Bc4</span><span class="coord">O-O</span><span class="coord">Qxd8</span></div></div>
+    <div class="sizes">3rem (2.7–3.6rem) | 1.8–2.3rem</div></div>
+  <div class="ds-type"><div><div class="role">Byline</div><div class="face">PP Editorial Old · 200 italic + 400<code>.hero__byline-lead · .hero__byline-name</code></div></div>
+    <div class="sample"><p class="hero__byline"><em class="hero__byline-lead">Lorem ipsum</em> <span class="hero__byline-name">Dolor Sitam</span></p></div>
+    <div class="sizes">2.4rem | 2.7rem</div></div>
+  <div class="ds-type"><div><div class="role">Button · field</div><div class="face">PP Editorial Old · 200 · field italic<code>.book__buy-label · .book__send · .book__input</code></div></div>
+    <div class="sample"><span style="font-size: 2.4rem; font-weight: 200;">Lorem ipsum</span> &nbsp; <span style="font-size: 2.4rem; font-weight: 200; font-style: italic;">Your email</span></div>
+    <div class="sizes">2.4rem</div></div>
+  <div class="ds-type"><div><div class="role">Link · CTA</div><div class="face">PP Editorial Old · 400 · underline offset .4rem<code>.book__cta</code></div></div>
+    <div class="sample"><h3 class="book__cta">Lorem ipsum dolor sit amet consectetur</h3></div>
+    <div class="sizes">2.3rem | clamp(2rem, 5.9vw, 2.3rem)</div></div>
+  <div class="ds-type"><div><div class="role">Body</div><div class="face">PP Editorial Old · 300 (renders the 200 face) · +0.01em · em italic 400<code>.book__synopsis p · .book__em</code></div></div>
+    <div class="sample"><div class="book__synopsis"><p><em class="book__em book__em--name">Lorem Ipsum</em> dolor sit amet consectetur adipiscing, with an elit sed do eiusmod and the tempor that he is incididunt ut labore et dolore that was not magna aliqua.</p></div></div>
+    <div class="sizes">2.2rem · leading 3.2rem</div></div>
+  <div class="ds-type"><div><div class="role">Nav · meta line</div><div class="face">PP Editorial Old · 800 logo · 400 link · 200 italic edition<code>.section--header · .intro__meta-item</code></div></div>
+    <div class="sample"><div style="font-size: 2rem; line-height: 3rem;"><b style="font-weight: 800;">Money in Check</b> &nbsp; <i style="font-weight: 200;">2026 Edition</i> &nbsp; <span>The book</span> &nbsp; <span style="font-weight: 200; color: var(--green);">September 27, 2026</span></div></div>
+    <div class="sizes">2rem | 1.6rem</div></div>
+  <div class="ds-type"><div><div class="role">Note · italic</div><div class="face">PP Editorial Old · 400 italic<code>.book__kindle-note</code></div></div>
+    <div class="sample"><p class="book__kindle-note">(*) Lorem ipsum dolor sit amet consectetur</p></div>
+    <div class="sizes">1.8rem | 1.6rem</div></div>
+  <div class="ds-type"><div><div class="role">Small · table and legal</div><div class="face">PP Editorial Old · 400 header · 200 consent<code>.book__pricing-header · .book__consent</code></div></div>
+    <div class="sample"><span style="font-size: 1.6rem; line-height: 2.4rem;">Formats · Price (USD)</span><p class="book__consent">(*) By subscribing, you agree to receive occasional updates about the book.</p></div>
+    <div class="sizes">1.6rem · 1.5rem | 1.4rem</div></div>
+  <div class="ds-type"><div><div class="role">Caps · origin and name</div><div class="face">PP Editorial Old · 800 · uppercase · name +0.08em<code>.author__origin · .author__name</code></div></div>
+    <div class="sample"><p class="author__origin">LOR, IPSUM. 1973</p><p class="author__name">LOREM IPSUM</p></div>
+    <div class="sizes">1.3rem · 1.2rem</div></div>
+  <div class="ds-type"><div><div class="role">Price superscript</div><div class="face">PP Editorial Old · 200<code>.header__price</code></div></div>
+    <div class="sample"><span class="header__price">$9.99</span></div>
+    <div class="sizes">1.4rem | 1.2rem</div></div>
+  <div class="ds-type"><div><div class="role">Caption</div><div class="face">Helvetica Neue · 400 · #2b2b2b · date 700<code>.author__caption · .author__caption-date</code></div></div>
+    <div class="sample"><div class="author__caption">Dolor Sit Amet Consectetur.<span class="author__caption-date">2006-2025</span></div></div>
+    <div class="sizes">.8rem · .65rem | 1.1rem · .9rem</div></div>
+</section>
+
+<!-- ============================================================ 02 colors -->
+<section class="ds-group" id="components-colors">
+  <div class="ds-head"><p class="ds-eyebrow">Foundations · 02</p><h2>Colors</h2></div>
+
+  <p class="ds-sub">Brand and Accent</p>
+  <div class="ds-colors">
+    <div class="ds-sw"><div class="ds-chip"><span class="aa" style="color: var(--green);">Aa</span></div><div><strong>Brand green</strong><code>#00846a</code><code class="tok">--green</code><p>Hero title, language pill, buy pill, date, compass.</p></div></div>
+    <div class="ds-sw"><div class="ds-chip"><span class="fill" style="background: #00ae8c;"></span></div><div><strong>Progress green</strong><code>#00ae8c</code><p>Newsletter sweep, spinner and sent border.</p></div></div>
+  </div>
+
+  <p class="ds-sub">Surfaces</p>
+  <div class="ds-colors">
+    <div class="ds-sw"><div class="ds-chip"></div><div><strong>Paper</strong><code>#e9e9e9</code><code class="tok">--bg</code><p>Page, loader curtain, language overlay.</p></div></div>
+    <div class="ds-sw"><div class="ds-chip"><span class="fill" style="background: var(--table-fill);"></span></div><div><strong>Table card</strong><code>rgba(215, 215, 215, .74)</code><code class="tok">--table-fill</code><p>Pricing card over the paper.</p></div></div>
+    <div class="ds-sw"><div class="ds-chip"><span class="fill" style="inset: 2.2rem .8rem; border-radius: var(--r-pill); background: var(--input-fill); border: .5px solid var(--ink);"></span></div><div><strong>Field fill</strong><code>rgba(242, 242, 242, .62)</code><code class="tok">--input-fill</code><p>Email field.</p></div></div>
+    <div class="ds-sw"><div class="ds-chip"><span class="fill" style="inset: 2.2rem .8rem; border-radius: var(--r-pill); background: #ecf6f5; border: .5px solid #00ae8c;"></span></div><div><strong>Field · sending</strong><code>#ecf6f5</code><p>Email field while the form submits.</p></div></div>
+    <div class="ds-sw"><div class="ds-chip"><span class="fill" style="background: var(--ink);"></span></div><div><strong>Ink</strong><code>#000000</code><code class="tok">--ink</code><p>Send pill, next-arrow disc.</p></div></div>
+  </div>
+
+  <p class="ds-sub">Text and Icons</p>
+  <div class="ds-colors">
+    <div class="ds-sw"><div class="ds-chip"><span class="aa">Aa</span></div><div><strong>Primary text</strong><code>#000000</code><code class="tok">--ink</code><p>Copy, headings, icons.</p></div></div>
+    <div class="ds-sw"><div class="ds-chip" style="background: var(--green);"><span class="aa" style="color: var(--on-green);">Aa</span></div><div><strong>Text on green</strong><code>#e9e9e9</code><code class="tok">--on-green</code><p>Buy pill label; arrow on the ink disc.</p></div></div>
+    <div class="ds-sw"><div class="ds-chip" style="background: var(--ink);"><span class="aa" style="color: var(--white);">Aa</span></div><div><strong>Text on ink</strong><code>#ffffff</code><code class="tok">--white</code><p>Send label, sent status.</p></div></div>
+    <div class="ds-sw"><div class="ds-chip"><span class="aa" style="color: #999;">Aa</span></div><div><strong>Dim group</strong><code>#999999</code><p>.intro__group.is-dim.</p></div></div>
+    <div class="ds-sw"><div class="ds-chip"><span class="aa" style="color: rgb(172, 172, 172);">Aa</span></div><div><strong>Unrevealed word</strong><code>rgb(172, 172, 172)</code><p>Manifesto words before the scroll reveal inks them.</p></div></div>
+    <div class="ds-sw"><div class="ds-chip"><span class="aa" style="color: #b9b9b9;">Aa</span></div><div><strong>Statement fallback</strong><code>#b9b9b9</code><p>Claim line during its reveal.</p></div></div>
+    <div class="ds-sw"><div class="ds-chip"><span class="aa" style="color: #2b2b2b; font-family: Helvetica Neue, Helvetica, Arial, sans-serif;">Aa</span></div><div><strong>Caption</strong><code>#2b2b2b</code><p>Polaroid captions.</p></div></div>
+    <div class="ds-sw"><div class="ds-chip"><span class="aa" style="color: var(--ink); opacity: .47; font-family: Liu Jian Mao Cao, cursive;">Nf3</span></div><div><strong>Coordinate ink</strong><code>#000000 · opacity .47</code><p>Chess coordinates at rest; they pop in #00846a first.</p></div></div>
+  </div>
+
+  <p class="ds-sub">Borders</p>
+  <div class="ds-colors">
+    <div class="ds-sw"><div class="ds-chip" style="background-image: linear-gradient(to right, rgba(0,0,0,.1) 0 1px, transparent 1px), linear-gradient(to bottom, rgba(0,0,0,.1) 0 1px, transparent 1px); background-size: 3.2rem 3.2rem;"></div><div><strong>Grid line</strong><code>rgba(0, 0, 0, .1) · 1px</code><code class="tok">--g-line</code><p>Page grid, loader grid, strip overlay.</p></div></div>
+    <div class="ds-sw"><div class="ds-chip"><span class="fill" style="inset: auto 1.2rem 4.6rem; border-top: .5px solid var(--ink);"></span></div><div><strong>Hairline</strong><code>.5px solid #000</code><p>Pricing separators, email field.</p></div></div>
+    <div class="ds-sw"><div class="ds-chip"><span class="fill" style="inset: 3rem 2rem; border: 1px solid var(--green); border-radius: var(--r-pill);"></span></div><div><strong>Pill outline</strong><code>1px solid #00846a</code><p>Language pill.</p></div></div>
+    <div class="ds-sw"><div class="ds-chip"><span class="fill" style="inset: 2.4rem; border: 1px solid var(--ink); border-radius: 50%;"></span></div><div><strong>Ring</strong><code>1px solid #000</code><p>Previous-arrow button.</p></div></div>
+    <div class="ds-sw"><div class="ds-chip"><span class="fill" style="left: calc(50% - 1px); width: 2px; top: 1.2rem; bottom: 1.2rem; background: #d1d2d2;"></span><span class="fill" style="left: calc(50% - 1px); width: 2px; top: 1.2rem; height: 2.1rem; background: var(--green);"></span></div><div><strong>Compass track</strong><code>#d1d2d2 · fill #00846a</code><p>Scroll-progress compass.</p></div></div>
+    <div class="ds-sw"><div class="ds-chip"><span class="fill" style="inset: 3rem 2rem; outline: .2rem solid var(--ink); outline-offset: .3rem;"></span></div><div><strong>Focus ring</strong><code>.2rem solid #000 · offset .3rem</code><p>:focus-visible on links, buttons, fields.</p></div></div>
+  </div>
+
+  <p class="ds-sub">Interactive States</p>
+  <p class="ds-famname">Buy pill</p>
+  <div class="ds-states">
+    <div class="ds-state"><small>Default</small><div class="ds-chip" style="width: 12rem; background: #00846a;"></div><code>#00846a</code></div>
+    <div class="ds-state"><small>Hover</small><div class="ds-chip" style="width: 12rem; background: #006b56;"></div><code>#006b56</code></div>
+  </div>
+  <p class="ds-famname">Send pill</p>
+  <div class="ds-states">
+    <div class="ds-state"><small>Default</small><div class="ds-chip" style="width: 12rem; background: #000;"></div><code>#000000</code></div>
+    <div class="ds-state"><small>Hover</small><div class="ds-chip" style="width: 12rem; background: #00846a;"></div><code>#00846a</code></div>
+    <div class="ds-state"><small>Active · sending</small><div class="ds-chip" style="width: 12rem; background: #ecf6f5;"><span class="fill" style="right: 45%; background: #00ae8c;"></span></div><code>transparent over #00ae8c sweep</code></div>
+    <div class="ds-state"><small>Selected · sent</small><div class="ds-chip" style="width: 12rem; background: #00ae8c;"></div><code>#00ae8c, then fades out</code></div>
+  </div>
+  <p class="ds-famname">Language pill and text links</p>
+  <div class="ds-states">
+    <div class="ds-state"><small>Default</small><div class="ds-chip" style="width: 12rem;"><span class="aa" style="color: var(--green); font-size: 2.4rem; font-style: italic;">En</span></div><code>transparent · #00846a</code></div>
+    <div class="ds-state"><small>Hover</small><div class="ds-chip" style="width: 12rem; background: var(--green);"><span class="aa" style="color: var(--on-green); font-size: 2.4rem; font-style: italic;">En</span></div><code>#00846a · #e9e9e9</code></div>
+    <div class="ds-state"><small>Link default</small><div class="ds-chip" style="width: 12rem;"><span class="aa" style="font-size: 2.2rem; font-weight: 800; text-decoration: underline; text-underline-offset: .4rem;">Buy</span></div><code>#000000</code></div>
+    <div class="ds-state"><small>Link hover</small><div class="ds-chip" style="width: 12rem;"><span class="aa" style="font-size: 2.2rem; font-weight: 800; text-decoration: underline; text-underline-offset: .4rem; color: var(--green);">Buy</span></div><code>#00846a</code></div>
+    <div class="ds-state"><small>Disabled</small><div class="ds-chip" style="width: 12rem;"><span class="fill" style="inset: 2.4rem 3.6rem; border: 1px solid var(--ink); border-radius: 50%; opacity: .35;"></span></div><code>opacity .35 (.book__arrow.is-disabled)</code></div>
+  </div>
+
+  <p class="ds-sub">Overlays</p>
+  <div class="ds-colors">
+    <div class="ds-sw"><div class="ds-chip" style="background: url(assets/overview/img/book-1-EN.png) center / cover;"><span class="fill" style="background: #000000d1;"></span></div><div><strong>Zoom scrim</strong><code>#000000d1 · rgba(0, 0, 0, .82)</code><p>Enlarged book page (.book-zoom).</p></div></div>
+  </div>
+</section>
+
+<!-- ============================================================ 03 backgrounds -->
+<section class="ds-group" id="components-backgrounds">
+  <div class="ds-head"><p class="ds-eyebrow">Foundations · 03</p><h2>Backgrounds</h2></div>
+
+  <div class="ds-spec">
+    <h3>Paper grid and decor layer (live)</h3>
+    <div class="ds-window"><span class="ds-live-tag">Live</span></div>
+    <code class="ds-meta"><b>body</b> var(--bg) + <b>#decor .grid-bg</b> fixed · 1px rgba(0,0,0,.1) lines every --g-px (20rem; 25vw ≤1080px) offset --g-ox/--g-oy · <b>.decor__coords</b> 61 Liu Jian Mao Cao coordinates · <b>canvas.bills-gl</b> three.js r185 WebGL2 cloth bills (bill-1 / bill-2 textures, 28×28 plane, wave + pointer ripple shader) · <b>.falling-coin</b> · <b>.decor__compass</b></code>
+    <p class="ds-note">This window looks straight through to the Overview itself, which runs behind this whole view with only its fixed grid and #decor layer showing; the catalog scroll drives the page scroll, so the cloth bills, coordinates, coin and N–S compass travel as you read. The scrim lifts while this group is in view. Coordinates pop in brand green and settle to ink at .47; the bills fade in 1.45 s after the loader and follow the pointer with a ripple on the Overview. At 1080px and below, or with a coarse pointer, the page swaps the cloth for the static bill images with scroll parallax.</p>
+  </div>
+
+  <div class="ds-spec">
+    <h3>Loader curtain</h3>
+    <div class="ds-screen ds-screen--loader" data-ds-loader>
+      <div id="loader" aria-hidden="true">
+        <div class="loader__grid"></div>
+        <div class="loader__stage">
+          <video class="loader__video" src="assets/overview/video/loading.mp4" autoplay muted loop playsinline></video>
+        </div>
+      </div>
+    </div>
+    <code class="ds-meta"><b>#loader</b> fixed · var(--bg) · z 400 &gt; <b>.loader__grid</b> page grid scaled .665 × .7 about the centre &gt; <b>.loader__stage</b> 50% / 47% &gt; <b>video.loader__video</b> loading.mp4 24rem multiply · <b>.loader__move</b> Liu Jian Mao Cao 3.5rem, every 170 ms, opacity 1 / .85 / .58 / .48 / .23 · stage-s .72 ≤700px</code>
+    <p class="ds-note">The page's own curtain markup and CSS with its move cycle (same move list, alternating left and right offsets, tilts and opacity steps). On the page it holds 2.6–4 s, then the grid zooms out to the page grid over 800 ms and the curtain fades.</p>
+  </div>
+
+  <div class="ds-spec">
+    <h3>Language overlay grid</h3>
+    <div class="ds-screen" style="height: 36rem;"><div class="language" style="inset: 0;"></div></div>
+    <code class="ds-meta"><b>.language</b> var(--bg) + repeating-linear-gradient 1px rgba(0,0,0,.1) every 20rem × 21.15rem · position calc(50vw − 70rem) 21.1rem · 25vw × 24rem ≤1080px</code>
+  </div>
+</section>
+
+<!-- ============================================================ 04 icons -->
+<section class="ds-group" id="components-icons">
+  <div class="ds-head"><p class="ds-eyebrow">Foundations · 04</p><h2>Icons</h2></div>
+  <div class="ds-icons">
+    <div class="ds-icon"><div class="stage" style="color: var(--green);"><svg class="header__lang-caret" viewBox="0 0 8 7" aria-hidden="true" focusable="false"><path d="M1 1.5 4 5.5 7 1.5" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" /></svg></div><code>header__lang-caret<i>8 × 7 · .8rem</i></code></div>
+    <div class="ds-icon"><div class="stage"><span class="book__arrow" style="border: 0;"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M19 12H5m0 0l6-6m-6 6l6 6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path></svg></span></div><code>arrow-left<i>.book__arrow--prev · 2.4rem</i></code></div>
+    <div class="ds-icon"><div class="stage"><span class="book__arrow" style="border: 0;"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 12h14m0 0l-6-6m6 6l-6 6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path></svg></span></div><code>arrow-right<i>.book__arrow--next · 2.4rem</i></code></div>
+    <div class="ds-icon"><div class="stage"><svg class="footer__hello-script" viewBox="0 0 78 36" fill="none" aria-hidden="true">
+            <path d="M7 14.4C5.2 12.6 2.2 13.4 2 15.6C1.9 17.4 4.4 18 5.6 19.6C6.7 21.1 5.3 23.3 3 22.8C2.1 22.6 1.5 22 1.2 21.3M15.2 15.4C12.6 13.6 9.6 15.2 9.3 18.4C9 21.4 11.6 23.4 13.7 21.6C15 20.4 15.4 17.8 15.4 15.2C15.3 18.3 15.5 21.5 16.7 23.1C17.4 24 18.4 23.8 19 23M20.2 15.4C19.5 18 19.3 20.6 20.1 22.4C20.8 23.9 22.7 23.7 23.7 22C24.6 20.5 25.1 17.6 25.3 15.2C25.1 19 24.9 24.4 23.9 28.6C23.3 31.4 21.5 33.6 19.7 32.6C18.1 31.7 18.9 28.8 21.1 26.8C23.1 25 25.7 23.8 27.7 23.4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"></path>
+            <path d="M39.6 4.6C38.2 9.8 37 17 36.2 23.6C36.9 19.8 38.1 16.4 39.9 15.4C41.5 14.6 42.5 15.8 42.3 18C42.1 20 41.7 22 41.6 23.7M44.7 20.4C46.5 19.8 48.5 18.6 48.5 17C48.5 15.5 46.5 15.2 45.5 16.6C44.4 18.2 44.1 20.8 45 22.4C45.9 23.9 47.9 23.7 49.3 22.6M52.5 22.9C53.3 16.4 54.5 8.8 55.9 4.6C56.5 2.9 57.5 3.4 57.3 5C56.9 9.4 55.5 17 54.5 23.3C54.3 24.6 55.5 24.4 56.3 23.6M58.3 22.9C59.1 16.4 60.3 8.8 61.7 4.6C62.3 2.9 63.3 3.4 63.1 5C62.7 9.4 61.3 17 60.3 23.3C60.1 24.6 61.3 24.4 62.1 23.6M66.9 15.6C64.7 15.4 63.5 17.6 63.9 19.9C64.3 22.3 66.5 23.7 68.3 22.5C70.1 21.3 70.3 18.3 68.9 16.5C68.3 15.7 67.5 15.4 66.9 15.6C68.5 15.9 70.3 16.4 71.6 16.2" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"></path>
+          </svg></div><code>say hello<i>.footer__hello-script · 7.8 × 3.6rem</i></code></div>
+    <div class="ds-icon"><div class="stage"><svg class="footer__mark" viewBox="0 0 33 28" fill="none" aria-hidden="true">
+    <path d="M11.5 26C9.5 23.5 7 20 5.2 15.8C4.3 13.6 3.6 10.8 4.4 9.6C5.2 8.4 6.8 8.9 7.4 10.6C8.1 12.7 8.5 14.8 9.2 16.6C9.1 13.4 9.2 9.2 10.2 6C10.7 4.3 12.6 4.2 13.1 6C13.8 8.6 13.7 12 13.9 15C14.6 12 15.6 8.2 17.2 5.6C18.2 4 20 4.4 20 6.2C20 9 19 12.4 18.4 15.4C19.8 13.2 21.6 10.8 23.6 9.4C25.2 8.3 26.6 9.5 25.8 11.3C24.4 14.5 22.2 17.4 21.2 20.4C20.4 22.9 18.5 25.4 15.5 25.9C14 26.1 12.6 26.3 11.5 26Z" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"></path>
+    <path d="M10.5 20.5C10.9 22 10.7 23.4 10 24.6M14 21C14.2 22.3 14 23.5 13.5 24.6" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"></path>
+    <path d="M27.5 7C29 5.6 29.8 3.8 29.8 2M30.4 9.2C32 7.6 32.7 5.4 32.7 3.4" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"></path>
+  </svg></div><code>waving hand<i>.footer__mark · 3.3 × 2.8rem</i></code></div>
+    <div class="ds-icon"><div class="stage"><img src="assets/overview/favicon.svg" width="32" height="32" alt=""></div><code>chessboard mark<i>favicon.svg · 32px</i></code></div>
+    <div class="ds-icon"><div class="stage"><span class="book__spinner" style="position: static; display: block; opacity: 1;"></span></div><code>spinner<i>.book__spinner · 3rem · mask on #00ae8c</i></code></div>
+    <div class="ds-icon"><div class="stage"><div style="width: 7.2rem; height: 7.2rem;"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 192 192" width="192" height="192" preserveAspectRatio="xMidYMid meet" style="width: 100%; height: 100%; transform: translate3d(0px, 0px, 0px); content-visibility: visible;"><defs><clipPath id="ds_lottie_2"><rect width="192" height="192" x="0" y="0"></rect></clipPath><clipPath id="ds_lottie_5"><path d="M0,0 L192,0 L192,192 L0,192z"></path></clipPath></defs><g clip-path="url(#ds_lottie_2)"><g clip-path="url(#ds_lottie_5)" transform="matrix(1,0,0,1,0,0)" opacity="1" style="display: block;"><g transform="matrix(1,0,0,1,44.10599899291992,110.71499633789062)" opacity="1" style="display: block;"><g opacity="1" transform="matrix(1,0,0,1,0,0)"><path stroke-linecap="round" stroke-linejoin="round" fill-opacity="0" class="primary" stroke="rgb(22,22,28)" stroke-opacity="1" stroke-width="2" d="M0 0"></path></g></g><g transform="matrix(1,0,0,1,43.90599822998047,71.2490005493164)" opacity="1" style="display: block;"><g opacity="1" transform="matrix(1,0,0,1,0,0)"><path stroke-linecap="round" stroke-linejoin="round" fill-opacity="0" class="primary" stroke="rgb(22,22,28)" stroke-opacity="1" stroke-width="2" d="M0 0"></path></g></g><g transform="matrix(0.9999948143959045,0,0,0.9999948143959045,96.1093978881836,92.7677993774414)" opacity="1" style="display: block;"><g opacity="1" transform="matrix(1,0,0,1,0,0)"><path stroke-linecap="round" stroke-linejoin="round" fill-opacity="0" class="primary" stroke="rgb(22,22,28)" stroke-opacity="1" stroke-width="3" d=" M0.289000004529953,-69.29000091552734 C25.843000411987305,-69.447998046875 40.426998138427734,-55.082000732421875 40.297000885009766,-37.474998474121094 C40.270999908447266,-34.029998779296875 40.71200180053711,-7.958000183105469 40.66999816894531,-2.8959999084472656 C40.597999572753906,5.9070000648498535 39.875999450683594,23.163000106811523 39.875999450683594,31.854000091552734 C39.875999450683594,40.36399841308594 40.26900100708008,69.83499908447266 0.20900000631809235,69.28299713134766 C-36.64699935913086,68.7760009765625 -40.13999938964844,42.88600158691406 -40.321998596191406,32.362998962402344 C-40.5620002746582,18.5 -40.71900177001953,4.304999828338623 -40.65999984741211,-3.321000099182129 C-40.599998474121094,-11.052000045776367 -39.85200119018555,-35.19599914550781 -39.849998474121094,-37.689998626708984 C-39.84199905395508,-53.50899887084961 -26.05699920654297,-68.91999816894531 -0.23399999737739563,-69.28399658203125 C-0.05999999865889549,-69.28600311279297 0.11400000005960464,-69.28900146484375 0.289000004529953,-69.29000091552734z"></path></g></g><g transform="matrix(0.9999948143959045,0,0,0.9999948143959045,96.5974349975586,77.5672607421875)" opacity="1" style="display: block;"><g opacity="1" transform="matrix(1,0,0,1,0,0)"><path stroke-linecap="round" stroke-linejoin="round" fill-opacity="0" class="primary" stroke="rgb(22,22,28)" stroke-opacity="1" stroke-width="3" d=" M40.09600067138672,-2.4670000076293945 C18.909000396728516,4.894000053405762 -20.374000549316406,5.429999828338623 -40.09600067138672,-3.1670000553131104"></path></g></g><g transform="matrix(0.9999948143959045,0,0,0.9999948143959045,96.36703491210938,55.92045593261719)" opacity="1" style="display: block;"><g opacity="1" transform="matrix(1,0,0,1,0,0)"><path stroke-linecap="round" stroke-linejoin="round" fill-opacity="0" class="primary" stroke="rgb(22,22,28)" stroke-opacity="1" stroke-width="3" d=" M-0.04399999976158142,-26.948720932006836 C8.012999534606934,-27.031721115112305 5.456999778747559,1.3102787733078003 5.366000175476074,1.6092787981033325 C5.324999809265137,1.7372788190841675 -5.539999961853027,1.9022787809371948 -5.574999809265137,1.4042788743972778 C-5.623000144958496,0.7372788190841675 -7.511000156402588,-26.87272071838379 -0.04399999976158142,-26.948720932006836z"></path></g></g><g transform="matrix(0.9999948143959045,0,0,0.9999948143959045,96.16744232177734,52.105472564697266)" opacity="1" style="display: block;"><g opacity="1" transform="matrix(1,0,0,1,0,0)"><path stroke-linecap="round" stroke-linejoin="round" fill-opacity="0" class="primary" stroke="rgb(22,22,28)" stroke-opacity="1" stroke-width="3" d=" M0.008999999612569809,28.382999420166016 C0.008999999612569809,22.968000411987305 0.004000000189989805,15.048999786376953 -0.0010000000474974513,6.75"></path></g><g opacity="1" transform="matrix(1,0,0,1,0,0)"><path stroke-linecap="round" stroke-linejoin="round" fill-opacity="0" class="primary" stroke="rgb(22,22,28)" stroke-opacity="1" stroke-width="3" d=" M-0.004999999888241291,-24.54599952697754 C-0.003000000026077032,-26.06599998474121 0,-27.363000869750977 0.003000000026077032,-28.382999420166016"></path></g></g><g transform="matrix(0.9999948143959045,0,0,0.9999948143959045,110.12178039550781,141.6588592529297)" opacity="1" style="display: block;"><g opacity="1" transform="matrix(1,0,0,1,0,0)"><path stroke-linecap="round" stroke-linejoin="round" fill-opacity="0" class="primary" stroke="rgb(22,22,28)" stroke-opacity="1" stroke-width="2" d="M0 0"></path></g></g><g transform="matrix(0.9999948143959045,0,0,0.9999948143959045,124.17254638671875,118.05142974853516)" opacity="1" style="display: block;"><g opacity="1" transform="matrix(1,0,0,1,0,0)"><path stroke-linecap="round" stroke-linejoin="round" fill-opacity="0" class="primary" stroke="rgb(22,22,28)" stroke-opacity="1" stroke-width="2" d="M0 0"></path></g></g><g transform="matrix(0.9999948143959045,0,0,-0.9999948143959045,96.09644317626953,177.80078125)" opacity="1" style="display: block;"><g opacity="1" transform="matrix(1,0,0,1,0,0)"><path stroke-linecap="round" stroke-linejoin="round" fill-opacity="0" class="primary" stroke="rgb(22,22,28)" stroke-opacity="1" stroke-width="3.003" d=" M7.7870001792907715,5.986999988555908 C6.638000011444092,2.8239998817443848 1.437000036239624,-6.014999866485596 -0.04100000113248825,-5.986999988555908 C-1.6430000066757202,-5.955999851226807 -7.264999866485596,4.5879998207092285 -7.7870001792907715,5.868000030517578"></path></g></g><g transform="matrix(0.9999948143959045,0,0,0.9999948143959045,96.12189483642578,10.416366577148438)" opacity="1" style="display: block;"><g opacity="1" transform="matrix(1,0,0,1,0,0)"><path stroke-linecap="round" stroke-linejoin="round" fill-opacity="0" class="primary" stroke="rgb(22,22,28)" stroke-opacity="1" stroke-width="3" d=" M7.7870001792907715,6.017000198364258 C6.638000011444092,2.8380000591278076 1.437000036239624,-6.045000076293945 -0.04100000113248825,-6.017000198364258 C-1.6430000066757202,-5.986000061035156 -7.264999866485596,4.611000061035156 -7.7870001792907715,5.896999835968018"></path></g></g></g></g></svg></div></div><code>scroll mouse<i>.hero__scroll-mouse · lottie svg frame · 7.2rem</i></code></div>
+  </div>
+</section>
+
+<!-- ============================================================ 05 actions -->
+<section class="ds-group" id="components-actions">
+  <div class="ds-head"><p class="ds-eyebrow">Components · 05</p><h2>Actions</h2></div>
+
+  <div class="ds-spec">
+    <h3>Buy pill</h3>
+    <div class="ds-row">
+      <div class="ds-cell"><small>Default</small><div style="position: relative; width: 56.6rem; max-width: 100%; height: 5.9rem;"><button class="book__buy" type="button" style="top: 0; left: 0; width: 100%;"><span class="book__buy-label">Lorem ipsum</span></button></div></div>
+      <div class="ds-cell"><small>Hover</small><div style="position: relative; width: 56.6rem; max-width: 100%; height: 5.9rem;"><button class="book__buy" type="button" style="top: 0; left: 0; width: 100%; background-color: #006b56;"><span class="book__buy-label">Lorem ipsum</span></button></div></div>
+    </div>
+    <code class="ds-meta"><b>button.book__buy</b> var(--green) · radius var(--r-pill) 5rem · 5.9rem tall · label 2.4rem 200 var(--on-green) · hover #006b56 (.25s) · opens the store link</code>
+  </div>
+
+  <div class="ds-spec">
+    <h3>Slider arrows</h3>
+    <div class="ds-row">
+      <div class="ds-cell"><small>Previous · disabled</small><div class="book__arrows ds-flow" style="position: static;"><button class="book__arrow book__arrow--prev is-disabled" type="button" aria-label="Previous spread" disabled><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M19 12H5m0 0l6-6m-6 6l6 6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path></svg></button></div></div>
+      <div class="ds-cell"><small>Previous</small><div class="book__arrows" style="position: static;"><button class="book__arrow book__arrow--prev" type="button" aria-label="Previous spread"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M19 12H5m0 0l6-6m-6 6l6 6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path></svg></button></div></div>
+      <div class="ds-cell"><small>Next</small><div class="book__arrows" style="position: static;"><button class="book__arrow book__arrow--next" type="button" aria-label="Next spread"><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 12h14m0 0l-6-6m6 6l-6 6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path></svg></button></div></div>
+      <div class="ds-cell"><small>Next · disabled</small><div class="book__arrows" style="position: static;"><button class="book__arrow book__arrow--next is-disabled" type="button" aria-label="Next spread" disabled><svg viewBox="0 0 24 24" fill="none" aria-hidden="true"><path d="M5 12h14m0 0l-6-6m6 6l-6 6" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"></path></svg></button></div></div>
+    </div>
+    <code class="ds-meta"><b>.book__arrow</b> 4.8rem circle · <b>--prev</b> 1px ink ring · <b>--next</b> ink disc, var(--on-green) arrow · <b>.is-disabled</b> opacity .35 · gap .6rem</code>
+  </div>
+
+  <div class="ds-grid2">
+    <div class="ds-spec">
+      <h3>Language pill</h3>
+      <div class="ds-row">
+        <div class="ds-cell"><small>Default</small><button class="header__lang" type="button" aria-label="Language: English"><span class="header__lang-label">En</span><svg class="header__lang-caret" viewBox="0 0 8 7" aria-hidden="true" focusable="false"><path d="M1 1.5 4 5.5 7 1.5" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" /></svg></button></div>
+        <div class="ds-cell"><small>Hover</small><button class="header__lang" type="button" aria-label="Language: English" style="background-color: var(--green); color: var(--on-green);"><span class="header__lang-label">En</span><svg class="header__lang-caret" viewBox="0 0 8 7" aria-hidden="true" focusable="false"><path d="M1 1.5 4 5.5 7 1.5" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round" /></svg></button></div>
+      </div>
+      <code class="ds-meta"><b>button.header__lang</b> 5.1 × 3.5rem · 1px var(--green) · radius 5rem · 1.6rem italic · hover fills green · opens the language overlay</code>
+    </div>
+    <div class="ds-spec">
+      <h3>Buy link with price</h3>
+      <div class="ds-row" style="font-size: 2rem; line-height: 3rem;">
+        <div class="ds-cell"><small>Default</small><div class="header__actions" style="position: static;"><a class="header__buy" href="#">Buy it now!</a><span class="header__price">$9.99</span></div></div>
+        <div class="ds-cell"><small>Hover</small><div class="header__actions" style="position: static;"><a class="header__buy" href="#" style="color: var(--green);">Buy it now!</a><span class="header__price">$9.99</span></div></div>
+      </div>
+      <code class="ds-meta"><b>a.header__buy</b> 800 · underline offset .4rem · hover var(--green) · <b>.header__price</b> 1.4rem 200 superscript</code>
+    </div>
+  </div>
+
+  <div class="ds-spec">
+    <h3>Text CTA</h3>
+    <h3 class="book__cta">Lorem ipsum dolor sit amet consectetur</h3>
+    <code class="ds-meta"><b>h3.book__cta</b> 2.3rem 400 · underline offset .4rem · heads the newsletter form</code>
+  </div>
+</section>
+
+<!-- ============================================================ 06 navigation -->
+<section class="ds-group" id="components-navigation">
+  <div class="ds-head"><p class="ds-eyebrow">Components · 06</p><h2>Navigation</h2></div>
+
+  <div class="ds-spec">
+    <h3>Header</h3>
+    <div class="ds-stage plain ds-bleed" style="padding: 0;"><div class="ds-fit"><div class="ds-wide ds-hdr"><header class="section section--header">
+  <a class="header__logo" href="#hero">Money in Check</a>
+  <span class="header__edition">2026 Edition</span>
+  <div class="header__menu">
+    <nav class="header__nav" aria-label="Main">
+      <a class="header__link header__link--intro header__link--active" href="#intro">Intro</a>
+      <a class="header__link header__link--book" href="#book">The book</a>
+      <a class="header__link header__link--author" href="#author">About the Author</a>
+    </nav>
+    <button class="header__lang" type="button" aria-label="Language: English" aria-haspopup="dialog" aria-expanded="false">
+      <span class="header__lang-label">En</span>
+      <svg class="header__lang-caret" viewBox="0 0 8 7" aria-hidden="true" focusable="false">
+        <path d="M1 1.5 4 5.5 7 1.5" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round"></path>
+      </svg>
+    </button>
+  </div>
+  <div class="header__actions">
+    <a class="header__buy" href="https://www.amazon.com/dp/B0H9ZSPHP8/ref=tmm_pap_swatch_0?_encoding=UTF8&amp;dib_tag=se&amp;dib=eyJ2IjoiMSJ9.6lt49SVRIrSPNFTeMZ1wKv-dXqhmYL0tGJGo70ep1g2Yy0GZDrTDbDQOEDAVcK-XYd0PVU5jnWbPErcArdFXnAcWUKOyJJ11BMnacO_ZcfpRje7qreXy29pPBK35mChq_szwoGO7dM4UflCc3pFXxm-x1-W-Hs5FgVJ_YpWlzdwy-Hi3aHJsAwhx198abHo1IyUWUZbGfH9QeOOynV2I_tS5ueGmJw9a0x8REIzkvkU.r4d2SLNqyOuFKdpcZUaLZbg5fJGJYwCKBHwTN9h2mHI&amp;qid=1784786580&amp;sr=1-1" target="_blank" rel="noopener">Buy it now!</a>
+    <span class="header__price">$9.99</span>
+  </div>
+</header></div></div></div>
+    <code class="ds-meta"><b>header.section--header</b> absolute · 8.3rem · transparent over the grid · logo 800 · edition 200 italic · <b>.header__nav</b> gap 7.2rem, active link 800 underlined · <b>.header__lang</b> · <b>.header__buy</b> + price · ≤1080px flex row 6rem, edition hidden · ≤700px nav hidden</code>
+    <p class="ds-note">It scrolls away with the page; the active link follows the section in view.</p>
+  </div>
+
+  <div class="ds-spec">
+    <h3>Nav link states</h3>
+    <div class="ds-row" style="font-size: 2rem; line-height: 3rem;">
+      <div class="ds-cell"><small>Default</small><a class="header__link" href="#">The book</a></div>
+      <div class="ds-cell"><small>Hover</small><a class="header__link" href="#" style="text-decoration-color: currentColor;">The book</a></div>
+      <div class="ds-cell"><small>Active</small><a class="header__link header__link--active" href="#">Intro</a></div>
+      <div class="ds-cell"><small>Footer link</small><a class="footer__link" href="#">About the Author</a></div>
+    </div>
+    <code class="ds-meta"><b>.header__link / .footer__link</b> underline transparent → currentColor (.25s) · offset .4rem · <b>--active</b> 800 · footer links 200</code>
+  </div>
+
+  <div class="ds-spec">
+    <h3>Footer</h3>
+    <div class="ds-stage plain" style="padding: 0;"><div class="ds-fit"><div class="ds-wide"><section class="section section--footer" role="contentinfo" aria-label="Site footer">
+  <p class="footer__brand">Money in Check.</p>
+  <nav class="footer__nav" aria-label="Footer">
+    <ul class="footer__nav-list">
+      <li><a class="footer__link" href="#book">The Book</a></li>
+      <li><a class="footer__link" href="#author">About the Author</a></li>
+      <li><a class="footer__link" href="#book">Buy Now</a></li>
+      <li>
+        <a class="footer__hello" href="mailto:hi@moneyincheck.org" aria-label="Say Hello">
+          <svg class="footer__hello-script" viewBox="0 0 78 36" fill="none" aria-hidden="true">
+            <path d="M7 14.4C5.2 12.6 2.2 13.4 2 15.6C1.9 17.4 4.4 18 5.6 19.6C6.7 21.1 5.3 23.3 3 22.8C2.1 22.6 1.5 22 1.2 21.3M15.2 15.4C12.6 13.6 9.6 15.2 9.3 18.4C9 21.4 11.6 23.4 13.7 21.6C15 20.4 15.4 17.8 15.4 15.2C15.3 18.3 15.5 21.5 16.7 23.1C17.4 24 18.4 23.8 19 23M20.2 15.4C19.5 18 19.3 20.6 20.1 22.4C20.8 23.9 22.7 23.7 23.7 22C24.6 20.5 25.1 17.6 25.3 15.2C25.1 19 24.9 24.4 23.9 28.6C23.3 31.4 21.5 33.6 19.7 32.6C18.1 31.7 18.9 28.8 21.1 26.8C23.1 25 25.7 23.8 27.7 23.4" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"></path>
+            <path d="M39.6 4.6C38.2 9.8 37 17 36.2 23.6C36.9 19.8 38.1 16.4 39.9 15.4C41.5 14.6 42.5 15.8 42.3 18C42.1 20 41.7 22 41.6 23.7M44.7 20.4C46.5 19.8 48.5 18.6 48.5 17C48.5 15.5 46.5 15.2 45.5 16.6C44.4 18.2 44.1 20.8 45 22.4C45.9 23.9 47.9 23.7 49.3 22.6M52.5 22.9C53.3 16.4 54.5 8.8 55.9 4.6C56.5 2.9 57.5 3.4 57.3 5C56.9 9.4 55.5 17 54.5 23.3C54.3 24.6 55.5 24.4 56.3 23.6M58.3 22.9C59.1 16.4 60.3 8.8 61.7 4.6C62.3 2.9 63.3 3.4 63.1 5C62.7 9.4 61.3 17 60.3 23.3C60.1 24.6 61.3 24.4 62.1 23.6M66.9 15.6C64.7 15.4 63.5 17.6 63.9 19.9C64.3 22.3 66.5 23.7 68.3 22.5C70.1 21.3 70.3 18.3 68.9 16.5C68.3 15.7 67.5 15.4 66.9 15.6C68.5 15.9 70.3 16.4 71.6 16.2" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"></path>
+          </svg>
+        </a>
+      </li>
+    </ul>
+  </nav>
+  <svg class="footer__mark" viewBox="0 0 33 28" fill="none" aria-hidden="true">
+    <path d="M11.5 26C9.5 23.5 7 20 5.2 15.8C4.3 13.6 3.6 10.8 4.4 9.6C5.2 8.4 6.8 8.9 7.4 10.6C8.1 12.7 8.5 14.8 9.2 16.6C9.1 13.4 9.2 9.2 10.2 6C10.7 4.3 12.6 4.2 13.1 6C13.8 8.6 13.7 12 13.9 15C14.6 12 15.6 8.2 17.2 5.6C18.2 4 20 4.4 20 6.2C20 9 19 12.4 18.4 15.4C19.8 13.2 21.6 10.8 23.6 9.4C25.2 8.3 26.6 9.5 25.8 11.3C24.4 14.5 22.2 17.4 21.2 20.4C20.4 22.9 18.5 25.4 15.5 25.9C14 26.1 12.6 26.3 11.5 26Z" stroke="currentColor" stroke-width="1.3" stroke-linecap="round" stroke-linejoin="round"></path>
+    <path d="M10.5 20.5C10.9 22 10.7 23.4 10 24.6M14 21C14.2 22.3 14 23.5 13.5 24.6" stroke="currentColor" stroke-width="1.2" stroke-linecap="round"></path>
+    <path d="M27.5 7C29 5.6 29.8 3.8 29.8 2M30.4 9.2C32 7.6 32.7 5.4 32.7 3.4" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"></path>
+  </svg>
+  <p class="footer__copyright">© 2026 Óscar Pérez. All rights reserved.</p>
+  <p class="footer__credit">
+    <span class="footer__credit-pre">Site developed by</span>
+    <a class="footer__credit-name" href="https://cloudstudio.es" target="_blank" rel="noopener">
+      cloudstudio
+      <img class="footer__squiggle" src="assets/overview/img/subline.png" alt="" aria-hidden="true" loading="lazy" decoding="async">
+    </a>
+  </p>
+  <div class="footer__follow">
+    <p class="footer__follow-title">Follow the author</p>
+    <ul class="footer__social">
+      <li><a class="footer__link" href="https://www.linkedin.com/in/oscartv/" target="_blank" rel="noopener">Linkedin</a></li>
+      <li><a class="footer__link" href="https://www.instagram.com/oscartv/" target="_blank" rel="noopener">Instagram</a></li>
+      <li><a class="footer__link" href="https://x.com/oscartv/" target="_blank" rel="noopener">Twitter</a></li>
+    </ul>
+  </div>
+</section></div></div></div>
+    <code class="ds-meta"><b>section.section--footer</b> 31.3rem · brand · nav 200 + hand-lettered <b>.footer__hello-script</b> + <b>.footer__mark</b> · copyright · credit with <b>.footer__squiggle</b> subline.png · follow list right-aligned · ≤1080px centred stack</code>
+  </div>
+
+  <div class="ds-grid2">
+    <div class="ds-spec">
+      <h3>Scroll compass</h3>
+      <div class="ds-row ds-flow">
+        <div class="ds-cell"><small>Top</small><div class="decor__compass"><span class="decor__compass-letter decor__compass-letter--n">N</span><span class="decor__compass-line"><span class="decor__compass-fill"></span></span><span class="decor__compass-letter decor__compass-letter--s">S</span></div></div>
+        <div class="ds-cell"><small>Mid page</small><div class="decor__compass"><span class="decor__compass-letter decor__compass-letter--n">N</span><span class="decor__compass-line"><span class="decor__compass-fill" style="transform: scaleY(.5);"></span></span><span class="decor__compass-letter decor__compass-letter--s">S</span></div></div>
+        <div class="ds-cell"><small>End</small><div class="decor__compass"><span class="decor__compass-letter decor__compass-letter--n">N</span><span class="decor__compass-line"><span class="decor__compass-fill" style="transform: scaleY(1);"></span></span><span class="decor__compass-letter decor__compass-letter--s">S</span></div></div>
+      </div>
+      <code class="ds-meta"><b>.decor__compass</b> fixed right 2.7rem, centred · track 2px #d1d2d2 · <b>.decor__compass-fill</b> var(--green) scaleY(scroll progress) · hidden ≤1080px</code>
+    </div>
+    <div class="ds-spec">
+      <h3>Scroll cue</h3>
+      <div class="ds-flow" style="padding: 1.2rem 0 0 1.2rem;"><div class="hero__scroll" aria-hidden="true">
+        <span class="hero__scroll-word"><span class="hero__scroll-letter">S</span><span class="hero__scroll-letter">C</span><span class="hero__scroll-letter">R</span><span class="hero__scroll-letter">O</span><span class="hero__scroll-letter">l</span><span class="hero__scroll-letter">l</span></span>
+        <div class="hero__scroll-mouse"><svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 192 192" width="192" height="192" preserveAspectRatio="xMidYMid meet" style="width: 100%; height: 100%; transform: translate3d(0px, 0px, 0px); content-visibility: visible;"><defs><clipPath id="ds_lottie2_2"><rect width="192" height="192" x="0" y="0"></rect></clipPath><clipPath id="ds_lottie2_5"><path d="M0,0 L192,0 L192,192 L0,192z"></path></clipPath></defs><g clip-path="url(#ds_lottie2_2)"><g clip-path="url(#ds_lottie2_5)" transform="matrix(1,0,0,1,0,0)" opacity="1" style="display: block;"><g transform="matrix(1,0,0,1,44.10599899291992,110.71499633789062)" opacity="1" style="display: block;"><g opacity="1" transform="matrix(1,0,0,1,0,0)"><path stroke-linecap="round" stroke-linejoin="round" fill-opacity="0" class="primary" stroke="rgb(22,22,28)" stroke-opacity="1" stroke-width="2" d="M0 0"></path></g></g><g transform="matrix(1,0,0,1,43.90599822998047,71.2490005493164)" opacity="1" style="display: block;"><g opacity="1" transform="matrix(1,0,0,1,0,0)"><path stroke-linecap="round" stroke-linejoin="round" fill-opacity="0" class="primary" stroke="rgb(22,22,28)" stroke-opacity="1" stroke-width="2" d="M0 0"></path></g></g><g transform="matrix(0.9999948143959045,0,0,0.9999948143959045,96.1093978881836,92.7677993774414)" opacity="1" style="display: block;"><g opacity="1" transform="matrix(1,0,0,1,0,0)"><path stroke-linecap="round" stroke-linejoin="round" fill-opacity="0" class="primary" stroke="rgb(22,22,28)" stroke-opacity="1" stroke-width="3" d=" M0.289000004529953,-69.29000091552734 C25.843000411987305,-69.447998046875 40.426998138427734,-55.082000732421875 40.297000885009766,-37.474998474121094 C40.270999908447266,-34.029998779296875 40.71200180053711,-7.958000183105469 40.66999816894531,-2.8959999084472656 C40.597999572753906,5.9070000648498535 39.875999450683594,23.163000106811523 39.875999450683594,31.854000091552734 C39.875999450683594,40.36399841308594 40.26900100708008,69.83499908447266 0.20900000631809235,69.28299713134766 C-36.64699935913086,68.7760009765625 -40.13999938964844,42.88600158691406 -40.321998596191406,32.362998962402344 C-40.5620002746582,18.5 -40.71900177001953,4.304999828338623 -40.65999984741211,-3.321000099182129 C-40.599998474121094,-11.052000045776367 -39.85200119018555,-35.19599914550781 -39.849998474121094,-37.689998626708984 C-39.84199905395508,-53.50899887084961 -26.05699920654297,-68.91999816894531 -0.23399999737739563,-69.28399658203125 C-0.05999999865889549,-69.28600311279297 0.11400000005960464,-69.28900146484375 0.289000004529953,-69.29000091552734z"></path></g></g><g transform="matrix(0.9999948143959045,0,0,0.9999948143959045,96.5974349975586,77.5672607421875)" opacity="1" style="display: block;"><g opacity="1" transform="matrix(1,0,0,1,0,0)"><path stroke-linecap="round" stroke-linejoin="round" fill-opacity="0" class="primary" stroke="rgb(22,22,28)" stroke-opacity="1" stroke-width="3" d=" M40.09600067138672,-2.4670000076293945 C18.909000396728516,4.894000053405762 -20.374000549316406,5.429999828338623 -40.09600067138672,-3.1670000553131104"></path></g></g><g transform="matrix(0.9999948143959045,0,0,0.9999948143959045,96.36703491210938,55.92045593261719)" opacity="1" style="display: block;"><g opacity="1" transform="matrix(1,0,0,1,0,0)"><path stroke-linecap="round" stroke-linejoin="round" fill-opacity="0" class="primary" stroke="rgb(22,22,28)" stroke-opacity="1" stroke-width="3" d=" M-0.04399999976158142,-26.948720932006836 C8.012999534606934,-27.031721115112305 5.456999778747559,1.3102787733078003 5.366000175476074,1.6092787981033325 C5.324999809265137,1.7372788190841675 -5.539999961853027,1.9022787809371948 -5.574999809265137,1.4042788743972778 C-5.623000144958496,0.7372788190841675 -7.511000156402588,-26.87272071838379 -0.04399999976158142,-26.948720932006836z"></path></g></g><g transform="matrix(0.9999948143959045,0,0,0.9999948143959045,96.16744232177734,52.105472564697266)" opacity="1" style="display: block;"><g opacity="1" transform="matrix(1,0,0,1,0,0)"><path stroke-linecap="round" stroke-linejoin="round" fill-opacity="0" class="primary" stroke="rgb(22,22,28)" stroke-opacity="1" stroke-width="3" d=" M0.008999999612569809,28.382999420166016 C0.008999999612569809,22.968000411987305 0.004000000189989805,15.048999786376953 -0.0010000000474974513,6.75"></path></g><g opacity="1" transform="matrix(1,0,0,1,0,0)"><path stroke-linecap="round" stroke-linejoin="round" fill-opacity="0" class="primary" stroke="rgb(22,22,28)" stroke-opacity="1" stroke-width="3" d=" M-0.004999999888241291,-24.54599952697754 C-0.003000000026077032,-26.06599998474121 0,-27.363000869750977 0.003000000026077032,-28.382999420166016"></path></g></g><g transform="matrix(0.9999948143959045,0,0,0.9999948143959045,110.12178039550781,141.6588592529297)" opacity="1" style="display: block;"><g opacity="1" transform="matrix(1,0,0,1,0,0)"><path stroke-linecap="round" stroke-linejoin="round" fill-opacity="0" class="primary" stroke="rgb(22,22,28)" stroke-opacity="1" stroke-width="2" d="M0 0"></path></g></g><g transform="matrix(0.9999948143959045,0,0,0.9999948143959045,124.17254638671875,118.05142974853516)" opacity="1" style="display: block;"><g opacity="1" transform="matrix(1,0,0,1,0,0)"><path stroke-linecap="round" stroke-linejoin="round" fill-opacity="0" class="primary" stroke="rgb(22,22,28)" stroke-opacity="1" stroke-width="2" d="M0 0"></path></g></g><g transform="matrix(0.9999948143959045,0,0,-0.9999948143959045,96.09644317626953,177.80078125)" opacity="1" style="display: block;"><g opacity="1" transform="matrix(1,0,0,1,0,0)"><path stroke-linecap="round" stroke-linejoin="round" fill-opacity="0" class="primary" stroke="rgb(22,22,28)" stroke-opacity="1" stroke-width="3.003" d=" M7.7870001792907715,5.986999988555908 C6.638000011444092,2.8239998817443848 1.437000036239624,-6.014999866485596 -0.04100000113248825,-5.986999988555908 C-1.6430000066757202,-5.955999851226807 -7.264999866485596,4.5879998207092285 -7.7870001792907715,5.868000030517578"></path></g></g><g transform="matrix(0.9999948143959045,0,0,0.9999948143959045,96.12189483642578,10.416366577148438)" opacity="1" style="display: block;"><g opacity="1" transform="matrix(1,0,0,1,0,0)"><path stroke-linecap="round" stroke-linejoin="round" fill-opacity="0" class="primary" stroke="rgb(22,22,28)" stroke-opacity="1" stroke-width="3" d=" M7.7870001792907715,6.017000198364258 C6.638000011444092,2.8380000591278076 1.437000036239624,-6.045000076293945 -0.04100000113248825,-6.017000198364258 C-1.6430000066757202,-5.986000061035156 -7.264999866485596,4.611000061035156 -7.7870001792907715,5.896999835968018"></path></g></g></g></g></svg></div>
+      </div></div>
+      <code class="ds-meta"><b>.hero__scroll</b> 12.3 × 9.9rem · arc of <b>.hero__scroll-letter</b> Liu Jian Mao Cao 2.2rem · <b>.hero__scroll-mouse</b> lottie svg (frame shown) · letters bob y −5px, sine.inOut 1.3 s, stagger .16</code>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================ 07 inputs -->
+<section class="ds-group" id="components-inputs">
+  <div class="ds-head"><p class="ds-eyebrow">Components · 07</p><h2>Inputs and forms</h2></div>
+
+  <div class="ds-spec">
+    <h3>Newsletter form</h3>
+    <div class="ds-grid2">
+      <div class="ds-cell"><small>Default</small>
+        <form class="book__form" action="#" method="post" data-ds-form>
+          <label class="book__form-label" for="ds-email-1">Your email</label>
+          <input class="book__input" id="ds-email-1" type="email" name="email" placeholder="Your email" autocomplete="off">
+          <span class="book__progress" aria-hidden="true"></span>
+          <span class="book__email-copy book__email-copy--base" aria-hidden="true"></span>
+          <span class="book__email-copy book__email-copy--filled" aria-hidden="true"></span>
+          <button class="book__send" type="submit"><span class="book__send-label">Send</span></button>
+          <span class="book__spinner book__spinner--base" aria-hidden="true"></span>
+          <span class="book__spinner-reveal" aria-hidden="true"><span class="book__spinner book__spinner--filled"></span></span>
+          <span class="book__status" role="status"></span>
+        </form></div>
+      <div class="ds-cell"><small>Sending (replays)</small>
+        <form class="book__form is-submitting" action="#" method="post" data-ds-form data-ds-replay>
+          <label class="book__form-label" for="ds-email-2">Your email</label>
+          <input class="book__input" id="ds-email-2" type="email" name="email" placeholder="Your email" value="lorem@ipsum.com" readonly tabindex="-1">
+          <span class="book__progress" aria-hidden="true"></span>
+          <span class="book__email-copy book__email-copy--base" aria-hidden="true">lorem@ipsum.com</span>
+          <span class="book__email-copy book__email-copy--filled" aria-hidden="true">lorem@ipsum.com</span>
+          <button class="book__send" type="submit" tabindex="-1"><span class="book__send-label">Send</span></button>
+          <span class="book__spinner book__spinner--base" aria-hidden="true"></span>
+          <span class="book__spinner-reveal" aria-hidden="true"><span class="book__spinner book__spinner--filled"></span></span>
+          <span class="book__status" role="status"></span>
+        </form></div>
+      <div class="ds-cell"><small>Sent</small>
+        <form class="book__form is-sent" action="#" method="post" data-ds-form>
+          <label class="book__form-label" for="ds-email-3">Your email</label>
+          <input class="book__input" id="ds-email-3" type="email" name="email" placeholder="Your email" readonly tabindex="-1">
+          <span class="book__progress" aria-hidden="true"></span>
+          <span class="book__email-copy book__email-copy--base" aria-hidden="true">lorem@ipsum.com</span>
+          <span class="book__email-copy book__email-copy--filled" aria-hidden="true">lorem@ipsum.com</span>
+          <button class="book__send" type="submit" tabindex="-1"><span class="book__send-label">Send</span></button>
+          <span class="book__spinner book__spinner--base" aria-hidden="true"></span>
+          <span class="book__spinner-reveal" aria-hidden="true"><span class="book__spinner book__spinner--filled"></span></span>
+          <span class="book__status" role="status">You’ll hear from us soon. Thanks!</span>
+        </form></div>
+      <div class="ds-cell"><small>Error</small>
+        <form class="book__form is-error" action="#" method="post" data-ds-form>
+          <label class="book__form-label" for="ds-email-4">Your email</label>
+          <input class="book__input" id="ds-email-4" type="email" name="email" placeholder="Your email" value="lorem@ipsum.com" autocomplete="off">
+          <span class="book__progress" aria-hidden="true"></span>
+          <span class="book__email-copy book__email-copy--base" aria-hidden="true"></span>
+          <span class="book__email-copy book__email-copy--filled" aria-hidden="true"></span>
+          <button class="book__send" type="submit"><span class="book__send-label">Try again</span></button>
+          <span class="book__spinner book__spinner--base" aria-hidden="true"></span>
+          <span class="book__spinner-reveal" aria-hidden="true"><span class="book__spinner book__spinner--filled"></span></span>
+          <span class="book__status" role="status"></span>
+        </form></div>
+    </div>
+    <p class="book__consent">(*) By subscribing, you agree to receive occasional updates about the book.</p>
+    <code class="ds-meta"><b>form.book__form</b> 38.7 × 5.9rem · <b>.book__input</b> var(--input-fill), .5px ink border, pill, 2.4rem 200 italic · <b>.book__send</b> ink pill 9.2 × 5.5rem, hover var(--green) · <b>.is-submitting</b> field #ecf6f5 / #00ae8c, sweep + copy reveal 2.4 s linear, spinner steps(8) .9 s · <b>.is-sent</b> #00ae8c fill, status text white · <b>.is-error</b> send label 1.5rem “Try again” · ≤479px send drops under the field</code>
+  </div>
+</section>
+
+<!-- ============================================================ 08 data display -->
+<section class="ds-group" id="components-data">
+  <div class="ds-head"><p class="ds-eyebrow">Components · 08</p><h2>Data display</h2></div>
+
+  <div class="ds-spec">
+    <h3>Pricing card</h3>
+    <div class="ds-flow" style="max-width: 60.9rem;">
+      <div class="book__pricing">
+        <span class="book__pricing-header book__pricing-header--label">Formats</span>
+        <span class="book__pricing-header book__pricing-header--price">Price (USD)</span>
+        <div class="book__row book__row--1"><span class="book__row-label">Paperback</span><span class="book__row-price">$15.99</span></div>
+        <div class="book__row book__row--2"><span class="book__row-label">Hardcover</span><span class="book__row-price">$22.99</span></div>
+        <div class="book__row book__row--3"><span class="book__row-label">Kindle Edition</span><span class="book__row-price">$9.99</span></div>
+        <div class="book__row book__row--4"><span class="book__row-label">Audiobook</span><span class="book__row-price">Soon</span></div>
+        <span class="book__sep book__sep--1" aria-hidden="true"></span>
+        <span class="book__sep book__sep--2" aria-hidden="true"></span>
+        <span class="book__sep book__sep--3" aria-hidden="true"></span>
+        <button class="book__buy" type="button"><span class="book__buy-label">Lorem ipsum</span></button>
+      </div>
+      <p class="book__kindle-note">(*) Lorem ipsum dolor sit amet consectetur</p>
+    </div>
+    <code class="ds-meta"><b>.book__pricing</b> 60.9 × 35.6rem · var(--table-fill) · radius .4rem · header 1.6rem · <b>.book__row</b> 2rem label / price baseline · <b>.book__sep</b> .5px ink · <b>.book__buy</b> · <b>.book__kindle-note</b> outside the box</code>
+  </div>
+
+  <div class="ds-spec">
+    <h3>Magazine meta line</h3>
+    <div class="ds-stage plain" style="padding: 0;"><div class="ds-fit"><div class="ds-wide"><section class="section section--intro ds-meta-line">
+      <p class="intro__meta">
+        <span class="intro__meta-item intro__meta-item--brand">Money in Check.</span>
+        <span class="intro__meta-item intro__meta-item--theme">Lorem Ipsum of Dolorem.</span>
+        <time class="intro__meta-item intro__meta-item--date" data-ds-now>September 27, 2026, 11:51 AM</time>
+        <span class="intro__meta-item intro__meta-item--place">Lorem, IP</span>
+      </p></section></div></div></div>
+    <code class="ds-meta"><b>p.intro__meta</b> four items at fixed columns, 2rem · brand 800 · theme 400 · <b>time</b> 200 var(--green), filled with the visitor's current date and time · place 800 · ≤1080px 2 × 2 grid</code>
+  </div>
+
+  <div class="ds-spec">
+    <h3>Book meta</h3>
+    <div class="ds-flow" style="height: 3rem;"><p class="book__meta" style="left: 0;"><span class="book__meta-title">Sit Amet</span> <span class="book__meta-subline">5 Loremis. 3 Ipsums. One Dolor.</span></p></div>
+    <code class="ds-meta"><b>p.book__meta</b> 2rem · title 800 · subline 400 at 10.4rem</code>
+  </div>
+</section>
+
+<!-- ============================================================ 09 content groups -->
+<section class="ds-group" id="components-content">
+  <div class="ds-head"><p class="ds-eyebrow">Components · 09</p><h2>Content groups</h2></div>
+
+  <div class="ds-spec">
+    <h3>Manifesto paragraph</h3>
+    <div class="ds-flow ds-stage plain"><div class="intro__manifesto"><p class="intro__paragraph"><span class="intro__group"><span class="word">Lorem</span> <span class="word">ipsum</span> <span class="word">dolor</span> <video class="intro__doodle intro__doodle--walk" src="assets/overview/video/doodle-2.mp4" autoplay muted loop playsinline aria-hidden="true"></video> <span class="word">sitamet</span> <span class="word">consectetur</span> <span class="word">as</span> <span class="word">if</span> <span class="word">they</span> <span class="word">adipiscing</span> <span class="word">elit</span> <span class="word">sed</span> <span class="word">do</span> <span class="word" style="color: rgb(172, 172, 172);">eiusmod</span> <span class="word" style="color: rgb(172, 172, 172);">tempor</span> <span class="word" style="color: rgb(172, 172, 172);">for</span> <span class="word" style="color: rgb(172, 172, 172);">the</span> <span class="word" style="color: rgb(172, 172, 172);">first</span> <span class="word" style="color: rgb(172, 172, 172);">time,</span> <video class="intro__doodle intro__doodle--mountain" src="assets/overview/video/doodle-3.mp4" autoplay muted loop playsinline aria-hidden="true" style="opacity: .32;"></video> <span class="word" style="color: rgb(172, 172, 172);">incididunt</span></span></p></div></div>
+    <code class="ds-meta"><b>.intro__manifesto</b> 166.1rem wide, centred · <b>.intro__group &gt; .word</b> · <b>video.intro__doodle--walk / --mountain / --boat / --hat / --bike</b> multiply, 12.5–14.4rem · scroll scrub inks each word from rgb(172,172,172) and lifts each doodle from .32</code>
+  </div>
+
+  <div class="ds-spec">
+    <h3>Book editorial column</h3>
+    <div class="ds-flow"><div class="book__content">
+      <h2 class="book__claim">Lorem ipsum dolor sitamet.<br>Consectetur adipis.<br>Sed do eiusmod tempor incidi<br>dunt ut labore et.</h2>
+      <div class="book__synopsis">
+        <p><em class="book__em book__em--name">Lorem Ipsum</em> dolor sit amet consectetur adipiscing, with an elit sed do eiusmod and the tempor that he is incididunt ut labore et dolore that was not magna aliqua. Ut enim ad minim veniam where quis was always nostrud, exercitation ullamco came at a high laboris, and nisi weighed as ut aliquip ex ea commodo.</p>
+        <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum, <em class="book__em">Lorem fugiat nulla pariatur, excepteur sint occaecat: cupidatat non proident sunt in culpa qui officia deserunt, but mollit anim id est laborum sed perspiciatis unde omnis iste natus error.</em></p>
+      </div>
+      <h3 class="book__cta">Lorem ipsum dolor sit amet consectetur</h3>
+    </div></div>
+    <code class="ds-meta"><b>.book__content</b> 62.8rem column · <b>.book__claim</b> · <b>.book__synopsis</b> paragraphs 3.2rem apart · <b>.book__em</b> italic 400 · <b>.book__cta</b> → newsletter form</code>
+  </div>
+
+  <div class="ds-spec">
+    <h3>Author block</h3>
+    <div class="ds-author">
+      <img class="author__photo" src="assets/overview/img/Oscar-photo.webp" alt="Portrait" loading="lazy" decoding="async">
+      <h2 class="author__heading">Lorem Ipsum</h2>
+      <p class="author__origin">LOR, IPSUM. 1973</p>
+      <div class="author__col">
+        <p class="author__bio"><em>Lorem Ipsum</em> dolor sit amet consectetur adipiscing elit, sed do eiusmod tempor incididunt as an <em>labore et dolore magna</em>. Ut enim ad minim veniam quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo, consequat duis aute irure dolor in reprehenderit voluptate.</p>
+        <img class="author__signature" src="assets/overview/img/signature.webp" alt="Signature" loading="lazy" decoding="async">
+        <p class="author__name">LOREM IPSUM</p>
+        <p class="author__role">Lorem &amp; Ipsum Dolor of Sitametur</p>
+      </div>
+    </div>
+    <code class="ds-meta"><b>.author__photo</b> 10.4rem circle, grayscale · <b>.author__heading</b> · <b>.author__origin</b> caps · <b>.author__col</b> 104.4rem &gt; <b>.author__bio</b> · <b>.author__signature</b> 9.7 × 7.2rem · <b>.author__name</b> · <b>.author__role</b> · polaroids float around it on the page</code>
+  </div>
+
+  <div class="ds-spec">
+    <h3>Statement</h3>
+    <div class="ds-flow" style="text-align: center;">
+      <h2 class="claim__line claim__line--a"><span class="word">Lorem,</span> <span class="word">ipsum,</span> <span class="word">and</span> <span class="word">dolor</span> <span class="word">sitam</span> <span class="word">amet</span> <span class="word">elit:</span></h2>
+      <p class="claim__line claim__line--b"><span class="word">consectetur</span> <span class="word">adipiscing</span> <span class="word">sed</span> <span class="word">do</span> <span class="word">eiusmod</span> <span class="word">the</span> <span class="word">tempor.</span></p>
+    </div>
+    <code class="ds-meta"><b>.claim__line--a</b> solid ink · <b>.claim__line--b</b> outlined (−webkit-text-stroke .1rem ink, transparent fill) · words re-ink as a wave on scroll (.is-reveal) · <b>claimfit</b> fits each line to 123.1rem</code>
+  </div>
+</section>
+
+<!-- ============================================================ 10 media -->
+<section class="ds-group" id="components-media">
+  <div class="ds-head"><p class="ds-eyebrow">Components · 10</p><h2>Media</h2></div>
+
+  <div class="ds-grid2">
+    <div class="ds-spec">
+      <h3>Hero knight</h3>
+      <div class="ds-flow"><img class="hero__horse" src="assets/overview/img/horse.webp" alt="Chess knight piece wrapped in a rolled dollar bill" decoding="async"></div>
+      <code class="ds-meta"><b>img.hero__horse</b> horse.webp · 121.3 × 88rem over the title (z 2) · min(70vw, 58rem) ≤1080px · shown here at 44rem</code>
+    </div>
+    <div class="ds-spec">
+      <h3>Props</h3>
+      <div class="ds-props">
+        <img src="assets/overview/img/coin.webp" alt="" style="width: 11.1rem;">
+        <img src="assets/overview/img/bill-1.webp" alt="" style="width: 22rem;">
+        <img src="assets/overview/img/bill-2.webp" alt="" style="width: 18rem; transform: rotate(-11deg);">
+      </div>
+      <code class="ds-meta"><b>.falling-coin</b> coin.webp 11.1rem · <b>.decor__bill--hero</b> bill-1.webp · <b>--intro / --boundary / --author / --claim / --footer</b> bill-2.webp · the bills render as WebGL cloth on desktop (Backgrounds), as parallax images ≤1080px</code>
+    </div>
+  </div>
+
+  <div class="ds-spec">
+    <h3>Doodle loops</h3>
+    <div class="ds-stage plain"><div class="ds-doodles ds-flow">
+      <video class="hero__smoker" src="assets/overview/video/doodle-1.mp4" autoplay muted loop playsinline aria-hidden="true"></video>
+      <video class="intro__doodle intro__doodle--walk" src="assets/overview/video/doodle-2.mp4" autoplay muted loop playsinline aria-hidden="true"></video>
+      <video class="intro__doodle intro__doodle--mountain" src="assets/overview/video/doodle-3.mp4" autoplay muted loop playsinline aria-hidden="true"></video>
+      <video class="intro__doodle intro__doodle--boat" src="assets/overview/video/doodle-4.mp4" autoplay muted loop playsinline aria-hidden="true"></video>
+      <video class="intro__doodle intro__doodle--hat" src="assets/overview/video/doodle-5.mp4" autoplay muted loop playsinline aria-hidden="true"></video>
+      <video class="intro__doodle intro__doodle--bike" src="assets/overview/video/doodle-6.mp4" autoplay muted loop playsinline aria-hidden="true"></video>
+    </div></div>
+    <code class="ds-meta"><b>video.hero__smoker</b> doodle-1.mp4 15rem · <b>.intro__doodle--walk / --mountain / --boat / --hat / --bike</b> doodle-2…6.mp4, 12.5–14.4rem · muted loops, mix-blend-mode multiply on the paper · played only while in view</code>
+  </div>
+
+  <div class="ds-spec">
+    <h3>Queue strip</h3>
+    <div class="ds-strip"><section class="section section--strip" aria-hidden="true"><video class="strip__video" src="assets/overview/video/footer.mp4" autoplay muted loop playsinline preload="metadata" aria-hidden="true"></video></section></div>
+    <code class="ds-meta"><b>section.section--strip</b> 42rem · <b>video.strip__video</b> footer.mp4 127.8 × 31.9rem multiply · <b>::after</b> redraws the page grid over it (hidden ≤1080px / coarse pointer)</code>
+  </div>
+
+  <div class="ds-spec">
+    <h3>Book slider</h3>
+    <div class="ds-flow">
+      <div class="book__slider"><div class="book__track">
+        <img class="book__slide book__slide--cover" src="assets/overview/img/book-cover-EN.webp" alt="Book cover held in hand" loading="lazy" decoding="async">
+        <img class="book__slide book__slide--1" src="assets/overview/img/book-1-EN.png" alt="Interior spread, first chapter" loading="lazy" decoding="async">
+        <img class="book__slide book__slide--2" src="assets/overview/img/book-2-EN.png" alt="Interior spread with a chart" loading="lazy" decoding="async">
+      </div></div>
+    </div>
+    <code class="ds-meta"><b>.book__slider</b> 66.3rem tall, clips the row &gt; <b>.book__track</b> &gt; <b>img.book__slide</b> cover 60.9 × 60.3rem + spreads 92.6 × 66.3rem · arrows move the track (.8 s power3.inOut) · click zooms a spread (Overlays) · ≤1080px flex row, 1.2rem gap</code>
+  </div>
+
+  <div class="ds-spec">
+    <h3>Polaroids</h3>
+    <div class="ds-polaroids"><div class="author__polaroids">
+      <figure class="author__polaroid author__polaroid--1" tabindex="0"><img src="assets/overview/img/author-images-1.webp" alt="Trophy" loading="lazy" decoding="async"><figcaption class="author__caption">Lorem Ipsum Dolor<span class="author__caption-date">2006-2025</span></figcaption></figure>
+      <figure class="author__polaroid author__polaroid--2" tabindex="0"><img src="assets/overview/img/author-images-2.webp" alt="Theatre marquee" loading="lazy" decoding="async"><figcaption class="author__caption">Dolor Sit Amet Consectetur.<span class="author__caption-date">2006-2025</span></figcaption></figure>
+      <figure class="author__polaroid author__polaroid--3" tabindex="0"><img src="assets/overview/img/author-images-3.webp" alt="Book editions" loading="lazy" decoding="async"><figcaption class="author__caption">Lorem Ipsum / Dolor Sitamet<span class="author__caption-date">2013</span></figcaption></figure>
+      <figure class="author__polaroid author__polaroid--4" tabindex="0"><img src="assets/overview/img/author-images-4.webp" alt="Magazines" loading="lazy" decoding="async"><figcaption class="author__caption">Lorem Ipsum Dolor<span class="author__caption-date">2015</span></figcaption></figure>
+      <figure class="author__polaroid author__polaroid--5" tabindex="0"><img src="assets/overview/img/author-images-5.webp" alt="Book cover" loading="lazy" decoding="async"><figcaption class="author__caption">Sit Amet Elit, Loremis.<span class="author__caption-date">2017-2020</span></figcaption></figure>
+      <figure class="author__polaroid author__polaroid--6" tabindex="0"><img src="assets/overview/img/author-images-6.webp" alt="Speaker on stage" loading="lazy" decoding="async"><figcaption class="author__caption">Ipsum Consectetur.<span class="author__caption-date">2006-2025</span></figcaption></figure>
+    </div></div>
+    <code class="ds-meta"><b>figure.author__polaroid</b> ghosted: grayscale(1) opacity(.29) · hover / focus / .is-colored → full colour (.7 s) · <b>.author__caption</b> + date · ≤1080px scroll-snap strip</code>
+  </div>
+</section>
+
+<!-- ============================================================ 11 overlays -->
+<section class="ds-group" id="components-overlays">
+  <div class="ds-head"><p class="ds-eyebrow">Components · 11</p><h2>Overlays</h2></div>
+
+  <div class="ds-spec">
+    <h3>Language overlay</h3>
+    <div class="ds-screen ds-screen--lang">
+      <div class="language" role="dialog" aria-label="Select your language">
+        <div class="language__canvas">
+          <img class="language__bill" src="assets/overview/img/bill-2.webp" alt="" aria-hidden="true" loading="lazy" decoding="async">
+          <p class="language__kicker">Select your language</p>
+          <ul class="language__list">
+            <li class="language__row"><a class="language__item language__item--active" href="#" lang="en">English</a></li>
+            <li class="language__row"><a class="language__item language__item--ghost" href="#" lang="es">Spanish</a></li>
+            <li class="language__row"><a class="language__item language__item--ghost" href="#" lang="fr">France</a></li>
+            <li class="language__row"><a class="language__item language__item--ghost" href="#" lang="de">Deutsch</a></li>
+            <li class="language__row"><a class="language__item language__item--ghost" href="#" lang="hi">हिन्दी</a></li>
+          </ul>
+          <p class="language__credit"><span class="language__credit-pre">Site developed by</span> <a class="language__credit-name" href="#">cloudstudio <img class="language__squiggle" src="assets/overview/img/subline.png" alt="" aria-hidden="true" loading="lazy" decoding="async"></a></p>
+        </div>
+      </div>
+    </div>
+    <code class="ds-meta"><b>#language.language</b> fixed full screen, z 90, paper grid · <b>.language__item</b> 9.6rem · <b>--active</b> ink · <b>--ghost</b> transparent + 1px ink stroke, hover fills ink (.35 s) · <b>.language__bill</b> rotated 68° (a WebGL cloth bill on the page) · opens from the header pill, fades .35 s, items rise 24px stagger .06 · Esc closes</code>
+  </div>
+
+  <div class="ds-spec">
+    <h3>Book page zoom</h3>
+    <div class="ds-screen ds-screen--zoom">
+      <div class="book-zoom" role="dialog" aria-label="Enlarged book page"><img class="book-zoom__img" src="assets/overview/img/book-1-EN.png" alt="Enlarged book page"></div>
+    </div>
+    <code class="ds-meta"><b>.book-zoom</b> fixed, z 210, #000000d1 · <b>.book-zoom__img</b> max 90vw × 88vh, shadow 0 2rem 6rem #00000073 · opens on a slide click, closes on click</code>
+  </div>
+</section>
+
+</main>
+</div>
+</div>
+
+<script>
+(function () {
+  var COMPONENTS_ENABLED = true;           /* orchestrated run: Overview approved */
+  var root = document.documentElement, frame = document.getElementById('overview-frame');
+  var view = document.getElementById('view-components'), side = document.getElementById('ds-side');
+  var linkO = document.getElementById('nav-overview'), linkC = document.getElementById('nav-components');
+  var isComp = function (h) { return h === '#components' || h.indexOf('#components-') === 0; };
+  var mode = 'overview';
+  if (!COMPONENTS_ENABLED) { linkC.setAttribute('aria-disabled', 'true'); linkC.setAttribute('tabindex', '-1'); }
+
+  /* grid metrics: the page's own formula (index-BYAKky6a), replaced by the frame's values once posted */
+  var gridFromFrame = false;
+  function grid() {
+    if (gridFromFrame) return;
+    var e = Math.round((window.devicePixelRatio || 1) * 100) / 100 || 1, n = function (h) { return Math.round(Math.round(h * e) / e * 1e3) / 1e3; };
+    var t = parseFloat(getComputedStyle(root).fontSize) || 10, a = matchMedia('(max-width: 1080px)').matches;
+    var r = n(a ? innerWidth * .25 : 20 * t), s = Math.min(innerWidth, 172.8 * t);
+    var ox = n(a ? innerWidth * .125 : (innerWidth - s) / 2 + 16.4 * t), oy = n(r / 2), m = n(Math.max(1, Math.round(e)) / e);
+    root.style.setProperty('--g-px', r + 'px'); root.style.setProperty('--g-py', r + 'px');
+    root.style.setProperty('--g-ox', ox + 'px'); root.style.setProperty('--g-oy', oy + 'px'); root.style.setProperty('--g-line', m + 'px');
+  }
+  grid();
+
+  /* page-width specimens (header, footer, meta line) keep the page's 172.8rem layout, zoomed to fit */
+  function fitWide() {
+    var desk = innerWidth > 1080, full = 172.8 * (parseFloat(getComputedStyle(root).fontSize) || 10);
+    [].forEach.call(document.querySelectorAll('.ds-wide'), function (w) {
+      w.style.zoom = desk ? Math.min(1, w.parentNode.clientWidth / full) : '';
+    });
+  }
+  addEventListener('resize', function () { gridFromFrame = false; grid(); fitWide(); }, { passive: true });
+
+  function topOffset() {
+    var t = parseFloat(getComputedStyle(root).getPropertyValue('--g-oy')) || 0;
+    t = innerWidth <= 1080 ? 60 + side.offsetHeight + 20 : t + 24;
+    return t;
+  }
+  function post(m) { try { frame.contentWindow.postMessage(m, '*'); } catch (e) {} }
+  function progress() { var max = view.scrollHeight - view.clientHeight; return max > 0 ? Math.min(1, view.scrollTop / max) : 0; }
+  function route() {
+    var h = location.hash || '#overview';
+    if (isComp(h) && !COMPONENTS_ENABLED) { history.replaceState(null, '', '#overview'); h = '#overview'; }
+    mode = isComp(h) ? 'components' : 'overview';
+    document.body.classList.toggle('is-components', mode === 'components');
+    view.hidden = mode !== 'components';
+    linkO.classList.toggle('header__link--active', mode === 'overview');
+    linkC.classList.toggle('header__link--active', mode === 'components');
+    if (mode !== 'components') { post({ ds: 'page' }); videos(false); return; }
+    fitWide(); startOnce();
+    if (h === '#components') view.scrollTop = 0;
+    else { var el = document.getElementById(h.slice(1)); if (el) view.scrollTop += el.getBoundingClientRect().top - topOffset(); }
+    post({ ds: 'bg', p: progress() });
+    spy(); videos(true);
+  }
+  addEventListener('message', function (e) {
+    if (e.source !== frame.contentWindow || !e.data) return;
+    if (e.data.ds === 'ready') { document.body.classList.add('ds-overview-ready'); if (mode === 'components') post({ ds: 'scroll', p: progress() }); }
+    if (e.data.ds === 'grid' && e.data.vars) {
+      gridFromFrame = true;
+      for (var k in e.data.vars) if (e.data.vars[k]) root.style.setProperty(k, e.data.vars[k]);
+    }
+  });
+  frame.addEventListener('load', function () { if (mode === 'components') post({ ds: 'bg', p: progress() }); });
+
+  /* sidebar follows the scroll; the scrim lifts over Backgrounds */
+  var groups = [].slice.call(document.querySelectorAll('#ds-main .ds-group'));
+  var sideLinks = [].slice.call(side.querySelectorAll('a'));
+  var bgGroup = document.getElementById('components-backgrounds');
+  function spy() {
+    var y = topOffset() + 120, cur = groups[0];
+    groups.forEach(function (g) { if (g.getBoundingClientRect().top <= y) cur = g; });
+    sideLinks.forEach(function (a) {
+      var on = a.getAttribute('href') === '#' + cur.id;
+      if (on && !a.classList.contains('is-current') && innerWidth <= 1080) side.scrollLeft = a.offsetLeft - 12;
+      a.classList.toggle('is-current', on);
+    });
+    var r = bgGroup.getBoundingClientRect(), mid = innerHeight / 2;
+    document.body.classList.toggle('ds-bg-clear', r.top < mid && r.bottom > mid);
+  }
+  /* the Overview's decor decides what it shows from its own window scroll: relay this view's scroll
+     progress to it once per frame */
+  var tick = false;
+  view.addEventListener('scroll', function () {
+    spy();
+    if (tick) return; tick = true;
+    requestAnimationFrame(function () { tick = false; post({ ds: 'scroll', p: progress() }); });
+  }, { passive: true });
+
+  /* specimens: links and form submits do nothing; videos play only while in view (as on the page) */
+  view.addEventListener('click', function (e) {
+    var a = e.target.closest('a[href]');
+    if (a && !side.contains(a)) e.preventDefault();
+  });
+  view.addEventListener('submit', function (e) { e.preventDefault(); });
+  document.addEventListener('click', function (e) { if (e.target.closest('[data-ds-inert]')) e.preventDefault(); });
+  side.addEventListener('click', function (e) {
+    var a = e.target.closest('a[href]');
+    if (a && a.getAttribute('href') === location.hash) { e.preventDefault(); route(); }
+  });
+  var vids = [].slice.call(view.querySelectorAll('video')), seen = new Set(), io = null;
+  vids.forEach(function (v) { v.muted = true; v.playsInline = true; v.pause(); });
+  function videos(on) {
+    if (!on) { vids.forEach(function (v) { v.pause(); }); return; }
+    if (!io) {
+      io = new IntersectionObserver(function (es) {
+        es.forEach(function (x) {
+          var v = x.target;
+          if (x.isIntersecting && mode === 'components') { seen.add(v); if (v.paused) v.play().catch(function () {}); }
+          else { seen.delete(v); if (!v.paused) v.pause(); }
+        });
+      }, { root: view, rootMargin: '20% 0px' });
+      vids.forEach(function (v) { io.observe(v); });
+    } else seen.forEach(function (v) { if (v.paused) v.play().catch(function () {}); });
+  }
+
+  var started = false;
+  function startOnce() {
+    if (started) return; started = true;
+    /* meta line: the page fills its <time> with the visitor's date (en-US, long month) */
+    try {
+      var d = new Date(), t = document.querySelector('[data-ds-now]');
+      t.textContent = new Intl.DateTimeFormat('en-US', { year: 'numeric', month: 'long', day: 'numeric' }).format(d) + ', ' +
+        new Intl.DateTimeFormat('en-US', { hour: 'numeric', minute: '2-digit' }).format(d);
+    } catch (e) {}
+    /* newsletter "sending" state replays its 2.4 s sweep */
+    var f = document.querySelector('[data-ds-replay]');
+    setInterval(function () {
+      if (mode !== 'components') return;
+      f.classList.remove('is-submitting'); void f.offsetWidth; f.classList.add('is-submitting');
+    }, 3400);
+    loaderCurtain(document.querySelector('[data-ds-loader]'));
+  }
+
+  /* Loader curtain: the page's own move cycle (index-BYAKky6a loader), running while the specimen is in view */
+  function loaderCurtain(box) {
+    var stage = box.querySelector('.loader__stage'), gridEl = box.querySelector('.loader__grid');
+    var D = ['e4','e5','Nf3','Nc6','Bc4','Bc5','c3','Nf6','d3','d6','O-O','a6','a4','h6','Re1','O-O','h3','a5','Nbd2','Be6','Bb5','Na7','d4','ed4','cd4','Bb4','Bd3','d5','e5'];
+    var L = [[-9.3,-16.6],[-11.7,-2.2],[-8,15.7],[-15.5,-9],[-13,8.5],[-5.5,-20]], R = [[6.4,-13.7],[15.2,1.2],[9,14.5],[14.5,-8.5],[5.5,18],[16.5,-15.5]];
+    var T = [12.41,-4.96,8.16,-6.5,5,-8.16,3.5], V = [1,.85,.58,.48,.23];
+    var b = 0, c = 0, m = 0, h = [], timer = 0;
+    function size() {
+      var cs = getComputedStyle(root), f = parseFloat(cs.getPropertyValue('--g-px')) || 200, g = parseFloat(cs.getPropertyValue('--g-py')) || f;
+      var ox = parseFloat(cs.getPropertyValue('--g-ox')) || 0, oy = parseFloat(cs.getPropertyValue('--g-oy')) || 0, cx = box.clientWidth / 2, cy = box.clientHeight / 2;
+      gridEl.style.backgroundSize = (.665 * f) + 'px ' + (.7 * g) + 'px';
+      gridEl.style.backgroundPosition = (cx + .665 * (ox - cx)) + 'px ' + (cy + .7 * (oy - cy)) + 'px';
+    }
+    function spawn() {
+      if (mode !== 'components') return;
+      var left = b % 2 === 0, tab = left ? L : R, p = tab[(left ? c++ : m++) % tab.length], el = document.createElement('span');
+      el.className = 'loader__move'; el.textContent = D[b % D.length];
+      el.style.setProperty('--mx', p[0] + 'rem'); el.style.setProperty('--my', p[1] + 'rem'); el.style.setProperty('--mr', T[b % T.length] + 'deg');
+      stage.appendChild(el); b++; h.unshift(el);
+      h.forEach(function (g, k) { if (k < V.length) g.style.setProperty('--mo', V[k]); });
+      if (h.length > V.length) { var old = h.pop(); old.classList.add('is-out'); setTimeout(function () { old.remove(); }, 350); }
+      requestAnimationFrame(function () { el.classList.add('is-in'); });
+    }
+    size(); addEventListener('resize', size, { passive: true });
+    new IntersectionObserver(function (es) {
+      var on = es[0].isIntersecting && mode === 'components';
+      if (on && !timer) timer = setInterval(spawn, 170);
+      if (!on && timer) { clearInterval(timer); timer = 0; }
+    }, { root: view }).observe(box);
+  }
+
+  addEventListener('hashchange', route);
+  route();
+})();
+</script>
+</body>
+</html>

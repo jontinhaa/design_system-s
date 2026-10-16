@@ -1,0 +1,43 @@
+
+.cursor-dot, .cursor-ring, .cursor-follow {
+  position: fixed;
+  top: 0;
+  left: 0;
+  pointer-events: none;
+  border-radius: 50%;
+  z-index: 9999;
+  will-change: transform;
+}
+
+.cursor-dot {
+  width: 8px;
+  height: 8px;
+  background: #fff; /* дефолт — светлый курсор, перекрывается темой ниже */
+}
+
+.cursor-ring {
+  width: 34px;
+  height: 34px;
+  border: 1.5px solid #990000;
+  opacity: 0;
+  transition: opacity 0.25s ease;
+}
+
+.cursor-follow {
+  width: 6px;
+  height: 6px;
+  background: #990000;
+}
+
+/* Тема — цвет только основной точки, follow и ring всегда акцентные */
+[data-cursor-root].theme-dark .cursor-dot { background: #fff; }
+[data-cursor-root].theme-light .cursor-dot { background: #000; }
+
+[data-cursor-root].is-hover .cursor-dot { opacity: 0; }
+[data-cursor-root].is-hover .cursor-ring { opacity: 1; }
+
+@media (hover: none) and (pointer: coarse) {
+  .cursor-dot, .cursor-ring, .cursor-follow { display: none; }
+}
+
+body:has([data-cursor-root]) { cursor: none; }

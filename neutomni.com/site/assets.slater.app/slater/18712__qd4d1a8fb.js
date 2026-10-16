@@ -1,0 +1,1 @@
+let paths=window.location.pathname.split("/");import("https://assets.slater.app/slater/18712/54535.js?v=333969");{const t=[""],s=paths[paths.length-1],a=paths[paths.length-2];(t.includes(s)||t.includes("detail_"+a)||t.includes(a+"/item"))&&import("https://assets.slater.app/slater/18712/58771.js?v=12667")}

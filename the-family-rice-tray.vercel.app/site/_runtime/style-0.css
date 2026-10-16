@@ -1,0 +1,2389 @@
+
+      /* =========================================================================
+   MÂM CƠM — design tokens
+   Palette lifted from Vietnamese lacquerware: sơn mài red, leaf gold, jade,
+   and the unbleached cream of a rice-paper page.
+   ========================================================================= */
+      :root {
+        --red-900: #3f040c;
+        --red-800: #5e0712;
+        --red-700: #7a0a18;
+        --red-600: #8b0c1c;
+        --red-500: #a8121f;
+
+        --gold-400: #e3a94a;
+        --gold-300: #f0be6b;
+        --gold-200: #f7d9a0;
+
+        --jade: #2e6b58;
+        --jade-light: #7fb8a2;
+
+        --cream: #f7efe0;
+        --cream-dim: #dccdb4;
+        --cream-faint: rgba(247, 239, 224, 0.62);
+
+        --ink: #1a0509;
+
+        --font-display: "Big Shoulders Display", "Arial Narrow", system-ui, sans-serif;
+        --font-body: "Be Vietnam Pro", system-ui, -apple-system, "Segoe UI", sans-serif;
+
+        /* fluid type scale */
+        --t-hero: clamp(4.2rem, 15vw, 12rem);
+        --t-h2: clamp(2.4rem, 6vw, 4.6rem);
+        --t-h3: clamp(1.3rem, 2.4vw, 1.8rem);
+        --t-body: clamp(1rem, 0.55vw + 0.9rem, 1.16rem);
+        --t-lede: clamp(1.12rem, 1vw + 0.95rem, 1.44rem);
+
+        --shell: min(1240px, 92vw);
+        /* Ornaments are positioned against this frame rather than the viewport.
+     It tracks the viewport until it outpaces the content column, then stops —
+     so on ultra-wide screens the dragon and drum stay beside the copy instead
+     of drifting off to the far edge. Identical to 100vw below ~1590px. */
+        --art: min(100vw, calc(var(--shell) * 1.28));
+        --gutter: clamp(1.25rem, 4vw, 2.5rem);
+        --section-y: clamp(5rem, 11vw, 9.5rem);
+
+        --radius: 14px;
+        --ease: cubic-bezier(0.22, 0.61, 0.36, 1);
+        --ease-spin: cubic-bezier(0.34, 0.02, 0.2, 1);
+
+        /* set by JS — how far the tray has been spun */
+        --ring-rot: 0deg;
+      }
+
+      /* =========================================================================
+   Reset & base
+   ========================================================================= */
+      *,
+      *::before,
+      *::after {
+        box-sizing: border-box;
+      }
+      html {
+        -webkit-text-size-adjust: 100%;
+      }
+      body {
+        margin: 0;
+        background: var(--red-800);
+        color: var(--cream);
+        font-family: var(--font-body);
+        font-size: var(--t-body);
+        font-weight: 300;
+        line-height: 1.72;
+        -webkit-font-smoothing: antialiased;
+        overflow-x: hidden;
+      }
+      img {
+        max-width: 100%;
+        height: auto;
+        display: block;
+      }
+      button {
+        font: inherit;
+        color: inherit;
+        background: none;
+        border: 0;
+        margin: 0;
+        cursor: pointer;
+      }
+      h1,
+      h2,
+      h3,
+      h4 {
+        margin: 0;
+        line-height: 1.02;
+        font-weight: 800;
+        letter-spacing: -0.01em;
+      }
+      p {
+        margin: 0 0 1.1em;
+      }
+      p:last-child {
+        margin-bottom: 0;
+      }
+      ul,
+      ol {
+        margin: 0;
+        padding: 0;
+      }
+      a {
+        color: var(--gold-300);
+        text-decoration-thickness: 1px;
+        text-underline-offset: 0.22em;
+      }
+      a:hover {
+        color: var(--gold-200);
+      }
+
+      /* Visible, high-contrast focus for every interactive element. */
+      :focus-visible {
+        outline: 3px solid var(--gold-300);
+        outline-offset: 3px;
+        border-radius: 4px;
+      }
+      .skip-link {
+        position: absolute;
+        left: 50%;
+        top: 0;
+        translate: -50% -110%;
+        z-index: 100;
+        padding: 0.85rem 1.5rem;
+        background: var(--gold-300);
+        color: var(--ink);
+        font-weight: 600;
+        border-radius: 0 0 var(--radius) var(--radius);
+        transition: translate 0.18s var(--ease);
+      }
+      .skip-link:focus {
+        translate: -50% 0;
+      }
+      .sr-only {
+        position: absolute;
+        width: 1px;
+        height: 1px;
+        padding: 0;
+        margin: -1px;
+        overflow: hidden;
+        clip-path: inset(50%);
+        white-space: nowrap;
+        border: 0;
+      }
+
+      /* =========================================================================
+   Shared shapes
+   ========================================================================= */
+      .shell {
+        width: var(--shell);
+        margin-inline: auto;
+      }
+      .section {
+        padding-block: var(--section-y);
+        position: relative;
+      }
+
+      /* Small caps label with a gold rule — used to open every section. */
+      .kicker {
+        display: flex;
+        align-items: center;
+        gap: 0.9rem;
+        margin: 0 0 1.4rem;
+        font-size: 0.76rem;
+        font-weight: 600;
+        letter-spacing: 0.28em;
+        text-transform: uppercase;
+        color: var(--gold-300);
+      }
+      .kicker::before {
+        content: "";
+        inline-size: 2.6rem;
+        block-size: 1px;
+        flex: none;
+        background: linear-gradient(90deg, transparent, var(--gold-400));
+      }
+      .display {
+        font-family: var(--font-display);
+        font-weight: 800;
+        letter-spacing: 0.005em;
+        text-transform: uppercase;
+      }
+      .lede {
+        font-size: var(--t-lede);
+        line-height: 1.62;
+        color: var(--cream);
+        font-weight: 300;
+      }
+      .dim {
+        color: var(--cream-faint);
+      }
+      .vi {
+        font-style: italic;
+        color: var(--gold-200);
+        font-weight: 400;
+      }
+
+      /* Outbound reference links. Vietnamese names, the dishes and the archaeology
+   all have decent English Wikipedia articles, and a reader who has never met
+   thịt kho tàu should be one tap from the real thing. Styled as a dotted rule
+   rather than a solid underline so a linked display heading still reads as a
+   heading, with an arrow that says the tab will change. Every one carries an
+   aria-label spelling that out, because "opens in a new tab" is information a
+   screen-reader user needs before the tab changes, not after. */
+      .wl {
+        color: inherit;
+        text-decoration: none;
+        border-block-end: 1px dotted color-mix(in srgb, currentColor 55%, transparent);
+        transition:
+          color 0.18s var(--ease),
+          border-color 0.18s var(--ease);
+      }
+      .wl:hover {
+        color: var(--gold-200);
+        border-block-end-color: var(--gold-300);
+      }
+      .wl:focus-visible {
+        outline: 2px solid var(--gold-200);
+        outline-offset: 3px;
+        border-radius: 2px;
+      }
+      .wl::after {
+        content: "↗";
+        font-size: 0.62em;
+        font-weight: 400;
+        line-height: 1;
+        margin-inline-start: 0.22em;
+        vertical-align: 0.42em;
+        opacity: 0.7;
+      }
+      h2 .wl,
+      h3 .wl {
+        border-block-end-width: 2px;
+      }
+      h2 .wl::after,
+      h3 .wl::after {
+        font-size: 0.4em;
+        vertical-align: 1em;
+        margin-inline-start: 0.3em;
+      }
+
+      /* Buttons */
+      .btn {
+        display: inline-flex;
+        align-items: center;
+        gap: 0.6rem;
+        padding: 0.95rem 1.85rem;
+        border-radius: 999px;
+        font-weight: 600;
+        font-size: 0.95rem;
+        letter-spacing: 0.02em;
+        text-decoration: none;
+        transition:
+          background-color 0.2s var(--ease),
+          color 0.2s var(--ease),
+          border-color 0.2s var(--ease),
+          translate 0.2s var(--ease);
+      }
+      .btn--solid {
+        background: var(--gold-400);
+        color: var(--ink);
+      }
+      .btn--solid:hover {
+        background: var(--gold-200);
+        color: var(--ink);
+        translate: 0 -2px;
+      }
+      .btn--ghost {
+        border: 1px solid rgba(227, 169, 74, 0.5);
+        color: var(--gold-200);
+      }
+      .btn--ghost:hover {
+        border-color: var(--gold-300);
+        background: rgba(227, 169, 74, 0.12);
+        translate: 0 -2px;
+      }
+
+      /* Hairline gold divider with a lozenge in the middle. */
+      .rule {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 1rem;
+        color: rgba(227, 169, 74, 0.45);
+      }
+      .rule::before,
+      .rule::after {
+        content: "";
+        height: 1px;
+        flex: 1 1 0;
+        background: linear-gradient(90deg, transparent, rgba(227, 169, 74, 0.45), transparent);
+      }
+      .rule__mark {
+        inline-size: 9px;
+        block-size: 9px;
+        rotate: 45deg;
+        border: 1px solid currentColor;
+        flex: none;
+      }
+
+      /* =========================================================================
+   Header
+   ========================================================================= */
+      .masthead {
+        position: sticky;
+        top: 0;
+        z-index: 50;
+        background: rgba(48, 3, 8, 0.94);
+        background: color-mix(in srgb, var(--red-900) 88%, transparent);
+        backdrop-filter: blur(14px) saturate(140%);
+        border-bottom: 1px solid rgba(227, 169, 74, 0.2);
+      }
+      .masthead__inner {
+        width: var(--shell);
+        margin-inline: auto;
+        display: flex;
+        align-items: center;
+        gap: clamp(0.75rem, 3vw, 2.5rem);
+        min-height: 66px;
+      }
+      .brand {
+        display: flex;
+        align-items: center;
+        gap: 0.7rem;
+        flex: none;
+        font-family: var(--font-display);
+        font-size: 1.32rem;
+        font-weight: 800;
+        letter-spacing: 0.06em;
+        text-transform: uppercase;
+        color: var(--cream);
+        text-decoration: none;
+      }
+      .brand:hover {
+        color: var(--gold-200);
+      }
+      .brand__mark {
+        inline-size: 30px;
+        block-size: 30px;
+        flex: none;
+        color: var(--gold-400);
+      }
+      /* On narrow screens the mark carries the brand so the nav keeps its room. */
+      @media (max-width: 560px) {
+        .brand__word {
+          display: none;
+        }
+      }
+
+      .nav {
+        flex: 1 1 auto;
+        min-width: 0;
+        display: flex;
+        align-items: center;
+        gap: clamp(0.5rem, 1.8vw, 1.7rem);
+        overflow-x: auto;
+        scrollbar-width: none;
+        -webkit-overflow-scrolling: touch;
+      }
+      .nav::-webkit-scrollbar {
+        display: none;
+      }
+      .nav a {
+        flex: none;
+        padding: 0.4rem 0.1rem;
+        font-size: 0.88rem;
+        font-weight: 500;
+        color: var(--cream-dim);
+        text-decoration: none;
+        white-space: nowrap;
+        transition: color 0.18s var(--ease);
+      }
+      .nav a:hover {
+        color: var(--gold-200);
+      }
+      /* Scroll spy — the cloud rides to the section you are in.
+   Three earlier attempts hung a separate marker off every link: a cloud scroll,
+   a rule-and-lozenge, then a Lạc bird. All three were per-link ::after boxes,
+   which meant two of them could be lit at once (the current one, and whichever
+   one you were hovering), and each sat in its own box so nothing ever looked
+   aligned. This is one element for the whole nav instead. It cannot be in two
+   places, and it moves rather than blinking — which is the point: cưỡi mây,
+   riding the cloud from one section to the next.
+   Position and width come from JS because the labels are different lengths;
+   CSS owns the easing. */
+      /* The cloud lives in the masthead, not in .nav. The nav is a horizontal
+   scroller (`overflow-x:auto`), and overflow-x computes overflow-y to `auto`
+   too — so anything hanging below the nav's content box gets clipped. The
+   cloud sits just under the labels, which is exactly where that cut fell: all
+   that showed was a 2px strip of gold. Out here nothing clips it; the cost is
+   that its x has to be measured in masthead coordinates and re-measured when
+   the nav is swiped sideways. */
+      .masthead__inner {
+        position: relative;
+      }
+      .nav__cloud {
+        position: absolute;
+        left: 0;
+        bottom: 6px;
+        inline-size: var(--cloud-w, 44px);
+        aspect-ratio: 420/159; /* the art's own ratio,
+     so the curls never squash */
+        translate: var(--cloud-x, 0) 0;
+        background: url("../the-family-rice-tray.vercel.app/img/van-may.png") center/contain no-repeat;
+        opacity: 0;
+        pointer-events: none;
+        transition:
+          translate 0.5s cubic-bezier(0.34, 0.02, 0.2, 1),
+          inline-size 0.5s cubic-bezier(0.34, 0.02, 0.2, 1),
+          opacity 0.28s var(--ease);
+      }
+      .masthead--riding .nav__cloud {
+        opacity: 0.9;
+      }
+      .nav a[aria-current="true"] {
+        color: var(--gold-200);
+      }
+      @media (prefers-reduced-motion: reduce) {
+        .nav__cloud {
+          transition: opacity 0.01s;
+        }
+      }
+      .masthead .btn {
+        flex: none;
+        padding: 0.6rem 1.25rem;
+        font-size: 0.85rem;
+      }
+      @media (max-width: 720px) {
+        .masthead .btn {
+          display: none;
+        }
+      }
+
+      /* =========================================================================
+   Hero
+   ========================================================================= */
+      .hero {
+        position: relative;
+        isolation: isolate;
+        overflow: clip;
+        min-height: clamp(600px, 92svh, 1000px);
+        display: grid;
+        align-items: center;
+        background: radial-gradient(120% 90% at 8% 12%, var(--red-600) 0%, var(--red-800) 45%, var(--red-900) 100%);
+      }
+      /* Centred art frame: everything decorative in the hero hangs off this, so the
+   ornaments keep their relationship to the text at any viewport width. */
+      .hero__art {
+        position: absolute;
+        pointer-events: none;
+        inset-block: 0;
+        /* Centred with calc, NOT translate: a transform would make this a stacking
+     context, which isolates the children and kills their mix-blend-mode —
+     the dragon's black field would then paint as an actual black rectangle.
+     No z-index here either, for the same reason; the children carry it. */
+        left: calc(50% - var(--art) / 2);
+        inline-size: var(--art);
+      }
+      /* Turning drum face, screen-blended so only the gold ink survives. One turn
+   in 84s is ~4.3°/s: fast enough that the motion reads as motion within a
+   second or two of landing, slow enough not to compete with the headline.
+   At 320s it measured as moving and looked switched off. */
+      /* Both offsets are a fraction of the drum's own diameter, never a percentage
+   of the hero.
+   A percentage in `top` resolves against the containing block's HEIGHT and a
+   percentage in `right` against its WIDTH — and the hero is a wide short box on
+   a desktop and a narrow tall one on a phone. So one pair of percentages cannot
+   hold: `top:-30%` was -250px on a laptop and -330px on an iPhone 16 Pro Max,
+   where the drum is barely a third of that size, and the whole thing left the
+   screen. Driving everything from `--d` means the same slice of the drum is
+   visible, in the same corner, at every viewport — no breakpoint required. */
+      .hero__drum {
+        --d: clamp(340px, 86vw, 1250px);
+        position: absolute;
+        z-index: -2;
+        inline-size: var(--d);
+        aspect-ratio: 1;
+        right: calc(var(--d) * -0.3);
+        top: calc(var(--d) * -0.22);
+        background: url("../the-family-rice-tray.vercel.app/img/trong-dong.png") center/contain no-repeat;
+        mix-blend-mode: screen;
+        opacity: 0.2;
+        animation: spin 84s linear infinite;
+      }
+      .hero__dragon {
+        /* Same rule as the drum: offsets scale with the art, not with the hero. */
+        --d: clamp(430px, 88vw, 1180px);
+        --dragon-o: 0.88;
+        position: absolute;
+        z-index: -2;
+        inline-size: var(--d);
+        right: calc(var(--d) * -0.07);
+        bottom: calc(var(--d) * -0.05);
+        mix-blend-mode: screen;
+        opacity: var(--dragon-o);
+        pointer-events: none;
+      }
+      /* The dragon is the full width of the screen on a phone — it cannot be smaller
+   without turning into a squiggle — and the hero's copy is full width too, so
+   the two share pixels. Behind the player's label that measured 2.4:1 against
+   gold type, where 4.5:1 is the floor.
+   Two fixes were tried in the wrong order. Dimming the dragon did nothing:
+   sweeping its opacity from .34 to .75 moved the measured contrast by 0.00.
+   Moving it down worked — but once the foot scrim below was added, phones
+   passed at the original position anyway (5.1:1 at the tightest, 430px), and
+   the move was only still earning its keep in the 600–820px band, where the
+   hero is wide enough to put the label right under the densest scale work.
+   So the phones keep their dragon where it was, at full weight, and only that
+   middle band pushes it clear. */
+      @media (min-width: 561px) and (max-width: 959px) {
+        .hero__dragon {
+          bottom: calc(var(--d) * -0.22);
+          right: calc(var(--d) * -0.16);
+        }
+      }
+
+      /* Scrim keeps the headline at full contrast over the ornament. */
+      .hero::after {
+        content: "";
+        position: absolute;
+        inset: 0;
+        z-index: -1;
+        pointer-events: none;
+        background:
+    /* A second, horizontal band along the foot of the hero. The diagonal scrim
+       below is anchored to the X axis — it protects the headline in the left
+       column and has faded out by 88% across, which is exactly where the CTA
+       row and the player sit once the hero is narrow. Measured behind the
+       player's label, that left a 2.9:1 trough between 820 and 1024px and
+       again on every phone. This band is anchored to the Y axis instead, so
+       the last stretch of the hero is always dark enough to carry text
+       whatever the ornament is doing behind it. */
+          linear-gradient(
+            to top,
+            var(--red-900) 0%,
+            color-mix(in srgb, var(--red-900) 88%, transparent) 14%,
+            color-mix(in srgb, var(--red-900) 55%, transparent) 27%,
+            transparent 44%
+          ),
+          linear-gradient(
+            100deg,
+            var(--red-900) 0%,
+            color-mix(in srgb, var(--red-900) 82%, transparent) 34%,
+            color-mix(in srgb, var(--red-900) 20%, transparent) 62%,
+            transparent 88%
+          );
+      }
+      @keyframes spin {
+        to {
+          rotate: 360deg;
+        }
+      }
+
+      .hero__inner {
+        width: var(--shell);
+        margin-inline: auto;
+        padding-block: clamp(2.5rem, 6vh, 5rem);
+      }
+      .hero__body {
+        max-width: min(46rem, 100%);
+      }
+      .hero__eyebrow {
+        display: flex;
+        align-items: center;
+        flex-wrap: wrap;
+        gap: 0.6rem 0.9rem;
+        /* The h1 below runs line-height .82, so Vietnamese diacritics (Â, Ơ, Ế)
+     overflow the line box upward. Buy them headroom here. */
+        margin-bottom: clamp(1.8rem, 3.4vw, 2.4rem);
+        font-size: 0.74rem;
+        font-weight: 600;
+        letter-spacing: 0.26em;
+        text-transform: uppercase;
+        color: var(--gold-300);
+      }
+      .hero__eyebrow span {
+        color: var(--cream-faint);
+        letter-spacing: 0.18em;
+      }
+      .hero h1 {
+        font-family: var(--font-display);
+        font-size: var(--t-hero);
+        font-weight: 900;
+        line-height: 0.82;
+        letter-spacing: -0.015em;
+        text-transform: uppercase;
+        /* line-height below 1 means the ink overflows the line box upward, and
+     Vietnamese stacked diacritics (Â, Ơ, Ế) overflow it hard. Pad in em so the
+     clearance scales with the headline at every breakpoint. */
+        padding-top: 0.14em;
+        color: var(--gold-300);
+        margin-bottom: 0.2em;
+        text-wrap: balance;
+      }
+      .hero h1 em {
+        display: block;
+        font-style: normal;
+        color: var(--cream);
+        font-size: 0.31em;
+        font-weight: 700;
+        letter-spacing: 0.16em;
+        line-height: 1.2;
+        margin-top: 0.38em;
+      }
+      .hero__pron {
+        font-size: 0.9rem;
+        color: var(--gold-200);
+        font-weight: 400;
+        letter-spacing: 0.04em;
+        margin-bottom: 1.1rem;
+      }
+      .hero__lede {
+        max-width: 34rem;
+        margin-bottom: clamp(1.5rem, 3.4vw, 2.1rem);
+      }
+      .hero__cta {
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        gap: 0.85rem;
+      }
+
+      /* The music. A bronze drum small enough to sit in the button row, with the
+   transport in the middle of it, because that is where a drum is struck. The
+   page's three drums — this one, the hero's and the closer's — all run off the
+   same `body.is-playing` flag via animation-play-state, so the ornament is
+   telling you the truth about the audio rather than decorating independently.
+   Nothing autoplays: browsers block it, and a page that starts making noise on
+   its own has already lost the reader. */
+      .player {
+        display: flex;
+        align-items: center;
+        gap: 0.75rem;
+        margin-inline-start: 0.35rem;
+      }
+      .player__btn {
+        position: relative;
+        flex: none;
+        inline-size: 60px;
+        block-size: 60px;
+        border-radius: 50%;
+        display: grid;
+        place-items: center;
+        border: 1px solid rgba(227, 169, 74, 0.45);
+        /* Opaque, not a tint: the dragon runs straight through this corner of the
+     hero and a transparent disc let the ornament read as part of the control. */
+        background: radial-gradient(circle at 50% 38%, #5e0712, #33030a 78%);
+        color: var(--gold-300);
+        transition:
+          border-color 0.2s var(--ease),
+          background-color 0.2s var(--ease),
+          scale 0.12s var(--ease);
+      }
+      .player__btn:hover {
+        border-color: var(--gold-300);
+        background-color: rgba(227, 169, 74, 0.12);
+      }
+      .player__btn:active {
+        scale: 0.94;
+      }
+      .player__btn:focus-visible {
+        outline: 3px solid var(--gold-200);
+        outline-offset: 4px;
+      }
+      .player__drum {
+        position: absolute;
+        inset: 4px;
+        inline-size: auto;
+        block-size: auto;
+        color: var(--gold-300);
+        opacity: 0.42;
+        animation: spin 26s linear infinite;
+        animation-play-state: paused;
+      }
+      /* The transport needs its own clear ground: the drum's rays run right through
+   the middle of the disc, and a play triangle sitting on top of them was a
+   shape inside a shape. */
+      .player__btn::before {
+        content: "";
+        position: absolute;
+        inset: 31%;
+        border-radius: 50%;
+        background: #33030a;
+        box-shadow: 0 0 0 1px rgba(227, 169, 74, 0.25);
+      }
+      .player__glyph {
+        position: relative;
+        inline-size: 19px;
+        block-size: 19px;
+        fill: var(--gold-200);
+      }
+      .player__pause {
+        display: none;
+      }
+      [aria-pressed="true"] .player__play {
+        display: none;
+      }
+      [aria-pressed="true"] .player__pause {
+        display: block;
+      }
+      /* The dragon runs behind this corner on some widths, and its line work is the
+   same gold as the type. A soft shadow rather than a panel: it lifts the words
+   off the ornament without putting a box in the middle of the artwork. */
+      .player__label {
+        display: flex;
+        flex-direction: column;
+        line-height: 1.25;
+        font-size: 0.8rem;
+        color: var(--gold-200);
+        text-shadow:
+          0 1px 7px rgba(24, 1, 5, 0.92),
+          0 0 2px rgba(24, 1, 5, 0.7);
+      }
+      .player__label .dim {
+        font-size: 0.72rem;
+        letter-spacing: 0.06em;
+        color: var(--cream-dim);
+      }
+      .player__unesco {
+        text-decoration: none;
+        width: fit-content;
+        border-block-end: 1px dotted color-mix(in srgb, currentColor 55%, transparent);
+        transition:
+          color 0.18s var(--ease),
+          border-color 0.18s var(--ease);
+      }
+      .player__unesco:hover {
+        color: var(--gold-200);
+        border-block-end-color: var(--gold-300);
+      }
+      .player__unesco:focus-visible {
+        outline: 2px solid var(--gold-200);
+        outline-offset: 3px;
+      }
+      .footer__credit {
+        font-size: 0.78rem;
+        line-height: 1.65;
+        color: var(--cream-faint);
+        margin-bottom: 0.9rem;
+      }
+      .footer__credit a {
+        color: var(--gold-200);
+      }
+      /* Below 560px the player always takes its own line. Sharing the CTA's row was
+   tried and measured: to fit both on a 390px phone the button had to come down
+   to 46px and the label to 0.7rem, and at that size it stopped reading as a
+   control — it became a small gold smudge beside a big yellow button. Its own
+   line costs one row of vertical space and buys a legible 54px target with the
+   title at full size. That trade is better at every phone width, so there is no
+   breakpoint here left to get wrong. */
+      @media (max-width: 560px) {
+        .player {
+          flex-basis: 100%;
+          margin-inline-start: 0;
+          margin-block-start: 0.15rem;
+          gap: 0.7rem;
+        }
+        .player__btn {
+          inline-size: 54px;
+          block-size: 54px;
+        }
+        .player__glyph {
+          inline-size: 18px;
+          block-size: 18px;
+        }
+      }
+
+      /* Only this drum answers to the transport. The hero's and the closer's keep
+   turning on their own the way they always did — they are page ornament, not
+   an audio indicator, and freezing them made the page look broken whenever the
+   music was off. */
+      .is-playing .player__drum {
+        animation-play-state: running;
+      }
+
+      /* Seven dishes, above the fold. This is a food page, so some food should be
+   visible before the first scroll — and each chip is a shortcut into the tray. */
+      .hero__dishes {
+        margin-top: clamp(1.6rem, 3.6vw, 2.4rem);
+      }
+      .hero__dishes-label {
+        display: flex;
+        align-items: center;
+        gap: 0.75rem;
+        margin: 0 0 0.85rem;
+        font-size: 0.68rem;
+        font-weight: 600;
+        letter-spacing: 0.24em;
+        text-transform: uppercase;
+        color: var(--cream-faint);
+      }
+      .hero__dishes-label::after {
+        content: "";
+        inline-size: 2.2rem;
+        block-size: 1px;
+        flex: none;
+        background: linear-gradient(90deg, rgba(227, 169, 74, 0.55), transparent);
+      }
+      .hero__strip {
+        display: flex;
+        flex-wrap: wrap;
+        gap: clamp(0.35rem, 1.4vw, 0.8rem);
+        list-style: none;
+      }
+      .hero__chip {
+        display: block;
+        inline-size: clamp(40px, 6.6vw, 62px);
+        aspect-ratio: 1;
+        border-radius: 50%;
+        overflow: hidden;
+        box-shadow:
+          0 0 0 1px rgba(227, 169, 74, 0.4),
+          0 8px 18px -8px rgba(0, 0, 0, 0.7);
+        transition:
+          box-shadow 0.2s var(--ease),
+          scale 0.2s var(--ease);
+      }
+      .hero__chip img {
+        inline-size: 100%;
+        block-size: 100%;
+        object-fit: cover;
+        display: block;
+        /* These are the tray's own flat-lays, where the bowl sits in a wide field of
+     lacquer — at chip size that reads as mud, so crop in to the food itself.
+     Reusing the same files means the tray later gets them warm from cache. */
+        scale: 1.62;
+        filter: saturate(1.06) brightness(0.98);
+        transition: filter 0.2s var(--ease);
+      }
+      .hero__chip:hover,
+      .hero__chip:focus-visible {
+        scale: 1.1;
+        box-shadow:
+          0 0 0 2px var(--gold-300),
+          0 0 0 7px rgba(227, 169, 74, 0.16),
+          0 10px 22px -8px rgba(0, 0, 0, 0.75);
+      }
+      .hero__chip:hover img,
+      .hero__chip:focus-visible img {
+        filter: saturate(1.14) brightness(1.08);
+      }
+      .hero__chip:focus-visible {
+        outline: none;
+      }
+      .hero__scroll {
+        position: absolute;
+        left: 50%;
+        bottom: 1.6rem;
+        translate: -50% 0;
+        font-size: 0.68rem;
+        letter-spacing: 0.3em;
+        text-transform: uppercase;
+        color: var(--cream-faint);
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        gap: 0.55rem;
+      }
+      .hero__scroll::after {
+        content: "";
+        inline-size: 1px;
+        block-size: 2.2rem;
+        background: linear-gradient(var(--gold-400), transparent);
+        animation: drip 2.6s var(--ease) infinite;
+      }
+      @keyframes drip {
+        0%,
+        100% {
+          opacity: 0.25;
+          scale: 1 0.5;
+        }
+        50% {
+          opacity: 1;
+          scale: 1 1;
+        }
+      }
+      @media (max-width: 760px) {
+        .hero__scroll {
+          display: none;
+        }
+      }
+
+      /* Short viewports: tighten the hero so the dish strip — the only food above
+   the fold — stays above the fold. Tall screens keep the full drama. */
+      @media (max-height: 1040px) {
+        /* Fill exactly the space left under the sticky header — an svh-based
+     min-height alone always overhangs the fold by the header's own height. */
+        .hero {
+          min-block-size: calc(100svh - 4.5rem);
+        }
+        .hero h1 {
+          font-size: clamp(3.6rem, 10.5vw, 8.4rem);
+        }
+        .hero__eyebrow {
+          margin-bottom: 1.2rem;
+        }
+        .hero__lede {
+          font-size: 1.02rem;
+          line-height: 1.6;
+          margin-bottom: 1.2rem;
+        }
+        .hero__dishes {
+          margin-top: 1.3rem;
+        }
+        .hero__scroll {
+          display: none;
+        }
+      }
+      @media (max-height: 800px) {
+        .hero h1 {
+          font-size: clamp(3.4rem, 9.4vw, 7.4rem);
+        }
+        .hero__lede {
+          font-size: 0.98rem;
+          margin-bottom: 1rem;
+        }
+        .hero__dishes {
+          margin-top: 1.1rem;
+        }
+      }
+
+      /* Small, short phones (SE-class). Trim rhythm rather than hide any content. */
+      /* 320px is the width WCAG reflow is specified at, and seven chips plus six
+   gaps do not fit there at the default size. Shrink both rather than let the
+   strip wrap onto a second row and fall below the fold. */
+      @media (max-width: 345px) {
+        .hero__chip {
+          inline-size: 36px;
+        }
+        .hero__strip {
+          gap: 0.25rem;
+        }
+        /* The copy also wraps much harder at this width, so tighten the hero enough
+     that the dish strip still clears the fold. 320px is the width WCAG reflow
+     is specified at, so this is not an edge case worth waving away. */
+        .hero__inner {
+          padding-block: 1.4rem;
+        }
+        .hero__eyebrow {
+          margin-bottom: 1rem;
+        }
+        .hero__lede {
+          font-size: 0.92rem;
+          line-height: 1.5;
+          margin-bottom: 0.9rem;
+        }
+        .hero__pron {
+          margin-bottom: 0.8rem;
+        }
+        .hero__dishes {
+          margin-top: 0.95rem;
+        }
+      }
+      @media (max-width: 430px) and (max-height: 720px) {
+        .hero__inner {
+          padding-block: 0.95rem;
+        }
+        .hero__eyebrow {
+          margin-bottom: 0.95rem;
+        }
+        .hero h1 em {
+          margin-top: 0.3em;
+        }
+        .hero__lede {
+          font-size: 0.9rem;
+          line-height: 1.45;
+          margin-bottom: 0.9rem;
+        }
+        .hero__pron {
+          margin-bottom: 0.7rem;
+        }
+        .hero__dishes-label {
+          margin-bottom: 0.5rem;
+        }
+        .hero__dishes {
+          margin-top: 0.85rem;
+        }
+      }
+
+      /* =========================================================================
+   THE TRAY — a Đông Sơn drum face used as a lazy susan
+   ========================================================================= */
+      .tray-section {
+        background: radial-gradient(80% 60% at 50% 0%, var(--red-700) 0%, transparent 70%), var(--red-900);
+        border-block: 1px solid rgba(227, 169, 74, 0.2);
+      }
+      .tray-head {
+        max-width: 44rem;
+        margin-bottom: clamp(2rem, 4vw, 3rem);
+      }
+      .tray-head h2 {
+        font-family: var(--font-display);
+        font-size: var(--t-h2);
+        font-weight: 900;
+        text-transform: uppercase;
+        color: var(--cream);
+        margin-bottom: 0.5em;
+        text-wrap: balance;
+      }
+
+      .tray-layout {
+        display: grid;
+        gap: clamp(2.5rem, 5vw, 4.5rem);
+        grid-template-columns: 1fr;
+        align-items: center;
+      }
+      @media (min-width: 960px) {
+        .tray-layout {
+          grid-template-columns: minmax(0, 1.05fr) minmax(0, 0.95fr);
+        }
+      }
+
+      /* --- the drum ------------------------------------------------------------ */
+      .tray {
+        position: relative;
+        inline-size: min(100%, 560px);
+        aspect-ratio: 1;
+        margin-inline: auto;
+        cursor: grab;
+        /* Rotation is angular, but swallowing vertical touch on a 560px-tall element
+     would break page scrolling on a phone. Let the browser keep pan-y. */
+        touch-action: pan-y;
+        /* Without these the browser runs its own gesture instead of ours: pressing on
+     a dish photo starts a native image drag, and sweeping across the tray starts
+     a text selection. Either one hijacks the pointer stream, which is why the
+     second and later spins felt stuck. */
+        user-select: none;
+        -webkit-user-select: none;
+        /* Dish diameter is a % of the tray, so the orbit can be expressed as a %
+     of the dish itself — the whole widget then scales with zero JS. */
+        --dish-size: 19%;
+        --orbit: -189.5%; /* ≈ 36% of the tray radius, in dish-heights */
+      }
+      .tray__plate {
+        position: absolute;
+        inset: 0;
+        border-radius: 50%;
+        background: radial-gradient(circle, var(--red-700) 0%, var(--red-900) 72%, #2c0308 100%);
+        box-shadow:
+          0 0 0 1px rgba(227, 169, 74, 0.35),
+          0 0 0 12px rgba(227, 169, 74, 0.07),
+          0 40px 90px -30px rgba(0, 0, 0, 0.85);
+      }
+      /* Rotating a square grows its bounding box, which would push the page
+   sideways. Clipping the moving parts to the drum keeps the layout honest
+   while leaving the plate's outer glow untouched. */
+      .tray__clip {
+        position: absolute;
+        inset: 0;
+        border-radius: 50%;
+        overflow: clip;
+      }
+      /* The engraving turns with the tray. */
+      .tray__engraving {
+        position: absolute;
+        inset: 0;
+        border-radius: 50%;
+        background: url("../the-family-rice-tray.vercel.app/img/trong-dong.png") center/contain no-repeat;
+        mix-blend-mode: screen;
+        opacity: 0.95;
+        rotate: var(--ring-rot);
+        transition: rotate 1s var(--ease-spin);
+      }
+      /* A clean lacquer medallion so the centre label always has a legible field,
+   whatever band of the engraving happens to be turned underneath it. */
+      .tray__glow {
+        position: absolute;
+        inset: 24%;
+        border-radius: 50%;
+        background:
+          radial-gradient(circle, rgba(227, 169, 74, 0.2), transparent 72%),
+          radial-gradient(
+            circle at 40% 32%,
+            rgba(122, 10, 24, 0.97) 0%,
+            rgba(72, 5, 14, 0.95) 62%,
+            rgba(51, 3, 10, 0.7) 92%,
+            rgba(51, 3, 10, 0.35) 100%
+          );
+        box-shadow:
+          0 0 0 1px rgba(227, 169, 74, 0.4),
+          0 0 0 6px rgba(227, 169, 74, 0.08),
+          0 0 40px 16px rgba(51, 3, 10, 0.7);
+        pointer-events: none;
+      }
+      /* Centre label: the name of whatever is currently at 12 o'clock. */
+      /* `display:grid; place-content:center` sizes the track to max-content, so a
+   long English name was laid out at its natural width and simply hung out over
+   the dishes — the box was never constraining it. A centred flex column is
+   bounded by the box, so the text wraps inside the medallion instead. */
+      .tray__label {
+        position: absolute;
+        inset: 24%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        pointer-events: none;
+        padding: 0.6rem;
+      }
+      .tray__label > * {
+        max-inline-size: 100%;
+      }
+      .tray__label-vi {
+        font-family: var(--font-display);
+        font-size: clamp(1.05rem, 2.7vw, 2rem);
+        font-weight: 800;
+        text-transform: uppercase;
+        line-height: 0.98;
+        color: var(--gold-300);
+        text-wrap: balance;
+      }
+      .tray__label-en {
+        margin-top: 0.55rem;
+        font-size: clamp(0.6rem, 1.1vw, 0.72rem);
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+        line-height: 1.5;
+        color: var(--cream-faint);
+        text-wrap: balance;
+      }
+
+      /* --- the ring of dishes ------------------------------------------------- */
+      .tray__ring {
+        position: absolute;
+        inset: 0;
+        rotate: var(--ring-rot);
+        transition: rotate 1s var(--ease-spin);
+      }
+      /* While a finger or cursor is on it the tray must track 1:1, so drop the
+   easing on every layer that rotates. */
+      .tray.is-dragging {
+        cursor: grabbing;
+      }
+      .tray.is-dragging .tray__ring,
+      .tray.is-dragging .tray__engraving,
+      .tray.is-dragging .dish__inner {
+        transition: none;
+      }
+      .tray.is-dragging .dish__inner img {
+        pointer-events: none;
+      }
+      .dish {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        inline-size: var(--dish-size);
+        aspect-ratio: 1;
+        margin: 0;
+        padding: 0;
+        border-radius: 50%;
+        /* individual transform props apply translate → rotate → transform,
+     so this rotates about the centre and then walks out along the ray */
+        translate: -50% -50%;
+        rotate: var(--a);
+        transform: translateY(var(--orbit));
+      }
+      /* Two levels of counter-rotation keep the food upright: the wrapper undoes
+   the tray's spin, the image undoes this dish's own placement angle. */
+      .dish__inner {
+        position: absolute;
+        inset: 0;
+        border-radius: 50%;
+        rotate: calc(-1 * var(--ring-rot));
+        transition:
+          rotate 1s var(--ease-spin),
+          scale 0.3s var(--ease);
+        /* Shadows fall radially outward, as if one lamp hung over the middle of the
+     tray. Because .dish__inner's local frame is itself rotated by --a, a plain
+     `0 -Ypx` offset already points away from the centre for every dish — no
+     per-dish maths needed. A tight contact shadow plus a soft ambient one is
+     what makes a bowl read as sitting ON the drum rather than pasted onto it. */
+        box-shadow:
+          0 0 0 1px rgba(227, 169, 74, 0.3),
+          0 -2px 4px -1px rgba(24, 1, 5, 0.55),
+          0 -9px 18px -5px rgba(24, 1, 5, 0.45);
+        overflow: hidden;
+        background: var(--red-800);
+      }
+      .dish__inner img {
+        inline-size: 100%;
+        block-size: 100%;
+        object-fit: cover;
+        -webkit-user-drag: none;
+        rotate: calc(-1 * var(--a));
+        filter: saturate(1.02) brightness(0.94);
+        transition: filter 0.3s var(--ease);
+      }
+      .dish:hover .dish__inner {
+        scale: 1.07;
+      }
+      .dish:hover .dish__inner img {
+        filter: saturate(1.12) brightness(1.06);
+      }
+      .dish[aria-selected="true"] .dish__inner {
+        scale: 1.18;
+        box-shadow:
+          0 0 0 2px var(--gold-300),
+          0 0 0 9px rgba(227, 169, 74, 0.16),
+          0 -3px 6px -1px rgba(24, 1, 5, 0.6),
+          0 -12px 24px -6px rgba(24, 1, 5, 0.5);
+      }
+      .dish[aria-selected="true"] .dish__inner img {
+        filter: saturate(1.16) brightness(1.1);
+      }
+      /* Focus ring must follow the circle, not the square hit area. */
+      .dish:focus-visible {
+        outline: none;
+      }
+      .dish:focus-visible .dish__inner {
+        outline: 3px solid var(--gold-200);
+        outline-offset: 5px;
+      }
+      /* Explicit spin controls, so the tray is operable by pointer alone without
+   having to hit a 100px dish. Grid centring keeps the glyph optically true —
+   text baselines drift inside a circle. */
+      .tray__controls {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 0.9rem clamp(0.7rem, 2vw, 1.1rem);
+        margin-top: 1.6rem;
+      }
+      .spin {
+        inline-size: 2.75rem;
+        block-size: 2.75rem;
+        flex: none;
+        display: grid;
+        place-items: center;
+        border: 1px solid rgba(227, 169, 74, 0.45);
+        border-radius: 50%;
+        color: var(--gold-200);
+        transition:
+          background-color 0.2s var(--ease),
+          border-color 0.2s var(--ease),
+          scale 0.12s var(--ease);
+      }
+      .spin:hover {
+        background: rgba(227, 169, 74, 0.14);
+        border-color: var(--gold-300);
+      }
+      .spin:active {
+        scale: 0.93;
+      }
+      .spin svg {
+        display: block;
+        inline-size: 1.05rem;
+        block-size: 1.05rem;
+      }
+      .tray__hint {
+        margin: 0;
+        text-align: center;
+        text-wrap: balance;
+        font-size: 0.78rem;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+        color: var(--cream-faint);
+      }
+
+      /* --- the detail panel --------------------------------------------------- */
+      .dish-panel {
+        --pad: clamp(1.6rem, 3.4vw, 2.6rem);
+        border: 1px solid rgba(227, 169, 74, 0.26);
+        border-radius: var(--radius);
+        background: linear-gradient(155deg, rgba(139, 12, 28, 0.5), rgba(63, 4, 12, 0.72));
+        padding: var(--pad);
+        overflow: hidden; /* let the photo meet the rounded corners cleanly */
+      }
+      .dish-panel:focus-visible {
+        outline-offset: 6px;
+      }
+
+      /* The payoff for spinning the tray: a full-width plate of the selected dish,
+   bled to the panel edge so the food is the largest thing on screen. */
+      .dish-panel__figure {
+        margin: calc(-1 * var(--pad)) calc(-1 * var(--pad)) clamp(1.4rem, 2.6vw, 1.9rem);
+        position: relative;
+        aspect-ratio: 3/2;
+        background: var(--red-900);
+      }
+      .dish-panel__figure img {
+        inline-size: 100%;
+        block-size: 100%;
+        object-fit: cover;
+        display: block;
+      }
+      /* Ease the photo into the panel rather than butting it against the copy. */
+      .dish-panel__figure::after {
+        content: "";
+        position: absolute;
+        inset: auto 0 -1px 0;
+        block-size: 38%;
+        background: linear-gradient(to bottom, transparent, rgba(63, 4, 12, 0.72));
+        pointer-events: none;
+      }
+      .dish-panel__index {
+        font-size: 0.72rem;
+        letter-spacing: 0.28em;
+        text-transform: uppercase;
+        color: var(--gold-400);
+        margin-bottom: 1rem;
+      }
+      .dish-panel h3 {
+        font-family: var(--font-display);
+        font-size: clamp(2rem, 4.6vw, 3.1rem);
+        font-weight: 900;
+        text-transform: uppercase;
+        color: var(--gold-300);
+        line-height: 0.92;
+        margin-bottom: 0.3em;
+        text-wrap: balance;
+      }
+      .dish-panel__en {
+        font-size: 1.02rem;
+        font-weight: 500;
+        color: var(--cream);
+        margin-bottom: 1.5rem;
+      }
+      .dish-panel__note {
+        margin-bottom: 1.75rem;
+      }
+      .dish-facts {
+        display: grid;
+        gap: 1.1rem;
+        border-top: 1px solid rgba(227, 169, 74, 0.22);
+        padding-top: 1.5rem;
+      }
+      @media (min-width: 520px) {
+        .dish-facts {
+          grid-template-columns: 1fr 1fr;
+          gap: 1.6rem;
+        }
+      }
+      .dish-facts dt {
+        font-size: 0.68rem;
+        letter-spacing: 0.24em;
+        text-transform: uppercase;
+        color: var(--gold-400);
+        margin-bottom: 0.4rem;
+      }
+      .dish-facts dd {
+        margin: 0;
+        font-size: 0.96rem;
+        line-height: 1.6;
+        color: var(--cream-dim);
+      }
+
+      /* Side by side with the drum, the panel should read in one screenful too — so
+   the photo is sized against viewport height instead of a fixed ratio, and the
+   vertical rhythm tightens. Must come after the base rules above to win the
+   cascade: the base `margin` shorthand would otherwise clobber margin-bottom. */
+      @media (min-width: 960px) {
+        .dish-panel {
+          --pad: clamp(1.25rem, 2.1vw, 1.75rem);
+        }
+        /* Reserve the tallest panel's height for all of them, so switching dishes
+     never resizes the card or shifts the drum. --panel-min is measured in JS
+     because the tallest panel depends on viewport width. */
+        .dish-panel {
+          min-block-size: var(--panel-min, 0px);
+        }
+        .dish-panel__figure {
+          aspect-ratio: auto;
+          block-size: clamp(170px, 26svh, 330px);
+          margin-bottom: clamp(0.9rem, 1.5vw, 1.25rem);
+        }
+        .dish-panel__index {
+          margin-bottom: 0.75rem;
+        }
+        .dish-panel h3 {
+          font-size: clamp(1.75rem, 3.2vw, 2.5rem);
+        }
+        .dish-panel__en {
+          margin-bottom: 1.05rem;
+        }
+        .dish-panel__note {
+          font-size: 0.96rem;
+          line-height: 1.62;
+          margin-bottom: 1.2rem;
+        }
+        .dish-facts {
+          padding-top: 1.05rem;
+          gap: 0.85rem 1.6rem;
+        }
+        .dish-facts dt {
+          margin-bottom: 0.28rem;
+        }
+        .dish-facts dd {
+          font-size: 0.92rem;
+          line-height: 1.5;
+        }
+      }
+      /* Short desktops: pull the photo in further rather than clipping any copy. */
+      @media (min-width: 960px) and (max-height: 830px) {
+        .dish-panel__figure {
+          block-size: clamp(140px, 19svh, 210px);
+        }
+        .dish-panel__note {
+          font-size: 0.93rem;
+          line-height: 1.55;
+          margin-bottom: 1rem;
+        }
+        .dish-panel__en {
+          margin-bottom: 0.85rem;
+        }
+        .dish-facts {
+          padding-top: 0.9rem;
+          gap: 0.7rem 1.5rem;
+        }
+      }
+
+      /* =========================================================================
+   Feast — one full-bleed plate of the whole tray, as big as the screen allows
+   ========================================================================= */
+      .feast {
+        background: var(--red-900);
+        border-block: 1px solid rgba(227, 169, 74, 0.2);
+      }
+      /* The photograph gets the whole frame to itself — no copy on top of it, so
+   the food is never competing with a scrim for the same pixels. */
+      .feast__frame {
+        position: relative;
+        margin: 0;
+        /* Track the photo's own 16:9 (56.25vw) so the round tray is never cropped
+     out of the frame — it should rhyme with the drum. Stated as a height, not
+     an aspect-ratio, so the box can never solve for width and overflow. */
+        block-size: clamp(400px, 56.25vw, 88svh);
+        overflow: hidden;
+      }
+      .feast__img {
+        inline-size: 100%;
+        block-size: 100%;
+        object-fit: cover;
+        object-position: center;
+        display: block;
+      }
+      /* Fade the base of the photo into the copy band so the two read as one piece. */
+      .feast__frame::after {
+        content: "";
+        position: absolute;
+        inset: auto 0 -1px 0;
+        block-size: 22%;
+        background: linear-gradient(to bottom, transparent, var(--red-900));
+        pointer-events: none;
+      }
+      .feast__body {
+        width: var(--shell);
+        margin-inline: auto;
+        padding-block: clamp(2rem, 4.5vw, 3.4rem) clamp(2.6rem, 6vw, 4.5rem);
+        display: grid;
+        gap: clamp(1.5rem, 4vw, 3.5rem);
+      }
+      @media (min-width: 900px) {
+        .feast__body {
+          grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+          align-items: start;
+        }
+      }
+      .feast__cap {
+        grid-column: 1/-1;
+        margin: 0 0 0.4rem;
+        font-size: 0.72rem;
+        letter-spacing: 0.2em;
+        text-transform: uppercase;
+        color: var(--cream-faint);
+      }
+      .feast h2 {
+        font-family: var(--font-display);
+        font-size: var(--t-h2);
+        font-weight: 900;
+        text-transform: uppercase;
+        color: var(--cream);
+        margin-bottom: 0.4em;
+        text-wrap: balance;
+      }
+      .feast__count {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.55rem 1.7rem;
+        margin-top: 1.5rem;
+        padding-top: 1.25rem;
+        border-top: 1px solid rgba(227, 169, 74, 0.3);
+        font-size: 0.73rem;
+        letter-spacing: 0.2em;
+        text-transform: uppercase;
+        color: var(--gold-300);
+        list-style: none;
+      }
+
+      /* =========================================================================
+   Legend
+   ========================================================================= */
+      .legend {
+        position: relative;
+        overflow: clip;
+        background: var(--red-800);
+      }
+      /* The myth, drawn rather than described. This replaces a second, dimmer copy of
+   the hero's dragon that sat behind this text — the same artwork twice reads as
+   a missing asset, not as a motif. Gold on true black, screen-blended, so the
+   black field drops out and only the line survives over the lacquer red. */
+      /* Deliberately a sibling of .shell, not a child of it. `.legend .shell` carries
+   z-index:1, which makes it a stacking context — and a stacking context is a
+   blend boundary: inside one, `mix-blend-mode: screen` composites against an
+   empty backdrop instead of the section's red, so the artwork's black field
+   stays a black rectangle on screen. Out here it blends against the lacquer and
+   only the gold line survives. Shell width applied directly so it still lines
+   up with the columns above. */
+      .legend__scene {
+        position: relative;
+        inline-size: var(--shell);
+        margin: clamp(2.8rem, 7vw, 4.5rem) auto 0;
+      }
+      .legend__scene img {
+        display: block;
+        inline-size: 100%;
+        block-size: auto;
+        mix-blend-mode: screen;
+      }
+      .legend__scene figcaption {
+        margin-top: 1.1rem;
+        text-align: center;
+        font-size: 0.84rem;
+        line-height: 1.7;
+        color: var(--gold-200);
+        text-wrap: balance;
+      }
+      .legend__scene figcaption .dim {
+        display: block;
+        font-size: 0.8rem;
+      }
+      /* The drum face itself, drawn rather than photographed, filling the air that
+   opens up beside the title. Fourteen rays and a ring of Lạc herons — the same
+   two motifs the favicon is cut from. Inline SVG, so it is gold at any size,
+   costs no request, and needs no blend mode (which would have been another
+   stacking-context trap next to .shell). Sits behind the copy and is inert. */
+      .legend__seal {
+        position: absolute;
+        pointer-events: none;
+        color: var(--gold-400);
+        opacity: 0.12;
+        --s: min(560px, 52vw);
+        inline-size: var(--s);
+        block-size: auto;
+        /* Offsets must be a fraction of the art frame, never a percentage of the
+     section: a percentage here resolves against the section's width, so on a
+     2560px screen the -17% became -435px and the seal walked off towards the
+     edge — the same drift the ornaments had before they were framed. */
+        left: calc(50% - var(--art) * 0.67);
+        /* And the vertical offset is a fraction of the seal, not of the section —
+     the section's height moves with its copy, so a percentage here slid the
+     seal further out of frame the longer the legend got. */
+        top: calc(var(--s) * -0.2);
+        animation: spin 120s linear infinite;
+      }
+      @media (max-width: 939px) {
+        .legend__seal {
+          --s: min(420px, 86vw);
+          right: auto;
+          left: calc(50% - var(--art) * 0.62);
+          top: calc(var(--s) * -0.12);
+          opacity: 0.1;
+        }
+      }
+      .legend .shell {
+        position: relative;
+        z-index: 1;
+      }
+      .legend__grid {
+        display: grid;
+        gap: clamp(2.5rem, 6vw, 5rem);
+      }
+      @media (min-width: 940px) {
+        .legend__grid {
+          grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+          align-items: start;
+        }
+      }
+      .legend h2 {
+        font-family: var(--font-display);
+        font-size: var(--t-h2);
+        font-weight: 900;
+        text-transform: uppercase;
+        color: var(--gold-300);
+        margin-bottom: 0.3em;
+      }
+      .legend__sub {
+        font-size: 1.05rem;
+        font-weight: 500;
+        color: var(--cream);
+        margin-bottom: 1.8rem;
+        letter-spacing: 0.01em;
+      }
+      .legend blockquote {
+        margin: 2rem 0 0;
+        padding-left: 1.4rem;
+        border-left: 2px solid var(--gold-400);
+        font-size: var(--t-lede);
+        font-style: italic;
+        font-weight: 300;
+        color: var(--gold-200);
+        line-height: 1.55;
+      }
+
+      /* Timeline */
+      .timeline {
+        list-style: none;
+        counter-reset: t;
+      }
+      .timeline li {
+        position: relative;
+        padding: 0 0 2.2rem 2.6rem;
+        border-left: 1px solid rgba(227, 169, 74, 0.3);
+      }
+      .timeline li:last-child {
+        border-left-color: transparent;
+        padding-bottom: 0;
+      }
+      .timeline li::before {
+        content: "";
+        position: absolute;
+        left: -5px;
+        top: 0.55rem;
+        inline-size: 9px;
+        block-size: 9px;
+        rotate: 45deg;
+        background: var(--red-800);
+        border: 1px solid var(--gold-400);
+      }
+      .timeline li[data-now]::before {
+        background: var(--gold-300);
+      }
+      .timeline h3 {
+        font-family: var(--font-display);
+        font-size: 1.22rem;
+        font-weight: 800;
+        text-transform: uppercase;
+        letter-spacing: 0.04em;
+        color: var(--cream);
+        margin-bottom: 0.35rem;
+      }
+      .timeline p {
+        margin: 0;
+        color: var(--cream-faint);
+        font-size: 0.97rem;
+        line-height: 1.65;
+      }
+
+      /* =========================================================================
+   Recipe
+   ========================================================================= */
+      .recipe {
+        background: var(--cream);
+        color: var(--ink);
+        position: relative;
+      }
+      .recipe .kicker {
+        color: var(--red-600);
+      }
+      .recipe .kicker::before {
+        background: linear-gradient(90deg, transparent, var(--red-600));
+      }
+      .recipe h2 {
+        font-family: var(--font-display);
+        font-size: var(--t-h2);
+        font-weight: 900;
+        text-transform: uppercase;
+        color: var(--red-700);
+        margin-bottom: 0.25em;
+      }
+      .recipe__sub {
+        font-size: 1.05rem;
+        font-weight: 500;
+        color: #5a3b2e;
+        margin-bottom: 1.2rem;
+      }
+      .recipe__intro {
+        max-width: 38rem;
+        color: #3e2a22;
+      }
+      /* Says out loud that one recipe out of seven is a choice, not an omission. */
+      .recipe__pick {
+        max-width: 38rem;
+        margin: 0 0 1.1em;
+        font-size: var(--t-lede);
+        line-height: 1.55;
+        font-weight: 400;
+        color: var(--red-700);
+      }
+      .recipe__head {
+        display: grid;
+        gap: clamp(1.8rem, 4vw, 3rem);
+        align-items: start; /* not centre — centring left a dead gap above the copy */
+        margin-bottom: clamp(2.4rem, 5vw, 3.6rem);
+      }
+      @media (min-width: 840px) {
+        .recipe__head {
+          grid-template-columns: minmax(0, 1.25fr) minmax(0, 1fr);
+        }
+      }
+      .recipe__photo {
+        border-radius: var(--radius);
+        overflow: hidden;
+        aspect-ratio: 4/3;
+        box-shadow:
+          0 0 0 1px rgba(122, 10, 24, 0.2),
+          0 26px 50px -26px rgba(63, 4, 12, 0.55);
+      }
+      .recipe__photo img {
+        inline-size: 100%;
+        block-size: 100%;
+        object-fit: cover;
+      }
+      .recipe__credit {
+        margin-top: 0.7rem;
+        font-size: 0.72rem;
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+        color: #7b5949;
+      }
+      .recipe__grid {
+        display: grid;
+        gap: clamp(2.2rem, 5vw, 3.6rem);
+      }
+      @media (min-width: 900px) {
+        .recipe__grid {
+          grid-template-columns: minmax(0, 0.85fr) minmax(0, 1.15fr);
+        }
+      }
+      .recipe__col h3,
+      .recipe__col h4 {
+        font-family: var(--font-display);
+        font-size: var(--t-h3);
+        font-weight: 800;
+        text-transform: uppercase;
+        color: var(--red-700);
+        padding-bottom: 0.6rem;
+        margin-bottom: 1.3rem;
+        border-bottom: 1px solid rgba(122, 10, 24, 0.28);
+      }
+
+      /* servings stepper */
+      .servings {
+        display: flex;
+        align-items: center;
+        gap: 0.9rem;
+        flex-wrap: wrap;
+        margin-bottom: 1.6rem;
+      }
+      .servings__label {
+        font-size: 0.7rem;
+        letter-spacing: 0.22em;
+        text-transform: uppercase;
+        color: #6b4a3b;
+      }
+      .stepper {
+        display: inline-flex;
+        align-items: center;
+        border: 1px solid rgba(122, 10, 24, 0.35);
+        border-radius: 999px;
+        background: #fff;
+        overflow: hidden;
+      }
+      .stepper button {
+        inline-size: 2.5rem;
+        block-size: 2.5rem;
+        display: grid;
+        place-content: center;
+        font-size: 1.15rem;
+        font-weight: 600;
+        color: var(--red-700);
+        transition: background-color 0.18s var(--ease);
+      }
+      .stepper button:hover:not(:disabled) {
+        background: rgba(122, 10, 24, 0.1);
+      }
+      .stepper button:disabled {
+        opacity: 0.32;
+        cursor: not-allowed;
+      }
+      .stepper output {
+        min-inline-size: 5.5rem;
+        text-align: center;
+        font-size: 0.9rem;
+        font-weight: 600;
+        color: var(--ink);
+        border-inline: 1px solid rgba(122, 10, 24, 0.2);
+        padding: 0.5rem 0.4rem;
+      }
+
+      .ingredients {
+        list-style: none;
+      }
+      .ingredients li {
+        display: flex;
+        gap: 1rem;
+        align-items: baseline;
+        padding: 0.7rem 0;
+        border-bottom: 1px dashed rgba(26, 5, 9, 0.16);
+        font-size: 0.98rem;
+      }
+      .ingredients li:last-child {
+        border-bottom: 0;
+      }
+      .ingredients .qty {
+        flex: none;
+        min-inline-size: 5.2rem;
+        font-weight: 600;
+        color: var(--red-700);
+        font-variant-numeric: tabular-nums;
+      }
+      .recipe__meta {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 1.6rem;
+        margin-top: 1.8rem;
+        padding-top: 1.4rem;
+        border-top: 1px solid rgba(122, 10, 24, 0.28);
+      }
+      .recipe__meta div {
+        min-inline-size: 6rem;
+      }
+      .recipe__meta dt {
+        font-size: 0.66rem;
+        letter-spacing: 0.2em;
+        text-transform: uppercase;
+        color: #6b4a3b;
+        margin-bottom: 0.25rem;
+      }
+      .recipe__meta dd {
+        margin: 0;
+        font-weight: 600;
+        font-size: 0.95rem;
+      }
+
+      .steps {
+        list-style: none;
+        counter-reset: s;
+      }
+      .steps li {
+        counter-increment: s;
+        position: relative;
+        padding: 0 0 1.7rem 3.4rem;
+      }
+      .steps li::before {
+        content: counter(s, decimal-leading-zero);
+        position: absolute;
+        left: 0;
+        top: -0.15rem;
+        font-family: var(--font-display);
+        font-size: 1.5rem;
+        font-weight: 800;
+        color: var(--red-600);
+        opacity: 0.55;
+        font-variant-numeric: tabular-nums;
+      }
+      .steps li:last-child {
+        padding-bottom: 0;
+      }
+      .steps strong {
+        color: var(--red-700);
+        font-weight: 600;
+      }
+      .steps p {
+        margin: 0;
+        color: #3e2a22;
+        font-size: 0.99rem;
+        line-height: 1.7;
+      }
+      .aside-note {
+        margin-top: 2rem;
+        padding: 1.2rem 1.4rem;
+        background: rgba(46, 107, 88, 0.1);
+        border-left: 3px solid var(--jade);
+        border-radius: 0 var(--radius) var(--radius) 0;
+        font-size: 0.94rem;
+        color: #254a3e;
+      }
+      .aside-note b {
+        color: var(--jade);
+      }
+
+      /* =========================================================================
+   Table manners
+   ========================================================================= */
+      .manners {
+        background: var(--red-900);
+        border-bottom: 1px solid rgba(227, 169, 74, 0.2);
+      }
+      .manners__head {
+        max-width: 40rem;
+        margin-bottom: clamp(2.4rem, 5vw, 3.6rem);
+      }
+      .manners h2 {
+        font-family: var(--font-display);
+        font-size: var(--t-h2);
+        font-weight: 900;
+        text-transform: uppercase;
+        color: var(--cream);
+        margin-bottom: 0.3em;
+      }
+      .manners__list {
+        list-style: none;
+        display: grid;
+        gap: 1px;
+        background: rgba(227, 169, 74, 0.22);
+        border: 1px solid rgba(227, 169, 74, 0.22);
+        border-radius: var(--radius);
+        overflow: hidden;
+      }
+      @media (min-width: 700px) {
+        .manners__list {
+          grid-template-columns: 1fr 1fr;
+        }
+      }
+      @media (min-width: 1080px) {
+        .manners__list {
+          grid-template-columns: repeat(3, 1fr);
+        }
+      }
+      .manners__list li {
+        background: var(--red-800);
+        padding: clamp(1.5rem, 3vw, 2.1rem);
+        transition: background-color 0.25s var(--ease);
+      }
+      .manners__list li:hover {
+        background: var(--red-700);
+      }
+      .manners__list h3 {
+        font-family: var(--font-display);
+        font-size: 1.34rem;
+        font-weight: 800;
+        text-transform: uppercase;
+        color: var(--gold-300);
+        margin-bottom: 0.35rem;
+      }
+      .manners__list .gloss {
+        display: block;
+        font-size: 0.82rem;
+        font-style: italic;
+        color: var(--cream-faint);
+        margin-bottom: 0.9rem;
+      }
+      .manners__list p {
+        font-size: 0.95rem;
+        color: var(--cream-dim);
+        line-height: 1.68;
+      }
+
+      /* =========================================================================
+   Closer
+   ========================================================================= */
+      .closer {
+        text-align: center;
+        position: relative;
+        overflow: clip;
+        background: radial-gradient(70% 90% at 50% 40%, var(--red-600), var(--red-900) 72%);
+      }
+      .closer__drum {
+        position: absolute;
+        z-index: 0;
+        left: 50%;
+        top: 50%;
+        translate: -50% -50%;
+        inline-size: min(880px, 120%);
+        aspect-ratio: 1;
+        background: url("../the-family-rice-tray.vercel.app/img/trong-dong.png") center/contain no-repeat;
+        mix-blend-mode: screen;
+        opacity: 0.16;
+        animation: spin 68s linear infinite reverse;
+      }
+      /* The drum comes into focus as the closer is scrolled into view: oversized,
+   blurred and almost invisible at first, then sharpening and settling into its
+   resting weight — the shape you half-see on a bronze face before your eye
+   resolves it. Driven by scroll position, not by time, so it tracks the reader.
+
+   The first attempt put a separate glowing sun behind the greeting. Measured,
+   the backdrop under the heading came out at 1.0:1 — gold rays behind gold
+   display type, i.e. the two were literally the same colour. The drum was
+   already the right host: it spans the section, it is held at .16 opacity, and
+   a bloom that peaks at .34 while still blurred adds the flare without ever
+   putting a hard edge behind a letter.
+
+   `animation-timeline: view()` needs no JavaScript and no scroll listener. Two
+   animations run on the element, so the timelines are given as a matching list:
+   the spin keeps its default document timeline, the bloom takes the view one.
+   Browsers without support never start it and keep the resting state — the
+   effect is a flourish, the drum is content. */
+      @supports (animation-timeline: view()) {
+        @media (prefers-reduced-motion: no-preference) {
+          /* The timeline is declared on the section and referenced by name from the
+       drum. A bare `view()` would measure the drum's own visibility — and the
+       drum is a 880px disc parked in the middle of a tall section, so it only
+       "enters" long after the section does. Measured, it never got past 3% of
+       the animation. Naming the section as the source makes the bloom track
+       what the reader actually sees arriving. */
+          .closer {
+            view-timeline: --closer-view block;
+          }
+          .closer__drum {
+            animation:
+              spin 68s linear infinite reverse,
+              drum-focus linear both;
+            animation-timeline: auto, --closer-view;
+            animation-range:
+              normal,
+              entry 20% contain 34%;
+            will-change: transform, filter, opacity;
+          }
+        }
+      }
+      @keyframes drum-focus {
+        from {
+          scale: 1.7;
+          opacity: 0.03;
+          filter: blur(26px);
+        }
+        60% {
+          scale: 1.22;
+          opacity: 0.34;
+          filter: blur(8px);
+        }
+        to {
+          scale: 1;
+          opacity: 0.16;
+          filter: blur(0);
+        }
+      }
+
+      .closer .shell {
+        position: relative;
+        z-index: 1;
+      }
+      .closer h2 {
+        font-family: var(--font-display);
+        font-size: clamp(3rem, 10vw, 7.5rem);
+        font-weight: 900;
+        text-transform: uppercase;
+        color: var(--gold-300);
+        line-height: 0.9;
+        margin-bottom: 0.4em;
+      }
+      .closer__body {
+        max-width: 38rem;
+        margin-inline: auto;
+      }
+      .closer__body p {
+        margin-bottom: 1.25em;
+      }
+      .closer__punch {
+        font-size: var(--t-lede);
+        color: var(--cream);
+        font-weight: 400;
+        font-style: italic;
+      }
+      .closer .rule {
+        margin-block: clamp(2rem, 5vw, 3rem);
+      }
+      /* The last image on the page: the family the whole thing is actually about.
+   A sibling of .shell, not a child — .shell carries z-index, which would form
+   a stacking context and isolate this element's mix-blend-mode, painting its
+   black field as a solid rectangle. */
+      .closer__family {
+        position: relative;
+        z-index: 1;
+        display: block;
+        inline-size: min(1040px, 100%);
+        margin: clamp(2.2rem, 5vw, 3.8rem) auto 0;
+        mix-blend-mode: screen;
+        opacity: 0.92;
+      }
+
+      /* =========================================================================
+   Footer
+   ========================================================================= */
+      .footer {
+        background: var(--red-900);
+        padding-top: 0;
+      }
+      .frieze {
+        block-size: clamp(58px, 9vw, 104px);
+        background: url("../the-family-rice-tray.vercel.app/img/frieze.png") center/auto 100% repeat-x;
+        mix-blend-mode: screen;
+        opacity: 0.6;
+      }
+      .footer__inner {
+        width: var(--shell);
+        margin-inline: auto;
+        padding-block: clamp(2.4rem, 5vw, 3.6rem);
+        display: flex;
+        flex-wrap: wrap;
+        gap: 1.6rem 2.5rem;
+        justify-content: space-between;
+        align-items: flex-start;
+        font-size: 0.86rem;
+        color: var(--cream-faint);
+      }
+      .footer__inner p {
+        margin: 0 0 0.5em;
+        max-width: 34rem;
+      }
+      .footer strong {
+        color: var(--cream-dim);
+        font-weight: 600;
+      }
+      .footer__tag {
+        font-family: var(--font-display);
+        font-size: 1.1rem;
+        font-weight: 800;
+        letter-spacing: 0.06em;
+        text-transform: uppercase;
+        color: var(--gold-400);
+      }
+
+      /* Section-header ornament. Short headings leave a wide gap on desktop, so a
+   gold line motif fills it — mây and chim Lạc by the drum, lúa and sen by the
+   table rules. Decorative only, and only where the gap actually exists. */
+      .head-art {
+        display: none;
+      }
+      @media (min-width: 1080px) {
+        .tray-head {
+          max-width: none;
+          display: grid;
+          align-items: center;
+          grid-template-columns: minmax(0, 44rem) minmax(0, 1fr);
+          gap: clamp(1.5rem, 4vw, 3rem);
+        }
+        .manners__head {
+          max-width: none;
+          display: grid;
+          align-items: center;
+          grid-template-columns: minmax(0, 40rem) minmax(0, 1fr);
+          gap: clamp(1.5rem, 4vw, 3rem);
+        }
+        .head-art {
+          display: block;
+          justify-self: end;
+          inline-size: 100%;
+          max-inline-size: 500px;
+          block-size: auto;
+          mix-blend-mode: screen;
+          opacity: 0.8;
+        }
+      }
+
+      /* Narrow screens: drop the redundant article so all four sections fit without
+   the row clipping its last label. overflow-x on .nav stays as a safety net
+   for larger text settings, but should never be needed at default sizes. */
+      @media (max-width: 600px) {
+        .nav__the {
+          display: none;
+        }
+        .nav {
+          gap: 0.85rem;
+        }
+        .nav a {
+          font-size: 0.84rem;
+          padding-block: 0.7rem;
+        } /* 44px tap target */
+      }
+      @media (max-width: 380px) {
+        .nav {
+          gap: 0.7rem;
+        }
+        .nav a {
+          font-size: 0.8rem;
+        }
+      }
+
+      /* Embedded in a dev.to post on a phone, the frame can be under 340px wide, and
+   at that size every letterspaced label was breaking one word — or one full
+   stop — onto a line of its own. `balance` on the short display strings and
+   `pretty` on the body copy stops the widow; the tracking and step-down below
+   stop the label from needing four lines in the first place. */
+      .kicker,
+      h1,
+      h2,
+      h3,
+      .legend__sub {
+        text-wrap: balance;
+      }
+      p,
+      li,
+      blockquote,
+      figcaption,
+      dd {
+        text-wrap: pretty;
+      }
+      @media (max-width: 430px) {
+        .kicker {
+          letter-spacing: 0.18em;
+          font-size: 0.72rem;
+          gap: 0.6rem;
+        }
+        .kicker::before {
+          inline-size: 1.5rem;
+        }
+        .br-wide {
+          display: none;
+        } /* the space before it carries the join */
+        .tray__label {
+          inset: 21%;
+          padding: 0.4rem;
+        }
+        .tray__label-en {
+          letter-spacing: 0.1em;
+          font-size: 0.66rem;
+          margin-top: 0.45rem;
+        }
+        /* The drum was anchored above the fold's top edge, so on a phone all that
+     showed was a band of ornament floating along the top of the hero with no
+     visible curve. Pulled down and sideways it reads as a disc again. */
+      }
+
+      /* =========================================================================
+   Plaque button — after the Hồn Việt component sheet: a carved sign board with
+   a double rule and a sprig either side of the label. Bamboo in the original;
+   rice here, because rice is what this whole page is about.
+
+   Two elements on purpose. The <a> carries no background and no clip, so the
+   focus ring can sit outside the silhouette (clip-path would cut it off). The
+   inner face carries the background AND the label, so a contrast checker can
+   actually resolve what the text sits on — with the fill on a detached sibling,
+   axe reads the label against the bronze rule and reports a false failure.
+   ========================================================================= */
+      .plaque {
+        --tab: 5px; /* how far the side tabs stick out */
+        --bev: 8px; /* corner bevel */
+        position: relative;
+        display: inline-block;
+        flex: none;
+        color: var(--red-800);
+        text-decoration: none;
+        transition: translate 0.2s var(--ease);
+      }
+      /* Rice and lotus, mirrored either side of the label — the arrangement on the
+   Hồn Việt component sheet, drawn in the same fine line register as the page's
+   other ornaments. 36px is the floor: below ~38px the internal strokes merge
+   and it reads as a smudge. */
+      .plaque__sprig {
+        block-size: 34px;
+        inline-size: auto;
+        flex: none;
+        display: block;
+      }
+      .plaque__sprig--right {
+        scale: -1 1;
+      }
+      .plaque__face {
+        --p: polygon(
+          calc(var(--tab) + var(--bev)) 0,
+          calc(100% - var(--tab) - var(--bev)) 0,
+          calc(100% - var(--tab)) var(--bev),
+          calc(100% - var(--tab)) 34%,
+          100% 42%,
+          100% 58%,
+          calc(100% - var(--tab)) 66%,
+          calc(100% - var(--tab)) calc(100% - var(--bev)),
+          calc(100% - var(--tab) - var(--bev)) 100%,
+          calc(var(--tab) + var(--bev)) 100%,
+          var(--tab) calc(100% - var(--bev)),
+          var(--tab) 66%,
+          0 58%,
+          0 42%,
+          var(--tab) 34%,
+          var(--tab) var(--bev)
+        );
+        display: inline-flex;
+        align-items: center;
+        gap: 0.55rem;
+        padding: 0.4rem calc(0.85rem + var(--tab));
+        font-weight: 600;
+        font-size: 0.85rem;
+        letter-spacing: 0.01em;
+        white-space: nowrap;
+        background: var(--gold-400);
+        clip-path: var(--p);
+        /* the double rule, drawn as stacked inset rings so the clip carves their
+     corners to the silhouette instead of fragmenting a real border */
+        box-shadow:
+          inset 0 0 0 2px #8f5e1c,
+          inset 0 0 0 5px var(--gold-400),
+          inset 0 0 0 6px rgba(94, 7, 18, 0.4);
+        transition:
+          background-color 0.2s var(--ease),
+          box-shadow 0.2s var(--ease);
+      }
+      .plaque:hover {
+        translate: 0 -2px;
+      }
+      .plaque:hover .plaque__face {
+        background: var(--gold-300);
+        box-shadow:
+          inset 0 0 0 2px #8f5e1c,
+          inset 0 0 0 5px var(--gold-300),
+          inset 0 0 0 6px rgba(94, 7, 18, 0.4);
+      }
+      .plaque:active {
+        translate: 0;
+      }
+      .plaque:focus-visible {
+        outline: 3px solid var(--gold-200);
+        outline-offset: 5px;
+        border-radius: 6px;
+      }
+      @media (max-width: 840px) {
+        .masthead .plaque {
+          display: none;
+        }
+      }
+
+      /* The spin controls read as one row — ← hint → — but the hint is a 40-character
+   uppercase string with wide tracking, so on a narrow screen a plain flex row
+   wraps into "← hint" and then a lone "→" a row further down, which is what a
+   viewer sees as broken. Below the width where all three fit, stack instead:
+   the two buttons side by side as a pair, the hint on its own line under them.
+   Placed here, after the base rules, so the cascade order is right. */
+      /* The spin controls read as one row — ← hint → — but the hint is a 40-character
+   uppercase string with wide tracking, so when the row is short of about 480px
+   flex wraps it into "← hint" with a lone "→" stranded on the next line. That
+   happens in two separate places: on a phone, and again on a desktop between
+   960px and 1100px, where the tray moves into the two-column layout and its
+   column is briefly narrower than the phone was. Both ranges get the same
+   treatment — buttons together as a centred pair, hint on its own line under
+   them. `order` is what keeps the pair adjacent: the hint sits between the two
+   buttons in the DOM, so left alone the break lands between them. `flex:0 0
+   100%` rather than `flex-basis` because a shrinkable 100% basis just squeezes
+   back up onto the first line instead of forcing the break — and no `max-width`
+   on the hint for the same reason: a cap under 100% lets the "full line" fit
+   beside a button again, which is exactly the layout being fixed. */
+      @media (max-width: 585px), (min-width: 960px) and (max-width: 1099px) {
+        .tray__hint {
+          flex: 0 0 100%;
+          order: 1;
+        }
+        .tray__controls .spin {
+          order: 0;
+        }
+      }
+
+      /* =========================================================================
+   Motion & no-JS
+   ========================================================================= */
+      @media (prefers-reduced-motion: reduce) {
+        *,
+        *::before,
+        *::after {
+          animation-duration: 0.001ms !important;
+          animation-iteration-count: 1 !important;
+          transition-duration: 0.001ms !important;
+          scroll-behavior: auto !important;
+        }
+      }
+      @media (prefers-reduced-motion: no-preference) {
+        html {
+          scroll-behavior: smooth;
+        }
+        /* sticky header offset for in-page anchors */
+        :target {
+          scroll-margin-top: 5rem;
+        }
+      }
+      :where(h2, h3, section) {
+        scroll-margin-top: 5rem;
+      }
+
+      /* Higher-contrast mode: drop the decorative blends. */
+      @media (prefers-contrast: more) {
+        .hero__drum,
+        .hero__dragon,
+        .legend__dragon,
+        .closer__drum,
+        .tray__engraving {
+          opacity: 0.28;
+        }
+        :root {
+          --cream-faint: rgba(247, 239, 224, 0.92);
+          --cream-dim: #f2e6d2;
+        }
+      }
+    

@@ -1,0 +1,150 @@
+  #stage{position:absolute;inset:0;overflow:hidden}
+  /* pan-y: taps drive the map (dots, legend, journey); vertical touch-drag stays the
+     page's scroll — touch-action:none was a sandbox leftover that locked mobile scrolling. */
+  svg#map{position:absolute;inset:0;width:100%;height:100%;display:block;touch-action:pan-y}
+  .blabel{font-family:"DM Sans",sans-serif;font-weight:500;font-size:13px;letter-spacing:2.8px;
+    fill:#2c3128;opacity:.46;text-transform:uppercase;pointer-events:none}
+  .station circle{fill:#fff;stroke:#40453b;stroke-width:1;pointer-events:none}   /* white station marker */
+  .stlabel{font-family:"DM Sans",sans-serif;font-weight:500;font-size:9.5px;fill:#33382e;pointer-events:none}
+  /* pulsing halo — any POI / station / busstop marker with .hi gets a big soft ping */
+  .marker-halo{transform-box:fill-box;transform-origin:center;opacity:0;pointer-events:none}
+  .hi > .marker-halo{animation:marker-halo 1.4s ease-out infinite}
+  /* Desktop hover — POI / station / busstop dots ping their halo when the pointer is over them.
+     Guarded by hover:hover so touch devices don't strand a halo on tap. */
+  @media(hover:hover){
+    #stations .station:hover > .marker-halo,
+    #busstops .busstop:hover > .marker-halo{animation:marker-halo 1.4s ease-out infinite}
+  }
+  @keyframes marker-halo{from{transform:scale(1);opacity:.7}to{transform:scale(6);opacity:0}}
+  /* filter: fade non-matching markers when a category is previewed (hover) or locked (click) */
+  .poi,.station,.busstop{transition:opacity .7s ease}
+  #map[data-filter] .poi,#map[data-filter] .station,#map[data-filter] .busstop{opacity:0}
+  #map[data-filter="cafes"] [data-cat="cafes"],
+  #map[data-filter="retail"] [data-cat="retail"],
+  #map[data-filter="recreation"] [data-cat="recreation"],
+  #map[data-filter="schools"] [data-cat="schools"],
+  #map[data-filter="train"] [data-cat="train"],
+  #map[data-filter="bus"] [data-cat="bus"]{opacity:1}
+  .sublabel{font-family:"DM Sans",sans-serif;font-weight:600;font-size:11px;letter-spacing:1.8px;
+    fill:#66230f;text-transform:uppercase;pointer-events:none;text-anchor:middle}
+  .lmlabel{font-family:"DM Sans",sans-serif;font-weight:500;font-size:6.5px;letter-spacing:.4px;
+    fill:#66230f;pointer-events:none;text-anchor:middle}
+  .rlabel{font-family:"DM Sans",sans-serif;font-style:italic;font-weight:400;font-size:5.5px;
+    fill:#4a4f43;opacity:.75;letter-spacing:.3px;pointer-events:none;text-anchor:middle;dominant-baseline:central}
+  svg#map text{user-select:none;-webkit-user-select:none}   /* no text caret / selection on click */
+  .num{font-family:"Cormorant Garamond",serif;font-weight:500;font-size:12px;fill:#fff;
+    text-anchor:middle;pointer-events:none}
+  .dot{cursor:pointer}
+  /* Fixed hit target (see buildDots): the animated core/halo never receive the pointer,
+     so the hover rim can't move under the cursor. */
+  .dot .hit{fill:transparent;stroke:none;pointer-events:all}
+  .dot .halo,.dot .pulse,.dot .core,.dot .num{pointer-events:none}
+  /* ── Ambient pulse ── with no legend, the dots themselves carry the invitation: the dot
+     breathes (.pulse wrapper), and its contraction releases the halo — one clock per dot,
+     phase-set per dot by applyPulse (map.js), all five knobs on ?tune via the vars below. */
+  .dot .pulse{transform-box:fill-box;transform-origin:center;
+    animation:dot-breath var(--pulse-period,2.6s) ease-in-out infinite}
+  @keyframes dot-breath{0%,100%{transform:scale(1)}50%{transform:scale(var(--breath-scale,1.06))}}
+  .dot .ping{transform-box:fill-box;transform-origin:center;pointer-events:none;
+    animation:ping-send var(--pulse-period,2.6s) ease-out infinite}
+  @keyframes ping-send{0%{transform:scale(1);opacity:var(--ping-op,.35)}70%,100%{transform:scale(var(--ping-scale,2.4));opacity:0}}
+  /* Hover feedback lives on its OWN element (the core swells via a transition) — never on
+     the ping: swapping a running animation restarts it, which reads as a stutter. The
+     ambient breath and its ping continue through hover untouched. */
+  .dot .core{transform-box:fill-box;transform-origin:center;transition:transform .4s cubic-bezier(.3,1.4,.4,1)}
+  @media(hover:hover){ #dots:not(.diving) .dot:hover .core{transform:scale(1.14)} }
+  .dot .halo{opacity:1;transition:opacity .45s}        /* amenity halos are always visible; ping child animates. Explicit so a stray .halo{opacity:0} can't silently hide them */
+  #dots.diving .halo{opacity:0}                        /* fade halos out while inside a dot */
+  /* The pulse is NEVER stopped by class — killing the animation snaps the dot to scale 1,
+     and re-attaching it resets its clock (the mid-dive jump). Instead render() grades
+     --breath-scale by altitude every frame: amplitude melts to 1 before the photo band
+     opens (clay-ring safe) and grows back on the pull-out, phase intact, ping locked. The
+     ping keeps running too — it's invisible under the halo fade, and #map.occluded stops
+     all painting at depth. */
+  @media(prefers-reduced-motion:reduce){ .ping,.dot .pulse{animation:none} .ping{opacity:0} }
+  /* Gecko: the fill-box transform transition jerks (compositor vs main-thread origin
+     mismatch), so Firefox swells the core by animating the geometry property r instead —
+     same .4s bounce bezier (its overshoot supplies the designed bounce), no transform. */
+  @supports (-moz-appearance:none){
+    .dot .core{transition:r .4s cubic-bezier(.3,1.4,.4,1);r:10px}
+    @media(hover:hover){ #dots:not(.diving) .dot:hover .core{transform:none;r:11.4px} }
+  }
+
+  /* ---- amenity content panels (the destination surface) ---- */
+  /* #content gets its OWN compositor layer (translateZ) — the copy must never share a paint
+     domain with #photo-layer, whose clip redraws every frame of a dive: sharing one meant
+     every aperture frame re-painted the full-screen serif type (the dive flicker). */
+  #content{position:absolute;inset:0;z-index:5;pointer-events:none;transform:translateZ(0)}
+  .panel{position:absolute;inset:0;display:flex;align-items:flex-end;opacity:0;overflow:hidden;
+    padding:0 8vw 16vh;color:#fff;will-change:opacity}
+  .panel-in{position:relative;max-width:640px}
+  /* the site's lockup convention: hairline UNDER the eyebrow, breaking it from the headline */
+  .panel .eyebrow{display:inline-block;text-transform:uppercase;letter-spacing:.28em;font-size:11px;
+    font-weight:600;color:rgba(255,255,255,.72);margin:0 0 26px;padding:0 0 14px;
+    border-bottom:1px solid rgba(255,255,255,.34)}
+  .panel h2{font-family:"Cormorant Garamond",serif;font-weight:400;font-size:clamp(52px,8vw,120px);
+    line-height:.9;letter-spacing:-.02em;margin:0 0 22px;text-wrap:balance}
+  .panel p{font-size:clamp(15px,1.3vw,19px);line-height:1.6;max-width:46ch;
+    color:rgba(255,255,255,.9);font-weight:300;margin:0 0 40px}
+  .panel .back{display:inline-flex;align-items:center;gap:10px;font-size:11px;letter-spacing:.18em;
+    text-transform:uppercase;color:rgba(255,255,255,.6)}
+  .panel .back::before{content:"";width:26px;height:1px;background:rgba(255,255,255,.5)}
+
+
+  /* ── Category filter chips in the nav bar ── the whole browse experience lives here.
+     Toggle a chip → the map filters to that category (existing setFilter mechanism). No
+     persistent overlay needed; the map itself is the browse surface. */
+
+  @media(max-width:800px){ .panel{padding:0 26px 14vh} }
+
+
+  /* ── Journey link ── the chapter's one navigation verb. An editorial text link in the
+     site's voice (small caps, hairline underline), not a pill. Label swaps by chapter mode. */
+  /* Icon control: bottom-left, expand (precinct) / contract (neighbourhood) — label swaps by mode.
+     Text moved to sr-only; title gives a desktop tooltip. */
+  #map-nav{position:absolute;left:26px;bottom:52px;z-index:10;transition:opacity .5s}
+  /* Desktop only — icon sits over the map's lower-left (per Jeff's box); mobile stays at 26px. */
+  @media(min-width:801px){ #map-nav{left:42vw} }
+  #map-nav .map-journey{border:0;background:none;padding:9px;cursor:pointer;display:block;color:#2c3128;transition:color .25s}
+  #map-nav .map-journey:hover{color:#8d4f36}
+  #map-nav .mj-icon{display:block;width:26px;height:26px}
+  #map-nav .mj-icon .mj-tr,#map-nav .mj-icon .mj-bl{transition:transform .3s cubic-bezier(.4,0,.2,1)}
+  #map-nav .j-out{display:block}
+  #map-nav .j-back{display:none}
+  .map-chapter[data-mode="neighbourhood"] #map-nav .j-out{display:none}
+  .map-chapter[data-mode="neighbourhood"] #map-nav .j-back{display:block}
+  /* Hover animation — the corner arrows spread outward (expand) / pull inward (contract). */
+  @media(hover:hover){
+    #map-nav .map-journey:hover .j-out .mj-tr{transform:translate(1.6px,-1.6px)}
+    #map-nav .map-journey:hover .j-out .mj-bl{transform:translate(-1.6px,1.6px)}
+    #map-nav .map-journey:hover .j-back .mj-tr{transform:translate(-1.6px,1.6px)}
+    #map-nav .map-journey:hover .j-back .mj-bl{transform:translate(1.6px,-1.6px)}
+  }
+  .map-chapter .sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap;border:0}
+
+  /* ── Amenity labels ── set in the map's own label grammar (DM Sans caps, like the street
+     and station names). They live inside each dot's reveal wrapper, so they fly in with the
+     dots, ride the camera, and vanish with the halos during a dive. */
+  .num{opacity:var(--num-op,1)}   /* camera-driven ghosting, set per frame by render() */
+  /* ── The lens ── the open amenity's photograph lives in screen space (#photo-layer,
+     between the map and the copy): a full-bleed cover image that never transforms, revealed
+     through a circular clip that render() seats on the dot every frame. The ink scrim rises
+     from the bottom-left, where the panel copy sits. The numeral crossfades against the
+     photo's altitude ramp — both directions tied to the camera, never to the click. */
+  #photo-layer{position:absolute;inset:0;z-index:4;pointer-events:none;opacity:0;
+    clip-path:circle(0px at 50% 50%);will-change:clip-path,opacity;background:#7a3b26}
+  #photo-layer img{width:100%;height:100%;object-fit:cover;display:block}
+  /* The ink scrim is the photograph's grade — it rides the layer, arriving and dissolving
+     WITH the image (or the clay ground on photo-less dives) on the altitude ramp. */
+  #photo-layer::after{content:"";position:absolute;inset:0;
+    background:linear-gradient(52deg, rgba(20,22,18,.82) 0%, rgba(20,22,18,.5) 30%, rgba(20,22,18,0) 60%)}
+  /* Occlusion: while the active dot covers the viewport (render toggles .occluded), the
+     vector map contributes no visible pixels — hide the SVG entirely so the panel
+     performance can never force deep-zoom vector repaints beneath the copy. */
+  #map.occluded{visibility:hidden}
+
+
+
+
+  #roads,#suburbs{transition:opacity .45s ease}
+

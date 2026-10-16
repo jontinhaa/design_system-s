@@ -1,0 +1,208 @@
+
+  html {
+    font-size: 0.57870370373vw;
+    height: -webkit-fill-available;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    scrollbar-width: none;
+	overscroll-behavior: none;
+  }
+
+  @media only screen and (max-width: 991px) {
+    html {
+      font-size: 1.0090817356vw;
+    }
+  }
+  @media only screen and (max-width: 767px) {
+    html {
+      font-size: 2.5445292621vw;
+    }
+  }
+  /*  @media only screen and (min-width: 1660px) {
+    html {
+      font-size: 11.5277777778px;
+    }
+  }
+  @media only screen and (max-width: 1279px) {
+    html {
+      font-size: 0.7036747459vw;
+    }
+  } */
+  body,
+  .body {
+    position: relative;
+  }
+  main,
+  .main {
+    flex-grow: 1;
+  }
+  .w-container:before,
+  .w-container:after,
+  .w-embed:before,
+  .w-embed:after,
+  .w-richtext:before,
+  .w-richtext:after {
+    display: none;
+  }
+  .w-richtext button {
+    position: relative;
+    overflow: hidden;
+    display: inline-block;
+    vertical-align: bottom;
+    color: var(--decor--primary);
+  }
+  .w-richtext > *:first-child {
+    margin-top: 0 !important;
+  }
+  .w-richtext > *:last-child {
+    margin-bottom: 0 !important;
+  }
+  .w-richtext li:has(strong)::marker {
+    font-weight: bold;
+  }
+  .w-richtext ol:has(ul, ol) > li > *:not(ul, ol) {
+    font-size: 1.8rem;
+  }
+  .w-richtext li:last-child {
+    margin-bottom: 0;
+  }
+  .w--current {
+    pointer-events: none;
+  }
+  .w-input,
+  .w-select {
+    height: auto;
+    padding: 1rem 1.4rem;
+    background-color: transparent;
+  }
+  .w-radio-input {
+    accent-color: var(--decor--primary);
+  }
+  .w-richtext figure {
+    width: 100% !important;
+    max-width: 100% !important;
+    display: block;
+  }
+  .w-richtext figure > div {
+    border-radius: 0.2rem;
+    overflow: hidden;
+    width: 100%;
+  }
+  .w-richtext figure img {
+    width: 100% !important;
+    max-width: 100%;
+    object-fit: cover;
+    height: auto;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -o-user-select: none;
+    user-select: none;
+    pointer-events: none;
+    display: block;
+    outline: 0;
+  }
+  .custom-scroll {
+    overflow-y: overlay;
+    scrollbar-gutter: stable;
+  }
+  html::-webkit-scrollbar,
+  html::-webkit-scrollbar-track {
+    width: 0.8rem;
+  }
+  .custom-scroll::-webkit-scrollbar,
+  .custom-scroll::-webkit-scrollbar-track {
+    width: 0.6rem;
+  }
+  html::-webkit-scrollbar-track,
+  .custom-scroll::-webkit-scrollbar-track {
+    border: solid 0.2rem transparent;
+  }
+  html::-webkit-scrollbar-thumb,
+  .custom-scroll::-webkit-scrollbar-thumb {
+    box-shadow: inset 0 0 1rem 1rem var(--_color---m-black);
+    transition: all 0.4s;
+    border: solid 0.2rem transparent;
+  }
+  html::-webkit-scrollbar-thumb:hover,
+  .custom-scroll::-webkit-scrollbar-thumb:hover {
+    box-shadow: inset 0 0 1rem 1rem var(--_color---m-black);
+  }
+  html::-webkit-scrollbar-corner,
+  .custom-scroll::-webkit-scrollbar-corner {
+    background-color: transparent;
+  }
+  /* @media only screen and (max-width: 767px) {
+    html,
+    body {
+      width: 100%;
+      height: 100%;
+      margin: 0;
+      padding: 0;
+      overflow: hidden;
+    }
+    body,
+    .body {
+      overscroll-behavior-y: none;
+      overscroll-behavior-x: none;
+      position: fixed;
+    }
+    .body-inner {
+      overscroll-behavior: none;
+      position: absolute;
+      top: 0;
+      left: 0;
+      overflow-y: scroll;
+      overflow-x: hidden;
+    }
+  } */
+  button {
+    background-color: initial;
+    color: currentColor;
+    padding: 0;
+  }
+  button > *:not(.hover-un) {
+    pointer-events: none;
+  }
+  a {
+    text-decoration: none;
+    color: currentColor;
+    outline: 0;
+    cursor: pointer;
+  }
+  textarea {
+    resize: vertical;
+  }
+  .input-default {
+    border: none;
+    padding: 0;
+    margin: 0;
+    background-color: transparent;
+  }
+  .swiper,
+  .swiper-wrapper {
+    width: 100%;
+  }
+  .swiper-pagination {
+    position: relative;
+    bottom: 0;
+  }
+  :root {
+    --swiper-pagination-bullet-size: 0.6rem;
+    --swiper-pagination-bullet-horizontal-gap: 0.2rem;
+    --swiper-theme-color: var(--decor--primary);
+    --swiper-pagination-bullet-inactive-opacity: 0.1;
+  }
+  [data-pagination-mode='dark'] {
+    --swiper-pagination-bullet-inactive-color: #fff;
+  }
+  .hidden {
+    display: none !important;
+  }
+  .h-max {
+    height: max-content;
+  }
+  .w-max {
+    width: max-content;
+  }
+ 

@@ -1,0 +1,47 @@
+
+  html {
+    -webkit-tap-highlight-color: transparent;
+  }
+  .debug-grid,
+  .container-column {
+    display: none;
+  }
+  [data-init-hidden],
+  [data-init-loader] {
+    opacity: 0;
+  }
+  .article-layout[data-init-hidden] {
+    display: none;
+  }
+  .loader {
+    opacity: 1;
+  }
+  .footer-logo-placeholder {
+    opacity: 0;
+  }
+  @media only screen and (max-width: 991px) {
+    .footer-logo-placeholder {
+      opacity: 1;
+    }
+  }
+  @media only screen and (min-width: 768px) {
+    body.body {
+      overflow: hidden;
+      position: fixed;
+      max-height: 100vh;
+      inset: 0;
+    }
+  }
+  @media only screen and (max-width: 767px) {
+    .home-hero-stick {
+      overflow-x: visible;
+    }
+    .header-menu {
+      overflow: visible;
+    }
+    .body-inner {
+      overscroll-behavior: none;
+      overflow-y: scroll;
+      overflow-x: hidden;
+    }
+  }

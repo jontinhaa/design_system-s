@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en" class="lenis"><head><meta charset="utf-8">
+<!-- Website Downloader 3.0: este arquivo é o retrato estático do site (DOM renderizado). Aberto via servidor
+     local (serve.py, ver Como rodar.md), o bootstrap abaixo carrega o site vivo; via file://, mostra este retrato. -->
+<meta name="referrer" content="no-referrer">
+<script data-wd3>window.__WD3__ = {"entryUrl": "https://asagiri-38matcha.aura.build/", "replayHost": "asagiri-38matcha.aura.build.localhost", "entryPath": "/", "captureId": "asagiri-38matcha.aura.build-1abdf055", "capturedAt": "2026-09-28T19:19:34+00:00", "snapshot": true, "fileFonts": "site/_runtime/file-fonts.css"};</script>
+<script data-wd3>/* Website Downloader 3.0 — bootstrap do index.html.
+ * file://  → fica no retrato estático (e carrega as fontes embutidas, que o Chrome bloqueia em file://).
+ * http(s)  → para de carregar o retrato, registra o Service Worker de replay e abre o site vivo.
+ */
+(function () {
+  var cfg = window.__WD3__ || {};
+  var root = document.documentElement;
+  if (location.protocol === 'file:') {
+    root.setAttribute('data-wd3', 'file');
+    if (cfg.fileFonts) {
+      var link = document.createElement('link');
+      link.rel = 'stylesheet';
+      link.href = cfg.fileFonts;
+      (document.head || root).appendChild(link);
+    }
+    return;
+  }
+  root.setAttribute('data-wd3', 'loading');
+  if (cfg.snapshot) {
+    try { window.stop(); } catch (e) { /* o retrato não precisa carregar: o site vivo vem do SW */ }
+  }
+
+  function fail(msg) {
+    root.setAttribute('data-wd3', 'error');
+    var el = document.getElementById('wd3-error');
+    if (!el) {
+      var body = document.body || root.appendChild(document.createElement('body'));
+      body.innerHTML = '<p style="font:15px system-ui,sans-serif;padding:24px;color:#e8e8e8;background:#050505;margin:0">' +
+        'Não foi possível iniciar o replay: <span id="wd3-error"></span></p>';
+      el = document.getElementById('wd3-error');
+    }
+    el.textContent = msg;
+  }
+  if (!('serviceWorker' in navigator)) return fail('este navegador não suporta Service Workers.');
+
+  function go() { location.replace(cfg.entryPath); }
+  function start() {
+    navigator.serviceWorker.register('/site/_wd3/sw.js', { scope: '/' })
+      .then(function () { return navigator.serviceWorker.ready; })
+      .then(function () {
+        if (navigator.serviceWorker.controller) return go();
+        navigator.serviceWorker.addEventListener('controllerchange', go);
+      })
+      .catch(function (err) { fail(String(err && err.message || err)); });
+  }
+  // Aberto em localhost puro: tenta <domínio>.localhost (mesmo servidor), para sites que checam location.hostname.
+  var plain = location.hostname === 'localhost' || location.hostname === '127.0.0.1';
+  if (!plain || !cfg.replayHost || cfg.replayHost === 'localhost') return start();
+  var target = location.protocol + '//' + cfg.replayHost + (location.port ? ':' + location.port : '');
+  var decided = false;
+  function decide(fn) { if (!decided) { decided = true; fn(); } }
+  setTimeout(function () { decide(start); }, 1500);
+  fetch(target + '/site/_wd3/site-index.json', { mode: 'no-cors', cache: 'no-store' })
+    .then(function () { decide(function () { location.replace(target + cfg.entryPath); }); })
+    .catch(function () { decide(start); });
+})();
+</script>
+<style data-wd3>
+  [data-wd3-banner] { display: none; }
+  html[data-wd3="file"] [data-wd3-banner] { display: flex; }
+  html[data-wd3-unlock], html[data-wd3-unlock] body { overflow-y: auto !important; }
+</style>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>ASAGIRI 朝霧 · Ceremonial matcha, stone-ground</title>
+<meta name="description" content="ASAGIRI · first-flush, shade-grown, stone-ground ceremonial matcha. We don't sell caffeine. We sell ninety seconds of quiet.">
+
+
+<link href="site/fonts.googleapis.com/css2__q8a48ba46.css" rel="stylesheet">
+
+
+
+<link rel="stylesheet" href="site/_runtime/style-0.css" data-wd3-runtime-style="">
+
+<link rel="stylesheet" href="site/_runtime/style-1.css" data-wd3-runtime-style=""></head>
+<body style="">
+  <div class="page-bg" aria-hidden="true"><div class="pi" style="translate: none; rotate: none; scale: none; transform: translate(0px, 0px);"></div></div>
+
+  <!-- loader -->
+  <div class="loader done" id="loader"><div class="lw">
+    <div class="mk serif">ASAGIRI</div>
+    <span class="jp">朝霧</span>
+    <div class="lbar"><i id="lbar" style="width: 100%;"></i></div>
+    <div class="lsub" id="lsub">steeping · 100%</div>
+  </div></div>
+
+  <!-- nav -->
+  <nav id="nav">
+    <div class="brand serif">ASA<b>GIRI</b></div>
+    <div class="nlinks">
+      <a href="#origin">Origin</a>
+      <a href="#craft">Craft</a>
+      <a href="#ritual">Ritual</a>
+      <a href="#shop">Shop</a>
+      <a href="#shop" class="nbtn">Begin ritual</a>
+    </div>
+  </nav>
+
+  <!-- hero -->
+  <header class="hero" id="top">
+    <div class="bg"><img src="site/cdn.jsdelivr.net/gh/VanhDc/aura-assets%40matcha-v4/asagiri/img/hero.jpg" alt="A bowl of freshly whisked ceremonial matcha with a bamboo whisk" style="translate: none; rotate: none; scale: none; transform: translate(0px, 0px);"></div>
+    <canvas id="steam" width="300" height="150"></canvas>
+    <div class="vjp" style="translate: none; rotate: none; scale: none; transform: translate(0px, 0px); opacity: 1;">朝霧 · 一服</div>
+    <div class="inner">
+      <h1 class="serif"><span class="hl" style="translate: none; rotate: none; scale: none; opacity: 1; transform: translate(0px, 0px);">Stone-ground</span><span class="hl" style="translate: none; rotate: none; scale: none; opacity: 1; transform: translate(0px, 0px);"><em>stillness.</em></span></h1>
+      <p class="sub" style="translate: none; rotate: none; scale: none; opacity: 1; transform: translate(0px, 0px);">First-flush, shade-grown, stone-ground ceremonial matcha. We don't sell caffeine. We sell ninety seconds of quiet.</p>
+      <div class="cta">
+        <a href="#shop" class="btn solid" style="translate: none; rotate: none; scale: none; opacity: 0; transform: translate(0px, 18px);">Begin your ritual</a>
+        <a href="#origin" class="btn ghost" style="translate: none; rotate: none; scale: none; opacity: 0; transform: translate(0px, 18px);">Our origin</a>
+      </div>
+    </div>
+    <div class="scrolln" style="translate: none; rotate: none; scale: none; transform: translate(0px, 0px); opacity: 1;"><span class="ln"></span> Scroll to steep</div>
+  </header>
+
+  <!-- manifesto -->
+  <section class="manifesto wrap">
+    <span class="eyebrow c" data-rv="" style="translate: none; rotate: none; scale: none; transform: translate(0px, 52px); opacity: 0;">Ceremonial matcha · est. Wazuka</span>
+    <p class="big serif" data-rv="" style="translate: none; rotate: none; scale: none; transform: translate(0px, 52px); opacity: 0;">We don't sell caffeine.<br>We sell <em>ninety seconds of quiet.</em></p>
+    <p class="lead" data-rv="" style="translate: none; rotate: none; scale: none; transform: translate(0px, 52px); opacity: 0;">A bowl of ASAGIRI is a small, deliberate pause, leaf grown slow in the shade, ground slower on stone, whisked into a moment that belongs only to you.</p>
+  </section>
+
+  <!-- origin / terroir -->
+  <section class="wrap" id="origin">
+    <div class="split">
+      <div class="media" data-rv="" style="translate: none; rotate: none; scale: none; transform: translate(0px, 52px); opacity: 0;"><img src="site/cdn.jsdelivr.net/gh/VanhDc/aura-assets%40matcha-v4/asagiri/img/terroir.jpg" alt="Misty terraced tea fields at dawn in Wazuka, Kyoto"><span class="cap">Wazuka · Kyoto · first flush</span></div>
+      <div class="copy">
+        <span class="eyebrow" data-rv="" style="translate: none; rotate: none; scale: none; transform: translate(0px, 52px); opacity: 0;">01 · Origin</span>
+        <h2 class="serif" data-rv="" style="translate: none; rotate: none; scale: none; transform: translate(0px, 52px); opacity: 0;">Grown in the <em>shade</em>,<br>gathered in the mist.</h2>
+        <p data-rv="" style="translate: none; rotate: none; scale: none; transform: translate(0px, 52px); opacity: 0;">For the last twenty-one days before harvest, our tea is hidden from the sun. Starved of light, the leaf floods itself with chlorophyll and L-theanine, the source of matcha's deep jade colour and its calm, even lift.</p>
+        <p data-rv="" style="translate: none; rotate: none; scale: none; transform: translate(0px, 52px); opacity: 0;">We take only the first flush: the youngest, softest leaves of spring, hand-gathered from terraced hills above Wazuka.</p>
+        <div class="meta" data-rv="" style="translate: none; rotate: none; scale: none; transform: translate(0px, 52px); opacity: 0;">
+          <div><div class="k serif">21</div><div class="l">days in shade</div></div>
+          <div><div class="k serif">1st</div><div class="l">flush only</div></div>
+          <div><div class="k serif">Uji</div><div class="l">Kyoto region</div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- craft / stone-ground -->
+  <section class="wrap craft" id="craft">
+    <div class="split rev">
+      <div class="media" data-rv="" style="translate: none; rotate: none; scale: none; transform: translate(0px, 52px); opacity: 0;"><img src="site/cdn.jsdelivr.net/gh/VanhDc/aura-assets%40matcha-v4/asagiri/img/mill.jpg" alt="A granite stone mill grinding bright jade matcha powder"><span class="cap">Granite mill · 30g per hour</span></div>
+      <div class="copy">
+        <span class="eyebrow" data-rv="" style="translate: none; rotate: none; scale: none; transform: translate(0px, 52px); opacity: 0;">02 · Craft</span>
+        <h2 class="serif" data-rv="" style="translate: none; rotate: none; scale: none; transform: translate(0px, 52px); opacity: 0;">Thirty grams an hour.<br>We don't <em>rush stone.</em></h2>
+        <p data-rv="" style="translate: none; rotate: none; scale: none; transform: translate(0px, 52px); opacity: 0;">Each leaf is de-veined, de-stemmed and slow-dried into tencha, then ground between two granite wheels turning barely faster than a clock's hand. Push the stone and you scorch the powder; we let it take its time.</p>
+        <p data-rv="" style="translate: none; rotate: none; scale: none; transform: translate(0px, 52px); opacity: 0;">What falls is impossibly fine: a powder you feel rather than see, vivid and weightless.</p>
+        <div class="microsteps" data-rv="" style="translate: none; rotate: none; scale: none; transform: translate(0px, 52px); opacity: 0;">
+          <div><div class="n jp">一 · shade</div><div class="t">21 days under cover</div></div>
+          <div><div class="n jp">二 · steam</div><div class="t">fixed within hours</div></div>
+          <div><div class="n jp">三 · stone</div><div class="t">ground cool &amp; slow</div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ritual (pinned horizontal scrub) -->
+  <div class="pin-spacer" style="order: 0; place-self: auto; grid-area: auto; z-index: auto; float: none; flex-shrink: 1; display: flex; margin: 0px; inset: 0px; position: relative; flex-basis: auto; overflow: visible; box-sizing: border-box; width: 1440px; height: 1961px; padding: 0px 0px 1061px;"><section class="ritual" id="ritual" style="translate: none; rotate: none; scale: none; inset: 0px auto auto 0px; margin: 0px; max-width: 1440px; width: 1440px; max-height: 900px; height: 900px; padding: 0px; transform: translate(0px, 0px);">
+    <div class="head">
+      <span class="eyebrow">03 · The ritual</span>
+      <h2 class="serif">Four movements, ninety seconds.</h2>
+    </div>
+    <div class="track-wrap" id="trackWrap">
+      <div class="track" id="track" style="translate: none; rotate: none; scale: none; transform: translate(0px, 0px);">
+        <div class="step intro">
+          <div class="big serif">A bowl is not<br>made fast.<br><em>That's the point.</em></div>
+        </div>
+        <div class="step"><img src="site/cdn.jsdelivr.net/gh/VanhDc/aura-assets%40matcha-v4/asagiri/img/sift.jpg" alt=""><div class="lab"><span class="s jp">一 · sift</span><h3 class="serif">Sift the powder</h3><p>Press through a fine mesh so it dissolves without a single clump.</p></div></div>
+        <div class="step"><img src="site/cdn.jsdelivr.net/gh/VanhDc/aura-assets%40matcha-v4/asagiri/img/pour.jpg" alt=""><div class="lab"><span class="s jp">二 · pour</span><h3 class="serif">Pour at seventy</h3><p>Water just off the boil, 70°C, poured down the side of the bowl.</p></div></div>
+        <div class="step"><img src="site/cdn.jsdelivr.net/gh/VanhDc/aura-assets%40matcha-v4/asagiri/img/froth.jpg" alt=""><div class="lab"><span class="s jp">三 · whisk</span><h3 class="serif">Whisk in a W</h3><p>Quick wrist, never circular, until a fine jade froth rises and holds.</p></div></div>
+        <div class="step"><img src="site/cdn.jsdelivr.net/gh/VanhDc/aura-assets%40matcha-v4/asagiri/img/hands.jpg" alt=""><div class="lab"><span class="s jp">四 · drink</span><h3 class="serif">Drink it warm</h3><p>Two hands around the bowl. No phone. Ninety seconds that are only yours.</p></div></div>
+      </div>
+    </div>
+  </section></div>
+
+  <!-- range / grades -->
+  <section class="wrap range" id="shop">
+    <div class="head">
+      <span class="eyebrow c" data-rv="" style="translate: none; rotate: none; scale: none; transform: translate(0px, 52px); opacity: 0;">The range</span>
+      <h2 class="serif" data-rv="" style="translate: none; rotate: none; scale: none; transform: translate(0px, 52px); opacity: 0;">One leaf, three rituals.</h2>
+    </div>
+    <div class="grades">
+      <div class="grade" data-rv="" style="translate: none; rotate: none; scale: none; transform: translate(0px, 52px); opacity: 0;">
+        <div class="pic"><img src="site/cdn.jsdelivr.net/gh/VanhDc/aura-assets%40matcha-v4/asagiri/img/tin-ceremonial.jpg" alt="Ceremonial grade matcha tin"></div>
+        <div class="body">
+          <span class="g">Ceremonial</span>
+          <h3 class="serif">Asagiri No.1</h3>
+          <p>The first flush, whisked with water alone. Vivid, sweet, no bitterness. The bowl this whole ritual is for.</p>
+          <div class="row"><span class="price">$48</span><span class="add">Add · 30g</span></div>
+        </div>
+      </div>
+      <div class="grade" data-rv="" style="translate: none; rotate: none; scale: none; transform: translate(0px, 52px); opacity: 0;">
+        <div class="pic"><img src="site/cdn.jsdelivr.net/gh/VanhDc/aura-assets%40matcha-v4/asagiri/img/tin-daily.jpg" alt="Daily grade matcha tin"></div>
+        <div class="body">
+          <span class="g">Daily</span>
+          <h3 class="serif">Everyday Jade</h3>
+          <p>A second-flush blend built for the morning cup, clean and bright in water, steady in milk. Your everyday quiet.</p>
+          <div class="row"><span class="price">$32</span><span class="add">Add · 50g</span></div>
+        </div>
+      </div>
+      <div class="grade" data-rv="" style="translate: none; rotate: none; scale: none; transform: translate(0px, 52px); opacity: 0;">
+        <div class="pic"><img src="site/cdn.jsdelivr.net/gh/VanhDc/aura-assets%40matcha-v4/asagiri/img/tin-culinary.jpg" alt="Culinary grade matcha tin"></div>
+        <div class="body">
+          <span class="g">Culinary</span>
+          <h3 class="serif">Kitchen Stone</h3>
+          <p>Robust enough to hold its colour and character through heat, for lattes, baking and ice cream that taste of real tea.</p>
+          <div class="row"><span class="price">$24</span><span class="add">Add · 80g</span></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- numbers -->
+  <section class="wrap numbers">
+    <div class="numgrid">
+      <div data-rv="" style="translate: none; rotate: none; scale: none; transform: translate(0px, 52px); opacity: 0;"><div class="v serif" data-count="21">0</div><div class="l">days shade-grown</div></div>
+      <div data-rv="" style="translate: none; rotate: none; scale: none; transform: translate(0px, 52px); opacity: 0;"><div class="v serif" data-count="10"><em>~</em>0<em>µm</em></div><div class="l">stone-ground fineness</div></div>
+      <div data-rv="" style="translate: none; rotate: none; scale: none; transform: translate(0px, 52px); opacity: 0;"><div class="v serif" data-count="137"><em></em>0<em>×</em></div><div class="l">antioxidants vs steeped</div></div>
+      <div data-rv="" style="translate: none; rotate: none; scale: none; transform: translate(0px, 52px); opacity: 0;"><div class="v serif" data-count="0">0</div><div class="l">bitterness, by design</div></div>
+    </div>
+  </section>
+
+  <!-- interlude -->
+  <section class="interlude">
+    <div class="bg"><img src="site/cdn.jsdelivr.net/gh/VanhDc/aura-assets%40matcha-v4/asagiri/img/hands.jpg" alt="Hands cradling a warm bowl of matcha" data-par="" style="translate: none; rotate: none; scale: none; transform: translate(0%, -6%);"></div>
+    <div class="q">
+      <span class="jp">朝霧</span>
+      <blockquote class="serif">First light, whisked.</blockquote>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="wrap cta-sec">
+    <span class="eyebrow c" data-rv="" style="translate: none; rotate: none; scale: none; transform: translate(0px, 52px); opacity: 0;">Begin</span>
+    <h2 class="serif" data-rv="" style="translate: none; rotate: none; scale: none; transform: translate(0px, 52px); opacity: 0;">Start your <em>ninety seconds.</em></h2>
+    <p data-rv="" style="translate: none; rotate: none; scale: none; transform: translate(0px, 52px); opacity: 0;">Join the ritual. One tin a month, free whisk with your first, and a quieter morning, delivered.</p>
+    <form class="signup" data-rv="" style="translate: none; rotate: none; scale: none; transform: translate(0px, 52px); opacity: 0;">
+      <input type="email" placeholder="you@morning.com" aria-label="Email">
+      <button type="submit">Subscribe</button>
+    </form>
+    <div class="fine" data-rv="" style="translate: none; rotate: none; scale: none; transform: translate(0px, 52px); opacity: 0;">Cancel anytime · ships from Kyoto · carbon-neutral delivery</div>
+  </section>
+
+  <!-- footer -->
+  <footer>
+    <div class="frow">
+      <div class="fbrand">
+        <div class="mk serif">ASA<b>GIRI</b></div>
+        <div class="jp">朝霧 · ceremonial matcha</div>
+      </div>
+      <div class="fcols">
+        <div class="fcol"><h4>Shop</h4><a href="#shop">Ceremonial</a><a href="#shop">Daily</a><a href="#shop">Culinary</a><a href="#shop">Whisks &amp; tools</a></div>
+        <div class="fcol"><h4>Learn</h4><a href="#origin">Our origin</a><a href="#craft">The craft</a><a href="#ritual">How to whisk</a></div>
+        <div class="fcol"><h4>Studio</h4><a href="#">Journal</a><a href="#">Wholesale</a><a href="#">Contact</a></div>
+      </div>
+    </div>
+    <div class="fbot"><span>© 2026 ASAGIRI Tea Co. · Wazuka, Kyoto</span><span>Privacy · Terms · Stillness, daily.</span></div>
+  </footer>
+
+
+
+
+<div data-wd3-banner style="position:fixed;z-index:2147483647;left:16px;bottom:16px;max-width:min(560px,calc(100vw - 32px));align-items:center;gap:12px;padding:12px 14px;border-radius:12px;background:rgba(5,5,5,.92);color:#e8e8e8;border:1px solid #1d1d1d;box-shadow:0 8px 30px rgba(0,0,0,.35);font:13px/1.45 ui-sans-serif,system-ui,-apple-system,'Segoe UI',sans-serif;backdrop-filter:blur(8px)">
+  <span style="width:8px;height:8px;border-radius:50%;background:#00ffa3;flex:none"></span>
+  <span>Versão estática, sem animações. Para ver o site vivo, rode no terminal, nesta pasta: <b style="color:#00ffa3">python3 serve.py --open</b> (Windows: <b style="color:#00ffa3">py serve.py --open</b>). Passo a passo em <b style="color:#00ffa3">Como rodar.md</b>.</span>
+  <button type="button" onclick="this.parentNode.remove()" aria-label="Fechar" style="flex:none;background:none;border:0;color:#8a8a8a;font-size:18px;cursor:pointer;padding:0 2px">×</button>
+</div>
+</body></html>

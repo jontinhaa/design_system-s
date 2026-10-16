@@ -1,0 +1,77 @@
+
+        /* Progress bar */
+        .au-progress {
+          position: fixed; top: 0; left: 0; right: 0;
+          height: 2px; z-index: 9998;
+          transform-origin: 0 50%;
+          transform: scaleX(0);
+          background: linear-gradient(90deg, #b8a58a, #e9d4a8, #b8a58a);
+          box-shadow: 0 0 14px rgba(184,165,138,0.6);
+          pointer-events: none;
+        }
+        /* Spotlight */
+        .au-spotlight {
+          position: fixed; inset: 0;
+          pointer-events: none; z-index: 9996;
+          mix-blend-mode: screen;
+        }
+        /* Tilt — applied as an additive CSS var so parallax transform stays intact */
+        section img { transform-style: preserve-3d; }
+        section img[data-tilt-done] { transform: var(--au-tilt, none); transition: transform 400ms cubic-bezier(.16,1,.3,1), filter 400ms ease; }
+
+        /* Script char reveal */
+        .au-char {
+          display: inline-block;
+          opacity: 0;
+          transform: translate3d(0, 0.5em, 0) rotate(6deg);
+          filter: blur(8px);
+          transition:
+            opacity 900ms cubic-bezier(.16,1,.3,1),
+            transform 900ms cubic-bezier(.16,1,.3,1),
+            filter 900ms cubic-bezier(.16,1,.3,1);
+          will-change: opacity, transform, filter;
+        }
+        .au-char.in { opacity: 1; transform: translate3d(0,0,0) rotate(0); filter: blur(0); }
+
+        /* Section filaments */
+        .au-filament {
+          position: absolute; left: 50%;
+          width: 0; height: 1px; pointer-events: none;
+          background: linear-gradient(90deg, transparent, rgba(184,165,138,0.55), transparent);
+          transform: translateX(-50%);
+          transition: width 1400ms cubic-bezier(.16,1,.3,1);
+        }
+        .au-filament-top { top: 0; }
+        .au-filament.in { width: 70%; }
+
+        /* Sparks */
+        .au-spark-layer {
+          position: absolute; inset: 0; pointer-events: none;
+          overflow: hidden; z-index: 1;
+        }
+        .au-spark-layer span {
+          position: absolute;
+          width: 3px; height: 3px; border-radius: 999px;
+          background: #d4b88a;
+          box-shadow: 0 0 10px rgba(212,184,138,0.8);
+          animation: au-spark-drift linear infinite;
+        }
+        @keyframes au-spark-drift {
+          0%   { transform: translate(0, 0) scale(0.4); opacity: 0; }
+          15%  { opacity: 1; }
+          50%  { transform: translate(40px, -60px) scale(1); }
+          85%  { opacity: 0.7; }
+          100% { transform: translate(-30px, -140px) scale(0.3); opacity: 0; }
+        }
+
+        /* Section enter — gentle vertical lift + mask sweep */
+        section { position: relative; }
+
+        @media (prefers-reduced-motion: reduce) {
+          .au-progress, .au-spotlight, .au-spark-layer { display: none !important; }
+          .au-char { opacity: 1 !important; transform: none !important; filter: none !important; }
+        }
+        @media (pointer: coarse) {
+          .au-spotlight { display: none; }
+        }
+      

@@ -1,0 +1,1803 @@
+{
+ "version": 1,
+ "tool": "wd3 0.1.0",
+ "captureId": "hitit.com-c2da7734",
+ "capturedAt": "2026-10-14T16:48:24+00:00",
+ "entry": {
+  "url": "https://hitit.com/",
+  "path": "/",
+  "search": "",
+  "file": "site/hitit.com/index.html",
+  "contentType": "text/html; charset=UTF-8"
+ },
+ "blocked": [
+  "^https?://([^/?#]+\\.)?(google\\-analytics\\.com|analytics\\.google\\.com|googletagmanager\\.com|googleadservices\\.com|doubleclick\\.net|googlesyndication\\.com|googleoptimize\\.com|connect\\.facebook\\.net|bat\\.bing\\.com|snap\\.licdn\\.com|px\\.ads\\.linkedin\\.com|analytics\\.tiktok\\.com|ct\\.pinterest\\.com|static\\.ads\\-twitter\\.com|analytics\\.twitter\\.com|tr\\.snapchat\\.com|sc\\-static\\.net|mc\\.yandex\\.ru|hotjar\\.com|hotjar\\.io|clarity\\.ms|cdn\\.segment\\.com|api\\.segment\\.io|cdn\\.mxpnl\\.com|api\\-js\\.mixpanel\\.com|api\\.mixpanel\\.com|api\\.amplitude\\.com|api2\\.amplitude\\.com|api\\-secure\\.amplitude\\.com|api\\-sr\\.amplitude\\.com|sr\\-client\\-cfg\\.amplitude\\.com|plausible\\.io|cloud\\.umami\\.is|analytics\\.umami\\.is|static\\.cloudflareinsights\\.com|cloudflareinsights\\.com|vitals\\.vercel\\-insights\\.com|browser\\-intake\\-datadoghq\\.com|browser\\-intake\\-datadoghq\\.eu|js\\-agent\\.newrelic\\.com|bam\\.nr\\-data\\.net|bam\\-cell\\.nr\\-data\\.net|fullstory\\.com|script\\.crazyegg\\.com|mouseflow\\.com|smartlook\\.com|heapanalytics\\.com|i\\.posthog\\.com|stats\\.wp\\.com|pixel\\.wp\\.com|promotekit\\.com|ingest\\.sentry\\.io|ingest\\.us\\.sentry\\.io|ingest\\.de\\.sentry\\.io|widget\\.intercom\\.io|js\\.intercomcdn\\.com|api\\-iam\\.intercom\\.io|js\\.hs\\-scripts\\.com|js\\.hs\\-analytics\\.net|js\\.hs\\-banner\\.com|js\\.hscollectedforms\\.net|js\\.usemessages\\.com|track\\.hubspot\\.com|client\\.crisp\\.chat|embed\\.tawk\\.to|js\\.driftt\\.com|static\\.zdassets\\.com|ekr\\.zdassets\\.com|cdn\\.cookielaw\\.org|geolocation\\.onetrust\\.com|consent\\.cookiebot\\.com|consentcdn\\.cookiebot\\.com|app\\.usercentrics\\.eu|api\\.usercentrics\\.eu|cdn\\.iubenda\\.com|cmp\\.osano\\.com|cdn\\.termly\\.io)(:\\d+)?([/?#]|$)",
+  "/rpc/increment_shared_code_views",
+  "^https?://(umami|analytics|stats|plausible)\\.[^/]+/(api/send|api/collect|api/event|script\\.js)",
+  "/g/c(ollect)?\\?v=2&",
+  "sentry\\.io/api/\\d+/(envelope|store)",
+  "/api/meta-capi",
+  "^https?://(leadtracker|tracking|track|events?|collect)\\.[^/]+/",
+  "^https?://a\\.vturb\\.com/",
+  "facebook\\.com/tr[/?]",
+  "/_vercel/(speed-)?insights/",
+  "/cdn-cgi/rum",
+  "/cdn-cgi/challenge-platform/",
+  "google\\.com/(pagead|ads)/"
+ ],
+ "volatileParams": [
+  "v",
+  "_rsc",
+  "dpl",
+  "_",
+  "t",
+  "ts",
+  "timestamp",
+  "cb",
+  "cachebust",
+  "cacheBust",
+  "nocache",
+  "rnd",
+  "rand",
+  "random",
+  "_t"
+ ],
+ "entries": [
+  {
+   "url": "https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&family=Urbanist:ital,wght@0,100..900;1,100..900&display=swap",
+   "method": "GET",
+   "status": 200,
+   "contentType": "text/css; charset=utf-8",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "content-type": "text/css; charset=utf-8",
+    "timing-allow-origin": "*"
+   },
+   "resourceType": "stylesheet",
+   "passes": [
+    "mobile",
+    "desktop"
+   ],
+   "file": "site/fonts.googleapis.com/css2__qa6f50fc2.css",
+   "size": 3935,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://hitit.com/",
+   "method": "GET",
+   "status": 200,
+   "contentType": "text/html; charset=UTF-8",
+   "headers": {
+    "access-control-allow-credentials": "true",
+    "access-control-allow-headers": "Content-Type, Authorization, X-Requested-With",
+    "access-control-allow-methods": "GET, POST, PUT, DELETE, OPTIONS",
+    "access-control-allow-origin": "https://hitit.com",
+    "content-language": "en",
+    "content-type": "text/html; charset=UTF-8",
+    "x-drupal-cache": "HIT",
+    "x-drupal-dynamic-cache": "MISS",
+    "x-generator": "Drupal 10 (https://www.drupal.org)"
+   },
+   "resourceType": "document",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "file": "site/hitit.com/index.html",
+   "size": 62630,
+   "modes": [
+    "navigate"
+   ]
+  },
+  {
+   "url": "https://hitit.com/core/themes/stable9/css/system/components/clearfix.module.css?tmulbr",
+   "method": "GET",
+   "status": 200,
+   "contentType": "text/css",
+   "headers": {
+    "access-control-allow-credentials": "true",
+    "access-control-allow-headers": "Content-Type, Authorization, X-Requested-With",
+    "access-control-allow-methods": "GET, POST, PUT, DELETE, OPTIONS",
+    "access-control-allow-origin": "https://hitit.com",
+    "content-type": "text/css"
+   },
+   "resourceType": "stylesheet",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "file": "site/hitit.com/core/themes/stable9/css/system/components/clearfix.module__qafce7d8a.css",
+   "size": 307,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://hitit.com/core/themes/stable9/css/system/components/hidden.module.css?tmulbr",
+   "method": "GET",
+   "status": 200,
+   "contentType": "text/css",
+   "headers": {
+    "access-control-allow-credentials": "true",
+    "access-control-allow-headers": "Content-Type, Authorization, X-Requested-With",
+    "access-control-allow-methods": "GET, POST, PUT, DELETE, OPTIONS",
+    "access-control-allow-origin": "https://hitit.com",
+    "content-type": "text/css"
+   },
+   "resourceType": "stylesheet",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "file": "site/hitit.com/core/themes/stable9/css/system/components/hidden.module__qafce7d8a.css",
+   "size": 1366,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://hitit.com/core/themes/stable9/css/system/components/container-inline.module.css?tmulbr",
+   "method": "GET",
+   "status": 200,
+   "contentType": "text/css",
+   "headers": {
+    "access-control-allow-credentials": "true",
+    "access-control-allow-headers": "Content-Type, Authorization, X-Requested-With",
+    "access-control-allow-methods": "GET, POST, PUT, DELETE, OPTIONS",
+    "access-control-allow-origin": "https://hitit.com",
+    "content-type": "text/css"
+   },
+   "resourceType": "stylesheet",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "file": "site/hitit.com/core/themes/stable9/css/system/components/container-inline.module__qafce7d8a.css",
+   "size": 228,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://hitit.com/core/themes/stable9/css/system/components/item-list.module.css?tmulbr",
+   "method": "GET",
+   "status": 200,
+   "contentType": "text/css",
+   "headers": {
+    "access-control-allow-credentials": "true",
+    "access-control-allow-headers": "Content-Type, Authorization, X-Requested-With",
+    "access-control-allow-methods": "GET, POST, PUT, DELETE, OPTIONS",
+    "access-control-allow-origin": "https://hitit.com",
+    "content-type": "text/css"
+   },
+   "resourceType": "stylesheet",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "file": "site/hitit.com/core/themes/stable9/css/system/components/item-list.module__qafce7d8a.css",
+   "size": 287,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://hitit.com/core/themes/stable9/css/system/components/details.module.css?tmulbr",
+   "method": "GET",
+   "status": 200,
+   "contentType": "text/css",
+   "headers": {
+    "access-control-allow-credentials": "true",
+    "access-control-allow-headers": "Content-Type, Authorization, X-Requested-With",
+    "access-control-allow-methods": "GET, POST, PUT, DELETE, OPTIONS",
+    "access-control-allow-origin": "https://hitit.com",
+    "content-type": "text/css"
+   },
+   "resourceType": "stylesheet",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "file": "site/hitit.com/core/themes/stable9/css/system/components/details.module__qafce7d8a.css",
+   "size": 127,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://hitit.com/core/themes/stable9/css/system/components/align.module.css?tmulbr",
+   "method": "GET",
+   "status": 200,
+   "contentType": "text/css",
+   "headers": {
+    "access-control-allow-credentials": "true",
+    "access-control-allow-headers": "Content-Type, Authorization, X-Requested-With",
+    "access-control-allow-methods": "GET, POST, PUT, DELETE, OPTIONS",
+    "access-control-allow-origin": "https://hitit.com",
+    "content-type": "text/css"
+   },
+   "resourceType": "stylesheet",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "file": "site/hitit.com/core/themes/stable9/css/system/components/align.module__qafce7d8a.css",
+   "size": 484,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://hitit.com/core/themes/stable9/css/system/components/fieldgroup.module.css?tmulbr",
+   "method": "GET",
+   "status": 200,
+   "contentType": "text/css",
+   "headers": {
+    "access-control-allow-credentials": "true",
+    "access-control-allow-headers": "Content-Type, Authorization, X-Requested-With",
+    "access-control-allow-methods": "GET, POST, PUT, DELETE, OPTIONS",
+    "access-control-allow-origin": "https://hitit.com",
+    "content-type": "text/css"
+   },
+   "resourceType": "stylesheet",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "file": "site/hitit.com/core/themes/stable9/css/system/components/fieldgroup.module__qafce7d8a.css",
+   "size": 95,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://hitit.com/core/themes/stable9/css/system/components/js.module.css?tmulbr",
+   "method": "GET",
+   "status": 200,
+   "contentType": "text/css",
+   "headers": {
+    "access-control-allow-credentials": "true",
+    "access-control-allow-headers": "Content-Type, Authorization, X-Requested-With",
+    "access-control-allow-methods": "GET, POST, PUT, DELETE, OPTIONS",
+    "access-control-allow-origin": "https://hitit.com",
+    "content-type": "text/css"
+   },
+   "resourceType": "stylesheet",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "file": "site/hitit.com/core/themes/stable9/css/system/components/js.module__qafce7d8a.css",
+   "size": 402,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://hitit.com/core/themes/stable9/css/system/components/system-status-counter.css?tmulbr",
+   "method": "GET",
+   "status": 200,
+   "contentType": "text/css",
+   "headers": {
+    "access-control-allow-credentials": "true",
+    "access-control-allow-headers": "Content-Type, Authorization, X-Requested-With",
+    "access-control-allow-methods": "GET, POST, PUT, DELETE, OPTIONS",
+    "access-control-allow-origin": "https://hitit.com",
+    "content-type": "text/css"
+   },
+   "resourceType": "stylesheet",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "file": "site/hitit.com/core/themes/stable9/css/system/components/system-status-counter__qafce7d8a.css",
+   "size": 774,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://hitit.com/core/themes/stable9/css/system/components/reset-appearance.module.css?tmulbr",
+   "method": "GET",
+   "status": 200,
+   "contentType": "text/css",
+   "headers": {
+    "access-control-allow-credentials": "true",
+    "access-control-allow-headers": "Content-Type, Authorization, X-Requested-With",
+    "access-control-allow-methods": "GET, POST, PUT, DELETE, OPTIONS",
+    "access-control-allow-origin": "https://hitit.com",
+    "content-type": "text/css"
+   },
+   "resourceType": "stylesheet",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "file": "site/hitit.com/core/themes/stable9/css/system/components/reset-appearance.module__qafce7d8a.css",
+   "size": 249,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://hitit.com/core/themes/stable9/css/system/components/system-status-report-counters.css?tmulbr",
+   "method": "GET",
+   "status": 200,
+   "contentType": "text/css",
+   "headers": {
+    "access-control-allow-credentials": "true",
+    "access-control-allow-headers": "Content-Type, Authorization, X-Requested-With",
+    "access-control-allow-methods": "GET, POST, PUT, DELETE, OPTIONS",
+    "access-control-allow-origin": "https://hitit.com",
+    "content-type": "text/css"
+   },
+   "resourceType": "stylesheet",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "file": "site/hitit.com/core/themes/stable9/css/system/components/system-status-report-counters__qafce7d8a.css",
+   "size": 557,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://hitit.com/themes/custom/hitit2026/img/logo-white.svg",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/svg+xml",
+   "headers": {
+    "access-control-allow-credentials": "true",
+    "access-control-allow-headers": "Content-Type, Authorization, X-Requested-With",
+    "access-control-allow-methods": "GET, POST, PUT, DELETE, OPTIONS",
+    "access-control-allow-origin": "https://hitit.com",
+    "content-type": "image/svg+xml"
+   },
+   "resourceType": "image",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "file": "site/hitit.com/themes/custom/hitit2026/img/logo-white.svg",
+   "size": 9423,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://hitit.com/core/themes/stable9/css/system/components/resize.module.css?tmulbr",
+   "method": "GET",
+   "status": 200,
+   "contentType": "text/css",
+   "headers": {
+    "access-control-allow-credentials": "true",
+    "access-control-allow-headers": "Content-Type, Authorization, X-Requested-With",
+    "access-control-allow-methods": "GET, POST, PUT, DELETE, OPTIONS",
+    "access-control-allow-origin": "https://hitit.com",
+    "content-type": "text/css"
+   },
+   "resourceType": "stylesheet",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "file": "site/hitit.com/core/themes/stable9/css/system/components/resize.module__qafce7d8a.css",
+   "size": 270,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://hitit.com/core/themes/stable9/css/system/components/nowrap.module.css?tmulbr",
+   "method": "GET",
+   "status": 200,
+   "contentType": "text/css",
+   "headers": {
+    "access-control-allow-credentials": "true",
+    "access-control-allow-headers": "Content-Type, Authorization, X-Requested-With",
+    "access-control-allow-methods": "GET, POST, PUT, DELETE, OPTIONS",
+    "access-control-allow-origin": "https://hitit.com",
+    "content-type": "text/css"
+   },
+   "resourceType": "stylesheet",
+   "passes": [
+    "mobile",
+    "desktop"
+   ],
+   "file": "site/hitit.com/core/themes/stable9/css/system/components/nowrap.module__qafce7d8a.css",
+   "size": 96,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://hitit.com/core/themes/stable9/css/system/components/position-container.module.css?tmulbr",
+   "method": "GET",
+   "status": 200,
+   "contentType": "text/css",
+   "headers": {
+    "access-control-allow-credentials": "true",
+    "access-control-allow-headers": "Content-Type, Authorization, X-Requested-With",
+    "access-control-allow-methods": "GET, POST, PUT, DELETE, OPTIONS",
+    "access-control-allow-origin": "https://hitit.com",
+    "content-type": "text/css"
+   },
+   "resourceType": "stylesheet",
+   "passes": [
+    "mobile",
+    "desktop"
+   ],
+   "file": "site/hitit.com/core/themes/stable9/css/system/components/position-container.module__qafce7d8a.css",
+   "size": 95,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://hitit.com/core/themes/stable9/css/system/components/system-status-report-general-info.css?tmulbr",
+   "method": "GET",
+   "status": 200,
+   "contentType": "text/css",
+   "headers": {
+    "access-control-allow-credentials": "true",
+    "access-control-allow-headers": "Content-Type, Authorization, X-Requested-With",
+    "access-control-allow-methods": "GET, POST, PUT, DELETE, OPTIONS",
+    "access-control-allow-origin": "https://hitit.com",
+    "content-type": "text/css"
+   },
+   "resourceType": "stylesheet",
+   "passes": [
+    "mobile",
+    "desktop"
+   ],
+   "file": "site/hitit.com/core/themes/stable9/css/system/components/system-status-report-general-info__qafce7d8a.css",
+   "size": 255,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://hitit.com/themes/custom/hitit2026/img/plane.svg",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/svg+xml",
+   "headers": {
+    "access-control-allow-credentials": "true",
+    "access-control-allow-headers": "Content-Type, Authorization, X-Requested-With",
+    "access-control-allow-methods": "GET, POST, PUT, DELETE, OPTIONS",
+    "access-control-allow-origin": "https://hitit.com",
+    "content-type": "image/svg+xml"
+   },
+   "resourceType": "image",
+   "passes": [
+    "mobile",
+    "desktop"
+   ],
+   "file": "site/hitit.com/themes/custom/hitit2026/img/plane.svg",
+   "size": 2505,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://hitit.com/themes/custom/hitit2026/css/bundle.css?tmulbr",
+   "method": "GET",
+   "status": 200,
+   "contentType": "text/css",
+   "headers": {
+    "access-control-allow-credentials": "true",
+    "access-control-allow-headers": "Content-Type, Authorization, X-Requested-With",
+    "access-control-allow-methods": "GET, POST, PUT, DELETE, OPTIONS",
+    "access-control-allow-origin": "https://hitit.com",
+    "content-type": "text/css"
+   },
+   "resourceType": "stylesheet",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "file": "site/hitit.com/themes/custom/hitit2026/css/bundle__qafce7d8a.css",
+   "size": 436056,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://hitit.com/modules/contrib/ckeditor5_plugin_pack/modules/ckeditor5_plugin_pack_indent_block/css/indent-block.css?tmulbr",
+   "method": "GET",
+   "status": 200,
+   "contentType": "text/css",
+   "headers": {
+    "access-control-allow-credentials": "true",
+    "access-control-allow-headers": "Content-Type, Authorization, X-Requested-With",
+    "access-control-allow-methods": "GET, POST, PUT, DELETE, OPTIONS",
+    "access-control-allow-origin": "https://hitit.com",
+    "content-type": "text/css"
+   },
+   "resourceType": "stylesheet",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "file": "site/hitit.com/modules/contrib/ckeditor5_plugin_pack/modules/ckeditor5_plugin_pack_indent_block/css/indent-block__qafce7d8a.css",
+   "size": 1244,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://hitit.com/core/themes/stable9/css/system/components/tablesort.module.css?tmulbr",
+   "method": "GET",
+   "status": 200,
+   "contentType": "text/css",
+   "headers": {
+    "access-control-allow-credentials": "true",
+    "access-control-allow-headers": "Content-Type, Authorization, X-Requested-With",
+    "access-control-allow-methods": "GET, POST, PUT, DELETE, OPTIONS",
+    "access-control-allow-origin": "https://hitit.com",
+    "content-type": "text/css"
+   },
+   "resourceType": "stylesheet",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "file": "site/hitit.com/core/themes/stable9/css/system/components/tablesort.module__qafce7d8a.css",
+   "size": 371,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://hitit.com/themes/custom/hitit2026/img/menu-dropdown-crane.svg",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/svg+xml",
+   "headers": {
+    "access-control-allow-credentials": "true",
+    "access-control-allow-headers": "Content-Type, Authorization, X-Requested-With",
+    "access-control-allow-methods": "GET, POST, PUT, DELETE, OPTIONS",
+    "access-control-allow-origin": "https://hitit.com",
+    "content-type": "image/svg+xml"
+   },
+   "resourceType": "image",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "file": "site/hitit.com/themes/custom/hitit2026/img/menu-dropdown-crane.svg",
+   "size": 13509,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://hitit.com/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js",
+   "method": "GET",
+   "status": 200,
+   "contentType": "application/javascript",
+   "headers": {
+    "content-type": "application/javascript"
+   },
+   "resourceType": "script",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "file": "site/hitit.com/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js",
+   "size": 1239,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://hitit.com/themes/custom/hitit2026/img/menu-dropdown-hitit-oxygen.png",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/png",
+   "headers": {
+    "access-control-allow-credentials": "true",
+    "access-control-allow-headers": "Content-Type, Authorization, X-Requested-With",
+    "access-control-allow-methods": "GET, POST, PUT, DELETE, OPTIONS",
+    "access-control-allow-origin": "https://hitit.com",
+    "content-type": "image/png"
+   },
+   "resourceType": "image",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "file": "site/hitit.com/themes/custom/hitit2026/img/menu-dropdown-hitit-oxygen.png",
+   "size": 13055,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://ccdn.mobildev.in/dc5348e8141e4291bbf6649a5a42fa66.js",
+   "method": "GET",
+   "status": 200,
+   "contentType": "text/javascript;charset=utf-8",
+   "headers": {
+    "content-type": "text/javascript;charset=utf-8"
+   },
+   "resourceType": "script",
+   "passes": [
+    "mobile",
+    "desktop"
+   ],
+   "file": "site/ccdn.mobildev.in/dc5348e8141e4291bbf6649a5a42fa66.js",
+   "size": 168846,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://challenges.cloudflare.com/turnstile/v0/api.js",
+   "method": "GET",
+   "status": 302,
+   "contentType": "",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "location": "/turnstile/v0/g/4df4a60fa397/api.js",
+    "priority": "u=3,i=?0"
+   },
+   "resourceType": "script",
+   "passes": [
+    "mobile",
+    "desktop"
+   ],
+   "size": 0,
+   "redirect": "https://challenges.cloudflare.com/turnstile/v0/g/4df4a60fa397/api.js",
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://challenges.cloudflare.com/turnstile/v0/g/4df4a60fa397/api.js",
+   "method": "GET",
+   "status": 200,
+   "contentType": "application/javascript; charset=UTF-8",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "content-type": "application/javascript; charset=UTF-8",
+    "priority": "u=3,i=?0"
+   },
+   "resourceType": "script",
+   "passes": [
+    "mobile",
+    "desktop"
+   ],
+   "file": "site/challenges.cloudflare.com/turnstile/v0/g/4df4a60fa397/api.js",
+   "size": 86732,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://hitit.com/core/assets/vendor/once/once.min.js?v=1.0.1",
+   "method": "GET",
+   "status": 200,
+   "contentType": "application/javascript",
+   "headers": {
+    "access-control-allow-credentials": "true",
+    "access-control-allow-headers": "Content-Type, Authorization, X-Requested-With",
+    "access-control-allow-methods": "GET, POST, PUT, DELETE, OPTIONS",
+    "access-control-allow-origin": "https://hitit.com",
+    "content-type": "application/javascript"
+   },
+   "resourceType": "script",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "file": "site/hitit.com/core/assets/vendor/once/once.min__q27211dc9.js",
+   "size": 1357,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://hitit.com/core/assets/vendor/jquery/jquery.min.js?v=3.7.1",
+   "method": "GET",
+   "status": 200,
+   "contentType": "application/javascript",
+   "headers": {
+    "access-control-allow-credentials": "true",
+    "access-control-allow-headers": "Content-Type, Authorization, X-Requested-With",
+    "access-control-allow-methods": "GET, POST, PUT, DELETE, OPTIONS",
+    "access-control-allow-origin": "https://hitit.com",
+    "content-type": "application/javascript"
+   },
+   "resourceType": "script",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "file": "site/hitit.com/core/assets/vendor/jquery/jquery.min__q4565b40d.js",
+   "size": 87533,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://fonts.gstatic.com/s/urbanist/v18/L0x-DF02iFML4hGCyMqlbS1miXK2.woff2",
+   "method": "GET",
+   "status": 200,
+   "contentType": "font/woff2",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "content-type": "font/woff2",
+    "timing-allow-origin": "*"
+   },
+   "resourceType": "font",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "file": "site/fonts.gstatic.com/s/urbanist/v18/L0x-DF02iFML4hGCyMqlbS1miXK2.woff2",
+   "size": 27812,
+   "modes": [
+    "cors"
+   ]
+  },
+  {
+   "url": "https://fonts.gstatic.com/s/manrope/v20/xn7gYHE41ni1AdIRggexSvfedN4.woff2",
+   "method": "GET",
+   "status": 200,
+   "contentType": "font/woff2",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "content-type": "font/woff2",
+    "timing-allow-origin": "*"
+   },
+   "resourceType": "font",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "file": "site/fonts.gstatic.com/s/manrope/v20/xn7gYHE41ni1AdIRggexSvfedN4.woff2",
+   "size": 24576,
+   "modes": [
+    "cors"
+   ]
+  },
+  {
+   "url": "https://fonts.gstatic.com/s/urbanist/v18/L0x-DF02iFML4hGCyMqrbS1miXK2Z7s.woff2",
+   "method": "GET",
+   "status": 200,
+   "contentType": "font/woff2",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "content-type": "font/woff2",
+    "timing-allow-origin": "*"
+   },
+   "resourceType": "font",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "file": "site/fonts.gstatic.com/s/urbanist/v18/L0x-DF02iFML4hGCyMqrbS1miXK2Z7s.woff2",
+   "size": 16464,
+   "modes": [
+    "cors"
+   ]
+  },
+  {
+   "url": "https://hitit.com/core/misc/drupalSettingsLoader.js?v=10.6.17",
+   "method": "GET",
+   "status": 200,
+   "contentType": "application/javascript",
+   "headers": {
+    "access-control-allow-credentials": "true",
+    "access-control-allow-headers": "Content-Type, Authorization, X-Requested-With",
+    "access-control-allow-methods": "GET, POST, PUT, DELETE, OPTIONS",
+    "access-control-allow-origin": "https://hitit.com",
+    "content-type": "application/javascript"
+   },
+   "resourceType": "script",
+   "passes": [
+    "mobile",
+    "desktop"
+   ],
+   "file": "site/hitit.com/core/misc/drupalSettingsLoader__qc894b90b.js",
+   "size": 691,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://hitit.com/themes/custom/hitit2026/img/menu-dropdown-hitit-ads.png",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/png",
+   "headers": {
+    "access-control-allow-credentials": "true",
+    "access-control-allow-headers": "Content-Type, Authorization, X-Requested-With",
+    "access-control-allow-methods": "GET, POST, PUT, DELETE, OPTIONS",
+    "access-control-allow-origin": "https://hitit.com",
+    "content-type": "image/png"
+   },
+   "resourceType": "image",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "file": "site/hitit.com/themes/custom/hitit2026/img/menu-dropdown-hitit-ads.png",
+   "size": 9504,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://hitit.com/core/misc/drupal.js?v=10.6.17",
+   "method": "GET",
+   "status": 200,
+   "contentType": "application/javascript",
+   "headers": {
+    "access-control-allow-credentials": "true",
+    "access-control-allow-headers": "Content-Type, Authorization, X-Requested-With",
+    "access-control-allow-methods": "GET, POST, PUT, DELETE, OPTIONS",
+    "access-control-allow-origin": "https://hitit.com",
+    "content-type": "application/javascript"
+   },
+   "resourceType": "script",
+   "passes": [
+    "mobile",
+    "desktop"
+   ],
+   "file": "site/hitit.com/core/misc/drupal__qc894b90b.js",
+   "size": 21057,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://hitit.com/themes/custom/hitit2026/img/hitit-elektrum-logo.svg",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/svg+xml",
+   "headers": {
+    "access-control-allow-credentials": "true",
+    "access-control-allow-headers": "Content-Type, Authorization, X-Requested-With",
+    "access-control-allow-methods": "GET, POST, PUT, DELETE, OPTIONS",
+    "access-control-allow-origin": "https://hitit.com",
+    "content-type": "image/svg+xml"
+   },
+   "resourceType": "image",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "file": "site/hitit.com/themes/custom/hitit2026/img/hitit-elektrum-logo.svg",
+   "size": 14393,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://hitit.com/themes/custom/hitit2026/img/grid-4.svg",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/svg+xml",
+   "headers": {
+    "access-control-allow-credentials": "true",
+    "access-control-allow-headers": "Content-Type, Authorization, X-Requested-With",
+    "access-control-allow-methods": "GET, POST, PUT, DELETE, OPTIONS",
+    "access-control-allow-origin": "https://hitit.com",
+    "content-type": "image/svg+xml"
+   },
+   "resourceType": "image",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "file": "site/hitit.com/themes/custom/hitit2026/img/grid-4.svg",
+   "size": 7289,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://hitit.com/themes/custom/hitit2026/img/icon-download-white.svg",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/svg+xml",
+   "headers": {
+    "access-control-allow-credentials": "true",
+    "access-control-allow-headers": "Content-Type, Authorization, X-Requested-With",
+    "access-control-allow-methods": "GET, POST, PUT, DELETE, OPTIONS",
+    "access-control-allow-origin": "https://hitit.com",
+    "content-type": "image/svg+xml"
+   },
+   "resourceType": "image",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "file": "site/hitit.com/themes/custom/hitit2026/img/icon-download-white.svg",
+   "size": 373,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://hitit.com/themes/custom/hitit2026/img/icon-facebook.svg",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/svg+xml",
+   "headers": {
+    "access-control-allow-credentials": "true",
+    "access-control-allow-headers": "Content-Type, Authorization, X-Requested-With",
+    "access-control-allow-methods": "GET, POST, PUT, DELETE, OPTIONS",
+    "access-control-allow-origin": "https://hitit.com",
+    "content-type": "image/svg+xml"
+   },
+   "resourceType": "image",
+   "passes": [
+    "mobile",
+    "desktop"
+   ],
+   "file": "site/hitit.com/themes/custom/hitit2026/img/icon-facebook.svg",
+   "size": 735,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://hitit.com/themes/custom/hitit2026/img/footer-logo-turkey.png",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/png",
+   "headers": {
+    "access-control-allow-credentials": "true",
+    "access-control-allow-headers": "Content-Type, Authorization, X-Requested-With",
+    "access-control-allow-methods": "GET, POST, PUT, DELETE, OPTIONS",
+    "access-control-allow-origin": "https://hitit.com",
+    "content-type": "image/png"
+   },
+   "resourceType": "image",
+   "passes": [
+    "mobile",
+    "desktop"
+   ],
+   "file": "site/hitit.com/themes/custom/hitit2026/img/footer-logo-turkey.png",
+   "size": 5758,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://hitit.com/themes/custom/hitit2026/img/icon-linkedin.svg",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/svg+xml",
+   "headers": {
+    "access-control-allow-credentials": "true",
+    "access-control-allow-headers": "Content-Type, Authorization, X-Requested-With",
+    "access-control-allow-methods": "GET, POST, PUT, DELETE, OPTIONS",
+    "access-control-allow-origin": "https://hitit.com",
+    "content-type": "image/svg+xml"
+   },
+   "resourceType": "image",
+   "passes": [
+    "mobile",
+    "desktop"
+   ],
+   "file": "site/hitit.com/themes/custom/hitit2026/img/icon-linkedin.svg",
+   "size": 1014,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://hitit.com/themes/custom/hitit2026/img/icon-arrow-right-black.svg",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/svg+xml",
+   "headers": {
+    "access-control-allow-credentials": "true",
+    "access-control-allow-headers": "Content-Type, Authorization, X-Requested-With",
+    "access-control-allow-methods": "GET, POST, PUT, DELETE, OPTIONS",
+    "access-control-allow-origin": "https://hitit.com",
+    "content-type": "image/svg+xml"
+   },
+   "resourceType": "image",
+   "passes": [
+    "mobile",
+    "desktop"
+   ],
+   "file": "site/hitit.com/themes/custom/hitit2026/img/icon-arrow-right-black.svg",
+   "size": 330,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://hitit.com/themes/custom/hitit2026/img/footer-logo-oracle.png",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/png",
+   "headers": {
+    "access-control-allow-credentials": "true",
+    "access-control-allow-headers": "Content-Type, Authorization, X-Requested-With",
+    "access-control-allow-methods": "GET, POST, PUT, DELETE, OPTIONS",
+    "access-control-allow-origin": "https://hitit.com",
+    "content-type": "image/png"
+   },
+   "resourceType": "image",
+   "passes": [
+    "mobile",
+    "desktop"
+   ],
+   "file": "site/hitit.com/themes/custom/hitit2026/img/footer-logo-oracle.png",
+   "size": 4417,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://hitit.com/themes/custom/hitit2026/img/crane-logo.svg",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/svg+xml",
+   "headers": {
+    "access-control-allow-credentials": "true",
+    "access-control-allow-headers": "Content-Type, Authorization, X-Requested-With",
+    "access-control-allow-methods": "GET, POST, PUT, DELETE, OPTIONS",
+    "access-control-allow-origin": "https://hitit.com",
+    "content-type": "image/svg+xml"
+   },
+   "resourceType": "image",
+   "passes": [
+    "mobile",
+    "desktop"
+   ],
+   "file": "site/hitit.com/themes/custom/hitit2026/img/crane-logo.svg",
+   "size": 13658,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://hitit.com/themes/custom/hitit2026/img/icon-arrow-down-white.svg",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/svg+xml",
+   "headers": {
+    "access-control-allow-credentials": "true",
+    "access-control-allow-headers": "Content-Type, Authorization, X-Requested-With",
+    "access-control-allow-methods": "GET, POST, PUT, DELETE, OPTIONS",
+    "access-control-allow-origin": "https://hitit.com",
+    "content-type": "image/svg+xml"
+   },
+   "resourceType": "image",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "file": "site/hitit.com/themes/custom/hitit2026/img/icon-arrow-down-white.svg",
+   "size": 221,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://hitit.com/core/misc/drupal.init.js?v=10.6.17",
+   "method": "GET",
+   "status": 200,
+   "contentType": "application/javascript",
+   "headers": {
+    "access-control-allow-credentials": "true",
+    "access-control-allow-headers": "Content-Type, Authorization, X-Requested-With",
+    "access-control-allow-methods": "GET, POST, PUT, DELETE, OPTIONS",
+    "access-control-allow-origin": "https://hitit.com",
+    "content-type": "application/javascript"
+   },
+   "resourceType": "script",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "file": "site/hitit.com/core/misc/drupal.init__qc894b90b.js",
+   "size": 960,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://hitit.com/themes/custom/hitit2026/img/big-plane.svg",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/svg+xml",
+   "headers": {
+    "access-control-allow-credentials": "true",
+    "access-control-allow-headers": "Content-Type, Authorization, X-Requested-With",
+    "access-control-allow-methods": "GET, POST, PUT, DELETE, OPTIONS",
+    "access-control-allow-origin": "https://hitit.com",
+    "content-type": "image/svg+xml"
+   },
+   "resourceType": "image",
+   "passes": [
+    "mobile",
+    "desktop"
+   ],
+   "file": "site/hitit.com/themes/custom/hitit2026/img/big-plane.svg",
+   "size": 54443,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://hitit.com/themes/custom/hitit2026/img/grid-3.svg",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/svg+xml",
+   "headers": {
+    "access-control-allow-credentials": "true",
+    "access-control-allow-headers": "Content-Type, Authorization, X-Requested-With",
+    "access-control-allow-methods": "GET, POST, PUT, DELETE, OPTIONS",
+    "access-control-allow-origin": "https://hitit.com",
+    "content-type": "image/svg+xml"
+   },
+   "resourceType": "image",
+   "passes": [
+    "mobile",
+    "desktop"
+   ],
+   "file": "site/hitit.com/themes/custom/hitit2026/img/grid-3.svg",
+   "size": 1456,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://hitit.com/themes/custom/hitit2026/img/icon-youtube.svg",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/svg+xml",
+   "headers": {
+    "access-control-allow-credentials": "true",
+    "access-control-allow-headers": "Content-Type, Authorization, X-Requested-With",
+    "access-control-allow-methods": "GET, POST, PUT, DELETE, OPTIONS",
+    "access-control-allow-origin": "https://hitit.com",
+    "content-type": "image/svg+xml"
+   },
+   "resourceType": "image",
+   "passes": [
+    "mobile",
+    "desktop"
+   ],
+   "file": "site/hitit.com/themes/custom/hitit2026/img/icon-youtube.svg",
+   "size": 1099,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://hitit.com/themes/custom/hitit2026/img/icon-arrow-top-black.svg",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/svg+xml",
+   "headers": {
+    "access-control-allow-credentials": "true",
+    "access-control-allow-headers": "Content-Type, Authorization, X-Requested-With",
+    "access-control-allow-methods": "GET, POST, PUT, DELETE, OPTIONS",
+    "access-control-allow-origin": "https://hitit.com",
+    "content-type": "image/svg+xml"
+   },
+   "resourceType": "image",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "file": "site/hitit.com/themes/custom/hitit2026/img/icon-arrow-top-black.svg",
+   "size": 316,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://hitit.com/themes/custom/hitit2026/img/hitit-ads-logo.svg",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/svg+xml",
+   "headers": {
+    "access-control-allow-credentials": "true",
+    "access-control-allow-headers": "Content-Type, Authorization, X-Requested-With",
+    "access-control-allow-methods": "GET, POST, PUT, DELETE, OPTIONS",
+    "access-control-allow-origin": "https://hitit.com",
+    "content-type": "image/svg+xml"
+   },
+   "resourceType": "image",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "file": "site/hitit.com/themes/custom/hitit2026/img/hitit-ads-logo.svg",
+   "size": 360088,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://hitit.com/themes/custom/hitit2026/img/hitit-oxygen-logo.svg",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/svg+xml",
+   "headers": {
+    "access-control-allow-credentials": "true",
+    "access-control-allow-headers": "Content-Type, Authorization, X-Requested-With",
+    "access-control-allow-methods": "GET, POST, PUT, DELETE, OPTIONS",
+    "access-control-allow-origin": "https://hitit.com",
+    "content-type": "image/svg+xml"
+   },
+   "resourceType": "image",
+   "passes": [
+    "mobile",
+    "desktop"
+   ],
+   "file": "site/hitit.com/themes/custom/hitit2026/img/hitit-oxygen-logo.svg",
+   "size": 187231,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://hitit.com/themes/custom/hitit2026/img/menu-dropdown-elektrum.png",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/png",
+   "headers": {
+    "access-control-allow-credentials": "true",
+    "access-control-allow-headers": "Content-Type, Authorization, X-Requested-With",
+    "access-control-allow-methods": "GET, POST, PUT, DELETE, OPTIONS",
+    "access-control-allow-origin": "https://hitit.com",
+    "content-type": "image/png"
+   },
+   "resourceType": "image",
+   "passes": [
+    "mobile",
+    "desktop"
+   ],
+   "file": "site/hitit.com/themes/custom/hitit2026/img/menu-dropdown-elektrum.png",
+   "size": 6078,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://hitit.com/themes/custom/hitit2026/img/section-img-3.png",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/png",
+   "headers": {
+    "access-control-allow-credentials": "true",
+    "access-control-allow-headers": "Content-Type, Authorization, X-Requested-With",
+    "access-control-allow-methods": "GET, POST, PUT, DELETE, OPTIONS",
+    "access-control-allow-origin": "https://hitit.com",
+    "content-type": "image/png"
+   },
+   "resourceType": "image",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "file": "site/hitit.com/themes/custom/hitit2026/img/section-img-3.png",
+   "size": 522523,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://hitit.com/themes/custom/hitit2026/img/aurora-bg.png",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/png",
+   "headers": {
+    "access-control-allow-credentials": "true",
+    "access-control-allow-headers": "Content-Type, Authorization, X-Requested-With",
+    "access-control-allow-methods": "GET, POST, PUT, DELETE, OPTIONS",
+    "access-control-allow-origin": "https://hitit.com",
+    "content-type": "image/png"
+   },
+   "resourceType": "image",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "file": "site/hitit.com/themes/custom/hitit2026/img/aurora-bg.png",
+   "size": 284465,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://hitit.com/themes/custom/hitit2026/img/search-icon-white.svg",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/svg+xml",
+   "headers": {
+    "access-control-allow-credentials": "true",
+    "access-control-allow-headers": "Content-Type, Authorization, X-Requested-With",
+    "access-control-allow-methods": "GET, POST, PUT, DELETE, OPTIONS",
+    "access-control-allow-origin": "https://hitit.com",
+    "content-type": "image/svg+xml"
+   },
+   "resourceType": "image",
+   "passes": [
+    "mobile",
+    "desktop"
+   ],
+   "file": "site/hitit.com/themes/custom/hitit2026/img/search-icon-white.svg",
+   "size": 502,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://hitit.com/themes/custom/hitit2026/img/section-img-1.jpg",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/jpeg",
+   "headers": {
+    "access-control-allow-credentials": "true",
+    "access-control-allow-headers": "Content-Type, Authorization, X-Requested-With",
+    "access-control-allow-methods": "GET, POST, PUT, DELETE, OPTIONS",
+    "access-control-allow-origin": "https://hitit.com",
+    "content-type": "image/jpeg"
+   },
+   "resourceType": "image",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "file": "site/hitit.com/themes/custom/hitit2026/img/section-img-1.jpg",
+   "size": 2013364,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://hitit.com/themes/custom/hitit2026/img/grid-2.svg",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/svg+xml",
+   "headers": {
+    "access-control-allow-credentials": "true",
+    "access-control-allow-headers": "Content-Type, Authorization, X-Requested-With",
+    "access-control-allow-methods": "GET, POST, PUT, DELETE, OPTIONS",
+    "access-control-allow-origin": "https://hitit.com",
+    "content-type": "image/svg+xml"
+   },
+   "resourceType": "image",
+   "passes": [
+    "mobile",
+    "desktop"
+   ],
+   "file": "site/hitit.com/themes/custom/hitit2026/img/grid-2.svg",
+   "size": 4017,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://hitit.com/themes/custom/hitit2026/img/grid-1.svg",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/svg+xml",
+   "headers": {
+    "access-control-allow-credentials": "true",
+    "access-control-allow-headers": "Content-Type, Authorization, X-Requested-With",
+    "access-control-allow-methods": "GET, POST, PUT, DELETE, OPTIONS",
+    "access-control-allow-origin": "https://hitit.com",
+    "content-type": "image/svg+xml"
+   },
+   "resourceType": "image",
+   "passes": [
+    "mobile",
+    "desktop"
+   ],
+   "file": "site/hitit.com/themes/custom/hitit2026/img/grid-1.svg",
+   "size": 2527,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://hitit.com/themes/custom/hitit2026/img/icon-instagram.svg",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/svg+xml",
+   "headers": {
+    "access-control-allow-credentials": "true",
+    "access-control-allow-headers": "Content-Type, Authorization, X-Requested-With",
+    "access-control-allow-methods": "GET, POST, PUT, DELETE, OPTIONS",
+    "access-control-allow-origin": "https://hitit.com",
+    "content-type": "image/svg+xml"
+   },
+   "resourceType": "image",
+   "passes": [
+    "mobile",
+    "desktop"
+   ],
+   "file": "site/hitit.com/themes/custom/hitit2026/img/icon-instagram.svg",
+   "size": 3271,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://hitit.com/themes/custom/hitit2026/img/icon-x.svg",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/svg+xml",
+   "headers": {
+    "access-control-allow-credentials": "true",
+    "access-control-allow-headers": "Content-Type, Authorization, X-Requested-With",
+    "access-control-allow-methods": "GET, POST, PUT, DELETE, OPTIONS",
+    "access-control-allow-origin": "https://hitit.com",
+    "content-type": "image/svg+xml"
+   },
+   "resourceType": "image",
+   "passes": [
+    "mobile",
+    "desktop"
+   ],
+   "file": "site/hitit.com/themes/custom/hitit2026/img/icon-x.svg",
+   "size": 372,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://hitit.com/themes/custom/hitit2026/img/icon-logo.svg",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/svg+xml",
+   "headers": {
+    "access-control-allow-credentials": "true",
+    "access-control-allow-headers": "Content-Type, Authorization, X-Requested-With",
+    "access-control-allow-methods": "GET, POST, PUT, DELETE, OPTIONS",
+    "access-control-allow-origin": "https://hitit.com",
+    "content-type": "image/svg+xml"
+   },
+   "resourceType": "image",
+   "passes": [
+    "mobile",
+    "desktop"
+   ],
+   "file": "site/hitit.com/themes/custom/hitit2026/img/icon-logo.svg",
+   "size": 7787,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://hitit.com/themes/custom/hitit2026/img/impact-background-image.png",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/png",
+   "headers": {
+    "access-control-allow-credentials": "true",
+    "access-control-allow-headers": "Content-Type, Authorization, X-Requested-With",
+    "access-control-allow-methods": "GET, POST, PUT, DELETE, OPTIONS",
+    "access-control-allow-origin": "https://hitit.com",
+    "content-type": "image/png"
+   },
+   "resourceType": "image",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "file": "site/hitit.com/themes/custom/hitit2026/img/impact-background-image.png",
+   "size": 1327169,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://hitit.com/themes/custom/hitit2026/fonts/icomoon.ttf?ubkovv",
+   "method": "GET",
+   "status": 200,
+   "contentType": "font/ttf",
+   "headers": {
+    "access-control-allow-credentials": "true",
+    "access-control-allow-headers": "Content-Type, Authorization, X-Requested-With",
+    "access-control-allow-methods": "GET, POST, PUT, DELETE, OPTIONS",
+    "access-control-allow-origin": "https://hitit.com",
+    "content-type": "font/ttf"
+   },
+   "resourceType": "font",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "file": "site/hitit.com/themes/custom/hitit2026/fonts/icomoon__qafb96442.ttf",
+   "size": 1140,
+   "modes": [
+    "cors"
+   ]
+  },
+  {
+   "url": "https://cdn.corpowid.com/v/corpowid.js",
+   "method": "GET",
+   "status": 200,
+   "contentType": "application/javascript",
+   "headers": {
+    "access-control-allow-headers": "Origin, X-Requested-With, Content-Type, Accept",
+    "access-control-allow-methods": "GET, HEAD, OPTIONS",
+    "access-control-allow-origin": "*",
+    "content-type": "application/javascript",
+    "priority": "u=3,i=?0"
+   },
+   "resourceType": "script",
+   "passes": [
+    "mobile",
+    "desktop"
+   ],
+   "file": "site/cdn.corpowid.com/v/corpowid.js",
+   "size": 153109,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://hitit.com/themes/custom/hitit2026/js/bundle.js?v=1.0.0",
+   "method": "GET",
+   "status": 200,
+   "contentType": "application/javascript",
+   "headers": {
+    "access-control-allow-credentials": "true",
+    "access-control-allow-headers": "Content-Type, Authorization, X-Requested-With",
+    "access-control-allow-methods": "GET, POST, PUT, DELETE, OPTIONS",
+    "access-control-allow-origin": "https://hitit.com",
+    "content-type": "application/javascript"
+   },
+   "resourceType": "script",
+   "passes": [
+    "mobile",
+    "desktop"
+   ],
+   "file": "site/hitit.com/themes/custom/hitit2026/js/bundle__q34cf62ad.js",
+   "size": 354277,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://hitit.com/themes/custom/hitit2026/img/bg-sustainability.jpg",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/jpeg",
+   "headers": {
+    "access-control-allow-credentials": "true",
+    "access-control-allow-headers": "Content-Type, Authorization, X-Requested-With",
+    "access-control-allow-methods": "GET, POST, PUT, DELETE, OPTIONS",
+    "access-control-allow-origin": "https://hitit.com",
+    "content-type": "image/jpeg"
+   },
+   "resourceType": "image",
+   "passes": [
+    "mobile",
+    "desktop"
+   ],
+   "file": "site/hitit.com/themes/custom/hitit2026/img/bg-sustainability.jpg",
+   "size": 1836268,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://hitit.com/themes/custom/hitit2026/img/footer-logo-iata.png",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/png",
+   "headers": {
+    "access-control-allow-credentials": "true",
+    "access-control-allow-headers": "Content-Type, Authorization, X-Requested-With",
+    "access-control-allow-methods": "GET, POST, PUT, DELETE, OPTIONS",
+    "access-control-allow-origin": "https://hitit.com",
+    "content-type": "image/png"
+   },
+   "resourceType": "image",
+   "passes": [
+    "mobile",
+    "desktop"
+   ],
+   "file": "site/hitit.com/themes/custom/hitit2026/img/footer-logo-iata.png",
+   "size": 5963,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://hitit.com/themes/custom/hitit2026/img/footer-logo-verizon.png",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/png",
+   "headers": {
+    "access-control-allow-credentials": "true",
+    "access-control-allow-headers": "Content-Type, Authorization, X-Requested-With",
+    "access-control-allow-methods": "GET, POST, PUT, DELETE, OPTIONS",
+    "access-control-allow-origin": "https://hitit.com",
+    "content-type": "image/png"
+   },
+   "resourceType": "image",
+   "passes": [
+    "mobile",
+    "desktop"
+   ],
+   "file": "site/hitit.com/themes/custom/hitit2026/img/footer-logo-verizon.png",
+   "size": 3375,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://hitit.com/sites/default/files/favicon-32x32.png",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/png",
+   "headers": {
+    "access-control-allow-credentials": "true",
+    "access-control-allow-headers": "Content-Type, Authorization, X-Requested-With",
+    "access-control-allow-methods": "GET, POST, PUT, DELETE, OPTIONS",
+    "access-control-allow-origin": "https://hitit.com",
+    "content-type": "image/png"
+   },
+   "resourceType": "other",
+   "passes": [
+    "mobile",
+    "desktop"
+   ],
+   "file": "site/hitit.com/sites/default/files/favicon-32x32.png",
+   "size": 2059,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://ccdn.mobildev.in/collect",
+   "method": "POST",
+   "status": 200,
+   "contentType": "application/json;charset=utf-8",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "access-control-expose-headers": "Access-Control-Allow-Origin,Access-Control-Allow-Credentials",
+    "content-type": "application/json;charset=utf-8"
+   },
+   "resourceType": "xhr",
+   "passes": [
+    "mobile"
+   ],
+   "file": "site/ccdn.mobildev.in/collect__post22fbfee6.json",
+   "size": 2,
+   "bodyHash": "22fbfee611defb924f85234fa389e63e286846572646b84d29ceba84ccd7d14f"
+  },
+  {
+   "url": "https://ccdn.mobildev.in/collect",
+   "method": "POST",
+   "status": 200,
+   "contentType": "application/json;charset=utf-8",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "access-control-expose-headers": "Access-Control-Allow-Origin,Access-Control-Allow-Credentials",
+    "content-type": "application/json;charset=utf-8"
+   },
+   "resourceType": "xhr",
+   "passes": [
+    "mobile"
+   ],
+   "file": "site/ccdn.mobildev.in/collect__post105e8acb.json",
+   "size": 2,
+   "bodyHash": "105e8acb32679969e59202064856197ca7b77d35dc2c5eb437962ebe68d76e65"
+  },
+  {
+   "url": "https://ccdn.mobildev.in/collect",
+   "method": "POST",
+   "status": 200,
+   "contentType": "application/json;charset=utf-8",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "access-control-expose-headers": "Access-Control-Allow-Origin,Access-Control-Allow-Credentials",
+    "content-type": "application/json;charset=utf-8"
+   },
+   "resourceType": "xhr",
+   "passes": [
+    "desktop"
+   ],
+   "file": "site/ccdn.mobildev.in/collect__post9cdcdaa9.json",
+   "size": 2,
+   "bodyHash": "9cdcdaa957e6e078570a52f2f2928c31df1fcd85f776c75a850f7210cb093ab0"
+  },
+  {
+   "url": "https://ccdn.mobildev.in/collect",
+   "method": "POST",
+   "status": 200,
+   "contentType": "application/json;charset=utf-8",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "access-control-expose-headers": "Access-Control-Allow-Origin,Access-Control-Allow-Credentials",
+    "content-type": "application/json;charset=utf-8"
+   },
+   "resourceType": "xhr",
+   "passes": [
+    "desktop"
+   ],
+   "file": "site/ccdn.mobildev.in/collect__posta5c0c8cb.json",
+   "size": 2,
+   "bodyHash": "a5c0c8cbe7370e0b409a7773b6cf94504b27866e224e15cd8cce675a40d89ae6"
+  },
+  {
+   "url": "https://api.corpowid.com/api/v2/check",
+   "method": "POST",
+   "status": 200,
+   "contentType": "application/json",
+   "headers": {
+    "access-control-allow-headers": "Authorization,Content-Type,Accept,Origin,X-Requested-With",
+    "access-control-allow-methods": "GET, POST, OPTIONS, PUT, DELETE",
+    "access-control-allow-origin": "*",
+    "content-type": "application/json",
+    "priority": "u=1,i"
+   },
+   "resourceType": "fetch",
+   "passes": [
+    "mobile",
+    "desktop"
+   ],
+   "file": "site/api.corpowid.com/api/v2/check__post60e5ee86.json",
+   "size": 4083,
+   "bodyHash": "60e5ee86c8720c3c61915c3bfbbdd06755a63d56ae4540739552ab85d5deccc7"
+  },
+  {
+   "url": "https://cdn.corpowid.com/4.0.22/styles/widget.css",
+   "method": "GET",
+   "status": 200,
+   "contentType": "text/css",
+   "headers": {
+    "access-control-allow-headers": "Origin, X-Requested-With, Content-Type, Accept",
+    "access-control-allow-methods": "GET, HEAD, OPTIONS",
+    "access-control-allow-origin": "*",
+    "content-type": "text/css",
+    "priority": "u=0,i=?0"
+   },
+   "resourceType": "stylesheet",
+   "passes": [
+    "mobile",
+    "desktop"
+   ],
+   "file": "site/cdn.corpowid.com/4.0.22/styles/widget.css",
+   "size": 108383,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://hitit.com/favicon.ico",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/x-icon",
+   "headers": {
+    "content-type": "image/x-icon",
+    "access-control-allow-origin": "https://hitit.com",
+    "access-control-allow-methods": "GET, POST, PUT, DELETE, OPTIONS",
+    "access-control-allow-headers": "Content-Type, Authorization, X-Requested-With",
+    "access-control-allow-credentials": "true"
+   },
+   "resourceType": "other",
+   "passes": [
+    "mobile"
+   ],
+   "file": "site/hitit.com/favicon.ico",
+   "size": 1150
+  }
+ ],
+ "videos": {
+  "posters": {},
+  "onlineHosts": []
+ }
+}

@@ -1,0 +1,421 @@
+<!doctype html>
+<html lang="en-AU">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <meta name="description" content="Loam House — house-sized residences in Sandringham. Final release now selling.">
+  <title>Loam House — Sandringham</title>
+
+  <!-- ══ LAUNCH CONFIG — see LAUNCH-INTEGRATIONS.md ══
+       GTM is live (container GTM-TSBVJFXQ, Auyin root; snippet here + noscript after <body>).
+       Pixel / GA4 G-F8PJRFE8TL / Ads conversion / Clarity are configured INSIDE GTM, not here.
+       SITE ORIGIN = https://residences.loamhouse.com.au (cutover done 2026-09-10). Crawlers and
+       social scrapers do not run JS, so the canonical / og:url / og:image / JSON-LD urls below
+       are static literals of that origin — change them together with CANONICAL here. -->
+  <script>
+    window.LOAM_CONFIG = {
+      GTM_ID: 'GTM-TSBVJFXQ',  /* Auyin root — account "Auyin", container "Loam House" */
+      CANONICAL: 'https://residences.loamhouse.com.au/'
+    };
+    /* dataLayer exists from the first byte so success events queue even before GTM loads */
+    window.dataLayer = window.dataLayer || [];
+    (function (id) {
+      if (!id) return;             /* no container yet — site runs tag-free */
+      window.dataLayer.push({ 'gtm.start': new Date().getTime(), event: 'gtm.js' });
+      var s = document.createElement('script');
+      s.async = true;
+      s.src = 'https://www.googletagmanager.com/gtm.js?id=' + encodeURIComponent(id);
+      document.head.appendChild(s);
+    })(window.LOAM_CONFIG.GTM_ID);
+  </script>
+
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://residences.loamhouse.com.au/">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Loam House — Sandringham">
+  <meta property="og:description" content="Loam House — house-sized residences in Sandringham. Final release now selling.">
+  <meta property="og:url" content="https://residences.loamhouse.com.au/">
+  <meta property="og:image" content="https://residences.loamhouse.com.au/assets/hero-video/hero-skyline-poster.jpg">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="icon" type="image/png" href="assets/favicon.png">
+
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "Auyin",
+    "url": "https://residences.loamhouse.com.au/",
+    "contactPoint": {
+      "@type": "ContactPoint",
+      "contactType": "sales",
+      "telephone": "+61 422 299 202",
+      "areaServed": "AU"
+    }
+  }
+  </script>
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Residence",
+    "name": "Loam House",
+    "url": "https://residences.loamhouse.com.au/",
+    "description": "House-sized residences in Sandringham, Victoria.",
+    "image": "https://residences.loamhouse.com.au/assets/hero-video/hero-skyline-poster.jpg",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "212 Bay Road",
+      "addressLocality": "Sandringham",
+      "addressRegion": "VIC",
+      "postalCode": "3191",
+      "addressCountry": "AU"
+    }
+  }
+  </script>
+  <!-- JSON-LD note: two top-level entities (each with its own @type — a validator flagged the
+       @graph form). Building address confirmed 212 Bay Road (2026-09-10); the display suite in
+       the footer is separately 216B Bay Road. No price in schema. -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="preconnect" href="https://assets.calendly.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css?v=316">
+  <link rel="stylesheet" href="map.css?v=232">
+</head>
+<body>
+  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-TSBVJFXQ" height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+  <!-- Preloader: the menu's stripe curtain, held until the hero video is ready to
+       play, then lifted (same motion primitive as .mm-panels). -->
+  <div class="preloader" data-preloader aria-hidden="true">
+    <div class="pl-panels"><i></i><i></i><i></i><i></i><i></i><i></i><i></i></div>
+    <div class="pl-logo"><img src="assets/loam-house-wordmark.png" alt="Loam House"><div class="pl-pct" data-pl-pct>0</div></div>
+  </div>
+  <header class="site-header" data-header>
+    <a class="wordmark" href="#top" aria-label="Loam House home"><img src="assets/loam-house-wordmark.png" alt="Loam House"></a>
+    <nav class="desktop-nav" aria-label="Primary navigation">
+      <a href="#proposition">Proposition</a><a href="#size">Size</a><a href="#storage">Storage</a><a href="#finishes">Finishes</a><a href="#amenities">Precinct</a><a href="#place">Place</a><a href="#contact">Contact</a>
+    </nav>
+    <div class="header-ctas">
+      <a class="mbtn" href="#enquire"><span class="mbtn-circle" aria-hidden="true"></span><span class="mbtn-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><g class="dl-arrow"><polyline points="7 10 12 15 17 10"/><line x1="12" x2="12" y1="15" y2="3"/></g></svg></span><span class="mbtn-text"><span class="lbl-full">Download the brochure</span><span class="lbl-short">Brochure</span></span></a>
+      <button class="mbtn" data-open-calendly><span class="mbtn-circle" aria-hidden="true"></span><span class="mbtn-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M8 2v4"/><path d="M16 2v4"/><rect width="18" height="18" x="3" y="4" rx="2"/><path d="M3 10h18"/><path class="cd-dot" style="--i:0" d="M8 14h.01"/><path class="cd-dot" style="--i:1" d="M12 14h.01"/><path class="cd-dot" style="--i:2" d="M16 14h.01"/><path class="cd-dot" style="--i:3" d="M8 18h.01"/><path class="cd-dot" style="--i:4" d="M12 18h.01"/><path class="cd-dot" style="--i:5" d="M16 18h.01"/></svg></span><span class="mbtn-text"><span class="lbl-full">Book an appointment</span><span class="lbl-short">Appointment</span></span></button>
+    </div>
+  </header>
+  <button class="menu-button" aria-label="Open navigation" aria-expanded="false" data-menu-button><span></span><span></span><span></span></button>
+
+  <div id="smooth-wrapper"><div id="smooth-content">
+  <main id="top">
+    <section class="hero chapter" aria-labelledby="hero-title">
+      <video class="hero-image hero-media-video" data-hero-intro autoplay muted playsinline preload="auto" poster="assets/hero-video/hero-skyline-poster.jpg" aria-hidden="true">
+        <source src="assets/hero-video/hero-skyline-1080.webm" type="video/webm">
+        <source src="assets/hero-video/hero-skyline-1080.mp4" type="video/mp4">
+      </video>
+      <video class="hero-image hero-media-video hero-video-ambient" data-hero-ambient muted loop playsinline preload="none" aria-hidden="true">
+        <source src="assets/hero-video/hero-ambient-1080.webm" type="video/webm">
+        <source src="assets/hero-video/hero-ambient-1080.mp4" type="video/mp4">
+      </video>
+      <video class="hero-image hero-media-mobile" autoplay muted loop playsinline preload="auto" poster="assets/hero-video/hero-mobile-poster.jpg" aria-hidden="true">
+        <source src="assets/hero-video/hero-mobile.mp4" type="video/mp4">
+      </video>
+      <img class="hero-image hero-media-img" src="assets/mobile/hero-mobile-still.jpg" alt="Loam House at sunset, Sandringham">
+      <div class="hero-shade"></div>
+      <div class="scanlines"></div>
+      <div class="hero-copy">
+        <p class="eyebrow light">Final release · Sandringham</p>
+        <h1 id="hero-title">House-sized.<br><em>Bayside living.</em></h1>
+        <div class="hero-bottom">
+          <div><p>Bayside’s largest apartments.<br>86–275m² residences from $850,000.</p><a class="hero-brochure" href="#enquire">Download the brochure ↗</a></div>
+        </div>
+      </div>
+      <span class="artist-tag">Artist’s impression</span>
+    </section>
+
+    <!-- The enquiry card: on DESKTOP this chapter overlays the hero (same grid, same cell —
+         visually unchanged); on MOBILE it is its own one-viewport chapter after the hero. -->
+    <section class="form-chapter chapter" id="enquire" aria-label="Enquiry">
+      <img loading="lazy" decoding="async" class="form-bg" src="assets/form_bg2.jpg" srcset="assets/mobile/form_bg2.jpg 1200w, assets/form_bg2.jpg 1440w" sizes="(max-width:800px) 100vw, 4000px" alt="" aria-hidden="true">
+      <div class="form-shade"></div>
+      <aside class="hero-form-card" data-hero-card>
+        <div class="fmc-form">
+          <p class="fmc-eyebrow"><span class="m"><span id="fmc-mode-eyebrow">The Loam House brochure</span></span><i class="fmc-line"></i></p>
+          <p class="fmc-intro" id="fmc-intro">Floorplans, finishes and amenities, sent directly to your inbox.</p>
+          <form data-hero-form>
+            <label style="position:absolute;left:-9999px" aria-hidden="true">Website<input name="website" tabindex="-1" autocomplete="off"></label>
+            <div class="fmc-field"><label for="fmc-name"><span>Name</span></label><input id="fmc-name" name="name" autocomplete="name" placeholder=" " required><i class="fmc-focusline"></i><i class="fmc-caret"></i></div>
+            <div class="fmc-field"><label for="fmc-email"><span>Email</span></label><input id="fmc-email" type="email" name="email" autocomplete="email" required><i class="fmc-focusline"></i></div>
+            <div class="fmc-phone-wrap" id="fmc-phone-wrap">
+              <div class="fmc-field"><label for="fmc-phone"><span>Phone</span></label><input id="fmc-phone" type="tel" name="phone" autocomplete="tel"><i class="fmc-focusline"></i></div>
+            </div>
+            <button type="submit" class="fmc-btn primary" id="fmc-send"><span id="fmc-send-label">Send me the brochure</span></button>
+          </form>
+          <a class="fmc-btn ghost" href="#" id="fmc-appt">Book a private appointment</a>
+          <a class="fmc-btn ghost fmc-mode-btn" href="#" id="fmc-mode"><span id="fmc-mode-label">Request a call back</span></a>
+          <small class="fmc-trust">No spam, no obligation. Your details stay with Auyin.</small>
+        </div>
+        <div class="fmc-success">
+          <p class="fmc-eyebrow"><span class="m"><span id="fmc-success-eyebrow">Thank you</span></span><i class="fmc-line"></i></p>
+          <div class="line"><span>Your brochure</span></div>
+          <div class="line"><span><em>is on its way to</em></span></div>
+          <div class="line"><span class="fmc-to" id="fmc-success-email"></span></div>
+          <a class="fmc-btn primary fmc-view" href="assets/brochure/Loam-House-Brochure.pdf" target="_blank" rel="noopener">View the brochure now</a>
+          <div class="fmc-upsell">
+            <p class="fmc-upsell-intro">If you would like further information, enter your number below and one of our sales team will be happy to give you a call back.</p>
+            <div class="fmc-upsell-form">
+              <div class="fmc-field"><label for="fmc-upsell-phone"><span>Phone</span></label><input id="fmc-upsell-phone" type="tel" placeholder=" "><i class="fmc-focusline"></i><i class="fmc-caret"></i></div>
+              <button type="button" class="fmc-btn ghost" id="fmc-upsell-send">Request a call back</button>
+            </div>
+            <p class="fmc-upsell-done" style="display:none">One of our sales team <em>will call you soon.</em></p>
+          </div>
+        </div>
+      </aside>
+      <span class="artist-tag">Artist’s impression</span>
+    </section>
+
+    <section class="cine chapter reveal" id="proposition">
+      <div class="section-number">01 / The proposition</div>
+      <img loading="lazy" decoding="async" src="assets/EXT_Terrace.jpg" srcset="assets/mobile/EXT_Terrace.jpg 1200w, assets/EXT_Terrace.jpg 3056w" sizes="(max-width:800px) 100vw, 4000px" style="--mob-pos:36% center" alt="A private penthouse terrace overlooking leafy Bayside">
+      <div class="shade"></div>
+      <div class="copy"><div class="inner">
+  <p class="eyebrow">A rare final release</p>
+        <h2>Leave the upkeep.<br><em>Keep the life.</em></h2>
+        <p class="lede">Loam House is made for people who have outgrown the maintenance, not the space. House-sized, single-level residences in the Bayside neighbourhood you already call home.</p>
+      </div>
+      <div class="figs">
+        <div class="fig"><strong>88</strong><span>Residences</span></div>
+        <div class="fig"><strong>86&ndash;275</strong><span>Square metres</span></div>
+        <div class="fig"><strong>3 min</strong><span>Drive to the beach</span></div>
+      </div></div>
+      <span class="artist-tag">Artist’s impression</span>
+    </section>
+
+    <section class="cine chapter reveal" id="size">
+      <div class="section-number">02 / The size</div>
+      <img loading="lazy" decoding="async" src="assets/INT03_Courtyard-Living-Dining.jpg" srcset="assets/mobile/INT03_Courtyard-Living-Dining.jpg 1200w, assets/INT03_Courtyard-Living-Dining.jpg 2048w" sizes="(max-width:800px) 100vw, 4000px" alt="Ground-floor living opening to a private landscaped courtyard">
+      <div class="shade"></div>
+      <div class="copy"><div class="inner">
+        <h2>A backyard oasis,<br><em>without the mowing.</em></h2>
+        <p class="lede">Two and three bedroom ground-floor homes opening to landscaped courtyards, with up to 154 square metres of private outdoor space.</p>
+        <div class="figs">
+          <div class="figs-eyebrow"><p class="eyebrow">Garden apartments</p></div>
+          <div class="fig"><strong>112&ndash;156</strong><span>Internal m&sup2;</span></div>
+          <div class="fig"><strong>2&ndash;3</strong><span>Bedrooms</span></div>
+        </div>
+      </div></div>
+      <span class="artist-tag">Artist’s impression</span>
+    </section>
+    <section class="cine chapter reveal">
+      <img loading="lazy" decoding="async" src="assets/INT04_Kitchen-Light.jpg" srcset="assets/mobile/INT04_Kitchen-Light.jpg 1200w, assets/INT04_Kitchen-Light.jpg 2048w" sizes="(max-width:800px) 100vw, 4000px" alt="Light-filled kitchen and living of a lifestyle apartment">
+      <div class="shade"></div>
+      <div class="copy"><div class="inner">
+        <h2>Everything you need.<br><em>Nothing you don&rsquo;t.</em></h2>
+        <p class="lede">Light-filled two and three bedroom apartments with room-by-room storage and generous balcony living, and a study nook in select homes.</p>
+        <div class="figs">
+          <div class="figs-eyebrow"><p class="eyebrow">Lifestyle collection</p></div>
+          <div class="fig"><strong>103&ndash;162</strong><span>Internal m&sup2;</span></div>
+          <div class="fig"><strong>2&ndash;3</strong><span>Bedrooms</span></div>
+        </div>
+      </div></div>
+      <span class="artist-tag">Artist’s impression</span>
+    </section>
+    <section class="cine chapter reveal">
+      <img loading="lazy" decoding="async" src="assets/INT01_Penthouse-Living.jpg" srcset="assets/mobile/INT01_Penthouse-Living.jpg 1200w, assets/INT01_Penthouse-Living.jpg 2048w" sizes="(max-width:800px) 100vw, 4000px" alt="Penthouse living with panoramic city views">
+      <div class="shade"></div>
+      <div class="copy"><div class="inner">
+        <h2>Above the treetops.<br><em>Beyond expectation.</em></h2>
+        <p class="lede">Panoramic city views, stone fireplaces, travertine kitchens and bathrooms, butler&rsquo;s pantries and expansive entertainer&rsquo;s terraces.</p>
+        <div class="figs">
+          <div class="figs-eyebrow"><p class="eyebrow">Penthouse collection</p></div>
+          <div class="fig"><strong>246.5&ndash;275</strong><span>Internal m&sup2;</span></div>
+        </div>
+      </div></div>
+      <span class="artist-tag">Artist’s impression</span>
+    </section>
+
+    <section class="cine centered chapter reveal" id="storage">
+      <div class="section-number">03 / The storage</div>
+      <img loading="lazy" decoding="async" src="assets/INT_Storage.jpg" srcset="assets/mobile/INT_Storage.jpg 1200w, assets/INT_Storage.jpg 2432w" sizes="(max-width:800px) 100vw, 4000px" alt="Bespoke walk-in dressing and storage room">
+      <div class="shade"></div>
+      <div class="copy"><div class="inner">
+  <p class="eyebrow">Keep your things</p>
+        <h2>A place for<br><em>everything.</em></h2>
+        <p class="lede">Walk-in robes, full-height linen and generous joinery, secure caged storage beside your car, and private lock-up garages for the penthouses. Somewhere for everything.</p>
+      </div></div>
+      <span class="artist-tag">Artist’s impression</span>
+    </section>
+
+    <section class="cine chapter reveal" id="finishes">
+      <div class="section-number">04 / The finishes</div>
+      <img loading="lazy" decoding="async" src="assets/INT05_Bathroom-Light.jpg" data-src-m="assets/mobile/INT05_Bathroom-Light.jpg" style="--mob-pos:70% center" alt="Bathroom in the light finish palette">
+      <img loading="lazy" decoding="async" class="swap" alt="" aria-hidden="true">
+      <div class="shade"></div>
+      <div class="copy"><div class="inner">
+  <p class="eyebrow">Tactile by nature</p>
+        <h2>Details you feel<br><em>before you notice.</em></h2>
+        <p class="lede">Integrated Miele appliances, stone benchtops, full-height tiling and custom joinery, in a light palette curated room by room.</p>
+        <div class="tags"><span data-img="assets/finishes/tiling.jpg" data-img-m="assets/mobile/finishes/tiling.jpg" data-pos="center">Full-height tiling</span><span data-img="assets/finishes/joinery.jpg" data-img-m="assets/mobile/finishes/joinery.jpg" data-pos="center">Custom joinery</span><span data-img="assets/finishes/stone.jpg" data-img-m="assets/mobile/finishes/stone.jpg" data-pos="center">Stone</span></div>
+      </div></div>
+      <span class="artist-tag">Artist’s impression</span>
+    </section>
+
+    <!-- MAP CHAPTER — replaces the amenity list + gym-hero chapter. The 13 amenities
+         land as dots on the precinct plan; the chapter is interactive: zoom out to see
+         Sandringham POIs, tap dots for detail. Chapter-scoped chrome lives inside. -->
+    <section class="map-chapter chapter chapter-map reveal" id="amenities" data-mode="precinct">
+            <div class="map-stage">
+        <svg id="map" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="xMidYMid slice">
+          <defs><clipPath id="preclip" clipPathUnits="userSpaceOnUse">
+            <rect id="cliprect" x="500" y="170" width="700" height="660"/>
+          </clipPath></defs>
+          <!-- #spin: the camera's rotation lives HERE, inside the SVG's own paint pass —
+               never as a CSS transform on the <svg> element, which lets the compositor
+               slide stale raster tiles under a new transform mid-flight (seam/ghost flicker). -->
+          <g id="spin">
+            <g id="area"></g>
+            <g id="suburbs"></g>
+            <g id="roads"></g>
+            <g id="stations"></g>
+            <g id="busstops"></g>
+            <g id="precinct">
+              <g id="preinner" clip-path="url(#preclip)"></g>
+              <g id="labels"></g>
+            </g>
+            <g id="dots"></g>
+          </g>
+        </svg>
+        <!-- The lens: the open amenity's photograph lives in screen space (it holds screen
+             size while the map moves), revealed through a circular clip that rides the dot.
+             Between the map and the copy; render() drives clip, opacity, and rotation sync. -->
+        <div id="photo-layer" aria-hidden="true"><img loading="lazy" decoding="async" alt=""></div>
+        <div class="section-number">05 / The precinct</div>
+<div class="precinct-note">
+          <p class="dot-name" aria-hidden="true"></p>
+          <p class="eyebrow">Keep your community</p>
+          <h2>A lifestyle<br><em>already alive.</em></h2>
+          <p class="lede">Beautifully curated shared spaces for residents to use. Each dot on the plan is one of them. Take a look.</p>
+        </div>
+        <div id="content"></div>
+        <nav id="map-nav">
+          <div class="nav-in">
+            <button type="button" class="map-journey">
+              <span class="j-out" title="See it in context">
+                <svg class="mj-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <g class="mj-tr"><polyline points="15 3 21 3 21 9"/><line x1="21" y1="3" x2="14" y2="10"/></g>
+                  <g class="mj-bl"><polyline points="9 21 3 21 3 15"/><line x1="3" y1="21" x2="10" y2="14"/></g>
+                </svg>
+                <span class="sr-only">See it in context</span>
+              </span>
+              <span class="j-back" title="Back to the precinct">
+                <svg class="mj-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                  <g class="mj-tr"><polyline points="20 10 14 10 14 4"/><line x1="14" y1="10" x2="21" y2="3"/></g>
+                  <g class="mj-bl"><polyline points="4 14 10 14 10 20"/><line x1="3" y1="21" x2="10" y2="14"/></g>
+                </svg>
+                <span class="sr-only">Back to the precinct</span>
+              </span>
+            </button>
+          </div>
+        </nav>
+      </div>
+    </section>
+    <!-- (copy overlay removed — the map's own labels + chrome ARE the chapter voice) -->
+
+
+    <section class="place section-pad chapter chapter-ink" id="place">
+      <img loading="lazy" decoding="async" class="place-bg" src="assets/place-bayside.jpg" srcset="assets/mobile/place-bayside.jpg 1200w, assets/place-bayside.jpg 2560w" sizes="(max-width:800px) 100vw, 4000px" alt="Sandringham rolling down to Port Phillip Bay at golden hour">
+      <div class="place-shade"></div>
+      <div class="section-number">06 / The place</div>
+      <div class="place-grid">
+        <div class="reveal"><p class="eyebrow">Keep your neighbourhood</p><h2>Your life,<br><em>still yours.</em></h2></div>
+        <div class="place-copy reveal"><p>Keep your GP, your café, your tennis club and the grandchildren’s school run. Three minutes’ drive from the water, sixteen kilometres from the CBD.</p>
+          <ul>
+            <li>Sandringham Beach &amp; Bay Trail<span>3 min drive</span></li>
+            <li>Sandringham Village &amp; Station<span>3 min drive</span></li>
+            <li>Royal Melbourne &amp; Sandringham Golf<span>4 min drive</span></li>
+            <li>Westfield Southland<span>6 min drive</span></li>
+            <li>Schools &amp; Colleges<span>7 min walk</span></li>
+          </ul>
+        </div>
+      </div>
+      <div class="location-line reveal"><span>LOAM HOUSE</span><i></i><span>03 MIN DRIVE</span><i></i><span>THE BAY</span></div>
+      <span class="artist-tag">Artist’s impression</span>
+    </section>
+
+    <section class="final-cta chapter chapter-cinema contact-chapter" id="contact" aria-label="Contact the team">
+      <img loading="lazy" decoding="async" src="assets/COM03_Office.jpg" srcset="assets/mobile/COM03_Office.jpg 1200w, assets/COM03_Office.jpg 2048w" sizes="(max-width:800px) 100vw, 4000px" alt="Loam House residents business lounge">
+      <div class="final-shade"></div>
+      <div class="cf-scrim"></div>
+      <div class="scanlines"></div>
+      <div class="contact-inner">
+        <p class="eyebrow light">Speak with the team</p>
+        <h2>Register your<br><em>interest.</em></h2>
+        <ol class="cf-progress" aria-hidden="true">
+          <li class="cf-dot active"><span>You</span></li>
+          <li class="cf-dot"><span>Reach you</span></li>
+          <li class="cf-dot"><span>Enquiry</span></li>
+        </ol>
+        <form class="cf-form" data-contact-form novalidate>
+          <label class="cf-hp" aria-hidden="true">Website<input name="website" tabindex="-1" autocomplete="off"></label>
+          <div class="cf-step active" data-step="0">
+            <div class="cf-field"><label for="cf-name"><span>Full name</span></label><input id="cf-name" name="name" autocomplete="name" placeholder=" " required><i class="cf-line"></i></div>
+            <div class="cf-field"><label for="cf-email"><span>Email</span></label><input id="cf-email" name="email" type="email" autocomplete="email" placeholder=" " required><i class="cf-line"></i></div>
+            <div class="cf-nav"><span class="cf-spacer"></span><button type="button" class="cf-btn primary cf-next">Continue</button></div>
+          </div>
+          <div class="cf-step" data-step="1">
+            <div class="cf-field"><label for="cf-phone"><span>Phone</span></label><input id="cf-phone" name="phone" type="tel" autocomplete="tel" placeholder=" " required><i class="cf-line"></i></div>
+            <div class="cf-field"><label for="cf-preferred"><span>Preferred contact</span></label><select id="cf-preferred" name="preferred" required><option value="" disabled selected hidden>Choose one</option><option>Call</option><option>Email</option></select><i class="cf-line"></i></div>
+            <div class="cf-nav"><button type="button" class="cf-btn ghost cf-prev">Back</button><button type="button" class="cf-btn primary cf-next">Continue</button></div>
+          </div>
+          <div class="cf-step" data-step="2">
+            <div class="cf-field"><label for="cf-enquiry"><span>Enquiry</span></label><select id="cf-enquiry" name="enquiry" required><option value="" disabled selected hidden>Select an enquiry type</option><option>General enquiry</option><option>Pricing &amp; availability</option><option>Floorplans</option><option>Private appointment</option></select><i class="cf-line"></i></div>
+            <div class="cf-field"><label for="cf-message"><span>Message</span></label><textarea id="cf-message" name="message" rows="2" placeholder=" " required></textarea><i class="cf-line"></i></div>
+            <div class="cf-nav"><button type="button" class="cf-btn ghost cf-prev">Back</button><button type="submit" class="cf-btn primary cf-submit">Send enquiry</button></div>
+          </div>
+        </form>
+        <div class="cf-success" hidden>
+          <p class="cf-success-h">Thank you<span id="cf-success-name"></span>.</p>
+          <p class="cf-success-p">Your enquiry is with the team — we&rsquo;ll be in touch shortly.</p>
+        </div>
+        <p class="cf-contacts">Prefer to talk now?
+          <a href="tel:+61422299202">Leone Steele &middot; 0422 299 202</a>
+          <a href="tel:+61497126202">Edwina Smith &middot; 0497 126 202</a></p>
+      </div>
+      <footer><a class="wordmark" href="#top"><img src="assets/loam-house-wordmark.png" alt="Loam House"></a><p>Display Suite<br>216B Bay Road, Sandringham VIC 3191</p><p>Final release by Auyin<br>© 2026 Loam House</p><span class="foot-legal"><a href="privacy-policy.html">Privacy</a> &middot; <a href="disclaimer.html">Disclaimer</a></span></footer>
+      <span class="artist-tag">Artist’s impression</span>
+    </section>
+  </main>
+
+  </div></div>
+
+  <div class="mobile-menu" data-mobile-menu>
+    <div class="mm-panels" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></div>
+    <div class="mm-inner">
+    <div class="mm-head">
+      <a class="wordmark" href="#top" data-menu-close aria-label="Loam House home"><img src="assets/loam-house-wordmark.png" alt="Loam House"></a>
+    </div>
+    <nav class="mm-nav" aria-label="Primary">
+      <a href="#proposition"><span class="mm-linkin"><em>01</em>Proposition</span></a>
+      <a href="#size"><span class="mm-linkin"><em>02</em>Size</span></a>
+      <a href="#storage"><span class="mm-linkin"><em>03</em>Storage</span></a>
+      <a href="#finishes"><span class="mm-linkin"><em>04</em>Finishes</span></a>
+      <a href="#amenities"><span class="mm-linkin"><em>05</em>Precinct</span></a>
+      <a href="#place"><span class="mm-linkin"><em>06</em>Place</span></a>
+      <a href="#contact"><span class="mm-linkin"><em>07</em>Contact</span></a>
+    </nav>
+    <div class="mm-foot">
+      <div class="mm-ctas">
+        <a class="mbtn" href="#enquire"><span class="mbtn-circle" aria-hidden="true"></span><span class="mbtn-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><g class="dl-arrow"><polyline points="7 10 12 15 17 10"/><line x1="12" x2="12" y1="15" y2="3"/></g></svg></span><span class="mbtn-text">Download the brochure</span></a>
+        <button class="mbtn" data-open-calendly><span class="mbtn-circle" aria-hidden="true"></span><span class="mbtn-icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M8 2v4"/><path d="M16 2v4"/><rect width="18" height="18" x="3" y="4" rx="2"/><path d="M3 10h18"/><path class="cd-dot" style="--i:0" d="M8 14h.01"/><path class="cd-dot" style="--i:1" d="M12 14h.01"/><path class="cd-dot" style="--i:2" d="M16 14h.01"/><path class="cd-dot" style="--i:3" d="M8 18h.01"/><path class="cd-dot" style="--i:4" d="M12 18h.01"/><path class="cd-dot" style="--i:5" d="M16 18h.01"/></svg></span><span class="mbtn-text">Book an appointment</span></button>
+      </div>
+      <div class="mm-contact">
+        <p>Display Suite · 216B Bay Road, Sandringham VIC 3191</p>
+        <p>Final release by Auyin</p>
+      </div>
+    </div>
+    </div>
+  </div>
+  <script src="script.js?v=189"></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/gsap.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/ScrollTrigger.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/SplitText.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/ScrollSmoother.min.js"></script>
+  <script src="editorial.js?v=313"></script>
+  <script src="map.js?v=258" defer></script>
+</body>
+</html>

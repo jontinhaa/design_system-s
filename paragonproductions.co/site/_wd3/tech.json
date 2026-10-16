@@ -1,0 +1,160 @@
+{
+ "builders": [
+  "webflow"
+ ],
+ "libraries": [
+  {
+   "name": "gsap",
+   "version": "3.15.0",
+   "sources": [
+    "página",
+    "https://cdn.prod.website-files.com/gsap/3.15.0/InertiaPlugin.min.js",
+    "https://cdn.prod.website-files.com/gsap/3.15.0/Flip.min.js",
+    "https://cdn.prod.website-files.com/gsap/3.15.0/Observer.min.js",
+    "https://cdn.prod.website-files.com/gsap/3.15.0/SplitText.min.js"
+   ]
+  },
+  {
+   "name": "gsap/ScrollTrigger",
+   "version": null,
+   "sources": [
+    "página"
+   ]
+  },
+  {
+   "name": "gsap/SplitText",
+   "version": null,
+   "sources": [
+    "página"
+   ]
+  },
+  {
+   "name": "jquery",
+   "version": "3.5.1",
+   "sources": [
+    "página",
+    "https://d3e54v103j8qbb.cloudfront.net/js/jquery-3.5.1.min.dc5e7f18c8.js?site=68be24b22b086720602bcd38"
+   ]
+  },
+  {
+   "name": "lenis",
+   "version": "1.2.3",
+   "sources": [
+    "página",
+    "https://cdn.jsdelivr.net/npm/lenis@1.2.3/dist/lenis.min.js",
+    "https://unpkg.com/lenis@1.2.3/dist/lenis.css"
+   ]
+  },
+  {
+   "name": "webflow",
+   "version": null,
+   "sources": [
+    "https://cdn.prod.website-files.com/68be24b22b086720602bcd38/js/webflow.6834489d.42d309f3c40a730c.js",
+    "https://cdn.prod.website-files.com/68be24b22b086720602bcd38/js/webflow.achunk.25cddb252aee8bac.js",
+    "https://cdn.prod.website-files.com/68be24b22b086720602bcd38/js/webflow.achunk.efee02507cc3a6ac.js",
+    "https://cdn.prod.website-files.com/68be24b22b086720602bcd38/js/webflow.achunk.53b0e10def64caa8.js",
+    "https://cdn.prod.website-files.com/68be24b22b086720602bcd38/js/webflow.achunk.539416238115c56c.js"
+   ]
+  }
+ ],
+ "runtime": {
+  "contexts": {},
+  "wasm": 0,
+  "workers": 0,
+  "webgpu": false,
+  "shadowRoots": 0,
+  "canvases": 0
+ },
+ "cssFeatures": [
+  "container queries"
+ ],
+ "fonts": {
+  "families": [
+   "Review Condensed",
+   "Simplon Norm",
+   "Roobert"
+  ],
+  "sources": [
+   "self-hosted"
+  ]
+ },
+ "videos": [
+  {
+   "src": "https://player.vimeo.com/progressive_redirect/playback/1122238458/rendition/1080p/file.mp4?loc=external&signature=e93451550e238e2d2009931d2bd95c63f374030cfadd8a85505f13a6fd9182af",
+   "kind": "decorativo",
+   "reason": "curto, sem controles e sem som",
+   "hosting": "plataforma",
+   "action": "baixado"
+  },
+  {
+   "src": "https://player.vimeo.com/progressive_redirect/playback/1116462329/rendition/1080p/file.mp4%20%281080p%29.mp4?loc=external&signature=f7e1be9cdf7531682afc1ede412fa9c2e13170cecf81568b3493573859b6c0cb",
+   "kind": "decorativo",
+   "reason": "curto, sem controles e sem som",
+   "hosting": "plataforma",
+   "action": "baixado"
+  },
+  {
+   "src": "https://player.vimeo.com/progressive_redirect/playback/1194094551/rendition/720p/file.mp4%20%28720p%29.mp4?loc=external&log_user=0&signature=e0eccd530b6be9c42a78d7cb77c2ef176c39f71a9dbd16dc08d4e472a7e06f22",
+   "kind": "decorativo",
+   "reason": "curto, sem controles e sem som",
+   "hosting": "plataforma",
+   "action": "baixado"
+  },
+  {
+   "src": "https://player.vimeo.com/progressive_redirect/playback/1203532689/rendition/1080p/file.mp4%20%281080p%29.mp4?loc=external&log_user=0&signature=319c724e9c3b37552ad18c4ab8c2461824d9aa5224f5796582d37d3ff1d111ca",
+   "kind": "decorativo",
+   "reason": "curto, sem controles e sem som",
+   "hosting": "plataforma",
+   "action": "baixado"
+  },
+  {
+   "src": "https://player.vimeo.com/progressive_redirect/playback/1116462179/rendition/1080p/file.mp4?loc=external&signature=70b351c74d402879bd31c589a70a71566354ccfe7f84dab7bd80f2630bfd03db",
+   "kind": "decorativo",
+   "reason": "curto, sem controles e sem som",
+   "hosting": "plataforma",
+   "action": "baixado"
+  },
+  {
+   "src": "https://player.vimeo.com/progressive_redirect/playback/1116435923/rendition/720p/file.mp4%20%28720p%29.mp4?loc=external&signature=ae7d68d9bcaa82c4de4548fd550dfd0f6f79416587c107975b87f8f76f25fc78",
+   "kind": "decorativo",
+   "reason": "curto, sem controles e sem som",
+   "hosting": "plataforma",
+   "action": "baixado"
+  },
+  {
+   "src": "https://player.vimeo.com/progressive_redirect/playback/1116435988/rendition/720p/file.mp4?loc=external&signature=fd51e1d34030797da06ac073181e63687a38bb4d8d0af767254e5219d04c5023",
+   "kind": "decorativo",
+   "reason": "curto, sem controles e sem som",
+   "hosting": "plataforma",
+   "action": "baixado"
+  },
+  {
+   "src": "https://player.vimeo.com/progressive_redirect/playback/1122248725/rendition/720p/file.mp4?loc=external&signature=e5eccb73e647df8ef69d3dca470d1370aa6a27a803a76601dc694aca6fc155e4",
+   "kind": "decorativo",
+   "reason": "curto, sem controles e sem som",
+   "hosting": "plataforma",
+   "action": "baixado"
+  },
+  {
+   "src": "https://player.vimeo.com/progressive_redirect/playback/1116436066/rendition/720p/file.mp4?loc=external&signature=59f1a9aa7b0469a2ef1bd52208a292b677c67335e750b70947245dd3641ad81a",
+   "kind": "decorativo",
+   "reason": "curto, sem controles e sem som",
+   "hosting": "plataforma",
+   "action": "baixado"
+  },
+  {
+   "src": "https://player.vimeo.com/progressive_redirect/playback/1123324482/rendition/720p/file.mp4?loc=external&signature=91411a5aeb6055ff8f34346276f75cc2f992fc52a8acbc4c1c73444a06df1dd2",
+   "kind": "decorativo",
+   "reason": "curto, sem controles e sem som",
+   "hosting": "plataforma",
+   "action": "baixado"
+  }
+ ],
+ "files": {
+  "text": 22,
+  "application": 12,
+  "image": 47,
+  "font": 3,
+  "video": 20
+ }
+}

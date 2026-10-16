@@ -1,0 +1,1506 @@
+{
+ "version": 1,
+ "tool": "wd3 0.1.0",
+ "captureId": "thedesignsociety.fr-b2949b5f",
+ "capturedAt": "2026-10-14T16:29:59+00:00",
+ "entry": {
+  "url": "https://www.thedesignsociety.fr/",
+  "path": "/",
+  "search": "",
+  "file": "site/www.thedesignsociety.fr/index.html",
+  "contentType": "text/html; charset=utf-8"
+ },
+ "blocked": [
+  "^https?://([^/?#]+\\.)?(google\\-analytics\\.com|analytics\\.google\\.com|googletagmanager\\.com|googleadservices\\.com|doubleclick\\.net|googlesyndication\\.com|googleoptimize\\.com|connect\\.facebook\\.net|bat\\.bing\\.com|snap\\.licdn\\.com|px\\.ads\\.linkedin\\.com|analytics\\.tiktok\\.com|ct\\.pinterest\\.com|static\\.ads\\-twitter\\.com|analytics\\.twitter\\.com|tr\\.snapchat\\.com|sc\\-static\\.net|mc\\.yandex\\.ru|hotjar\\.com|hotjar\\.io|clarity\\.ms|cdn\\.segment\\.com|api\\.segment\\.io|cdn\\.mxpnl\\.com|api\\-js\\.mixpanel\\.com|api\\.mixpanel\\.com|api\\.amplitude\\.com|api2\\.amplitude\\.com|api\\-secure\\.amplitude\\.com|api\\-sr\\.amplitude\\.com|sr\\-client\\-cfg\\.amplitude\\.com|plausible\\.io|cloud\\.umami\\.is|analytics\\.umami\\.is|static\\.cloudflareinsights\\.com|cloudflareinsights\\.com|vitals\\.vercel\\-insights\\.com|browser\\-intake\\-datadoghq\\.com|browser\\-intake\\-datadoghq\\.eu|js\\-agent\\.newrelic\\.com|bam\\.nr\\-data\\.net|bam\\-cell\\.nr\\-data\\.net|fullstory\\.com|script\\.crazyegg\\.com|mouseflow\\.com|smartlook\\.com|heapanalytics\\.com|i\\.posthog\\.com|stats\\.wp\\.com|pixel\\.wp\\.com|promotekit\\.com|ingest\\.sentry\\.io|ingest\\.us\\.sentry\\.io|ingest\\.de\\.sentry\\.io|widget\\.intercom\\.io|js\\.intercomcdn\\.com|api\\-iam\\.intercom\\.io|js\\.hs\\-scripts\\.com|js\\.hs\\-analytics\\.net|js\\.hs\\-banner\\.com|js\\.hscollectedforms\\.net|js\\.usemessages\\.com|track\\.hubspot\\.com|client\\.crisp\\.chat|embed\\.tawk\\.to|js\\.driftt\\.com|static\\.zdassets\\.com|ekr\\.zdassets\\.com|cdn\\.cookielaw\\.org|geolocation\\.onetrust\\.com|consent\\.cookiebot\\.com|consentcdn\\.cookiebot\\.com|app\\.usercentrics\\.eu|api\\.usercentrics\\.eu|cdn\\.iubenda\\.com|cmp\\.osano\\.com|cdn\\.termly\\.io)(:\\d+)?([/?#]|$)",
+  "/rpc/increment_shared_code_views",
+  "^https?://(umami|analytics|stats|plausible)\\.[^/]+/(api/send|api/collect|api/event|script\\.js)",
+  "/g/c(ollect)?\\?v=2&",
+  "sentry\\.io/api/\\d+/(envelope|store)",
+  "/api/meta-capi",
+  "^https?://(leadtracker|tracking|track|events?|collect)\\.[^/]+/",
+  "^https?://a\\.vturb\\.com/",
+  "facebook\\.com/tr[/?]",
+  "/_vercel/(speed-)?insights/",
+  "/cdn-cgi/rum",
+  "/cdn-cgi/challenge-platform/",
+  "google\\.com/(pagead|ads)/"
+ ],
+ "volatileParams": [
+  "v",
+  "_rsc",
+  "dpl",
+  "_",
+  "t",
+  "ts",
+  "timestamp",
+  "cb",
+  "cachebust",
+  "cacheBust",
+  "nocache",
+  "rnd",
+  "rand",
+  "random",
+  "_t"
+ ],
+ "entries": [
+  {
+   "url": "https://www.thedesignsociety.fr/",
+   "method": "GET",
+   "status": 200,
+   "contentType": "text/html; charset=utf-8",
+   "headers": {
+    "content-type": "text/html; charset=utf-8",
+    "link": "<https://cdn.prod.website-files.com>; rel=preconnect; crossorigin, <https://cdn.prod.website-files.com/698de82080130d2fe9cada54/css/the-design-society-22535e.webflow.shared.208368ec9.css>; rel=preload; as=style; crossorigin; integrity=\"sha384-IINo7Jx7P40Wh0eGYX4r9hg9umWajIR2KZI9QdHlW+FalKLBunYKQZSXgtgWxKiG\", <https://unpkg.com/lenis@1.3.17/dist/lenis.css>; rel=preload; as=style",
+    "surrogate-control": "max-age=2147483647",
+    "surrogate-key": "www.thedesignsociety.fr 698de82080130d2fe9cada54 pageId:698de82380130d2fe9cadaf6",
+    "x-lambda-id": "951a16fc-8eef-405c-be50-945a61963726",
+    "x-wf-region": "us-east-1"
+   },
+   "resourceType": "document",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "file": "site/www.thedesignsociety.fr/index.html",
+   "size": 266687,
+   "modes": [
+    "navigate"
+   ]
+  },
+  {
+   "url": "https://cdn.prod.website-files.com/698de82080130d2fe9cada54/css/the-design-society-22535e.webflow.shared.208368ec9.css",
+   "method": "GET",
+   "status": 200,
+   "contentType": "text/css",
+   "headers": {
+    "access-control-allow-methods": "GET, HEAD",
+    "access-control-allow-origin": "*",
+    "access-control-max-age": "3000",
+    "content-type": "text/css",
+    "priority": "u=0,i=?0",
+    "x-amz-id-2": "pIuZbfsM0tObeDo/JFUFpuS8zJWUQMSQfIzyOWhYouLxwSh+Nnr61qmGlbqgFeswgL2rivKDlP8ZBjAcLTah0FOJTvUX2hFq",
+    "x-amz-request-id": "VKKTX2REH441KK0B",
+    "x-amz-server-side-encryption": "AES256",
+    "x-amz-storage-class": "INTELLIGENT_TIERING",
+    "x-amz-version-id": "NgZaqjbfeD1Ri4t8ZwzaHgZqyitpGk1n"
+   },
+   "resourceType": "stylesheet",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "file": "site/cdn.prod.website-files.com/698de82080130d2fe9cada54/css/the-design-society-22535e.webflow.shared.208368ec9.css",
+   "size": 166925,
+   "modes": [
+    "cors"
+   ]
+  },
+  {
+   "url": "https://cdn.prod.website-files.com/gsap/3.15.0/ScrambleTextPlugin.min.js",
+   "method": "GET",
+   "status": 200,
+   "contentType": "text/javascript",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "content-type": "text/javascript",
+    "priority": "u=1,i=?0",
+    "x-amz-id-2": "QtPdOn0DFqyMNyJ31LKEseAJO0OD5IxJSc81UEDbtPgRoNAD08LDWbf3Oh2F1XdqWabAuLcDvKQ=",
+    "x-amz-request-id": "NPBXC65CBYX4GT7S",
+    "x-amz-server-side-encryption": "AES256",
+    "x-amz-version-id": "iYC5HTSht338DoS_yAldIGAZk_AOCR_P"
+   },
+   "resourceType": "script",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "file": "site/cdn.prod.website-files.com/gsap/3.15.0/ScrambleTextPlugin.min.js",
+   "size": 11687,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://cdn.prod.website-files.com/gsap/3.15.0/Draggable.min.js",
+   "method": "GET",
+   "status": 200,
+   "contentType": "text/javascript",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "content-type": "text/javascript",
+    "priority": "u=1,i=?0",
+    "x-amz-id-2": "Vngy0yk1BlthWSnSJEndoP7uWqo9VuldA+NBWlck8Ohm5XBHSICgfxOBbxsekhCMWGEeTrJI9xY=",
+    "x-amz-request-id": "37Y0ZAPRVVKPKNHQ",
+    "x-amz-server-side-encryption": "AES256",
+    "x-amz-version-id": "sgGFntJlRlMhK6sJw2dYD38E.DKhK3_."
+   },
+   "resourceType": "script",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "file": "site/cdn.prod.website-files.com/gsap/3.15.0/Draggable.min.js",
+   "size": 35762,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://cdn.jsdelivr.net/npm/lenis@1.3.17/dist/lenis.min.js",
+   "method": "GET",
+   "status": 200,
+   "contentType": "application/javascript; charset=utf-8",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "access-control-expose-headers": "*",
+    "content-type": "application/javascript; charset=utf-8",
+    "timing-allow-origin": "*",
+    "x-jsd-version": "1.3.17",
+    "x-jsd-version-type": "version"
+   },
+   "resourceType": "script",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "file": "site/cdn.jsdelivr.net/npm/lenis@1.3.17/dist/lenis.min.js",
+   "size": 17020,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://cdn.prod.website-files.com/gsap/3.15.0/Observer.min.js",
+   "method": "GET",
+   "status": 200,
+   "contentType": "text/javascript",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "content-type": "text/javascript",
+    "priority": "u=1,i=?0",
+    "x-amz-id-2": "JB84BXDaEbI7ysifGJczV/OC7IIo7SAhKA+dHAHXshytoaOcTZ0s2xW6BkOoRX9xC7PkBEkYeIchw9eV0oycdvysSO+QMA+E",
+    "x-amz-request-id": "199DWC8W10A00QD1",
+    "x-amz-server-side-encryption": "AES256",
+    "x-amz-version-id": "NjnHEUo79F.FLwky_WxwOkxMDApgfoIG"
+   },
+   "resourceType": "script",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "file": "site/cdn.prod.website-files.com/gsap/3.15.0/Observer.min.js",
+   "size": 10014,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://cdn.jsdelivr.net/npm/@barba/core@2.10.3/dist/barba.umd.min.js",
+   "method": "GET",
+   "status": 200,
+   "contentType": "application/javascript; charset=utf-8",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "access-control-expose-headers": "*",
+    "content-type": "application/javascript; charset=utf-8",
+    "timing-allow-origin": "*",
+    "x-jsd-version": "2.10.3",
+    "x-jsd-version-type": "version"
+   },
+   "resourceType": "script",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "file": "site/cdn.jsdelivr.net/npm/@barba/core@2.10.3/dist/barba.umd.min.js",
+   "size": 32095,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://unpkg.com/lenis@1.3.17/dist/lenis.css",
+   "method": "GET",
+   "status": 200,
+   "contentType": "text/css; charset=utf-8",
+   "headers": {
+    "access-control-allow-headers": "*",
+    "access-control-allow-methods": "GET, HEAD, OPTIONS",
+    "access-control-allow-origin": "*",
+    "access-control-expose-headers": "*",
+    "content-digest": "sha256=:oFENhvDIHtZ1Psz43bBvGW7Ls4WvbfY1b3NL6/6yjn0=:",
+    "content-type": "text/css; charset=utf-8",
+    "fly-request-id": "01KT95VPZ2FD6R32F2SE9EGJW2-ewr",
+    "priority": "u=0,i=?0"
+   },
+   "resourceType": "stylesheet",
+   "passes": [
+    "mobile",
+    "desktop"
+   ],
+   "file": "site/unpkg.com/lenis@1.3.17/dist/lenis.css",
+   "size": 381,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://cdn.prod.website-files.com/gsap/3.15.0/CustomEase.min.js",
+   "method": "GET",
+   "status": 200,
+   "contentType": "text/javascript",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "content-type": "text/javascript",
+    "priority": "u=1,i=?0",
+    "x-amz-id-2": "VjEPaLOtBP9JoSFuggzYn5RQNhGCAbMdmofpqBUIPX/62zUA2I++SC1Da6InK+ixRFbGj5us3UA=",
+    "x-amz-request-id": "A58CS3V2PT7WHA5Q",
+    "x-amz-server-side-encryption": "AES256",
+    "x-amz-version-id": "KrsbDBBxwxvNM1ydwdSQBNwfoexKAeyu"
+   },
+   "resourceType": "script",
+   "passes": [
+    "mobile",
+    "desktop"
+   ],
+   "file": "site/cdn.prod.website-files.com/gsap/3.15.0/CustomEase.min.js",
+   "size": 7143,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://cdn.prod.website-files.com/698de82080130d2fe9cada54/69f8d98128dc3ffe7da7a56f_pixel-sam.png",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/png",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "content-type": "image/png",
+    "priority": "u=2,i",
+    "x-amz-id-2": "gihtpxusQolNGZV6IZMxtcQBR9LQPJaCWGDU2Zm7HaQn9Y4FLMLVu9V9Jd0AC0RomRvenmQdfUFoVF3TBQ93j2wElHQfbd0/",
+    "x-amz-request-id": "6RT64HE8BBCVQ8J9",
+    "x-amz-server-side-encryption": "AES256",
+    "x-amz-version-id": "xoBkEW38Xu5hHjvpbQ8dzQjw7Zl983Pe"
+   },
+   "resourceType": "image",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "file": "site/cdn.prod.website-files.com/698de82080130d2fe9cada54/69f8d98128dc3ffe7da7a56f_pixel-sam.png",
+   "size": 297379,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://cdn.prod.website-files.com/698de82080130d2fe9cada54/js/webflow.schunk.a3140c51201be139.js",
+   "method": "GET",
+   "status": 200,
+   "contentType": "text/javascript",
+   "headers": {
+    "access-control-allow-methods": "GET, HEAD",
+    "access-control-allow-origin": "*",
+    "access-control-max-age": "3000",
+    "content-type": "text/javascript",
+    "priority": "u=2,i=?0",
+    "x-amz-id-2": "nYEJL4cJ+fTVdk4u5EdGULi4qsV/sbjEVcp/dcn5CqpkZ1PHIiV3uF6KXWo8ENXU4yxCQ6F/3bY=",
+    "x-amz-request-id": "X56V5FBBA58QYSJC",
+    "x-amz-server-side-encryption": "AES256",
+    "x-amz-version-id": "_WdEpMdVo5tKYYhv0GN.ImglnKS70XDx"
+   },
+   "resourceType": "script",
+   "passes": [
+    "mobile",
+    "desktop"
+   ],
+   "file": "site/cdn.prod.website-files.com/698de82080130d2fe9cada54/js/webflow.schunk.a3140c51201be139.js",
+   "size": 41433,
+   "modes": [
+    "cors"
+   ]
+  },
+  {
+   "url": "https://d3e54v103j8qbb.cloudfront.net/js/jquery-3.5.1.min.dc5e7f18c8.js?site=698de82080130d2fe9cada54",
+   "method": "GET",
+   "status": 200,
+   "contentType": "application/javascript",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "content-type": "application/javascript"
+   },
+   "resourceType": "script",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "file": "site/d3e54v103j8qbb.cloudfront.net/js/jquery-3.5.1.min.dc5e7f18c8__q82469947.js",
+   "size": 89476,
+   "modes": [
+    "cors"
+   ]
+  },
+  {
+   "url": "https://cdn.prod.website-files.com/698de82080130d2fe9cada54/js/webflow.schunk.c46a6bfff9727111.js",
+   "method": "GET",
+   "status": 200,
+   "contentType": "text/javascript",
+   "headers": {
+    "access-control-allow-methods": "GET, HEAD",
+    "access-control-allow-origin": "*",
+    "access-control-max-age": "3000",
+    "content-type": "text/javascript",
+    "priority": "u=2,i=?0",
+    "x-amz-id-2": "PK+PLNDIMV7DOBgBtSMZ7IUB5FOG2CKK8wQk6D5rlkVMFoka24mbanhXtirVj8oPC2MZfW4hJS8=",
+    "x-amz-request-id": "X56MXRGSGVRPBHNA",
+    "x-amz-server-side-encryption": "AES256",
+    "x-amz-storage-class": "INTELLIGENT_TIERING",
+    "x-amz-version-id": "wiNO_xPefVwDjgAefNhiKAw23CPGownI"
+   },
+   "resourceType": "script",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "file": "site/cdn.prod.website-files.com/698de82080130d2fe9cada54/js/webflow.schunk.c46a6bfff9727111.js",
+   "size": 189985,
+   "modes": [
+    "cors"
+   ]
+  },
+  {
+   "url": "https://cdn.prod.website-files.com/698de82080130d2fe9cada54/js/webflow.f7011928.b9fd9b65abb51a9a.js",
+   "method": "GET",
+   "status": 200,
+   "contentType": "text/javascript",
+   "headers": {
+    "access-control-allow-methods": "GET, HEAD",
+    "access-control-allow-origin": "*",
+    "access-control-max-age": "3000",
+    "content-type": "text/javascript",
+    "priority": "u=2,i=?0",
+    "x-amz-id-2": "wvxSr9uOAdxVUSLrDpbqbTaWEV8LUtpEGwL9n6miWwBqUSs7PNXSgC7Ez43pr+d0jLpBlCb2CXoK/oZ8u5sdP5FoVcs9JTVN",
+    "x-amz-request-id": "VKKPRXNCYWWGQ23W",
+    "x-amz-server-side-encryption": "AES256",
+    "x-amz-version-id": "tq2WWcUKLq8ObPI.600JrARlDQWXS8et"
+   },
+   "resourceType": "script",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "file": "site/cdn.prod.website-files.com/698de82080130d2fe9cada54/js/webflow.f7011928.b9fd9b65abb51a9a.js",
+   "size": 88302,
+   "modes": [
+    "cors"
+   ]
+  },
+  {
+   "url": "https://cdn.prod.website-files.com/698de82080130d2fe9cada54/69f8d9812c6b5dfc4208fafe_pixel-loic.png",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/png",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "content-type": "image/png",
+    "priority": "u=3,i",
+    "x-amz-id-2": "RAAOT09bHBRCb215EPpU1fX4TK4IfvlBKzd8may7J4Q8rmTrXeRXN1ifs3SVfGvnD8h9O8BLP+U87QogInAl5H8fd32hehla",
+    "x-amz-request-id": "Z1ZM7YY8ZYF9N9PS",
+    "x-amz-server-side-encryption": "AES256",
+    "x-amz-version-id": "pmvrPNVcsnApLH6NP6t1NXwPrP3PouBN"
+   },
+   "resourceType": "image",
+   "passes": [
+    "mobile",
+    "desktop"
+   ],
+   "file": "site/cdn.prod.website-files.com/698de82080130d2fe9cada54/69f8d9812c6b5dfc4208fafe_pixel-loic.png",
+   "size": 293693,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://cdn.prod.website-files.com/698de82080130d2fe9cada54/69f8d9819f7e97a36c77b199_pixel-flo.png",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/png",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "content-type": "image/png",
+    "priority": "u=2,i",
+    "x-amz-id-2": "N8bhfU7SNA1rX1NKHPvUJqAZAbAmBQO8jkfUvD3D3HMlRbr76lppDuj8kFA3UgESpdlL4Bixr1Q2hgj8X5uQCIgBnsCpTGXP",
+    "x-amz-request-id": "JG2RRM79HAY80EE9",
+    "x-amz-server-side-encryption": "AES256",
+    "x-amz-version-id": "uZF1aGdn7eqslsjpZIL22izLO.jOIH1p"
+   },
+   "resourceType": "image",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "file": "site/cdn.prod.website-files.com/698de82080130d2fe9cada54/69f8d9819f7e97a36c77b199_pixel-flo.png",
+   "size": 383567,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://cdn.prod.website-files.com/gsap/3.15.0/InertiaPlugin.min.js",
+   "method": "GET",
+   "status": 200,
+   "contentType": "text/javascript",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "content-type": "text/javascript",
+    "priority": "u=2,i=?0",
+    "x-amz-id-2": "i2SRnVSqBChPRY/fQ9ibx6d85AzKT1qnfXkd248kwgxpWgDSug1H8tA/jqSEjn3sG+gxq1wSpJQ=",
+    "x-amz-request-id": "37Y8V09SACRSHK3A",
+    "x-amz-server-side-encryption": "AES256",
+    "x-amz-version-id": "ilUfXK7dWp5eCJnddlzQltAGce_6DYki"
+   },
+   "resourceType": "script",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "file": "site/cdn.prod.website-files.com/gsap/3.15.0/InertiaPlugin.min.js",
+   "size": 7335,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://cdn.prod.website-files.com/gsap/3.15.0/SplitText.min.js",
+   "method": "GET",
+   "status": 200,
+   "contentType": "text/javascript",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "content-type": "text/javascript",
+    "priority": "u=2,i=?0",
+    "x-amz-id-2": "ajfFEJFGJpZki6oFbqZ7kJmh5YgqkENgiM8XUYKUo5XI8DR9pXb3pWSzEN0T3uLqp92GWBoMYPVoqvTpCYMMN1JM5D9xquiI",
+    "x-amz-request-id": "59TKS1B2BFHTESD8",
+    "x-amz-server-side-encryption": "AES256",
+    "x-amz-version-id": "76PnRewPCoCvYDST6oxzkT8tSzbOEitA"
+   },
+   "resourceType": "script",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "file": "site/cdn.prod.website-files.com/gsap/3.15.0/SplitText.min.js",
+   "size": 7732,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://cdn.prod.website-files.com/698de82080130d2fe9cada54/69f8d981eec004bace9b494c_pixel-dani.png",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/png",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "content-type": "image/png",
+    "priority": "u=3,i",
+    "x-amz-id-2": "53aoe1OnBqHOeBn+fd7L8kEiED9siuujAdrFFNwP0dxPwASfYHdrybhwdis94ZtrUa6MjKEXd1K87XsFKGfGlFXhPn8trwwZ",
+    "x-amz-request-id": "6RT0QTP4NJGX67DG",
+    "x-amz-server-side-encryption": "AES256",
+    "x-amz-version-id": "DVJbeGK1_6Lra3_uxvU6yqiXferkj1Bx"
+   },
+   "resourceType": "image",
+   "passes": [
+    "mobile",
+    "desktop"
+   ],
+   "file": "site/cdn.prod.website-files.com/698de82080130d2fe9cada54/69f8d981eec004bace9b494c_pixel-dani.png",
+   "size": 321404,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://cdn.prod.website-files.com/698de82080130d2fe9cada54/69f8d981d304cefcf0bffd61_pixel-lea.png",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/png",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "content-type": "image/png",
+    "priority": "u=3,i",
+    "x-amz-id-2": "I2Pfv+d/7eCzNXuTUcm/HrDktCxSBM5rSEwif668bLkM2sJrPrUyjFETF4VWzzEmSpxXwiumPvRRefTe2B4GZzxHxir0Vr26",
+    "x-amz-request-id": "6RT1RFKXY9XQ5P6W",
+    "x-amz-server-side-encryption": "AES256",
+    "x-amz-version-id": "kqvsmPpMpuTDq6JgTutrXjGho_l1TDhU"
+   },
+   "resourceType": "image",
+   "passes": [
+    "mobile",
+    "desktop"
+   ],
+   "file": "site/cdn.prod.website-files.com/698de82080130d2fe9cada54/69f8d981d304cefcf0bffd61_pixel-lea.png",
+   "size": 365456,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://cdn.prod.website-files.com/698de82080130d2fe9cada54/6a147ac5a43bd28b4affe657_FKRasterRomanCompact-Smooth.ttf",
+   "method": "GET",
+   "status": 200,
+   "contentType": "font/ttf",
+   "headers": {
+    "access-control-allow-methods": "GET, HEAD",
+    "access-control-allow-origin": "*",
+    "access-control-max-age": "3000",
+    "content-type": "font/ttf",
+    "priority": "u=0,i=?0",
+    "x-amz-id-2": "QddsAHykpK0mvWpr4mKdxaS8TdZxDSF0uV59TjRxo3EQbSHsmhfy+LQxavcOFCHjkqA3acxk1X4=",
+    "x-amz-request-id": "X56T40WFFFB6BMN1",
+    "x-amz-server-side-encryption": "AES256",
+    "x-amz-storage-class": "INTELLIGENT_TIERING",
+    "x-amz-version-id": "BZe4dl0t5lQ8zUan0oxrlTMBVCZgT6qR"
+   },
+   "resourceType": "font",
+   "passes": [
+    "mobile",
+    "desktop"
+   ],
+   "file": "site/cdn.prod.website-files.com/698de82080130d2fe9cada54/6a147ac5a43bd28b4affe657_FKRasterRomanCompact-Smooth.ttf",
+   "size": 137184,
+   "modes": [
+    "cors"
+   ]
+  },
+  {
+   "url": "https://cdn.prod.website-files.com/698de82080130d2fe9cada54/698f75c02820dd383f62289d_KHInterferenceTRIAL-Regular.otf",
+   "method": "GET",
+   "status": 200,
+   "contentType": "font/otf",
+   "headers": {
+    "access-control-allow-methods": "GET, HEAD",
+    "access-control-allow-origin": "*",
+    "access-control-max-age": "3000",
+    "content-type": "font/otf",
+    "priority": "u=0,i=?0",
+    "x-amz-id-2": "piRSLWsUEXCAcuCXJSfh4ucKHx3PHd6Y1eTfTh1qlgoyRYhzDazY2SW9xXJC+CYELmwgk+s1Yew=",
+    "x-amz-request-id": "X56ZR7RJZ0MDR6TW",
+    "x-amz-server-side-encryption": "AES256",
+    "x-amz-version-id": "2OInbF6wJ10h0zJwQaqUaDBuCvgpOruA"
+   },
+   "resourceType": "font",
+   "passes": [
+    "mobile",
+    "desktop"
+   ],
+   "file": "site/cdn.prod.website-files.com/698de82080130d2fe9cada54/698f75c02820dd383f62289d_KHInterferenceTRIAL-Regular.otf",
+   "size": 38284,
+   "modes": [
+    "cors"
+   ]
+  },
+  {
+   "url": "https://cdn.prod.website-files.com/698de82080130d2fe9cada54/698f75c58f3054f79b35aaef_KHInterferenceTRIAL-Bold.otf",
+   "method": "GET",
+   "status": 200,
+   "contentType": "font/otf",
+   "headers": {
+    "access-control-allow-methods": "GET, HEAD",
+    "access-control-allow-origin": "*",
+    "access-control-max-age": "3000",
+    "content-type": "font/otf",
+    "priority": "u=0,i=?0",
+    "x-amz-id-2": "+zzUYNJwpchPGuvhQjxklFTumvltuDPL/03pTdGgiH6M9xmQl0sjXm+QnEtNFI7Orxl3TGEQQCc=",
+    "x-amz-request-id": "X56XN0NKHYRX97D8",
+    "x-amz-server-side-encryption": "AES256",
+    "x-amz-version-id": "HgcAIVBZwqlNgdHVzqfKsBZTTLh_xku_"
+   },
+   "resourceType": "font",
+   "passes": [
+    "mobile",
+    "desktop"
+   ],
+   "file": "site/cdn.prod.website-files.com/698de82080130d2fe9cada54/698f75c58f3054f79b35aaef_KHInterferenceTRIAL-Bold.otf",
+   "size": 40544,
+   "modes": [
+    "cors"
+   ]
+  },
+  {
+   "url": "https://cdn.prod.website-files.com/698de82080130d2fe9cada54/698f760c54dd928c1f814f17_GeistPixel-Line.ttf",
+   "method": "GET",
+   "status": 200,
+   "contentType": "font/ttf",
+   "headers": {
+    "access-control-allow-methods": "GET, HEAD",
+    "access-control-allow-origin": "*",
+    "access-control-max-age": "3000",
+    "content-type": "font/ttf",
+    "priority": "u=0,i=?0",
+    "x-amz-id-2": "PIilT2x/ccHTiRFU4crKFDIhirKfByqes7X46ko5SPzZy5leZmUQrRnxEe6D8VOBVF/3eNQueJM=",
+    "x-amz-request-id": "X56RP4Y1HXAD83BY",
+    "x-amz-server-side-encryption": "AES256",
+    "x-amz-version-id": "uaQ0UGcWW75Bc4OKG_l.xYJMiInK6R.v"
+   },
+   "resourceType": "font",
+   "passes": [
+    "mobile",
+    "desktop"
+   ],
+   "file": "site/cdn.prod.website-files.com/698de82080130d2fe9cada54/698f760c54dd928c1f814f17_GeistPixel-Line.ttf",
+   "size": 95768,
+   "modes": [
+    "cors"
+   ]
+  },
+  {
+   "url": "https://cdn.prod.website-files.com/698de82080130d2fe9cada54/69d0e33450dbc241b957b7fe_sticker-fire-blue.png",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/png",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "content-type": "image/png",
+    "priority": "u=1,i",
+    "x-amz-id-2": "1bXGXL0hydBzSTmac8n9xjeWpP6S/knywdC/YReiWqrn7Xm9vDvUCKRV7CJRLJ57Mz0zj3rBAjGoevTgR2vutiV2Jeemwful",
+    "x-amz-request-id": "9XQDFVNDZMXMHJ3F",
+    "x-amz-server-side-encryption": "AES256",
+    "x-amz-version-id": "uhikGdI4cxfzRsJKC8MVqSnFlPzKfUGI"
+   },
+   "resourceType": "image",
+   "passes": [
+    "mobile",
+    "desktop"
+   ],
+   "file": "site/cdn.prod.website-files.com/698de82080130d2fe9cada54/69d0e33450dbc241b957b7fe_sticker-fire-blue.png",
+   "size": 5792,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://cdn.prod.website-files.com/698de82080130d2fe9cada54/699366ae7cc10349c0872de0_10.webp",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/webp",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "content-type": "image/webp",
+    "priority": "u=1,i",
+    "x-amz-id-2": "9hxAOtvq5ew6GZaTlbHqNnKZaO729xkS3cR32+af9seZGs9IawKdxH9bVs2d5NgQmaSwlB+PLfQ=",
+    "x-amz-request-id": "JZKPR17CQR3F0WGQ",
+    "x-amz-server-side-encryption": "AES256",
+    "x-amz-version-id": "aoAFG0bmdf7sNMBJZjVYTRNh2cdy4BES"
+   },
+   "resourceType": "image",
+   "passes": [
+    "mobile",
+    "desktop"
+   ],
+   "file": "site/cdn.prod.website-files.com/698de82080130d2fe9cada54/699366ae7cc10349c0872de0_10.webp",
+   "size": 97738,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://cdn.prod.website-files.com/698de82080130d2fe9cada54/698f75ebca548c8f48111c32_KHTekaTRIAL-Regular.otf",
+   "method": "GET",
+   "status": 200,
+   "contentType": "font/otf",
+   "headers": {
+    "access-control-allow-methods": "GET, HEAD",
+    "access-control-allow-origin": "*",
+    "access-control-max-age": "3000",
+    "content-type": "font/otf",
+    "priority": "u=0,i=?0",
+    "x-amz-id-2": "3Lrrrm52RgsigDm5t2CxchMBL/vgHmu4gXCSZe9twB1NVXs0GgHUGmEwD44C5XQUYC4QdHyTkCA=",
+    "x-amz-request-id": "X56YA67D4QHC9CXM",
+    "x-amz-server-side-encryption": "AES256",
+    "x-amz-version-id": "6pUP6spjvORytpknxBR_v3WNyfX5Hipf"
+   },
+   "resourceType": "font",
+   "passes": [
+    "mobile",
+    "desktop"
+   ],
+   "file": "site/cdn.prod.website-files.com/698de82080130d2fe9cada54/698f75ebca548c8f48111c32_KHTekaTRIAL-Regular.otf",
+   "size": 94156,
+   "modes": [
+    "cors"
+   ]
+  },
+  {
+   "url": "https://cdn.prod.website-files.com/698de82080130d2fe9cada54/69d0e2dd1560ba8c7766c415_sticker-taco-green.png",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/png",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "content-type": "image/png",
+    "priority": "u=1,i",
+    "x-amz-id-2": "cQpZMSg7VPDSFzz+9raPQDsbqi9W69FMItZrbwq1RaqlqcdUG+Nj3OFGbw1iB20P0bV7/5N6Ex4=",
+    "x-amz-request-id": "0YRGKDTSP4YGKT7Z",
+    "x-amz-server-side-encryption": "AES256",
+    "x-amz-version-id": "hpPw.WVWAQCTi1VK6RdtPHwzID8ZC3yy"
+   },
+   "resourceType": "image",
+   "passes": [
+    "mobile",
+    "desktop"
+   ],
+   "file": "site/cdn.prod.website-files.com/698de82080130d2fe9cada54/69d0e2dd1560ba8c7766c415_sticker-taco-green.png",
+   "size": 5747,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://cdn.prod.website-files.com/698de82080130d2fe9cada54/699366aeb6ca36dacb97b224_02.webp",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/webp",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "content-type": "image/webp",
+    "priority": "u=1,i",
+    "x-amz-id-2": "5ErSoDAVDrRPavsxz4i0C8HMfsJqPkaxYnfHhcEYoAruC+UtUVp8I5o/yu0ISNAjrug3Q/QNGQw=",
+    "x-amz-request-id": "JZKWZ1D5X3317EAV",
+    "x-amz-server-side-encryption": "AES256",
+    "x-amz-version-id": "itrnBjFx1wyv0.kUPFp8DnWLapgv1_Ms"
+   },
+   "resourceType": "image",
+   "passes": [
+    "mobile",
+    "desktop"
+   ],
+   "file": "site/cdn.prod.website-files.com/698de82080130d2fe9cada54/699366aeb6ca36dacb97b224_02.webp",
+   "size": 87984,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://cdn.prod.website-files.com/698de82080130d2fe9cada54/6993674cc6ce806174a60eef_06.png",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/png",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "content-type": "image/png",
+    "priority": "u=1,i",
+    "x-amz-id-2": "Hb3vrnJYDSNZYx4pYrv+2RePGY7VKfkAXRzmS+nl7tkRf6PovqAhA3F2GFeBBRyxcWqYBA7dQZHOeLrl1twspykluhANOzAU",
+    "x-amz-request-id": "A8MHGDY05JRJ0NAM",
+    "x-amz-server-side-encryption": "AES256",
+    "x-amz-version-id": "CQpY56yqdO2ZCxk2O0cnnIYVyIwlakPI"
+   },
+   "resourceType": "image",
+   "passes": [
+    "mobile",
+    "desktop"
+   ],
+   "file": "site/cdn.prod.website-files.com/698de82080130d2fe9cada54/6993674cc6ce806174a60eef_06.png",
+   "size": 26824,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://cdn.prod.website-files.com/gsap/3.15.0/ScrollTrigger.min.js",
+   "method": "GET",
+   "status": 200,
+   "contentType": "text/javascript",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "content-type": "text/javascript",
+    "priority": "u=2,i=?0",
+    "x-amz-id-2": "vslggvUqsHDqplTzqOKxXMpFTXCB80PNsqv/iFh6YnBS1C8hdx9ueYom5jRMPdsPaUiy/Pgz8mg=",
+    "x-amz-request-id": "6J4GKGVC0P8B0Y0M",
+    "x-amz-server-side-encryption": "AES256",
+    "x-amz-version-id": "OwL74efHwP8jBBvlF0cUA1BVsecA11LA"
+   },
+   "resourceType": "script",
+   "passes": [
+    "mobile",
+    "desktop"
+   ],
+   "file": "site/cdn.prod.website-files.com/gsap/3.15.0/ScrollTrigger.min.js",
+   "size": 44575,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://cdn.prod.website-files.com/698de82080130d2fe9cada54/69d123925f73300f5fb4f645_sticker-trail-eye-illu.png",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/png",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "content-type": "image/png",
+    "priority": "u=1,i",
+    "x-amz-id-2": "4HPdl4Dc0U/OraB0KjautWBMEELmgYVJZ/2z/g0FA37eUaB0W3yMtewSD+/pqzWJHKTRQN6AKLftw9Xv7YZS5J8L3iS5DASS",
+    "x-amz-request-id": "RKHPHW97VZ1BR5AJ",
+    "x-amz-server-side-encryption": "AES256",
+    "x-amz-version-id": "1X5pM0lnP6sqGtfjRuyz2HQ5doB_FtEW"
+   },
+   "resourceType": "image",
+   "passes": [
+    "mobile",
+    "desktop"
+   ],
+   "file": "site/cdn.prod.website-files.com/698de82080130d2fe9cada54/69d123925f73300f5fb4f645_sticker-trail-eye-illu.png",
+   "size": 11719,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://cdn.prod.website-files.com/698de82080130d2fe9cada54/69d1239294a839923af711d8_sticker-trail-beer.png",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/png",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "content-type": "image/png",
+    "priority": "u=1,i",
+    "x-amz-id-2": "Df8ESZGoZLMSOluGvgnnmQRe4dwKcvApyD5raooBkBhUlsQRoQzUf2mZZxzCJzh1H/rpk3MFpYgAkKM4HKt6XUUBalbokJwW",
+    "x-amz-request-id": "Y2NJA0A8TRCJ04JX",
+    "x-amz-server-side-encryption": "AES256",
+    "x-amz-version-id": "M4Ho1My.ed715cAOvm9q98riGeYXor1E"
+   },
+   "resourceType": "image",
+   "passes": [
+    "mobile",
+    "desktop"
+   ],
+   "file": "site/cdn.prod.website-files.com/698de82080130d2fe9cada54/69d1239294a839923af711d8_sticker-trail-beer.png",
+   "size": 6504,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://cdn.prod.website-files.com/698de82080130d2fe9cada54/69f8d5976a0607363e096414_SAM.png",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/png",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "content-type": "image/png",
+    "priority": "u=2,i",
+    "x-amz-id-2": "zKvua2ub/o9WXJzwAPNu4xmbRMlwpccGO6uQZUfSA0tPLXqTZWsolYB7KWIRZOOEeMq8YzcmOUhW+IRePWzNfopN9KKfBHxK",
+    "x-amz-request-id": "703VNYN1KGG9HWZV",
+    "x-amz-server-side-encryption": "AES256",
+    "x-amz-version-id": "mcVTQovnYmfNN8mQFVrIZ6c7msR1B_kF"
+   },
+   "resourceType": "image",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "file": "site/cdn.prod.website-files.com/698de82080130d2fe9cada54/69f8d5976a0607363e096414_SAM.png",
+   "size": 2106394,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://cdn.prod.website-files.com/gsap/3.15.0/gsap.min.js",
+   "method": "GET",
+   "status": 200,
+   "contentType": "text/javascript",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "content-type": "text/javascript",
+    "priority": "u=2,i=?0",
+    "x-amz-id-2": "PCDLmBD4DvXCkfs8Y5s3i3XO1Q+iICWMSxiTgeB3yJxp1Lz2YxClIxyfCwObd/QGeIIA50tkUOuzxhel9CoKWXYemPC3E+T5",
+    "x-amz-request-id": "JAG25T3VKPH987VG",
+    "x-amz-server-side-encryption": "AES256",
+    "x-amz-version-id": "V8op0kZq.Xpg2kvTPCwvwCTfWicx89F0"
+   },
+   "resourceType": "script",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "file": "site/cdn.prod.website-files.com/gsap/3.15.0/gsap.min.js",
+   "size": 72927,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://cdn.prod.website-files.com/698de82080130d2fe9cada54/699366ae95fc4b40f9a351a8_04.webp",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/webp",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "content-type": "image/webp",
+    "priority": "u=1,i",
+    "x-amz-id-2": "XcWwt7GnUlv4Za/67mPd+6CyCNX/VfIUlm4AloTJ0iIq5J7B71bsVs0HHdfpMMu79dd8yRTAs9c=",
+    "x-amz-request-id": "PFN23VNSZR45KXF4",
+    "x-amz-server-side-encryption": "AES256",
+    "x-amz-version-id": "rR3pkwcjqicxC75JUNxuEwrT0Rjwo9aQ"
+   },
+   "resourceType": "image",
+   "passes": [
+    "mobile",
+    "desktop"
+   ],
+   "file": "site/cdn.prod.website-files.com/698de82080130d2fe9cada54/699366ae95fc4b40f9a351a8_04.webp",
+   "size": 81480,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://cdn.prod.website-files.com/698de82080130d2fe9cada54/6993674c08fa56d51ed98bde_05.png",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/png",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "content-type": "image/png",
+    "priority": "u=3,i",
+    "x-amz-id-2": "jUGBB7/IwMyMcioGSgAfGakecaOI9ixG6+Rk88n51IR7M22lQpR4A8EBFyrdYqlj459zU5jaosc=",
+    "x-amz-request-id": "A8MSDSF4Y2FMRNGE",
+    "x-amz-server-side-encryption": "AES256",
+    "x-amz-version-id": "quWM1bNB5z4KxxTXhUf9_oDW6jojps5S"
+   },
+   "resourceType": "image",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "file": "site/cdn.prod.website-files.com/698de82080130d2fe9cada54/6993674c08fa56d51ed98bde_05.png",
+   "size": 15441,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://cdn.prod.website-files.com/698de82080130d2fe9cada54/699366ae4acad95b19c6c42f_01.webp",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/webp",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "content-type": "image/webp",
+    "priority": "u=1,i",
+    "x-amz-id-2": "xJvjw7V1i9YoKgvx0VxvvRwjbXOJghRDNc36ETlSr0gU3YO5zFlRQvvUo9Raoma9H60Y+/AWEu0=",
+    "x-amz-request-id": "JZKHPC3EE3E1C13J",
+    "x-amz-server-side-encryption": "AES256",
+    "x-amz-version-id": "pAcIya1m8_JtGszfSnUSyZi1m1.Z0K2T"
+   },
+   "resourceType": "image",
+   "passes": [
+    "mobile",
+    "desktop"
+   ],
+   "file": "site/cdn.prod.website-files.com/698de82080130d2fe9cada54/699366ae4acad95b19c6c42f_01.webp",
+   "size": 94828,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://cdn.prod.website-files.com/698de82080130d2fe9cada54/699366ae074eec2249076bab_08.png",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/png",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "content-type": "image/png",
+    "priority": "u=1,i",
+    "x-amz-id-2": "Kj4iz0GAa8DaqkTCwEsNeXknQMyuofTP5UU02+W4zLPtSqgxBqbNepV5aw0wlkzRP5b0Vug/GLQ=",
+    "x-amz-request-id": "A8MQP9MHGJXRPN4H",
+    "x-amz-server-side-encryption": "AES256",
+    "x-amz-version-id": "Ey7bQdi1Hi3lA_yOw57JSb0DYPmXAw1U"
+   },
+   "resourceType": "image",
+   "passes": [
+    "mobile",
+    "desktop"
+   ],
+   "file": "site/cdn.prod.website-files.com/698de82080130d2fe9cada54/699366ae074eec2249076bab_08.png",
+   "size": 4499,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://cdn.prod.website-files.com/698de82080130d2fe9cada54/699366ae6dd9cc79926d2f70_09.png",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/png",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "content-type": "image/png",
+    "priority": "u=3,i",
+    "x-amz-id-2": "QFEyZqu6J6byiH/S9XoUTNlGrBasV5vMk5w+sEEOt9WeJ32S1rHjMd+85K6y1Dh8+XzrKWsHZpk=",
+    "x-amz-request-id": "A8MNH42JK5Y05KAD",
+    "x-amz-server-side-encryption": "AES256",
+    "x-amz-version-id": "M4kjlj6yte156wujFdCxZ_63630LVnoL"
+   },
+   "resourceType": "image",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "file": "site/cdn.prod.website-files.com/698de82080130d2fe9cada54/699366ae6dd9cc79926d2f70_09.png",
+   "size": 4395,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://cdn.prod.website-files.com/698de82080130d2fe9cada54/699366aedeb94a9aa5f3b2f3_03.webp",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/webp",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "content-type": "image/webp",
+    "priority": "u=1,i",
+    "x-amz-id-2": "4blbHfanDdJ99OpmAHddY3aWzK9QanJCz1E1/g/xc6uV6eBYx95SjoTTog/mHYNiedVzbTjt3LY=",
+    "x-amz-request-id": "PFN8V8GVFS1QG7EW",
+    "x-amz-server-side-encryption": "AES256",
+    "x-amz-version-id": "oCRPa91Bf2bSeeNajkUa9WM_DM6rLoVv"
+   },
+   "resourceType": "image",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "file": "site/cdn.prod.website-files.com/698de82080130d2fe9cada54/699366aedeb94a9aa5f3b2f3_03.webp",
+   "size": 89628,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://cdn.prod.website-files.com/698de82080130d2fe9cada54/699366ae4acad95b19c6c42f_01-p-500.webp",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/webp",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "content-type": "image/webp",
+    "priority": "u=3,i",
+    "x-amz-id-2": "kd55NoD1iCTGEFDDhKkH4mslI5YU0ZsyfN3AWMwVCr2iblwW4VGMTZ2ypPBRLO6u6a472S5cE5s=",
+    "x-amz-request-id": "39FBVFZ39W7A1NES",
+    "x-amz-server-side-encryption": "AES256",
+    "x-amz-version-id": "PTfagZR8ainS7rta93vwcz_jZ4MTB9tM"
+   },
+   "resourceType": "image",
+   "passes": [
+    "desktop"
+   ],
+   "file": "site/cdn.prod.website-files.com/698de82080130d2fe9cada54/699366ae4acad95b19c6c42f_01-p-500.webp",
+   "size": 27998,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://cdn.prod.website-files.com/698de82080130d2fe9cada54/69d1239242a31660d0a3d307_sticker-trail-taco.png",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/png",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "content-type": "image/png",
+    "priority": "u=1,i",
+    "x-amz-id-2": "Ts/x6ip5s1aCRnrEfCqGnMV29is4cvNKFyZ4qHk863rwS7wQA8Gdbm2brhi5iRPt8L+Z9ubsb1y5t8Ptk/95BMq51JO8/oKv",
+    "x-amz-request-id": "V3DX41AT5CNKGKFJ",
+    "x-amz-server-side-encryption": "AES256",
+    "x-amz-version-id": "Q2vO_DqtClg3h0tSXAbBF6OiEBtYccgh"
+   },
+   "resourceType": "image",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "file": "site/cdn.prod.website-files.com/698de82080130d2fe9cada54/69d1239242a31660d0a3d307_sticker-trail-taco.png",
+   "size": 8627,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://cdn.prod.website-files.com/698de82080130d2fe9cada54/6990f3e27f07e936d4cc1229_Ellipse-54.svg",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/svg+xml",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "content-type": "image/svg+xml",
+    "priority": "u=3,i",
+    "x-amz-id-2": "DB0NR2FLBh6WijmbD5a98fkxnqWkLCm+BOuLgLWmi85q85NyiVW7PDcdSNPCc2SZVrmYLDCyhFyoIm6dpuxZMg==",
+    "x-amz-request-id": "A8MVAK3C31MM2098",
+    "x-amz-server-side-encryption": "AES256",
+    "x-amz-version-id": "To_E9xe7YpjBG_13QtcYDmP.cPBe_FFu"
+   },
+   "resourceType": "image",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "file": "site/cdn.prod.website-files.com/698de82080130d2fe9cada54/6990f3e27f07e936d4cc1229_Ellipse-54.svg",
+   "size": 170,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://assets.slater.app/slater/20394/61833.js?v=1.0",
+   "method": "GET",
+   "status": 200,
+   "contentType": "text/javascript",
+   "headers": {
+    "content-disposition": "inline",
+    "content-type": "text/javascript"
+   },
+   "resourceType": "script",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "file": "site/assets.slater.app/slater/20394/61833__qd4d1a8fb.js",
+   "size": 38649,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://cdn.prod.website-files.com/698de82080130d2fe9cada54/69f8ea8983f7f6319d864ed4_hugo.png",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/png",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "content-type": "image/png",
+    "priority": "u=3,i",
+    "x-amz-id-2": "NUYC099nM/Up9M7wrP3PAjVFsXz/DOF14JL6pyk7UtPrgYsVxW8XzgaRBgprS1K6lQ+2o6Vy6qkngTztUwe5iPTvJipvTysx",
+    "x-amz-request-id": "JCVFG2XN9KB5PW44",
+    "x-amz-server-side-encryption": "AES256",
+    "x-amz-version-id": "NAst5Y1WNCmH6xGaHjKMBD2v0_mMlBnJ"
+   },
+   "resourceType": "image",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "file": "site/cdn.prod.website-files.com/698de82080130d2fe9cada54/69f8ea8983f7f6319d864ed4_hugo.png",
+   "size": 437520,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://cdn.prod.website-files.com/698de82080130d2fe9cada54/69f8ea89f804abdefca56b8c_Salome.png",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/png",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "content-type": "image/png",
+    "priority": "u=3,i",
+    "x-amz-id-2": "XKHfLKMxtVIKD4qS5yyxI33/ISHBhn4bWOGtB0iB29NvX6FeoG7TfKata7fbmHJsoKau1cUs1gOh1SxmsHORsQ1G0hO09W1z",
+    "x-amz-request-id": "VPENCWY5AMS5BV0X",
+    "x-amz-server-side-encryption": "AES256",
+    "x-amz-version-id": "m4NLzUb1GKyz7JjDApngYuMfCa_8r6tt"
+   },
+   "resourceType": "image",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "file": "site/cdn.prod.website-files.com/698de82080130d2fe9cada54/69f8ea89f804abdefca56b8c_Salome.png",
+   "size": 381689,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://cdn.prod.website-files.com/698de82080130d2fe9cada54/69f8d5962d070aa2f1bcc055_Dani.png",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/png",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "content-type": "image/png",
+    "priority": "u=2,i",
+    "x-amz-id-2": "8gvpYQZgLGwGet/dpdL1GN05yx/WrffQ2Vx4qMJYvSSxdQcBZnyI8mvNdSudBihUf3l6lKFssg2B6eQsrk2QFVPJY2Tn2tIY",
+    "x-amz-request-id": "6S8B033WQKYTZM2S",
+    "x-amz-server-side-encryption": "AES256",
+    "x-amz-version-id": "0AKRTmcK3W1EzvU1BThbm1gGqfLVFlSW"
+   },
+   "resourceType": "image",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "file": "site/cdn.prod.website-files.com/698de82080130d2fe9cada54/69f8d5962d070aa2f1bcc055_Dani.png",
+   "size": 1870954,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://cdn.prod.website-files.com/698de82080130d2fe9cada54/69f8d5962af4a10e760b7e8f_LOIC.png",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/png",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "content-type": "image/png",
+    "priority": "u=3,i",
+    "x-amz-id-2": "vWrJweIDPS7pT0yQ2D5sm0e324GE+wqzK6SD855YHG1YzRbGLGTfjLo8VY/9J7yayt4SwkxWaZlxnRK4z+EtXyOneye/VCgl",
+    "x-amz-request-id": "3AAXS4YH5A58HBYF",
+    "x-amz-server-side-encryption": "AES256",
+    "x-amz-version-id": "3chdOou7ToAyyI26bCfp4L4KHg6ZJKPj"
+   },
+   "resourceType": "image",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "file": "site/cdn.prod.website-files.com/698de82080130d2fe9cada54/69f8d5962af4a10e760b7e8f_LOIC.png",
+   "size": 1892120,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://cdn.prod.website-files.com/698de82080130d2fe9cada54/69f8d5974bcbd5d6e876bd8d_Flo.png",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/png",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "content-type": "image/png",
+    "priority": "u=2,i",
+    "x-amz-id-2": "fqp3MMzGlRFKaaRyZr3U/htLRTTdPde/S31KUASRjvxfMJ5x+7mPzYG2Z8v1EziDxsKN2xwCKuC+/YO6qFhIfU4ChGp5cev1",
+    "x-amz-request-id": "AK23E6SHNKCMEPY3",
+    "x-amz-server-side-encryption": "AES256",
+    "x-amz-version-id": "FCNHQrUnW6J2YMhAjCcCA7F43GedPdlE"
+   },
+   "resourceType": "image",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "file": "site/cdn.prod.website-files.com/698de82080130d2fe9cada54/69f8d5974bcbd5d6e876bd8d_Flo.png",
+   "size": 2115895,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://cdn.prod.website-files.com/698de82080130d2fe9cada54/69f8d5979a4ac64bd018fa36_LEA.png",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/png",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "content-type": "image/png",
+    "priority": "u=3,i",
+    "x-amz-id-2": "Gq/HmgdWzKwYYwpCp5TDbKDiNb2JWTTRubwtr56ikMvCD2W4/gcMRMHI+OkgVOmxOHrzDYTjtDUhJDKteTKFexs21LT2xeK0",
+    "x-amz-request-id": "AK2FMEBR8TH1WJAY",
+    "x-amz-server-side-encryption": "AES256",
+    "x-amz-version-id": "szDdxrgEbUCllhAeCrKh6tPsKjMUCWma"
+   },
+   "resourceType": "image",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "file": "site/cdn.prod.website-files.com/698de82080130d2fe9cada54/69f8d5979a4ac64bd018fa36_LEA.png",
+   "size": 1960529,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://cdn.prod.website-files.com/698de82080130d2fe9cada54/69f8ea896911f1615081d967_julien.png",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/png",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "content-type": "image/png",
+    "priority": "u=3,i",
+    "x-amz-id-2": "exdhv6byj+KKqmIuq7rNN8Ob8n2jPaJWSC4jul0JlprXWpkSWAwXgs/TfGY/x4Vd3FPV46uQZvvg3F64mgfdW3FMKx8YmBph",
+    "x-amz-request-id": "JCV1B8K2TVDG66G7",
+    "x-amz-server-side-encryption": "AES256",
+    "x-amz-version-id": "5lBu72fMgC7XXDl1xag8FYmzwBB.rLcf"
+   },
+   "resourceType": "image",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "file": "site/cdn.prod.website-files.com/698de82080130d2fe9cada54/69f8ea896911f1615081d967_julien.png",
+   "size": 406588,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://cdn.prod.website-files.com/698de82080130d2fe9cada54/6a96a56caf2dbc50ad13753b_webclip.png",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/png",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "content-type": "image/png",
+    "priority": "u=1,i",
+    "x-amz-id-2": "xdlUO4ZvF2bSp/oBB48eiUvZNvxV6P6exnEsiB14tlZyeyT3d1fxGshVUiTVvr2sAcYsFOoxe10=",
+    "x-amz-request-id": "FQ4Y9R2QNPMCSPGY",
+    "x-amz-server-side-encryption": "AES256",
+    "x-amz-version-id": "9_rl39LiM.8sCmvWb3v.1nkZTFxjOhME"
+   },
+   "resourceType": "other",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "file": "site/cdn.prod.website-files.com/698de82080130d2fe9cada54/6a96a56caf2dbc50ad13753b_webclip.png",
+   "size": 1018,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://cdn.prod.website-files.com/698de82080130d2fe9cada54/69ac8af863eaf34fcc7c12bc_image%205.png",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/png",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "content-type": "image/png",
+    "priority": "u=3,i",
+    "x-amz-id-2": "CyoW7UATLRSlRzNagUkeFQM6yfYDdXiDYeDd1WWV+VN8oHhrEyJeSRt9mS7mL5k4kPDAnFwtJws=",
+    "x-amz-request-id": "WZQA74FYQC5G55Q4",
+    "x-amz-server-side-encryption": "AES256",
+    "x-amz-version-id": "RV25g61o_Hjs2_L.09pcKeWv_nGSIaFz"
+   },
+   "resourceType": "image",
+   "passes": [
+    "desktop"
+   ],
+   "file": "site/cdn.prod.website-files.com/698de82080130d2fe9cada54/69ac8af863eaf34fcc7c12bc_image 5.png",
+   "size": 468
+  },
+  {
+   "url": "https://cdn.prod.website-files.com/698de82080130d2fe9cada54/69ad5354025cc843779553a9_favicon-bleu.png",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/png",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "content-type": "image/png",
+    "priority": "u=3,i",
+    "x-amz-id-2": "2H4+Osv/BsjPLECNEDvduKThOmY1DvcpvqLd2dMvrwlLseKjawKzlzUCER7xv+fzn0yShxYatUs=",
+    "x-amz-request-id": "WZQBZQ3YTMF6Q2RP",
+    "x-amz-server-side-encryption": "AES256",
+    "x-amz-version-id": "VPjDraF7HX27nH_iUSNeKuhg1OMPuPOc"
+   },
+   "resourceType": "image",
+   "passes": [
+    "desktop"
+   ],
+   "file": "site/cdn.prod.website-files.com/698de82080130d2fe9cada54/69ad5354025cc843779553a9_favicon-bleu.png",
+   "size": 3265
+  },
+  {
+   "url": "https://cdn.prod.website-files.com/698de82080130d2fe9cada54/6a96a56c5cc7207fcb2e955c_webclip.png",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/png",
+   "headers": {
+    "content-type": "image/png",
+    "x-amz-id-2": "TL/E8kE4MvXBKLA7j6ab/XEJAlVhNffKt9pfNrhkKrcJbaPm8XGH8WGYAtBRmble/xYRQUodPwk=",
+    "x-amz-request-id": "RG8PXK94REQVHN1M",
+    "x-amz-server-side-encryption": "AES256",
+    "x-amz-version-id": "94xou7GNJbd0bUlhd16bX3Fe83iT6GVj",
+    "access-control-allow-origin": "*"
+   },
+   "resourceType": "other",
+   "passes": [
+    "desktop"
+   ],
+   "file": "site/cdn.prod.website-files.com/698de82080130d2fe9cada54/6a96a56c5cc7207fcb2e955c_webclip.png",
+   "size": 1949
+  },
+  {
+   "url": "https://cdn.prod.website-files.com/698de82080130d2fe9cada54/6a96a56c11ea04097be696ba_webclip.png",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/png",
+   "headers": {
+    "content-type": "image/png",
+    "x-amz-id-2": "6FfXfiabZduCenD8T5e9tvMu2pOw6AeqphnglA4xgHGPeRhnBm6d3JThtXCFhxIik9AY60v517w=",
+    "x-amz-request-id": "FQ4JTBGE9MX895FX",
+    "x-amz-server-side-encryption": "AES256",
+    "x-amz-version-id": "xPLH88PtK212Zv4XE4Hk.NafLYBLk_T5",
+    "access-control-allow-origin": "*"
+   },
+   "resourceType": "other",
+   "passes": [
+    "desktop"
+   ],
+   "file": "site/cdn.prod.website-files.com/698de82080130d2fe9cada54/6a96a56c11ea04097be696ba_webclip.png",
+   "size": 17722
+  },
+  {
+   "url": "https://cdn.prod.website-files.com/698de82080130d2fe9cada54/6a96a56c7acb710871dafb3b_webclip.png",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/png",
+   "headers": {
+    "content-type": "image/png",
+    "x-amz-id-2": "9QGcJgwHblKwdDm2LhSxwW1avpkHW9/0VdAMadg+zZeSVnLjXuIBsA2PevbijkTjfOzRkDhBRnE=",
+    "x-amz-request-id": "RG8WQRF2T0HE23DR",
+    "x-amz-server-side-encryption": "AES256",
+    "x-amz-version-id": "rmA4NSF19QAEExQG1kYD3sj2qktPjh4Y",
+    "access-control-allow-origin": "*"
+   },
+   "resourceType": "other",
+   "passes": [
+    "desktop"
+   ],
+   "file": "site/cdn.prod.website-files.com/698de82080130d2fe9cada54/6a96a56c7acb710871dafb3b_webclip.png",
+   "size": 7526
+  },
+  {
+   "url": "https://cdn.prod.website-files.com/698de82080130d2fe9cada54/6a96a56cbefd529153512ff5_webclip.png",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/png",
+   "headers": {
+    "content-type": "image/png",
+    "x-amz-id-2": "KnFBAjBEo9sS14ufA7d2XvrvMSJoK/OuE6bqcsATYalRQH2EZJK+DaSS72qjOCMQCdgjyVejaN8=",
+    "x-amz-request-id": "G9XKVDTWGM6EY9CB",
+    "x-amz-server-side-encryption": "AES256",
+    "x-amz-version-id": "mXuzb.Rk62HGMd7pHbe5CUZcnT8upmhQ",
+    "access-control-allow-origin": "*"
+   },
+   "resourceType": "other",
+   "passes": [
+    "desktop"
+   ],
+   "file": "site/cdn.prod.website-files.com/698de82080130d2fe9cada54/6a96a56cbefd529153512ff5_webclip.png",
+   "size": 7620
+  }
+ ],
+ "videos": {
+  "posters": {},
+  "onlineHosts": []
+ }
+}

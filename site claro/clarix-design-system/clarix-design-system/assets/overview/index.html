@@ -1,0 +1,313 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Clarix Design System</title>
+    <link rel="stylesheet" href="assets/css/fonts.css">
+    <link rel="stylesheet" href="assets/css/style.css">
+    <style>
+    /* design-system catalog bridge (active only inside the catalog iframe). The catalog draws this
+       page's own logo + hero nav above the frame at the same spot and moves them with this page's
+       scroll, so here they keep their box but hide. In "bg" mode (Components view) only the two
+       WebGL canvases stay: the ASCII shader field and the holographic model / particle logo scene. */
+    html.ds-embedded .hero-logo, html.ds-embedded .hero-nav { visibility: hidden !important; }
+    html.ds-bg-only #preloader, html.ds-bg-only .hero-title, html.ds-bg-only .hero-info-block,
+    html.ds-bg-only .scroll-content-wrapper, html.ds-bg-only .phase4-container, html.ds-bg-only .words-container,
+    html.ds-bg-only .glass-container, html.ds-bg-only .phase5-container, html.ds-bg-only .phase6-container,
+    html.ds-bg-only .phase6-footer-wrapper { visibility: hidden !important; }
+    </style>
+    <script>
+    (function () {
+      if (window.parent === window) return;
+      var root = document.documentElement, bg = false, saved = 0, lastP = 0, station = null, intro = false;
+      root.classList.add('ds-embedded');
+      function post(m) { try { window.parent.postMessage(m, '*'); } catch (e) {} }
+      /* main.js maps scrollY over (page height - 2 viewports); the last viewport is its "pause" */
+      function range() { var b = document.body; return b ? Math.max(1, b.scrollHeight - 2 * innerHeight) : 1; }
+      /* p = fraction of that range; kept until the preloader, which pins the page at 0, is done */
+      function jump(p, dur) { lastP = p; if (intro) go(p * range(), dur); }
+      function go(y, dur) {
+        try {
+          if (typeof lenis !== 'undefined') {  /* main.js's own Lenis instance (global lexical const) */
+            lenis.scrollTo(y, dur ? { duration: dur, force: true } : { immediate: true, force: true });
+            return;
+          }
+        } catch (e) {}
+        scrollTo(0, y);
+      }
+      addEventListener('message', function (e) {
+        var d = e.data;
+        if (e.source !== window.parent || !d || !d.ds) return;
+        if (d.ds === 'bg') {
+          if (!bg) { bg = true; saved = scrollY; root.classList.add('ds-bg-only'); }
+          station = null; jump(d.p || 0);
+        } else if (d.ds === 'page') {
+          if (bg) { bg = false; station = null; root.classList.remove('ds-bg-only'); if (intro) go(saved); }
+        } else if (d.ds === 'scroll' && bg) {
+          station = null; jump(d.p);
+        } else if (d.ds === 'station' && bg) {
+          if (station === d.p) return;
+          station = d.p; jump(d.p, 1.6);
+        } else if (d.ds === 'mouse' && bg) {
+          /* the catalog forwards the pointer so the shader ripple and model/logo tilt stay interactive */
+          dispatchEvent(new MouseEvent('mousemove', { clientX: d.x * innerWidth, clientY: d.y * innerHeight }));
+        }
+      });
+      /* the catalog navbar follows this page's scroll, like the original absolutely placed hero nav */
+      addEventListener('scroll', function () { if (!bg) post({ ds: 'y', y: scrollY }); }, { passive: true });
+      /* intro = preloader shattered (main.js drops .preload-hidden); ready = hero title letters, logo,
+         nav and the model's radial reveal have finished (~2.8 s later) */
+      function start() {
+        if (intro) return; intro = true;
+        post({ ds: 'intro' });
+        if (bg) go(lastP * range());
+        setTimeout(function () { post({ ds: 'ready' }); }, 3200);
+      }
+      document.addEventListener('DOMContentLoaded', function () {
+        var logo = document.querySelector('.hero-logo');
+        if (!logo) return start();
+        new MutationObserver(function () { if (!logo.classList.contains('preload-hidden')) start(); })
+          .observe(logo, { attributes: true, attributeFilter: ['class'] });
+        setTimeout(start, 15000);
+      });
+    })();
+    </script>
+  </head>
+  <body>
+    <div id="preloader" style="position: fixed; top: 0; left: 0; width: 100%; height: 100vh; z-index: 9999; pointer-events: none; transition: opacity 1s ease;">
+      <div style="position: absolute; top: 2.5rem; left: 3.125rem; color: #000; font-family: 'Sarabun', sans-serif; font-weight: 200; font-size: 4rem; letter-spacing: -0.02em; line-height: 1;">
+        [ &nbsp;
+        <div style="height: 4rem; overflow: hidden; position: relative; width: 6.5rem; display: inline-block; vertical-align: top;">
+          <div id="odometer-numbers" style="position: absolute; top: 0; left: 0; width: 100%; transition: transform 0.05s linear; text-align: center;">
+          </div>
+        </div>
+        &nbsp; / 100 ]
+      </div>
+    </div>
+
+    <img src="assets/images/logo.svg" class="hero-logo preload-hidden reveal-anim from-top" alt="IrisAI Logo" />
+    <h1 class="hero-title" id="animated-hero-title">Clarix<br><span class="hero-subtitle">Design System</span></h1>
+    
+    <div class="hero-nav preload-hidden reveal-anim from-top">
+      <a href="#">home <span class="nav-arrow">↗</span></a>
+      <a href="#">plans <span class="nav-arrow">↗</span></a>
+      <a href="#">services <span class="nav-arrow">↗</span></a>
+      <a href="#">contact us <span class="nav-arrow">↗</span></a>
+    </div>
+    
+    <div class="hero-info-block preload-hidden reveal-anim from-bottom">
+      <div class="hi-top">
+        <span>( A )</span>
+        <span>[ 001 /004 ]</span>
+      </div>
+      <div class="hi-text">
+        Holographic ASCII shaders drift through a pastel spectrum behind airy Sarabun type and frosted white glass.
+      </div>
+      <a href="#" class="hi-btn">LOREM IPSUM</a>
+    </div>
+    
+    <div class="scroll-content-wrapper">
+      <div class="scroll-title-container" id="scroll-title">
+        <h3 class="animated-title flow-title">Lorem ipsum dolor amet<br>consectetur adipis<br><span style="font-weight: 500;">tempor incididunt</span></h3>
+      </div>
+      
+      <div class="clients-container">
+        <div class="clients-subtitle">LOREM IPSUM</div>
+        <div class="clients-line"></div>
+        <div class="marquee-container">
+          <div class="marquee-content">
+            <img class="marquee-logo" src="assets/images/companies/Discord.png" alt="Discord">
+            <img class="marquee-logo" src="assets/images/companies/Facebook.png" alt="Facebook">
+            <img class="marquee-logo" src="assets/images/companies/Snapchat.png" alt="Snapchat">
+            <img class="marquee-logo" src="assets/images/companies/Spotify.png" alt="Spotify">
+            <img class="marquee-logo" src="assets/images/companies/TikTok.png" alt="TikTok">
+            <img class="marquee-logo" src="assets/images/companies/WhatsApp.png" alt="WhatsApp">
+            <img class="marquee-logo" src="assets/images/companies/YouTube.png" alt="YouTube">
+            <img class="marquee-logo" src="assets/images/companies/dribbble.png" alt="Dribbble">
+            <img class="marquee-logo" src="assets/images/companies/ebay.png" alt="eBay">
+            <img class="marquee-logo" src="assets/images/companies/instagram.png" alt="Instagram">
+            <img class="marquee-logo" src="assets/images/companies/twitter.png" alt="Twitter">
+            <img class="marquee-logo" src="assets/images/companies/Discord.png" alt="Discord">
+            <img class="marquee-logo" src="assets/images/companies/Facebook.png" alt="Facebook">
+            <img class="marquee-logo" src="assets/images/companies/Snapchat.png" alt="Snapchat">
+            <img class="marquee-logo" src="assets/images/companies/Spotify.png" alt="Spotify">
+            <img class="marquee-logo" src="assets/images/companies/TikTok.png" alt="TikTok">
+            <img class="marquee-logo" src="assets/images/companies/WhatsApp.png" alt="WhatsApp">
+            <img class="marquee-logo" src="assets/images/companies/YouTube.png" alt="YouTube">
+            <img class="marquee-logo" src="assets/images/companies/dribbble.png" alt="Dribbble">
+            <img class="marquee-logo" src="assets/images/companies/ebay.png" alt="eBay">
+            <img class="marquee-logo" src="assets/images/companies/instagram.png" alt="Instagram">
+            <img class="marquee-logo" src="assets/images/companies/twitter.png" alt="Twitter">
+          </div>
+        </div>
+      </div>
+      
+      <div class="feature-container" style="align-items: flex-end; padding-right: 3.125rem; padding-left: 3.125rem; box-sizing: border-box;">
+        <h3 class="feature-title animated-title flow-title" style="text-align: right;">Sed ut perspiciatis unde omnis<br>iste natus error<br><span style="font-weight: 500;">voluptatem</span></h3>
+      </div>
+    </div>
+    
+    <div class="phase4-container" id="phase4-container" style="font-family: 'Sarabun', sans-serif;">
+      <div class="split-feature-container">
+        
+        <div class="hi-top" style="width: 100%; min-width: 15rem; max-width: 20rem; margin-bottom: 0;">
+          <span>( A )</span>
+          <span>[ 001 /004 ]</span>
+        </div>
+        
+        <div style="display: flex; flex-direction: column; align-items: flex-start;">
+          <div class="split-top" style="text-align: left; display: inline-block;">
+            <h3 class="feature-title animated-title" id="phase4-title" style="text-align: left; margin-top: 0;">
+              Lorem ipsum dolor sit,<br><span style="font-weight: 500;">amet consectetur elit</span>
+            </h3>
+            <div class="clients-line" style="margin-top: 3rem; margin-bottom: 3rem; width: 100%; margin-left: 0; margin-right: 0;"></div>
+          </div>
+          
+          <div class="split-bottom" style="align-items: flex-start;">
+            <div class="hi-text" style="text-align: left; max-width: 30rem;">
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua, ut enim ad minim veniam quis nostrud exercitation.
+            </div>
+            <a href="#" class="hi-btn" style="margin-top: 1.5rem; text-transform: uppercase;">DOLOR AMET</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="words-container">
+      <div class="flying-word" id="word1">
+        <span class="char">L</span><span class="char">o</span><span class="char">r</span><span class="char">e</span><span class="char">m</span>
+      </div>
+      <div class="flying-word" id="word2">
+        <span class="char">a</span><span class="char">m</span><span class="char">e</span><span class="char">t</span>
+      </div>
+      <div class="flying-word" id="word3">
+        <span class="char">d</span><span class="char">o</span><span class="char">l</span><span class="char">o</span><span class="char">r</span><span class="char">e</span>
+      </div>
+    </div>
+    
+    <div class="glass-container" id="glass-container">
+      <div id="glass-gradient" class="glass-gradient-wrapper">
+        <img src="assets/images/gradient.png" class="glass-gradient-img" alt="Gradient" />
+        <div class="gradient-content">
+          <div class="gc-top-left animated-title" id="phase3-title">Lorem ipsum dolor sit amet consectetur,<br>adipiscing elit sed do</div>
+          <div class="gc-bottom">
+            <div class="gc-bottom-left">Lorem ipsum dolorem</div>
+            <div class="gc-bottom-right">
+              <div class="stat-col stat-col-tall">
+                <div class="stat-num">200+</div>
+                <div class="stat-desc">lorem ipsum dolor<br><span class="stat-sub">*sit amet elit</span></div>
+                <div class="stat-btn">→</div>
+              </div>
+              <div class="stat-col">
+                <div class="stat-num">97%</div>
+                <div class="stat-desc">lorem ipsum dolor sit amet<br>consectetur</div>
+                <div class="stat-btn">→</div>
+              </div>
+              <div class="stat-col">
+                <div class="stat-num">10X</div>
+                <div class="stat-desc">dolor sitamet<br><span class="stat-sub">*sit amet elit</span></div>
+                <div class="stat-btn">→</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="phase5-container" id="phase5-container" style="font-family: 'Sarabun', sans-serif;">
+      <div class="hi-top phase5-label-right">
+        <span>( A )</span>
+        <span>[ 001 /004 ]</span>
+      </div>
+      <h3 class="feature-title phase5-title-left animated-title" id="phase5-title-1">
+        Nemo enim ipsam voluptatem est
+      </h3>
+      
+      <div class="hi-text phase5-desc-left">
+        Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam eaque ipsa quae ab illo.
+      </div>
+      <h3 class="feature-title phase5-title-right animated-title" id="phase5-title-2">
+        Lorem ipsum<br><span style="font-weight: 500;">dolor amet</span>
+      </h3>
+    </div>
+
+    <div class="phase6-container" id="phase6-container">
+      <h3 class="phase6-title animated-title" id="phase6-title">
+        Ut enim ad minim<br><span style="font-weight: 400;">veniam quis</span>
+      </h3>
+    </div>
+    
+    <div class="phase6-footer-wrapper" id="phase6-footer">
+      <div class="glass-footer">
+        <div class="footer-top">
+          <div class="footer-left">
+            <h2 style="margin: 0 0 2rem 0; font-weight: 500; font-size: 1.5rem; letter-spacing: -0.02em;">IrisAI</h2>
+            <div class="footer-heading">Lorem ipsum dolor sit amet.</div>
+            <div class="footer-input-group">
+              <input type="email" placeholder="Enter your email" class="footer-input">
+              <button class="footer-submit">Submit</button>
+            </div>
+            <div class="footer-subtext">By subscribing you agree to our Privacy Policy and provide consent to receive updates from our company.</div>
+          </div>
+          
+          <div class="footer-right">
+            <div class="footer-col">
+              <div class="footer-col-title">Products</div>
+              <a href="#">Studio</a>
+              <a href="#">Engine</a>
+              <a href="#">Enterprise</a>
+            </div>
+            <div class="footer-col">
+              <div class="footer-col-title">Learn</div>
+              <a href="#">Blog</a>
+              <a href="#">Research</a>
+              <a href="#">Documentation</a>
+            </div>
+            <div class="footer-col">
+              <div class="footer-col-title">About</div>
+              <a href="#">Company</a>
+              <a href="#">Careers</a>
+              <a href="#">Contact</a>
+            </div>
+            <div class="footer-col">
+              <div class="footer-col-title">Legal</div>
+              <a href="#">Terms & Conditions</a>
+              <a href="#">Privacy Policy</a>
+            </div>
+          </div>
+        </div>
+        
+        <div class="footer-line"></div>
+        <div class="footer-bottom">
+          © 2026 IrisAI, All rights reserved.
+        </div>
+      </div>
+    </div>
+
+    <script>
+    /* design-system copy, phone fix: main.js splits every title into one inline-block per letter, so a
+       title that has to wrap on a 390px screen could break inside a word. Once the split is done, each
+       word's letters are grouped in a no-wrap inline span (no visual change where titles do not wrap). */
+    document.addEventListener('DOMContentLoaded', function () {
+      function group(el) {
+        var run = null;
+        Array.prototype.slice.call(el.childNodes).forEach(function (n) {
+          if (n.nodeType === 1 && n.classList.contains('char-mask')) {
+            if (!run) { run = document.createElement('span'); run.className = 'ds-word'; el.insertBefore(run, n); }
+            run.appendChild(n);
+          } else {
+            run = null;
+            if (n.nodeType === 1 && n.tagName !== 'BR') group(n);
+          }
+        });
+      }
+      document.querySelectorAll('#animated-hero-title, .animated-title').forEach(group);
+    });
+    </script>
+    <style>.ds-word { white-space: nowrap; }</style>
+    <script defer src="assets/js/vendor.js"></script>
+    <script defer src="assets/js/embedded-assets.js"></script>
+    <script defer src="assets/js/main.js"></script>
+  </body>
+</html>

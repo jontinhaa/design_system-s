@@ -1,0 +1,1500 @@
+{
+ "version": 1,
+ "tool": "wd3 0.1.0",
+ "captureId": "residences.loamhouse.com.au-e16f3c7c",
+ "capturedAt": "2026-10-14T17:02:56+00:00",
+ "entry": {
+  "url": "https://residences.loamhouse.com.au/",
+  "path": "/",
+  "search": "",
+  "file": "site/residences.loamhouse.com.au/index.html",
+  "contentType": "text/html; charset=utf-8"
+ },
+ "blocked": [
+  "^https?://([^/?#]+\\.)?(google\\-analytics\\.com|analytics\\.google\\.com|googletagmanager\\.com|googleadservices\\.com|doubleclick\\.net|googlesyndication\\.com|googleoptimize\\.com|connect\\.facebook\\.net|bat\\.bing\\.com|snap\\.licdn\\.com|px\\.ads\\.linkedin\\.com|analytics\\.tiktok\\.com|ct\\.pinterest\\.com|static\\.ads\\-twitter\\.com|analytics\\.twitter\\.com|tr\\.snapchat\\.com|sc\\-static\\.net|mc\\.yandex\\.ru|hotjar\\.com|hotjar\\.io|clarity\\.ms|cdn\\.segment\\.com|api\\.segment\\.io|cdn\\.mxpnl\\.com|api\\-js\\.mixpanel\\.com|api\\.mixpanel\\.com|api\\.amplitude\\.com|api2\\.amplitude\\.com|api\\-secure\\.amplitude\\.com|api\\-sr\\.amplitude\\.com|sr\\-client\\-cfg\\.amplitude\\.com|plausible\\.io|cloud\\.umami\\.is|analytics\\.umami\\.is|static\\.cloudflareinsights\\.com|cloudflareinsights\\.com|vitals\\.vercel\\-insights\\.com|browser\\-intake\\-datadoghq\\.com|browser\\-intake\\-datadoghq\\.eu|js\\-agent\\.newrelic\\.com|bam\\.nr\\-data\\.net|bam\\-cell\\.nr\\-data\\.net|fullstory\\.com|script\\.crazyegg\\.com|mouseflow\\.com|smartlook\\.com|heapanalytics\\.com|i\\.posthog\\.com|stats\\.wp\\.com|pixel\\.wp\\.com|promotekit\\.com|ingest\\.sentry\\.io|ingest\\.us\\.sentry\\.io|ingest\\.de\\.sentry\\.io|widget\\.intercom\\.io|js\\.intercomcdn\\.com|api\\-iam\\.intercom\\.io|js\\.hs\\-scripts\\.com|js\\.hs\\-analytics\\.net|js\\.hs\\-banner\\.com|js\\.hscollectedforms\\.net|js\\.usemessages\\.com|track\\.hubspot\\.com|client\\.crisp\\.chat|embed\\.tawk\\.to|js\\.driftt\\.com|static\\.zdassets\\.com|ekr\\.zdassets\\.com|cdn\\.cookielaw\\.org|geolocation\\.onetrust\\.com|consent\\.cookiebot\\.com|consentcdn\\.cookiebot\\.com|app\\.usercentrics\\.eu|api\\.usercentrics\\.eu|cdn\\.iubenda\\.com|cmp\\.osano\\.com|cdn\\.termly\\.io)(:\\d+)?([/?#]|$)",
+  "/rpc/increment_shared_code_views",
+  "^https?://(umami|analytics|stats|plausible)\\.[^/]+/(api/send|api/collect|api/event|script\\.js)",
+  "/g/c(ollect)?\\?v=2&",
+  "sentry\\.io/api/\\d+/(envelope|store)",
+  "/api/meta-capi",
+  "^https?://(leadtracker|tracking|track|events?|collect)\\.[^/]+/",
+  "^https?://a\\.vturb\\.com/",
+  "facebook\\.com/tr[/?]",
+  "/_vercel/(speed-)?insights/",
+  "/cdn-cgi/rum",
+  "/cdn-cgi/challenge-platform/",
+  "google\\.com/(pagead|ads)/"
+ ],
+ "volatileParams": [
+  "v",
+  "_rsc",
+  "dpl",
+  "_",
+  "t",
+  "ts",
+  "timestamp",
+  "cb",
+  "cachebust",
+  "cacheBust",
+  "nocache",
+  "rnd",
+  "rand",
+  "random",
+  "_t"
+ ],
+ "entries": [
+  {
+   "url": "https://residences.loamhouse.com.au/",
+   "method": "GET",
+   "status": 200,
+   "contentType": "text/html; charset=utf-8",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "content-type": "text/html; charset=utf-8",
+    "link": "<https://fonts.googleapis.com>; rel=\"preconnect\"",
+    "referrer-policy": "strict-origin-when-cross-origin"
+   },
+   "resourceType": "document",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "file": "site/residences.loamhouse.com.au/index.html",
+   "size": 30340,
+   "modes": [
+    "navigate"
+   ]
+  },
+  {
+   "url": "https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=DM+Sans:wght@300;400;500;600&display=swap",
+   "method": "GET",
+   "status": 200,
+   "contentType": "text/css; charset=utf-8",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "content-type": "text/css; charset=utf-8",
+    "link": "<https://fonts.gstatic.com>; rel=preconnect; crossorigin",
+    "timing-allow-origin": "*"
+   },
+   "resourceType": "stylesheet",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "file": "site/fonts.googleapis.com/css2__qc360b5d7.css",
+   "size": 13762,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/SplitText.min.js",
+   "method": "GET",
+   "status": 200,
+   "contentType": "application/javascript; charset=utf-8",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "access-control-expose-headers": "*",
+    "content-type": "application/javascript; charset=utf-8",
+    "timing-allow-origin": "*",
+    "x-jsd-version": "3.13.0",
+    "x-jsd-version-type": "version"
+   },
+   "resourceType": "script",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "file": "site/cdn.jsdelivr.net/npm/gsap@3.13.0/dist/SplitText.min.js",
+   "size": 7247,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/gsap.min.js",
+   "method": "GET",
+   "status": 200,
+   "contentType": "application/javascript; charset=utf-8",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "access-control-expose-headers": "*",
+    "content-type": "application/javascript; charset=utf-8",
+    "timing-allow-origin": "*",
+    "x-jsd-version": "3.13.0",
+    "x-jsd-version-type": "version"
+   },
+   "resourceType": "script",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "file": "site/cdn.jsdelivr.net/npm/gsap@3.13.0/dist/gsap.min.js",
+   "size": 72435,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/ScrollTrigger.min.js",
+   "method": "GET",
+   "status": 200,
+   "contentType": "application/javascript; charset=utf-8",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "access-control-expose-headers": "*",
+    "content-type": "application/javascript; charset=utf-8",
+    "timing-allow-origin": "*",
+    "x-jsd-version": "3.13.0",
+    "x-jsd-version-type": "version"
+   },
+   "resourceType": "script",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "file": "site/cdn.jsdelivr.net/npm/gsap@3.13.0/dist/ScrollTrigger.min.js",
+   "size": 44157,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/ScrollSmoother.min.js",
+   "method": "GET",
+   "status": 200,
+   "contentType": "application/javascript; charset=utf-8",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "access-control-expose-headers": "*",
+    "content-type": "application/javascript; charset=utf-8",
+    "timing-allow-origin": "*",
+    "x-jsd-version": "3.13.0",
+    "x-jsd-version-type": "version"
+   },
+   "resourceType": "script",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "file": "site/cdn.jsdelivr.net/npm/gsap@3.13.0/dist/ScrollSmoother.min.js",
+   "size": 13367,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://residences.loamhouse.com.au/script.js?v=189",
+   "method": "GET",
+   "status": 200,
+   "contentType": "application/javascript",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "content-type": "application/javascript",
+    "priority": "u=1,i=?0",
+    "referrer-policy": "strict-origin-when-cross-origin"
+   },
+   "resourceType": "script",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "file": "site/residences.loamhouse.com.au/script__qd9494c0c.js",
+   "size": 6556,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://residences.loamhouse.com.au/editorial.js?v=313",
+   "method": "GET",
+   "status": 200,
+   "contentType": "application/javascript",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "content-type": "application/javascript",
+    "priority": "u=2,i=?0",
+    "referrer-policy": "strict-origin-when-cross-origin"
+   },
+   "resourceType": "script",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "file": "site/residences.loamhouse.com.au/editorial__q4b374eff.js",
+   "size": 80761,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://residences.loamhouse.com.au/assets/hero-video/hero-mobile.mp4",
+   "method": "GET",
+   "status": 200,
+   "contentType": "video/mp4",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "content-type": "video/mp4",
+    "priority": "u=3,i",
+    "referrer-policy": "strict-origin-when-cross-origin"
+   },
+   "resourceType": "media",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "file": "site/residences.loamhouse.com.au/assets/hero-video/hero-mobile.mp4",
+   "size": 2102556,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://residences.loamhouse.com.au/assets/mobile/hero-mobile-still.jpg",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/jpeg",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "content-type": "image/jpeg",
+    "priority": "u=2,i",
+    "referrer-policy": "strict-origin-when-cross-origin"
+   },
+   "resourceType": "image",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "file": "site/residences.loamhouse.com.au/assets/mobile/hero-mobile-still.jpg",
+   "size": 159588,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://residences.loamhouse.com.au/assets/hero-video/hero-mobile-poster.jpg",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/jpeg",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "content-type": "image/jpeg",
+    "priority": "u=2,i",
+    "referrer-policy": "strict-origin-when-cross-origin"
+   },
+   "resourceType": "image",
+   "passes": [
+    "mobile",
+    "desktop"
+   ],
+   "file": "site/residences.loamhouse.com.au/assets/hero-video/hero-mobile-poster.jpg",
+   "size": 203689,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://residences.loamhouse.com.au/map.js?v=258",
+   "method": "GET",
+   "status": 200,
+   "contentType": "application/javascript",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "content-type": "application/javascript",
+    "priority": "u=3,i=?0",
+    "referrer-policy": "strict-origin-when-cross-origin"
+   },
+   "resourceType": "script",
+   "passes": [
+    "mobile",
+    "desktop"
+   ],
+   "file": "site/residences.loamhouse.com.au/map__q6791014c.js",
+   "size": 57243,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://residences.loamhouse.com.au/assets/hero-video/hero-skyline-1080.webm",
+   "method": "GET",
+   "status": 200,
+   "contentType": "video/webm",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "content-type": "video/webm",
+    "priority": "u=3,i",
+    "referrer-policy": "strict-origin-when-cross-origin"
+   },
+   "resourceType": "media",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "file": "site/residences.loamhouse.com.au/assets/hero-video/hero-skyline-1080.webm",
+   "size": 1508672,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://residences.loamhouse.com.au/styles.css?v=316",
+   "method": "GET",
+   "status": 200,
+   "contentType": "text/css; charset=utf-8",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "content-type": "text/css; charset=utf-8",
+    "referrer-policy": "strict-origin-when-cross-origin"
+   },
+   "resourceType": "stylesheet",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "file": "site/residences.loamhouse.com.au/styles__q21bdc44b.css",
+   "size": 50765,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://residences.loamhouse.com.au/map.css?v=232",
+   "method": "GET",
+   "status": 200,
+   "contentType": "text/css; charset=utf-8",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "content-type": "text/css; charset=utf-8",
+    "referrer-policy": "strict-origin-when-cross-origin"
+   },
+   "resourceType": "stylesheet",
+   "passes": [
+    "mobile",
+    "desktop"
+   ],
+   "file": "site/residences.loamhouse.com.au/map__q4990293f.css",
+   "size": 10904,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://residences.loamhouse.com.au/assets/loam-house-wordmark.png",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/png",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "content-type": "image/png",
+    "referrer-policy": "strict-origin-when-cross-origin"
+   },
+   "resourceType": "image",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "file": "site/residences.loamhouse.com.au/assets/loam-house-wordmark.png",
+   "size": 62948,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://residences.loamhouse.com.au/assets/hero-video/hero-skyline-poster.jpg",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/jpeg",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "content-type": "image/jpeg",
+    "referrer-policy": "strict-origin-when-cross-origin"
+   },
+   "resourceType": "image",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "file": "site/residences.loamhouse.com.au/assets/hero-video/hero-skyline-poster.jpg",
+   "size": 89944,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://fonts.gstatic.com/s/cormorantgaramond/v21/co3bmX5slCNuHLi8bLeY9MK7whWMhyjYqXtKky2F7g.woff2",
+   "method": "GET",
+   "status": 200,
+   "contentType": "font/woff2",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "content-type": "font/woff2",
+    "timing-allow-origin": "*"
+   },
+   "resourceType": "font",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "file": "site/fonts.gstatic.com/s/cormorantgaramond/v21/co3bmX5slCNuHLi8bLeY9MK7whWMhyjYqXtKky2F7g.woff2",
+   "size": 37776,
+   "modes": [
+    "cors"
+   ]
+  },
+  {
+   "url": "https://fonts.gstatic.com/s/dmsans/v17/rP2Yp2ywxg089UriI5-g4vlH9VoD8Cmcqbu0-K6z9mXg.woff2",
+   "method": "GET",
+   "status": 200,
+   "contentType": "font/woff2",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "content-type": "font/woff2",
+    "timing-allow-origin": "*"
+   },
+   "resourceType": "font",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "file": "site/fonts.gstatic.com/s/dmsans/v17/rP2Yp2ywxg089UriI5-g4vlH9VoD8Cmcqbu0-K6z9mXg.woff2",
+   "size": 36980,
+   "modes": [
+    "cors"
+   ]
+  },
+  {
+   "url": "https://fonts.gstatic.com/s/cormorantgaramond/v21/co3ZmX5slCNuHLi8bLeY9MK7whWMhyjYrEtImSqn7B6D.woff2",
+   "method": "GET",
+   "status": 200,
+   "contentType": "font/woff2",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "content-type": "font/woff2",
+    "timing-allow-origin": "*"
+   },
+   "resourceType": "font",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "file": "site/fonts.gstatic.com/s/cormorantgaramond/v21/co3ZmX5slCNuHLi8bLeY9MK7whWMhyjYrEtImSqn7B6D.woff2",
+   "size": 39304,
+   "modes": [
+    "cors"
+   ]
+  },
+  {
+   "url": "https://residences.loamhouse.com.au/assets/map/area_clean.svg",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/svg+xml",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "content-type": "image/svg+xml",
+    "priority": "u=1,i",
+    "referrer-policy": "strict-origin-when-cross-origin"
+   },
+   "resourceType": "fetch",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "file": "site/residences.loamhouse.com.au/assets/map/area_clean.svg",
+   "size": 27879,
+   "modes": [
+    "cors"
+   ]
+  },
+  {
+   "url": "https://residences.loamhouse.com.au/assets/EXT_Terrace.jpg",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/jpeg",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "content-type": "image/jpeg",
+    "priority": "u=3,i",
+    "referrer-policy": "strict-origin-when-cross-origin"
+   },
+   "resourceType": "image",
+   "passes": [
+    "desktop"
+   ],
+   "file": "site/residences.loamhouse.com.au/assets/EXT_Terrace.jpg",
+   "size": 1428330,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://residences.loamhouse.com.au/assets/INT03_Courtyard-Living-Dining.jpg",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/jpeg",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "content-type": "image/jpeg",
+    "priority": "u=3,i",
+    "referrer-policy": "strict-origin-when-cross-origin"
+   },
+   "resourceType": "image",
+   "passes": [
+    "desktop"
+   ],
+   "file": "site/residences.loamhouse.com.au/assets/INT03_Courtyard-Living-Dining.jpg",
+   "size": 394637,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://residences.loamhouse.com.au/assets/map/precinct_clean.svg",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/svg+xml",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "content-type": "image/svg+xml",
+    "priority": "u=1,i",
+    "referrer-policy": "strict-origin-when-cross-origin"
+   },
+   "resourceType": "fetch",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "file": "site/residences.loamhouse.com.au/assets/map/precinct_clean.svg",
+   "size": 1049475,
+   "modes": [
+    "cors"
+   ]
+  },
+  {
+   "url": "https://residences.loamhouse.com.au/assets/favicon.png",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/png",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "content-type": "image/png",
+    "priority": "u=1,i",
+    "referrer-policy": "strict-origin-when-cross-origin"
+   },
+   "resourceType": "other",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "file": "site/residences.loamhouse.com.au/assets/favicon.png",
+   "size": 1487,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://residences.loamhouse.com.au/assets/hero-video/hero-ambient-1080.webm",
+   "method": "GET",
+   "status": 200,
+   "contentType": "video/webm",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "content-type": "video/webm",
+    "priority": "u=3,i",
+    "referrer-policy": "strict-origin-when-cross-origin"
+   },
+   "resourceType": "media",
+   "passes": [
+    "desktop"
+   ],
+   "file": "site/residences.loamhouse.com.au/assets/hero-video/hero-ambient-1080.webm",
+   "size": 553003,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://residences.loamhouse.com.au/assets/INT01_Penthouse-Living.jpg",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/jpeg",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "content-type": "image/jpeg",
+    "priority": "u=3,i",
+    "referrer-policy": "strict-origin-when-cross-origin"
+   },
+   "resourceType": "image",
+   "passes": [
+    "desktop"
+   ],
+   "file": "site/residences.loamhouse.com.au/assets/INT01_Penthouse-Living.jpg",
+   "size": 337038,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://residences.loamhouse.com.au/assets/INT04_Kitchen-Light.jpg",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/jpeg",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "content-type": "image/jpeg",
+    "priority": "u=3,i",
+    "referrer-policy": "strict-origin-when-cross-origin"
+   },
+   "resourceType": "image",
+   "passes": [
+    "desktop"
+   ],
+   "file": "site/residences.loamhouse.com.au/assets/INT04_Kitchen-Light.jpg",
+   "size": 413107,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://residences.loamhouse.com.au/assets/INT_Storage.jpg",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/jpeg",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "content-type": "image/jpeg",
+    "priority": "u=3,i",
+    "referrer-policy": "strict-origin-when-cross-origin"
+   },
+   "resourceType": "image",
+   "passes": [
+    "desktop"
+   ],
+   "file": "site/residences.loamhouse.com.au/assets/INT_Storage.jpg",
+   "size": 1094443,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://residences.loamhouse.com.au/assets/mobile/form_bg2.jpg",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/jpeg",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "content-type": "image/jpeg",
+    "priority": "u=3,i",
+    "referrer-policy": "strict-origin-when-cross-origin"
+   },
+   "resourceType": "image",
+   "passes": [
+    "mobile"
+   ],
+   "file": "site/residences.loamhouse.com.au/assets/mobile/form_bg2.jpg",
+   "size": 332695,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://residences.loamhouse.com.au/assets/mobile/EXT_Terrace.jpg",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/jpeg",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "content-type": "image/jpeg",
+    "priority": "u=3,i",
+    "referrer-policy": "strict-origin-when-cross-origin"
+   },
+   "resourceType": "image",
+   "passes": [
+    "mobile"
+   ],
+   "file": "site/residences.loamhouse.com.au/assets/mobile/EXT_Terrace.jpg",
+   "size": 201481,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://residences.loamhouse.com.au/assets/INT05_Bathroom-Light.jpg",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/jpeg",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "content-type": "image/jpeg",
+    "priority": "u=3,i",
+    "referrer-policy": "strict-origin-when-cross-origin"
+   },
+   "resourceType": "image",
+   "passes": [
+    "desktop"
+   ],
+   "file": "site/residences.loamhouse.com.au/assets/INT05_Bathroom-Light.jpg",
+   "size": 586782,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://residences.loamhouse.com.au/assets/mobile/INT01_Penthouse-Living.jpg",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/jpeg",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "content-type": "image/jpeg",
+    "priority": "u=3,i",
+    "referrer-policy": "strict-origin-when-cross-origin"
+   },
+   "resourceType": "image",
+   "passes": [
+    "mobile"
+   ],
+   "file": "site/residences.loamhouse.com.au/assets/mobile/INT01_Penthouse-Living.jpg",
+   "size": 128018,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://residences.loamhouse.com.au/assets/mobile/INT04_Kitchen-Light.jpg",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/jpeg",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "content-type": "image/jpeg",
+    "priority": "u=3,i",
+    "referrer-policy": "strict-origin-when-cross-origin"
+   },
+   "resourceType": "image",
+   "passes": [
+    "mobile"
+   ],
+   "file": "site/residences.loamhouse.com.au/assets/mobile/INT04_Kitchen-Light.jpg",
+   "size": 161810,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://residences.loamhouse.com.au/assets/mobile/INT03_Courtyard-Living-Dining.jpg",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/jpeg",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "content-type": "image/jpeg",
+    "priority": "u=3,i",
+    "referrer-policy": "strict-origin-when-cross-origin"
+   },
+   "resourceType": "image",
+   "passes": [
+    "mobile"
+   ],
+   "file": "site/residences.loamhouse.com.au/assets/mobile/INT03_Courtyard-Living-Dining.jpg",
+   "size": 123866,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://residences.loamhouse.com.au/assets/map/amenities/08.jpg?v=3",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/jpeg",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "content-type": "image/jpeg",
+    "priority": "u=3,i",
+    "referrer-policy": "strict-origin-when-cross-origin"
+   },
+   "resourceType": "image",
+   "passes": [
+    "desktop"
+   ],
+   "file": "site/residences.loamhouse.com.au/assets/map/amenities/08__qcc5fd325.jpg",
+   "size": 372521,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://residences.loamhouse.com.au/assets/map/amenities/06.jpg?v=3",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/jpeg",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "content-type": "image/jpeg",
+    "priority": "u=3,i",
+    "referrer-policy": "strict-origin-when-cross-origin"
+   },
+   "resourceType": "image",
+   "passes": [
+    "desktop"
+   ],
+   "file": "site/residences.loamhouse.com.au/assets/map/amenities/06__qcc5fd325.jpg",
+   "size": 472829,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://residences.loamhouse.com.au/assets/map/amenities/11.jpg?v=3",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/jpeg",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "content-type": "image/jpeg",
+    "priority": "u=3,i",
+    "referrer-policy": "strict-origin-when-cross-origin"
+   },
+   "resourceType": "image",
+   "passes": [
+    "desktop"
+   ],
+   "file": "site/residences.loamhouse.com.au/assets/map/amenities/11__qcc5fd325.jpg",
+   "size": 403177,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://residences.loamhouse.com.au/assets/mobile/INT05_Bathroom-Light.jpg",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/jpeg",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "content-type": "image/jpeg",
+    "priority": "u=3,i",
+    "referrer-policy": "strict-origin-when-cross-origin"
+   },
+   "resourceType": "image",
+   "passes": [
+    "mobile"
+   ],
+   "file": "site/residences.loamhouse.com.au/assets/mobile/INT05_Bathroom-Light.jpg",
+   "size": 191113,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://residences.loamhouse.com.au/assets/mobile/INT_Storage.jpg",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/jpeg",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "content-type": "image/jpeg",
+    "priority": "u=3,i",
+    "referrer-policy": "strict-origin-when-cross-origin"
+   },
+   "resourceType": "image",
+   "passes": [
+    "mobile"
+   ],
+   "file": "site/residences.loamhouse.com.au/assets/mobile/INT_Storage.jpg",
+   "size": 206514,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://residences.loamhouse.com.au/assets/map/amenities/13.jpg?v=3",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/jpeg",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "content-type": "image/jpeg",
+    "priority": "u=3,i",
+    "referrer-policy": "strict-origin-when-cross-origin"
+   },
+   "resourceType": "image",
+   "passes": [
+    "desktop"
+   ],
+   "file": "site/residences.loamhouse.com.au/assets/map/amenities/13__qcc5fd325.jpg",
+   "size": 447955,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://residences.loamhouse.com.au/assets/map/amenities/07.jpg?v=3",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/jpeg",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "content-type": "image/jpeg",
+    "priority": "u=3,i",
+    "referrer-policy": "strict-origin-when-cross-origin"
+   },
+   "resourceType": "image",
+   "passes": [
+    "desktop"
+   ],
+   "file": "site/residences.loamhouse.com.au/assets/map/amenities/07__qcc5fd325.jpg",
+   "size": 377311,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://residences.loamhouse.com.au/assets/map/amenities/03.jpg?v=3",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/jpeg",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "content-type": "image/jpeg",
+    "priority": "u=3,i",
+    "referrer-policy": "strict-origin-when-cross-origin"
+   },
+   "resourceType": "image",
+   "passes": [
+    "desktop"
+   ],
+   "file": "site/residences.loamhouse.com.au/assets/map/amenities/03__qcc5fd325.jpg",
+   "size": 492689,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://residences.loamhouse.com.au/assets/map/amenities/12.jpg?v=3",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/jpeg",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "content-type": "image/jpeg",
+    "priority": "u=3,i",
+    "referrer-policy": "strict-origin-when-cross-origin"
+   },
+   "resourceType": "image",
+   "passes": [
+    "desktop"
+   ],
+   "file": "site/residences.loamhouse.com.au/assets/map/amenities/12__qcc5fd325.jpg",
+   "size": 550598,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://residences.loamhouse.com.au/assets/map/amenities/10.jpg?v=3",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/jpeg",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "content-type": "image/jpeg",
+    "priority": "u=3,i",
+    "referrer-policy": "strict-origin-when-cross-origin"
+   },
+   "resourceType": "image",
+   "passes": [
+    "desktop"
+   ],
+   "file": "site/residences.loamhouse.com.au/assets/map/amenities/10__qcc5fd325.jpg",
+   "size": 401208,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://residences.loamhouse.com.au/assets/place-bayside.jpg",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/jpeg",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "content-type": "image/jpeg",
+    "priority": "u=3,i",
+    "referrer-policy": "strict-origin-when-cross-origin"
+   },
+   "resourceType": "image",
+   "passes": [
+    "desktop"
+   ],
+   "file": "site/residences.loamhouse.com.au/assets/place-bayside.jpg",
+   "size": 446182,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://residences.loamhouse.com.au/assets/map/amenities/02.jpg?v=3",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/jpeg",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "content-type": "image/jpeg",
+    "priority": "u=3,i",
+    "referrer-policy": "strict-origin-when-cross-origin"
+   },
+   "resourceType": "image",
+   "passes": [
+    "desktop"
+   ],
+   "file": "site/residences.loamhouse.com.au/assets/map/amenities/02__qcc5fd325.jpg",
+   "size": 643966,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://residences.loamhouse.com.au/assets/map/amenities/01.jpg?v=3",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/jpeg",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "content-type": "image/jpeg",
+    "priority": "u=3,i",
+    "referrer-policy": "strict-origin-when-cross-origin"
+   },
+   "resourceType": "image",
+   "passes": [
+    "desktop"
+   ],
+   "file": "site/residences.loamhouse.com.au/assets/map/amenities/01__qcc5fd325.jpg",
+   "size": 920060,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://residences.loamhouse.com.au/assets/map/amenities/05.jpg?v=3",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/jpeg",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "content-type": "image/jpeg",
+    "priority": "u=3,i",
+    "referrer-policy": "strict-origin-when-cross-origin"
+   },
+   "resourceType": "image",
+   "passes": [
+    "desktop"
+   ],
+   "file": "site/residences.loamhouse.com.au/assets/map/amenities/05__qcc5fd325.jpg",
+   "size": 492689,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://residences.loamhouse.com.au/assets/map/amenities/09.jpg?v=3",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/jpeg",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "content-type": "image/jpeg",
+    "priority": "u=3,i",
+    "referrer-policy": "strict-origin-when-cross-origin"
+   },
+   "resourceType": "image",
+   "passes": [
+    "desktop"
+   ],
+   "file": "site/residences.loamhouse.com.au/assets/map/amenities/09__qcc5fd325.jpg",
+   "size": 564237,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://residences.loamhouse.com.au/assets/map/amenities/04.jpg?v=3",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/jpeg",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "content-type": "image/jpeg",
+    "priority": "u=3,i",
+    "referrer-policy": "strict-origin-when-cross-origin"
+   },
+   "resourceType": "image",
+   "passes": [
+    "desktop"
+   ],
+   "file": "site/residences.loamhouse.com.au/assets/map/amenities/04__qcc5fd325.jpg",
+   "size": 465689,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://residences.loamhouse.com.au/assets/COM03_Office.jpg",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/jpeg",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "content-type": "image/jpeg",
+    "priority": "u=3,i",
+    "referrer-policy": "strict-origin-when-cross-origin"
+   },
+   "resourceType": "image",
+   "passes": [
+    "desktop"
+   ],
+   "file": "site/residences.loamhouse.com.au/assets/COM03_Office.jpg",
+   "size": 719755,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://residences.loamhouse.com.au/assets/mobile/place-bayside.jpg",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/jpeg",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "content-type": "image/jpeg",
+    "priority": "u=3,i",
+    "referrer-policy": "strict-origin-when-cross-origin"
+   },
+   "resourceType": "image",
+   "passes": [
+    "mobile"
+   ],
+   "file": "site/residences.loamhouse.com.au/assets/mobile/place-bayside.jpg",
+   "size": 223362,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://residences.loamhouse.com.au/assets/mobile/amenities/05.jpg?v=3",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/jpeg",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "content-type": "image/jpeg",
+    "priority": "u=3,i",
+    "referrer-policy": "strict-origin-when-cross-origin"
+   },
+   "resourceType": "image",
+   "passes": [
+    "mobile"
+   ],
+   "file": "site/residences.loamhouse.com.au/assets/mobile/amenities/05__qcc5fd325.jpg",
+   "size": 264332,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://residences.loamhouse.com.au/assets/mobile/amenities/06.jpg?v=3",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/jpeg",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "content-type": "image/jpeg",
+    "priority": "u=3,i",
+    "referrer-policy": "strict-origin-when-cross-origin"
+   },
+   "resourceType": "image",
+   "passes": [
+    "mobile"
+   ],
+   "file": "site/residences.loamhouse.com.au/assets/mobile/amenities/06__qcc5fd325.jpg",
+   "size": 236382,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://residences.loamhouse.com.au/assets/mobile/amenities/03.jpg?v=3",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/jpeg",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "content-type": "image/jpeg",
+    "priority": "u=3,i",
+    "referrer-policy": "strict-origin-when-cross-origin"
+   },
+   "resourceType": "image",
+   "passes": [
+    "mobile"
+   ],
+   "file": "site/residences.loamhouse.com.au/assets/mobile/amenities/03__qcc5fd325.jpg",
+   "size": 264332,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://residences.loamhouse.com.au/assets/mobile/amenities/13.jpg?v=3",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/jpeg",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "content-type": "image/jpeg",
+    "priority": "u=3,i",
+    "referrer-policy": "strict-origin-when-cross-origin"
+   },
+   "resourceType": "image",
+   "passes": [
+    "mobile"
+   ],
+   "file": "site/residences.loamhouse.com.au/assets/mobile/amenities/13__qcc5fd325.jpg",
+   "size": 213444,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://residences.loamhouse.com.au/assets/mobile/amenities/07.jpg?v=3",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/jpeg",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "content-type": "image/jpeg",
+    "priority": "u=3,i",
+    "referrer-policy": "strict-origin-when-cross-origin"
+   },
+   "resourceType": "image",
+   "passes": [
+    "mobile"
+   ],
+   "file": "site/residences.loamhouse.com.au/assets/mobile/amenities/07__qcc5fd325.jpg",
+   "size": 163146,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://residences.loamhouse.com.au/assets/mobile/amenities/12.jpg?v=3",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/jpeg",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "content-type": "image/jpeg",
+    "priority": "u=3,i",
+    "referrer-policy": "strict-origin-when-cross-origin"
+   },
+   "resourceType": "image",
+   "passes": [
+    "mobile"
+   ],
+   "file": "site/residences.loamhouse.com.au/assets/mobile/amenities/12__qcc5fd325.jpg",
+   "size": 193265,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://residences.loamhouse.com.au/assets/mobile/COM03_Office.jpg",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/jpeg",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "content-type": "image/jpeg",
+    "priority": "u=3,i",
+    "referrer-policy": "strict-origin-when-cross-origin"
+   },
+   "resourceType": "image",
+   "passes": [
+    "mobile"
+   ],
+   "file": "site/residences.loamhouse.com.au/assets/mobile/COM03_Office.jpg",
+   "size": 242059,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://residences.loamhouse.com.au/assets/mobile/amenities/10.jpg?v=3",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/jpeg",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "content-type": "image/jpeg",
+    "priority": "u=3,i",
+    "referrer-policy": "strict-origin-when-cross-origin"
+   },
+   "resourceType": "image",
+   "passes": [
+    "mobile"
+   ],
+   "file": "site/residences.loamhouse.com.au/assets/mobile/amenities/10__qcc5fd325.jpg",
+   "size": 224235,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://residences.loamhouse.com.au/assets/mobile/amenities/01.jpg?v=3",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/jpeg",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "content-type": "image/jpeg",
+    "priority": "u=3,i",
+    "referrer-policy": "strict-origin-when-cross-origin"
+   },
+   "resourceType": "image",
+   "passes": [
+    "mobile"
+   ],
+   "file": "site/residences.loamhouse.com.au/assets/mobile/amenities/01__qcc5fd325.jpg",
+   "size": 324332,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://residences.loamhouse.com.au/assets/mobile/amenities/11.jpg?v=3",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/jpeg",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "content-type": "image/jpeg",
+    "priority": "u=3,i",
+    "referrer-policy": "strict-origin-when-cross-origin"
+   },
+   "resourceType": "image",
+   "passes": [
+    "mobile"
+   ],
+   "file": "site/residences.loamhouse.com.au/assets/mobile/amenities/11__qcc5fd325.jpg",
+   "size": 196183,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://residences.loamhouse.com.au/assets/mobile/amenities/02.jpg?v=3",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/jpeg",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "content-type": "image/jpeg",
+    "priority": "u=3,i",
+    "referrer-policy": "strict-origin-when-cross-origin"
+   },
+   "resourceType": "image",
+   "passes": [
+    "mobile"
+   ],
+   "file": "site/residences.loamhouse.com.au/assets/mobile/amenities/02__qcc5fd325.jpg",
+   "size": 294690,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://residences.loamhouse.com.au/assets/mobile/amenities/09.jpg?v=3",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/jpeg",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "content-type": "image/jpeg",
+    "priority": "u=3,i",
+    "referrer-policy": "strict-origin-when-cross-origin"
+   },
+   "resourceType": "image",
+   "passes": [
+    "mobile"
+   ],
+   "file": "site/residences.loamhouse.com.au/assets/mobile/amenities/09__qcc5fd325.jpg",
+   "size": 293640,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://residences.loamhouse.com.au/assets/mobile/amenities/04.jpg?v=3",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/jpeg",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "content-type": "image/jpeg",
+    "priority": "u=3,i",
+    "referrer-policy": "strict-origin-when-cross-origin"
+   },
+   "resourceType": "image",
+   "passes": [
+    "mobile"
+   ],
+   "file": "site/residences.loamhouse.com.au/assets/mobile/amenities/04__qcc5fd325.jpg",
+   "size": 214249,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://residences.loamhouse.com.au/assets/mobile/amenities/08.jpg?v=3",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/jpeg",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "content-type": "image/jpeg",
+    "priority": "u=3,i",
+    "referrer-policy": "strict-origin-when-cross-origin"
+   },
+   "resourceType": "image",
+   "passes": [
+    "mobile"
+   ],
+   "file": "site/residences.loamhouse.com.au/assets/mobile/amenities/08__qcc5fd325.jpg",
+   "size": 162267,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://residences.loamhouse.com.au/favicon.ico",
+   "method": "GET",
+   "status": 200,
+   "contentType": "text/html; charset=utf-8",
+   "headers": {
+    "content-type": "text/html; charset=utf-8",
+    "access-control-allow-origin": "*",
+    "link": "<https://fonts.googleapis.com>; rel=\"preconnect\"",
+    "referrer-policy": "strict-origin-when-cross-origin"
+   },
+   "resourceType": "other",
+   "passes": [
+    "mobile"
+   ],
+   "file": "site/residences.loamhouse.com.au/favicon.ico",
+   "size": 30340
+  }
+ ],
+ "videos": {
+  "posters": {},
+  "onlineHosts": []
+ }
+}

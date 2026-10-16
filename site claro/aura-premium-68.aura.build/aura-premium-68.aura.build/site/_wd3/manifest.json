@@ -1,0 +1,343 @@
+{
+ "entryUrl": "https://aura-premium-68.aura.build/",
+ "capturedAt": "2026-09-28T19:23:04+00:00",
+ "indexHtml": {
+  "kind": "snapshot",
+  "description": "DOM renderizado (depois do JS), sem os scripts do site; CSS gerado em runtime em site/_runtime/style-*.css; <canvas> ficam vazios (o desenho só existe no site vivo)",
+  "runtimeStyles": 2
+ },
+ "files": [
+  {
+   "url": "https://aura-premium-68.aura.build/favicon.ico",
+   "file": "site/aura-premium-68.aura.build/favicon.ico",
+   "type": "image/vnd.microsoft.icon",
+   "resourceType": "other",
+   "size": 696,
+   "status": 200,
+   "party": "first",
+   "passes": [
+    "desktop"
+   ]
+  },
+  {
+   "url": "https://aura-premium-68.aura.build/",
+   "file": "site/aura-premium-68.aura.build/index.html",
+   "type": "text/html",
+   "resourceType": "document",
+   "size": 30546,
+   "status": 200,
+   "party": "first",
+   "passes": [
+    "desktop",
+    "mobile"
+   ]
+  },
+  {
+   "url": "https://api.iconify.design/solar.json?icons=letter-linear%2Cmap-arrow-linear",
+   "file": "site/api.iconify.design/solar__q1b61772c.json",
+   "type": "application/json",
+   "resourceType": "fetch",
+   "size": 651,
+   "status": 200,
+   "party": "third",
+   "passes": [
+    "desktop",
+    "mobile"
+   ]
+  },
+  {
+   "url": "https://api.iconify.design/solar.json?icons=star-linear",
+   "file": "site/api.iconify.design/solar__q3577e8c8.json",
+   "type": "application/json",
+   "resourceType": "fetch",
+   "size": 1312,
+   "status": 200,
+   "party": "third",
+   "passes": [
+    "desktop",
+    "mobile"
+   ]
+  },
+  {
+   "url": "https://api.iconify.design/solar.json?icons=camera-linear%2Cclock-circle-linear%2Cmap-point-linear",
+   "file": "site/api.iconify.design/solar__q8d8460a5.json",
+   "type": "application/json",
+   "resourceType": "fetch",
+   "size": 1559,
+   "status": 200,
+   "party": "third",
+   "passes": [
+    "mobile"
+   ]
+  },
+  {
+   "url": "https://api.iconify.design/solar.json?icons=map-point-linear",
+   "file": "site/api.iconify.design/solar__qc38f6b23.json",
+   "type": "application/json",
+   "resourceType": "fetch",
+   "size": 458,
+   "status": 200,
+   "party": "third",
+   "passes": [
+    "desktop"
+   ]
+  },
+  {
+   "url": "https://api.iconify.design/solar.json?icons=camera-linear%2Cclock-circle-linear",
+   "file": "site/api.iconify.design/solar__qd81ab07a.json",
+   "type": "application/json",
+   "resourceType": "fetch",
+   "size": 1191,
+   "status": 200,
+   "party": "third",
+   "passes": [
+    "desktop"
+   ]
+  },
+  {
+   "url": "https://cdn.tailwindcss.com/3.4.17",
+   "file": "site/cdn.tailwindcss.com/3.4.17.js",
+   "type": "text/javascript",
+   "resourceType": "script",
+   "size": 407279,
+   "status": 200,
+   "party": "third",
+   "passes": [
+    "mobile",
+    "desktop"
+   ],
+   "library": {
+    "name": "tailwindcss (Play CDN)",
+    "version": "3.4.17"
+   },
+   "role": "library"
+  },
+  {
+   "url": "https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js",
+   "file": "site/code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js",
+   "type": "application/javascript",
+   "resourceType": "script",
+   "size": 22003,
+   "status": 200,
+   "party": "third",
+   "passes": [
+    "mobile",
+    "desktop"
+   ],
+   "library": {
+    "name": "iconify",
+    "version": "1.0.7"
+   },
+   "role": "library"
+  },
+  {
+   "url": "https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,500;1,400&display=swap",
+   "file": "site/fonts.googleapis.com/css2__qc0424ffb.css",
+   "type": "text/css",
+   "resourceType": "stylesheet",
+   "size": 15103,
+   "status": 200,
+   "party": "third",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "role": "third-party"
+  },
+  {
+   "url": "https://fonts.gstatic.com/s/inter/v20/UcC73FwrK3iLTeHuS_nVMrMxCp50SjIa1ZL7W0Q5nw.woff2",
+   "file": "site/fonts.gstatic.com/s/inter/v20/UcC73FwrK3iLTeHuS_nVMrMxCp50SjIa1ZL7W0Q5nw.woff2",
+   "type": "font/woff2",
+   "resourceType": "font",
+   "size": 48432,
+   "status": 200,
+   "party": "third",
+   "passes": [
+    "mobile",
+    "desktop"
+   ]
+  },
+  {
+   "url": "https://images.unsplash.com/photo-1493770348161-369560ae357d?auto=format&fit=crop&q=80&w=1000",
+   "file": "site/images.unsplash.com/photo-1493770348161-369560ae357d__qd63fae44.avif",
+   "type": "image/avif",
+   "resourceType": "image",
+   "size": 114575,
+   "status": 200,
+   "party": "third",
+   "passes": [
+    "mobile",
+    "desktop"
+   ]
+  },
+  {
+   "url": "https://images.unsplash.com/photo-1497935586351-b67a49e012bf?auto=format&fit=crop&q=80&w=600",
+   "file": "site/images.unsplash.com/photo-1497935586351-b67a49e012bf__q64308636.avif",
+   "type": "image/avif",
+   "resourceType": "image",
+   "size": 39634,
+   "status": 200,
+   "party": "third",
+   "passes": [
+    "mobile",
+    "desktop"
+   ]
+  },
+  {
+   "url": "https://images.unsplash.com/photo-1497935586351-b67a49e012bf?auto=format&fit=crop&q=80&w=1000",
+   "file": "site/images.unsplash.com/photo-1497935586351-b67a49e012bf__qd63fae44.avif",
+   "type": "image/avif",
+   "resourceType": "image",
+   "size": 96542,
+   "status": 200,
+   "party": "third",
+   "passes": [
+    "mobile",
+    "desktop"
+   ]
+  },
+  {
+   "url": "https://images.unsplash.com/photo-1509042239860-f550ce710b93?auto=format&fit=crop&q=80&w=600",
+   "file": "site/images.unsplash.com/photo-1509042239860-f550ce710b93__q64308636.avif",
+   "type": "image/avif",
+   "resourceType": "image",
+   "size": 59881,
+   "status": 200,
+   "party": "third",
+   "passes": [
+    "mobile",
+    "desktop"
+   ]
+  },
+  {
+   "url": "https://images.unsplash.com/photo-1511920170033-f8396924c348?auto=format&fit=crop&q=80&w=600",
+   "file": "site/images.unsplash.com/photo-1511920170033-f8396924c348__q64308636.avif",
+   "type": "image/avif",
+   "resourceType": "image",
+   "size": 42834,
+   "status": 200,
+   "party": "third",
+   "passes": [
+    "mobile",
+    "desktop"
+   ]
+  },
+  {
+   "url": "https://images.unsplash.com/photo-1515516089376-88db1e26e9c0?auto=format&fit=crop&q=80&w=800",
+   "file": "site/images.unsplash.com/photo-1515516089376-88db1e26e9c0__qf005d9fa.avif",
+   "type": "image/avif",
+   "resourceType": "image",
+   "size": 47697,
+   "status": 200,
+   "party": "third",
+   "passes": [
+    "desktop",
+    "mobile"
+   ]
+  },
+  {
+   "url": "https://images.unsplash.com/photo-1524661135-423995f22d0b?auto=format&fit=crop&q=80&w=1000",
+   "file": "site/images.unsplash.com/photo-1524661135-423995f22d0b__qd63fae44.avif",
+   "type": "image/avif",
+   "resourceType": "image",
+   "size": 130992,
+   "status": 200,
+   "party": "third",
+   "passes": [
+    "mobile",
+    "desktop"
+   ]
+  },
+  {
+   "url": "https://images.unsplash.com/photo-1525351484163-7529414344d8?auto=format&fit=crop&q=80&w=600",
+   "file": "site/images.unsplash.com/photo-1525351484163-7529414344d8__q64308636.avif",
+   "type": "image/avif",
+   "resourceType": "image",
+   "size": 36166,
+   "status": 200,
+   "party": "third",
+   "passes": [
+    "mobile",
+    "desktop"
+   ]
+  },
+  {
+   "url": "https://images.unsplash.com/photo-1541167760496-1628856ab772?auto=format&fit=crop&q=80&w=800",
+   "file": "site/images.unsplash.com/photo-1541167760496-1628856ab772__qf005d9fa.avif",
+   "type": "image/avif",
+   "resourceType": "image",
+   "size": 17267,
+   "status": 200,
+   "party": "third",
+   "passes": [
+    "desktop",
+    "mobile"
+   ]
+  },
+  {
+   "url": "https://images.unsplash.com/photo-1554118811-1e0d58224f24?auto=format&fit=crop&q=80&w=2000",
+   "file": "site/images.unsplash.com/photo-1554118811-1e0d58224f24__qfbed69c2.avif",
+   "type": "image/avif",
+   "resourceType": "image",
+   "size": 368939,
+   "status": 200,
+   "party": "third",
+   "passes": [
+    "desktop",
+    "mobile"
+   ]
+  },
+  {
+   "url": "https://images.unsplash.com/photo-1559525839-b184a4d698c7?auto=format&fit=crop&q=80&w=600",
+   "file": "site/images.unsplash.com/photo-1559525839-b184a4d698c7__q64308636.avif",
+   "type": "image/avif",
+   "resourceType": "image",
+   "size": 48433,
+   "status": 200,
+   "party": "third",
+   "passes": [
+    "mobile",
+    "desktop"
+   ]
+  },
+  {
+   "url": "https://images.unsplash.com/photo-1600093463592-8e36ae95ef56?auto=format&fit=crop&q=80&w=600",
+   "file": "site/images.unsplash.com/photo-1600093463592-8e36ae95ef56__q64308636.avif",
+   "type": "image/avif",
+   "resourceType": "image",
+   "size": 62234,
+   "status": 200,
+   "party": "third",
+   "passes": [
+    "mobile",
+    "desktop"
+   ]
+  },
+  {
+   "url": "https://images.unsplash.com/photo-1600093463592-8e36ae95ef56?auto=format&fit=crop&q=80&w=1000",
+   "file": "site/images.unsplash.com/photo-1600093463592-8e36ae95ef56__qd63fae44.avif",
+   "type": "image/avif",
+   "resourceType": "image",
+   "size": 133785,
+   "status": 200,
+   "party": "third",
+   "passes": [
+    "desktop",
+    "mobile"
+   ]
+  },
+  {
+   "url": "https://images.unsplash.com/photo-1628840042765-356cda07504e?auto=format&fit=crop&q=80&w=800",
+   "file": "site/images.unsplash.com/photo-1628840042765-356cda07504e__qf005d9fa.avif",
+   "type": "image/avif",
+   "resourceType": "image",
+   "size": 180443,
+   "status": 200,
+   "party": "third",
+   "passes": [
+    "desktop",
+    "mobile"
+   ]
+  }
+ ]
+}

@@ -1,0 +1,83 @@
+
+[cms-list-wrap]:has(.w-dyn-empty) {display:none;}
+    *,
+    *::after,
+    *::before {
+        -webkit-box-sizing: border-box;
+        box-sizing: border-box;
+    }
+    main { visibility: hidden }
+    html {
+        background-color: #1D1D1B;
+    }
+    body {
+        -webkit-tap-highlight-color: transparent;
+        -webkit-font-smoothing: subpixel-antialiased;
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+        -webkit-overflow-scrolling: touch;
+        -webkit-overflow-scrolling: touch;
+        scrollbar-width: none;
+        -ms-scroll-chaining: none;
+        overscroll-behavior: none;
+    }
+  
+  	body:has([data-barba-namespace="home"], [data-barba-namespace="us"]) { background-color: var(--real-black) }
+  
+    @media (min-width: 991px) {
+        * {
+            -webkit-touch-callout: none;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+        }
+    }
+    input,
+    textarea {
+        -webkit-user-select: text;
+        -moz-user-select: text;
+        -ms-user-select: text;
+        user-select: text;
+    }
+    ::-webkit-scrollbar {
+        -ms-overflow-style: none;
+        display: none;
+        overflow: -moz-scrollbars-none;
+        scrollbar-width: none;
+        -ms-overflow-style: none;
+        -ms-overflow-style: -ms-autohiding-scrollbar;
+    }
+    .grid_wrap {
+        display: none;
+    }
+    
+    [data-reveal="left"]{transform: translate(105%, 0px);}
+		[data-reveal="right"]{transform: translate(-105%, 0px);}
+    
+    
+    /*.bg_img-wrap{clip-path:inset(40vh 41vw);}*/
+    
+    .hero_bg-img:first-of-type img{clip-path:inset(100% 0px 0px 0px)}
+
+    .section.us--hero .line{transform:translate(0px, -110%)}
+    .section.us--hero .h-h1{transform:translate(0px, -110%)}
+    
+    [data-vid="hero"]{clip-path:inset(50%)}
+    .revealed[data-vid="hero"]{clip-path:none !important;}
+    .h2--us.color--white{opacity:0}
+    
+    .fb-link{pointer-events:auto;}
+    
+    
+    @media screen and (min-width: 480px){
+      .work-wrap {width:35vw;height:47vw;clip-path:url("#b-mask");-webkit-clip-path:url("#b-mask");}
+    }
+    
+    /*
+    .load_logo.bullet{transform:translate(-50%, 0%)}
+    .load_logo.proof{transform:translate(50%, 0%)}
+    */
+    
+    .page-wipe { transform: scaleY(1) }
+  

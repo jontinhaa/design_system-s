@@ -1,0 +1,84 @@
+
+        @font-face {
+          font-family: 'La Graziela';
+          src: url("../hotelaurelia.online/__l5e/assets-v1/633ad6c8-ebb4-49e8-b043-8d0f00555b99/LaGraziela.otf") format('opentype');
+          font-weight: 400;
+          font-style: normal;
+          font-display: swap;
+        }
+        .aurelia-script { font-family: 'La Graziela', 'Cormorant Garamond', serif; }
+        .aurelia-garamond-italic { font-family: 'Cormorant Garamond', 'Berlingske Serif', serif; font-style: italic; }
+        .aurelia-serif { font-family: 'Cormorant Garamond', 'Berlingske Serif', serif; }
+        /* Eyebrows, nav, labels, UI micro-copy — one neutral sans, tracked */
+        .aurelia-display { font-family: 'Raleway', system-ui, -apple-system, sans-serif; font-weight: 500; letter-spacing: 0.22em; }
+        .aurelia-body { font-family: 'Raleway', system-ui, -apple-system, sans-serif; font-weight: 400; }
+        @keyframes auFly {
+          0%   { transform: translate(0, 0); }
+          20%  { transform: translate(-18px, -32px); }
+          40%  { transform: translate(22px, -18px); }
+          60%  { transform: translate(30px, -38px); }
+          80%  { transform: translate(-12px, -22px); }
+          100% { transform: translate(0, 0); }
+        }
+        @keyframes auSway {
+          0%   { transform: rotate(-10deg) scale(1); }
+          25%  { transform: rotate(-4deg) scale(1.06); }
+          50%  { transform: rotate(6deg) scale(0.97); }
+          75%  { transform: rotate(-2deg) scale(1.04); }
+          100% { transform: rotate(-10deg) scale(1); }
+        }
+        .aurelia-birds-wrap { animation: auFly 8s ease-in-out infinite; }
+        .aurelia-birds { animation: auSway 5s ease-in-out infinite; transform-origin: center; }
+
+        /* ===== Global scroll-reveal — soft, fluid ===== */
+        .au-reveal {
+          opacity: 0;
+          transform: translate3d(0, 28px, 0);
+          filter: blur(6px);
+          transition:
+            opacity 1100ms cubic-bezier(.16,1,.3,1),
+            transform 1100ms cubic-bezier(.16,1,.3,1),
+            filter 1100ms cubic-bezier(.16,1,.3,1);
+          will-change: opacity, transform, filter;
+        }
+        .au-reveal.au-in {
+          opacity: 1;
+          transform: translate3d(0, 0, 0);
+          filter: blur(0);
+        }
+        /* Parallax-managed images own their transform — opt out of reveal transform */
+        img[data-parallax-done] {
+          opacity: 1 !important;
+          filter: none !important;
+        }
+        img[data-parallax-done].au-reveal {
+          transition: none !important;
+        }
+
+        /* ===== Heading word split — staggered rise + unblur ===== */
+        .au-word {
+          display: inline-block;
+          opacity: 0;
+          transform: translate3d(0, 0.6em, 0);
+          filter: blur(8px);
+          transition:
+            opacity 900ms cubic-bezier(.16,1,.3,1),
+            transform 900ms cubic-bezier(.16,1,.3,1),
+            filter 900ms cubic-bezier(.16,1,.3,1);
+          will-change: opacity, transform, filter;
+        }
+        .au-word.in {
+          opacity: 1;
+          transform: translate3d(0, 0, 0);
+          filter: blur(0);
+        }
+        input[type="date"]::-webkit-calendar-picker-indicator {
+          opacity: 0;
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+          .au-reveal, .au-word { opacity: 1 !important; transform: none !important; filter: none !important; transition: none !important; }
+          html { scroll-behavior: auto !important; }
+        }
+
+      

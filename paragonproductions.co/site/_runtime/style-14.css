@@ -1,0 +1,54 @@
+
+
+/* Directors Home Section */
+/* Initial State */
+.home-directors_cms-roster_item:last-child .home-directors_roster-card_line { opacity: 0; }
+
+/* Profile Image Shows */
+.home-directors_cms-roster_item:is(:hover, :focus, :focus-visible) .home-directors_roster-card_image_wrap {
+	width: 8.86%;
+}
+
+/* Font Color Changes to Red */
+.home-directors_cms-roster_item:is(:hover, :focus, :focus-visible) { color: var(--_color---swatch--red); }
+
+/* Sibling Items Fade Out */
+.home-directors_cms-roster_list:has(.home-directors_cms-roster_item:hover)
+.home-directors_cms-roster_item:not(:hover) {
+	opacity: 0.4;
+}
+
+/* Active Background Fades In */
+.home-directors_cms-bg_item.is-active {	opacity: 1; }
+
+/* Active State */
+
+/* Hover & Focus State */
+.home-directors_wrap:has(.home-directors_cms-roster_item:nth-child(1):hover) .home-directors_cms-bg_item:nth-child(1) {
+    opacity: 1;
+}
+.home-directors_wrap:has(.home-directors_cms-roster_item:nth-child(2):hover) .home-directors_cms-bg_item:nth-child(2) {
+    opacity: 1;
+}
+.home-directors_wrap:has(.home-directors_cms-roster_item:nth-child(3):hover) .home-directors_cms-bg_item:nth-child(3) {
+    opacity: 1;
+}
+.home-directors_wrap:has(.home-directors_cms-roster_item:nth-child(4):hover) .home-directors_cms-bg_item:nth-child(4) {
+    opacity: 1;
+}
+.home-directors_wrap:has(.home-directors_cms-roster_item:nth-child(5):hover) .home-directors_cms-bg_item:nth-child(5) {
+    opacity: 1;
+}
+.home-directors_wrap:has(.home-directors_cms-roster_item:nth-child(6):hover) .home-directors_cms-bg_item:nth-child(6) {
+    opacity: 1;
+}
+.home-directors_wrap:has(.home-directors_cms-roster_item:nth-child(7):hover) .home-directors_cms-bg_item:nth-child(7) {
+    opacity: 1;
+}
+.home-directors_wrap:has(.home-directors_cms-roster_item:nth-child(8):hover) .home-directors_cms-bg_item:nth-child(8) {
+    opacity: 1;
+}
+.home-directors_wrap:has(.home-directors_cms-roster_item:nth-child(9):hover) .home-directors_cms-bg_item:nth-child(9) {
+    opacity: 1;
+}
+

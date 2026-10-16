@@ -1,0 +1,65 @@
+{
+ "builders": [
+  "aura (aura-html)"
+ ],
+ "libraries": [
+  {
+   "name": "iconify",
+   "version": "1.0.7",
+   "sources": [
+    "https://code.iconify.design/iconify-icon/1.0.7/iconify-icon.min.js"
+   ]
+  },
+  {
+   "name": "lucide",
+   "version": "1.56.0",
+   "sources": [
+    "https://unpkg.com/lucide@1.56.0/dist/umd/lucide.min.js"
+   ]
+  },
+  {
+   "name": "tailwindcss (Play CDN)",
+   "version": "3.4.17",
+   "sources": [
+    "https://cdn.tailwindcss.com/3.4.17"
+   ]
+  },
+  {
+   "name": "unicornstudio",
+   "version": null,
+   "sources": [
+    "página",
+    "https://cdn.jsdelivr.net/gh/hiunicornstudio/unicornstudio.js@v1.4.29/dist/unicornStudio.umd.js",
+    "https://storage.googleapis.com/unicornstudio-production/embeds/uFY4IYPs2LU8fWm96Im2?v=1791923985369"
+   ]
+  }
+ ],
+ "runtime": {
+  "contexts": {
+   "webgl2": 2,
+   "2d": 1
+  },
+  "wasm": 0,
+  "workers": 0,
+  "webgpu": false,
+  "shadowRoots": 55,
+  "canvases": 1
+ },
+ "cssFeatures": [],
+ "fonts": {
+  "families": [
+   "Inter",
+   "Geist"
+  ],
+  "sources": [
+   "google fonts"
+  ]
+ },
+ "videos": [],
+ "files": {
+  "text": 6,
+  "image": 9,
+  "application": 11,
+  "font": 2
+ }
+}

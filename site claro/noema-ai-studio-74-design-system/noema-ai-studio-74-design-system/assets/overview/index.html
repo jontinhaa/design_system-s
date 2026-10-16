@@ -1,0 +1,1187 @@
+<html lang="en"><head><meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="NØEMA Design System.">
+<meta name="theme-color" content="#050506">
+<title>NØEMA Design System</title>
+<link rel="stylesheet" href="assets/noema-ai-studio-74.aura.build/noema.css">
+<link rel="icon" href="assets/noema-ai-studio-74.aura.build/favicon.ico">
+<script>
+/* design-system catalog: inside the catalog iframe the page's own navbar is drawn by the catalog
+   above the frame (so it hides here), the catalog's menu button drives this page's own menu, the
+   pointer over the catalog navbar keeps this page's cursor moving, and the frame reports once the
+   preloader has lifted and the hero intro has played */
+(function () {
+  if (window.parent === window) return;
+  document.documentElement.classList.add('ds-embed');
+  function post(m) { try { window.parent.postMessage(m, '*'); } catch (e) {} }
+  addEventListener('message', function (e) {
+    if (e.source !== window.parent || !e.data) return;
+    var b = document.querySelector('.menu-button');
+    if (e.data.ds === 'menu' && b && (b.getAttribute('aria-expanded') === 'true') !== !!e.data.open) b.click();
+    if (e.data.ds === 'pointer') dispatchEvent(new PointerEvent('pointermove', { clientX: e.data.x, clientY: e.data.y }));
+  });
+  document.addEventListener('DOMContentLoaded', function () {
+    var b = document.querySelector('.menu-button');
+    new MutationObserver(function () { post({ ds: 'menu', open: b.getAttribute('aria-expanded') === 'true' }); })
+      .observe(b, { attributes: true, attributeFilter: ['aria-expanded'] });
+    var done = false;
+    function check() {
+      if (done || document.body.classList.contains('loading')) return;
+      done = true; setTimeout(function () { post({ ds: 'ready' }); }, 250);
+    }
+    new MutationObserver(check).observe(document.body, { attributes: true, attributeFilter: ['class'] });
+    check();
+  });
+})();
+</script>
+<style>
+html.ds-embed .nav { visibility: hidden; }
+</style>
+<script src="assets/cdn.tailwindcss.com/3.4.17.js"></script>
+</head>
+  <body class="loading">
+    <div class="preloader" aria-label="Loading NØEMA">
+      <div class="preloader__mark">NØ</div>
+      <div class="preloader__foot">
+        <span>Calibrating perception<br>Toronto · 43.6532° N</span>
+        <span class="preloader__percent">00</span>
+      </div>
+    </div>
+
+    <div class="noise" aria-hidden="true"></div>
+    <div class="global-progress" aria-hidden="true"><span></span></div>
+    <div class="cursor" aria-hidden="true"></div>
+    <div class="cursor-ring" aria-hidden="true"></div>
+
+    <nav class="nav" aria-label="Main navigation">
+      <a class="nav__brand" href="#top" aria-label="NØEMA home">NØEMA®</a>
+      <span class="nav__status">Studio online</span>
+      <button class="menu-button magnetic" aria-label="Open menu" aria-expanded="false">
+        <span></span><span></span>
+      </button>
+    </nav>
+
+    <div class="menu" aria-hidden="true">
+      <div class="menu__image">
+        <img src="assets/hoirqrkdgbmvpwutwuwj.supabase.co/storage/v1/object/public/user-files/8bd0314a-9525-4a13-996e-2c37cbd9e514/0d8fe5dc-2613-47a4-8a99-9ef809347583-living-bloom__qa7352523.webp" alt="">
+      </div>
+      <div class="menu__panel">
+        <small>NØEMA / Selected coordinates</small>
+        <div class="menu__links">
+          <a href="#thesis">Thesis <span>01</span></a>
+          <a href="#anatomy">Anatomy <span>02</span></a>
+          <a href="#protocol">Method <span>03</span></a>
+          <a href="#living">Living systems <span>04</span></a>
+          <a href="#work">Work <span>07</span></a>
+          <a href="#contact">Contact <span>10</span></a>
+        </div>
+        <div class="menu__meta">
+          <span>Toronto / Global</span>
+          <span>EST 2026</span>
+        </div>
+      </div>
+    </div>
+
+    <main>
+      <section class="hero" id="top">
+        <div class="hero__visual" aria-label="Hover to reveal the human inside the machine">
+          <img class="hero__image hero__image--machine" src="assets/hoirqrkdgbmvpwutwuwj.supabase.co/storage/v1/object/public/user-files/8bd0314a-9525-4a13-996e-2c37cbd9e514/ea090e90-63a4-4c35-9731-f6087231ebf9-synthetic-shell__qd7b63122.webp" alt="A black futuristic synthetic figure wearing an illuminated helmet">
+          <img class="hero__image hero__image--human" src="assets/hoirqrkdgbmvpwutwuwj.supabase.co/storage/v1/object/public/user-files/8bd0314a-9525-4a13-996e-2c37cbd9e514/81c32039-f753-4e29-835e-18363a99da84-human-signal__q32088db0.webp" alt="The same helmet revealing a human face beneath the machine">
+          <div class="hero__halo" aria-hidden="true"></div>
+        </div>
+
+        <div class="hero__copy">
+          <span class="eyebrow">Lorem ipsum dolor sit amet</span>
+          <h1>NØEMA <span class="outline">Design System</span></h1>
+          <div class="hero__sub">
+            <span class="scroll-cue">Lorem ipsum dolor</span>
+            <p>
+              Void-black and bone-paper grounds, tightly tracked display type,
+              hairline outlines and one electric violet signal.
+            </p>
+          </div>
+        </div>
+
+        <div class="hero__coordinates" aria-hidden="true">
+          <span>NODE / NØ-043</span>
+          <span>STATE / <b data-state="">LATENT</b></span>
+          <span>X <b data-x="">068.0</b> / Y <b data-y="">044.0</b></span>
+        </div>
+        <div class="hero__mode">Hover to shift <b>machine → human</b></div>
+      </section>
+
+      <div class="signal-strip" aria-hidden="true">
+        <div class="signal-strip__track">
+          <span>Lorem ipsum</span><span>Dolor sit amet</span>
+          <span>Consectetur elit</span><span>Sed do eiusmod</span>
+          <span>Tempor incidunt</span><span>Lorem ipsum</span>
+          <span>Dolor sit amet</span><span>Consectetur elit</span>
+          <span>Sed do eiusmod</span><span>Tempor incidunt</span>
+        </div>
+      </div>
+
+      <section class="manifesto" id="thesis">
+        <span class="manifesto__index">01 / Lorem</span>
+        <h2 class="manifesto__statement">
+          <span class="manifesto__line"><span>Lorem ipsum dolor sit amet.</span></span>
+          <span class="manifesto__line"><span>Consectetur elit.</span></span>
+          <span class="manifesto__line"><span>Sed do eiusmod tempor</span></span>
+          <span class="manifesto__line"><span>ut labore dolor.</span></span>
+        </h2>
+        <div class="manifesto__foot">
+          <small>
+            Lorem / ipsum<br>
+            Dolor sit amet elit;<br>
+            sed do eiusmod tempor.
+          </small>
+          <p>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+            eiusmod tempor incididunt ut labore. Ut enim ad minim veniam.
+            Quis nostrud exercitation.
+          </p>
+        </div>
+        <div class="manifesto__orb" aria-hidden="true"></div>
+      </section>
+
+      <section class="metrics" aria-label="Studio facts">
+        <article class="metric metric__feature">
+          <small>Lorem ipsum dolor</small>
+          <strong>Lorem ipsum dolor sit amet.</strong>
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit sed do eiusmod.</p>
+        </article>
+        <article class="metric">
+          <small>Dolor sit amet</small>
+          <strong data-count="12">00</strong>
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+        </article>
+        <article class="metric">
+          <small>Consectetur elit</small>
+          <strong data-count="94">00</strong>
+          <p>Sed do eiusmod tempor incididunt ut labore et dolore.</p>
+        </article>
+        <article class="metric">
+          <small>Sed do eiusmod</small>
+          <strong data-count="0">00</strong>
+          <p>Ut enim ad minim veniam, quis nostrud exercitation.</p>
+        </article>
+      </section>
+
+      <section class="anatomy" id="anatomy">
+        <div class="anatomy__pin">
+          <img class="anatomy__image" src="assets/hoirqrkdgbmvpwutwuwj.supabase.co/storage/v1/object/public/user-files/8bd0314a-9525-4a13-996e-2c37cbd9e514/8a784a73-b86b-499f-b2c0-20892663f959-signal-anatomy__qc0c94f6a.webp" alt="A living network of black glass neural filaments carrying violet light">
+          <div class="anatomy__shade" aria-hidden="true"></div>
+          <div class="anatomy__grid" aria-hidden="true"></div>
+          <div class="anatomy__scan" aria-hidden="true"></div>
+          <div class="anatomy__topline">
+            <span>02 / Lorem ipsum</span>
+            <span>Dolor sit amet elit</span>
+          </div>
+          <h2><span>Lorem</span><span>ipsum dolor.</span></h2>
+          <div class="anatomy__note anatomy__note--one">
+            <b>01 / Lorem</b>
+            Lorem ipsum dolor sit amet, consectetur elit.
+          </div>
+          <div class="anatomy__note anatomy__note--two">
+            <b>02 / Ipsum</b>
+            Sed do eiusmod tempor incididunt ut labore.
+          </div>
+          <div class="anatomy__note anatomy__note--three">
+            <b>03 / Dolor</b>
+            Ut enim ad minim veniam, quis nostrud exercitation.
+          </div>
+        </div>
+      </section>
+
+      <section class="protocol" id="protocol">
+        <div class="protocol__stage">
+          <div class="protocol__header">
+            <span>03 / Lorem ipsum</span>
+            <span>Dolor sit · amet consectetur</span>
+          </div>
+          <div class="protocol__progress" aria-hidden="true"><span></span></div>
+
+          <article class="chapter">
+            <div class="chapter__copy">
+              <span class="chapter__number">MOVEMENT_01 / LOREM</span>
+              <h2>Sed do <i>eiusmod.</i></h2>
+              <div class="chapter__body">
+                <small>Lorem / Ipsum dolor sit</small>
+                <p>
+                  Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+                  eiusmod tempor incididunt ut labore et dolore magna aliqua.
+                </p>
+              </div>
+            </div>
+            <div class="chapter__media">
+              <img src="assets/hoirqrkdgbmvpwutwuwj.supabase.co/storage/v1/object/public/user-files/8bd0314a-9525-4a13-996e-2c37cbd9e514/ba18b372-e773-432a-a96d-1878b641c9b8-decode-labyrinth__q9829015e.webp" alt="A transparent black glass labyrinth containing a violet path">
+              <span class="chapter__tag">Lorem ipsum dolor</span>
+            </div>
+          </article>
+
+          <article class="chapter">
+            <div class="chapter__copy">
+              <span class="chapter__number">MOVEMENT_02 / IPSUM</span>
+              <h2>Lorem ut <i>labore.</i></h2>
+              <div class="chapter__body">
+                <small>Dolor / Sit amet elit</small>
+                <p>
+                  Ut enim ad minim veniam, quis nostrud exercitation ullamco
+                  laboris nisi ut aliquip ex ea commodo consequat duis.
+                </p>
+              </div>
+            </div>
+            <div class="chapter__media">
+              <img src="assets/hoirqrkdgbmvpwutwuwj.supabase.co/storage/v1/object/public/user-files/8bd0314a-9525-4a13-996e-2c37cbd9e514/4ec609c7-3837-4946-ab54-3462a7f92e9d-encode-glyphs__q10ecb326.webp" alt="A physical system of unique black glass glyph-like objects">
+              <span class="chapter__tag">Sit amet elit</span>
+            </div>
+          </article>
+
+          <article class="chapter">
+            <div class="chapter__copy">
+              <span class="chapter__number">MOVEMENT_03 / DOLOR</span>
+              <h2>Magna et <i>aliqua.</i></h2>
+              <div class="chapter__body">
+                <small>Amet / Consectetur</small>
+                <p>
+                  Duis aute irure dolor in reprehenderit in voluptate velit esse
+                  cillum dolore. Eu fugiat nulla pariatur excepteur.
+                </p>
+              </div>
+            </div>
+            <div class="chapter__media">
+              <img src="assets/hoirqrkdgbmvpwutwuwj.supabase.co/storage/v1/object/public/user-files/8bd0314a-9525-4a13-996e-2c37cbd9e514/2500f46e-7716-45a4-b41e-50bfef97e316-release-portal__q697182c3.webp" alt="A monumental black portal in a pale mineral landscape">
+              <span class="chapter__tag">Consectetur adipiscing</span>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section class="living" id="living">
+        <div class="living__header">
+          <span>04 / Lorem ipsum</span>
+          <span>Dolor sit amet, consectetur</span>
+        </div>
+        <div class="living__grid">
+          <div class="living__visual">
+            <img src="assets/hoirqrkdgbmvpwutwuwj.supabase.co/storage/v1/object/public/user-files/8bd0314a-9525-4a13-996e-2c37cbd9e514/0d8fe5dc-2613-47a4-8a99-9ef809347583-living-bloom__qa7352523.webp" alt="A sculptural flower engineered from black glass and illuminated machinery">
+            <div class="living__specimen">
+              <span>Specimen NØ-04</span><span>State / Becoming</span>
+            </div>
+            <div class="living__dial">Response<br>field</div>
+          </div>
+          <div class="living__copy">
+            <article class="living__step is-active" data-living-step="01">
+              <small>01 / Lorem ipsum</small>
+              <h2>Lorem ipsum <i>dolor sit amet.</i></h2>
+              <p>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+                eiusmod tempor incididunt ut labore et dolore magna aliqua.
+              </p>
+            </article>
+            <article class="living__step" data-living-step="02">
+              <small>02 / Dolor sit amet</small>
+              <h2>Sed do eiusmod <i>tempor.</i></h2>
+              <p>
+                Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris
+                nisi ut aliquip. Ex ea commodo consequat duis aute irure.
+              </p>
+            </article>
+            <article class="living__step" data-living-step="03">
+              <small>03 / Consectetur elit</small>
+              <h2>Ut labore et <i>dolore magna.</i></h2>
+              <p>
+                Duis aute irure dolor in reprehenderit in voluptate velit esse
+                cillum dolore; eu fugiat nulla pariatur excepteur sint.
+              </p>
+            </article>
+          </div>
+        </div>
+      </section>
+
+      <section class="velocity" aria-label="Creative philosophy">
+        <div class="velocity__row">Laboriosam <i>ipsum</i> dolores —</div>
+        <div class="velocity__row">Dolore <i>magna</i> aliqua —</div>
+        <div class="velocity__note">
+          <small>Lorem ipsum dolor</small>
+          <p>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+            eiusmod tempor—ut labore et dolore magna aliqua ut enim.
+          </p>
+        </div>
+      </section>
+
+      <section class="text-river" aria-label="Kinetic creative principles">
+        <div class="text-river__top">
+          <span>Lorem / Ipsum dolor sit amet</span>
+          <span>Dolor sit · amet consectetur</span>
+        </div>
+        <div class="text-river__line">Lorem ipsum <b></b> Lorem ipsum <b></b></div>
+        <div class="text-river__line">Dolor amet <b></b> Dolor amet <b></b></div>
+        <div class="text-river__line">Sed tempor <b></b> Sed tempor <b></b></div>
+        <div class="text-river__foot">
+          <small>Lorem ipsum / dolor sit</small>
+          <p>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do
+            eiusmod tempor—incididunt ut labore et dolore magna.
+          </p>
+        </div>
+      </section>
+
+      <section class="capabilities" id="capabilities">
+        <div class="capabilities__top">
+          <span>05 / Lorem ipsum</span>
+          <span>Hover to modulate</span>
+        </div>
+        <div class="capabilities__grid">
+          <div class="capabilities__list">
+            <div class="capability" tabindex="0" data-index="01" data-visual="assets/hoirqrkdgbmvpwutwuwj.supabase.co/storage/v1/object/public/user-files/8bd0314a-9525-4a13-996e-2c37cbd9e514/8a784a73-b86b-499f-b2c0-20892663f959-signal-anatomy__qc0c94f6a.webp" data-label="Signal / Pattern">
+              <small>01</small><strong>Lorem ipsum</strong><span>↗</span>
+            </div>
+            <div class="capability" tabindex="0" data-index="02" data-visual="assets/hoirqrkdgbmvpwutwuwj.supabase.co/storage/v1/object/public/user-files/8bd0314a-9525-4a13-996e-2c37cbd9e514/4ec609c7-3837-4946-ab54-3462a7f92e9d-encode-glyphs__q10ecb326.webp" data-label="Signal / Language">
+              <small>02</small><strong>Dolor sit amet</strong><span>↗</span>
+            </div>
+            <div class="capability" tabindex="0" data-index="03" data-visual="assets/hoirqrkdgbmvpwutwuwj.supabase.co/storage/v1/object/public/user-files/8bd0314a-9525-4a13-996e-2c37cbd9e514/cc14a7de-a707-4ead-aa70-8868efa6f682-future-lab__q0450e60f.webp" data-label="Signal / Space">
+              <small>03</small><strong>Consectetur elit</strong><span>↗</span>
+            </div>
+            <div class="capability" tabindex="0" data-index="04" data-visual="assets/hoirqrkdgbmvpwutwuwj.supabase.co/storage/v1/object/public/user-files/8bd0314a-9525-4a13-996e-2c37cbd9e514/0d8fe5dc-2613-47a4-8a99-9ef809347583-living-bloom__qa7352523.webp" data-label="Signal / Motion">
+              <small>04</small><strong>Adipiscing sed do</strong><span>↗</span>
+            </div>
+            <div class="capability" tabindex="0" data-index="05" data-visual="assets/hoirqrkdgbmvpwutwuwj.supabase.co/storage/v1/object/public/user-files/8bd0314a-9525-4a13-996e-2c37cbd9e514/2500f46e-7716-45a4-b41e-50bfef97e316-release-portal__q697182c3.webp" data-label="Signal / Release">
+              <small>05</small><strong>Tempor labore</strong><span>↗</span>
+            </div>
+            <div class="capability" tabindex="0" data-index="06" data-visual="assets/hoirqrkdgbmvpwutwuwj.supabase.co/storage/v1/object/public/user-files/8bd0314a-9525-4a13-996e-2c37cbd9e514/2e805fa0-f644-4954-b538-e5d512949f0d-collective-field__qf484fac1.webp" data-label="Signal / Field">
+              <small>06</small><strong>Magna aliqua ut</strong><span>↗</span>
+            </div>
+          </div>
+          <div class="capabilities__viewer">
+            <img src="assets/hoirqrkdgbmvpwutwuwj.supabase.co/storage/v1/object/public/user-files/8bd0314a-9525-4a13-996e-2c37cbd9e514/8a784a73-b86b-499f-b2c0-20892663f959-signal-anatomy__qc0c94f6a.webp" alt="Visual response for selected studio capability">
+            <div class="viewer__hud">
+              <div class="viewer__hud-top">
+                <span>Live instrument</span><span>v.06—26</span>
+              </div>
+              <div class="viewer__hud-bottom">
+                <span class="viewer__index">01</span><span>Signal / Shell</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section class="field" id="field">
+        <div class="field__pin">
+          <img class="field__image" src="assets/hoirqrkdgbmvpwutwuwj.supabase.co/storage/v1/object/public/user-files/8bd0314a-9525-4a13-996e-2c37cbd9e514/cc14a7de-a707-4ead-aa70-8868efa6f682-future-lab__q0450e60f.webp" alt="A monumental black intelligence sculpture floating inside a warm white future laboratory">
+          <div class="field__veil" aria-hidden="true"></div>
+          <div class="field__top">
+            <span>06 / Lorem ipsum</span>
+            <span>Dolor sit amet consectetur adipiscing elit</span>
+          </div>
+          <h2 class="field__title">
+            <span>Lorem sit</span><span>amet elit.</span>
+          </h2>
+          <div class="field__card">
+            <strong>1:1</strong>
+            <p>
+              Lorem ipsum dolor sit amet—consectetur adipiscing elit, sed do
+              eiusmod tempor incididunt ut labore et dolore magna aliqua enim.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section class="work" id="work">
+        <div class="work__intro">
+          <small>07 / Lorem ipsum dolor</small>
+          <h2>Lorem ipsum. Dolor sit amet.</h2>
+        </div>
+        <div class="work__track">
+          <article class="project">
+            <div class="project__copy">
+              <small>Lorem ipsum dolor / 2026</small>
+              <h3>ORCI</h3>
+              <p>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit sed do
+                eiusmod tempor.
+              </p>
+            </div>
+            <div class="project__media">
+              <img src="assets/hoirqrkdgbmvpwutwuwj.supabase.co/storage/v1/object/public/user-files/8bd0314a-9525-4a13-996e-2c37cbd9e514/1b2f96b5-378b-488e-bfab-00bc5f2b0592-aeon-mobility__qfd0a8bbd.webp" alt="ÆON autonomous mobility object floating over a reflective black surface">
+              <span class="project__counter">CASE / 01—03</span>
+            </div>
+          </article>
+
+          <article class="project">
+            <div class="project__copy">
+              <small>Dolor sit amet elit / 2026</small>
+              <h3>NISI</h3>
+              <p>
+                Ut enim ad minim veniam, quis nostrud exercitation ullamco
+                laboris nisi.
+              </p>
+            </div>
+            <div class="project__media">
+              <img src="assets/hoirqrkdgbmvpwutwuwj.supabase.co/storage/v1/object/public/user-files/8bd0314a-9525-4a13-996e-2c37cbd9e514/9c0770c0-144a-4c0f-aa55-46232030c213-halo-membrane__q2496e8a1.webp" alt="HALO editorial portrait of a human face meeting a translucent membrane">
+              <span class="project__counter">CASE / 02—03</span>
+            </div>
+          </article>
+
+          <article class="project">
+            <div class="project__copy">
+              <small>Consectetur elit / 2027</small>
+              <h3>SED</h3>
+              <p>
+                Duis aute irure dolor in reprehenderit in voluptate velit esse
+                cillum dolore.
+              </p>
+            </div>
+            <div class="project__media">
+              <img src="assets/hoirqrkdgbmvpwutwuwj.supabase.co/storage/v1/object/public/user-files/8bd0314a-9525-4a13-996e-2c37cbd9e514/be65bdd7-4eec-4a04-b5b3-c591b33d2484-nth-archive__q3e6b75be.webp" alt="NTH archive of levitating black glass memory slabs">
+              <span class="project__counter">CASE / 03—03</span>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section class="collective" id="collective">
+        <div class="collective__pin">
+          <img class="collective__image" src="assets/hoirqrkdgbmvpwutwuwj.supabase.co/storage/v1/object/public/user-files/8bd0314a-9525-4a13-996e-2c37cbd9e514/2e805fa0-f644-4954-b538-e5d512949f0d-collective-field__qf484fac1.webp" alt="Nine black glass intelligence objects linked by fine violet filaments">
+          <div class="collective__halo" aria-hidden="true"></div>
+          <div class="collective__top">
+            <span>08 / Lorem ipsum</span>
+            <span>Dolor sit · amet consectetur</span>
+          </div>
+          <h2 class="collective__title">
+            <span>Lorem ut</span><span>dolore</span><span>magna sit.</span>
+          </h2>
+          <div class="collective__footer">
+            <span class="collective__counter">Node sync / 00%</span>
+            <p>
+              Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do
+              eiusmod tempor incididunt ut labore et dolore magna—ut enim
+              ad minim veniam quis nostrud exercitation.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <section class="no-formula" id="no-formula">
+        <div class="no-formula__pin">
+          <div class="no-formula__top">
+            <span>09 / Lorem ipsum</span>
+            <span>Dolor sit · amet consectetur elit</span>
+          </div>
+          <div class="no-formula__mark" aria-hidden="true">NO.</div>
+          <div class="no-formula__statements">
+            <article class="no-formula__statement">
+              <small>Lorem 01 / Ipsum dolor</small>
+              <h2>Lorem ipsum <i>dolorem.</i></h2>
+              <p>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+                eiusmod tempor incididunt.
+              </p>
+            </article>
+            <article class="no-formula__statement">
+              <small>Lorem 02 / Dolor sit amet</small>
+              <h2>Sed eiusmod <i>ut labore.</i></h2>
+              <p>
+                Ut enim ad minim veniam, quis nostrud exercitation—ullamco
+                laboris nisi ut aliquip ex ea commodo.
+              </p>
+            </article>
+            <article class="no-formula__statement">
+              <small>Lorem 03 / Consectetur elit</small>
+              <h2>Magna aliqua <i>ut enim minim.</i></h2>
+              <p>
+                Duis aute irure dolor in reprehenderit in voluptate velit esse
+                cillum dolore eu fugiat.
+              </p>
+            </article>
+            <article class="no-formula__statement">
+              <small>Lorem 04 / Sed do eiusmod</small>
+              <h2>Quis nostrud <i>exercitation.</i></h2>
+              <p>
+                Excepteur sint occaecat cupidatat non proident, sunt in culpa
+                qui officia deserunt mollit.
+              </p>
+            </article>
+          </div>
+          <div class="no-formula__rail" aria-hidden="true"><span></span></div>
+        </div>
+      </section>
+
+      <section class="thesis">
+        <div class="thesis__axis-x" aria-hidden="true"></div>
+        <div class="thesis__axis-y" aria-hidden="true"></div>
+        <div class="thesis__rings" aria-hidden="true"></div>
+        <div class="thesis__copy">
+          <small>Lorem ipsum dolor sit amet elit</small>
+          <h2>Lorem ipsum dolor sit. <i>Amet</i> consectetur elit.</h2>
+          <p>
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+            eiusmod tempor incididunt—ut labore et dolore magna aliqua.
+          </p>
+        </div>
+      </section>
+
+      <section class="cta" id="contact">
+        <div class="cta__top">
+          <span>Lorem ipsum dolor</span>
+          <span>Dolor sit amet / Q4 2026</span>
+        </div>
+        <h2>Lorem sit <span>dolore.</span></h2>
+        <div class="cta__contact">
+          <a class="magnetic" href="#contact">lorem@ipsum.studio ↗</a>
+          <div><span>Instagram</span><span>LinkedIn</span><span>Toronto / Remote</span></div>
+        </div>
+        <div class="footer-code" aria-hidden="true">
+          01001110 11000011 10011000 01000101 01001101 01000001<br>
+          HUMAN / MACHINE / MEANING / 43.6532° N
+        </div>
+      </section>
+    </main>
+
+    <script src="assets/noema-ai-studio-74.aura.build/gsap.min.js"></script>
+    <script src="assets/noema-ai-studio-74.aura.build/ScrollTrigger.min.js"></script>
+    <script>
+      (() => {
+        const reduceMotion = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+        const root = document.documentElement;
+        const body = document.body;
+        const hero = document.querySelector(".hero__visual");
+        const human = document.querySelector(".hero__image--human");
+        const cursor = document.querySelector(".cursor");
+        const ring = document.querySelector(".cursor-ring");
+        const state = document.querySelector("[data-state]");
+        const coordX = document.querySelector("[data-x]");
+        const coordY = document.querySelector("[data-y]");
+
+        let mouseX = innerWidth / 2;
+        let mouseY = innerHeight / 2;
+        let ringX = mouseX;
+        let ringY = mouseY;
+
+        function moveCursor() {
+          ringX += (mouseX - ringX) * 0.14;
+          ringY += (mouseY - ringY) * 0.14;
+          cursor.style.transform = `translate(${mouseX}px, ${mouseY}px) translate(-50%, -50%)`;
+          ring.style.transform = `translate(${ringX}px, ${ringY}px) translate(-50%, -50%)`;
+          requestAnimationFrame(moveCursor);
+        }
+
+        if (!reduceMotion && matchMedia("(pointer:fine)").matches) {
+          moveCursor();
+          addEventListener("pointermove", (event) => {
+            mouseX = event.clientX;
+            mouseY = event.clientY;
+          });
+
+          document.querySelectorAll("a, button, [tabindex], .hero__visual").forEach((node) => {
+            node.addEventListener("mouseenter", () => ring.classList.add("is-active"));
+            node.addEventListener("mouseleave", () => ring.classList.remove("is-active"));
+          });
+
+          hero.addEventListener("pointermove", (event) => {
+            const bounds = hero.getBoundingClientRect();
+            const x = ((event.clientX - bounds.left) / bounds.width) * 100;
+            const y = ((event.clientY - bounds.top) / bounds.height) * 100;
+            root.style.setProperty("--mx", `${x}%`);
+            root.style.setProperty("--my", `${y}%`);
+            human.style.clipPath = `circle(clamp(115px, 12vw, 210px) at ${x}% ${y}%)`;
+            coordX.textContent = x.toFixed(1).padStart(5, "0");
+            coordY.textContent = y.toFixed(1).padStart(5, "0");
+            state.textContent = "REVEALED";
+          });
+
+          hero.addEventListener("pointerleave", () => {
+            human.style.clipPath = "circle(0 at var(--mx) var(--my))";
+            state.textContent = "LATENT";
+          });
+        }
+
+        const menuButton = document.querySelector(".menu-button");
+        const menu = document.querySelector(".menu");
+        let menuOpen = false;
+
+        function toggleMenu(force) {
+          menuOpen = typeof force === "boolean" ? force : !menuOpen;
+          menuButton.setAttribute("aria-expanded", String(menuOpen));
+          menuButton.setAttribute("aria-label", menuOpen ? "Close menu" : "Open menu");
+          menu.setAttribute("aria-hidden", String(!menuOpen));
+          if (window.gsap) {
+            gsap.to(menu, {
+              autoAlpha: menuOpen ? 1 : 0,
+              clipPath: menuOpen ? "inset(0 0 0% 0)" : "inset(0 0 100% 0)",
+              duration: 0.8,
+              ease: "power4.inOut",
+            });
+            gsap.to(".menu__links a", {
+              y: menuOpen ? 0 : 40,
+              opacity: menuOpen ? 1 : 0,
+              duration: 0.6,
+              stagger: 0.06,
+              delay: menuOpen ? 0.3 : 0,
+              ease: "power3.out",
+            });
+            gsap.to(".menu-button span:first-child", {
+              rotate: menuOpen ? 15 : 0,
+              y: menuOpen ? 3 : 0,
+              duration: 0.4,
+            });
+            gsap.to(".menu-button span:last-child", {
+              rotate: menuOpen ? -15 : 0,
+              y: menuOpen ? -4 : 0,
+              width: menuOpen ? "100%" : "68%",
+              duration: 0.4,
+            });
+          }
+        }
+
+        menuButton.addEventListener("click", () => toggleMenu());
+        document.querySelectorAll(".menu a").forEach((link) => {
+          link.addEventListener("click", () => toggleMenu(false));
+        });
+        addEventListener("keydown", (event) => {
+          if (event.key === "Escape" && menuOpen) toggleMenu(false);
+        });
+
+        const viewer = document.querySelector(".capabilities__viewer");
+        const viewerImage = viewer.querySelector("img");
+        const viewerIndex = viewer.querySelector(".viewer__index");
+        const viewerMode = viewer.querySelector(".viewer__hud-bottom span:last-child");
+
+        function selectCapability(item) {
+          viewer.classList.toggle("is-human", Number(item.dataset.index) % 2 === 0);
+          viewerImage.src = item.dataset.visual;
+          viewerIndex.textContent = item.dataset.index;
+          viewerMode.textContent = item.dataset.label;
+          if (window.gsap && !reduceMotion) {
+            gsap.fromTo(viewerImage, { opacity: 0.35, scale: 1.12 }, { opacity: 1, scale: 1.02, duration: 0.75, ease: "power3.out" });
+          }
+        }
+
+        document.querySelectorAll(".capability").forEach((item) => {
+          item.addEventListener("mouseenter", () => selectCapability(item));
+          item.addEventListener("focus", () => selectCapability(item));
+        });
+
+        function initMotion() {
+          if (!window.gsap || !window.ScrollTrigger || reduceMotion) return;
+          gsap.registerPlugin(ScrollTrigger);
+
+          gsap.to(".global-progress span", {
+            scaleX: 1,
+            ease: "none",
+            scrollTrigger: {
+              start: 0,
+              end: () => ScrollTrigger.maxScroll(window),
+              scrub: 0.15,
+            },
+          });
+
+          gsap.set(".preloader__mark", { scale: 0.82, opacity: 0 });
+          const preload = { value: 0 };
+          gsap.to(preload, {
+            value: 100,
+            duration: 1.5,
+            ease: "power3.inOut",
+            onUpdate: () => {
+              document.querySelector(".preloader__percent").textContent = String(Math.round(preload.value)).padStart(2, "0");
+            },
+            onComplete: () => {
+              const tl = gsap.timeline({
+                onComplete: () => {
+                  document.querySelector(".preloader").remove();
+                  body.classList.remove("loading");
+                },
+              });
+              tl.to(".preloader__mark", { scale: 1, opacity: 1, duration: 0.45, ease: "power3.out" })
+                .to(".preloader", { clipPath: "inset(0 0 100% 0)", duration: 0.9, ease: "power4.inOut" }, "+=0.12")
+                .from(".hero h1", { yPercent: 115, opacity: 0, duration: 1.1, ease: "power4.out" }, "-=0.55")
+                .from(".hero .eyebrow, .hero__sub, .hero__coordinates, .hero__mode", { opacity: 0, y: 18, duration: 0.8, stagger: 0.08 }, "-=0.75");
+            },
+          });
+
+          gsap.to(".hero__image", {
+            yPercent: 12,
+            scale: 1.08,
+            ease: "none",
+            scrollTrigger: {
+              trigger: ".hero",
+              start: "top top",
+              end: "bottom top",
+              scrub: true,
+            },
+          });
+
+          gsap.to(".hero__copy", {
+            yPercent: -22,
+            opacity: 0,
+            ease: "none",
+            scrollTrigger: {
+              trigger: ".hero",
+              start: "30% top",
+              end: "bottom top",
+              scrub: true,
+            },
+          });
+
+          gsap.from(".manifesto__line span", {
+            yPercent: 115,
+            rotate: 2,
+            duration: 1.1,
+            stagger: 0.12,
+            ease: "power4.out",
+            scrollTrigger: {
+              trigger: ".manifesto__statement",
+              start: "top 78%",
+            },
+          });
+
+          gsap.from(".manifesto__foot", {
+            opacity: 0,
+            x: 80,
+            scrollTrigger: {
+              trigger: ".manifesto__foot",
+              start: "top 85%",
+              end: "bottom 65%",
+              scrub: true,
+            },
+          });
+
+          gsap.to(".manifesto__orb", {
+            rotate: 90,
+            xPercent: -18,
+            ease: "none",
+            scrollTrigger: {
+              trigger: ".manifesto",
+              start: "top bottom",
+              end: "bottom top",
+              scrub: true,
+            },
+          });
+
+          document.querySelectorAll("[data-count]").forEach((number) => {
+            const counter = { value: 0 };
+            gsap.to(counter, {
+              value: Number(number.dataset.count),
+              duration: 1.4,
+              ease: "power3.out",
+              scrollTrigger: { trigger: number, start: "top 90%" },
+              onUpdate: () => {
+                number.textContent = String(Math.round(counter.value)).padStart(2, "0");
+              },
+            });
+          });
+
+          const wideScreen = window.matchMedia("(min-width: 768px)").matches;
+
+          if (wideScreen) {
+            const anatomyTl = gsap.timeline({
+              scrollTrigger: {
+                trigger: ".anatomy__pin",
+                start: "top top",
+                end: "+=240%",
+                pin: true,
+                scrub: 1,
+                anticipatePin: 1,
+              },
+            });
+
+            anatomyTl
+              .to(".anatomy__image", {
+                clipPath: "inset(0% 0% round 0rem)",
+                scale: 1.08,
+                filter: "brightness(1) saturate(1)",
+                duration: 1,
+                ease: "none",
+              }, 0)
+              .from(".anatomy h2 span:first-child", {
+                xPercent: -32,
+                opacity: 0,
+                duration: 0.55,
+              }, 0.06)
+              .from(".anatomy h2 span:last-child", {
+                xPercent: 34,
+                opacity: 0,
+                duration: 0.55,
+              }, 0.12)
+              .fromTo(".anatomy__scan", {
+                x: "-42vw",
+              }, {
+                x: "42vw",
+                duration: 1.8,
+                ease: "none",
+              }, 0.18)
+              .to(".anatomy__note--one", { opacity: 1, y: -12, duration: 0.28 }, 0.55)
+              .to(".anatomy__note--two", { opacity: 1, y: -12, duration: 0.28 }, 0.92)
+              .to(".anatomy__note--three", { opacity: 1, y: -12, duration: 0.28 }, 1.28)
+              .to(".anatomy__image", { scale: 1.16, duration: 0.7, ease: "none" }, 1.25);
+          } else {
+            gsap.to(".anatomy__image", {
+              clipPath: "inset(0% round 0rem)",
+              scale: 1.08,
+              ease: "none",
+              scrollTrigger: {
+                trigger: ".anatomy",
+                start: "top 80%",
+                end: "bottom 20%",
+                scrub: true,
+              },
+            });
+            gsap.from(".anatomy h2 span", {
+              yPercent: 80,
+              opacity: 0,
+              stagger: 0.12,
+              scrollTrigger: { trigger: ".anatomy h2", start: "top 85%" },
+            });
+          }
+
+          const chapters = gsap.utils.toArray(".chapter");
+          const protocolTl = gsap.timeline({
+            scrollTrigger: {
+              trigger: ".protocol__stage",
+              start: "top top",
+              end: "+=320%",
+              pin: true,
+              scrub: 1,
+              anticipatePin: 1,
+            },
+          });
+
+          protocolTl
+            .to(".protocol__progress span", { height: "33%", duration: 1 }, 0)
+            .to(chapters[0], { opacity: 0, scale: 0.96, duration: 0.35 }, 0.7)
+            .fromTo(chapters[1], { opacity: 0, xPercent: 8 }, { opacity: 1, xPercent: 0, duration: 0.35 }, 0.82)
+            .fromTo(chapters[1].querySelector(".chapter__media"), { clipPath: "inset(0 100% 0 0)" }, { clipPath: "inset(0 0% 0 0)", duration: 0.45 }, 0.78)
+            .to(".protocol__progress span", { height: "66%", duration: 1 }, 1)
+            .to(chapters[1], { opacity: 0, scale: 0.96, duration: 0.35 }, 1.7)
+            .fromTo(chapters[2], { opacity: 0, xPercent: 8 }, { opacity: 1, xPercent: 0, duration: 0.35 }, 1.82)
+            .fromTo(chapters[2].querySelector(".chapter__media"), { clipPath: "inset(100% 0 0 0)" }, { clipPath: "inset(0% 0 0 0)", duration: 0.45 }, 1.78)
+            .to(".protocol__progress span", { height: "100%", duration: 1 }, 2);
+
+          gsap.fromTo(".living__visual img", {
+            scale: 1.08,
+            rotate: -2,
+          }, {
+            scale: 1.18,
+            rotate: 3,
+            ease: "none",
+            scrollTrigger: {
+              trigger: ".living",
+              start: "top bottom",
+              end: "bottom top",
+              scrub: true,
+            },
+          });
+
+          gsap.to(".living__dial", {
+            rotate: 270,
+            ease: "none",
+            scrollTrigger: {
+              trigger: ".living",
+              start: "top bottom",
+              end: "bottom top",
+              scrub: true,
+            },
+          });
+
+          document.querySelectorAll(".living__step").forEach((step) => {
+            ScrollTrigger.create({
+              trigger: step,
+              start: "top 54%",
+              end: "bottom 46%",
+              onToggle: (self) => {
+                if (self.isActive) {
+                  document.querySelectorAll(".living__step").forEach((item) => item.classList.remove("is-active"));
+                  step.classList.add("is-active");
+                }
+              },
+            });
+
+            gsap.from(step.querySelectorAll("small, h2, p"), {
+              y: 48,
+              opacity: 0,
+              duration: 0.8,
+              stagger: 0.1,
+              ease: "power3.out",
+              scrollTrigger: {
+                trigger: step,
+                start: "top 78%",
+              },
+            });
+          });
+
+          gsap.to(".velocity__row:first-child", {
+            xPercent: -22,
+            ease: "none",
+            scrollTrigger: {
+              trigger: ".velocity",
+              start: "top bottom",
+              end: "bottom top",
+              scrub: true,
+            },
+          });
+
+          gsap.to(".velocity__row:nth-child(2)", {
+            xPercent: 8,
+            ease: "none",
+            scrollTrigger: {
+              trigger: ".velocity",
+              start: "top bottom",
+              end: "bottom top",
+              scrub: true,
+            },
+          });
+
+          gsap.to(".text-river__line:nth-child(2)", {
+            xPercent: -24,
+            ease: "none",
+            scrollTrigger: {
+              trigger: ".text-river",
+              start: "top bottom",
+              end: "bottom top",
+              scrub: true,
+            },
+          });
+
+          gsap.to(".text-river__line:nth-child(3)", {
+            xPercent: 18,
+            ease: "none",
+            scrollTrigger: {
+              trigger: ".text-river",
+              start: "top bottom",
+              end: "bottom top",
+              scrub: true,
+            },
+          });
+
+          gsap.to(".text-river__line:nth-child(4)", {
+            xPercent: -30,
+            ease: "none",
+            scrollTrigger: {
+              trigger: ".text-river",
+              start: "top bottom",
+              end: "bottom top",
+              scrub: true,
+            },
+          });
+
+          gsap.from(".text-river__foot > *", {
+            y: 60,
+            opacity: 0,
+            stagger: 0.12,
+            ease: "power3.out",
+            scrollTrigger: {
+              trigger: ".text-river__foot",
+              start: "top 82%",
+            },
+          });
+
+          gsap.from(".capability", {
+            x: -55,
+            opacity: 0,
+            duration: 0.8,
+            stagger: 0.09,
+            ease: "power3.out",
+            scrollTrigger: {
+              trigger: ".capabilities__list",
+              start: "top 78%",
+            },
+          });
+
+          gsap.to(".capabilities__viewer img", {
+            yPercent: 11,
+            ease: "none",
+            scrollTrigger: {
+              trigger: ".capabilities__viewer",
+              start: "top bottom",
+              end: "bottom top",
+              scrub: true,
+            },
+          });
+
+          if (wideScreen) {
+            const fieldTl = gsap.timeline({
+              scrollTrigger: {
+                trigger: ".field__pin",
+                start: "top top",
+                end: "+=210%",
+                pin: true,
+                scrub: 1,
+                anticipatePin: 1,
+              },
+            });
+
+            fieldTl
+              .to(".field__image", {
+                clipPath: "inset(0% 0% 0% 0%)",
+                scale: 1.1,
+                duration: 1.2,
+                ease: "none",
+              }, 0)
+              .to(".field__veil", { opacity: 0.18, duration: 0.85 }, 0.25)
+              .to(".field__title span:first-child", { xPercent: -14, duration: 1 }, 0)
+              .to(".field__title span:last-child", { xPercent: 16, duration: 1 }, 0)
+              .from(".field__card", { y: 90, opacity: 0, duration: 0.4 }, 0.75)
+              .to(".field__image", { scale: 1.18, duration: 0.8, ease: "none" }, 1.2);
+          } else {
+            gsap.to(".field__image", {
+              scale: 1.1,
+              clipPath: "inset(0% 0% 0% 0%)",
+              ease: "none",
+              scrollTrigger: {
+                trigger: ".field",
+                start: "top bottom",
+                end: "bottom top",
+                scrub: true,
+              },
+            });
+          }
+
+          const track = document.querySelector(".work__track");
+          gsap.to(track, {
+            x: () => -(track.scrollWidth - innerWidth),
+            ease: "none",
+            scrollTrigger: {
+              trigger: track,
+              start: "top top",
+              end: () => `+=${track.scrollWidth - innerWidth}`,
+              pin: true,
+              scrub: 1,
+              invalidateOnRefresh: true,
+            },
+          });
+
+          const sync = { value: 0 };
+          if (wideScreen) {
+            const collectiveTl = gsap.timeline({
+              scrollTrigger: {
+                trigger: ".collective__pin",
+                start: "top top",
+                end: "+=230%",
+                pin: true,
+                scrub: 1,
+                anticipatePin: 1,
+              },
+            });
+
+            collectiveTl
+              .to(".collective__image", {
+                clipPath: "circle(64% at 50% 50%)",
+                filter: "brightness(1) saturate(1)",
+                scale: 1.05,
+                duration: 1.1,
+                ease: "none",
+              }, 0)
+              .to(".collective__halo", { rotate: 120, scale: 1.18, duration: 1.8, ease: "none" }, 0)
+              .to(sync, {
+                value: 100,
+                duration: 1.6,
+                ease: "none",
+                onUpdate: () => {
+                  document.querySelector(".collective__counter").textContent =
+                    `Node sync / ${String(Math.round(sync.value)).padStart(2, "0")}%`;
+                },
+              }, 0)
+              .to(".collective__title span:nth-child(1)", { opacity: 1, y: -8, duration: 0.35 }, 0.35)
+              .to(".collective__title span:nth-child(2)", { opacity: 1, y: -8, duration: 0.35 }, 0.75)
+              .to(".collective__title span:nth-child(3)", { opacity: 1, y: -8, duration: 0.35 }, 1.15)
+              .to(".collective__image", { scale: 1.13, duration: 0.65, ease: "none" }, 1.35);
+          } else {
+            gsap.to(".collective__image", {
+              clipPath: "circle(72% at 50% 50%)",
+              filter: "brightness(1) saturate(1)",
+              ease: "none",
+              scrollTrigger: {
+                trigger: ".collective",
+                start: "top 80%",
+                end: "bottom 25%",
+                scrub: true,
+              },
+            });
+            gsap.to(".collective__title span", {
+              opacity: 1,
+              y: -6,
+              stagger: 0.12,
+              scrollTrigger: { trigger: ".collective__title", start: "top 80%" },
+            });
+          }
+
+          const refusals = gsap.utils.toArray(".no-formula__statement");
+          const refusalTl = gsap.timeline({
+            scrollTrigger: {
+              trigger: ".no-formula__pin",
+              start: "top top",
+              end: "+=300%",
+              pin: true,
+              scrub: 1,
+              anticipatePin: 1,
+            },
+          });
+
+          refusalTl
+            .to(".no-formula__rail span", { width: "25%", duration: 0.6 }, 0)
+            .to(".no-formula__mark", { rotate: -8, scale: 1.03, duration: 0.7 }, 0)
+            .to(refusals[0], { opacity: 0, y: -70, duration: 0.25 }, 0.72)
+            .fromTo(refusals[1], { opacity: 0, y: 70 }, { opacity: 1, y: 0, duration: 0.3 }, 0.82)
+            .to(".no-formula__rail span", { width: "50%", duration: 0.6 }, 0.75)
+            .to(".no-formula__mark", { rotate: 5, scale: 0.95, duration: 0.7 }, 0.75)
+            .to(refusals[1], { opacity: 0, y: -70, duration: 0.25 }, 1.55)
+            .fromTo(refusals[2], { opacity: 0, y: 70 }, { opacity: 1, y: 0, duration: 0.3 }, 1.65)
+            .to(".no-formula__rail span", { width: "75%", duration: 0.6 }, 1.55)
+            .to(".no-formula__mark", { rotate: -4, scale: 1.07, duration: 0.7 }, 1.55)
+            .to(refusals[2], { opacity: 0, y: -70, duration: 0.25 }, 2.35)
+            .fromTo(refusals[3], { opacity: 0, y: 70 }, { opacity: 1, y: 0, duration: 0.3 }, 2.45)
+            .to(".no-formula__rail span", { width: "100%", duration: 0.6 }, 2.35)
+            .to(".no-formula__mark", { rotate: 0, scale: 1, duration: 0.7 }, 2.35);
+
+          gsap.to(".thesis__rings", {
+            scale: 1.32,
+            rotate: 45,
+            ease: "none",
+            scrollTrigger: {
+              trigger: ".thesis",
+              start: "top bottom",
+              end: "bottom top",
+              scrub: true,
+            },
+          });
+
+          gsap.from(".thesis__copy h2", {
+            opacity: 0.1,
+            scale: 0.82,
+            filter: "blur(18px)",
+            ease: "none",
+            scrollTrigger: {
+              trigger: ".thesis",
+              start: "top 70%",
+              end: "center 45%",
+              scrub: true,
+            },
+          });
+
+          gsap.from(".cta h2", {
+            yPercent: 60,
+            opacity: 0,
+            ease: "none",
+            scrollTrigger: {
+              trigger: ".cta",
+              start: "top bottom",
+              end: "center center",
+              scrub: true,
+            },
+          });
+
+          ScrollTrigger.refresh();
+        }
+
+        if (reduceMotion || !window.gsap) {
+          document.querySelector(".preloader").remove();
+          body.classList.remove("loading");
+        } else {
+          initMotion();
+        }
+      })();
+    </script>
+  
+
+</body></html>
