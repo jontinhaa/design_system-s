@@ -1,0 +1,2019 @@
+{
+ "version": 1,
+ "tool": "wd3 0.1.0",
+ "captureId": "hopecancerresources.org-605d6bec",
+ "capturedAt": "2026-10-26T19:39:43+00:00",
+ "entry": {
+  "url": "https://hopecancerresources.org/",
+  "path": "/",
+  "search": "",
+  "file": "site/hopecancerresources.org/index.html",
+  "contentType": "text/html; charset=UTF-8"
+ },
+ "blocked": [
+  "^https?://([^/?#]+\\.)?(google\\-analytics\\.com|analytics\\.google\\.com|googletagmanager\\.com|googleadservices\\.com|doubleclick\\.net|googlesyndication\\.com|googleoptimize\\.com|connect\\.facebook\\.net|bat\\.bing\\.com|snap\\.licdn\\.com|px\\.ads\\.linkedin\\.com|analytics\\.tiktok\\.com|ct\\.pinterest\\.com|static\\.ads\\-twitter\\.com|analytics\\.twitter\\.com|tr\\.snapchat\\.com|sc\\-static\\.net|mc\\.yandex\\.ru|hotjar\\.com|hotjar\\.io|clarity\\.ms|cdn\\.segment\\.com|api\\.segment\\.io|cdn\\.mxpnl\\.com|api\\-js\\.mixpanel\\.com|api\\.mixpanel\\.com|api\\.amplitude\\.com|api2\\.amplitude\\.com|api\\-secure\\.amplitude\\.com|api\\-sr\\.amplitude\\.com|sr\\-client\\-cfg\\.amplitude\\.com|plausible\\.io|cloud\\.umami\\.is|analytics\\.umami\\.is|static\\.cloudflareinsights\\.com|cloudflareinsights\\.com|vitals\\.vercel\\-insights\\.com|browser\\-intake\\-datadoghq\\.com|browser\\-intake\\-datadoghq\\.eu|js\\-agent\\.newrelic\\.com|bam\\.nr\\-data\\.net|bam\\-cell\\.nr\\-data\\.net|fullstory\\.com|script\\.crazyegg\\.com|mouseflow\\.com|smartlook\\.com|heapanalytics\\.com|i\\.posthog\\.com|stats\\.wp\\.com|pixel\\.wp\\.com|promotekit\\.com|ingest\\.sentry\\.io|ingest\\.us\\.sentry\\.io|ingest\\.de\\.sentry\\.io|widget\\.intercom\\.io|js\\.intercomcdn\\.com|api\\-iam\\.intercom\\.io|js\\.hs\\-scripts\\.com|js\\.hs\\-analytics\\.net|js\\.hs\\-banner\\.com|js\\.hscollectedforms\\.net|js\\.usemessages\\.com|track\\.hubspot\\.com|client\\.crisp\\.chat|embed\\.tawk\\.to|js\\.driftt\\.com|static\\.zdassets\\.com|ekr\\.zdassets\\.com|cdn\\.cookielaw\\.org|geolocation\\.onetrust\\.com|consent\\.cookiebot\\.com|consentcdn\\.cookiebot\\.com|app\\.usercentrics\\.eu|api\\.usercentrics\\.eu|cdn\\.iubenda\\.com|cmp\\.osano\\.com|cdn\\.termly\\.io)(:\\d+)?([/?#]|$)",
+  "/rpc/increment_shared_code_views",
+  "^https?://(umami|analytics|stats|plausible)\\.[^/]+/(api/send|api/collect|api/event|script\\.js)",
+  "/g/c(ollect)?\\?v=2&",
+  "sentry\\.io/api/\\d+/(envelope|store)",
+  "/api/meta-capi",
+  "^https?://(leadtracker|tracking|track|events?|collect)\\.[^/]+/",
+  "^https?://a\\.vturb\\.com/",
+  "facebook\\.com/tr[/?]",
+  "/_vercel/(speed-)?insights/",
+  "/cdn-cgi/rum",
+  "/cdn-cgi/challenge-platform/",
+  "google\\.com/(pagead|ads)/"
+ ],
+ "volatileParams": [
+  "v",
+  "_rsc",
+  "dpl",
+  "_",
+  "t",
+  "ts",
+  "timestamp",
+  "cb",
+  "cachebust",
+  "cacheBust",
+  "nocache",
+  "rnd",
+  "rand",
+  "random",
+  "_t"
+ ],
+ "entries": [
+  {
+   "url": "https://hopecancerresources.org/",
+   "method": "GET",
+   "status": 200,
+   "contentType": "text/html; charset=UTF-8",
+   "headers": {
+    "content-type": "text/html; charset=UTF-8",
+    "link": "<https://hopecancerresources.org/wp-json/>; rel=\"https://api.w.org/\", <https://hopecancerresources.org/wp-json/wp/v2/pages/8>; rel=\"alternate\"; title=\"JSON\"; type=\"application/json\", <https://hopecancerresources.org/>; rel=shortlink",
+    "x-cache-group": "normal",
+    "x-cacheable": "SHORT"
+   },
+   "resourceType": "document",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "file": "site/hopecancerresources.org/index.html",
+   "size": 436227,
+   "modes": [
+    "navigate"
+   ]
+  },
+  {
+   "url": "https://hopecancerresources.org/wp-content/themes/hope-cancer-resources/font/eighties-comeback-it-medium.woff2",
+   "method": "GET",
+   "status": 200,
+   "contentType": "font/woff2",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "content-type": "font/woff2"
+   },
+   "resourceType": "font",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "file": "site/hopecancerresources.org/wp-content/themes/hope-cancer-resources/font/eighties-comeback-it-medium.woff2",
+   "size": 22068,
+   "modes": [
+    "cors"
+   ]
+  },
+  {
+   "url": "https://hopecancerresources.org/wp-content/uploads/2025/07/volunteer-shot.jpg",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/jpeg",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "cf-bgj": "h2pri,imgq:100",
+    "cf-polished": "webp_bigger",
+    "content-type": "image/jpeg",
+    "priority": "u=1;i=?0,cf-chb=(253;u=3;i=?0 15996;u=5;i=?0 79928;u=6;i)"
+   },
+   "resourceType": "image",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "file": "site/hopecancerresources.org/wp-content/uploads/2025/07/volunteer-shot.jpg",
+   "size": 164165,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://hopecancerresources.org/wp-content/themes/hope-cancer-resources/font/eighties-comeback-it-regular.woff2",
+   "method": "GET",
+   "status": 200,
+   "contentType": "font/woff2",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "content-type": "font/woff2"
+   },
+   "resourceType": "font",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "file": "site/hopecancerresources.org/wp-content/themes/hope-cancer-resources/font/eighties-comeback-it-regular.woff2",
+   "size": 26576,
+   "modes": [
+    "cors"
+   ]
+  },
+  {
+   "url": "https://hopecancerresources.org/wp-content/uploads/2025/07/sharing-get-involved.jpg",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/jpeg",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "cf-bgj": "imgq:100,h2pri",
+    "cf-polished": "webp_bigger",
+    "content-type": "image/jpeg",
+    "priority": "u=1;i=?0,cf-chb=(255;u=4;i=?0 34717;u=5;i 313881;u=6;i)"
+   },
+   "resourceType": "image",
+   "passes": [
+    "mobile",
+    "desktop"
+   ],
+   "file": "site/hopecancerresources.org/wp-content/uploads/2025/07/sharing-get-involved.jpg",
+   "size": 728433,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://hopecancerresources.org/wp-content/themes/hope-cancer-resources/style.css?v=1793042541",
+   "method": "GET",
+   "status": 200,
+   "contentType": "text/css",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "content-type": "text/css"
+   },
+   "resourceType": "stylesheet",
+   "passes": [
+    "mobile",
+    "desktop"
+   ],
+   "file": "site/hopecancerresources.org/wp-content/themes/hope-cancer-resources/style__q2af5e4b5.css",
+   "size": 123803,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://hopecancerresources.org/wp-content/uploads/2025/06/bg-donate-featured.jpg",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/jpeg",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "cf-bgj": "h2pri,imgq:100",
+    "cf-polished": "webp_bigger",
+    "content-type": "image/jpeg",
+    "priority": "u=1,i"
+   },
+   "resourceType": "image",
+   "passes": [
+    "mobile",
+    "desktop"
+   ],
+   "file": "site/hopecancerresources.org/wp-content/uploads/2025/06/bg-donate-featured.jpg",
+   "size": 65872,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://hopecancerresources.org/wp-content/uploads/2025/05/hope-ico-services.svg",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/svg+xml",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "content-type": "image/svg+xml",
+    "priority": "u=2,i"
+   },
+   "resourceType": "image",
+   "passes": [
+    "mobile",
+    "desktop"
+   ],
+   "file": "site/hopecancerresources.org/wp-content/uploads/2025/05/hope-ico-services.svg",
+   "size": 1236,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://hopecancerresources.org/wp-content/uploads/2025/05/hope-ico-wellness.svg",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/svg+xml",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "content-type": "image/svg+xml",
+    "priority": "u=2,i"
+   },
+   "resourceType": "image",
+   "passes": [
+    "mobile",
+    "desktop"
+   ],
+   "file": "site/hopecancerresources.org/wp-content/uploads/2025/05/hope-ico-wellness.svg",
+   "size": 2284,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://hopecancerresources.org/wp-content/themes/hope-cancer-resources/img/ico-close.svg",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/svg+xml",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "content-type": "image/svg+xml",
+    "priority": "u=3,i"
+   },
+   "resourceType": "image",
+   "passes": [
+    "mobile",
+    "desktop"
+   ],
+   "file": "site/hopecancerresources.org/wp-content/themes/hope-cancer-resources/img/ico-close.svg",
+   "size": 522,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://hopecancerresources.org/wp-content/uploads/2025/05/hope-ico-transportation.svg",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/svg+xml",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "content-type": "image/svg+xml",
+    "priority": "u=3,i"
+   },
+   "resourceType": "image",
+   "passes": [
+    "mobile",
+    "desktop"
+   ],
+   "file": "site/hopecancerresources.org/wp-content/uploads/2025/05/hope-ico-transportation.svg",
+   "size": 1430,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://hopecancerresources.org/wp-content/uploads/2025/08/Wellness-Lab-Breast-Cancer-Web-Banner-800x600-c-1.jpg",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/jpeg",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "cf-bgj": "imgq:100,h2pri",
+    "cf-polished": "webp_bigger",
+    "content-type": "image/jpeg",
+    "priority": "u=1,i"
+   },
+   "resourceType": "image",
+   "passes": [
+    "mobile"
+   ],
+   "file": "site/hopecancerresources.org/wp-content/uploads/2025/08/Wellness-Lab-Breast-Cancer-Web-Banner-800x600-c-1.jpg",
+   "size": 25298,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://hopecancerresources.org/wp-content/uploads/2026/01/Untitled-design-96-1800x1000-c-1.png",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/webp",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "cf-bgj": "imgq:100,h2pri",
+    "cf-polished": "ok, orig_size=74155",
+    "content-type": "image/webp",
+    "priority": "u=4,i"
+   },
+   "resourceType": "image",
+   "passes": [
+    "desktop"
+   ],
+   "file": "site/hopecancerresources.org/wp-content/uploads/2026/01/Untitled-design-96-1800x1000-c-1.png",
+   "size": 60036,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://hopecancerresources.org/wp-content/themes/hope-cancer-resources/font/BrandonText-Black.woff2",
+   "method": "GET",
+   "status": 200,
+   "contentType": "font/woff2",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "content-type": "font/woff2",
+    "priority": "u=0,i=?0"
+   },
+   "resourceType": "font",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "file": "site/hopecancerresources.org/wp-content/themes/hope-cancer-resources/font/BrandonText-Black.woff2",
+   "size": 24776,
+   "modes": [
+    "cors"
+   ]
+  },
+  {
+   "url": "https://hopecancerresources.org/wp-content/themes/hope-cancer-resources/font/SourceSans.woff2",
+   "method": "GET",
+   "status": 200,
+   "contentType": "font/woff2",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "content-type": "font/woff2",
+    "priority": "u=0,i=?0"
+   },
+   "resourceType": "font",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "file": "site/hopecancerresources.org/wp-content/themes/hope-cancer-resources/font/SourceSans.woff2",
+   "size": 28792,
+   "modes": [
+    "cors"
+   ]
+  },
+  {
+   "url": "https://hopecancerresources.org/wp-content/themes/hope-cancer-resources/font/BrandonText-Regular.woff2",
+   "method": "GET",
+   "status": 200,
+   "contentType": "font/woff2",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "content-type": "font/woff2",
+    "priority": "u=0,i=?0"
+   },
+   "resourceType": "font",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "file": "site/hopecancerresources.org/wp-content/themes/hope-cancer-resources/font/BrandonText-Regular.woff2",
+   "size": 24384,
+   "modes": [
+    "cors"
+   ]
+  },
+  {
+   "url": "https://hopecancerresources.org/wp-content/uploads/2025/08/Long-Slow-Deep-Stretch-Yoga-06-800x600-c-1.jpg",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/jpeg",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "cf-bgj": "imgq:100,h2pri",
+    "cf-polished": "webp_bigger",
+    "content-type": "image/jpeg",
+    "priority": "u=1,i"
+   },
+   "resourceType": "image",
+   "passes": [
+    "mobile"
+   ],
+   "file": "site/hopecancerresources.org/wp-content/uploads/2025/08/Long-Slow-Deep-Stretch-Yoga-06-800x600-c-1.jpg",
+   "size": 23277,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://hopecancerresources.org/wp-content/uploads/2025/05/bg-donate-tall-600x0-c-default.jpg",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/jpeg",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "cf-bgj": "imgq:100,h2pri",
+    "cf-polished": "webp_bigger",
+    "content-type": "image/jpeg",
+    "priority": "u=1,i"
+   },
+   "resourceType": "image",
+   "passes": [
+    "mobile"
+   ],
+   "file": "site/hopecancerresources.org/wp-content/uploads/2025/05/bg-donate-tall-600x0-c-default.jpg",
+   "size": 21729,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://hopecancerresources.org/wp-content/uploads/2025/06/Viviendo-Con-Cancer-800x600-c-1.jpg",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/jpeg",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "cf-bgj": "imgq:100,h2pri",
+    "cf-polished": "webp_bigger",
+    "content-type": "image/jpeg",
+    "priority": "u=1,i"
+   },
+   "resourceType": "image",
+   "passes": [
+    "mobile"
+   ],
+   "file": "site/hopecancerresources.org/wp-content/uploads/2025/06/Viviendo-Con-Cancer-800x600-c-1.jpg",
+   "size": 30040,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://hopecancerresources.org/wp-content/themes/hope-cancer-resources/font/BrandonText-Medium.woff2",
+   "method": "GET",
+   "status": 200,
+   "contentType": "font/woff2",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "content-type": "font/woff2",
+    "priority": "u=0,i=?0"
+   },
+   "resourceType": "font",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "file": "site/hopecancerresources.org/wp-content/themes/hope-cancer-resources/font/BrandonText-Medium.woff2",
+   "size": 25384,
+   "modes": [
+    "cors"
+   ]
+  },
+  {
+   "url": "https://hopecancerresources.org/wp-content/themes/hope-cancer-resources/font/BrandonText-Bold.woff2",
+   "method": "GET",
+   "status": 200,
+   "contentType": "font/woff2",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "content-type": "font/woff2",
+    "priority": "u=0,i=?0"
+   },
+   "resourceType": "font",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "file": "site/hopecancerresources.org/wp-content/themes/hope-cancer-resources/font/BrandonText-Bold.woff2",
+   "size": 25052,
+   "modes": [
+    "cors"
+   ]
+  },
+  {
+   "url": "https://player.vimeo.com/video/1162686214?badge=0?autoplay=1&background=1&badge=0&player_id=0&app_id=58479",
+   "method": "GET",
+   "status": 401,
+   "contentType": "text/html;charset=UTF-8",
+   "headers": {
+    "content-type": "text/html;charset=UTF-8",
+    "x-link-match": "100"
+   },
+   "resourceType": "document",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "file": "site/player.vimeo.com/video/1162686214__qc258e43c.html",
+   "size": 5942,
+   "modes": [
+    "navigate"
+   ]
+  },
+  {
+   "url": "https://hopecancerresources.org/wp-content/uploads/2025/08/Gentle-Flow-Yoga-05-800x600-c-1.jpg",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/jpeg",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "cf-bgj": "h2pri,imgq:100",
+    "cf-polished": "webp_bigger",
+    "content-type": "image/jpeg",
+    "priority": "u=1,i"
+   },
+   "resourceType": "image",
+   "passes": [
+    "mobile"
+   ],
+   "file": "site/hopecancerresources.org/wp-content/uploads/2025/08/Gentle-Flow-Yoga-05-800x600-c-1.jpg",
+   "size": 64830,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://hopecancerresources.org/wp-content/uploads/2025/06/Yoga-800x600-c-1.jpg",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/jpeg",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "cf-bgj": "imgq:100,h2pri",
+    "cf-polished": "webp_bigger",
+    "content-type": "image/jpeg",
+    "priority": "u=1,i"
+   },
+   "resourceType": "image",
+   "passes": [
+    "mobile"
+   ],
+   "file": "site/hopecancerresources.org/wp-content/uploads/2025/06/Yoga-800x600-c-1.jpg",
+   "size": 41954,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://hopecancerresources.org/wp-content/uploads/2025/07/bg-volunteer-moblie-600x0-c-default.jpg",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/jpeg",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "cf-bgj": "h2pri,imgq:100",
+    "cf-polished": "webp_bigger",
+    "content-type": "image/jpeg",
+    "priority": "u=1,i"
+   },
+   "resourceType": "image",
+   "passes": [
+    "mobile"
+   ],
+   "file": "site/hopecancerresources.org/wp-content/uploads/2025/07/bg-volunteer-moblie-600x0-c-default.jpg",
+   "size": 52725,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://hopecancerresources.org/wp-content/uploads/2025/08/September-Workshop-Web-Banner-1-800x600-c-1.jpg",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/jpeg",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "cf-bgj": "imgq:100,h2pri",
+    "cf-polished": "webp_bigger",
+    "content-type": "image/jpeg",
+    "priority": "u=1,i"
+   },
+   "resourceType": "image",
+   "passes": [
+    "mobile"
+   ],
+   "file": "site/hopecancerresources.org/wp-content/uploads/2025/08/September-Workshop-Web-Banner-1-800x600-c-1.jpg",
+   "size": 31585,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://hopecancerresources.org/wp-content/uploads/2025/06/lean-in-800x600-c-1.jpg",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/jpeg",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "cf-bgj": "h2pri,imgq:100",
+    "cf-polished": "webp_bigger",
+    "content-type": "image/jpeg",
+    "priority": "u=1,i"
+   },
+   "resourceType": "image",
+   "passes": [
+    "mobile"
+   ],
+   "file": "site/hopecancerresources.org/wp-content/uploads/2025/06/lean-in-800x600-c-1.jpg",
+   "size": 45120,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://hopecancerresources.org/wp-content/uploads/2025/05/bg-grant-support-tall-600x0-c-default.jpg",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/jpeg",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "cf-bgj": "imgq:100,h2pri",
+    "cf-polished": "webp_bigger",
+    "content-type": "image/jpeg",
+    "priority": "u=1,i"
+   },
+   "resourceType": "image",
+   "passes": [
+    "mobile"
+   ],
+   "file": "site/hopecancerresources.org/wp-content/uploads/2025/05/bg-grant-support-tall-600x0-c-default.jpg",
+   "size": 66599,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://hopecancerresources.org/wp-content/uploads/2025/07/brand-reveal-800x600-c-1.jpg",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/jpeg",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "cf-bgj": "imgq:100,h2pri",
+    "cf-polished": "webp_bigger",
+    "content-type": "image/jpeg",
+    "priority": "u=1,i"
+   },
+   "resourceType": "image",
+   "passes": [
+    "mobile"
+   ],
+   "file": "site/hopecancerresources.org/wp-content/uploads/2025/07/brand-reveal-800x600-c-1.jpg",
+   "size": 70998,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://hopecancerresources.org/wp-content/uploads/2025/06/MylenomaSupportGroup-800x600-c-1.jpg",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/jpeg",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "cf-bgj": "h2pri,imgq:100",
+    "cf-polished": "webp_bigger",
+    "content-type": "image/jpeg",
+    "priority": "u=1,i"
+   },
+   "resourceType": "image",
+   "passes": [
+    "mobile"
+   ],
+   "file": "site/hopecancerresources.org/wp-content/uploads/2025/06/MylenomaSupportGroup-800x600-c-1.jpg",
+   "size": 73177,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://hopecancerresources.org/wp-content/uploads/2025/06/BG-AboutUs-drk.jpg",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/jpeg",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "cf-bgj": "imgq:100,h2pri",
+    "cf-polished": "webp_bigger",
+    "content-type": "image/jpeg",
+    "priority": "u=1,i"
+   },
+   "resourceType": "image",
+   "passes": [
+    "mobile",
+    "desktop"
+   ],
+   "file": "site/hopecancerresources.org/wp-content/uploads/2025/06/BG-AboutUs-drk.jpg",
+   "size": 109808,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://hopecancerresources.org/wp-content/uploads/2025/07/HopeBrigade-800x600-c-1.jpg",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/jpeg",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "cf-bgj": "h2pri,imgq:100",
+    "cf-polished": "webp_bigger",
+    "content-type": "image/jpeg",
+    "priority": "u=1,i"
+   },
+   "resourceType": "image",
+   "passes": [
+    "mobile"
+   ],
+   "file": "site/hopecancerresources.org/wp-content/uploads/2025/07/HopeBrigade-800x600-c-1.jpg",
+   "size": 52452,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://hopecancerresources.org/wp-content/uploads/2025/05/bg-stories.jpg",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/jpeg",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "cf-bgj": "imgq:100,h2pri",
+    "cf-polished": "webp_bigger",
+    "content-type": "image/jpeg",
+    "priority": "u=1,i"
+   },
+   "resourceType": "image",
+   "passes": [
+    "mobile",
+    "desktop"
+   ],
+   "file": "site/hopecancerresources.org/wp-content/uploads/2025/05/bg-stories.jpg",
+   "size": 427204,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://hopecancerresources.org/wp-content/themes/hope-cancer-resources/img/stat-bg.jpg",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/jpeg",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "cf-bgj": "imgq:100,h2pri",
+    "cf-polished": "webp_bigger",
+    "content-type": "image/jpeg",
+    "priority": "u=1,i"
+   },
+   "resourceType": "image",
+   "passes": [
+    "desktop"
+   ],
+   "file": "site/hopecancerresources.org/wp-content/themes/hope-cancer-resources/img/stat-bg.jpg",
+   "size": 48063,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://challenges.cloudflare.com/turnstile/v0/api.js?onload=turnstileLoad",
+   "method": "GET",
+   "status": 302,
+   "contentType": "",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "location": "/turnstile/v0/b/d2d3316b729e/api.js",
+    "priority": "u=3,i=?0"
+   },
+   "resourceType": "script",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "size": 0,
+   "redirect": "https://challenges.cloudflare.com/turnstile/v0/b/d2d3316b729e/api.js"
+  },
+  {
+   "url": "https://hopecancerresources.org/wp-content/uploads/2025/08/Long-Slow-Deep-Stretch-Yoga-06-1800x1000-c-1.jpg",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/jpeg",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "cf-bgj": "imgq:100,h2pri",
+    "cf-polished": "webp_bigger",
+    "content-type": "image/jpeg",
+    "priority": "u=1,i"
+   },
+   "resourceType": "image",
+   "passes": [
+    "desktop"
+   ],
+   "file": "site/hopecancerresources.org/wp-content/uploads/2025/08/Long-Slow-Deep-Stretch-Yoga-06-1800x1000-c-1.jpg",
+   "size": 58070,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://hopecancerresources.org/wp-content/uploads/2025/08/Wellness-Lab-Breast-Cancer-Web-Banner-1800x1000-c-1.jpg",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/jpeg",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "cf-bgj": "h2pri,imgq:100",
+    "cf-polished": "webp_bigger",
+    "content-type": "image/jpeg",
+    "priority": "u=1,i"
+   },
+   "resourceType": "image",
+   "passes": [
+    "desktop"
+   ],
+   "file": "site/hopecancerresources.org/wp-content/uploads/2025/08/Wellness-Lab-Breast-Cancer-Web-Banner-1800x1000-c-1.jpg",
+   "size": 61162,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://s3-us-west-2.amazonaws.com/bloomerang-public-cdn/hopecancerresources/.widget-js/455680.js",
+   "method": "GET",
+   "status": 200,
+   "contentType": "text/javascript",
+   "headers": {
+    "content-type": "text/javascript",
+    "x-amz-id-2": "0KpdsfnX8ByYPjUMMQdlShxFNlszobwaNvopEkm72jF7C2T9NObHoIQ6++JJ68YBsSaDH/g0y/Y=",
+    "x-amz-request-id": "3XMWM2VCF2ZB9T63",
+    "x-amz-server-side-encryption": "AES256",
+    "x-amz-version-id": "LDt67hs.vZeQbEUAFCPtRTc8Awl4sWSd"
+   },
+   "resourceType": "script",
+   "passes": [
+    "mobile",
+    "desktop"
+   ],
+   "file": "site/s3-us-west-2.amazonaws.com/bloomerang-public-cdn/hopecancerresources/widget-js/455680.js",
+   "size": 3559,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://hopecancerresources.org/wp-content/uploads/2025/06/Viviendo-Con-Cancer-1800x1000-c-1.jpg",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/jpeg",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "cf-bgj": "imgq:100,h2pri",
+    "cf-polished": "webp_bigger",
+    "content-type": "image/jpeg",
+    "priority": "u=1,i"
+   },
+   "resourceType": "image",
+   "passes": [
+    "desktop"
+   ],
+   "file": "site/hopecancerresources.org/wp-content/uploads/2025/06/Viviendo-Con-Cancer-1800x1000-c-1.jpg",
+   "size": 73039,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://hopecancerresources.org/wp-content/uploads/2025/08/September-Workshop-Web-Banner-1-1800x1000-c-1.jpg",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/jpeg",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "cf-bgj": "imgq:100,h2pri",
+    "cf-polished": "webp_bigger",
+    "content-type": "image/jpeg",
+    "priority": "u=1,i"
+   },
+   "resourceType": "image",
+   "passes": [
+    "desktop"
+   ],
+   "file": "site/hopecancerresources.org/wp-content/uploads/2025/08/September-Workshop-Web-Banner-1-1800x1000-c-1.jpg",
+   "size": 78206,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://challenges.cloudflare.com/turnstile/v0/b/d2d3316b729e/api.js",
+   "method": "GET",
+   "status": 200,
+   "contentType": "application/javascript; charset=UTF-8",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "content-type": "application/javascript; charset=UTF-8",
+    "priority": "u=3,i=?0"
+   },
+   "resourceType": "script",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "file": "site/challenges.cloudflare.com/turnstile/v0/b/d2d3316b729e/api.js",
+   "size": 86732
+  },
+  {
+   "url": "https://hopecancerresources.org/wp-content/uploads/2025/05/bg-donate-tall-1600x0-c-default.jpg",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/jpeg",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "cf-bgj": "imgq:100,h2pri",
+    "cf-polished": "webp_bigger",
+    "content-type": "image/jpeg",
+    "priority": "u=1,i"
+   },
+   "resourceType": "image",
+   "passes": [
+    "desktop"
+   ],
+   "file": "site/hopecancerresources.org/wp-content/uploads/2025/05/bg-donate-tall-1600x0-c-default.jpg",
+   "size": 98464,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://hopecancerresources.org/wp-content/uploads/2026/01/Untitled-design-96-800x600-c-1.png",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/webp",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "cf-bgj": "h2pri,imgq:100",
+    "cf-polished": "ok, orig_size=24723",
+    "content-type": "image/webp",
+    "priority": "u=4,i"
+   },
+   "resourceType": "image",
+   "passes": [
+    "mobile"
+   ],
+   "file": "site/hopecancerresources.org/wp-content/uploads/2026/01/Untitled-design-96-800x600-c-1.png",
+   "size": 20808,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://hopecancerresources.org/wp-content/uploads/2026/01/Untitled-design-95-800x600-c-1.png",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/webp",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "cf-bgj": "h2pri,imgq:100",
+    "cf-polished": "ok, orig_size=19889",
+    "content-type": "image/webp",
+    "priority": "u=4,i"
+   },
+   "resourceType": "image",
+   "passes": [
+    "mobile"
+   ],
+   "file": "site/hopecancerresources.org/wp-content/uploads/2026/01/Untitled-design-95-800x600-c-1.png",
+   "size": 16816,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://hopecancerresources.org/wp-content/uploads/2025/07/Untitled-design-2026-07-08T120418_647-800x600-c-1.png",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/webp",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "cf-bgj": "h2pri,imgq:100",
+    "cf-polished": "ok, orig_size=20116",
+    "content-type": "image/webp",
+    "priority": "u=4,i"
+   },
+   "resourceType": "image",
+   "passes": [
+    "mobile"
+   ],
+   "file": "site/hopecancerresources.org/wp-content/uploads/2025/07/Untitled-design-2026-07-08T120418_647-800x600-c-1.png",
+   "size": 16284,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://hopecancerresources.org/wp-content/uploads/2026/01/4-800x600-c-1.png",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/webp",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "cf-bgj": "imgq:100,h2pri",
+    "cf-polished": "ok, orig_size=89813",
+    "content-type": "image/webp",
+    "priority": "u=4,i"
+   },
+   "resourceType": "image",
+   "passes": [
+    "mobile"
+   ],
+   "file": "site/hopecancerresources.org/wp-content/uploads/2026/01/4-800x600-c-1.png",
+   "size": 62674,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://hopecancerresources.org/wp-content/uploads/2025/07/Womens-Small-Group-Training-1-800x600-c-1.png",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/webp",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "cf-bgj": "imgq:100,h2pri",
+    "cf-polished": "ok, orig_size=284899",
+    "content-type": "image/webp",
+    "priority": "u=4,i"
+   },
+   "resourceType": "image",
+   "passes": [
+    "mobile"
+   ],
+   "file": "site/hopecancerresources.org/wp-content/uploads/2025/07/Womens-Small-Group-Training-1-800x600-c-1.png",
+   "size": 105248,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://hopecancerresources.org/wp-content/uploads/2025/08/Untitled-design-6-800x600-c-1.png",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/webp",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "cf-bgj": "imgq:100,h2pri",
+    "cf-polished": "ok, orig_size=196989",
+    "content-type": "image/webp",
+    "priority": "u=4,i"
+   },
+   "resourceType": "image",
+   "passes": [
+    "mobile"
+   ],
+   "file": "site/hopecancerresources.org/wp-content/uploads/2025/08/Untitled-design-6-800x600-c-1.png",
+   "size": 157110,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://hopecancerresources.org/wp-content/uploads/2025/06/Untitled-design-2026-03-04T143900_020-800x600-c-1.png",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/webp",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "cf-bgj": "h2pri,imgq:100",
+    "cf-polished": "ok, orig_size=124181",
+    "content-type": "image/webp",
+    "priority": "u=4,i"
+   },
+   "resourceType": "image",
+   "passes": [
+    "mobile"
+   ],
+   "file": "site/hopecancerresources.org/wp-content/uploads/2025/06/Untitled-design-2026-03-04T143900_020-800x600-c-1.png",
+   "size": 90310,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://hopecancerresources.org/wp-content/uploads/2026/01/2-800x600-c-1.png",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/webp",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "cf-bgj": "imgq:100,h2pri",
+    "cf-polished": "ok, orig_size=107290",
+    "content-type": "image/webp",
+    "priority": "u=4,i"
+   },
+   "resourceType": "image",
+   "passes": [
+    "mobile"
+   ],
+   "file": "site/hopecancerresources.org/wp-content/uploads/2026/01/2-800x600-c-1.png",
+   "size": 73646,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://hopecancerresources.org/wp-content/uploads/2026/01/3-800x600-c-1.png",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/webp",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "cf-bgj": "imgq:100,h2pri",
+    "cf-polished": "ok, orig_size=98407",
+    "content-type": "image/webp",
+    "priority": "u=4,i"
+   },
+   "resourceType": "image",
+   "passes": [
+    "mobile"
+   ],
+   "file": "site/hopecancerresources.org/wp-content/uploads/2026/01/3-800x600-c-1.png",
+   "size": 69906,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://hopecancerresources.org/wp-content/uploads/2026/01/1-800x600-c-1.png",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/webp",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "cf-bgj": "imgq:100,h2pri",
+    "cf-polished": "ok, orig_size=93436",
+    "content-type": "image/webp",
+    "priority": "u=4,i"
+   },
+   "resourceType": "image",
+   "passes": [
+    "mobile"
+   ],
+   "file": "site/hopecancerresources.org/wp-content/uploads/2026/01/1-800x600-c-1.png",
+   "size": 67774,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://hopecancerresources.org/wp-content/uploads/2025/08/Mens-Small-Group-Training-800x600-c-1.png",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/webp",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "cf-bgj": "imgq:100,h2pri",
+    "cf-polished": "ok, orig_size=249118",
+    "content-type": "image/webp",
+    "priority": "u=4,i"
+   },
+   "resourceType": "image",
+   "passes": [
+    "mobile"
+   ],
+   "file": "site/hopecancerresources.org/wp-content/uploads/2025/08/Mens-Small-Group-Training-800x600-c-1.png",
+   "size": 191550,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://hopecancerresources.org/wp-content/uploads/2025/08/Gentle-Flow-Yoga-05-1800x1000-c-1.jpg",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/jpeg",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "cf-bgj": "h2pri,imgq:100",
+    "cf-polished": "webp_bigger",
+    "content-type": "image/jpeg",
+    "priority": "u=1,i"
+   },
+   "resourceType": "image",
+   "passes": [
+    "desktop"
+   ],
+   "file": "site/hopecancerresources.org/wp-content/uploads/2025/08/Gentle-Flow-Yoga-05-1800x1000-c-1.jpg",
+   "size": 167255,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://hopecancerresources.org/wp-content/uploads/2025/06/lean-in-1800x1000-c-1.jpg",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/jpeg",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "cf-bgj": "imgq:100,h2pri",
+    "cf-polished": "webp_bigger",
+    "content-type": "image/jpeg",
+    "priority": "u=1,i"
+   },
+   "resourceType": "image",
+   "passes": [
+    "desktop"
+   ],
+   "file": "site/hopecancerresources.org/wp-content/uploads/2025/06/lean-in-1800x1000-c-1.jpg",
+   "size": 113528,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://hopecancerresources.org/wp-content/uploads/2025/06/Yoga-1800x1000-c-1.jpg",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/jpeg",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "cf-bgj": "h2pri,imgq:100",
+    "cf-polished": "webp_bigger",
+    "content-type": "image/jpeg",
+    "priority": "u=1,i"
+   },
+   "resourceType": "image",
+   "passes": [
+    "desktop"
+   ],
+   "file": "site/hopecancerresources.org/wp-content/uploads/2025/06/Yoga-1800x1000-c-1.jpg",
+   "size": 106484,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://hopecancerresources.org/wp-content/uploads/2025/07/brand-reveal-1800x1000-c-1.jpg",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/jpeg",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "cf-bgj": "h2pri,imgq:100",
+    "cf-polished": "webp_bigger",
+    "content-type": "image/jpeg",
+    "priority": "u=1,i"
+   },
+   "resourceType": "image",
+   "passes": [
+    "desktop"
+   ],
+   "file": "site/hopecancerresources.org/wp-content/uploads/2025/07/brand-reveal-1800x1000-c-1.jpg",
+   "size": 165735,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://hopecancerresources.org/wp-content/themes/hope-cancer-resources/font/BrandonText-Light.woff2",
+   "method": "GET",
+   "status": 200,
+   "contentType": "font/woff2",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "content-type": "font/woff2",
+    "priority": "u=0,i=?0"
+   },
+   "resourceType": "font",
+   "passes": [
+    "mobile",
+    "desktop"
+   ],
+   "file": "site/hopecancerresources.org/wp-content/themes/hope-cancer-resources/font/BrandonText-Light.woff2",
+   "size": 23892,
+   "modes": [
+    "cors"
+   ]
+  },
+  {
+   "url": "https://hopecancerresources.org/wp-content/uploads/2025/07/HopeBrigade-1800x1000-c-1.jpg",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/jpeg",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "cf-bgj": "imgq:100,h2pri",
+    "cf-polished": "webp_bigger",
+    "content-type": "image/jpeg",
+    "priority": "u=1,i"
+   },
+   "resourceType": "image",
+   "passes": [
+    "desktop"
+   ],
+   "file": "site/hopecancerresources.org/wp-content/uploads/2025/07/HopeBrigade-1800x1000-c-1.jpg",
+   "size": 136175,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://hopecancerresources.org/wp-content/uploads/2025/05/bg-grant-support-tall-1600x0-c-default.jpg",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/jpeg",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "cf-bgj": "imgq:100,h2pri",
+    "cf-polished": "webp_bigger",
+    "content-type": "image/jpeg",
+    "priority": "u=1,i"
+   },
+   "resourceType": "image",
+   "passes": [
+    "desktop"
+   ],
+   "file": "site/hopecancerresources.org/wp-content/uploads/2025/05/bg-grant-support-tall-1600x0-c-default.jpg",
+   "size": 290803,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://hopecancerresources.org/wp-content/uploads/2025/06/MylenomaSupportGroup-1800x1000-c-1.jpg",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/jpeg",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "cf-bgj": "imgq:100,h2pri",
+    "cf-polished": "webp_bigger",
+    "content-type": "image/jpeg",
+    "priority": "u=1,i"
+   },
+   "resourceType": "image",
+   "passes": [
+    "desktop"
+   ],
+   "file": "site/hopecancerresources.org/wp-content/uploads/2025/06/MylenomaSupportGroup-1800x1000-c-1.jpg",
+   "size": 232393,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://hopecancerresources.org/wp-content/uploads/2025/07/bg-volunteer-moblie-1600x0-c-default.jpg",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/jpeg",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "cf-bgj": "imgq:100,h2pri",
+    "cf-polished": "webp_bigger",
+    "content-type": "image/jpeg",
+    "priority": "u=1,i"
+   },
+   "resourceType": "image",
+   "passes": [
+    "desktop"
+   ],
+   "file": "site/hopecancerresources.org/wp-content/uploads/2025/07/bg-volunteer-moblie-1600x0-c-default.jpg",
+   "size": 219716,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://hopecancerresources.org/wp-content/uploads/2026/01/Untitled-design-95-1800x1000-c-1.png",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/webp",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "cf-bgj": "imgq:100,h2pri",
+    "cf-polished": "ok, orig_size=68822",
+    "content-type": "image/webp",
+    "priority": "u=4,i"
+   },
+   "resourceType": "image",
+   "passes": [
+    "desktop"
+   ],
+   "file": "site/hopecancerresources.org/wp-content/uploads/2026/01/Untitled-design-95-1800x1000-c-1.png",
+   "size": 57662,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://hopecancerresources.org/wp-content/uploads/2026/01/4-1800x1000-c-1.png",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/webp",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "cf-bgj": "h2pri,imgq:100",
+    "cf-polished": "ok, orig_size=269198",
+    "content-type": "image/webp",
+    "priority": "u=4,i"
+   },
+   "resourceType": "image",
+   "passes": [
+    "desktop"
+   ],
+   "file": "site/hopecancerresources.org/wp-content/uploads/2026/01/4-1800x1000-c-1.png",
+   "size": 183392,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://hopecancerresources.org/wp-content/uploads/2025/07/Untitled-design-2026-07-08T120418_647-1800x1000-c-1.png",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/webp",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "cf-bgj": "imgq:100,h2pri",
+    "cf-polished": "ok, orig_size=62636",
+    "content-type": "image/webp",
+    "priority": "u=4,i"
+   },
+   "resourceType": "image",
+   "passes": [
+    "desktop"
+   ],
+   "file": "site/hopecancerresources.org/wp-content/uploads/2025/07/Untitled-design-2026-07-08T120418_647-1800x1000-c-1.png",
+   "size": 58608,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://hopecancerresources.org/wp-content/uploads/2026/01/1-1800x1000-c-1.png",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/webp",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "cf-bgj": "imgq:100,h2pri",
+    "cf-polished": "ok, orig_size=288073",
+    "content-type": "image/webp",
+    "priority": "u=4,i"
+   },
+   "resourceType": "image",
+   "passes": [
+    "desktop"
+   ],
+   "file": "site/hopecancerresources.org/wp-content/uploads/2026/01/1-1800x1000-c-1.png",
+   "size": 204950,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://hopecancerresources.org/wp-content/uploads/2025/07/Womens-Small-Group-Training-1-1800x1000-c-1.png",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/webp",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "cf-bgj": "imgq:100,h2pri",
+    "cf-polished": "ok, orig_size=875708",
+    "content-type": "image/webp",
+    "priority": "u=4,i"
+   },
+   "resourceType": "image",
+   "passes": [
+    "desktop"
+   ],
+   "file": "site/hopecancerresources.org/wp-content/uploads/2025/07/Womens-Small-Group-Training-1-1800x1000-c-1.png",
+   "size": 307516,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://hopecancerresources.org/wp-content/uploads/2026/01/3-1800x1000-c-1.png",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/webp",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "cf-bgj": "h2pri,imgq:100",
+    "cf-polished": "ok, orig_size=303169",
+    "content-type": "image/webp",
+    "priority": "u=4,i"
+   },
+   "resourceType": "image",
+   "passes": [
+    "desktop"
+   ],
+   "file": "site/hopecancerresources.org/wp-content/uploads/2026/01/3-1800x1000-c-1.png",
+   "size": 216758,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://hopecancerresources.org/wp-content/uploads/2026/01/2-1800x1000-c-1.png",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/webp",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "cf-bgj": "h2pri,imgq:100",
+    "cf-polished": "ok, orig_size=367292",
+    "content-type": "image/webp",
+    "priority": "u=4,i"
+   },
+   "resourceType": "image",
+   "passes": [
+    "desktop"
+   ],
+   "file": "site/hopecancerresources.org/wp-content/uploads/2026/01/2-1800x1000-c-1.png",
+   "size": 259680,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://hopecancerresources.org/wp-content/uploads/2025/06/Untitled-design-2026-03-04T143900_020-1800x1000-c-1.png",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/webp",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "cf-bgj": "imgq:100,h2pri",
+    "cf-polished": "ok, orig_size=372598",
+    "content-type": "image/webp",
+    "priority": "u=4,i"
+   },
+   "resourceType": "image",
+   "passes": [
+    "desktop"
+   ],
+   "file": "site/hopecancerresources.org/wp-content/uploads/2025/06/Untitled-design-2026-03-04T143900_020-1800x1000-c-1.png",
+   "size": 229500,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://hopecancerresources.org/wp-content/uploads/2025/08/Untitled-design-6-1800x1000-c-1.png",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/webp",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "cf-bgj": "imgq:100,h2pri",
+    "cf-polished": "ok, orig_size=674239",
+    "content-type": "image/webp",
+    "priority": "u=4,i"
+   },
+   "resourceType": "image",
+   "passes": [
+    "desktop"
+   ],
+   "file": "site/hopecancerresources.org/wp-content/uploads/2025/08/Untitled-design-6-1800x1000-c-1.png",
+   "size": 513532,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://hopecancerresources.org/wp-content/uploads/2025/08/Mens-Small-Group-Training-1800x1000-c-1.png",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/webp",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "cf-bgj": "imgq:100,h2pri",
+    "cf-polished": "ok, orig_size=708511",
+    "content-type": "image/webp",
+    "priority": "u=4,i"
+   },
+   "resourceType": "image",
+   "passes": [
+    "desktop"
+   ],
+   "file": "site/hopecancerresources.org/wp-content/uploads/2025/08/Mens-Small-Group-Training-1800x1000-c-1.png",
+   "size": 542554,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://crm.bloomerang.co/Content/Scripts/Api/Bloomerang-v2.js?nocache=1785344410",
+   "method": "GET",
+   "status": 200,
+   "contentType": "application/javascript",
+   "headers": {
+    "access-control-allow-methods": "GET, PUT, POST, DELETE, HEAD, OPTIONS",
+    "content-type": "application/javascript"
+   },
+   "resourceType": "script",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "file": "site/crm.bloomerang.co/Content/Scripts/Api/Bloomerang-v2__qc79cb8e9.js",
+   "size": 254703,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.8.3.js",
+   "method": "GET",
+   "status": 200,
+   "contentType": "application/javascript",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "akamai-grn": "0.22dbda17.1793043584.2843054",
+    "content-type": "application/javascript",
+    "timing-allow-origin": "*"
+   },
+   "resourceType": "script",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "file": "site/ajax.aspnetcdn.com/ajax/jQuery/jquery-1.8.3.js",
+   "size": 267739,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://crm.bloomerang.co/Content/Scripts/Lib/accounting.min.js",
+   "method": "GET",
+   "status": 200,
+   "contentType": "application/javascript",
+   "headers": {
+    "access-control-allow-methods": "GET, PUT, POST, DELETE, HEAD, OPTIONS",
+    "content-type": "application/javascript"
+   },
+   "resourceType": "script",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "file": "site/crm.bloomerang.co/Content/Scripts/Lib/accounting.min.js",
+   "size": 4050,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://hopecancerresources.org/wp-content/uploads/2025/05/cropped-favicon-32x32.png",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/webp",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "cf-bgj": "imgq:100,h2pri",
+    "cf-polished": "ok, orig_size=1126",
+    "content-type": "image/webp",
+    "priority": "u=4,i"
+   },
+   "resourceType": "other",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "file": "site/hopecancerresources.org/wp-content/uploads/2025/05/cropped-favicon-32x32.png",
+   "size": 558,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://ajax.aspnetcdn.com/ajax/jquery.validate/1.9/jquery.validate.min.js",
+   "method": "GET",
+   "status": 200,
+   "contentType": "application/javascript",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "akamai-grn": "0.32dbda17.1793043584.d6cae4",
+    "content-type": "application/javascript",
+    "timing-allow-origin": "*"
+   },
+   "resourceType": "script",
+   "passes": [
+    "mobile",
+    "desktop"
+   ],
+   "file": "site/ajax.aspnetcdn.com/ajax/jquery.validate/1.9/jquery.validate.min.js",
+   "size": 21601,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://ajax.aspnetcdn.com/ajax/jquery.validate/1.9/additional-methods.min.js",
+   "method": "GET",
+   "status": 200,
+   "contentType": "application/javascript",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "akamai-grn": "0.32dbda17.1793043584.d6caf6",
+    "content-type": "application/javascript",
+    "timing-allow-origin": "*"
+   },
+   "resourceType": "script",
+   "passes": [
+    "mobile",
+    "desktop"
+   ],
+   "file": "site/ajax.aspnetcdn.com/ajax/jquery.validate/1.9/additional-methods.min.js",
+   "size": 8640,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://api.bloomerang.co/v1/Widget/455680?ApiKey=pub_b146101e-0a79-11f0-9629-0699c6635f0d",
+   "method": "POST",
+   "status": 200,
+   "contentType": "application/json; charset=utf-8",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "content-type": "application/json; charset=utf-8",
+    "x-aspnet-version": "4.0.30319",
+    "x-correlation-id": "b7efeafb-174a-4f41-a4b0-28553746f132"
+   },
+   "resourceType": "xhr",
+   "passes": [
+    "mobile",
+    "desktop"
+   ],
+   "file": "site/api.bloomerang.co/v1/Widget/455680__q34162735__postae3aa033.json",
+   "size": 14675,
+   "bodyHash": "ae3aa033933663a16b6353e53c1296c752a0cdb90aef8a8e07086c055e30b086"
+  },
+  {
+   "url": "https://js.stripe.com/v3/",
+   "method": "GET",
+   "status": 200,
+   "contentType": "text/javascript; charset=utf-8",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "content-type": "text/javascript; charset=utf-8",
+    "timing-allow-origin": "*",
+    "x-cache-hits": "1141"
+   },
+   "resourceType": "script",
+   "passes": [
+    "mobile",
+    "desktop"
+   ],
+   "file": "site/js.stripe.com/v3/index.js",
+   "size": 1142030,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://js.stripe.com/v3/m-outer-3437aaddcdf6922d623e172c2d6f9278.html",
+   "method": "GET",
+   "status": 200,
+   "contentType": "text/html; charset=utf-8",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "content-type": "text/html; charset=utf-8",
+    "timing-allow-origin": "*",
+    "x-cache-hits": "195672"
+   },
+   "resourceType": "document",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "file": "site/js.stripe.com/v3/m-outer-3437aaddcdf6922d623e172c2d6f9278.html",
+   "size": 200,
+   "modes": [
+    "navigate"
+   ]
+  },
+  {
+   "url": "https://js.stripe.com/v3/fingerprinted/js/m-outer-15a2b40a058ddff1cffdb63779fe3de1.js",
+   "method": "GET",
+   "status": 200,
+   "contentType": "text/javascript; charset=utf-8",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "content-type": "text/javascript; charset=utf-8",
+    "timing-allow-origin": "*",
+    "x-cache-hits": "235304"
+   },
+   "resourceType": "script",
+   "passes": [
+    "mobile",
+    "desktop"
+   ],
+   "file": "site/js.stripe.com/v3/fingerprinted/js/m-outer-15a2b40a058ddff1cffdb63779fe3de1.js",
+   "size": 526
+  },
+  {
+   "url": "https://m.stripe.network/inner.html",
+   "method": "GET",
+   "status": 200,
+   "contentType": "text/html; charset=utf-8",
+   "headers": {
+    "content-type": "text/html; charset=utf-8"
+   },
+   "resourceType": "document",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "file": "site/m.stripe.network/inner.html",
+   "size": 930
+  },
+  {
+   "url": "https://m.stripe.network/out-4.5.45.js",
+   "method": "GET",
+   "status": 200,
+   "contentType": "text/javascript; charset=utf-8",
+   "headers": {
+    "content-type": "text/javascript; charset=utf-8"
+   },
+   "resourceType": "script",
+   "passes": [
+    "mobile",
+    "desktop"
+   ],
+   "file": "site/m.stripe.network/out-4.5.45.js",
+   "size": 88737
+  },
+  {
+   "url": "https://m.stripe.com/6",
+   "method": "POST",
+   "status": 200,
+   "contentType": "application/json;charset=utf-8",
+   "headers": {
+    "access-control-allow-credentials": "true",
+    "access-control-allow-headers": "Content-Type",
+    "access-control-allow-origin": "https://m.stripe.network",
+    "content-type": "application/json;charset=utf-8",
+    "x-stripe-proxy-response": "upstream",
+    "x-stripe-server-rpc-duration-micros": "2281"
+   },
+   "resourceType": "xhr",
+   "passes": [
+    "desktop"
+   ],
+   "file": "site/m.stripe.com/6__post7b270184.json",
+   "size": 156,
+   "bodyHash": "7b270184cff423afee5c08feb594749ad5d6d8fb0482cd3dcf11906beceb867c"
+  },
+  {
+   "url": "https://m.stripe.com/6",
+   "method": "POST",
+   "status": 200,
+   "contentType": "application/json;charset=utf-8",
+   "headers": {
+    "access-control-allow-credentials": "true",
+    "access-control-allow-headers": "Content-Type",
+    "access-control-allow-origin": "https://m.stripe.network",
+    "content-type": "application/json;charset=utf-8",
+    "x-stripe-proxy-response": "upstream",
+    "x-stripe-server-rpc-duration-micros": "2128"
+   },
+   "resourceType": "xhr",
+   "passes": [
+    "mobile"
+   ],
+   "file": "site/m.stripe.com/6__post3f06bbb1.json",
+   "size": 156,
+   "bodyHash": "3f06bbb133277376101a70753417d8180c4a133514fe60be925cc79b6715d558"
+  },
+  {
+   "url": "https://hopecancerresources.org/wp-content/uploads/2026/01/svg.svg",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/svg+xml",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "content-type": "image/svg+xml",
+    "priority": "u=3,i"
+   },
+   "resourceType": "image",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "file": "site/hopecancerresources.org/wp-content/uploads/2026/01/svg.svg",
+   "size": 12717,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://www.madebyhart.com/wp-content/themes/hart/img/hart-logo-sm.svg",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/svg+xml",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "content-type": "image/svg+xml",
+    "priority": "u=3,i"
+   },
+   "resourceType": "image",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "file": "site/www.madebyhart.com/wp-content/themes/hart/img/hart-logo-sm.svg",
+   "size": 2226,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://hopecancerresources.org/wp-content/uploads/2025/05/cropped-favicon-192x192.png",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/png",
+   "headers": {
+    "content-type": "image/png",
+    "access-control-allow-origin": "*",
+    "cf-polished": "ok, orig_size=2528",
+    "priority": "u=4;i=?0,cf-chb=(37;u=2;i=?0 280;u=5;i=?0)",
+    "cf-bgj": "imgq:100,h2pri"
+   },
+   "resourceType": "other",
+   "passes": [
+    "desktop"
+   ],
+   "file": "site/hopecancerresources.org/wp-content/uploads/2025/05/cropped-favicon-192x192.png",
+   "size": 2185
+  },
+  {
+   "url": "https://hopecancerresources.org/favicon.ico",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/x-icon",
+   "headers": {
+    "content-type": "image/x-icon",
+    "access-control-allow-origin": "*"
+   },
+   "resourceType": "other",
+   "passes": [
+    "desktop"
+   ],
+   "file": "site/hopecancerresources.org/favicon.ico",
+   "size": 0
+  },
+  {
+   "url": "https://hopecancerresources.org/wp-content/uploads/2025/05/cropped-favicon-180x180.png",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/png",
+   "headers": {
+    "content-type": "image/png",
+    "access-control-allow-origin": "*",
+    "cf-bgj": "imgq:100,h2pri",
+    "cf-polished": "ok, orig_size=2355",
+    "priority": "u=4;i=?0,cf-chb=(37;u=2;i=?0 280;u=5;i=?0)"
+   },
+   "resourceType": "other",
+   "passes": [
+    "desktop"
+   ],
+   "file": "site/hopecancerresources.org/wp-content/uploads/2025/05/cropped-favicon-180x180.png",
+   "size": 2041
+  }
+ ],
+ "videos": {
+  "posters": {},
+  "onlineHosts": [
+   "converteai.net",
+   "vturb.com",
+   "vturb.net",
+   "vimeo.com",
+   "vimeocdn.com",
+   "youtube.com",
+   "youtube-nocookie.com",
+   "googlevideo.com",
+   "wistia.com",
+   "wistia.net",
+   "mux.com",
+   "pandavideo.com.br",
+   "jwplayer.com",
+   "jwpcdn.com",
+   "brightcovecdn.com",
+   "vidyard.com",
+   "loom.com",
+   "cloudflarestream.com",
+   "videodelivery.net",
+   "bunnycdn.com",
+   "mediadelivery.net"
+  ]
+ }
+}

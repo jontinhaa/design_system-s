@@ -1,0 +1,4045 @@
+{
+ "version": 1,
+ "tool": "wd3 0.1.0",
+ "captureId": "laboiteaslides.fr-f81eef97",
+ "capturedAt": "2026-10-29T21:01:40+00:00",
+ "entry": {
+  "url": "https://laboiteaslides.fr/",
+  "path": "/",
+  "search": "",
+  "file": "site/laboiteaslides.fr/index.html",
+  "contentType": "text/html;charset=utf-8"
+ },
+ "blocked": [
+  "^https?://([^/?#]+\\.)?(google\\-analytics\\.com|analytics\\.google\\.com|googletagmanager\\.com|googleadservices\\.com|doubleclick\\.net|googlesyndication\\.com|googleoptimize\\.com|connect\\.facebook\\.net|bat\\.bing\\.com|snap\\.licdn\\.com|px\\.ads\\.linkedin\\.com|analytics\\.tiktok\\.com|ct\\.pinterest\\.com|static\\.ads\\-twitter\\.com|analytics\\.twitter\\.com|tr\\.snapchat\\.com|sc\\-static\\.net|mc\\.yandex\\.ru|hotjar\\.com|hotjar\\.io|clarity\\.ms|cdn\\.segment\\.com|api\\.segment\\.io|cdn\\.mxpnl\\.com|api\\-js\\.mixpanel\\.com|api\\.mixpanel\\.com|api\\.amplitude\\.com|api2\\.amplitude\\.com|api\\-secure\\.amplitude\\.com|api\\-sr\\.amplitude\\.com|sr\\-client\\-cfg\\.amplitude\\.com|plausible\\.io|cloud\\.umami\\.is|analytics\\.umami\\.is|static\\.cloudflareinsights\\.com|cloudflareinsights\\.com|vitals\\.vercel\\-insights\\.com|browser\\-intake\\-datadoghq\\.com|browser\\-intake\\-datadoghq\\.eu|js\\-agent\\.newrelic\\.com|bam\\.nr\\-data\\.net|bam\\-cell\\.nr\\-data\\.net|fullstory\\.com|script\\.crazyegg\\.com|mouseflow\\.com|smartlook\\.com|heapanalytics\\.com|i\\.posthog\\.com|stats\\.wp\\.com|pixel\\.wp\\.com|promotekit\\.com|ingest\\.sentry\\.io|ingest\\.us\\.sentry\\.io|ingest\\.de\\.sentry\\.io|widget\\.intercom\\.io|js\\.intercomcdn\\.com|api\\-iam\\.intercom\\.io|js\\.hs\\-scripts\\.com|js\\.hs\\-analytics\\.net|js\\.hs\\-banner\\.com|js\\.hscollectedforms\\.net|js\\.usemessages\\.com|track\\.hubspot\\.com|client\\.crisp\\.chat|embed\\.tawk\\.to|js\\.driftt\\.com|static\\.zdassets\\.com|ekr\\.zdassets\\.com|cdn\\.cookielaw\\.org|geolocation\\.onetrust\\.com|consent\\.cookiebot\\.com|consentcdn\\.cookiebot\\.com|app\\.usercentrics\\.eu|api\\.usercentrics\\.eu|cdn\\.iubenda\\.com|cmp\\.osano\\.com|cdn\\.termly\\.io)(:\\d+)?([/?#]|$)",
+  "/rpc/increment_shared_code_views",
+  "^https?://(umami|analytics|stats|plausible)\\.[^/]+/(api/send|api/collect|api/event|script\\.js)",
+  "/g/c(ollect)?\\?v=2&",
+  "sentry\\.io/api/\\d+/(envelope|store)",
+  "/api/meta-capi",
+  "^https?://(leadtracker|tracking|track|events?|collect)\\.[^/]+/",
+  "^https?://a\\.vturb\\.com/",
+  "facebook\\.com/tr[/?]",
+  "/_vercel/(speed-)?insights/",
+  "/cdn-cgi/rum",
+  "/cdn-cgi/challenge-platform/",
+  "google\\.com/(pagead|ads)/"
+ ],
+ "volatileParams": [
+  "v",
+  "_rsc",
+  "dpl",
+  "_",
+  "t",
+  "ts",
+  "timestamp",
+  "cb",
+  "cachebust",
+  "cacheBust",
+  "nocache",
+  "rnd",
+  "rand",
+  "random",
+  "_t"
+ ],
+ "entries": [
+  {
+   "url": "https://laboiteaslides.fr/",
+   "method": "GET",
+   "status": 200,
+   "contentType": "text/html;charset=utf-8",
+   "headers": {
+    "content-type": "text/html;charset=utf-8",
+    "x-robots-tag": "index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1"
+   },
+   "resourceType": "document",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "file": "site/laboiteaslides.fr/index.html",
+   "size": 360816,
+   "modes": [
+    "navigate"
+   ]
+  },
+  {
+   "url": "https://laboiteaslides.fr/_nuxt/style.B5ikKiSh.css",
+   "method": "GET",
+   "status": 200,
+   "contentType": "text/css; charset=utf-8",
+   "headers": {
+    "content-type": "text/css; charset=utf-8",
+    "x-robots-tag": "noindex"
+   },
+   "resourceType": "stylesheet",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "file": "site/laboiteaslides.fr/_nuxt/style.B5ikKiSh.css",
+   "size": 156404,
+   "modes": [
+    "cors"
+   ]
+  },
+  {
+   "url": "https://laboiteaslides.fr/fonts/FKScreamer/woff2/FKScreamerLegacy-Upright.woff2",
+   "method": "GET",
+   "status": 200,
+   "contentType": "font/woff2",
+   "headers": {
+    "content-type": "font/woff2"
+   },
+   "resourceType": "font",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "file": "site/laboiteaslides.fr/fonts/FKScreamer/woff2/FKScreamerLegacy-Upright.woff2",
+   "size": 24404,
+   "modes": [
+    "cors"
+   ]
+  },
+  {
+   "url": "https://laboiteaslides.fr/_nuxt/DiO5ItPe.js",
+   "method": "GET",
+   "status": 200,
+   "contentType": "text/javascript; charset=utf-8",
+   "headers": {
+    "content-type": "text/javascript; charset=utf-8",
+    "x-robots-tag": "noindex"
+   },
+   "resourceType": "script",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "file": "site/laboiteaslides.fr/_nuxt/DiO5ItPe.js",
+   "size": 88060,
+   "modes": [
+    "cors"
+   ]
+  },
+  {
+   "url": "https://laboiteaslides.fr/_nuxt/B6Ie5k13.js",
+   "method": "GET",
+   "status": 200,
+   "contentType": "text/javascript; charset=utf-8",
+   "headers": {
+    "content-type": "text/javascript; charset=utf-8",
+    "x-robots-tag": "noindex"
+   },
+   "resourceType": "script",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "file": "site/laboiteaslides.fr/_nuxt/B6Ie5k13.js",
+   "size": 85451,
+   "modes": [
+    "cors"
+   ]
+  },
+  {
+   "url": "https://laboiteaslides.fr/_nuxt/BK9tNInx.js",
+   "method": "GET",
+   "status": 200,
+   "contentType": "text/javascript; charset=utf-8",
+   "headers": {
+    "content-type": "text/javascript; charset=utf-8",
+    "x-robots-tag": "noindex"
+   },
+   "resourceType": "script",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "file": "site/laboiteaslides.fr/_nuxt/BK9tNInx.js",
+   "size": 104842,
+   "modes": [
+    "cors"
+   ]
+  },
+  {
+   "url": "https://laboiteaslides.fr/_nuxt/C9A3lpHu.js",
+   "method": "GET",
+   "status": 200,
+   "contentType": "text/javascript; charset=utf-8",
+   "headers": {
+    "content-type": "text/javascript; charset=utf-8",
+    "x-robots-tag": "noindex"
+   },
+   "resourceType": "script",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "file": "site/laboiteaslides.fr/_nuxt/C9A3lpHu.js",
+   "size": 18602,
+   "modes": [
+    "cors"
+   ]
+  },
+  {
+   "url": "https://laboiteaslides.fr/_nuxt/BZD2T3AN.js",
+   "method": "GET",
+   "status": 200,
+   "contentType": "text/javascript; charset=utf-8",
+   "headers": {
+    "content-type": "text/javascript; charset=utf-8",
+    "x-robots-tag": "noindex"
+   },
+   "resourceType": "script",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "file": "site/laboiteaslides.fr/_nuxt/BZD2T3AN.js",
+   "size": 1332,
+   "modes": [
+    "cors"
+   ]
+  },
+  {
+   "url": "https://laboiteaslides.fr/_nuxt/BqBiTg5H.js",
+   "method": "GET",
+   "status": 200,
+   "contentType": "text/javascript; charset=utf-8",
+   "headers": {
+    "content-type": "text/javascript; charset=utf-8",
+    "x-robots-tag": "noindex"
+   },
+   "resourceType": "script",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "file": "site/laboiteaslides.fr/_nuxt/BqBiTg5H.js",
+   "size": 2304,
+   "modes": [
+    "cors"
+   ]
+  },
+  {
+   "url": "https://laboiteaslides.fr/_nuxt/Bd5dbvy_.js",
+   "method": "GET",
+   "status": 200,
+   "contentType": "text/javascript; charset=utf-8",
+   "headers": {
+    "content-type": "text/javascript; charset=utf-8",
+    "x-robots-tag": "noindex"
+   },
+   "resourceType": "script",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "file": "site/laboiteaslides.fr/_nuxt/Bd5dbvy_.js",
+   "size": 6260,
+   "modes": [
+    "cors"
+   ]
+  },
+  {
+   "url": "https://laboiteaslides.fr/_nuxt/Co2d9rFw.js",
+   "method": "GET",
+   "status": 200,
+   "contentType": "text/javascript; charset=utf-8",
+   "headers": {
+    "content-type": "text/javascript; charset=utf-8",
+    "x-robots-tag": "noindex"
+   },
+   "resourceType": "script",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "file": "site/laboiteaslides.fr/_nuxt/Co2d9rFw.js",
+   "size": 82543,
+   "modes": [
+    "cors"
+   ]
+  },
+  {
+   "url": "https://laboiteaslides.fr/_nuxt/BDNMzG2s.js",
+   "method": "GET",
+   "status": 200,
+   "contentType": "text/javascript; charset=utf-8",
+   "headers": {
+    "content-type": "text/javascript; charset=utf-8",
+    "x-robots-tag": "noindex"
+   },
+   "resourceType": "script",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "file": "site/laboiteaslides.fr/_nuxt/BDNMzG2s.js",
+   "size": 84,
+   "modes": [
+    "cors"
+   ]
+  },
+  {
+   "url": "https://laboiteaslides.fr/_nuxt/Dbtu76Za.js",
+   "method": "GET",
+   "status": 200,
+   "contentType": "text/javascript; charset=utf-8",
+   "headers": {
+    "content-type": "text/javascript; charset=utf-8",
+    "x-robots-tag": "noindex"
+   },
+   "resourceType": "script",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "file": "site/laboiteaslides.fr/_nuxt/Dbtu76Za.js",
+   "size": 6361,
+   "modes": [
+    "cors"
+   ]
+  },
+  {
+   "url": "https://laboiteaslides.fr/_nuxt/BXysQYfO.js",
+   "method": "GET",
+   "status": 200,
+   "contentType": "text/javascript; charset=utf-8",
+   "headers": {
+    "content-type": "text/javascript; charset=utf-8",
+    "x-robots-tag": "noindex"
+   },
+   "resourceType": "script",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "file": "site/laboiteaslides.fr/_nuxt/BXysQYfO.js",
+   "size": 3341,
+   "modes": [
+    "cors"
+   ]
+  },
+  {
+   "url": "https://laboiteaslides.fr/sk/uploads/thumbnail_Safran_0239f5157e.jpg",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/jpeg",
+   "headers": {
+    "access-control-allow-credentials": "true",
+    "access-control-allow-origin": "",
+    "content-type": "image/jpeg",
+    "referrer-policy": "no-referrer",
+    "x-dns-prefetch-control": "off",
+    "x-download-options": "noopen",
+    "x-permitted-cross-domain-policies": "none"
+   },
+   "resourceType": "image",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "file": "site/laboiteaslides.fr/sk/uploads/thumbnail_Safran_0239f5157e.jpg",
+   "size": 4073,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://laboiteaslides.fr/sk/uploads/thumbnail_Touchscreen_Mariott_la_boite_a_slides_agence_powerpoint_0415bcab60.jpg",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/jpeg",
+   "headers": {
+    "access-control-allow-credentials": "true",
+    "access-control-allow-origin": "",
+    "content-type": "image/jpeg",
+    "referrer-policy": "no-referrer",
+    "x-dns-prefetch-control": "off",
+    "x-download-options": "noopen",
+    "x-permitted-cross-domain-policies": "none"
+   },
+   "resourceType": "image",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "file": "site/laboiteaslides.fr/sk/uploads/thumbnail_Touchscreen_Mariott_la_boite_a_slides_agence_powerpoint_0415bcab60.jpg",
+   "size": 7608,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://laboiteaslides.fr/sk/uploads/thumbnail_Ekaterra_Tea_Lipton_43f10e2e06.jpg",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/jpeg",
+   "headers": {
+    "access-control-allow-credentials": "true",
+    "access-control-allow-origin": "",
+    "content-type": "image/jpeg",
+    "referrer-policy": "no-referrer",
+    "x-dns-prefetch-control": "off",
+    "x-download-options": "noopen",
+    "x-permitted-cross-domain-policies": "none"
+   },
+   "resourceType": "image",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "file": "site/laboiteaslides.fr/sk/uploads/thumbnail_Ekaterra_Tea_Lipton_43f10e2e06.jpg",
+   "size": 12035,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://laboiteaslides.fr/sk/uploads/thumbnail_Adidas_2_20aaceff99.jpg",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/jpeg",
+   "headers": {
+    "access-control-allow-credentials": "true",
+    "access-control-allow-origin": "",
+    "content-type": "image/jpeg",
+    "referrer-policy": "no-referrer",
+    "x-dns-prefetch-control": "off",
+    "x-download-options": "noopen",
+    "x-permitted-cross-domain-policies": "none"
+   },
+   "resourceType": "image",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "file": "site/laboiteaslides.fr/sk/uploads/thumbnail_Adidas_2_20aaceff99.jpg",
+   "size": 8385,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://laboiteaslides.fr/sk/uploads/thumbnail_Brasseries_kronenbourg_sceno_72f519a001.jpg",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/jpeg",
+   "headers": {
+    "access-control-allow-credentials": "true",
+    "access-control-allow-origin": "",
+    "content-type": "image/jpeg",
+    "referrer-policy": "no-referrer",
+    "x-dns-prefetch-control": "off",
+    "x-download-options": "noopen",
+    "x-permitted-cross-domain-policies": "none"
+   },
+   "resourceType": "image",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "file": "site/laboiteaslides.fr/sk/uploads/thumbnail_Brasseries_kronenbourg_sceno_72f519a001.jpg",
+   "size": 6151,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://laboiteaslides.fr/sk/uploads/thumbnail_Nissan_ef41272a76.jpg",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/jpeg",
+   "headers": {
+    "access-control-allow-credentials": "true",
+    "access-control-allow-origin": "",
+    "content-type": "image/jpeg",
+    "referrer-policy": "no-referrer",
+    "x-dns-prefetch-control": "off",
+    "x-download-options": "noopen",
+    "x-permitted-cross-domain-policies": "none"
+   },
+   "resourceType": "image",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "file": "site/laboiteaslides.fr/sk/uploads/thumbnail_Nissan_ef41272a76.jpg",
+   "size": 4797,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://laboiteaslides.fr/sk/uploads/thumbnail_Viridien_e87722da36.jpg",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/jpeg",
+   "headers": {
+    "access-control-allow-credentials": "true",
+    "access-control-allow-origin": "",
+    "content-type": "image/jpeg",
+    "referrer-policy": "no-referrer",
+    "x-dns-prefetch-control": "off",
+    "x-download-options": "noopen",
+    "x-permitted-cross-domain-policies": "none"
+   },
+   "resourceType": "image",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "file": "site/laboiteaslides.fr/sk/uploads/thumbnail_Viridien_e87722da36.jpg",
+   "size": 14783,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://laboiteaslides.fr/sk/uploads/thumbnail_Upciti_82768aec88.jpg",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/jpeg",
+   "headers": {
+    "access-control-allow-credentials": "true",
+    "access-control-allow-origin": "",
+    "content-type": "image/jpeg",
+    "referrer-policy": "no-referrer",
+    "x-dns-prefetch-control": "off",
+    "x-download-options": "noopen",
+    "x-permitted-cross-domain-policies": "none"
+   },
+   "resourceType": "image",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "file": "site/laboiteaslides.fr/sk/uploads/thumbnail_Upciti_82768aec88.jpg",
+   "size": 10452,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://laboiteaslides.fr/_nuxt/BxfPubCv.js",
+   "method": "GET",
+   "status": 200,
+   "contentType": "text/javascript; charset=utf-8",
+   "headers": {
+    "content-type": "text/javascript; charset=utf-8",
+    "x-robots-tag": "noindex"
+   },
+   "resourceType": "script",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "file": "site/laboiteaslides.fr/_nuxt/BxfPubCv.js",
+   "size": 384,
+   "modes": [
+    "cors"
+   ]
+  },
+  {
+   "url": "https://laboiteaslides.fr/_nuxt/DK3Fl9T5.js",
+   "method": "GET",
+   "status": 200,
+   "contentType": "text/javascript; charset=utf-8",
+   "headers": {
+    "content-type": "text/javascript; charset=utf-8",
+    "x-robots-tag": "noindex"
+   },
+   "resourceType": "script",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "file": "site/laboiteaslides.fr/_nuxt/DK3Fl9T5.js",
+   "size": 158,
+   "modes": [
+    "cors"
+   ]
+  },
+  {
+   "url": "https://laboiteaslides.fr/_nuxt/BJwg4-9U.js",
+   "method": "GET",
+   "status": 200,
+   "contentType": "text/javascript; charset=utf-8",
+   "headers": {
+    "content-type": "text/javascript; charset=utf-8",
+    "x-robots-tag": "noindex"
+   },
+   "resourceType": "script",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "file": "site/laboiteaslides.fr/_nuxt/BJwg4-9U.js",
+   "size": 10611,
+   "modes": [
+    "cors"
+   ]
+  },
+  {
+   "url": "https://laboiteaslides.fr/_nuxt/B1RHjsqj.js",
+   "method": "GET",
+   "status": 200,
+   "contentType": "text/javascript; charset=utf-8",
+   "headers": {
+    "content-type": "text/javascript; charset=utf-8",
+    "x-robots-tag": "noindex"
+   },
+   "resourceType": "script",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "file": "site/laboiteaslides.fr/_nuxt/B1RHjsqj.js",
+   "size": 395,
+   "modes": [
+    "cors"
+   ]
+  },
+  {
+   "url": "https://laboiteaslides.fr/_nuxt/BGRTs5Rh.js",
+   "method": "GET",
+   "status": 200,
+   "contentType": "text/javascript; charset=utf-8",
+   "headers": {
+    "content-type": "text/javascript; charset=utf-8",
+    "x-robots-tag": "noindex"
+   },
+   "resourceType": "script",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "file": "site/laboiteaslides.fr/_nuxt/BGRTs5Rh.js",
+   "size": 1176,
+   "modes": [
+    "cors"
+   ]
+  },
+  {
+   "url": "https://laboiteaslides.fr/_nuxt/BRhYCSnD.js",
+   "method": "GET",
+   "status": 200,
+   "contentType": "text/javascript; charset=utf-8",
+   "headers": {
+    "content-type": "text/javascript; charset=utf-8",
+    "x-robots-tag": "noindex"
+   },
+   "resourceType": "script",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "file": "site/laboiteaslides.fr/_nuxt/BRhYCSnD.js",
+   "size": 8631,
+   "modes": [
+    "cors"
+   ]
+  },
+  {
+   "url": "https://laboiteaslides.fr/_nuxt/ZETKfmIf.js",
+   "method": "GET",
+   "status": 200,
+   "contentType": "text/javascript; charset=utf-8",
+   "headers": {
+    "content-type": "text/javascript; charset=utf-8",
+    "x-robots-tag": "noindex"
+   },
+   "resourceType": "script",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "file": "site/laboiteaslides.fr/_nuxt/ZETKfmIf.js",
+   "size": 3097,
+   "modes": [
+    "cors"
+   ]
+  },
+  {
+   "url": "https://laboiteaslides.fr/_nuxt/D1-W5qFK.js",
+   "method": "GET",
+   "status": 200,
+   "contentType": "text/javascript; charset=utf-8",
+   "headers": {
+    "content-type": "text/javascript; charset=utf-8",
+    "x-robots-tag": "noindex"
+   },
+   "resourceType": "script",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "file": "site/laboiteaslides.fr/_nuxt/D1-W5qFK.js",
+   "size": 2680,
+   "modes": [
+    "cors"
+   ]
+  },
+  {
+   "url": "https://laboiteaslides.fr/_nuxt/CxdWQIjw.js",
+   "method": "GET",
+   "status": 200,
+   "contentType": "text/javascript; charset=utf-8",
+   "headers": {
+    "content-type": "text/javascript; charset=utf-8",
+    "x-robots-tag": "noindex"
+   },
+   "resourceType": "script",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "file": "site/laboiteaslides.fr/_nuxt/CxdWQIjw.js",
+   "size": 5410,
+   "modes": [
+    "cors"
+   ]
+  },
+  {
+   "url": "https://laboiteaslides.fr/_nuxt/DcilUqAT.js",
+   "method": "GET",
+   "status": 200,
+   "contentType": "text/javascript; charset=utf-8",
+   "headers": {
+    "content-type": "text/javascript; charset=utf-8",
+    "x-robots-tag": "noindex"
+   },
+   "resourceType": "script",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "file": "site/laboiteaslides.fr/_nuxt/DcilUqAT.js",
+   "size": 1104,
+   "modes": [
+    "cors"
+   ]
+  },
+  {
+   "url": "https://laboiteaslides.fr/_nuxt/B3QCv-jp.js",
+   "method": "GET",
+   "status": 200,
+   "contentType": "text/javascript; charset=utf-8",
+   "headers": {
+    "content-type": "text/javascript; charset=utf-8",
+    "x-robots-tag": "noindex"
+   },
+   "resourceType": "script",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "file": "site/laboiteaslides.fr/_nuxt/B3QCv-jp.js",
+   "size": 4251,
+   "modes": [
+    "cors"
+   ]
+  },
+  {
+   "url": "https://laboiteaslides.fr/_nuxt/CBorMb9d.js",
+   "method": "GET",
+   "status": 200,
+   "contentType": "text/javascript; charset=utf-8",
+   "headers": {
+    "content-type": "text/javascript; charset=utf-8",
+    "x-robots-tag": "noindex"
+   },
+   "resourceType": "script",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "file": "site/laboiteaslides.fr/_nuxt/CBorMb9d.js",
+   "size": 5955,
+   "modes": [
+    "cors"
+   ]
+  },
+  {
+   "url": "https://laboiteaslides.fr/_nuxt/B6fTRVdz.js",
+   "method": "GET",
+   "status": 200,
+   "contentType": "text/javascript; charset=utf-8",
+   "headers": {
+    "content-type": "text/javascript; charset=utf-8",
+    "x-robots-tag": "noindex"
+   },
+   "resourceType": "script",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "file": "site/laboiteaslides.fr/_nuxt/B6fTRVdz.js",
+   "size": 15686,
+   "modes": [
+    "cors"
+   ]
+  },
+  {
+   "url": "https://laboiteaslides.fr/_nuxt/C8Xg9jfy.js",
+   "method": "GET",
+   "status": 200,
+   "contentType": "text/javascript; charset=utf-8",
+   "headers": {
+    "content-type": "text/javascript; charset=utf-8",
+    "x-robots-tag": "noindex"
+   },
+   "resourceType": "script",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "file": "site/laboiteaslides.fr/_nuxt/C8Xg9jfy.js",
+   "size": 5556,
+   "modes": [
+    "cors"
+   ]
+  },
+  {
+   "url": "https://laboiteaslides.fr/_nuxt/TOXIry2h.js",
+   "method": "GET",
+   "status": 200,
+   "contentType": "text/javascript; charset=utf-8",
+   "headers": {
+    "content-type": "text/javascript; charset=utf-8",
+    "x-robots-tag": "noindex"
+   },
+   "resourceType": "script",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "file": "site/laboiteaslides.fr/_nuxt/TOXIry2h.js",
+   "size": 2142,
+   "modes": [
+    "cors"
+   ]
+  },
+  {
+   "url": "https://laboiteaslides.fr/_nuxt/DrYo8eLz.js",
+   "method": "GET",
+   "status": 200,
+   "contentType": "text/javascript; charset=utf-8",
+   "headers": {
+    "content-type": "text/javascript; charset=utf-8",
+    "x-robots-tag": "noindex"
+   },
+   "resourceType": "script",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "file": "site/laboiteaslides.fr/_nuxt/DrYo8eLz.js",
+   "size": 1198,
+   "modes": [
+    "cors"
+   ]
+  },
+  {
+   "url": "https://laboiteaslides.fr/_nuxt/djIGRk0a.js",
+   "method": "GET",
+   "status": 200,
+   "contentType": "text/javascript; charset=utf-8",
+   "headers": {
+    "content-type": "text/javascript; charset=utf-8",
+    "x-robots-tag": "noindex"
+   },
+   "resourceType": "script",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "file": "site/laboiteaslides.fr/_nuxt/djIGRk0a.js",
+   "size": 11226,
+   "modes": [
+    "cors"
+   ]
+  },
+  {
+   "url": "https://laboiteaslides.fr/_nuxt/DQYW-EDS.js",
+   "method": "GET",
+   "status": 200,
+   "contentType": "text/javascript; charset=utf-8",
+   "headers": {
+    "content-type": "text/javascript; charset=utf-8",
+    "x-robots-tag": "noindex"
+   },
+   "resourceType": "script",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "file": "site/laboiteaslides.fr/_nuxt/DQYW-EDS.js",
+   "size": 168718,
+   "modes": [
+    "cors"
+   ]
+  },
+  {
+   "url": "https://laboiteaslides.fr/assets/images/whitePaper/2.png",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/png",
+   "headers": {
+    "content-type": "image/png"
+   },
+   "resourceType": "image",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "file": "site/laboiteaslides.fr/assets/images/whitePaper/2.png",
+   "size": 11757,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://laboiteaslides.fr/_nuxt/DaR5Jf74.js",
+   "method": "GET",
+   "status": 200,
+   "contentType": "text/javascript; charset=utf-8",
+   "headers": {
+    "content-type": "text/javascript; charset=utf-8",
+    "x-robots-tag": "noindex"
+   },
+   "resourceType": "script",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "file": "site/laboiteaslides.fr/_nuxt/DaR5Jf74.js",
+   "size": 945,
+   "modes": [
+    "cors"
+   ]
+  },
+  {
+   "url": "https://laboiteaslides.fr/_nuxt/BgS-K5f3.js",
+   "method": "GET",
+   "status": 200,
+   "contentType": "text/javascript; charset=utf-8",
+   "headers": {
+    "content-type": "text/javascript; charset=utf-8",
+    "x-robots-tag": "noindex"
+   },
+   "resourceType": "script",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "file": "site/laboiteaslides.fr/_nuxt/BgS-K5f3.js",
+   "size": 597,
+   "modes": [
+    "cors"
+   ]
+  },
+  {
+   "url": "https://laboiteaslides.fr/_nuxt/DdwCzP_b.js",
+   "method": "GET",
+   "status": 200,
+   "contentType": "text/javascript; charset=utf-8",
+   "headers": {
+    "content-type": "text/javascript; charset=utf-8",
+    "x-robots-tag": "noindex"
+   },
+   "resourceType": "script",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "file": "site/laboiteaslides.fr/_nuxt/DdwCzP_b.js",
+   "size": 810,
+   "modes": [
+    "cors"
+   ]
+  },
+  {
+   "url": "https://laboiteaslides.fr/_nuxt/B-0jv5Ee.js",
+   "method": "GET",
+   "status": 200,
+   "contentType": "text/javascript; charset=utf-8",
+   "headers": {
+    "content-type": "text/javascript; charset=utf-8",
+    "x-robots-tag": "noindex"
+   },
+   "resourceType": "script",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "file": "site/laboiteaslides.fr/_nuxt/B-0jv5Ee.js",
+   "size": 6896,
+   "modes": [
+    "cors"
+   ]
+  },
+  {
+   "url": "https://laboiteaslides.fr/_nuxt/LH6AJnkV.js",
+   "method": "GET",
+   "status": 200,
+   "contentType": "text/javascript; charset=utf-8",
+   "headers": {
+    "content-type": "text/javascript; charset=utf-8",
+    "x-robots-tag": "noindex"
+   },
+   "resourceType": "script",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "file": "site/laboiteaslides.fr/_nuxt/LH6AJnkV.js",
+   "size": 1495,
+   "modes": [
+    "cors"
+   ]
+  },
+  {
+   "url": "https://laboiteaslides.fr/_nuxt/CgIjSQ-o.js",
+   "method": "GET",
+   "status": 200,
+   "contentType": "text/javascript; charset=utf-8",
+   "headers": {
+    "content-type": "text/javascript; charset=utf-8",
+    "x-robots-tag": "noindex"
+   },
+   "resourceType": "script",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "file": "site/laboiteaslides.fr/_nuxt/CgIjSQ-o.js",
+   "size": 1553,
+   "modes": [
+    "cors"
+   ]
+  },
+  {
+   "url": "https://laboiteaslides.fr/_nuxt/BPFXOrp3.js",
+   "method": "GET",
+   "status": 200,
+   "contentType": "text/javascript; charset=utf-8",
+   "headers": {
+    "content-type": "text/javascript; charset=utf-8",
+    "x-robots-tag": "noindex"
+   },
+   "resourceType": "script",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "file": "site/laboiteaslides.fr/_nuxt/BPFXOrp3.js",
+   "size": 9002,
+   "modes": [
+    "cors"
+   ]
+  },
+  {
+   "url": "https://laboiteaslides.fr/_nuxt/CfSd5rt5.js",
+   "method": "GET",
+   "status": 200,
+   "contentType": "text/javascript; charset=utf-8",
+   "headers": {
+    "content-type": "text/javascript; charset=utf-8",
+    "x-robots-tag": "noindex"
+   },
+   "resourceType": "script",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "file": "site/laboiteaslides.fr/_nuxt/CfSd5rt5.js",
+   "size": 12390,
+   "modes": [
+    "cors"
+   ]
+  },
+  {
+   "url": "https://laboiteaslides.fr/_nuxt/ChMElkfr.js",
+   "method": "GET",
+   "status": 200,
+   "contentType": "text/javascript; charset=utf-8",
+   "headers": {
+    "content-type": "text/javascript; charset=utf-8",
+    "x-robots-tag": "noindex"
+   },
+   "resourceType": "script",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "file": "site/laboiteaslides.fr/_nuxt/ChMElkfr.js",
+   "size": 7315,
+   "modes": [
+    "cors"
+   ]
+  },
+  {
+   "url": "https://laboiteaslides.fr/_nuxt/Dh-jUWUt.js",
+   "method": "GET",
+   "status": 200,
+   "contentType": "text/javascript; charset=utf-8",
+   "headers": {
+    "content-type": "text/javascript; charset=utf-8",
+    "x-robots-tag": "noindex"
+   },
+   "resourceType": "script",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "file": "site/laboiteaslides.fr/_nuxt/Dh-jUWUt.js",
+   "size": 5067,
+   "modes": [
+    "cors"
+   ]
+  },
+  {
+   "url": "https://laboiteaslides.fr/_nuxt/CmWbMcux.js",
+   "method": "GET",
+   "status": 200,
+   "contentType": "text/javascript; charset=utf-8",
+   "headers": {
+    "content-type": "text/javascript; charset=utf-8",
+    "x-robots-tag": "noindex"
+   },
+   "resourceType": "script",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "file": "site/laboiteaslides.fr/_nuxt/CmWbMcux.js",
+   "size": 516,
+   "modes": [
+    "cors"
+   ]
+  },
+  {
+   "url": "https://laboiteaslides.fr/fonts/Inter/Inter.woff2",
+   "method": "GET",
+   "status": 200,
+   "contentType": "font/woff2",
+   "headers": {
+    "content-type": "font/woff2"
+   },
+   "resourceType": "font",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "file": "site/laboiteaslides.fr/fonts/Inter/Inter.woff2",
+   "size": 88752,
+   "modes": [
+    "cors"
+   ]
+  },
+  {
+   "url": "https://laboiteaslides.fr/sk/uploads/thumbnail_Adobe_Stock_206118370_5ab61dcb89.jpg",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/jpeg",
+   "headers": {
+    "access-control-allow-credentials": "true",
+    "access-control-allow-origin": "",
+    "content-type": "image/jpeg",
+    "referrer-policy": "no-referrer",
+    "x-dns-prefetch-control": "off",
+    "x-download-options": "noopen",
+    "x-permitted-cross-domain-policies": "none"
+   },
+   "resourceType": "image",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "file": "site/laboiteaslides.fr/sk/uploads/thumbnail_Adobe_Stock_206118370_5ab61dcb89.jpg",
+   "size": 7599,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://laboiteaslides.fr/sk/uploads/thumbnail_Presentation_augmentee_1d02882a38.jpg",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/jpeg",
+   "headers": {
+    "access-control-allow-credentials": "true",
+    "access-control-allow-origin": "",
+    "content-type": "image/jpeg",
+    "referrer-policy": "no-referrer",
+    "x-dns-prefetch-control": "off",
+    "x-download-options": "noopen",
+    "x-permitted-cross-domain-policies": "none"
+   },
+   "resourceType": "image",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "file": "site/laboiteaslides.fr/sk/uploads/thumbnail_Presentation_augmentee_1d02882a38.jpg",
+   "size": 3680,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://laboiteaslides.fr/_nuxt/BPKthhEo.js",
+   "method": "GET",
+   "status": 200,
+   "contentType": "text/javascript; charset=utf-8",
+   "headers": {
+    "content-type": "text/javascript; charset=utf-8",
+    "x-robots-tag": "noindex"
+   },
+   "resourceType": "script",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "file": "site/laboiteaslides.fr/_nuxt/BPKthhEo.js",
+   "size": 1896,
+   "modes": [
+    "cors"
+   ]
+  },
+  {
+   "url": "https://laboiteaslides.fr/_nuxt/37qvNijT.js",
+   "method": "GET",
+   "status": 200,
+   "contentType": "text/javascript; charset=utf-8",
+   "headers": {
+    "content-type": "text/javascript; charset=utf-8",
+    "x-robots-tag": "noindex"
+   },
+   "resourceType": "script",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "file": "site/laboiteaslides.fr/_nuxt/37qvNijT.js",
+   "size": 5164,
+   "modes": [
+    "cors"
+   ]
+  },
+  {
+   "url": "https://laboiteaslides.fr/_nuxt/BbaA2AUh.js",
+   "method": "GET",
+   "status": 200,
+   "contentType": "text/javascript; charset=utf-8",
+   "headers": {
+    "content-type": "text/javascript; charset=utf-8",
+    "x-robots-tag": "noindex"
+   },
+   "resourceType": "script",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "file": "site/laboiteaslides.fr/_nuxt/BbaA2AUh.js",
+   "size": 4368,
+   "modes": [
+    "cors"
+   ]
+  },
+  {
+   "url": "https://laboiteaslides.fr/_nuxt/DqzInzYb.js",
+   "method": "GET",
+   "status": 200,
+   "contentType": "text/javascript; charset=utf-8",
+   "headers": {
+    "content-type": "text/javascript; charset=utf-8",
+    "x-robots-tag": "noindex"
+   },
+   "resourceType": "script",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "file": "site/laboiteaslides.fr/_nuxt/DqzInzYb.js",
+   "size": 72161,
+   "modes": [
+    "cors"
+   ]
+  },
+  {
+   "url": "https://laboiteaslides.fr/assets/images/favicon.png",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/png",
+   "headers": {
+    "content-type": "image/png"
+   },
+   "resourceType": "other",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "file": "site/laboiteaslides.fr/assets/images/favicon.png",
+   "size": 556,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://laboiteaslides.fr/_i18n/03a46b5a/fr/messages.json",
+   "method": "GET",
+   "status": 200,
+   "contentType": "application/json",
+   "headers": {
+    "content-type": "application/json",
+    "x-robots-tag": "index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1"
+   },
+   "resourceType": "fetch",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "file": "site/laboiteaslides.fr/_i18n/03a46b5a/fr/messages.json",
+   "size": 7090,
+   "modes": [
+    "cors"
+   ]
+  },
+  {
+   "url": "https://laboiteaslides.fr/sk/uploads/large_Presentation_augmentee_1d02882a38.jpg",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/jpeg",
+   "headers": {
+    "access-control-allow-credentials": "true",
+    "access-control-allow-origin": "",
+    "content-type": "image/jpeg",
+    "referrer-policy": "no-referrer",
+    "x-dns-prefetch-control": "off",
+    "x-download-options": "noopen",
+    "x-permitted-cross-domain-policies": "none"
+   },
+   "resourceType": "image",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "file": "site/laboiteaslides.fr/sk/uploads/large_Presentation_augmentee_1d02882a38.jpg",
+   "size": 31614,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://laboiteaslides.fr/sk/uploads/medium_Adobe_Stock_206118370_5ab61dcb89.jpg",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/jpeg",
+   "headers": {
+    "access-control-allow-credentials": "true",
+    "access-control-allow-origin": "",
+    "content-type": "image/jpeg",
+    "referrer-policy": "no-referrer",
+    "x-dns-prefetch-control": "off",
+    "x-download-options": "noopen",
+    "x-permitted-cross-domain-policies": "none"
+   },
+   "resourceType": "image",
+   "passes": [
+    "desktop"
+   ],
+   "file": "site/laboiteaslides.fr/sk/uploads/medium_Adobe_Stock_206118370_5ab61dcb89.jpg",
+   "size": 46495,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://laboiteaslides.fr/sk/uploads/Safran_0239f5157e.jpg",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/jpeg",
+   "headers": {
+    "access-control-allow-credentials": "true",
+    "access-control-allow-origin": "",
+    "content-type": "image/jpeg",
+    "referrer-policy": "no-referrer",
+    "x-dns-prefetch-control": "off",
+    "x-download-options": "noopen",
+    "x-permitted-cross-domain-policies": "none"
+   },
+   "resourceType": "image",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "file": "site/laboiteaslides.fr/sk/uploads/Safran_0239f5157e.jpg",
+   "size": 173851,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://laboiteaslides.fr/sk/uploads/big_Adidas_2_20aaceff99.jpg",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/jpeg",
+   "headers": {
+    "access-control-allow-credentials": "true",
+    "access-control-allow-origin": "",
+    "content-type": "image/jpeg",
+    "referrer-policy": "no-referrer",
+    "x-dns-prefetch-control": "off",
+    "x-download-options": "noopen",
+    "x-permitted-cross-domain-policies": "none"
+   },
+   "resourceType": "image",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "file": "site/laboiteaslides.fr/sk/uploads/big_Adidas_2_20aaceff99.jpg",
+   "size": 328199,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://laboiteaslides.fr/sk/uploads/Touchscreen_Mariott_la_boite_a_slides_agence_powerpoint_0415bcab60.jpg",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/jpeg",
+   "headers": {
+    "access-control-allow-credentials": "true",
+    "access-control-allow-origin": "",
+    "content-type": "image/jpeg",
+    "referrer-policy": "no-referrer",
+    "x-dns-prefetch-control": "off",
+    "x-download-options": "noopen",
+    "x-permitted-cross-domain-policies": "none"
+   },
+   "resourceType": "image",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "file": "site/laboiteaslides.fr/sk/uploads/Touchscreen_Mariott_la_boite_a_slides_agence_powerpoint_0415bcab60.jpg",
+   "size": 174026,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://laboiteaslides.fr/_nuxt/BYyf5AQZ.js",
+   "method": "GET",
+   "status": 200,
+   "contentType": "text/javascript; charset=utf-8",
+   "headers": {
+    "content-type": "text/javascript; charset=utf-8",
+    "x-robots-tag": "noindex"
+   },
+   "resourceType": "script",
+   "passes": [
+    "desktop"
+   ],
+   "file": "site/laboiteaslides.fr/_nuxt/BYyf5AQZ.js",
+   "size": 11559,
+   "modes": [
+    "cors"
+   ]
+  },
+  {
+   "url": "https://laboiteaslides.fr/_nuxt/B2DqWQ25.js",
+   "method": "GET",
+   "status": 200,
+   "contentType": "text/javascript; charset=utf-8",
+   "headers": {
+    "content-type": "text/javascript; charset=utf-8",
+    "x-robots-tag": "noindex"
+   },
+   "resourceType": "script",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "file": "site/laboiteaslides.fr/_nuxt/B2DqWQ25.js",
+   "size": 104150,
+   "modes": [
+    "cors"
+   ]
+  },
+  {
+   "url": "https://laboiteaslides.fr/_nuxt/BwZr4GZi.js",
+   "method": "GET",
+   "status": 200,
+   "contentType": "text/javascript; charset=utf-8",
+   "headers": {
+    "content-type": "text/javascript; charset=utf-8",
+    "x-robots-tag": "noindex"
+   },
+   "resourceType": "script",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "file": "site/laboiteaslides.fr/_nuxt/BwZr4GZi.js",
+   "size": 15005,
+   "modes": [
+    "cors"
+   ]
+  },
+  {
+   "url": "https://laboiteaslides.fr/_nuxt/C-aT7g6A.js",
+   "method": "GET",
+   "status": 200,
+   "contentType": "text/javascript; charset=utf-8",
+   "headers": {
+    "content-type": "text/javascript; charset=utf-8",
+    "x-robots-tag": "noindex"
+   },
+   "resourceType": "script",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "file": "site/laboiteaslides.fr/_nuxt/C-aT7g6A.js",
+   "size": 2938,
+   "modes": [
+    "cors"
+   ]
+  },
+  {
+   "url": "https://laboiteaslides.fr/_nuxt/DwALLd8P.js",
+   "method": "GET",
+   "status": 200,
+   "contentType": "text/javascript; charset=utf-8",
+   "headers": {
+    "content-type": "text/javascript; charset=utf-8",
+    "x-robots-tag": "noindex"
+   },
+   "resourceType": "script",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "file": "site/laboiteaslides.fr/_nuxt/DwALLd8P.js",
+   "size": 710447,
+   "modes": [
+    "cors"
+   ]
+  },
+  {
+   "url": "https://laboiteaslides.fr/sk/uploads/small_Adobe_Stock_206118370_5ab61dcb89.jpg",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/jpeg",
+   "headers": {
+    "access-control-allow-credentials": "true",
+    "access-control-allow-origin": "",
+    "content-type": "image/jpeg",
+    "referrer-policy": "no-referrer",
+    "x-dns-prefetch-control": "off",
+    "x-download-options": "noopen",
+    "x-permitted-cross-domain-policies": "none"
+   },
+   "resourceType": "image",
+   "passes": [
+    "mobile"
+   ],
+   "file": "site/laboiteaslides.fr/sk/uploads/small_Adobe_Stock_206118370_5ab61dcb89.jpg",
+   "size": 24485,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://laboiteaslides.fr/sk/uploads/big_Nissan_ef41272a76.jpg",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/jpeg",
+   "headers": {
+    "access-control-allow-credentials": "true",
+    "access-control-allow-origin": "",
+    "content-type": "image/jpeg",
+    "referrer-policy": "no-referrer",
+    "x-dns-prefetch-control": "off",
+    "x-download-options": "noopen",
+    "x-permitted-cross-domain-policies": "none"
+   },
+   "resourceType": "image",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "file": "site/laboiteaslides.fr/sk/uploads/big_Nissan_ef41272a76.jpg",
+   "size": 128912,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://laboiteaslides.fr/sk/uploads/big_Upciti_82768aec88.jpg",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/jpeg",
+   "headers": {
+    "access-control-allow-credentials": "true",
+    "access-control-allow-origin": "",
+    "content-type": "image/jpeg",
+    "referrer-policy": "no-referrer",
+    "x-dns-prefetch-control": "off",
+    "x-download-options": "noopen",
+    "x-permitted-cross-domain-policies": "none"
+   },
+   "resourceType": "image",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "file": "site/laboiteaslides.fr/sk/uploads/big_Upciti_82768aec88.jpg",
+   "size": 351108,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://laboiteaslides.fr/sk/uploads/Viridien_e87722da36.jpg",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/jpeg",
+   "headers": {
+    "access-control-allow-credentials": "true",
+    "access-control-allow-origin": "",
+    "content-type": "image/jpeg",
+    "referrer-policy": "no-referrer",
+    "x-dns-prefetch-control": "off",
+    "x-download-options": "noopen",
+    "x-permitted-cross-domain-policies": "none"
+   },
+   "resourceType": "image",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "file": "site/laboiteaslides.fr/sk/uploads/Viridien_e87722da36.jpg",
+   "size": 602319,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://laboiteaslides.fr/sk/uploads/Ekaterra_Tea_Lipton_43f10e2e06.jpg",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/jpeg",
+   "headers": {
+    "access-control-allow-credentials": "true",
+    "access-control-allow-origin": "",
+    "content-type": "image/jpeg",
+    "referrer-policy": "no-referrer",
+    "x-dns-prefetch-control": "off",
+    "x-download-options": "noopen",
+    "x-permitted-cross-domain-policies": "none"
+   },
+   "resourceType": "image",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "file": "site/laboiteaslides.fr/sk/uploads/Ekaterra_Tea_Lipton_43f10e2e06.jpg",
+   "size": 167740,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://laboiteaslides.fr/sk/uploads/Brasseries_kronenbourg_sceno_72f519a001.jpg",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/jpeg",
+   "headers": {
+    "access-control-allow-credentials": "true",
+    "access-control-allow-origin": "",
+    "content-type": "image/jpeg",
+    "referrer-policy": "no-referrer",
+    "x-dns-prefetch-control": "off",
+    "x-download-options": "noopen",
+    "x-permitted-cross-domain-policies": "none"
+   },
+   "resourceType": "image",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "file": "site/laboiteaslides.fr/sk/uploads/Brasseries_kronenbourg_sceno_72f519a001.jpg",
+   "size": 195503,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://laboiteaslides.fr/_nuxt/BB3PIoQQ.js",
+   "method": "GET",
+   "status": 200,
+   "contentType": "text/javascript; charset=utf-8",
+   "headers": {
+    "content-type": "text/javascript; charset=utf-8",
+    "x-robots-tag": "noindex"
+   },
+   "resourceType": "script",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "file": "site/laboiteaslides.fr/_nuxt/BB3PIoQQ.js",
+   "size": 423,
+   "modes": [
+    "cors"
+   ]
+  },
+  {
+   "url": "https://laboiteaslides.fr/_nuxt/BjCFWDZF.js",
+   "method": "GET",
+   "status": 200,
+   "contentType": "text/javascript; charset=utf-8",
+   "headers": {
+    "content-type": "text/javascript; charset=utf-8",
+    "x-robots-tag": "noindex"
+   },
+   "resourceType": "script",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "file": "site/laboiteaslides.fr/_nuxt/BjCFWDZF.js",
+   "size": 27881,
+   "modes": [
+    "cors"
+   ]
+  },
+  {
+   "url": "https://laboiteaslides.fr/assets/fonts/FK%20Screamer%20Legacy%20Upright_Regular.json",
+   "method": "GET",
+   "status": 200,
+   "contentType": "application/json",
+   "headers": {
+    "content-type": "application/json"
+   },
+   "resourceType": "fetch",
+   "passes": [
+    "desktop"
+   ],
+   "file": "site/laboiteaslides.fr/assets/fonts/FK Screamer Legacy Upright_Regular.json",
+   "size": 104279,
+   "modes": [
+    "cors"
+   ]
+  },
+  {
+   "url": "https://laboiteaslides.fr/_nuxt/hNTmJnfp.js",
+   "method": "GET",
+   "status": 200,
+   "contentType": "text/javascript; charset=utf-8",
+   "headers": {
+    "content-type": "text/javascript; charset=utf-8",
+    "x-robots-tag": "noindex"
+   },
+   "resourceType": "script",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "file": "site/laboiteaslides.fr/_nuxt/hNTmJnfp.js",
+   "size": 1109,
+   "modes": [
+    "cors"
+   ]
+  },
+  {
+   "url": "https://laboiteaslides.fr/_nuxt/Cn-3ttpx.js",
+   "method": "GET",
+   "status": 200,
+   "contentType": "text/javascript; charset=utf-8",
+   "headers": {
+    "content-type": "text/javascript; charset=utf-8",
+    "x-robots-tag": "noindex"
+   },
+   "resourceType": "script",
+   "passes": [
+    "desktop"
+   ],
+   "file": "site/laboiteaslides.fr/_nuxt/Cn-3ttpx.js",
+   "size": 5554,
+   "modes": [
+    "cors"
+   ]
+  },
+  {
+   "url": "https://laboiteaslides.fr/_nuxt/_zJutY_p.js",
+   "method": "GET",
+   "status": 200,
+   "contentType": "text/javascript; charset=utf-8",
+   "headers": {
+    "content-type": "text/javascript; charset=utf-8",
+    "x-robots-tag": "noindex"
+   },
+   "resourceType": "script",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "file": "site/laboiteaslides.fr/_nuxt/_zJutY_p.js",
+   "size": 6270,
+   "modes": [
+    "cors"
+   ]
+  },
+  {
+   "url": "https://laboiteaslides.fr/_nuxt/CIWAW7r5.js",
+   "method": "GET",
+   "status": 200,
+   "contentType": "text/javascript; charset=utf-8",
+   "headers": {
+    "content-type": "text/javascript; charset=utf-8",
+    "x-robots-tag": "noindex"
+   },
+   "resourceType": "script",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "file": "site/laboiteaslides.fr/_nuxt/CIWAW7r5.js",
+   "size": 541,
+   "modes": [
+    "cors"
+   ]
+  },
+  {
+   "url": "https://laboiteaslides.fr/_nuxt/CGhXUfKI.js",
+   "method": "GET",
+   "status": 200,
+   "contentType": "text/javascript; charset=utf-8",
+   "headers": {
+    "content-type": "text/javascript; charset=utf-8",
+    "x-robots-tag": "noindex"
+   },
+   "resourceType": "script",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "file": "site/laboiteaslides.fr/_nuxt/CGhXUfKI.js",
+   "size": 3000,
+   "modes": [
+    "cors"
+   ]
+  },
+  {
+   "url": "https://laboiteaslides.fr/_nuxt/C3UKkzre.js",
+   "method": "GET",
+   "status": 200,
+   "contentType": "text/javascript; charset=utf-8",
+   "headers": {
+    "content-type": "text/javascript; charset=utf-8",
+    "x-robots-tag": "noindex"
+   },
+   "resourceType": "script",
+   "passes": [
+    "desktop"
+   ],
+   "file": "site/laboiteaslides.fr/_nuxt/C3UKkzre.js",
+   "size": 19327,
+   "modes": [
+    "cors"
+   ]
+  },
+  {
+   "url": "https://laboiteaslides.fr/_nuxt/BPfyY82u.js",
+   "method": "GET",
+   "status": 200,
+   "contentType": "text/javascript; charset=utf-8",
+   "headers": {
+    "content-type": "text/javascript; charset=utf-8",
+    "x-robots-tag": "noindex"
+   },
+   "resourceType": "script",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "file": "site/laboiteaslides.fr/_nuxt/BPfyY82u.js",
+   "size": 47050,
+   "modes": [
+    "cors"
+   ]
+  },
+  {
+   "url": "https://laboiteaslides.fr/_nuxt/CuKLCa7p.js",
+   "method": "GET",
+   "status": 200,
+   "contentType": "text/javascript; charset=utf-8",
+   "headers": {
+    "content-type": "text/javascript; charset=utf-8",
+    "x-robots-tag": "noindex"
+   },
+   "resourceType": "script",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "file": "site/laboiteaslides.fr/_nuxt/CuKLCa7p.js",
+   "size": 1105,
+   "modes": [
+    "cors"
+   ]
+  },
+  {
+   "url": "https://laboiteaslides.fr/_nuxt/Bfx1mPo6.js",
+   "method": "GET",
+   "status": 200,
+   "contentType": "text/javascript; charset=utf-8",
+   "headers": {
+    "content-type": "text/javascript; charset=utf-8",
+    "x-robots-tag": "noindex"
+   },
+   "resourceType": "script",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "file": "site/laboiteaslides.fr/_nuxt/Bfx1mPo6.js",
+   "size": 39183,
+   "modes": [
+    "cors"
+   ]
+  },
+  {
+   "url": "https://laboiteaslides.fr/assets/hdr/studio_small_08_1k.hdr",
+   "method": "GET",
+   "status": 200,
+   "contentType": "text/plain; charset=utf-8",
+   "headers": {
+    "content-type": "text/plain; charset=utf-8"
+   },
+   "resourceType": "fetch",
+   "passes": [
+    "desktop"
+   ],
+   "file": "site/laboiteaslides.fr/assets/hdr/studio_small_08_1k.hdr",
+   "size": 1508872,
+   "modes": [
+    "cors"
+   ]
+  },
+  {
+   "url": "https://laboiteaslides.fr/assets/models/DECIMATE%20v2_compressed-compressed.glb",
+   "method": "GET",
+   "status": 200,
+   "contentType": "model/gltf-binary",
+   "headers": {
+    "content-type": "model/gltf-binary"
+   },
+   "resourceType": "fetch",
+   "passes": [
+    "desktop"
+   ],
+   "file": "site/laboiteaslides.fr/assets/models/DECIMATE v2_compressed-compressed.glb",
+   "size": 1098892,
+   "modes": [
+    "cors"
+   ]
+  },
+  {
+   "url": "https://stats.sparkk.fr/matomo.js",
+   "method": "GET",
+   "status": 200,
+   "contentType": "application/javascript",
+   "headers": {
+    "content-type": "application/javascript"
+   },
+   "resourceType": "script",
+   "passes": [
+    "mobile",
+    "desktop"
+   ],
+   "file": "site/stats.sparkk.fr/matomo.js",
+   "size": 67972,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://stats.sparkk.fr/matomo.php?action_name=La%20boite%20%C3%A0%20slides%C2%AE%20%3A%20l%27Agence%20PowerPoint%20Certifi%C3%A9e%20ISO%209001&idsite=51&rec=1&r=080233&h=21&m=1&s=42&url=https%3A%2F%2Flaboiteaslides.fr%2F&_id=a46995bd251b049a&_idn=1&send_image=0&_refts=0&pv_id=EBJJ9f&pf_net=187&pf_srv=290&pf_tfr=87&pf_dm1=249&pf_dm2=270&pf_onl=0&uadata=%7B%22formFactors%22%3A%5B%22Desktop%22%5D%2C%22fullVersionList%22%3A%5B%7B%22brand%22%3A%22Chromium%22%2C%22version%22%3A%22153.0.8010.12%22%7D%2C%7B%22brand%22%3A%22Not_A%20Brand%22%2C%22version%22%3A%228.0.0.0%22%7D%5D%2C%22mobile%22%3Atrue%2C%22model%22%3A%22%22%2C%22platform%22%3A%22iOS%22%2C%22platformVersion%22%3A%2215_0%22%7D&pdf=1&qt=0&realp=0&wma=0&fla=0&java=0&ag=0&cookie=1&res=390x664",
+   "method": "POST",
+   "status": 204,
+   "contentType": "",
+   "headers": {
+    "access-control-allow-credentials": "true",
+    "access-control-allow-origin": "https://laboiteaslides.fr",
+    "referrer-policy": "origin"
+   },
+   "resourceType": "ping",
+   "passes": [
+    "mobile"
+   ],
+   "size": 0
+  },
+  {
+   "url": "https://laboiteaslides.fr/_nuxt/builds/meta/c6e8aa5d-ffc3-47f7-a16e-0c11230c103e.json",
+   "method": "GET",
+   "status": 200,
+   "contentType": "application/json",
+   "headers": {
+    "content-type": "application/json",
+    "x-robots-tag": "noindex"
+   },
+   "resourceType": "fetch",
+   "passes": [
+    "mobile",
+    "desktop"
+   ],
+   "file": "site/laboiteaslides.fr/_nuxt/builds/meta/c6e8aa5d-ffc3-47f7-a16e-0c11230c103e.json",
+   "size": 88,
+   "modes": [
+    "cors"
+   ]
+  },
+  {
+   "url": "https://laboiteaslides.fr/sk/uploads/small_Brico_Depot_9265283144.jpg",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/jpeg",
+   "headers": {
+    "access-control-allow-credentials": "true",
+    "access-control-allow-origin": "https://laboiteaslides.fr",
+    "content-type": "image/jpeg",
+    "referrer-policy": "no-referrer",
+    "x-dns-prefetch-control": "off",
+    "x-download-options": "noopen",
+    "x-permitted-cross-domain-policies": "none"
+   },
+   "resourceType": "image",
+   "passes": [
+    "desktop"
+   ],
+   "file": "site/laboiteaslides.fr/sk/uploads/small_Brico_Depot_9265283144.jpg",
+   "size": 25451,
+   "modes": [
+    "cors"
+   ]
+  },
+  {
+   "url": "https://laboiteaslides.fr/sk/uploads/small_Brasseries_kronenbourg_2_ef3160d1cb.jpg",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/jpeg",
+   "headers": {
+    "access-control-allow-credentials": "true",
+    "access-control-allow-origin": "https://laboiteaslides.fr",
+    "content-type": "image/jpeg",
+    "referrer-policy": "no-referrer",
+    "x-dns-prefetch-control": "off",
+    "x-download-options": "noopen",
+    "x-permitted-cross-domain-policies": "none"
+   },
+   "resourceType": "image",
+   "passes": [
+    "desktop"
+   ],
+   "file": "site/laboiteaslides.fr/sk/uploads/small_Brasseries_kronenbourg_2_ef3160d1cb.jpg",
+   "size": 22999,
+   "modes": [
+    "cors"
+   ]
+  },
+  {
+   "url": "https://laboiteaslides.fr/sk/uploads/small_Econocom_1_bbf2deda06.jpg",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/jpeg",
+   "headers": {
+    "access-control-allow-credentials": "true",
+    "access-control-allow-origin": "https://laboiteaslides.fr",
+    "content-type": "image/jpeg",
+    "referrer-policy": "no-referrer",
+    "x-dns-prefetch-control": "off",
+    "x-download-options": "noopen",
+    "x-permitted-cross-domain-policies": "none"
+   },
+   "resourceType": "image",
+   "passes": [
+    "desktop"
+   ],
+   "file": "site/laboiteaslides.fr/sk/uploads/small_Econocom_1_bbf2deda06.jpg",
+   "size": 10479,
+   "modes": [
+    "cors"
+   ]
+  },
+  {
+   "url": "https://laboiteaslides.fr/sk/uploads/small_Brasseries_kronenbourg_3_2c511aaf16.jpg",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/jpeg",
+   "headers": {
+    "access-control-allow-credentials": "true",
+    "access-control-allow-origin": "https://laboiteaslides.fr",
+    "content-type": "image/jpeg",
+    "referrer-policy": "no-referrer",
+    "x-dns-prefetch-control": "off",
+    "x-download-options": "noopen",
+    "x-permitted-cross-domain-policies": "none"
+   },
+   "resourceType": "image",
+   "passes": [
+    "desktop"
+   ],
+   "file": "site/laboiteaslides.fr/sk/uploads/small_Brasseries_kronenbourg_3_2c511aaf16.jpg",
+   "size": 11403,
+   "modes": [
+    "cors"
+   ]
+  },
+  {
+   "url": "https://laboiteaslides.fr/sk/uploads/small_Candriam_d7ec4211ac.jpg",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/jpeg",
+   "headers": {
+    "access-control-allow-credentials": "true",
+    "access-control-allow-origin": "https://laboiteaslides.fr",
+    "content-type": "image/jpeg",
+    "referrer-policy": "no-referrer",
+    "x-dns-prefetch-control": "off",
+    "x-download-options": "noopen",
+    "x-permitted-cross-domain-policies": "none"
+   },
+   "resourceType": "image",
+   "passes": [
+    "desktop"
+   ],
+   "file": "site/laboiteaslides.fr/sk/uploads/small_Candriam_d7ec4211ac.jpg",
+   "size": 27807,
+   "modes": [
+    "cors"
+   ]
+  },
+  {
+   "url": "https://laboiteaslides.fr/sk/uploads/small_Brasseries_kronenbourg_c4aa37d707.jpg",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/jpeg",
+   "headers": {
+    "access-control-allow-credentials": "true",
+    "access-control-allow-origin": "https://laboiteaslides.fr",
+    "content-type": "image/jpeg",
+    "referrer-policy": "no-referrer",
+    "x-dns-prefetch-control": "off",
+    "x-download-options": "noopen",
+    "x-permitted-cross-domain-policies": "none"
+   },
+   "resourceType": "image",
+   "passes": [
+    "desktop"
+   ],
+   "file": "site/laboiteaslides.fr/sk/uploads/small_Brasseries_kronenbourg_c4aa37d707.jpg",
+   "size": 24595,
+   "modes": [
+    "cors"
+   ]
+  },
+  {
+   "url": "https://laboiteaslides.fr/sk/uploads/small_Live_cam_powerpoint_66ba77a3d6.jpg",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/jpeg",
+   "headers": {
+    "access-control-allow-credentials": "true",
+    "access-control-allow-origin": "https://laboiteaslides.fr",
+    "content-type": "image/jpeg",
+    "referrer-policy": "no-referrer",
+    "x-dns-prefetch-control": "off",
+    "x-download-options": "noopen",
+    "x-permitted-cross-domain-policies": "none"
+   },
+   "resourceType": "image",
+   "passes": [
+    "desktop"
+   ],
+   "file": "site/laboiteaslides.fr/sk/uploads/small_Live_cam_powerpoint_66ba77a3d6.jpg",
+   "size": 17787,
+   "modes": [
+    "cors"
+   ]
+  },
+  {
+   "url": "https://laboiteaslides.fr/sk/uploads/small_Limatech_0200a6e1da.jpg",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/jpeg",
+   "headers": {
+    "access-control-allow-credentials": "true",
+    "access-control-allow-origin": "https://laboiteaslides.fr",
+    "content-type": "image/jpeg",
+    "referrer-policy": "no-referrer",
+    "x-dns-prefetch-control": "off",
+    "x-download-options": "noopen",
+    "x-permitted-cross-domain-policies": "none"
+   },
+   "resourceType": "image",
+   "passes": [
+    "desktop"
+   ],
+   "file": "site/laboiteaslides.fr/sk/uploads/small_Limatech_0200a6e1da.jpg",
+   "size": 27918,
+   "modes": [
+    "cors"
+   ]
+  },
+  {
+   "url": "https://laboiteaslides.fr/sk/uploads/small_Live_cam_Realite_Augmentee_powerpoint_1_326712230e.jpg",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/jpeg",
+   "headers": {
+    "access-control-allow-credentials": "true",
+    "access-control-allow-origin": "https://laboiteaslides.fr",
+    "content-type": "image/jpeg",
+    "referrer-policy": "no-referrer",
+    "x-dns-prefetch-control": "off",
+    "x-download-options": "noopen",
+    "x-permitted-cross-domain-policies": "none"
+   },
+   "resourceType": "image",
+   "passes": [
+    "desktop"
+   ],
+   "file": "site/laboiteaslides.fr/sk/uploads/small_Live_cam_Realite_Augmentee_powerpoint_1_326712230e.jpg",
+   "size": 23687,
+   "modes": [
+    "cors"
+   ]
+  },
+  {
+   "url": "https://laboiteaslides.fr/sk/uploads/small_Econocom_3_09b37caa26.jpg",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/jpeg",
+   "headers": {
+    "access-control-allow-credentials": "true",
+    "access-control-allow-origin": "https://laboiteaslides.fr",
+    "content-type": "image/jpeg",
+    "referrer-policy": "no-referrer",
+    "x-dns-prefetch-control": "off",
+    "x-download-options": "noopen",
+    "x-permitted-cross-domain-policies": "none"
+   },
+   "resourceType": "image",
+   "passes": [
+    "desktop"
+   ],
+   "file": "site/laboiteaslides.fr/sk/uploads/small_Econocom_3_09b37caa26.jpg",
+   "size": 15024,
+   "modes": [
+    "cors"
+   ]
+  },
+  {
+   "url": "https://laboiteaslides.fr/sk/uploads/small_Econocom_2_b5451e30d7.jpg",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/jpeg",
+   "headers": {
+    "access-control-allow-credentials": "true",
+    "access-control-allow-origin": "https://laboiteaslides.fr",
+    "content-type": "image/jpeg",
+    "referrer-policy": "no-referrer",
+    "x-dns-prefetch-control": "off",
+    "x-download-options": "noopen",
+    "x-permitted-cross-domain-policies": "none"
+   },
+   "resourceType": "image",
+   "passes": [
+    "desktop"
+   ],
+   "file": "site/laboiteaslides.fr/sk/uploads/small_Econocom_2_b5451e30d7.jpg",
+   "size": 15635,
+   "modes": [
+    "cors"
+   ]
+  },
+  {
+   "url": "https://laboiteaslides.fr/sk/uploads/small_Econocom_4_d6a171dce4.jpg",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/jpeg",
+   "headers": {
+    "access-control-allow-credentials": "true",
+    "access-control-allow-origin": "https://laboiteaslides.fr",
+    "content-type": "image/jpeg",
+    "referrer-policy": "no-referrer",
+    "x-dns-prefetch-control": "off",
+    "x-download-options": "noopen",
+    "x-permitted-cross-domain-policies": "none"
+   },
+   "resourceType": "image",
+   "passes": [
+    "desktop"
+   ],
+   "file": "site/laboiteaslides.fr/sk/uploads/small_Econocom_4_d6a171dce4.jpg",
+   "size": 16614,
+   "modes": [
+    "cors"
+   ]
+  },
+  {
+   "url": "https://laboiteaslides.fr/sk/uploads/small_Live_cam_Realite_Augmentee_powerpoint_2_0da8adf478.jpg",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/jpeg",
+   "headers": {
+    "access-control-allow-credentials": "true",
+    "access-control-allow-origin": "https://laboiteaslides.fr",
+    "content-type": "image/jpeg",
+    "referrer-policy": "no-referrer",
+    "x-dns-prefetch-control": "off",
+    "x-download-options": "noopen",
+    "x-permitted-cross-domain-policies": "none"
+   },
+   "resourceType": "image",
+   "passes": [
+    "desktop"
+   ],
+   "file": "site/laboiteaslides.fr/sk/uploads/small_Live_cam_Realite_Augmentee_powerpoint_2_0da8adf478.jpg",
+   "size": 23678,
+   "modes": [
+    "cors"
+   ]
+  },
+  {
+   "url": "https://laboiteaslides.fr/sk/uploads/small_Trivial_Pursuit_8a4b25c1ca.jpg",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/jpeg",
+   "headers": {
+    "access-control-allow-credentials": "true",
+    "access-control-allow-origin": "https://laboiteaslides.fr",
+    "content-type": "image/jpeg",
+    "referrer-policy": "no-referrer",
+    "x-dns-prefetch-control": "off",
+    "x-download-options": "noopen",
+    "x-permitted-cross-domain-policies": "none"
+   },
+   "resourceType": "image",
+   "passes": [
+    "desktop"
+   ],
+   "file": "site/laboiteaslides.fr/sk/uploads/small_Trivial_Pursuit_8a4b25c1ca.jpg",
+   "size": 23052,
+   "modes": [
+    "cors"
+   ]
+  },
+  {
+   "url": "https://laboiteaslides.fr/sk/uploads/small_qui_veut_gagner_des_millions_7ec0f870fa.jpg",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/jpeg",
+   "headers": {
+    "access-control-allow-credentials": "true",
+    "access-control-allow-origin": "https://laboiteaslides.fr",
+    "content-type": "image/jpeg",
+    "referrer-policy": "no-referrer",
+    "x-dns-prefetch-control": "off",
+    "x-download-options": "noopen",
+    "x-permitted-cross-domain-policies": "none"
+   },
+   "resourceType": "image",
+   "passes": [
+    "desktop"
+   ],
+   "file": "site/laboiteaslides.fr/sk/uploads/small_qui_veut_gagner_des_millions_7ec0f870fa.jpg",
+   "size": 39707,
+   "modes": [
+    "cors"
+   ]
+  },
+  {
+   "url": "https://laboiteaslides.fr/sk/uploads/small_Maison_Perrier_Award_219180308a.jpg",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/jpeg",
+   "headers": {
+    "access-control-allow-credentials": "true",
+    "access-control-allow-origin": "https://laboiteaslides.fr",
+    "content-type": "image/jpeg",
+    "referrer-policy": "no-referrer",
+    "x-dns-prefetch-control": "off",
+    "x-download-options": "noopen",
+    "x-permitted-cross-domain-policies": "none"
+   },
+   "resourceType": "image",
+   "passes": [
+    "desktop"
+   ],
+   "file": "site/laboiteaslides.fr/sk/uploads/small_Maison_Perrier_Award_219180308a.jpg",
+   "size": 16224,
+   "modes": [
+    "cors"
+   ]
+  },
+  {
+   "url": "https://laboiteaslides.fr/sk/uploads/small_Maison_Perrier_6c1d185c63.jpg",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/jpeg",
+   "headers": {
+    "access-control-allow-credentials": "true",
+    "access-control-allow-origin": "https://laboiteaslides.fr",
+    "content-type": "image/jpeg",
+    "referrer-policy": "no-referrer",
+    "x-dns-prefetch-control": "off",
+    "x-download-options": "noopen",
+    "x-permitted-cross-domain-policies": "none"
+   },
+   "resourceType": "image",
+   "passes": [
+    "desktop"
+   ],
+   "file": "site/laboiteaslides.fr/sk/uploads/small_Maison_Perrier_6c1d185c63.jpg",
+   "size": 18216,
+   "modes": [
+    "cors"
+   ]
+  },
+  {
+   "url": "https://laboiteaslides.fr/sk/uploads/small_Maison_Perrier_Chic_2e80303fbc.jpg",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/jpeg",
+   "headers": {
+    "access-control-allow-credentials": "true",
+    "access-control-allow-origin": "https://laboiteaslides.fr",
+    "content-type": "image/jpeg",
+    "referrer-policy": "no-referrer",
+    "x-dns-prefetch-control": "off",
+    "x-download-options": "noopen",
+    "x-permitted-cross-domain-policies": "none"
+   },
+   "resourceType": "image",
+   "passes": [
+    "desktop"
+   ],
+   "file": "site/laboiteaslides.fr/sk/uploads/small_Maison_Perrier_Chic_2e80303fbc.jpg",
+   "size": 23696,
+   "modes": [
+    "cors"
+   ]
+  },
+  {
+   "url": "https://laboiteaslides.fr/sk/uploads/small_Trivial_Pursuit_3_7f9cf56cb4.jpg",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/jpeg",
+   "headers": {
+    "access-control-allow-credentials": "true",
+    "access-control-allow-origin": "https://laboiteaslides.fr",
+    "content-type": "image/jpeg",
+    "referrer-policy": "no-referrer",
+    "x-dns-prefetch-control": "off",
+    "x-download-options": "noopen",
+    "x-permitted-cross-domain-policies": "none"
+   },
+   "resourceType": "image",
+   "passes": [
+    "desktop"
+   ],
+   "file": "site/laboiteaslides.fr/sk/uploads/small_Trivial_Pursuit_3_7f9cf56cb4.jpg",
+   "size": 23052,
+   "modes": [
+    "cors"
+   ]
+  },
+  {
+   "url": "https://laboiteaslides.fr/sk/uploads/small_Trivial_Pursuit_5_Trivial_Pursuit_6_34207ab249.jpg",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/jpeg",
+   "headers": {
+    "access-control-allow-credentials": "true",
+    "access-control-allow-origin": "https://laboiteaslides.fr",
+    "content-type": "image/jpeg",
+    "referrer-policy": "no-referrer",
+    "x-dns-prefetch-control": "off",
+    "x-download-options": "noopen",
+    "x-permitted-cross-domain-policies": "none"
+   },
+   "resourceType": "image",
+   "passes": [
+    "desktop"
+   ],
+   "file": "site/laboiteaslides.fr/sk/uploads/small_Trivial_Pursuit_5_Trivial_Pursuit_6_34207ab249.jpg",
+   "size": 23088,
+   "modes": [
+    "cors"
+   ]
+  },
+  {
+   "url": "https://laboiteaslides.fr/sk/uploads/small_Trivial_Pursuit_5_e5e59ced1f.jpg",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/jpeg",
+   "headers": {
+    "access-control-allow-credentials": "true",
+    "access-control-allow-origin": "https://laboiteaslides.fr",
+    "content-type": "image/jpeg",
+    "referrer-policy": "no-referrer",
+    "x-dns-prefetch-control": "off",
+    "x-download-options": "noopen",
+    "x-permitted-cross-domain-policies": "none"
+   },
+   "resourceType": "image",
+   "passes": [
+    "desktop"
+   ],
+   "file": "site/laboiteaslides.fr/sk/uploads/small_Trivial_Pursuit_5_e5e59ced1f.jpg",
+   "size": 30203,
+   "modes": [
+    "cors"
+   ]
+  },
+  {
+   "url": "https://laboiteaslides.fr/sk/uploads/small_Trivial_Pursuit_2_6fafb6e677.jpg",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/jpeg",
+   "headers": {
+    "access-control-allow-credentials": "true",
+    "access-control-allow-origin": "https://laboiteaslides.fr",
+    "content-type": "image/jpeg",
+    "referrer-policy": "no-referrer",
+    "x-dns-prefetch-control": "off",
+    "x-download-options": "noopen",
+    "x-permitted-cross-domain-policies": "none"
+   },
+   "resourceType": "image",
+   "passes": [
+    "desktop"
+   ],
+   "file": "site/laboiteaslides.fr/sk/uploads/small_Trivial_Pursuit_2_6fafb6e677.jpg",
+   "size": 22785,
+   "modes": [
+    "cors"
+   ]
+  },
+  {
+   "url": "https://laboiteaslides.fr/sk/uploads/small_Trivial_Pursuit_4_07eee46f2f.jpg",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/jpeg",
+   "headers": {
+    "access-control-allow-credentials": "true",
+    "access-control-allow-origin": "https://laboiteaslides.fr",
+    "content-type": "image/jpeg",
+    "referrer-policy": "no-referrer",
+    "x-dns-prefetch-control": "off",
+    "x-download-options": "noopen",
+    "x-permitted-cross-domain-policies": "none"
+   },
+   "resourceType": "image",
+   "passes": [
+    "desktop"
+   ],
+   "file": "site/laboiteaslides.fr/sk/uploads/small_Trivial_Pursuit_4_07eee46f2f.jpg",
+   "size": 20326,
+   "modes": [
+    "cors"
+   ]
+  },
+  {
+   "url": "https://laboiteaslides.fr/sk/uploads/small_twix_snickers_a4c29b83f1.jpg",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/jpeg",
+   "headers": {
+    "access-control-allow-credentials": "true",
+    "access-control-allow-origin": "https://laboiteaslides.fr",
+    "content-type": "image/jpeg",
+    "referrer-policy": "no-referrer",
+    "x-dns-prefetch-control": "off",
+    "x-download-options": "noopen",
+    "x-permitted-cross-domain-policies": "none"
+   },
+   "resourceType": "image",
+   "passes": [
+    "desktop"
+   ],
+   "file": "site/laboiteaslides.fr/sk/uploads/small_twix_snickers_a4c29b83f1.jpg",
+   "size": 30234,
+   "modes": [
+    "cors"
+   ]
+  },
+  {
+   "url": "https://laboiteaslides.fr/sk/uploads/small_Vaudoise_0b797b5987.jpg",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/jpeg",
+   "headers": {
+    "access-control-allow-credentials": "true",
+    "access-control-allow-origin": "https://laboiteaslides.fr",
+    "content-type": "image/jpeg",
+    "referrer-policy": "no-referrer",
+    "x-dns-prefetch-control": "off",
+    "x-download-options": "noopen",
+    "x-permitted-cross-domain-policies": "none"
+   },
+   "resourceType": "image",
+   "passes": [
+    "desktop"
+   ],
+   "file": "site/laboiteaslides.fr/sk/uploads/small_Vaudoise_0b797b5987.jpg",
+   "size": 24774,
+   "modes": [
+    "cors"
+   ]
+  },
+  {
+   "url": "https://laboiteaslides.fr/sk/uploads/small_Adidas_20ec508fa3.jpg",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/jpeg",
+   "headers": {
+    "access-control-allow-credentials": "true",
+    "access-control-allow-origin": "https://laboiteaslides.fr",
+    "content-type": "image/jpeg",
+    "referrer-policy": "no-referrer",
+    "x-dns-prefetch-control": "off",
+    "x-download-options": "noopen",
+    "x-permitted-cross-domain-policies": "none"
+   },
+   "resourceType": "image",
+   "passes": [
+    "desktop"
+   ],
+   "file": "site/laboiteaslides.fr/sk/uploads/small_Adidas_20ec508fa3.jpg",
+   "size": 29945,
+   "modes": [
+    "cors"
+   ]
+  },
+  {
+   "url": "https://laboiteaslides.fr/sk/uploads/small_Araymond_4eb84ffff0.jpg",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/jpeg",
+   "headers": {
+    "access-control-allow-credentials": "true",
+    "access-control-allow-origin": "https://laboiteaslides.fr",
+    "content-type": "image/jpeg",
+    "referrer-policy": "no-referrer",
+    "x-dns-prefetch-control": "off",
+    "x-download-options": "noopen",
+    "x-permitted-cross-domain-policies": "none"
+   },
+   "resourceType": "image",
+   "passes": [
+    "desktop"
+   ],
+   "file": "site/laboiteaslides.fr/sk/uploads/small_Araymond_4eb84ffff0.jpg",
+   "size": 24871,
+   "modes": [
+    "cors"
+   ]
+  },
+  {
+   "url": "https://laboiteaslides.fr/sk/uploads/small_Audiens_b499a54b85.jpg",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/jpeg",
+   "headers": {
+    "access-control-allow-credentials": "true",
+    "access-control-allow-origin": "https://laboiteaslides.fr",
+    "content-type": "image/jpeg",
+    "referrer-policy": "no-referrer",
+    "x-dns-prefetch-control": "off",
+    "x-download-options": "noopen",
+    "x-permitted-cross-domain-policies": "none"
+   },
+   "resourceType": "image",
+   "passes": [
+    "desktop"
+   ],
+   "file": "site/laboiteaslides.fr/sk/uploads/small_Audiens_b499a54b85.jpg",
+   "size": 29872,
+   "modes": [
+    "cors"
+   ]
+  },
+  {
+   "url": "https://laboiteaslides.fr/sk/uploads/small_Axa_ed688ebfaa.jpg",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/jpeg",
+   "headers": {
+    "access-control-allow-credentials": "true",
+    "access-control-allow-origin": "https://laboiteaslides.fr",
+    "content-type": "image/jpeg",
+    "referrer-policy": "no-referrer",
+    "x-dns-prefetch-control": "off",
+    "x-download-options": "noopen",
+    "x-permitted-cross-domain-policies": "none"
+   },
+   "resourceType": "image",
+   "passes": [
+    "desktop"
+   ],
+   "file": "site/laboiteaslides.fr/sk/uploads/small_Axa_ed688ebfaa.jpg",
+   "size": 28081,
+   "modes": [
+    "cors"
+   ]
+  },
+  {
+   "url": "https://laboiteaslides.fr/sk/uploads/small_Axa_aide_a_la_vente_a02a510b23.jpg",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/jpeg",
+   "headers": {
+    "access-control-allow-credentials": "true",
+    "access-control-allow-origin": "https://laboiteaslides.fr",
+    "content-type": "image/jpeg",
+    "referrer-policy": "no-referrer",
+    "x-dns-prefetch-control": "off",
+    "x-download-options": "noopen",
+    "x-permitted-cross-domain-policies": "none"
+   },
+   "resourceType": "image",
+   "passes": [
+    "desktop"
+   ],
+   "file": "site/laboiteaslides.fr/sk/uploads/small_Axa_aide_a_la_vente_a02a510b23.jpg",
+   "size": 24477,
+   "modes": [
+    "cors"
+   ]
+  },
+  {
+   "url": "https://laboiteaslides.fr/sk/uploads/small_Chanel_f654a93dae.jpg",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/jpeg",
+   "headers": {
+    "access-control-allow-credentials": "true",
+    "access-control-allow-origin": "https://laboiteaslides.fr",
+    "content-type": "image/jpeg",
+    "referrer-policy": "no-referrer",
+    "x-dns-prefetch-control": "off",
+    "x-download-options": "noopen",
+    "x-permitted-cross-domain-policies": "none"
+   },
+   "resourceType": "image",
+   "passes": [
+    "desktop"
+   ],
+   "file": "site/laboiteaslides.fr/sk/uploads/small_Chanel_f654a93dae.jpg",
+   "size": 15590,
+   "modes": [
+    "cors"
+   ]
+  },
+  {
+   "url": "https://laboiteaslides.fr/sk/uploads/small_Caterpillar_2278246ff0.jpg",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/jpeg",
+   "headers": {
+    "access-control-allow-credentials": "true",
+    "access-control-allow-origin": "https://laboiteaslides.fr",
+    "content-type": "image/jpeg",
+    "referrer-policy": "no-referrer",
+    "x-dns-prefetch-control": "off",
+    "x-download-options": "noopen",
+    "x-permitted-cross-domain-policies": "none"
+   },
+   "resourceType": "image",
+   "passes": [
+    "desktop"
+   ],
+   "file": "site/laboiteaslides.fr/sk/uploads/small_Caterpillar_2278246ff0.jpg",
+   "size": 32316,
+   "modes": [
+    "cors"
+   ]
+  },
+  {
+   "url": "https://laboiteaslides.fr/sk/uploads/small_Babymoov_cb337e2d48.jpg",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/jpeg",
+   "headers": {
+    "access-control-allow-credentials": "true",
+    "access-control-allow-origin": "https://laboiteaslides.fr",
+    "content-type": "image/jpeg",
+    "referrer-policy": "no-referrer",
+    "x-dns-prefetch-control": "off",
+    "x-download-options": "noopen",
+    "x-permitted-cross-domain-policies": "none"
+   },
+   "resourceType": "image",
+   "passes": [
+    "desktop"
+   ],
+   "file": "site/laboiteaslides.fr/sk/uploads/small_Babymoov_cb337e2d48.jpg",
+   "size": 21264,
+   "modes": [
+    "cors"
+   ]
+  },
+  {
+   "url": "https://laboiteaslides.fr/sk/uploads/small_CBRE_00fce42506.jpg",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/jpeg",
+   "headers": {
+    "access-control-allow-credentials": "true",
+    "access-control-allow-origin": "https://laboiteaslides.fr",
+    "content-type": "image/jpeg",
+    "referrer-policy": "no-referrer",
+    "x-dns-prefetch-control": "off",
+    "x-download-options": "noopen",
+    "x-permitted-cross-domain-policies": "none"
+   },
+   "resourceType": "image",
+   "passes": [
+    "desktop"
+   ],
+   "file": "site/laboiteaslides.fr/sk/uploads/small_CBRE_00fce42506.jpg",
+   "size": 20852,
+   "modes": [
+    "cors"
+   ]
+  },
+  {
+   "url": "https://laboiteaslides.fr/sk/uploads/small_Coface_144ab51cdd.jpg",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/jpeg",
+   "headers": {
+    "access-control-allow-credentials": "true",
+    "access-control-allow-origin": "https://laboiteaslides.fr",
+    "content-type": "image/jpeg",
+    "referrer-policy": "no-referrer",
+    "x-dns-prefetch-control": "off",
+    "x-download-options": "noopen",
+    "x-permitted-cross-domain-policies": "none"
+   },
+   "resourceType": "image",
+   "passes": [
+    "desktop"
+   ],
+   "file": "site/laboiteaslides.fr/sk/uploads/small_Coface_144ab51cdd.jpg",
+   "size": 28675,
+   "modes": [
+    "cors"
+   ]
+  },
+  {
+   "url": "https://laboiteaslides.fr/sk/uploads/small_Essity_9872bcbd26.jpg",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/jpeg",
+   "headers": {
+    "access-control-allow-credentials": "true",
+    "access-control-allow-origin": "https://laboiteaslides.fr",
+    "content-type": "image/jpeg",
+    "referrer-policy": "no-referrer",
+    "x-dns-prefetch-control": "off",
+    "x-download-options": "noopen",
+    "x-permitted-cross-domain-policies": "none"
+   },
+   "resourceType": "image",
+   "passes": [
+    "desktop"
+   ],
+   "file": "site/laboiteaslides.fr/sk/uploads/small_Essity_9872bcbd26.jpg",
+   "size": 18043,
+   "modes": [
+    "cors"
+   ]
+  },
+  {
+   "url": "https://laboiteaslides.fr/sk/uploads/small_JDM_PRES_PPT_04_1_e2c5eec858.jpg",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/jpeg",
+   "headers": {
+    "access-control-allow-credentials": "true",
+    "access-control-allow-origin": "https://laboiteaslides.fr",
+    "content-type": "image/jpeg",
+    "referrer-policy": "no-referrer",
+    "x-dns-prefetch-control": "off",
+    "x-download-options": "noopen",
+    "x-permitted-cross-domain-policies": "none"
+   },
+   "resourceType": "image",
+   "passes": [
+    "desktop"
+   ],
+   "file": "site/laboiteaslides.fr/sk/uploads/small_JDM_PRES_PPT_04_1_e2c5eec858.jpg",
+   "size": 21206,
+   "modes": [
+    "cors"
+   ]
+  },
+  {
+   "url": "https://laboiteaslides.fr/sk/uploads/small_Flextone_1839960e8e.jpg",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/jpeg",
+   "headers": {
+    "access-control-allow-credentials": "true",
+    "access-control-allow-origin": "https://laboiteaslides.fr",
+    "content-type": "image/jpeg",
+    "referrer-policy": "no-referrer",
+    "x-dns-prefetch-control": "off",
+    "x-download-options": "noopen",
+    "x-permitted-cross-domain-policies": "none"
+   },
+   "resourceType": "image",
+   "passes": [
+    "desktop"
+   ],
+   "file": "site/laboiteaslides.fr/sk/uploads/small_Flextone_1839960e8e.jpg",
+   "size": 26486,
+   "modes": [
+    "cors"
+   ]
+  },
+  {
+   "url": "https://laboiteaslides.fr/sk/uploads/small_General_Motors_0fde66cf2b.jpg",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/jpeg",
+   "headers": {
+    "access-control-allow-credentials": "true",
+    "access-control-allow-origin": "https://laboiteaslides.fr",
+    "content-type": "image/jpeg",
+    "referrer-policy": "no-referrer",
+    "x-dns-prefetch-control": "off",
+    "x-download-options": "noopen",
+    "x-permitted-cross-domain-policies": "none"
+   },
+   "resourceType": "image",
+   "passes": [
+    "desktop"
+   ],
+   "file": "site/laboiteaslides.fr/sk/uploads/small_General_Motors_0fde66cf2b.jpg",
+   "size": 22955,
+   "modes": [
+    "cors"
+   ]
+  },
+  {
+   "url": "https://laboiteaslides.fr/sk/uploads/small_M_and_Ms_mini_e4ae435636.jpg",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/jpeg",
+   "headers": {
+    "access-control-allow-credentials": "true",
+    "access-control-allow-origin": "https://laboiteaslides.fr",
+    "content-type": "image/jpeg",
+    "referrer-policy": "no-referrer",
+    "x-dns-prefetch-control": "off",
+    "x-download-options": "noopen",
+    "x-permitted-cross-domain-policies": "none"
+   },
+   "resourceType": "image",
+   "passes": [
+    "desktop"
+   ],
+   "file": "site/laboiteaslides.fr/sk/uploads/small_M_and_Ms_mini_e4ae435636.jpg",
+   "size": 26985,
+   "modes": [
+    "cors"
+   ]
+  },
+  {
+   "url": "https://laboiteaslides.fr/sk/uploads/small_Liebig_2b76ec3546.jpg",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/jpeg",
+   "headers": {
+    "access-control-allow-credentials": "true",
+    "access-control-allow-origin": "https://laboiteaslides.fr",
+    "content-type": "image/jpeg",
+    "referrer-policy": "no-referrer",
+    "x-dns-prefetch-control": "off",
+    "x-download-options": "noopen",
+    "x-permitted-cross-domain-policies": "none"
+   },
+   "resourceType": "image",
+   "passes": [
+    "desktop"
+   ],
+   "file": "site/laboiteaslides.fr/sk/uploads/small_Liebig_2b76ec3546.jpg",
+   "size": 22896,
+   "modes": [
+    "cors"
+   ]
+  },
+  {
+   "url": "https://laboiteaslides.fr/sk/uploads/small_Marie_9cca944ff8.jpg",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/jpeg",
+   "headers": {
+    "access-control-allow-credentials": "true",
+    "access-control-allow-origin": "https://laboiteaslides.fr",
+    "content-type": "image/jpeg",
+    "referrer-policy": "no-referrer",
+    "x-dns-prefetch-control": "off",
+    "x-download-options": "noopen",
+    "x-permitted-cross-domain-policies": "none"
+   },
+   "resourceType": "image",
+   "passes": [
+    "desktop"
+   ],
+   "file": "site/laboiteaslides.fr/sk/uploads/small_Marie_9cca944ff8.jpg",
+   "size": 38793,
+   "modes": [
+    "cors"
+   ]
+  },
+  {
+   "url": "https://laboiteaslides.fr/sk/uploads/small_Nissan_aa945746e2.jpg",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/jpeg",
+   "headers": {
+    "access-control-allow-credentials": "true",
+    "access-control-allow-origin": "https://laboiteaslides.fr",
+    "content-type": "image/jpeg",
+    "referrer-policy": "no-referrer",
+    "x-dns-prefetch-control": "off",
+    "x-download-options": "noopen",
+    "x-permitted-cross-domain-policies": "none"
+   },
+   "resourceType": "image",
+   "passes": [
+    "desktop"
+   ],
+   "file": "site/laboiteaslides.fr/sk/uploads/small_Nissan_aa945746e2.jpg",
+   "size": 26310,
+   "modes": [
+    "cors"
+   ]
+  },
+  {
+   "url": "https://laboiteaslides.fr/sk/uploads/small_Nuxe_72b8bd830c.jpg",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/jpeg",
+   "headers": {
+    "access-control-allow-credentials": "true",
+    "access-control-allow-origin": "https://laboiteaslides.fr",
+    "content-type": "image/jpeg",
+    "referrer-policy": "no-referrer",
+    "x-dns-prefetch-control": "off",
+    "x-download-options": "noopen",
+    "x-permitted-cross-domain-policies": "none"
+   },
+   "resourceType": "image",
+   "passes": [
+    "desktop"
+   ],
+   "file": "site/laboiteaslides.fr/sk/uploads/small_Nuxe_72b8bd830c.jpg",
+   "size": 32028,
+   "modes": [
+    "cors"
+   ]
+  },
+  {
+   "url": "https://laboiteaslides.fr/sk/uploads/small_Mars_wrigley_ac9f9d1412.jpg",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/jpeg",
+   "headers": {
+    "access-control-allow-credentials": "true",
+    "access-control-allow-origin": "https://laboiteaslides.fr",
+    "content-type": "image/jpeg",
+    "referrer-policy": "no-referrer",
+    "x-dns-prefetch-control": "off",
+    "x-download-options": "noopen",
+    "x-permitted-cross-domain-policies": "none"
+   },
+   "resourceType": "image",
+   "passes": [
+    "desktop"
+   ],
+   "file": "site/laboiteaslides.fr/sk/uploads/small_Mars_wrigley_ac9f9d1412.jpg",
+   "size": 23280,
+   "modes": [
+    "cors"
+   ]
+  },
+  {
+   "url": "https://laboiteaslides.fr/sk/uploads/small_Pukka_9c6a08bda9.jpg",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/jpeg",
+   "headers": {
+    "access-control-allow-credentials": "true",
+    "access-control-allow-origin": "https://laboiteaslides.fr",
+    "content-type": "image/jpeg",
+    "referrer-policy": "no-referrer",
+    "x-dns-prefetch-control": "off",
+    "x-download-options": "noopen",
+    "x-permitted-cross-domain-policies": "none"
+   },
+   "resourceType": "image",
+   "passes": [
+    "desktop"
+   ],
+   "file": "site/laboiteaslides.fr/sk/uploads/small_Pukka_9c6a08bda9.jpg",
+   "size": 36466,
+   "modes": [
+    "cors"
+   ]
+  },
+  {
+   "url": "https://laboiteaslides.fr/sk/uploads/small_Renault_electric_dcecf4d28c.jpg",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/jpeg",
+   "headers": {
+    "access-control-allow-credentials": "true",
+    "access-control-allow-origin": "https://laboiteaslides.fr",
+    "content-type": "image/jpeg",
+    "referrer-policy": "no-referrer",
+    "x-dns-prefetch-control": "off",
+    "x-download-options": "noopen",
+    "x-permitted-cross-domain-policies": "none"
+   },
+   "resourceType": "image",
+   "passes": [
+    "desktop"
+   ],
+   "file": "site/laboiteaslides.fr/sk/uploads/small_Renault_electric_dcecf4d28c.jpg",
+   "size": 26137,
+   "modes": [
+    "cors"
+   ]
+  },
+  {
+   "url": "https://laboiteaslides.fr/sk/uploads/small_Renault_dd9391e8d8.jpg",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/jpeg",
+   "headers": {
+    "access-control-allow-credentials": "true",
+    "access-control-allow-origin": "https://laboiteaslides.fr",
+    "content-type": "image/jpeg",
+    "referrer-policy": "no-referrer",
+    "x-dns-prefetch-control": "off",
+    "x-download-options": "noopen",
+    "x-permitted-cross-domain-policies": "none"
+   },
+   "resourceType": "image",
+   "passes": [
+    "desktop"
+   ],
+   "file": "site/laboiteaslides.fr/sk/uploads/small_Renault_dd9391e8d8.jpg",
+   "size": 32129,
+   "modes": [
+    "cors"
+   ]
+  },
+  {
+   "url": "https://laboiteaslides.fr/sk/uploads/small_Saur_cbcd180b87.jpg",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/jpeg",
+   "headers": {
+    "access-control-allow-credentials": "true",
+    "access-control-allow-origin": "https://laboiteaslides.fr",
+    "content-type": "image/jpeg",
+    "referrer-policy": "no-referrer",
+    "x-dns-prefetch-control": "off",
+    "x-download-options": "noopen",
+    "x-permitted-cross-domain-policies": "none"
+   },
+   "resourceType": "image",
+   "passes": [
+    "desktop"
+   ],
+   "file": "site/laboiteaslides.fr/sk/uploads/small_Saur_cbcd180b87.jpg",
+   "size": 33135,
+   "modes": [
+    "cors"
+   ]
+  },
+  {
+   "url": "https://laboiteaslides.fr/sk/uploads/small_Safran_bc185c343c.jpg",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/jpeg",
+   "headers": {
+    "access-control-allow-credentials": "true",
+    "access-control-allow-origin": "https://laboiteaslides.fr",
+    "content-type": "image/jpeg",
+    "referrer-policy": "no-referrer",
+    "x-dns-prefetch-control": "off",
+    "x-download-options": "noopen",
+    "x-permitted-cross-domain-policies": "none"
+   },
+   "resourceType": "image",
+   "passes": [
+    "desktop"
+   ],
+   "file": "site/laboiteaslides.fr/sk/uploads/small_Safran_bc185c343c.jpg",
+   "size": 24443,
+   "modes": [
+    "cors"
+   ]
+  },
+  {
+   "url": "https://laboiteaslides.fr/sk/uploads/small_The_edge_1_2_bef5289ffc.jpg",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/jpeg",
+   "headers": {
+    "access-control-allow-credentials": "true",
+    "access-control-allow-origin": "https://laboiteaslides.fr",
+    "content-type": "image/jpeg",
+    "referrer-policy": "no-referrer",
+    "x-dns-prefetch-control": "off",
+    "x-download-options": "noopen",
+    "x-permitted-cross-domain-policies": "none"
+   },
+   "resourceType": "image",
+   "passes": [
+    "desktop"
+   ],
+   "file": "site/laboiteaslides.fr/sk/uploads/small_The_edge_1_2_bef5289ffc.jpg",
+   "size": 24807,
+   "modes": [
+    "cors"
+   ]
+  },
+  {
+   "url": "https://laboiteaslides.fr/sk/uploads/small_The_edge_1_5cf73378d2.jpg",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/jpeg",
+   "headers": {
+    "access-control-allow-credentials": "true",
+    "access-control-allow-origin": "https://laboiteaslides.fr",
+    "content-type": "image/jpeg",
+    "referrer-policy": "no-referrer",
+    "x-dns-prefetch-control": "off",
+    "x-download-options": "noopen",
+    "x-permitted-cross-domain-policies": "none"
+   },
+   "resourceType": "image",
+   "passes": [
+    "desktop"
+   ],
+   "file": "site/laboiteaslides.fr/sk/uploads/small_The_edge_1_5cf73378d2.jpg",
+   "size": 31732,
+   "modes": [
+    "cors"
+   ]
+  },
+  {
+   "url": "https://laboiteaslides.fr/sk/uploads/small_Renault_ev_forum_f11bc1287b.jpg",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/jpeg",
+   "headers": {
+    "access-control-allow-credentials": "true",
+    "access-control-allow-origin": "https://laboiteaslides.fr",
+    "content-type": "image/jpeg",
+    "referrer-policy": "no-referrer",
+    "x-dns-prefetch-control": "off",
+    "x-download-options": "noopen",
+    "x-permitted-cross-domain-policies": "none"
+   },
+   "resourceType": "image",
+   "passes": [
+    "desktop"
+   ],
+   "file": "site/laboiteaslides.fr/sk/uploads/small_Renault_ev_forum_f11bc1287b.jpg",
+   "size": 20540,
+   "modes": [
+    "cors"
+   ]
+  },
+  {
+   "url": "https://laboiteaslides.fr/sk/uploads/small_Ship_up_73ecf0f94b.jpg",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/jpeg",
+   "headers": {
+    "access-control-allow-credentials": "true",
+    "access-control-allow-origin": "https://laboiteaslides.fr",
+    "content-type": "image/jpeg",
+    "referrer-policy": "no-referrer",
+    "x-dns-prefetch-control": "off",
+    "x-download-options": "noopen",
+    "x-permitted-cross-domain-policies": "none"
+   },
+   "resourceType": "image",
+   "passes": [
+    "desktop"
+   ],
+   "file": "site/laboiteaslides.fr/sk/uploads/small_Ship_up_73ecf0f94b.jpg",
+   "size": 24108,
+   "modes": [
+    "cors"
+   ]
+  },
+  {
+   "url": "https://laboiteaslides.fr/sk/uploads/small_Total_energies_8ec1dc0287.jpg",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/jpeg",
+   "headers": {
+    "access-control-allow-credentials": "true",
+    "access-control-allow-origin": "https://laboiteaslides.fr",
+    "content-type": "image/jpeg",
+    "referrer-policy": "no-referrer",
+    "x-dns-prefetch-control": "off",
+    "x-download-options": "noopen",
+    "x-permitted-cross-domain-policies": "none"
+   },
+   "resourceType": "image",
+   "passes": [
+    "desktop"
+   ],
+   "file": "site/laboiteaslides.fr/sk/uploads/small_Total_energies_8ec1dc0287.jpg",
+   "size": 27059,
+   "modes": [
+    "cors"
+   ]
+  },
+  {
+   "url": "https://laboiteaslides.fr/sk/uploads/small_Upcoop_f8ef861fe9.jpg",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/jpeg",
+   "headers": {
+    "access-control-allow-credentials": "true",
+    "access-control-allow-origin": "https://laboiteaslides.fr",
+    "content-type": "image/jpeg",
+    "referrer-policy": "no-referrer",
+    "x-dns-prefetch-control": "off",
+    "x-download-options": "noopen",
+    "x-permitted-cross-domain-policies": "none"
+   },
+   "resourceType": "image",
+   "passes": [
+    "desktop"
+   ],
+   "file": "site/laboiteaslides.fr/sk/uploads/small_Upcoop_f8ef861fe9.jpg",
+   "size": 23459,
+   "modes": [
+    "cors"
+   ]
+  },
+  {
+   "url": "https://laboiteaslides.fr/sk/uploads/small_Viridien_bbd464d417.jpg",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/jpeg",
+   "headers": {
+    "access-control-allow-credentials": "true",
+    "access-control-allow-origin": "https://laboiteaslides.fr",
+    "content-type": "image/jpeg",
+    "referrer-policy": "no-referrer",
+    "x-dns-prefetch-control": "off",
+    "x-download-options": "noopen",
+    "x-permitted-cross-domain-policies": "none"
+   },
+   "resourceType": "image",
+   "passes": [
+    "desktop"
+   ],
+   "file": "site/laboiteaslides.fr/sk/uploads/small_Viridien_bbd464d417.jpg",
+   "size": 26056,
+   "modes": [
+    "cors"
+   ]
+  },
+  {
+   "url": "https://laboiteaslides.fr/sk/uploads/small_wolf_oil_e2c4402e3a.jpg",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/jpeg",
+   "headers": {
+    "access-control-allow-credentials": "true",
+    "access-control-allow-origin": "https://laboiteaslides.fr",
+    "content-type": "image/jpeg",
+    "referrer-policy": "no-referrer",
+    "x-dns-prefetch-control": "off",
+    "x-download-options": "noopen",
+    "x-permitted-cross-domain-policies": "none"
+   },
+   "resourceType": "image",
+   "passes": [
+    "desktop"
+   ],
+   "file": "site/laboiteaslides.fr/sk/uploads/small_wolf_oil_e2c4402e3a.jpg",
+   "size": 21356,
+   "modes": [
+    "cors"
+   ]
+  },
+  {
+   "url": "https://laboiteaslides.fr/sk/uploads/small_Vittel_980cb8f103.jpg",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/jpeg",
+   "headers": {
+    "access-control-allow-credentials": "true",
+    "access-control-allow-origin": "https://laboiteaslides.fr",
+    "content-type": "image/jpeg",
+    "referrer-policy": "no-referrer",
+    "x-dns-prefetch-control": "off",
+    "x-download-options": "noopen",
+    "x-permitted-cross-domain-policies": "none"
+   },
+   "resourceType": "image",
+   "passes": [
+    "desktop"
+   ],
+   "file": "site/laboiteaslides.fr/sk/uploads/small_Vittel_980cb8f103.jpg",
+   "size": 34558,
+   "modes": [
+    "cors"
+   ]
+  },
+  {
+   "url": "https://laboiteaslides.fr/sk/uploads/small_Tishman_speyer_10c8fc2359.jpg",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/jpeg",
+   "headers": {
+    "access-control-allow-credentials": "true",
+    "access-control-allow-origin": "https://laboiteaslides.fr",
+    "content-type": "image/jpeg",
+    "referrer-policy": "no-referrer",
+    "x-dns-prefetch-control": "off",
+    "x-download-options": "noopen",
+    "x-permitted-cross-domain-policies": "none"
+   },
+   "resourceType": "image",
+   "passes": [
+    "desktop"
+   ],
+   "file": "site/laboiteaslides.fr/sk/uploads/small_Tishman_speyer_10c8fc2359.jpg",
+   "size": 31936,
+   "modes": [
+    "cors"
+   ]
+  },
+  {
+   "url": "https://stats.sparkk.fr/matomo.php?action_name=La%20boite%20%C3%A0%20slides%C2%AE%20%3A%20l%27Agence%20PowerPoint%20Certifi%C3%A9e%20ISO%209001&idsite=51&rec=1&r=810467&h=21&m=1&s=47&url=https%3A%2F%2Flaboiteaslides.fr%2F&_id=6a7f7985d7ac61d7&_idn=1&send_image=0&_refts=0&pv_id=VUEcHw&pf_net=187&pf_srv=261&pf_tfr=87&pf_dm1=258&pf_dm2=186&pf_onl=0&uadata=%7B%22formFactors%22%3A%5B%22Desktop%22%5D%2C%22fullVersionList%22%3A%5B%7B%22brand%22%3A%22Chromium%22%2C%22version%22%3A%22153.0.8010.12%22%7D%2C%7B%22brand%22%3A%22Not_A%20Brand%22%2C%22version%22%3A%228.0.0.0%22%7D%5D%2C%22mobile%22%3Afalse%2C%22model%22%3A%22%22%2C%22platform%22%3A%22macOS%22%2C%22platformVersion%22%3A%2210_15_7%22%7D&pdf=1&qt=0&realp=0&wma=0&fla=0&java=0&ag=0&cookie=1&res=1440x900",
+   "method": "POST",
+   "status": 204,
+   "contentType": "",
+   "headers": {
+    "access-control-allow-credentials": "true",
+    "access-control-allow-origin": "https://laboiteaslides.fr",
+    "referrer-policy": "origin"
+   },
+   "resourceType": "ping",
+   "passes": [
+    "desktop"
+   ],
+   "size": 0
+  },
+  {
+   "url": "https://laboiteaslides.fr/_nuxt/Db8ZfOT7.js",
+   "method": "GET",
+   "status": 200,
+   "contentType": "text/javascript; charset=utf-8",
+   "headers": {
+    "content-type": "text/javascript; charset=utf-8",
+    "x-robots-tag": "noindex"
+   },
+   "resourceType": "script",
+   "passes": [
+    "mobile",
+    "desktop"
+   ],
+   "file": "site/laboiteaslides.fr/_nuxt/Db8ZfOT7.js",
+   "size": 11013,
+   "modes": [
+    "cors"
+   ]
+  },
+  {
+   "url": "https://laboiteaslides.fr/sk/uploads/Badge_simple_MOS_LABAS_d0815bc7cf.svg",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/svg+xml",
+   "headers": {
+    "access-control-allow-credentials": "true",
+    "access-control-allow-origin": "",
+    "content-type": "image/svg+xml",
+    "referrer-policy": "no-referrer",
+    "x-dns-prefetch-control": "off",
+    "x-download-options": "noopen",
+    "x-permitted-cross-domain-policies": "none"
+   },
+   "resourceType": "image",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "file": "site/laboiteaslides.fr/sk/uploads/Badge_simple_MOS_LABAS_d0815bc7cf.svg",
+   "size": 6331,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://laboiteaslides.fr/sk/uploads/Logo_simple_certification_ISO_LABAS_1a3bc958ae.svg",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/svg+xml",
+   "headers": {
+    "access-control-allow-credentials": "true",
+    "access-control-allow-origin": "",
+    "content-type": "image/svg+xml",
+    "referrer-policy": "no-referrer",
+    "x-dns-prefetch-control": "off",
+    "x-download-options": "noopen",
+    "x-permitted-cross-domain-policies": "none"
+   },
+   "resourceType": "image",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "file": "site/laboiteaslides.fr/sk/uploads/Logo_simple_certification_ISO_LABAS_1a3bc958ae.svg",
+   "size": 9821,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://laboiteaslides.fr/sk/uploads/Logo_simple_Avis_Google_LABAS_d3f7b5bccc.svg",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/svg+xml",
+   "headers": {
+    "access-control-allow-credentials": "true",
+    "access-control-allow-origin": "",
+    "content-type": "image/svg+xml",
+    "referrer-policy": "no-referrer",
+    "x-dns-prefetch-control": "off",
+    "x-download-options": "noopen",
+    "x-permitted-cross-domain-policies": "none"
+   },
+   "resourceType": "image",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "file": "site/laboiteaslides.fr/sk/uploads/Logo_simple_Avis_Google_LABAS_d3f7b5bccc.svg",
+   "size": 4379,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://laboiteaslides.fr/sk/uploads/medium_Presentation_e945d6b799.png",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/png",
+   "headers": {
+    "access-control-allow-credentials": "true",
+    "access-control-allow-origin": "",
+    "content-type": "image/png",
+    "referrer-policy": "no-referrer",
+    "x-dns-prefetch-control": "off",
+    "x-download-options": "noopen",
+    "x-permitted-cross-domain-policies": "none"
+   },
+   "resourceType": "image",
+   "passes": [
+    "desktop"
+   ],
+   "file": "site/laboiteaslides.fr/sk/uploads/medium_Presentation_e945d6b799.png",
+   "size": 69997
+  },
+  {
+   "url": "https://laboiteaslides.fr/sk/uploads/medium_Communication_360_7a5ef30bda.png",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/png",
+   "headers": {
+    "access-control-allow-credentials": "true",
+    "access-control-allow-origin": "",
+    "content-type": "image/png",
+    "referrer-policy": "no-referrer",
+    "x-dns-prefetch-control": "off",
+    "x-download-options": "noopen",
+    "x-permitted-cross-domain-policies": "none"
+   },
+   "resourceType": "image",
+   "passes": [
+    "desktop"
+   ],
+   "file": "site/laboiteaslides.fr/sk/uploads/medium_Communication_360_7a5ef30bda.png",
+   "size": 824560,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://laboiteaslides.fr/sk/uploads/medium_FDH_URW_navigation_interactive_87d42a0822.jpg",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/jpeg",
+   "headers": {
+    "access-control-allow-credentials": "true",
+    "access-control-allow-origin": "",
+    "content-type": "image/jpeg",
+    "referrer-policy": "no-referrer",
+    "x-dns-prefetch-control": "off",
+    "x-download-options": "noopen",
+    "x-permitted-cross-domain-policies": "none"
+   },
+   "resourceType": "image",
+   "passes": [
+    "desktop"
+   ],
+   "file": "site/laboiteaslides.fr/sk/uploads/medium_FDH_URW_navigation_interactive_87d42a0822.jpg",
+   "size": 69621,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://laboiteaslides.fr/sk/uploads/medium_Immersion_VR_e950803a61.png",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/png",
+   "headers": {
+    "access-control-allow-credentials": "true",
+    "access-control-allow-origin": "",
+    "content-type": "image/png",
+    "referrer-policy": "no-referrer",
+    "x-dns-prefetch-control": "off",
+    "x-download-options": "noopen",
+    "x-permitted-cross-domain-policies": "none"
+   },
+   "resourceType": "image",
+   "passes": [
+    "desktop"
+   ],
+   "file": "site/laboiteaslides.fr/sk/uploads/medium_Immersion_VR_e950803a61.png",
+   "size": 21122,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://laboiteaslides.fr/sk/uploads/medium_Assistance_IA_LABAS_bot_1963bf7998.jpg",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/jpeg",
+   "headers": {
+    "access-control-allow-credentials": "true",
+    "access-control-allow-origin": "",
+    "content-type": "image/jpeg",
+    "referrer-policy": "no-referrer",
+    "x-dns-prefetch-control": "off",
+    "x-download-options": "noopen",
+    "x-permitted-cross-domain-policies": "none"
+   },
+   "resourceType": "image",
+   "passes": [
+    "desktop"
+   ],
+   "file": "site/laboiteaslides.fr/sk/uploads/medium_Assistance_IA_LABAS_bot_1963bf7998.jpg",
+   "size": 48625,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://laboiteaslides.fr/sk/uploads/large_Labas_20f4ebe642.jpg",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/jpeg",
+   "headers": {
+    "access-control-allow-credentials": "true",
+    "access-control-allow-origin": "",
+    "content-type": "image/jpeg",
+    "referrer-policy": "no-referrer",
+    "x-dns-prefetch-control": "off",
+    "x-download-options": "noopen",
+    "x-permitted-cross-domain-policies": "none"
+   },
+   "resourceType": "image",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "file": "site/laboiteaslides.fr/sk/uploads/large_Labas_20f4ebe642.jpg",
+   "size": 35152,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://laboiteaslides.fr/sk/uploads/medium_presentation_equipe_0eebf6541e.jpeg",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/jpeg",
+   "headers": {
+    "access-control-allow-credentials": "true",
+    "access-control-allow-origin": "",
+    "content-type": "image/jpeg",
+    "referrer-policy": "no-referrer",
+    "x-dns-prefetch-control": "off",
+    "x-download-options": "noopen",
+    "x-permitted-cross-domain-policies": "none"
+   },
+   "resourceType": "image",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "file": "site/laboiteaslides.fr/sk/uploads/medium_presentation_equipe_0eebf6541e.jpeg",
+   "size": 38809,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://laboiteaslides.fr/sk/uploads/thumbnail_Badge_Google_avis_labas_149fc344c9.png",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/png",
+   "headers": {
+    "access-control-allow-credentials": "true",
+    "access-control-allow-origin": "",
+    "content-type": "image/png",
+    "referrer-policy": "no-referrer",
+    "x-dns-prefetch-control": "off",
+    "x-download-options": "noopen",
+    "x-permitted-cross-domain-policies": "none"
+   },
+   "resourceType": "image",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "file": "site/laboiteaslides.fr/sk/uploads/thumbnail_Badge_Google_avis_labas_149fc344c9.png",
+   "size": 60184,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://laboiteaslides.fr/sk/uploads/thumbnail_Badge_ISO_9001_labas_49c6d38cef.png",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/png",
+   "headers": {
+    "access-control-allow-credentials": "true",
+    "access-control-allow-origin": "",
+    "content-type": "image/png",
+    "referrer-policy": "no-referrer",
+    "x-dns-prefetch-control": "off",
+    "x-download-options": "noopen",
+    "x-permitted-cross-domain-policies": "none"
+   },
+   "resourceType": "image",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "file": "site/laboiteaslides.fr/sk/uploads/thumbnail_Badge_ISO_9001_labas_49c6d38cef.png",
+   "size": 57781,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://laboiteaslides.fr/sk/uploads/thumbnail_Badge_MOS_labas_83992cf13f.png",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/png",
+   "headers": {
+    "access-control-allow-credentials": "true",
+    "access-control-allow-origin": "",
+    "content-type": "image/png",
+    "referrer-policy": "no-referrer",
+    "x-dns-prefetch-control": "off",
+    "x-download-options": "noopen",
+    "x-permitted-cross-domain-policies": "none"
+   },
+   "resourceType": "image",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "file": "site/laboiteaslides.fr/sk/uploads/thumbnail_Badge_MOS_labas_83992cf13f.png",
+   "size": 50008,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://laboiteaslides.fr/sk/uploads/thumbnail_logo_Caterpillar_c129772a64.png",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/png",
+   "headers": {
+    "access-control-allow-credentials": "true",
+    "access-control-allow-origin": "",
+    "content-type": "image/png",
+    "referrer-policy": "no-referrer",
+    "x-dns-prefetch-control": "off",
+    "x-download-options": "noopen",
+    "x-permitted-cross-domain-policies": "none"
+   },
+   "resourceType": "image",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "file": "site/laboiteaslides.fr/sk/uploads/thumbnail_logo_Caterpillar_c129772a64.png",
+   "size": 8058,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://laboiteaslides.fr/sk/uploads/thumbnail_logo_safran_2088913497.png",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/png",
+   "headers": {
+    "access-control-allow-credentials": "true",
+    "access-control-allow-origin": "",
+    "content-type": "image/png",
+    "referrer-policy": "no-referrer",
+    "x-dns-prefetch-control": "off",
+    "x-download-options": "noopen",
+    "x-permitted-cross-domain-policies": "none"
+   },
+   "resourceType": "image",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "file": "site/laboiteaslides.fr/sk/uploads/thumbnail_logo_safran_2088913497.png",
+   "size": 4298,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://laboiteaslides.fr/sk/uploads/thumbnail_logo_essilor_4f286cb915.png",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/png",
+   "headers": {
+    "access-control-allow-credentials": "true",
+    "access-control-allow-origin": "",
+    "content-type": "image/png",
+    "referrer-policy": "no-referrer",
+    "x-dns-prefetch-control": "off",
+    "x-download-options": "noopen",
+    "x-permitted-cross-domain-policies": "none"
+   },
+   "resourceType": "image",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "file": "site/laboiteaslides.fr/sk/uploads/thumbnail_logo_essilor_4f286cb915.png",
+   "size": 8649,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://laboiteaslides.fr/sk/uploads/thumbnail_logo_bostik_5b01f5c5a7.png",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/png",
+   "headers": {
+    "access-control-allow-credentials": "true",
+    "access-control-allow-origin": "",
+    "content-type": "image/png",
+    "referrer-policy": "no-referrer",
+    "x-dns-prefetch-control": "off",
+    "x-download-options": "noopen",
+    "x-permitted-cross-domain-policies": "none"
+   },
+   "resourceType": "image",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "file": "site/laboiteaslides.fr/sk/uploads/thumbnail_logo_bostik_5b01f5c5a7.png",
+   "size": 5144,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://laboiteaslides.fr/sk/uploads/thumbnail_logo_vaudoise_8647c5fc66.png",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/png",
+   "headers": {
+    "access-control-allow-credentials": "true",
+    "access-control-allow-origin": "",
+    "content-type": "image/png",
+    "referrer-policy": "no-referrer",
+    "x-dns-prefetch-control": "off",
+    "x-download-options": "noopen",
+    "x-permitted-cross-domain-policies": "none"
+   },
+   "resourceType": "image",
+   "passes": [
+    "desktop"
+   ],
+   "file": "site/laboiteaslides.fr/sk/uploads/thumbnail_logo_vaudoise_8647c5fc66.png",
+   "size": 25121,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://laboiteaslides.fr/sk/uploads/thumbnail_Syngenta_43c016de86.png",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/png",
+   "headers": {
+    "access-control-allow-credentials": "true",
+    "access-control-allow-origin": "",
+    "content-type": "image/png",
+    "referrer-policy": "no-referrer",
+    "x-dns-prefetch-control": "off",
+    "x-download-options": "noopen",
+    "x-permitted-cross-domain-policies": "none"
+   },
+   "resourceType": "image",
+   "passes": [
+    "desktop"
+   ],
+   "file": "site/laboiteaslides.fr/sk/uploads/thumbnail_Syngenta_43c016de86.png",
+   "size": 11679,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://laboiteaslides.fr/sk/uploads/thumbnail_Nestle_waters_8a22365e28.jpg",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/jpeg",
+   "headers": {
+    "access-control-allow-credentials": "true",
+    "access-control-allow-origin": "",
+    "content-type": "image/jpeg",
+    "referrer-policy": "no-referrer",
+    "x-dns-prefetch-control": "off",
+    "x-download-options": "noopen",
+    "x-permitted-cross-domain-policies": "none"
+   },
+   "resourceType": "image",
+   "passes": [
+    "desktop"
+   ],
+   "file": "site/laboiteaslides.fr/sk/uploads/thumbnail_Nestle_waters_8a22365e28.jpg",
+   "size": 8733,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://laboiteaslides.fr/sk/uploads/Logo_simple_Avis_Google_LABAS_f10bfef852.svg",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/svg+xml",
+   "headers": {
+    "access-control-allow-credentials": "true",
+    "access-control-allow-origin": "",
+    "content-type": "image/svg+xml",
+    "referrer-policy": "no-referrer",
+    "x-dns-prefetch-control": "off",
+    "x-download-options": "noopen",
+    "x-permitted-cross-domain-policies": "none"
+   },
+   "resourceType": "image",
+   "passes": [
+    "desktop"
+   ],
+   "file": "site/laboiteaslides.fr/sk/uploads/Logo_simple_Avis_Google_LABAS_f10bfef852.svg",
+   "size": 4379,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://laboiteaslides.fr/favicon.ico",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/x-icon",
+   "headers": {
+    "content-type": "image/x-icon",
+    "x-robots-tag": "index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1"
+   },
+   "resourceType": "other",
+   "passes": [
+    "mobile"
+   ],
+   "file": "site/laboiteaslides.fr/favicon.ico",
+   "size": 78
+  },
+  {
+   "url": "https://laboiteaslides.fr/sk/uploads/home_video_SD_79c96be094.mp4",
+   "method": "GET",
+   "status": 200,
+   "contentType": "video/mp4",
+   "headers": {
+    "content-type": "video/mp4",
+    "referrer-policy": "no-referrer",
+    "x-dns-prefetch-control": "off",
+    "x-download-options": "noopen",
+    "x-permitted-cross-domain-policies": "none",
+    "access-control-allow-origin": "",
+    "access-control-allow-credentials": "true"
+   },
+   "resourceType": "media",
+   "passes": [
+    "mobile"
+   ],
+   "file": "site/laboiteaslides.fr/sk/uploads/home_video_SD_79c96be094.mp4",
+   "size": 6367080,
+   "modes": [
+    "no-cors"
+   ]
+  }
+ ],
+ "videos": {
+  "posters": {},
+  "onlineHosts": []
+ }
+}

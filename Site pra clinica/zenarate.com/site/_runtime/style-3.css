@@ -1,0 +1,14 @@
+
+  .w-select {
+  -moz-appearance: none;
+  -webkit-appearance: none;
+  appearance: none;
+}
+
+.formfield:required:invalid {
+  color: var(--primary--silver);
+}
+
+.formfield option[value=""] {
+  color: var(--primary--silver);
+}

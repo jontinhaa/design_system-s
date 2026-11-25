@@ -1,0 +1,685 @@
+{
+ "version": 1,
+ "tool": "wd3 0.1.0",
+ "captureId": "mosaic.flabbergast.agency-a128ac62",
+ "capturedAt": "2026-10-29T16:15:21+00:00",
+ "entry": {
+  "url": "https://mosaic.flabbergast.agency/",
+  "path": "/",
+  "search": "",
+  "file": "assets/mosaic.flabbergast.agency/index.html",
+  "contentType": "text/html"
+ },
+ "blocked": [
+  "^https?://([^/?#]+\\.)?(google\\-analytics\\.com|analytics\\.google\\.com|googletagmanager\\.com|googleadservices\\.com|doubleclick\\.net|googlesyndication\\.com|googleoptimize\\.com|connect\\.facebook\\.net|bat\\.bing\\.com|snap\\.licdn\\.com|px\\.ads\\.linkedin\\.com|analytics\\.tiktok\\.com|ct\\.pinterest\\.com|static\\.ads\\-twitter\\.com|analytics\\.twitter\\.com|tr\\.snapchat\\.com|sc\\-static\\.net|mc\\.yandex\\.ru|hotjar\\.com|hotjar\\.io|clarity\\.ms|cdn\\.segment\\.com|api\\.segment\\.io|cdn\\.mxpnl\\.com|api\\-js\\.mixpanel\\.com|api\\.mixpanel\\.com|api\\.amplitude\\.com|api2\\.amplitude\\.com|api\\-secure\\.amplitude\\.com|api\\-sr\\.amplitude\\.com|sr\\-client\\-cfg\\.amplitude\\.com|plausible\\.io|cloud\\.umami\\.is|analytics\\.umami\\.is|static\\.cloudflareinsights\\.com|cloudflareinsights\\.com|vitals\\.vercel\\-insights\\.com|browser\\-intake\\-datadoghq\\.com|browser\\-intake\\-datadoghq\\.eu|js\\-agent\\.newrelic\\.com|bam\\.nr\\-data\\.net|bam\\-cell\\.nr\\-data\\.net|fullstory\\.com|script\\.crazyegg\\.com|mouseflow\\.com|smartlook\\.com|heapanalytics\\.com|i\\.posthog\\.com|stats\\.wp\\.com|pixel\\.wp\\.com|promotekit\\.com|ingest\\.sentry\\.io|ingest\\.us\\.sentry\\.io|ingest\\.de\\.sentry\\.io|widget\\.intercom\\.io|js\\.intercomcdn\\.com|api\\-iam\\.intercom\\.io|js\\.hs\\-scripts\\.com|js\\.hs\\-analytics\\.net|js\\.hs\\-banner\\.com|js\\.hscollectedforms\\.net|js\\.usemessages\\.com|track\\.hubspot\\.com|client\\.crisp\\.chat|embed\\.tawk\\.to|js\\.driftt\\.com|static\\.zdassets\\.com|ekr\\.zdassets\\.com|cdn\\.cookielaw\\.org|geolocation\\.onetrust\\.com|consent\\.cookiebot\\.com|consentcdn\\.cookiebot\\.com|app\\.usercentrics\\.eu|api\\.usercentrics\\.eu|cdn\\.iubenda\\.com|cmp\\.osano\\.com|cdn\\.termly\\.io)(:\\d+)?([/?#]|$)",
+  "/rpc/increment_shared_code_views",
+  "^https?://(umami|analytics|stats|plausible)\\.[^/]+/(api/send|api/collect|api/event|script\\.js)",
+  "/g/c(ollect)?\\?v=2&",
+  "sentry\\.io/api/\\d+/(envelope|store)",
+  "/api/meta-capi",
+  "^https?://(leadtracker|tracking|track|events?|collect)\\.[^/]+/",
+  "^https?://a\\.vturb\\.com/",
+  "facebook\\.com/tr[/?]",
+  "/_vercel/(speed-)?insights/",
+  "/cdn-cgi/rum",
+  "/cdn-cgi/challenge-platform/",
+  "google\\.com/(pagead|ads)/"
+ ],
+ "volatileParams": [
+  "v",
+  "_rsc",
+  "dpl",
+  "_",
+  "t",
+  "ts",
+  "timestamp",
+  "cb",
+  "cachebust",
+  "cacheBust",
+  "nocache",
+  "rnd",
+  "rand",
+  "random",
+  "_t"
+ ],
+ "entries": [
+  {
+   "url": "https://mosaic.flabbergast.agency/",
+   "method": "GET",
+   "status": 200,
+   "contentType": "text/html",
+   "headers": {
+    "content-type": "text/html"
+   },
+   "resourceType": "document",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "file": "assets/mosaic.flabbergast.agency/index.html",
+   "size": 207919,
+   "modes": [
+    "navigate"
+   ]
+  },
+  {
+   "url": "https://mosaic.flabbergast.agency/fonts/PixelOperator.woff2",
+   "method": "GET",
+   "status": 200,
+   "contentType": "font/woff2",
+   "headers": {
+    "content-type": "font/woff2"
+   },
+   "resourceType": "font",
+   "passes": [
+    "mobile",
+    "desktop"
+   ],
+   "file": "assets/mosaic.flabbergast.agency/fonts/PixelOperator.woff2",
+   "size": 4580,
+   "modes": [
+    "cors"
+   ]
+  },
+  {
+   "url": "https://mosaic.flabbergast.agency/fonts/Geist-Regular.woff2",
+   "method": "GET",
+   "status": 200,
+   "contentType": "font/woff2",
+   "headers": {
+    "content-type": "font/woff2"
+   },
+   "resourceType": "font",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "file": "assets/mosaic.flabbergast.agency/fonts/Geist-Regular.woff2",
+   "size": 33136,
+   "modes": [
+    "cors"
+   ]
+  },
+  {
+   "url": "https://mosaic.flabbergast.agency/_astro/Phone.astro_astro_type_script_index_0_lang.C8LPKblG.js",
+   "method": "GET",
+   "status": 200,
+   "contentType": "application/javascript",
+   "headers": {
+    "content-type": "application/javascript"
+   },
+   "resourceType": "script",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "file": "assets/mosaic.flabbergast.agency/_astro/Phone.astro_astro_type_script_index_0_lang.C8LPKblG.js",
+   "size": 200,
+   "modes": [
+    "cors"
+   ]
+  },
+  {
+   "url": "https://mosaic.flabbergast.agency/_astro/GridLines.astro_astro_type_script_index_0_lang.BObjn0dk.js",
+   "method": "GET",
+   "status": 200,
+   "contentType": "application/javascript",
+   "headers": {
+    "content-type": "application/javascript"
+   },
+   "resourceType": "script",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "file": "assets/mosaic.flabbergast.agency/_astro/GridLines.astro_astro_type_script_index_0_lang.BObjn0dk.js",
+   "size": 3058,
+   "modes": [
+    "cors"
+   ]
+  },
+  {
+   "url": "https://mosaic.flabbergast.agency/_astro/Header.astro_astro_type_script_index_0_lang.CCWKB1zd.js",
+   "method": "GET",
+   "status": 200,
+   "contentType": "application/javascript",
+   "headers": {
+    "content-type": "application/javascript"
+   },
+   "resourceType": "script",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "file": "assets/mosaic.flabbergast.agency/_astro/Header.astro_astro_type_script_index_0_lang.CCWKB1zd.js",
+   "size": 124,
+   "modes": [
+    "cors"
+   ]
+  },
+  {
+   "url": "https://mosaic.flabbergast.agency/_astro/DownloadButton.astro_astro_type_script_index_0_lang.Cr7iS28U.js",
+   "method": "GET",
+   "status": 200,
+   "contentType": "application/javascript",
+   "headers": {
+    "content-type": "application/javascript"
+   },
+   "resourceType": "script",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "file": "assets/mosaic.flabbergast.agency/_astro/DownloadButton.astro_astro_type_script_index_0_lang.Cr7iS28U.js",
+   "size": 2432,
+   "modes": [
+    "cors"
+   ]
+  },
+  {
+   "url": "https://mosaic.flabbergast.agency/_astro/TryIt.astro_astro_type_script_index_0_lang.DP33AY5U.js",
+   "method": "GET",
+   "status": 200,
+   "contentType": "application/javascript",
+   "headers": {
+    "content-type": "application/javascript"
+   },
+   "resourceType": "script",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "file": "assets/mosaic.flabbergast.agency/_astro/TryIt.astro_astro_type_script_index_0_lang.DP33AY5U.js",
+   "size": 5617,
+   "modes": [
+    "cors"
+   ]
+  },
+  {
+   "url": "https://mosaic.flabbergast.agency/_astro/Base.astro_astro_type_script_index_0_lang.B8oanEen.js",
+   "method": "GET",
+   "status": 200,
+   "contentType": "application/javascript",
+   "headers": {
+    "content-type": "application/javascript"
+   },
+   "resourceType": "script",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "file": "assets/mosaic.flabbergast.agency/_astro/Base.astro_astro_type_script_index_0_lang.B8oanEen.js",
+   "size": 34595,
+   "modes": [
+    "cors"
+   ]
+  },
+  {
+   "url": "https://mosaic.flabbergast.agency/_astro/StoryCard.astro_astro_type_script_index_0_lang.BnqUcjvO.js",
+   "method": "GET",
+   "status": 200,
+   "contentType": "application/javascript",
+   "headers": {
+    "content-type": "application/javascript"
+   },
+   "resourceType": "script",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "file": "assets/mosaic.flabbergast.agency/_astro/StoryCard.astro_astro_type_script_index_0_lang.BnqUcjvO.js",
+   "size": 46664,
+   "modes": [
+    "cors"
+   ]
+  },
+  {
+   "url": "https://mosaic.flabbergast.agency/fonts/Geist-Medium.woff2",
+   "method": "GET",
+   "status": 200,
+   "contentType": "font/woff2",
+   "headers": {
+    "content-type": "font/woff2"
+   },
+   "resourceType": "font",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "file": "assets/mosaic.flabbergast.agency/fonts/Geist-Medium.woff2",
+   "size": 34072,
+   "modes": [
+    "cors"
+   ]
+  },
+  {
+   "url": "https://mosaic.flabbergast.agency/_astro/platform.CZhSKWDg.js",
+   "method": "GET",
+   "status": 200,
+   "contentType": "application/javascript",
+   "headers": {
+    "content-type": "application/javascript"
+   },
+   "resourceType": "script",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "file": "assets/mosaic.flabbergast.agency/_astro/platform.CZhSKWDg.js",
+   "size": 424,
+   "modes": [
+    "cors"
+   ]
+  },
+  {
+   "url": "https://mosaic.flabbergast.agency/_astro/accent.jhucjHtL.js",
+   "method": "GET",
+   "status": 200,
+   "contentType": "application/javascript",
+   "headers": {
+    "content-type": "application/javascript"
+   },
+   "resourceType": "script",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "file": "assets/mosaic.flabbergast.agency/_astro/accent.jhucjHtL.js",
+   "size": 379,
+   "modes": [
+    "cors"
+   ]
+  },
+  {
+   "url": "https://mosaic.flabbergast.agency/_astro/pixelButton.dDn_iyJc.js",
+   "method": "GET",
+   "status": 200,
+   "contentType": "application/javascript",
+   "headers": {
+    "content-type": "application/javascript"
+   },
+   "resourceType": "script",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "file": "assets/mosaic.flabbergast.agency/_astro/pixelButton.dDn_iyJc.js",
+   "size": 1624,
+   "modes": [
+    "cors"
+   ]
+  },
+  {
+   "url": "https://mosaic.flabbergast.agency/_astro/preload.9XgbP9da.js",
+   "method": "GET",
+   "status": 200,
+   "contentType": "application/javascript",
+   "headers": {
+    "content-type": "application/javascript"
+   },
+   "resourceType": "script",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "file": "assets/mosaic.flabbergast.agency/_astro/preload.9XgbP9da.js",
+   "size": 686,
+   "modes": [
+    "cors"
+   ]
+  },
+  {
+   "url": "https://mosaic.flabbergast.agency/_astro/scramble.DIiblKNe.js",
+   "method": "GET",
+   "status": 200,
+   "contentType": "application/javascript",
+   "headers": {
+    "content-type": "application/javascript"
+   },
+   "resourceType": "script",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "file": "assets/mosaic.flabbergast.agency/_astro/scramble.DIiblKNe.js",
+   "size": 7041,
+   "modes": [
+    "cors"
+   ]
+  },
+  {
+   "url": "https://mosaic.flabbergast.agency/_astro/tryState.BTlcZWXt.js",
+   "method": "GET",
+   "status": 200,
+   "contentType": "application/javascript",
+   "headers": {
+    "content-type": "application/javascript"
+   },
+   "resourceType": "script",
+   "passes": [
+    "mobile",
+    "desktop"
+   ],
+   "file": "assets/mosaic.flabbergast.agency/_astro/tryState.BTlcZWXt.js",
+   "size": 47,
+   "modes": [
+    "cors"
+   ]
+  },
+  {
+   "url": "https://mosaic.flabbergast.agency/_astro/motion.B_7bwT0A.js",
+   "method": "GET",
+   "status": 200,
+   "contentType": "application/javascript",
+   "headers": {
+    "content-type": "application/javascript"
+   },
+   "resourceType": "script",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "file": "assets/mosaic.flabbergast.agency/_astro/motion.B_7bwT0A.js",
+   "size": 124087,
+   "modes": [
+    "cors"
+   ]
+  },
+  {
+   "url": "https://mosaic.flabbergast.agency/_astro/cardModel.Dw7itKzP.js",
+   "method": "GET",
+   "status": 200,
+   "contentType": "application/javascript",
+   "headers": {
+    "content-type": "application/javascript"
+   },
+   "resourceType": "script",
+   "passes": [
+    "mobile",
+    "desktop"
+   ],
+   "file": "assets/mosaic.flabbergast.agency/_astro/cardModel.Dw7itKzP.js",
+   "size": 625238,
+   "modes": [
+    "cors"
+   ]
+  },
+  {
+   "url": "https://mosaic.flabbergast.agency/images/card-stack-00a9cc.webp",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/webp",
+   "headers": {
+    "content-type": "image/webp"
+   },
+   "resourceType": "image",
+   "passes": [
+    "mobile"
+   ],
+   "file": "assets/mosaic.flabbergast.agency/images/card-stack-00a9cc.webp",
+   "size": 60796,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://mosaic.flabbergast.agency/images/card-stack-f4782e.webp",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/webp",
+   "headers": {
+    "content-type": "image/webp"
+   },
+   "resourceType": "image",
+   "passes": [
+    "mobile",
+    "desktop"
+   ],
+   "file": "assets/mosaic.flabbergast.agency/images/card-stack-f4782e.webp",
+   "size": 60902,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://mosaic.flabbergast.agency/images/card-stack-2e9a66.webp",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/webp",
+   "headers": {
+    "content-type": "image/webp"
+   },
+   "resourceType": "image",
+   "passes": [
+    "mobile"
+   ],
+   "file": "assets/mosaic.flabbergast.agency/images/card-stack-2e9a66.webp",
+   "size": 58464,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://mosaic.flabbergast.agency/fonts/Geist-Light.woff2",
+   "method": "GET",
+   "status": 200,
+   "contentType": "font/woff2",
+   "headers": {
+    "content-type": "font/woff2"
+   },
+   "resourceType": "font",
+   "passes": [
+    "mobile",
+    "desktop"
+   ],
+   "file": "assets/mosaic.flabbergast.agency/fonts/Geist-Light.woff2",
+   "size": 33624
+  },
+  {
+   "url": "https://mosaic.flabbergast.agency/models/crypto-card.glb",
+   "method": "GET",
+   "status": 200,
+   "contentType": "application/octet-stream",
+   "headers": {
+    "content-type": "application/octet-stream"
+   },
+   "resourceType": "fetch",
+   "passes": [
+    "mobile",
+    "desktop"
+   ],
+   "file": "assets/mosaic.flabbergast.agency/models/crypto-card.glb",
+   "size": 45868,
+   "modes": [
+    "cors"
+   ]
+  },
+  {
+   "url": "https://mosaic.flabbergast.agency/favicon.svg?v=2",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/svg+xml",
+   "headers": {
+    "content-type": "image/svg+xml"
+   },
+   "resourceType": "other",
+   "passes": [
+    "mobile",
+    "desktop"
+   ],
+   "file": "assets/mosaic.flabbergast.agency/favicon__qf67bbdbf.svg",
+   "size": 614,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://mosaic.flabbergast.agency/draco/draco_wasm_wrapper.js",
+   "method": "GET",
+   "status": 200,
+   "contentType": "application/javascript",
+   "headers": {
+    "content-type": "application/javascript"
+   },
+   "resourceType": "fetch",
+   "passes": [
+    "mobile",
+    "desktop"
+   ],
+   "file": "assets/mosaic.flabbergast.agency/draco/draco_wasm_wrapper.js",
+   "size": 58456,
+   "modes": [
+    "cors"
+   ]
+  },
+  {
+   "url": "https://mosaic.flabbergast.agency/draco/draco_decoder.wasm",
+   "method": "GET",
+   "status": 200,
+   "contentType": "application/wasm",
+   "headers": {
+    "content-type": "application/wasm"
+   },
+   "resourceType": "fetch",
+   "passes": [
+    "mobile",
+    "desktop"
+   ],
+   "file": "assets/mosaic.flabbergast.agency/draco/draco_decoder.wasm",
+   "size": 192420,
+   "modes": [
+    "cors"
+   ]
+  },
+  {
+   "url": "https://mosaic.flabbergast.agency/images/card-stack-0a86c0.webp",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/webp",
+   "headers": {
+    "content-type": "image/webp"
+   },
+   "resourceType": "image",
+   "passes": [
+    "desktop"
+   ],
+   "file": "assets/mosaic.flabbergast.agency/images/card-stack-0a86c0.webp",
+   "size": 59604,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://mosaic.flabbergast.agency/images/card-stack-7352c8.webp",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/webp",
+   "headers": {
+    "content-type": "image/webp"
+   },
+   "resourceType": "image",
+   "passes": [
+    "desktop"
+   ],
+   "file": "assets/mosaic.flabbergast.agency/images/card-stack-7352c8.webp",
+   "size": 58364,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://mosaic.flabbergast.agency/favicon.ico?v=2",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/x-icon",
+   "headers": {
+    "content-type": "image/x-icon"
+   },
+   "resourceType": "other",
+   "passes": [
+    "desktop"
+   ],
+   "file": "assets/mosaic.flabbergast.agency/favicon__qf67bbdbf.ico",
+   "size": 417
+  },
+  {
+   "url": "https://mosaic.flabbergast.agency/favicon-32.png?v=2",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/png",
+   "headers": {
+    "content-type": "image/png"
+   },
+   "resourceType": "other",
+   "passes": [
+    "desktop"
+   ],
+   "file": "assets/mosaic.flabbergast.agency/favicon-32__qf67bbdbf.png",
+   "size": 123
+  },
+  {
+   "url": "https://mosaic.flabbergast.agency/favicon-16.png?v=2",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/png",
+   "headers": {
+    "content-type": "image/png"
+   },
+   "resourceType": "other",
+   "passes": [
+    "desktop"
+   ],
+   "file": "assets/mosaic.flabbergast.agency/favicon-16__qf67bbdbf.png",
+   "size": 98
+  },
+  {
+   "url": "https://mosaic.flabbergast.agency/site.webmanifest",
+   "method": "GET",
+   "status": 200,
+   "contentType": "application/octet-stream",
+   "headers": {
+    "content-type": "application/octet-stream"
+   },
+   "resourceType": "other",
+   "passes": [
+    "desktop"
+   ],
+   "file": "assets/mosaic.flabbergast.agency/site.webmanifest",
+   "size": 642
+  },
+  {
+   "url": "https://mosaic.flabbergast.agency/apple-touch-icon.png?v=2",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/png",
+   "headers": {
+    "content-type": "image/png"
+   },
+   "resourceType": "other",
+   "passes": [
+    "desktop"
+   ],
+   "file": "assets/mosaic.flabbergast.agency/apple-touch-icon__qf67bbdbf.png",
+   "size": 511
+  },
+  {
+   "url": "https://mosaic.flabbergast.agency/favicon.ico",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/x-icon",
+   "headers": {
+    "content-type": "image/x-icon"
+   },
+   "resourceType": "other",
+   "passes": [
+    "desktop"
+   ],
+   "file": "assets/mosaic.flabbergast.agency/favicon.ico",
+   "size": 417
+  }
+ ],
+ "videos": {
+  "posters": {},
+  "onlineHosts": []
+ }
+}

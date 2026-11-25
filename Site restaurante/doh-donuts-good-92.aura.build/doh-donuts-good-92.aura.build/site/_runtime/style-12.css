@@ -1,0 +1,15 @@
+
+/* ===== Hero, tighter composition: bigger type, a bigger donut pulled in next to it ===== */
+:root{--hero-x:63.5%;--hero-y:51%;--hero-d:min(54vw,80.4svh)}
+@media(min-width:801px){
+.hero .copy{left:5%;width:min(46%,760px)}
+.hero h1{font-size:clamp(72px,min(12.4vw,20svh),230px);line-height:.84;margin:0 0 30px}
+.hero .eyebrow{font-size:13px;margin-bottom:22px}
+.hero .description{font-size:19px;max-width:480px}
+.hero .description b{font-size:32px}
+}
+.spin-donut{left:calc(var(--hero-x) - var(--hero-d) * .5);top:calc(var(--hero-y) - var(--hero-d) * .5);width:var(--hero-d);height:var(--hero-d)}
+.happy-stamp{left:calc(var(--hero-x) + var(--hero-d) * .3 - 66px);top:calc(var(--hero-y) - var(--hero-d) * .46 - 40px)}
+@media(max-width:1100px) and (min-width:801px){.hero h1{font-size:clamp(64px,11vw,150px)}.hero .description{font-size:16px}.hero .description b{font-size:26px}}
+@media(max-height:760px) and (min-width:801px){.hero h1{font-size:min(10.5vw,17svh);margin-bottom:18px}.hero .description{font-size:15px;margin-bottom:18px}.hero .description b{font-size:23px}}
+@media(max-width:800px){:root{--hero-x:65%;--hero-y:68%;--hero-d:min(72vw,36svh)}.hero h1{font-size:clamp(58px,20vw,104px)}.hero .description b{font-size:21px}}

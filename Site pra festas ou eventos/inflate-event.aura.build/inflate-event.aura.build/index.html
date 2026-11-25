@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8">
+<!-- Website Downloader 3.0: este arquivo é o retrato estático do site (DOM renderizado). Aberto via servidor
+     local (serve.py, ver Como rodar.md), o bootstrap abaixo carrega o site vivo; via file://, mostra este retrato. -->
+<meta name="referrer" content="no-referrer">
+<script data-wd3>window.__WD3__ = {"entryUrl": "https://inflate-event.aura.build/", "replayHost": "inflate-event.aura.build.localhost", "entryPath": "/", "captureId": "inflate-event.aura.build-1f7cfb11", "capturedAt": "2026-10-23T20:00:51+00:00", "snapshot": true, "fileFonts": null};</script>
+<script data-wd3>/* Website Downloader 3.0 — bootstrap do index.html.
+ * file://  → fica no retrato estático (e carrega as fontes embutidas, que o Chrome bloqueia em file://).
+ * http(s)  → para de carregar o retrato, registra o Service Worker de replay e abre o site vivo.
+ */
+(function () {
+  var cfg = window.__WD3__ || {};
+  var root = document.documentElement;
+  if (location.protocol === 'file:') {
+    root.setAttribute('data-wd3', 'file');
+    if (cfg.fileFonts) {
+      var link = document.createElement('link');
+      link.rel = 'stylesheet';
+      link.href = cfg.fileFonts;
+      (document.head || root).appendChild(link);
+    }
+    return;
+  }
+  root.setAttribute('data-wd3', 'loading');
+  if (cfg.snapshot) {
+    try { window.stop(); } catch (e) { /* o retrato não precisa carregar: o site vivo vem do SW */ }
+  }
+
+  function fail(msg) {
+    root.setAttribute('data-wd3', 'error');
+    var el = document.getElementById('wd3-error');
+    if (!el) {
+      var body = document.body || root.appendChild(document.createElement('body'));
+      body.innerHTML = '<p style="font:15px system-ui,sans-serif;padding:24px;color:#e8e8e8;background:#050505;margin:0">' +
+        'Não foi possível iniciar o replay: <span id="wd3-error"></span></p>';
+      el = document.getElementById('wd3-error');
+    }
+    el.textContent = msg;
+  }
+  if (!('serviceWorker' in navigator)) return fail('este navegador não suporta Service Workers.');
+
+  function go() { location.replace(cfg.entryPath); }
+  function start() {
+    navigator.serviceWorker.register('/site/_wd3/sw.js', { scope: '/' })
+      .then(function () { return navigator.serviceWorker.ready; })
+      .then(function () {
+        if (navigator.serviceWorker.controller) return go();
+        navigator.serviceWorker.addEventListener('controllerchange', go);
+      })
+      .catch(function (err) { fail(String(err && err.message || err)); });
+  }
+  // Aberto em localhost puro: tenta <domínio>.localhost (mesmo servidor), para sites que checam location.hostname.
+  var plain = location.hostname === 'localhost' || location.hostname === '127.0.0.1';
+  if (!plain || !cfg.replayHost || cfg.replayHost === 'localhost') return start();
+  var target = location.protocol + '//' + cfg.replayHost + (location.port ? ':' + location.port : '');
+  var decided = false;
+  function decide(fn) { if (!decided) { decided = true; fn(); } }
+  setTimeout(function () { decide(start); }, 1500);
+  fetch(target + '/site/_wd3/site-index.json', { mode: 'no-cors', cache: 'no-store' })
+    .then(function () { decide(function () { location.replace(target + cfg.entryPath); }); })
+    .catch(function () { decide(start); });
+})();
+</script>
+<style data-wd3>
+  [data-wd3-banner] { display: none; }
+  html[data-wd3="file"] [data-wd3-banner] { display: flex; }
+  html[data-wd3-unlock], html[data-wd3-unlock] body { overflow-y: auto !important; }
+</style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#eee7db">
+<meta name="description" content="INFLATE. A celebration shaped by air, light and movement. An immersive celebration of the extraordinary.">
+<title>INFLATE — Celebrate Bigger</title>
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='32' fill='%23eee7db'/%3E%3Ctext x='32' y='47' text-anchor='middle' font-family='serif' font-size='48' fill='%2329251f'%3EI%3C/text%3E%3C/svg%3E">
+<link rel="stylesheet" href="site/_runtime/style-0.css" data-wd3-runtime-style="">
+
+<link rel="stylesheet" href="site/_runtime/style-1.css" data-wd3-runtime-style=""></head>
+  <body>
+    <main id="experience">
+    <div class="pin-spacer pin-spacer-arrival-pressure-expand" style="order: 0; place-self: auto; grid-area: auto; z-index: auto; float: none; flex-shrink: 1; display: block; margin: 0px; inset: 0px; position: relative; flex-basis: auto; overflow: visible; box-sizing: border-box; width: 1440px; height: 4680px; padding: 0px 0px 3780px;"><section id="arrival" aria-label="Chapter one: Arrival" class="is-ready" style="translate: none; rotate: none; scale: none; left: 0px; top: 0.001px; margin: 0px; max-width: 1440px; width: 1440px; max-height: 900px; height: 900px; padding: 0px; box-sizing: border-box; position: fixed; transform: translate(0px, 0px);">
+      <div class="architecture" aria-hidden="true" style="opacity: 0.2914;"></div>
+      <canvas id="scene" role="img" aria-label="A crystal-clear bubble balloon with pearl white and champagne gold balloons in a sunlit ivory room" data-engine="three.js r180" width="2376" height="1485" style="width: 1440px; height: 900px; opacity: 0.2914;"></canvas>
+      <div class="atmosphere" aria-hidden="true" style="opacity: 0.2914;"></div>
+      <header class="masthead">
+        <a class="wordmark" href="#arrival" aria-label="INFLATE home">INFLATE</a>
+        <nav class="desktop-nav" aria-label="Primary navigation">
+          <a href="#arrival" data-section-link="">Experience</a>
+          <a href="#occasions" data-section-link="">Occasions</a>
+          <a href="#about" data-section-link="">About</a>
+          <a href="#final-moment" data-section-link="">Contact</a>
+        </nav>
+        <a class="plan-button header-plan" href="#final-moment" data-section-link=""><span>PLAN A CELEBRATION</span><span class="ui-arrow" aria-hidden="true">→</span></a>
+        <button class="menu-toggle" type="button" aria-haspopup="dialog" aria-controls="mobile-menu" aria-expanded="false">Menu</button>
+      </header>
+      <div class="hero-title" aria-hidden="true" style="visibility: hidden;"><span>I</span><span>N</span><span>F</span><span>L</span><span>A</span><span>T</span><span>E</span></div>
+      <h1 class="sr-only">INFLATE</h1>
+      <footer class="hero-footer" style="opacity: 1;">
+        <div class="hero-introduction">
+          <p class="supporting-copy" style="translate: none; rotate: none; scale: none; transform: translate(0px, 14.4px); opacity: 0;">A celebration shaped by air, light and movement.</p>
+          <button class="enter" type="button" aria-label="Explore the experience" style="translate: none; rotate: none; scale: none; transform: translate(0px, 10px); opacity: 0;"><span class="enter-label">EXPLORE</span><span class="enter-arrow" aria-hidden="true">→</span></button>
+        </div>
+        <button class="scroll-cue" type="button" aria-label="Scroll to explore" style="opacity: 0;"><span class="scroll-label">SCROLL</span><span class="scroll-line" aria-hidden="true"></span><span class="scroll-arrow" aria-hidden="true">↓</span></button>
+        <nav class="category-nav" aria-label="Celebration categories" style="opacity: 0;">
+          <a href="#occasions" data-panel="occasions">Events</a>
+          <a href="#installations" data-panel="installations">Installations</a>
+          <a href="#custom-creations" data-panel="custom">Custom Creations</a>
+        </nav>
+        <div class="campaign-rule" aria-hidden="true" style="opacity: 0;"><span></span></div>
+      </footer>
+      <div class="loading" aria-live="polite"><span class="loading-mark">I</span><span class="loading-label">Loading experience</span><span class="loading-line"></span></div>
+      <p class="fallback-note" role="status" hidden="">The scene is taking a little longer to arrive. Please refresh to try again.</p>
+    </section></div>
+    <section id="celebrate" aria-labelledby="celebrate-heading">
+      <div class="celebrate-layout">
+        <div class="celebrate-content">
+          <p class="celebrate-label" style="opacity: 0;">CELEBRATE</p>
+          <h2 id="celebrate-heading"><span class="motion-line" style="translate: none; rotate: none; scale: none; opacity: 0; transform: translate(0px, 24px);">Moments</span><span class="motion-line" style="translate: none; rotate: none; scale: none; opacity: 0; transform: translate(0px, 24px);">made <em>larger.</em></span></h2>
+          <p class="celebrate-copy" style="opacity: 0;">From intimate birthdays to unforgettable weddings, each installation is shaped around the moment.</p>
+          <a class="celebrate-cta plan-button" href="#occasions" data-section-link="" style="translate: none; rotate: none; scale: none; transform: translate(0px, 8px); opacity: 0;"><span>DISCOVER OCCASIONS</span><span class="ui-arrow" aria-hidden="true">→</span></a>
+        </div>
+        <div class="celebrate-visual" style="opacity: 1; clip-path: inset(0px 0px 100%);">
+          <img class="campaign-photo" src="site/hoirqrkdgbmvpwutwuwj.supabase.co/storage/v1/object/public/assets/assets/fd8a639e-6e1f-4bbe-b414-fcfcc7151082_1600w.webp" alt="An asymmetric pearl and champagne balloon sculpture framing a sunlit limestone doorway" width="1024" height="1280" loading="lazy">
+        </div>
+      </div>
+      <nav id="celebrate-occasions" class="occasion-links" aria-label="Discover occasions" tabindex="-1">
+        <a href="#weddings" data-section-link="" style="translate: none; rotate: none; scale: none; transform: translate(-12px, 0px); opacity: 0;">Weddings <span class="ui-arrow" aria-hidden="true" style="opacity: 0;">→</span></a>
+        <a href="#birthdays" data-section-link="" style="translate: none; rotate: none; scale: none; transform: translate(-12px, 0px); opacity: 0;">Birthdays <span class="ui-arrow" aria-hidden="true" style="opacity: 0;">→</span></a>
+        <a href="#private-events" data-section-link="" style="translate: none; rotate: none; scale: none; transform: translate(-12px, 0px); opacity: 0;">Private Events <span class="ui-arrow" aria-hidden="true" style="opacity: 0;">→</span></a>
+      </nav>
+    </section>
+    <section id="about" class="about-section" aria-labelledby="about-heading" tabindex="-1">
+      <header class="about-intro"><p class="editorial-label">THE ART OF INFLATE</p><h2 id="about-heading"><span style="translate: none; rotate: none; scale: none; transform: translate(0px, 12px); clip-path: inset(100% 0px 0px);">Designed to hold</span><span style="translate: none; rotate: none; scale: none; transform: translate(0px, 12px); clip-path: inset(100% 0px 0px);"><em>a moment.</em></span></h2></header>
+      <div class="about-narrative"><figure class="about-detail" style="clip-path: inset(0px 0px 100%);"><img src="site/hoirqrkdgbmvpwutwuwj.supabase.co/storage/v1/object/public/assets/assets/09371fa9-f5e1-4f6f-8ac0-c87a6fc5c3a4_1600w.webp" alt="An intimate study of transparent membrane, pearl latex and champagne reflections" width="1536" height="1024" loading="lazy"></figure><div class="about-statement" style="translate: none; rotate: none; scale: none; transform: translate(18px, 0px); opacity: 0;"><p>A little air.<br>A different <em>feeling.</em></p><div>We begin with what matters: the people, the setting, the reason to gather. Then we shape air, space and light into something you can feel — an installation that belongs to your moment.</div></div></div>
+      <ol class="process-story"><li id="process-1" style="translate: none; rotate: none; scale: none; transform: translate(0px, 12px); opacity: 0;"><span class="process-index">01</span><h3>Imagine the moment</h3><p>A conversation about your occasion, your people and the atmosphere you want to create.</p></li><li id="process-2" style="translate: none; rotate: none; scale: none; transform: translate(0px, 12px); opacity: 0;"><span class="process-index">02</span><h3>Shape the installation</h3><p>Proportion, palette and material come together in a composition made for your space.</p></li><li id="process-3" style="translate: none; rotate: none; scale: none; transform: translate(0px, 12px); opacity: 0;"><span class="process-index">03</span><h3>Fill the space with presence</h3><p>The final details find their place. Light catches the surface. The room becomes part of the celebration.</p></li></ol>
+    </section>
+    <section id="occasions" class="occasions-section collections-section" aria-labelledby="occasions-heading" tabindex="-1">
+      <header class="occasions-intro">
+        <h2 id="occasions-heading"><span style="clip-path: inset(0px 100% 0px 0px);">Curated</span><span style="clip-path: inset(0px 100% 0px 0px);"><em>installations.</em></span></h2>
+        <p style="opacity: 0;">Different moments. A shared sense of possibility. Explore three starting points, each shaped around your space, your people and your occasion.</p>
+      </header>
+      <div class="collection-grid">
+        <article id="weddings" class="collection collection-ceremony" tabindex="-1"><a href="#collection-ceremony" data-collection="ceremony" aria-label="Explore Ceremony collection"><figure style="clip-path: inset(0px 0px 100%);"><img src="site/hoirqrkdgbmvpwutwuwj.supabase.co/storage/v1/object/public/assets/assets/8f873b89-21eb-4c02-9933-996073629499_1600w.webp" alt="Pearl balloon columns framing an intimate limestone courtyard ceremony" width="1024" height="1280" loading="lazy"></figure><div class="collection-caption" style="opacity: 0;"><div><p class="editorial-label">01 / WEDDINGS</p><h3>Ceremony</h3></div><span class="ui-arrow" aria-hidden="true">→</span></div></a><p style="opacity: 0;">Sculptural forms for the beginning of something extraordinary.</p></article>
+        <article id="birthdays" class="collection collection-celebration" tabindex="-1"><a href="#collection-celebration" data-collection="celebration" aria-label="Explore Celebration collection"><figure style="clip-path: inset(0px 0px 0px 100%);"><img src="site/hoirqrkdgbmvpwutwuwj.supabase.co/storage/v1/object/public/assets/assets/41af0dad-8749-4c8a-a046-276570079a5e_1600w.webp" alt="A pearl and gold birthday composition with a minimal cake on a stone plinth" width="1024" height="1024" loading="lazy"></figure><div class="collection-caption" style="opacity: 0;"><div><p class="editorial-label">02 / BIRTHDAYS</p><h3>Celebration</h3></div><span class="ui-arrow" aria-hidden="true">→</span></div></a><p style="opacity: 0;">Personal moments, given a beautiful sense of scale.</p></article>
+        <article id="private-events" class="collection collection-dinner" tabindex="-1"><a href="#collection-dinner" data-collection="dinner" aria-label="Explore Intimate Dinner collection"><figure style="clip-path: inset(0px 0px 100%);"><img src="site/hoirqrkdgbmvpwutwuwj.supabase.co/storage/v1/object/public/assets/assets/3ef84ca6-2e93-4a60-b62e-19b98e07fe6e_1600w.webp" alt="An intimate candlelit table beneath a floating pearl and champagne installation" width="1536" height="1024" loading="lazy"></figure><div class="collection-caption" style="opacity: 0;"><div><p class="editorial-label">03 / PRIVATE GATHERINGS</p><h3>Intimate Dinner</h3></div><span class="ui-arrow" aria-hidden="true">→</span></div></a><p style="opacity: 0;">A considered setting for conversation, connection and coming together.</p></article>
+      </div>
+    </section>
+    <section id="space-transformed" class="space-section" aria-labelledby="space-heading" tabindex="-1">
+      <div class="space-frame" style="clip-path: inset(7% 6%);"><img src="site/hoirqrkdgbmvpwutwuwj.supabase.co/storage/v1/object/public/assets/assets/deb6c832-6548-4324-9d05-057e69d8b0de_1600w.webp" alt="Pearl and champagne balloon sculptures glowing inside a vaulted ivory gallery at dusk" width="1792" height="1024" loading="lazy" style="translate: none; rotate: none; scale: none; transform: translate(0%, -2%) scale(1.05, 1.05);"></div>
+      <div class="space-shade" aria-hidden="true"></div>
+      <div class="space-copy"><p class="section-kicker" style="opacity: 0;">BEYOND THE EXPECTED</p><h2 id="space-heading"><span style="translate: none; rotate: none; scale: none; transform: translate(0px, 20px); clip-path: inset(100% 0px 0px);">Space,</span><span style="translate: none; rotate: none; scale: none; transform: translate(0px, 20px); clip-path: inset(100% 0px 0px);"><em>transformed.</em></span></h2><p class="space-description" style="opacity: 0;">A room becomes a setting.<br>A gathering becomes an occasion.</p></div>
+      <div class="space-bottom" style="opacity: 0;"><p>From a single sculptural gesture to an entire space, we compose around the way you want it to feel.</p><a class="space-link" href="#finishing-touch" data-section-link="">IN THE DETAILS <span class="ui-arrow" aria-hidden="true">→</span></a></div>
+    </section>
+    <section id="finishing-touch" class="finishing-section" aria-labelledby="finishing-heading" tabindex="-1">
+      <header class="finishing-heading"><p class="section-kicker">CONSIDERED, DOWN TO THE LAST DETAIL</p><h2 id="finishing-heading"><span style="clip-path: inset(0px 100% 0px 0px);">The finishing</span><span style="clip-path: inset(0px 100% 0px 0px);"><em>touch.</em></span></h2></header>
+      <figure class="finishing-image" style="clip-path: inset(0px 0px 100%);"><img src="site/hoirqrkdgbmvpwutwuwj.supabase.co/storage/v1/object/public/assets/assets/ca856b8c-fc69-414b-a0bd-cfff78519456_1600w.webp" alt="Pearl, champagne and crystal balloons with delicate silk ribbons on honed limestone" width="1024" height="1280" loading="lazy"></figure>
+      <div class="finishing-copy"><p class="finishing-intro" style="translate: none; rotate: none; scale: none; transform: translate(14px, 0px); opacity: 0;">Three finishes.<br><em>Endless possibility.</em></p><p style="translate: none; rotate: none; scale: none; transform: translate(14px, 0px); opacity: 0;">Soft pearl. Warm champagne. The lightness of crystal. Every surface brings something different to your celebration.</p><dl class="finish-notes"><div style="translate: none; rotate: none; scale: none; transform: translate(14px, 0px); opacity: 0;"><dt>Pearl</dt><dd>A soft, luminous presence.</dd></div><div style="translate: none; rotate: none; scale: none; transform: translate(14px, 0px); opacity: 0;"><dt>Champagne</dt><dd>Warmth, caught in reflection.</dd></div><div style="translate: none; rotate: none; scale: none; transform: translate(14px, 0px); opacity: 0;"><dt>Crystal</dt><dd>Light, with room to breathe.</dd></div></dl><a class="plan-button" href="#final-moment" data-section-link="" style="translate: none; rotate: none; scale: none; transform: translate(14px, 0px); opacity: 0;"><span>PLAN A CELEBRATION</span><span class="ui-arrow" aria-hidden="true">→</span></a></div>
+    </section>
+    <section id="the-arch" class="arch-section" aria-labelledby="arch-heading" tabindex="-1">
+      <div class="arch-stage">
+        <canvas id="arch-scene" role="img" aria-label="An empty champagne-metal arch gradually fills with pearl, gold and crystal balloons as you scroll"></canvas>
+        <div class="arch-editorial"><p class="section-kicker">THE ART OF ASSEMBLY</p><h2 id="arch-heading">A moment,<br><em>taking shape.</em></h2><p>From an open frame to a celebration.<br>One balloon at a time.</p></div>
+        <div class="arch-caption"><span>Scroll to compose</span><span class="arch-progress" aria-hidden="true"><i></i></span><span>PEARL · CHAMPAGNE · CRYSTAL</span></div>
+        <p class="arch-fallback" hidden="">The live installation could not load. Please refresh to try again.</p>
+      </div>
+    </section>
+    <div class="air-journey">
+      <div class="air-stage" style="opacity: 0;"><canvas id="air-scene" role="img" aria-label="Pearl, crystal and champagne balloons floating through a sunlit open gallery, resolving into one pearl balloon"></canvas><img class="air-poster" alt="" hidden=""><p class="scene-unavailable" hidden="">A still moment. The floating installation is unavailable in this browser.</p></div>
+      <section id="lighter-than-air" class="air-section" aria-labelledby="air-heading" tabindex="-1">
+        <div class="air-content"><h2 id="air-heading"><span style="clip-path: inset(0px 100% 0px 0px);">LIGHTER</span><span style="clip-path: inset(0px 100% 0px 0px);">THAN <em>AIR</em></span></h2><p style="opacity: 0;">A study in movement, reflection and weightlessness.</p></div>
+      </section>
+      <section id="final-moment" class="final-section" aria-labelledby="final-heading" tabindex="-1">
+        <button id="finale-balloon-control" class="finale-balloon-control" type="button" aria-label="Give the floating balloon a gentle nudge" aria-describedby="finale-balloon-hint" hidden=""><span id="finale-balloon-hint">Hover or tap</span></button>
+        <div class="final-content"><h2 id="final-heading"><span style="translate: none; rotate: none; scale: none; transform: translate(0px, 16px); clip-path: inset(100% 0px 0px);">MAKE THE</span><span style="translate: none; rotate: none; scale: none; transform: translate(0px, 16px); clip-path: inset(100% 0px 0px);">MOMENT <em>BIGGER</em></span></h2><p style="opacity: 0;">Designed to celebrate what matters.</p><div class="final-actions"><a class="plan-button" href="#contact" data-panel="contact" style="translate: none; rotate: none; scale: none; transform: translate(0px, 8px); opacity: 0;"><span>PLAN A CELEBRATION</span><span class="ui-arrow" aria-hidden="true">→</span></a><a class="text-action" href="#occasions" data-section-link="" style="opacity: 0;">VIEW OCCASIONS <span class="ui-arrow" aria-hidden="true">→</span></a></div></div>
+      </section>
+    </div>
+    </main>
+    <footer id="site-footer" class="site-footer">
+      <div class="footer-rule" aria-hidden="true" style="translate: none; rotate: none; scale: none; transform: scale(0, 1);"></div>
+      <div class="footer-columns">
+        <div class="footer-brand" style="translate: none; rotate: none; scale: none; transform: translate(0px, 8px); opacity: 0;"><a class="wordmark" href="#arrival" data-section-link="">INFLATE</a><p>Balloon installations for extraordinary moments.</p></div>
+        <nav aria-label="Footer navigation" style="translate: none; rotate: none; scale: none; transform: translate(0px, 8px); opacity: 0;"><h2>Navigation</h2><a href="#arrival" data-section-link="">Experience</a><a href="#occasions" data-section-link="">Occasions</a><a href="#about" data-section-link="">About</a><a href="#final-moment" data-section-link="">Contact</a></nav>
+        <nav aria-label="Footer occasions" style="translate: none; rotate: none; scale: none; transform: translate(0px, 8px); opacity: 0;"><h2>Occasions</h2><a href="#weddings" data-section-link="">Weddings</a><a href="#birthdays" data-section-link="">Birthdays</a><a href="#private-events" data-section-link="">Private Events</a></nav>
+        <nav aria-label="Contact and social" id="contact" style="translate: none; rotate: none; scale: none; transform: translate(0px, 8px); opacity: 0;"><h2>Connect</h2><a href="#final-moment" data-section-link="">Plan a celebration</a><a href="#instagram" data-panel="instagram">Instagram</a></nav>
+      </div>
+      <div class="footer-bottom" style="opacity: 0;"><span>© 2026 INFLATE</span><a href="#privacy" data-panel="privacy">Privacy</a></div>
+    </footer>
+    <dialog id="mobile-menu" class="navigation-dialog" aria-label="Navigation">
+      <div class="dialog-header"><span class="wordmark">INFLATE</span><button type="button" data-close="">Close</button></div>
+      <nav aria-label="Mobile navigation">
+        <a href="#arrival" data-section-link="">Experience</a>
+        <a href="#occasions" data-section-link="">Occasions</a>
+        <a href="#about" data-section-link="">About</a>
+        <a href="#final-moment" data-section-link="">Contact</a>
+        <a class="plan-button" href="#final-moment" data-section-link=""><span>PLAN A CELEBRATION</span><span class="ui-arrow" aria-hidden="true">→</span></a>
+      </nav>
+    </dialog>
+    <dialog id="brand-information" class="information-dialog" aria-labelledby="information-title">
+      <div class="dialog-header"><span class="wordmark">INFLATE</span><button type="button" data-close="">Close</button></div>
+      <h2 id="information-title"></h2>
+      <p class="information-copy"></p>
+    </dialog>
+    <dialog id="collection-detail" class="collection-dialog" aria-labelledby="collection-title"><button class="collection-close" type="button">Close</button><img alt=""><div class="collection-dialog-copy"><p class="editorial-label">THE COLLECTION</p><h2 id="collection-title"></h2><p class="collection-description"></p><ul class="collection-details"></ul><a class="plan-button" href="#final-moment" data-section-link=""><span>PLAN A CELEBRATION</span><span class="ui-arrow" aria-hidden="true">→</span></a></div></dialog>
+  
+
+<div data-wd3-banner style="position:fixed;z-index:2147483647;left:16px;bottom:16px;max-width:min(560px,calc(100vw - 32px));align-items:center;gap:12px;padding:12px 14px;border-radius:12px;background:rgba(5,5,5,.92);color:#e8e8e8;border:1px solid #1d1d1d;box-shadow:0 8px 30px rgba(0,0,0,.35);font:13px/1.45 ui-sans-serif,system-ui,-apple-system,'Segoe UI',sans-serif;backdrop-filter:blur(8px)">
+  <span style="width:8px;height:8px;border-radius:50%;background:#00ffa3;flex:none"></span>
+  <span>Versão estática, sem animações. Para ver o site vivo, rode no terminal, nesta pasta: <b style="color:#00ffa3">python3 serve.py --open</b> (Windows: <b style="color:#00ffa3">py serve.py --open</b>). Passo a passo em <b style="color:#00ffa3">Como rodar.md</b>.</span>
+  <button type="button" onclick="this.parentNode.remove()" aria-label="Fechar" style="flex:none;background:none;border:0;color:#8a8a8a;font-size:18px;cursor:pointer;padding:0 2px">×</button>
+</div>
+</body></html>

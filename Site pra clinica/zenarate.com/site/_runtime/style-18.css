@@ -1,0 +1,113 @@
+
+  [data-menu-wrap] {
+  --nav-height:56px;
+}
+
+.mega-nav__panel-col:last-of-type {
+  border: none;
+}
+
+.wf-design-mode [data-nav-content][data-panel-state="active"] {
+  opacity: 1;
+  visibility: visible;
+  pointer-events: auto;
+  position: relative;
+}
+
+.wf-design-mode [data-menu-open]:has( [data-nav-content][data-panel-state="active"]) [data-dropdown-bg] {
+  opacity: 1;
+  inset: 0;
+}
+
+.wf-design-mode [data-mobile-nav="active"] {
+  opacity: 1;
+  visibility: visible;
+}
+
+.mega-nav__bar-list.is--actions.is--mobile-clone {
+  display: none;
+}
+
+@media screen and (max-width: 991px) {
+  .mega-nav__bar-list.is--actions.is--mobile-clone {
+    display: flex;
+    width: 100%;
+  }
+}
+
+@media screen and (max-width: 991px) {
+  [data-nav-list-item]:last-child {
+    border-bottom: none;
+  }
+}
+
+[data-nav-list-item] .mega-nav__bar-link {
+  -webkit-tap-highlight-color: transparent;
+}
+
+.mega-nav__burger {
+ -webkit-tap-highlight-color: transparent; 
+}
+
+.mega-nav__bar-link-icon {
+  transition: transform 0.3s ease;
+}
+
+[data-dropdown-toggle][aria-expanded="true"] .mega-nav__bar-link-icon {
+  transform: rotate(180deg);
+}
+
+.mega-nav__bar-link-icon.is--link {
+  display: none;
+}
+
+@media screen and (max-width: 991px) {
+  .mega-nav__bar-link-icon.is--link {
+    display: block;
+    transform: rotate(-90deg);
+  }
+}
+
+.mega-nav__bar-link-icon.is--link {
+  width: 24px;
+  height: 24px;
+}
+
+.mega-nav__bar-list,
+.mega-nav__bar-inner {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.mega-nav__bar-list::-webkit-scrollbar,
+.mega-nav__bar-inner::-webkit-scrollbar {
+  display: none;
+}
+
+.mega-nav__panel-col.desktop--hide .w-button {
+  width: 100%;
+}
+
+.img-link-block:hover .img,
+.mega-nav__panel-col.is--highlight:hover .img-link-block .img {
+  transform: scale(1);
+}
+
+.img-link-block:hover .video-embed,
+.mega-nav__panel-col.is--highlight:hover .img-link-block .video-embed {
+  transform: scale(1);
+}
+
+  @media screen and (min-width: 992px) {
+  .mega-nav {
+    pointer-events: none;
+  }
+  .mega-nav__bar-wrapper,
+  .mega-nav__bar-list.is--actions,
+  .mega-nav__bar-end,
+  [data-dropdown-wrapper],
+  .mega-nav__backdrop {
+    pointer-events: auto;
+  }
+}
+  

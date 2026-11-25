@@ -1,0 +1,1 @@
+var e={scattered:!1,sparkle:!1};export{e as t};

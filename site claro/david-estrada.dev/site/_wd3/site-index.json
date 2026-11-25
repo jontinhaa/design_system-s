@@ -1,0 +1,936 @@
+{
+ "version": 1,
+ "tool": "wd3 0.1.0",
+ "captureId": "david-estrada.dev-778c4663",
+ "capturedAt": "2026-10-28T18:25:05+00:00",
+ "entry": {
+  "url": "https://david-estrada.dev/",
+  "path": "/",
+  "search": "",
+  "file": "site/david-estrada.dev/index.html",
+  "contentType": "text/html; charset=UTF-8"
+ },
+ "blocked": [
+  "^https?://([^/?#]+\\.)?(google\\-analytics\\.com|analytics\\.google\\.com|googletagmanager\\.com|googleadservices\\.com|doubleclick\\.net|googlesyndication\\.com|googleoptimize\\.com|connect\\.facebook\\.net|bat\\.bing\\.com|snap\\.licdn\\.com|px\\.ads\\.linkedin\\.com|analytics\\.tiktok\\.com|ct\\.pinterest\\.com|static\\.ads\\-twitter\\.com|analytics\\.twitter\\.com|tr\\.snapchat\\.com|sc\\-static\\.net|mc\\.yandex\\.ru|hotjar\\.com|hotjar\\.io|clarity\\.ms|cdn\\.segment\\.com|api\\.segment\\.io|cdn\\.mxpnl\\.com|api\\-js\\.mixpanel\\.com|api\\.mixpanel\\.com|api\\.amplitude\\.com|api2\\.amplitude\\.com|api\\-secure\\.amplitude\\.com|api\\-sr\\.amplitude\\.com|sr\\-client\\-cfg\\.amplitude\\.com|plausible\\.io|cloud\\.umami\\.is|analytics\\.umami\\.is|static\\.cloudflareinsights\\.com|cloudflareinsights\\.com|vitals\\.vercel\\-insights\\.com|browser\\-intake\\-datadoghq\\.com|browser\\-intake\\-datadoghq\\.eu|js\\-agent\\.newrelic\\.com|bam\\.nr\\-data\\.net|bam\\-cell\\.nr\\-data\\.net|fullstory\\.com|script\\.crazyegg\\.com|mouseflow\\.com|smartlook\\.com|heapanalytics\\.com|i\\.posthog\\.com|stats\\.wp\\.com|pixel\\.wp\\.com|promotekit\\.com|ingest\\.sentry\\.io|ingest\\.us\\.sentry\\.io|ingest\\.de\\.sentry\\.io|widget\\.intercom\\.io|js\\.intercomcdn\\.com|api\\-iam\\.intercom\\.io|js\\.hs\\-scripts\\.com|js\\.hs\\-analytics\\.net|js\\.hs\\-banner\\.com|js\\.hscollectedforms\\.net|js\\.usemessages\\.com|track\\.hubspot\\.com|client\\.crisp\\.chat|embed\\.tawk\\.to|js\\.driftt\\.com|static\\.zdassets\\.com|ekr\\.zdassets\\.com|cdn\\.cookielaw\\.org|geolocation\\.onetrust\\.com|consent\\.cookiebot\\.com|consentcdn\\.cookiebot\\.com|app\\.usercentrics\\.eu|api\\.usercentrics\\.eu|cdn\\.iubenda\\.com|cmp\\.osano\\.com|cdn\\.termly\\.io)(:\\d+)?([/?#]|$)",
+  "/rpc/increment_shared_code_views",
+  "^https?://(umami|analytics|stats|plausible)\\.[^/]+/(api/send|api/collect|api/event|script\\.js)",
+  "/g/c(ollect)?\\?v=2&",
+  "sentry\\.io/api/\\d+/(envelope|store)",
+  "/api/meta-capi",
+  "^https?://(leadtracker|tracking|track|events?|collect)\\.[^/]+/",
+  "^https?://a\\.vturb\\.com/",
+  "facebook\\.com/tr[/?]",
+  "/_vercel/(speed-)?insights/",
+  "/cdn-cgi/rum",
+  "/cdn-cgi/challenge-platform/",
+  "google\\.com/(pagead|ads)/"
+ ],
+ "volatileParams": [
+  "v",
+  "_rsc",
+  "dpl",
+  "_",
+  "t",
+  "ts",
+  "timestamp",
+  "cb",
+  "cachebust",
+  "cacheBust",
+  "nocache",
+  "rnd",
+  "rand",
+  "random",
+  "_t"
+ ],
+ "entries": [
+  {
+   "url": "https://use.typekit.net/af/2724c2/00000000000000007735bb48/31/l?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=n4&v=3",
+   "method": "GET",
+   "status": 200,
+   "contentType": "application/font-woff2",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "akamai-grn": "0.1ddbda17.1793211906.f56b60d",
+    "content-type": "application/font-woff2",
+    "timing-allow-origin": "*"
+   },
+   "resourceType": "font",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "file": "site/use.typekit.net/af/2724c2/00000000000000007735bb48/31/l__qe35c7ac2.woff2",
+   "size": 24780,
+   "modes": [
+    "cors"
+   ]
+  },
+  {
+   "url": "https://use.typekit.net/af/216c2e/00000000000000007735bb6a/31/l?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=n7&v=3",
+   "method": "GET",
+   "status": 200,
+   "contentType": "application/font-woff2",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "akamai-grn": "0.1ddbda17.1793211906.f56b62e",
+    "content-type": "application/font-woff2",
+    "timing-allow-origin": "*"
+   },
+   "resourceType": "font",
+   "passes": [
+    "mobile",
+    "desktop"
+   ],
+   "file": "site/use.typekit.net/af/216c2e/00000000000000007735bb6a/31/l__qe87284ca.woff2",
+   "size": 25820,
+   "modes": [
+    "cors"
+   ]
+  },
+  {
+   "url": "https://use.typekit.net/vae5kee.css",
+   "method": "GET",
+   "status": 200,
+   "contentType": "text/css;charset=utf-8",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "akamai-grn": "0.2bdbda17.1793211906.43aa17a",
+    "content-type": "text/css;charset=utf-8",
+    "timing-allow-origin": "*"
+   },
+   "resourceType": "stylesheet",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "file": "site/use.typekit.net/vae5kee.css",
+   "size": 2005,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://david-estrada.dev/",
+   "method": "GET",
+   "status": 200,
+   "contentType": "text/html; charset=UTF-8",
+   "headers": {
+    "content-type": "text/html; charset=UTF-8",
+    "link": "<https://david-estrada.dev/wp-json/>; rel=\"https://api.w.org/\"",
+    "panel": "hpanel",
+    "platform": "hostinger",
+    "x-litespeed-cache": "hit"
+   },
+   "resourceType": "document",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "file": "site/david-estrada.dev/index.html",
+   "size": 61741,
+   "modes": [
+    "navigate"
+   ]
+  },
+  {
+   "url": "https://p.typekit.net/p.css?s=1&k=vae5kee&ht=tk&f=39494.39500&a=63600078&app=typekit&e=css",
+   "method": "GET",
+   "status": 200,
+   "contentType": "text/css",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "content-type": "text/css"
+   },
+   "resourceType": "stylesheet",
+   "passes": [
+    "mobile",
+    "desktop"
+   ],
+   "file": "site/p.typekit.net/p__qd33b2dda.css",
+   "size": 5,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://david-estrada.dev/wp-content/themes/davidestrada/js/feature3d.bundle.js?ver=1793091077",
+   "method": "GET",
+   "status": 200,
+   "contentType": "application/x-javascript",
+   "headers": {
+    "content-type": "application/x-javascript",
+    "panel": "hpanel",
+    "platform": "hostinger"
+   },
+   "resourceType": "script",
+   "passes": [
+    "mobile",
+    "desktop"
+   ],
+   "file": "site/david-estrada.dev/wp-content/themes/davidestrada/js/feature3d.bundle__q8a180c6d.js",
+   "size": 5265,
+   "modes": [
+    "cors"
+   ]
+  },
+  {
+   "url": "https://david-estrada.dev/wp-content/themes/davidestrada/assets/hero/vacations-costa-del-sol-480.webp",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/webp",
+   "headers": {
+    "content-type": "image/webp",
+    "panel": "hpanel",
+    "platform": "hostinger"
+   },
+   "resourceType": "image",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "file": "site/david-estrada.dev/wp-content/themes/davidestrada/assets/hero/vacations-costa-del-sol-480.webp",
+   "size": 30652,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://david-estrada.dev/wp-content/themes/davidestrada/assets/fonts/satoshi-500.woff2",
+   "method": "GET",
+   "status": 200,
+   "contentType": "font/woff2",
+   "headers": {
+    "content-type": "font/woff2",
+    "panel": "hpanel",
+    "platform": "hostinger"
+   },
+   "resourceType": "font",
+   "passes": [
+    "mobile",
+    "desktop"
+   ],
+   "file": "site/david-estrada.dev/wp-content/themes/davidestrada/assets/fonts/satoshi-500.woff2",
+   "size": 25596,
+   "modes": [
+    "cors"
+   ]
+  },
+  {
+   "url": "https://david-estrada.dev/wp-content/themes/davidestrada/assets/hero/david-160.webp",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/webp",
+   "headers": {
+    "content-type": "image/webp",
+    "panel": "hpanel",
+    "platform": "hostinger"
+   },
+   "resourceType": "image",
+   "passes": [
+    "mobile",
+    "desktop"
+   ],
+   "file": "site/david-estrada.dev/wp-content/themes/davidestrada/assets/hero/david-160.webp",
+   "size": 3952,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://david-estrada.dev/wp-content/themes/davidestrada/js/consent.js?ver=1793091077",
+   "method": "GET",
+   "status": 200,
+   "contentType": "application/x-javascript",
+   "headers": {
+    "content-type": "application/x-javascript",
+    "panel": "hpanel",
+    "platform": "hostinger"
+   },
+   "resourceType": "script",
+   "passes": [
+    "mobile",
+    "desktop"
+   ],
+   "file": "site/david-estrada.dev/wp-content/themes/davidestrada/js/consent__q8a180c6d.js",
+   "size": 7901,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://david-estrada.dev/wp-content/themes/davidestrada/js/stats.js?ver=1793091077",
+   "method": "GET",
+   "status": 200,
+   "contentType": "application/x-javascript",
+   "headers": {
+    "content-type": "application/x-javascript",
+    "panel": "hpanel",
+    "platform": "hostinger"
+   },
+   "resourceType": "script",
+   "passes": [
+    "mobile",
+    "desktop"
+   ],
+   "file": "site/david-estrada.dev/wp-content/themes/davidestrada/js/stats__q8a180c6d.js",
+   "size": 1500,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://david-estrada.dev/wp-content/themes/davidestrada/assets/hero/the-guru-480.webp",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/webp",
+   "headers": {
+    "content-type": "image/webp",
+    "panel": "hpanel",
+    "platform": "hostinger"
+   },
+   "resourceType": "image",
+   "passes": [
+    "mobile",
+    "desktop"
+   ],
+   "file": "site/david-estrada.dev/wp-content/themes/davidestrada/assets/hero/the-guru-480.webp",
+   "size": 18774,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://david-estrada.dev/wp-content/themes/davidestrada/js/main.js?ver=1793091077",
+   "method": "GET",
+   "status": 200,
+   "contentType": "application/x-javascript",
+   "headers": {
+    "content-type": "application/x-javascript",
+    "panel": "hpanel",
+    "platform": "hostinger"
+   },
+   "resourceType": "script",
+   "passes": [
+    "mobile",
+    "desktop"
+   ],
+   "file": "site/david-estrada.dev/wp-content/themes/davidestrada/js/main__q8a180c6d.js",
+   "size": 51140,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://david-estrada.dev/wp-content/themes/davidestrada/assets/hero/winwin-partners-480.webp",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/webp",
+   "headers": {
+    "content-type": "image/webp",
+    "panel": "hpanel",
+    "platform": "hostinger"
+   },
+   "resourceType": "image",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "file": "site/david-estrada.dev/wp-content/themes/davidestrada/assets/hero/winwin-partners-480.webp",
+   "size": 15898,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://david-estrada.dev/wp-content/themes/davidestrada/css/main.css?ver=1793091077",
+   "method": "GET",
+   "status": 200,
+   "contentType": "text/css",
+   "headers": {
+    "content-type": "text/css",
+    "panel": "hpanel",
+    "platform": "hostinger"
+   },
+   "resourceType": "stylesheet",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "file": "site/david-estrada.dev/wp-content/themes/davidestrada/css/main__q8a180c6d.css",
+   "size": 86157,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://david-estrada.dev/wp-content/themes/davidestrada/assets/hero/visibroad-480.webp",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/webp",
+   "headers": {
+    "content-type": "image/webp",
+    "panel": "hpanel",
+    "platform": "hostinger"
+   },
+   "resourceType": "image",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "file": "site/david-estrada.dev/wp-content/themes/davidestrada/assets/hero/visibroad-480.webp",
+   "size": 15272,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://david-estrada.dev/wp-content/themes/davidestrada/assets/hero/marketing-voor-coaches-480.webp",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/webp",
+   "headers": {
+    "content-type": "image/webp",
+    "panel": "hpanel",
+    "platform": "hostinger"
+   },
+   "resourceType": "image",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "file": "site/david-estrada.dev/wp-content/themes/davidestrada/assets/hero/marketing-voor-coaches-480.webp",
+   "size": 9898,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://david-estrada.dev/wp-content/themes/davidestrada/assets/hero/performance-lab-480.webp",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/webp",
+   "headers": {
+    "content-type": "image/webp",
+    "panel": "hpanel",
+    "platform": "hostinger"
+   },
+   "resourceType": "image",
+   "passes": [
+    "mobile",
+    "desktop"
+   ],
+   "file": "site/david-estrada.dev/wp-content/themes/davidestrada/assets/hero/performance-lab-480.webp",
+   "size": 20956,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://david-estrada.dev/wp-content/themes/davidestrada/assets/hero/gran-teatro-pavon-480.webp",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/webp",
+   "headers": {
+    "content-type": "image/webp",
+    "panel": "hpanel",
+    "platform": "hostinger"
+   },
+   "resourceType": "image",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "file": "site/david-estrada.dev/wp-content/themes/davidestrada/assets/hero/gran-teatro-pavon-480.webp",
+   "size": 24774,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://david-estrada.dev/wp-content/themes/davidestrada/assets/fonts/satoshi-700.woff2",
+   "method": "GET",
+   "status": 200,
+   "contentType": "font/woff2",
+   "headers": {
+    "content-type": "font/woff2",
+    "panel": "hpanel",
+    "platform": "hostinger"
+   },
+   "resourceType": "font",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "file": "site/david-estrada.dev/wp-content/themes/davidestrada/assets/fonts/satoshi-700.woff2",
+   "size": 25328,
+   "modes": [
+    "cors"
+   ]
+  },
+  {
+   "url": "https://david-estrada.dev/wp-content/themes/davidestrada/assets/brand/favicon.svg",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/svg+xml",
+   "headers": {
+    "content-type": "image/svg+xml",
+    "panel": "hpanel",
+    "platform": "hostinger"
+   },
+   "resourceType": "other",
+   "passes": [
+    "mobile",
+    "desktop"
+   ],
+   "file": "site/david-estrada.dev/wp-content/themes/davidestrada/assets/brand/favicon.svg",
+   "size": 523,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://david-estrada.dev/wp-content/themes/davidestrada/assets/work/vacations-costa-del-sol/poster-01.webp",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/webp",
+   "headers": {
+    "content-type": "image/webp",
+    "panel": "hpanel",
+    "platform": "hostinger"
+   },
+   "resourceType": "image",
+   "passes": [
+    "desktop"
+   ],
+   "file": "site/david-estrada.dev/wp-content/themes/davidestrada/assets/work/vacations-costa-del-sol/poster-01.webp",
+   "size": 255494,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://david-estrada.dev/wp-content/themes/davidestrada/assets/work/winwin-partners/poster-01-1600.webp",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/webp",
+   "headers": {
+    "content-type": "image/webp",
+    "panel": "hpanel",
+    "platform": "hostinger"
+   },
+   "resourceType": "image",
+   "passes": [
+    "mobile"
+   ],
+   "file": "site/david-estrada.dev/wp-content/themes/davidestrada/assets/work/winwin-partners/poster-01-1600.webp",
+   "size": 96680,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://david-estrada.dev/wp-content/themes/davidestrada/assets/work/performance-lab/poster-01-1600.webp",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/webp",
+   "headers": {
+    "content-type": "image/webp",
+    "panel": "hpanel",
+    "platform": "hostinger"
+   },
+   "resourceType": "image",
+   "passes": [
+    "mobile"
+   ],
+   "file": "site/david-estrada.dev/wp-content/themes/davidestrada/assets/work/performance-lab/poster-01-1600.webp",
+   "size": 119434,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://david-estrada.dev/wp-content/themes/davidestrada/js/feature3d.worker.bundle.js?ver=1793091077",
+   "method": "GET",
+   "status": 200,
+   "contentType": "application/x-javascript",
+   "headers": {
+    "content-type": "application/x-javascript",
+    "panel": "hpanel",
+    "platform": "hostinger"
+   },
+   "resourceType": "script",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "file": "site/david-estrada.dev/wp-content/themes/davidestrada/js/feature3d.worker.bundle__q8a180c6d.js",
+   "size": 574538,
+   "modes": [
+    "same-origin"
+   ]
+  },
+  {
+   "url": "https://david-estrada.dev/wp-content/themes/davidestrada/assets/work/vacations-costa-del-sol/poster-01-1600.webp",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/webp",
+   "headers": {
+    "content-type": "image/webp",
+    "panel": "hpanel",
+    "platform": "hostinger"
+   },
+   "resourceType": "image",
+   "passes": [
+    "mobile"
+   ],
+   "file": "site/david-estrada.dev/wp-content/themes/davidestrada/assets/work/vacations-costa-del-sol/poster-01-1600.webp",
+   "size": 255494,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://david-estrada.dev/wp-content/themes/davidestrada/assets/work/performance-lab/poster-01.webp",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/webp",
+   "headers": {
+    "content-type": "image/webp",
+    "panel": "hpanel",
+    "platform": "hostinger"
+   },
+   "resourceType": "image",
+   "passes": [
+    "desktop"
+   ],
+   "file": "site/david-estrada.dev/wp-content/themes/davidestrada/assets/work/performance-lab/poster-01.webp",
+   "size": 274988,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://david-estrada.dev/wp-content/themes/davidestrada/assets/work/winwin-partners/poster-01.webp",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/webp",
+   "headers": {
+    "content-type": "image/webp",
+    "panel": "hpanel",
+    "platform": "hostinger"
+   },
+   "resourceType": "image",
+   "passes": [
+    "desktop"
+   ],
+   "file": "site/david-estrada.dev/wp-content/themes/davidestrada/assets/work/winwin-partners/poster-01.webp",
+   "size": 223276,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://david-estrada.dev/wp-content/themes/davidestrada/assets/work/visibroad/poster-01.webp",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/webp",
+   "headers": {
+    "content-type": "image/webp",
+    "panel": "hpanel",
+    "platform": "hostinger"
+   },
+   "resourceType": "image",
+   "passes": [
+    "desktop"
+   ],
+   "file": "site/david-estrada.dev/wp-content/themes/davidestrada/assets/work/visibroad/poster-01.webp",
+   "size": 202080,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://david-estrada.dev/wp-content/themes/davidestrada/assets/work/marketing-voor-coaches/poster-01.webp",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/webp",
+   "headers": {
+    "content-type": "image/webp",
+    "panel": "hpanel",
+    "platform": "hostinger"
+   },
+   "resourceType": "image",
+   "passes": [
+    "desktop"
+   ],
+   "file": "site/david-estrada.dev/wp-content/themes/davidestrada/assets/work/marketing-voor-coaches/poster-01.webp",
+   "size": 109810,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://david-estrada.dev/wp-content/themes/davidestrada/assets/work/gran-teatro-pavon/poster-01.webp",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/webp",
+   "headers": {
+    "content-type": "image/webp",
+    "panel": "hpanel",
+    "platform": "hostinger"
+   },
+   "resourceType": "image",
+   "passes": [
+    "desktop"
+   ],
+   "file": "site/david-estrada.dev/wp-content/themes/davidestrada/assets/work/gran-teatro-pavon/poster-01.webp",
+   "size": 315712,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://david-estrada.dev/wp-content/themes/davidestrada/assets/work/visibroad/poster-01-1600.webp",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/webp",
+   "headers": {
+    "content-type": "image/webp",
+    "panel": "hpanel",
+    "platform": "hostinger"
+   },
+   "resourceType": "image",
+   "passes": [
+    "mobile"
+   ],
+   "file": "site/david-estrada.dev/wp-content/themes/davidestrada/assets/work/visibroad/poster-01-1600.webp",
+   "size": 88512,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://david-estrada.dev/wp-content/themes/davidestrada/assets/work/marketing-voor-coaches/poster-01-1600.webp",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/webp",
+   "headers": {
+    "content-type": "image/webp",
+    "panel": "hpanel",
+    "platform": "hostinger"
+   },
+   "resourceType": "image",
+   "passes": [
+    "mobile"
+   ],
+   "file": "site/david-estrada.dev/wp-content/themes/davidestrada/assets/work/marketing-voor-coaches/poster-01-1600.webp",
+   "size": 49502,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://david-estrada.dev/wp-content/themes/davidestrada/assets/work/the-guru/poster-01.webp",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/webp",
+   "headers": {
+    "content-type": "image/webp",
+    "panel": "hpanel",
+    "platform": "hostinger"
+   },
+   "resourceType": "image",
+   "passes": [
+    "desktop"
+   ],
+   "file": "site/david-estrada.dev/wp-content/themes/davidestrada/assets/work/the-guru/poster-01.webp",
+   "size": 315498,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://david-estrada.dev/wp-content/themes/davidestrada/assets/work/gran-teatro-pavon/poster-01-1600.webp",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/webp",
+   "headers": {
+    "content-type": "image/webp",
+    "panel": "hpanel",
+    "platform": "hostinger"
+   },
+   "resourceType": "image",
+   "passes": [
+    "mobile"
+   ],
+   "file": "site/david-estrada.dev/wp-content/themes/davidestrada/assets/work/gran-teatro-pavon/poster-01-1600.webp",
+   "size": 137910,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://david-estrada.dev/wp-content/themes/davidestrada/assets/work/performance-lab.webp",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/webp",
+   "headers": {
+    "content-type": "image/webp",
+    "panel": "hpanel",
+    "platform": "hostinger"
+   },
+   "resourceType": "image",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "file": "site/david-estrada.dev/wp-content/themes/davidestrada/assets/work/performance-lab.webp",
+   "size": 119434,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://david-estrada.dev/wp-content/themes/davidestrada/assets/work/the-guru/poster-01-1600.webp",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/webp",
+   "headers": {
+    "content-type": "image/webp",
+    "panel": "hpanel",
+    "platform": "hostinger"
+   },
+   "resourceType": "image",
+   "passes": [
+    "mobile"
+   ],
+   "file": "site/david-estrada.dev/wp-content/themes/davidestrada/assets/work/the-guru/poster-01-1600.webp",
+   "size": 124814,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://david-estrada.dev/wp-content/themes/davidestrada/assets/work/winwin-partners.webp",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/webp",
+   "headers": {
+    "content-type": "image/webp",
+    "panel": "hpanel",
+    "platform": "hostinger"
+   },
+   "resourceType": "image",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "file": "site/david-estrada.dev/wp-content/themes/davidestrada/assets/work/winwin-partners.webp",
+   "size": 96680,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://david-estrada.dev/wp-content/themes/davidestrada/assets/work/visibroad.webp",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/webp",
+   "headers": {
+    "content-type": "image/webp",
+    "panel": "hpanel",
+    "platform": "hostinger"
+   },
+   "resourceType": "image",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "file": "site/david-estrada.dev/wp-content/themes/davidestrada/assets/work/visibroad.webp",
+   "size": 88512,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://david-estrada.dev/wp-content/themes/davidestrada/assets/work/marketing-voor-coaches.webp",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/webp",
+   "headers": {
+    "content-type": "image/webp",
+    "panel": "hpanel",
+    "platform": "hostinger"
+   },
+   "resourceType": "image",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "file": "site/david-estrada.dev/wp-content/themes/davidestrada/assets/work/marketing-voor-coaches.webp",
+   "size": 49502,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://david-estrada.dev/wp-content/themes/davidestrada/assets/hero/david.webp",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/webp",
+   "headers": {
+    "content-type": "image/webp",
+    "panel": "hpanel",
+    "platform": "hostinger"
+   },
+   "resourceType": "image",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "file": "site/david-estrada.dev/wp-content/themes/davidestrada/assets/hero/david.webp",
+   "size": 56546,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://david-estrada.dev/wp-content/themes/davidestrada/assets/brand/apple-touch-icon.png",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/png",
+   "headers": {
+    "content-type": "image/png",
+    "platform": "hostinger",
+    "panel": "hpanel"
+   },
+   "resourceType": "other",
+   "passes": [
+    "desktop"
+   ],
+   "file": "site/david-estrada.dev/wp-content/themes/davidestrada/assets/brand/apple-touch-icon.png",
+   "size": 1625
+  },
+  {
+   "url": "https://david-estrada.dev/wp-content/themes/davidestrada/assets/brand/favicon-48.png",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/png",
+   "headers": {
+    "content-type": "image/png",
+    "platform": "hostinger",
+    "panel": "hpanel"
+   },
+   "resourceType": "other",
+   "passes": [
+    "desktop"
+   ],
+   "file": "site/david-estrada.dev/wp-content/themes/davidestrada/assets/brand/favicon-48.png",
+   "size": 860
+  }
+ ],
+ "videos": {
+  "posters": {},
+  "onlineHosts": []
+ }
+}

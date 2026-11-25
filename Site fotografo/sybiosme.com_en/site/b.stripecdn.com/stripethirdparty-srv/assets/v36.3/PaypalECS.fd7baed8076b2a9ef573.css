@@ -1,0 +1,42 @@
+#paypal-button-container iframe {
+  width: 100%;
+  height: 100%;
+}
+
+#paypal-button-container {
+  overflow: hidden;
+  height: 100%;
+}
+
+body,
+html {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+}
+
+/**
+ * Hide all top-level divs that are not the PayPal Button
+ * This is mainly done in order to hide the full-screen overlay that PayPal
+ * injects onto the page
+ */
+body > div:not(#paypal-button-container) {
+  display: none;
+  visibility: hidden;
+  height: 0;
+  width: 0;
+  opacity: 0;
+}
+
+/**
+ * v6 PayPal button styling - ensures that the button takes up the full available width and height
+*/
+paypal-button {
+  width: 100%;
+  height: 100%; /* Override PayPal's hardcoded 45px height */
+}
+
+
+/*# sourceMappingURL=PaypalECS.fd7baed8076b2a9ef573.css.map*/

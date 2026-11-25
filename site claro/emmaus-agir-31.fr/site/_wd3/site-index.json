@@ -1,0 +1,912 @@
+{
+ "version": 1,
+ "tool": "wd3 0.1.0",
+ "captureId": "emmaus-agir-31.fr-4972d623",
+ "capturedAt": "2026-11-04T18:23:20+00:00",
+ "entry": {
+  "url": "https://emmaus-agir-31.fr/",
+  "path": "/",
+  "search": "",
+  "file": "site/emmaus-agir-31.fr/index.html",
+  "contentType": "text/html"
+ },
+ "blocked": [
+  "^https?://([^/?#]+\\.)?(google\\-analytics\\.com|analytics\\.google\\.com|googletagmanager\\.com|googleadservices\\.com|doubleclick\\.net|googlesyndication\\.com|googleoptimize\\.com|connect\\.facebook\\.net|bat\\.bing\\.com|snap\\.licdn\\.com|px\\.ads\\.linkedin\\.com|analytics\\.tiktok\\.com|ct\\.pinterest\\.com|static\\.ads\\-twitter\\.com|analytics\\.twitter\\.com|tr\\.snapchat\\.com|sc\\-static\\.net|mc\\.yandex\\.ru|hotjar\\.com|hotjar\\.io|clarity\\.ms|cdn\\.segment\\.com|api\\.segment\\.io|cdn\\.mxpnl\\.com|api\\-js\\.mixpanel\\.com|api\\.mixpanel\\.com|api\\.amplitude\\.com|api2\\.amplitude\\.com|api\\-secure\\.amplitude\\.com|api\\-sr\\.amplitude\\.com|sr\\-client\\-cfg\\.amplitude\\.com|plausible\\.io|cloud\\.umami\\.is|analytics\\.umami\\.is|static\\.cloudflareinsights\\.com|cloudflareinsights\\.com|vitals\\.vercel\\-insights\\.com|browser\\-intake\\-datadoghq\\.com|browser\\-intake\\-datadoghq\\.eu|js\\-agent\\.newrelic\\.com|bam\\.nr\\-data\\.net|bam\\-cell\\.nr\\-data\\.net|fullstory\\.com|script\\.crazyegg\\.com|mouseflow\\.com|smartlook\\.com|heapanalytics\\.com|i\\.posthog\\.com|stats\\.wp\\.com|pixel\\.wp\\.com|promotekit\\.com|ingest\\.sentry\\.io|ingest\\.us\\.sentry\\.io|ingest\\.de\\.sentry\\.io|widget\\.intercom\\.io|js\\.intercomcdn\\.com|api\\-iam\\.intercom\\.io|js\\.hs\\-scripts\\.com|js\\.hs\\-analytics\\.net|js\\.hs\\-banner\\.com|js\\.hscollectedforms\\.net|js\\.usemessages\\.com|track\\.hubspot\\.com|client\\.crisp\\.chat|embed\\.tawk\\.to|js\\.driftt\\.com|static\\.zdassets\\.com|ekr\\.zdassets\\.com|cdn\\.cookielaw\\.org|geolocation\\.onetrust\\.com|consent\\.cookiebot\\.com|consentcdn\\.cookiebot\\.com|app\\.usercentrics\\.eu|api\\.usercentrics\\.eu|cdn\\.iubenda\\.com|cmp\\.osano\\.com|cdn\\.termly\\.io)(:\\d+)?([/?#]|$)",
+  "/rpc/increment_shared_code_views",
+  "^https?://(umami|analytics|stats|plausible)\\.[^/]+/(api/send|api/collect|api/event|script\\.js)",
+  "/g/c(ollect)?\\?v=2&",
+  "sentry\\.io/api/\\d+/(envelope|store)",
+  "/api/meta-capi",
+  "^https?://(leadtracker|tracking|track|events?|collect)\\.[^/]+/",
+  "^https?://a\\.vturb\\.com/",
+  "facebook\\.com/tr[/?]",
+  "/_vercel/(speed-)?insights/",
+  "/cdn-cgi/rum",
+  "/cdn-cgi/challenge-platform/",
+  "google\\.com/(pagead|ads)/"
+ ],
+ "volatileParams": [
+  "v",
+  "_rsc",
+  "dpl",
+  "_",
+  "t",
+  "ts",
+  "timestamp",
+  "cb",
+  "cachebust",
+  "cacheBust",
+  "nocache",
+  "rnd",
+  "rand",
+  "random",
+  "_t"
+ ],
+ "entries": [
+  {
+   "url": "https://emmaus-agir-31.fr/",
+   "method": "GET",
+   "status": 200,
+   "contentType": "text/html",
+   "headers": {
+    "content-type": "text/html",
+    "referrer-policy": "strict-origin-when-cross-origin"
+   },
+   "resourceType": "document",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "file": "site/emmaus-agir-31.fr/index.html",
+   "size": 42187,
+   "modes": [
+    "navigate"
+   ]
+  },
+  {
+   "url": "https://emmaus-agir-31.fr/images/logo.svg",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/svg+xml",
+   "headers": {
+    "content-type": "image/svg+xml",
+    "referrer-policy": "strict-origin-when-cross-origin"
+   },
+   "resourceType": "image",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "file": "site/emmaus-agir-31.fr/images/logo.svg",
+   "size": 6099,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://emmaus-agir-31.fr/_next/static/media/6f186b99b056d3e3-s.p.woff2",
+   "method": "GET",
+   "status": 200,
+   "contentType": "font/woff2",
+   "headers": {
+    "content-type": "font/woff2",
+    "referrer-policy": "strict-origin-when-cross-origin"
+   },
+   "resourceType": "font",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "file": "site/emmaus-agir-31.fr/_next/static/media/6f186b99b056d3e3-s.p.woff2",
+   "size": 131312,
+   "modes": [
+    "cors"
+   ]
+  },
+  {
+   "url": "https://emmaus-agir-31.fr/_next/static/media/9cc5b37ab1350db7-s.p.woff2",
+   "method": "GET",
+   "status": 200,
+   "contentType": "font/woff2",
+   "headers": {
+    "content-type": "font/woff2",
+    "referrer-policy": "strict-origin-when-cross-origin"
+   },
+   "resourceType": "font",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "file": "site/emmaus-agir-31.fr/_next/static/media/9cc5b37ab1350db7-s.p.woff2",
+   "size": 15684,
+   "modes": [
+    "cors"
+   ]
+  },
+  {
+   "url": "https://emmaus-agir-31.fr/_next/static/media/e6099e249fd938cc-s.p.woff2",
+   "method": "GET",
+   "status": 200,
+   "contentType": "font/woff2",
+   "headers": {
+    "content-type": "font/woff2",
+    "referrer-policy": "strict-origin-when-cross-origin"
+   },
+   "resourceType": "font",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "file": "site/emmaus-agir-31.fr/_next/static/media/e6099e249fd938cc-s.p.woff2",
+   "size": 15040,
+   "modes": [
+    "cors"
+   ]
+  },
+  {
+   "url": "https://emmaus-agir-31.fr/_next/static/chunks/main-6aed8ddf3a0d02af.js",
+   "method": "GET",
+   "status": 200,
+   "contentType": "text/javascript",
+   "headers": {
+    "content-type": "text/javascript",
+    "referrer-policy": "strict-origin-when-cross-origin"
+   },
+   "resourceType": "script",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "file": "site/emmaus-agir-31.fr/_next/static/chunks/main-6aed8ddf3a0d02af.js",
+   "size": 128230,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://emmaus-agir-31.fr/_next/static/css/cb5fb5e3d6fc1f64.css",
+   "method": "GET",
+   "status": 200,
+   "contentType": "text/css",
+   "headers": {
+    "content-type": "text/css",
+    "referrer-policy": "strict-origin-when-cross-origin"
+   },
+   "resourceType": "stylesheet",
+   "passes": [
+    "mobile",
+    "desktop"
+   ],
+   "file": "site/emmaus-agir-31.fr/_next/static/css/cb5fb5e3d6fc1f64.css",
+   "size": 60184,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://emmaus-agir-31.fr/_next/static/chunks/webpack-dd586c88e88ab6bf.js",
+   "method": "GET",
+   "status": 200,
+   "contentType": "text/javascript",
+   "headers": {
+    "content-type": "text/javascript",
+    "referrer-policy": "strict-origin-when-cross-origin"
+   },
+   "resourceType": "script",
+   "passes": [
+    "mobile",
+    "desktop"
+   ],
+   "file": "site/emmaus-agir-31.fr/_next/static/chunks/webpack-dd586c88e88ab6bf.js",
+   "size": 3350,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://emmaus-agir-31.fr/_next/static/chunks/281c3f4d-ed286ce77bc5ee49.js",
+   "method": "GET",
+   "status": 200,
+   "contentType": "text/javascript",
+   "headers": {
+    "content-type": "text/javascript",
+    "referrer-policy": "strict-origin-when-cross-origin"
+   },
+   "resourceType": "script",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "file": "site/emmaus-agir-31.fr/_next/static/chunks/281c3f4d-ed286ce77bc5ee49.js",
+   "size": 51544,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://emmaus-agir-31.fr/_next/static/chunks/framework-b1e5f14688f9ffe6.js",
+   "method": "GET",
+   "status": 200,
+   "contentType": "text/javascript",
+   "headers": {
+    "content-type": "text/javascript",
+    "referrer-policy": "strict-origin-when-cross-origin"
+   },
+   "resourceType": "script",
+   "passes": [
+    "mobile",
+    "desktop"
+   ],
+   "file": "site/emmaus-agir-31.fr/_next/static/chunks/framework-b1e5f14688f9ffe6.js",
+   "size": 182716,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://emmaus-agir-31.fr/_next/static/chunks/pages/_app-e7c9cde232f48f57.js",
+   "method": "GET",
+   "status": 200,
+   "contentType": "text/javascript",
+   "headers": {
+    "content-type": "text/javascript",
+    "referrer-policy": "strict-origin-when-cross-origin"
+   },
+   "resourceType": "script",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "file": "site/emmaus-agir-31.fr/_next/static/chunks/pages/_app-e7c9cde232f48f57.js",
+   "size": 10360,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://emmaus-agir-31.fr/_next/static/chunks/92-c0805e859f4822db.js",
+   "method": "GET",
+   "status": 200,
+   "contentType": "text/javascript",
+   "headers": {
+    "content-type": "text/javascript",
+    "referrer-policy": "strict-origin-when-cross-origin"
+   },
+   "resourceType": "script",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "file": "site/emmaus-agir-31.fr/_next/static/chunks/92-c0805e859f4822db.js",
+   "size": 16309,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://emmaus-agir-31.fr/_next/static/Sj1UVZGKgG9ASC-raPi00/_buildManifest.js",
+   "method": "GET",
+   "status": 200,
+   "contentType": "text/javascript",
+   "headers": {
+    "content-type": "text/javascript",
+    "referrer-policy": "strict-origin-when-cross-origin"
+   },
+   "resourceType": "script",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "file": "site/emmaus-agir-31.fr/_next/static/Sj1UVZGKgG9ASC-raPi00/_buildManifest.js",
+   "size": 1033,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://emmaus-agir-31.fr/_next/static/Sj1UVZGKgG9ASC-raPi00/_ssgManifest.js",
+   "method": "GET",
+   "status": 200,
+   "contentType": "text/javascript",
+   "headers": {
+    "content-type": "text/javascript",
+    "referrer-policy": "strict-origin-when-cross-origin"
+   },
+   "resourceType": "script",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "file": "site/emmaus-agir-31.fr/_next/static/Sj1UVZGKgG9ASC-raPi00/_ssgManifest.js",
+   "size": 109,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://emmaus-agir-31.fr/_next/static/chunks/538-41956caf27f40d04.js",
+   "method": "GET",
+   "status": 200,
+   "contentType": "text/javascript",
+   "headers": {
+    "content-type": "text/javascript",
+    "referrer-policy": "strict-origin-when-cross-origin"
+   },
+   "resourceType": "script",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "file": "site/emmaus-agir-31.fr/_next/static/chunks/538-41956caf27f40d04.js",
+   "size": 12990,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://emmaus-agir-31.fr/_next/static/chunks/52-a63f9af6313b0e15.js",
+   "method": "GET",
+   "status": 200,
+   "contentType": "text/javascript",
+   "headers": {
+    "content-type": "text/javascript",
+    "referrer-policy": "strict-origin-when-cross-origin"
+   },
+   "resourceType": "script",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "file": "site/emmaus-agir-31.fr/_next/static/chunks/52-a63f9af6313b0e15.js",
+   "size": 92047,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://emmaus-agir-31.fr/_next/static/chunks/pages/index-1bbccdfea496781e.js",
+   "method": "GET",
+   "status": 200,
+   "contentType": "text/javascript",
+   "headers": {
+    "content-type": "text/javascript",
+    "referrer-policy": "strict-origin-when-cross-origin"
+   },
+   "resourceType": "script",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "file": "site/emmaus-agir-31.fr/_next/static/chunks/pages/index-1bbccdfea496781e.js",
+   "size": 59534,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://emmaus-agir-31.fr/images/noise.png",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/png",
+   "headers": {
+    "content-type": "image/png",
+    "referrer-policy": "strict-origin-when-cross-origin"
+   },
+   "resourceType": "image",
+   "passes": [
+    "mobile",
+    "desktop"
+   ],
+   "file": "site/emmaus-agir-31.fr/images/noise.png",
+   "size": 9314,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://emmaus-agir-31.fr/images/paper-grain.png",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/png",
+   "headers": {
+    "content-type": "image/png",
+    "referrer-policy": "strict-origin-when-cross-origin"
+   },
+   "resourceType": "image",
+   "passes": [
+    "mobile",
+    "desktop"
+   ],
+   "file": "site/emmaus-agir-31.fr/images/paper-grain.png",
+   "size": 31668,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://emmaus-agir-31.fr/images/paper-mottle.jpg",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/jpeg",
+   "headers": {
+    "content-type": "image/jpeg",
+    "referrer-policy": "strict-origin-when-cross-origin"
+   },
+   "resourceType": "image",
+   "passes": [
+    "mobile",
+    "desktop"
+   ],
+   "file": "site/emmaus-agir-31.fr/images/paper-mottle.jpg",
+   "size": 16598,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://emmaus-agir-31.fr/_next/static/chunks/389.39a069e9765ae08b.js",
+   "method": "GET",
+   "status": 200,
+   "contentType": "text/javascript",
+   "headers": {
+    "content-type": "text/javascript",
+    "referrer-policy": "strict-origin-when-cross-origin"
+   },
+   "resourceType": "script",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "file": "site/emmaus-agir-31.fr/_next/static/chunks/389.39a069e9765ae08b.js",
+   "size": 18247,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://emmaus-agir-31.fr/_next/static/chunks/69b51223.7690e8494677b79d.js",
+   "method": "GET",
+   "status": 200,
+   "contentType": "text/javascript",
+   "headers": {
+    "content-type": "text/javascript",
+    "referrer-policy": "strict-origin-when-cross-origin"
+   },
+   "resourceType": "script",
+   "passes": [
+    "mobile",
+    "desktop"
+   ],
+   "file": "site/emmaus-agir-31.fr/_next/static/chunks/69b51223.7690e8494677b79d.js",
+   "size": 681923,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://emmaus-agir-31.fr/_next/static/chunks/540.35ba3b284b55ba7a.js",
+   "method": "GET",
+   "status": 200,
+   "contentType": "text/javascript",
+   "headers": {
+    "content-type": "text/javascript",
+    "referrer-policy": "strict-origin-when-cross-origin"
+   },
+   "resourceType": "script",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "file": "site/emmaus-agir-31.fr/_next/static/chunks/540.35ba3b284b55ba7a.js",
+   "size": 12926,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://emmaus-agir-31.fr/_next/static/chunks/32.540e2ab205534f70.js",
+   "method": "GET",
+   "status": 200,
+   "contentType": "text/javascript",
+   "headers": {
+    "content-type": "text/javascript",
+    "referrer-policy": "strict-origin-when-cross-origin"
+   },
+   "resourceType": "script",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "file": "site/emmaus-agir-31.fr/_next/static/chunks/32.540e2ab205534f70.js",
+   "size": 68015,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://emmaus-agir-31.fr/_next/static/chunks/155.6dc29c2554218b6f.js",
+   "method": "GET",
+   "status": 200,
+   "contentType": "text/javascript",
+   "headers": {
+    "content-type": "text/javascript",
+    "referrer-policy": "strict-origin-when-cross-origin"
+   },
+   "resourceType": "script",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "file": "site/emmaus-agir-31.fr/_next/static/chunks/155.6dc29c2554218b6f.js",
+   "size": 4605,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://emmaus-agir-31.fr/images/favicons/favicon-32x32.png",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/png",
+   "headers": {
+    "content-type": "image/png",
+    "referrer-policy": "strict-origin-when-cross-origin"
+   },
+   "resourceType": "other",
+   "passes": [
+    "mobile",
+    "desktop"
+   ],
+   "file": "site/emmaus-agir-31.fr/images/favicons/favicon-32x32.png",
+   "size": 1791,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://emmaus-agir-31.fr/models/sunflower.glb",
+   "method": "GET",
+   "status": 200,
+   "contentType": "model/gltf-binary",
+   "headers": {
+    "content-type": "model/gltf-binary",
+    "referrer-policy": "strict-origin-when-cross-origin"
+   },
+   "resourceType": "fetch",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "file": "site/emmaus-agir-31.fr/models/sunflower.glb",
+   "size": 1229640,
+   "modes": [
+    "cors"
+   ]
+  },
+  {
+   "url": "https://emmaus-agir-31.fr/_next/static/chunks/35.236293d52cdbb821.js",
+   "method": "GET",
+   "status": 200,
+   "contentType": "text/javascript",
+   "headers": {
+    "content-type": "text/javascript",
+    "referrer-policy": "strict-origin-when-cross-origin"
+   },
+   "resourceType": "script",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "file": "site/emmaus-agir-31.fr/_next/static/chunks/35.236293d52cdbb821.js",
+   "size": 14836
+  },
+  {
+   "url": "https://emmaus-agir-31.fr/_next/static/chunks/938.e7311e46236024f4.js",
+   "method": "GET",
+   "status": 200,
+   "contentType": "text/javascript",
+   "headers": {
+    "content-type": "text/javascript",
+    "referrer-policy": "strict-origin-when-cross-origin"
+   },
+   "resourceType": "script",
+   "passes": [
+    "mobile",
+    "desktop"
+   ],
+   "file": "site/emmaus-agir-31.fr/_next/static/chunks/938.e7311e46236024f4.js",
+   "size": 6920,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://emmaus-agir-31.fr/_next/static/chunks/934.6597f0b55d19c2ca.js",
+   "method": "GET",
+   "status": 200,
+   "contentType": "text/javascript",
+   "headers": {
+    "content-type": "text/javascript",
+    "referrer-policy": "strict-origin-when-cross-origin"
+   },
+   "resourceType": "script",
+   "passes": [
+    "mobile",
+    "desktop"
+   ],
+   "file": "site/emmaus-agir-31.fr/_next/static/chunks/934.6597f0b55d19c2ca.js",
+   "size": 430,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://emmaus-agir-31.fr/_next/static/chunks/bfd0054c.3fcfa5eeabdd0bf2.js",
+   "method": "GET",
+   "status": 200,
+   "contentType": "text/javascript",
+   "headers": {
+    "content-type": "text/javascript",
+    "referrer-policy": "strict-origin-when-cross-origin"
+   },
+   "resourceType": "script",
+   "passes": [
+    "mobile",
+    "desktop"
+   ],
+   "file": "site/emmaus-agir-31.fr/_next/static/chunks/bfd0054c.3fcfa5eeabdd0bf2.js",
+   "size": 178504,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://emmaus-agir-31.fr/_next/static/chunks/0493d748.5a867629993a3e92.js",
+   "method": "GET",
+   "status": 200,
+   "contentType": "text/javascript",
+   "headers": {
+    "content-type": "text/javascript",
+    "referrer-policy": "strict-origin-when-cross-origin"
+   },
+   "resourceType": "script",
+   "passes": [
+    "mobile",
+    "desktop"
+   ],
+   "file": "site/emmaus-agir-31.fr/_next/static/chunks/0493d748.5a867629993a3e92.js",
+   "size": 131282,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://emmaus-agir-31.fr/_next/static/chunks/530.2c3f3b1c873ab597.js",
+   "method": "GET",
+   "status": 200,
+   "contentType": "text/javascript",
+   "headers": {
+    "content-type": "text/javascript",
+    "referrer-policy": "strict-origin-when-cross-origin"
+   },
+   "resourceType": "script",
+   "passes": [
+    "mobile",
+    "desktop"
+   ],
+   "file": "site/emmaus-agir-31.fr/_next/static/chunks/530.2c3f3b1c873ab597.js",
+   "size": 287759,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://emmaus-agir-31.fr/data/regions-fr.geojson",
+   "method": "GET",
+   "status": 200,
+   "contentType": "",
+   "headers": {
+    "referrer-policy": "strict-origin-when-cross-origin"
+   },
+   "resourceType": "fetch",
+   "passes": [
+    "mobile",
+    "desktop"
+   ],
+   "file": "site/emmaus-agir-31.fr/data/regions-fr.geojson.bin",
+   "size": 225495,
+   "modes": [
+    "cors"
+   ]
+  },
+  {
+   "url": "https://emmaus-agir-31.fr/data/countries-110m.json",
+   "method": "GET",
+   "status": 200,
+   "contentType": "application/json",
+   "headers": {
+    "content-type": "application/json",
+    "referrer-policy": "strict-origin-when-cross-origin"
+   },
+   "resourceType": "fetch",
+   "passes": [
+    "mobile",
+    "desktop"
+   ],
+   "file": "site/emmaus-agir-31.fr/data/countries-110m.json",
+   "size": 107761,
+   "modes": [
+    "cors"
+   ]
+  },
+  {
+   "url": "https://emmaus-agir-31.fr/_next/data/Sj1UVZGKgG9ASC-raPi00/boutiques/frip-em.json?slug=frip-em",
+   "method": "GET",
+   "status": 200,
+   "contentType": "application/json",
+   "headers": {
+    "content-type": "application/json",
+    "referrer-policy": "strict-origin-when-cross-origin"
+   },
+   "resourceType": "fetch",
+   "passes": [
+    "mobile"
+   ],
+   "file": "site/emmaus-agir-31.fr/_next/data/Sj1UVZGKgG9ASC-raPi00/boutiques/frip-em__qe225c686.json",
+   "size": 480,
+   "modes": [
+    "cors"
+   ]
+  },
+  {
+   "url": "https://emmaus-agir-31.fr/_next/data/Sj1UVZGKgG9ASC-raPi00/boutiques/frip-fouille.json?slug=frip-fouille",
+   "method": "GET",
+   "status": 200,
+   "contentType": "application/json",
+   "headers": {
+    "content-type": "application/json",
+    "referrer-policy": "strict-origin-when-cross-origin"
+   },
+   "resourceType": "fetch",
+   "passes": [
+    "mobile"
+   ],
+   "file": "site/emmaus-agir-31.fr/_next/data/Sj1UVZGKgG9ASC-raPi00/boutiques/frip-fouille__q1cacf2e5.json",
+   "size": 544,
+   "modes": [
+    "cors"
+   ]
+  },
+  {
+   "url": "https://emmaus-agir-31.fr/_next/data/Sj1UVZGKgG9ASC-raPi00/boutiques/fripd-oc.json?slug=fripd-oc",
+   "method": "GET",
+   "status": 200,
+   "contentType": "application/json",
+   "headers": {
+    "content-type": "application/json",
+    "referrer-policy": "strict-origin-when-cross-origin"
+   },
+   "resourceType": "fetch",
+   "passes": [
+    "mobile"
+   ],
+   "file": "site/emmaus-agir-31.fr/_next/data/Sj1UVZGKgG9ASC-raPi00/boutiques/fripd-oc__q31840b56.json",
+   "size": 509,
+   "modes": [
+    "cors"
+   ]
+  },
+  {
+   "url": "https://emmaus-agir-31.fr/_next/data/Sj1UVZGKgG9ASC-raPi00/boutiques/mur-em.json?slug=mur-em",
+   "method": "GET",
+   "status": 200,
+   "contentType": "application/json",
+   "headers": {
+    "content-type": "application/json",
+    "referrer-policy": "strict-origin-when-cross-origin"
+   },
+   "resourceType": "fetch",
+   "passes": [
+    "mobile"
+   ],
+   "file": "site/emmaus-agir-31.fr/_next/data/Sj1UVZGKgG9ASC-raPi00/boutiques/mur-em__q13ab176f.json",
+   "size": 343,
+   "modes": [
+    "cors"
+   ]
+  },
+  {
+   "url": "https://emmaus-agir-31.fr/_next/static/chunks/pages/boutiques/%5Bslug%5D-269114b3959037fe.js",
+   "method": "GET",
+   "status": 200,
+   "contentType": "text/javascript",
+   "headers": {
+    "content-type": "text/javascript",
+    "referrer-policy": "strict-origin-when-cross-origin"
+   },
+   "resourceType": "other",
+   "passes": [
+    "mobile"
+   ],
+   "file": "site/emmaus-agir-31.fr/_next/static/chunks/pages/boutiques/[slug]-269114b3959037fe.js",
+   "size": 5068,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://emmaus-agir-31.fr/_next/data/Sj1UVZGKgG9ASC-raPi00/boutiques/j-em-portet.json?slug=j-em-portet",
+   "method": "GET",
+   "status": 200,
+   "contentType": "application/json",
+   "headers": {
+    "content-type": "application/json",
+    "referrer-policy": "strict-origin-when-cross-origin"
+   },
+   "resourceType": "fetch",
+   "passes": [
+    "mobile"
+   ],
+   "file": "site/emmaus-agir-31.fr/_next/data/Sj1UVZGKgG9ASC-raPi00/boutiques/j-em-portet__q7ed196ac.json",
+   "size": 388,
+   "modes": [
+    "cors"
+   ]
+  },
+  {
+   "url": "https://emmaus-agir-31.fr/images/favicons/favicon.ico",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/x-icon",
+   "headers": {
+    "referrer-policy": "strict-origin-when-cross-origin",
+    "upgrade": "h2",
+    "content-type": "image/x-icon"
+   },
+   "resourceType": "other",
+   "passes": [
+    "desktop"
+   ],
+   "file": "site/emmaus-agir-31.fr/images/favicons/favicon.ico",
+   "size": 1150
+  },
+  {
+   "url": "https://emmaus-agir-31.fr/manifest.webmanifest",
+   "method": "GET",
+   "status": 200,
+   "contentType": "application/manifest+json",
+   "headers": {
+    "referrer-policy": "strict-origin-when-cross-origin",
+    "upgrade": "h2",
+    "content-type": "application/manifest+json"
+   },
+   "resourceType": "other",
+   "passes": [
+    "desktop"
+   ],
+   "file": "site/emmaus-agir-31.fr/manifest.webmanifest",
+   "size": 470
+  },
+  {
+   "url": "https://emmaus-agir-31.fr/images/favicons/apple-icon-180x180.png",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/png",
+   "headers": {
+    "referrer-policy": "strict-origin-when-cross-origin",
+    "upgrade": "h2",
+    "content-type": "image/png"
+   },
+   "resourceType": "other",
+   "passes": [
+    "desktop"
+   ],
+   "file": "site/emmaus-agir-31.fr/images/favicons/apple-icon-180x180.png",
+   "size": 14732
+  }
+ ],
+ "videos": {
+  "posters": {},
+  "onlineHosts": []
+ }
+}

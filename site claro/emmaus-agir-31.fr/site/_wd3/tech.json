@@ -1,0 +1,59 @@
+{
+ "builders": [
+  "next.js",
+  "react"
+ ],
+ "libraries": [
+  {
+   "name": "gsap",
+   "version": "3.11.0",
+   "sources": [
+    "embutido em https://emmaus-agir-31.fr/_next/static/chunks/52-a63f9af6313b0e15.js"
+   ]
+  },
+  {
+   "name": "lenis",
+   "version": null,
+   "sources": [
+    "página"
+   ]
+  },
+  {
+   "name": "three",
+   "version": "r170",
+   "sources": [
+    "página"
+   ]
+  }
+ ],
+ "runtime": {
+  "contexts": {
+   "webgl2": 6,
+   "2d": 3
+  },
+  "wasm": 1,
+  "workers": 0,
+  "webgpu": false,
+  "shadowRoots": 0,
+  "canvases": 4
+ },
+ "cssFeatures": [],
+ "fonts": {
+  "families": [
+   "Bricolage Grotesque",
+   "Instrument Serif"
+  ],
+  "sources": [
+   "self-hosted"
+  ]
+ },
+ "videos": [],
+ "files": {
+  "text": 25,
+  "image": 7,
+  "font": 3,
+  "model": 1,
+  "outros": 1,
+  "application": 7
+ }
+}

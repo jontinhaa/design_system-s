@@ -1,0 +1,1 @@
+import{r as e,t}from"./accent.jhucjHtL.js";var n=e(),r=t.filter(e=>e!==n);document.querySelectorAll(`[data-phone-stacked]`).forEach((e,t)=>{e.src=`/images/card-stack-${r[t%r.length].slice(1)}.webp`});

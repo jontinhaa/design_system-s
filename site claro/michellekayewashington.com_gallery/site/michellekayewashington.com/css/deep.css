@@ -1,0 +1,1485 @@
+/* Michelle Kaye — "Deep" redesign — an exhibition (built on the Butter base).
+   Reserved, refined, a little starker. Built from the Web Design Master Skill research:
+   roller-coaster transitions (I-19), wayfinding at every level (I-05), the hovered work goes
+   firm and faces you (R-12, R-2), a swirl warms the mat toward the painting's own colour
+   (R-16), a large high-contrast title (R-15), scroll that stops when you stop (EFF-052). */
+
+:root {
+  --paper: #fffdf8;
+  --paper-2: #f6f0e8;
+  --ink: #120a09;
+  --ink-2: #2b201d;
+  --rose: #9a675c;
+  --rose-2: #c68f81;
+  --tan: #b7a397;
+  --rule: rgb(18 10 9 / 14%);
+  --fg: var(--ink);
+  --bg: var(--paper);
+  --muted: #7a6560;
+  --nav-w: clamp(190px, 15vw, 300px);
+  --pad: clamp(1.25rem, 3.2vw, 4rem);
+  --ease: cubic-bezier(0.22, 1, 0.36, 1);
+  --ease-io: cubic-bezier(0.65, 0, 0.35, 1);
+  --serif: "Cormorant", Georgia, "Times New Roman", serif;
+  color-scheme: light;
+}
+
+html[data-ground="ink"] {
+  --fg: #f4ede4;
+  --bg: #110c0b;   /* deep charcoal: the charcoal wall's hue, darker; no ruddy (Michael, 2026-10-14) */
+  --rule: rgb(244 237 228 / 16%);
+  --muted: #b9a59c;
+}
+
+/* Recollections in Nature (TKT-018). The wall is a colour the six paintings share, chosen to sit between
+   the two rooms Michael loves; of three tested (sweetgrass straw, dried grass, magnolia shade) he chose
+   magnolia shade (2026-10-12): #323325, the dark olive of the magnolia leaves' shadows. The walk drops from
+   daylight into the shade of the leaves, then on into the night of Charcoal Works. Cream words (11.1:1
+   on the wall); numerals and the walk cue in the dark room's lighter rose (4.7:1); no pointer light. */
+html { --room-title: var(--fg); }
+html[data-ground="moss"] {
+  --fg: #f4ede4;
+  --bg: #2b2d20;
+  --rule: rgb(244 237 228 / 16%);
+  --muted: #bcb8a6;
+  --room-title: #f4ede4;
+}
+
+*,
+*::before,
+*::after { box-sizing: border-box; }
+
+[hidden] { display: none !important; }
+
+html,
+body { margin: 0; height: 100%; }
+
+body {
+  background: var(--bg);
+  color: var(--fg);
+  font-family: var(--serif);
+  font-size: clamp(17px, 1.05vw + 10px, 21px);
+  line-height: 1.45;
+  -webkit-font-smoothing: antialiased;
+  transition: background-color 0.9s var(--ease), color 0.9s var(--ease);
+  overflow: hidden;
+}
+
+html[data-page="gallery"] body { overflow: visible; height: auto; }
+
+img { display: block; max-width: 100%; height: auto; }
+a { color: inherit; }
+button { font: inherit; color: inherit; }
+
+:focus-visible { outline: 2px solid var(--rose); outline-offset: 4px; }
+/* A finger or a mouse never leaves a focus outline behind (TKT-026, Michael 2026-10-12: on a phone,
+   maroon rectangles stayed around works and the viewer's close button). The script records how the
+   visitor last moved (data-input on <html>); outlines and focus-only looks are for the keyboard. */
+html[data-input="pointer"] :focus-visible { outline: none; }
+
+.mk-sr { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+
+.skip { position: fixed; left: 1rem; top: -4rem; z-index: 100; background: var(--ink); color: var(--paper); padding: 0.5rem 1rem; }
+.skip:focus { top: 1rem; }
+
+/* ---------- Shell: wordmark and index (wayfinding level 1) ---------- */
+
+.shell {
+  position: fixed;
+  inset: 0 auto 0 0;
+  width: var(--nav-w);
+  padding: var(--pad) 0 var(--pad) var(--pad);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  z-index: 30;
+  pointer-events: none;
+}
+.shell > * { pointer-events: auto; }
+
+.wordmark { display: grid; gap: 0.35rem; text-decoration: none; }
+.wordmark-name { font-size: 1.35rem; letter-spacing: 0.01em; }
+.wordmark-rule { width: 2rem; height: 1px; background: currentColor; opacity: 0.5; }
+.wordmark-fine { font-size: 0.85rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--muted); }
+
+.site-nav { display: flex; flex-direction: column; gap: 2.5rem; margin-top: auto; }
+.nav-index { list-style: none; margin: 0; padding: 0; display: grid; gap: 0.6rem; }
+.nav-index a {
+  display: grid;
+  grid-template-columns: 2.1rem 1fr;
+  align-items: baseline;
+  text-decoration: none;
+  font-size: 1.15rem;
+  color: var(--muted);
+  transition: color 0.3s var(--ease);
+}
+.nav-num { font-size: 0.75rem; letter-spacing: 0.12em; }
+.nav-label { position: relative; justify-self: start; }
+.nav-label::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: -2px;
+  height: 1px;
+  background: var(--rose);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 0.45s var(--ease);
+}
+.nav-index a:hover,
+.nav-index a[aria-current="page"] { color: var(--fg); }
+.nav-index a:hover .nav-label::after,
+.nav-index a[aria-current="page"] .nav-label::after { transform: scaleX(1); }
+
+.nav-secondary { display: grid; gap: 0.4rem; justify-items: start; font-size: 0.95rem; }
+.link-button { background: none; border: 0; padding: 0; cursor: pointer; color: var(--muted); }
+.link-button:hover { color: var(--fg); }
+.news-links { display: grid; gap: 0.3rem; margin: 0.4rem 0 0.4rem 0.8rem; font-size: 0.85rem; }
+.news-links a { color: var(--muted); text-decoration: none; }
+.news-links a:hover { color: var(--fg); text-decoration: underline; text-underline-offset: 3px; }
+
+.menu-button { display: none; }
+
+/* ---------- Pager (wayfinding level 1) ---------- */
+
+.pager {
+  position: fixed;
+  right: var(--pad);
+  bottom: calc(var(--pad) * 0.8);
+  display: flex;
+  align-items: center;
+  gap: 0.9rem;
+  z-index: 30;
+}
+.pager-count { margin: 0; font-size: 0.9rem; letter-spacing: 0.08em; white-space: nowrap; }
+.pager-of { color: var(--muted); }
+.pager-name { margin-left: 0.5rem; font-style: italic; letter-spacing: 0; }
+.pager-arrow {
+  display: grid;
+  place-items: center;
+  width: 2.6rem;
+  height: 2.6rem;
+  border: 1px solid var(--rule);
+  border-radius: 50%;
+  text-decoration: none;
+  transition: background-color 0.3s var(--ease), color 0.3s var(--ease), transform 0.3s var(--ease);
+}
+.pager-arrow:hover { background: var(--fg); color: var(--bg); }
+.pager-arrow:active { transform: scale(0.94); }
+
+/* ---------- Stage ---------- */
+
+.stage {
+  position: relative;
+  min-height: 100svh;
+  margin-left: var(--nav-w);
+  padding: var(--pad);
+  transform-origin: 50% 40%;
+}
+
+/* ---------- Home: a large, clear, high-contrast title (R-15) ---------- */
+
+.home {
+  height: calc(100svh - var(--pad) * 2);
+  display: grid;
+  grid-template-columns: minmax(0, 0.95fr) minmax(0, 1.25fr);
+  align-items: center;
+  gap: clamp(1.5rem, 4vw, 5rem);
+}
+
+.home-title { margin: 0; font-weight: 300; line-height: 0.86; letter-spacing: -0.02em; font-size: clamp(4.2rem, 9.4vw, 11rem); }
+.home-title-line { display: block; }
+.home-title-line-2 { padding-left: 0.42em; font-style: italic; }
+.home-fine { margin: 1.1rem 0 2.2rem; font-size: 0.85rem; letter-spacing: 0.32em; text-transform: uppercase; color: var(--rose); }
+.home-about { max-width: 30ch; }
+.home-about p { margin: 0.4rem 0; }
+.eyebrow { margin: 0 0 0.6rem; font-size: 0.78rem; font-weight: 500; letter-spacing: 0.22em; text-transform: uppercase; color: var(--muted); }
+
+.cta {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.9rem;
+  margin-top: 2.2rem;
+  padding: 0.85rem 1.6rem;
+  border: 1px solid var(--ink);
+  border-radius: 999px;
+  text-decoration: none;
+  overflow: hidden;
+  isolation: isolate;
+}
+.cta-fill {
+  position: absolute;
+  inset: 0;
+  background: var(--ink);
+  border-radius: inherit;
+  transform: translateY(101%);
+  transition: transform 0.55s var(--ease);
+  z-index: -1;
+}
+.cta-label,
+.cta-arrow { transition: color 0.4s var(--ease), transform 0.45s var(--ease); }
+.cta:hover .cta-fill,
+html:not([data-input="pointer"]) .cta:focus-visible .cta-fill { transform: translateY(0); }
+.cta:hover .cta-label,
+.cta:hover .cta-arrow,
+html:not([data-input="pointer"]) .cta:focus-visible .cta-label,
+html:not([data-input="pointer"]) .cta:focus-visible .cta-arrow { color: var(--paper); }
+.cta:hover .cta-arrow { transform: translateX(4px); }
+
+.home-figure { position: relative; margin: 0; }
+.home-figure img { width: 100%; height: auto; will-change: transform; }
+.home-frame { position: absolute; inset: -14px 14px 14px -14px; border: 1px solid var(--rose-2); will-change: transform; }
+
+/* ---------- Gallery: a journey of chapters (wayfinding level 2) ---------- */
+
+.stage-gallery { padding-top: calc(var(--pad) * 1.2); padding-bottom: 0; }
+
+.chapter { padding: clamp(3rem, 10vh, 8rem) 0 clamp(4rem, 12vh, 10rem); }
+.chapter-head { display: grid; grid-template-columns: 6rem minmax(0, 40ch); column-gap: 2rem; margin-bottom: clamp(3rem, 9vh, 7rem); }
+.chapter-num { grid-row: span 3; margin: 0.6rem 0 0; font-size: 0.85rem; letter-spacing: 0.3em; color: var(--rose); }
+.chapter-title { margin: 0; font-weight: 300; font-size: clamp(3rem, 6.5vw, 7.5rem); line-height: 0.92; letter-spacing: -0.015em; }
+.chapter-note { margin: 1.2rem 0 0.3rem; color: var(--muted); }
+.chapter-count { margin: 0; font-size: 0.8rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--muted); }
+
+/* A salon hang: scale follows each work's real size; offsets alternate so the wall breathes,
+   and every row is counterweighted (I-03). */
+.hang { display: grid; grid-template-columns: repeat(12, minmax(0, 1fr)); column-gap: clamp(1rem, 2.4vw, 3rem); row-gap: clamp(2.5rem, 7vh, 6rem); align-items: end; padding-right: clamp(2rem, 5vw, 6rem); }
+.work { margin: 0; perspective: 900px; }
+.work-l { grid-column: span 6; }
+.work-m { grid-column: span 4; }
+.work-s { grid-column: span 3; }
+.work:nth-child(4n + 2) { transform: translateY(-3vh); }
+.work:nth-child(4n + 3) { transform: translateY(4vh); }
+
+.work-open {
+  position: relative;
+  display: block;
+  width: 100%;
+  padding: 0;
+  border: 0;
+  background: none;
+  cursor: zoom-in;
+  transform-style: preserve-3d;
+  transition: opacity 0.5s var(--ease), filter 0.5s var(--ease);
+}
+.work-open img { position: relative; width: 100%; box-shadow: 0 1px 2px rgb(18 10 9 / 8%); transition: box-shadow 0.5s var(--ease); }
+.work-mat {
+  position: absolute;
+  inset: -6%;
+  background: radial-gradient(circle at var(--mx, 50%) var(--my, 50%), var(--tone, var(--paper-2)) 0, transparent var(--r, 0%));
+  opacity: 0.95;
+  pointer-events: none;
+}
+.hang.has-focus .work-open:not(.is-focus) { opacity: 0.72; filter: saturate(0.85); }
+.work-open.is-focus img { box-shadow: 0 30px 60px -28px rgb(18 10 9 / 45%), 0 2px 6px rgb(18 10 9 / 12%); }
+
+.work-label { display: grid; grid-template-columns: 2.2rem 1fr; column-gap: 0.4rem; margin-top: 1rem; font-size: 0.95rem; }
+.work-num { grid-row: span 3; font-size: 0.75rem; letter-spacing: 0.1em; color: var(--rose); padding-top: 0.2rem; }
+.work-title { font-style: italic; font-size: 1.1rem; }
+.work-meta { color: var(--muted); font-size: 0.85rem; }
+.work-buy { justify-self: start; margin-top: 0.3rem; font-size: 0.8rem; letter-spacing: 0.16em; text-transform: uppercase; text-decoration: none; border-bottom: 1px solid var(--rose); }
+
+/* The end of the gallery (TKT-025, Michael 2026-10-12): it fills the screen when you reach it (the large
+   viewport, so on a phone no sliver of the last room shows above it), so no painting or label is ever
+   cut off by the top edge. The words sit centred in the space the fixed header, meter and counter leave
+   free (measured by the gallery script into --end-top and --end-bottom), with breathing room that
+   grows with the screen. The title breaks only at its middle dot. */
+.gallery-end {
+  --end-air: clamp(1.5rem, 7vh, 5rem);
+  min-height: 100vh; min-height: 100lvh;
+  display: grid; place-content: center; justify-items: center; text-align: center; gap: clamp(1.25rem, 3.5vh, 2.25rem);
+  padding: calc(var(--end-top, 0px) + var(--end-air)) var(--pad) calc(var(--end-bottom, 6rem) + var(--end-air));
+}
+.gallery-end-count { margin: 0; font-size: clamp(1.6rem, 3vw, 2.6rem); line-height: 1.2; font-weight: 300; font-style: italic; text-wrap: balance; }
+.gallery-end-count span { white-space: nowrap; }
+/* Phones (Michael, 2026-10-13): the end opens at the same step below the dark section's top as the last
+   room's labels sit above its end (--end-lead, measured), rather than centred, and is one small screen
+   tall so nothing of the last room shows under the header when you arrive. */
+@media (max-width: 599px) {
+  .gallery-end { min-height: 100svh; align-content: start; padding-top: var(--end-lead, calc(var(--end-top, 0px) + var(--end-air))); }
+}
+/* The studio's signature (Michael, 2026-10-12, TKT-028): a quiet, temporary one. Small and in italics,
+   set well below the buttons, clear of the words that appear under "Socials" while the push-through
+   fills (they sit 14 to 32px below it; the signature starts at least 64px below). It lights up from
+   left to right when you reach the very end (a soft light passes over it and leaves it in the muted
+   colour), and fades as soon as you start back up. While hidden it takes no taps and no focus. */
+.gallery-end { position: relative; }
+.gallery-end-sentinel { position: absolute; left: 0; bottom: 0; width: 1px; height: 24px; pointer-events: none; }
+.gallery-end-credit { margin: clamp(2.75rem, 7vh, 4rem) 0 0; font-size: 0.78rem; font-style: italic; letter-spacing: 0.02em; }
+.gallery-end-credit a {
+  --credit: var(--muted);
+  color: transparent; text-decoration: none;
+  background: linear-gradient(90deg, var(--credit) 0 38%, var(--fg) 46%, transparent 56%) 100% 0 / 260% 100% no-repeat;
+  -webkit-background-clip: text; background-clip: text;
+  opacity: 0; visibility: hidden; pointer-events: none;
+  transition: opacity 0.7s var(--ease), visibility 0s linear 0.7s, background-position 0s linear 0.7s;
+}
+.gallery-end.is-signed .gallery-end-credit a {
+  opacity: 1; visibility: visible; pointer-events: auto; background-position: 0 0;
+  transition: opacity 0.5s var(--ease), visibility 0s, background-position 1.9s var(--ease) 0.1s;
+}
+.gallery-end.is-signed .gallery-end-credit a:hover { --credit: var(--fg); }
+/* A short screen (a phone on its side): less room, so the signature sits closer and steps aside while
+   the push-through fills, leaving the words under "Socials" alone. */
+@media (max-height: 480px) {
+  .gallery-end { --end-air: 1rem; gap: 0.9rem; }
+  .gallery-end-credit { margin-top: 0.75rem; }
+  html.is-charging .gallery-end.is-signed .gallery-end-credit a { opacity: 0; transition: opacity 0.3s var(--ease); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .gallery-end-credit a { background: none; color: var(--muted); transition: opacity 0.3s var(--ease), visibility 0s linear 0.3s; }
+  .gallery-end.is-signed .gallery-end-credit a { transition: opacity 0.3s var(--ease), visibility 0s; }
+  .gallery-end.is-signed .gallery-end-credit a:hover { color: var(--fg); }
+}
+/* The scrubber's invitation (TKT-045): a quiet line above the scrubber, in the accent that means "act here",
+   a second after the signature; balanced over two lines where the screen is narrow. */
+.scrub-hint { position: fixed; z-index: 31; margin: 0; width: max-content; max-width: min(86vw, 25rem); transform: translate(-50%, 6px);
+  text-align: center; text-wrap: balance; font-style: italic; font-size: clamp(0.88rem, 2.7vw, 1.02rem); line-height: 1.3; letter-spacing: 0.01em;
+  color: var(--rose); opacity: 0; pointer-events: none; transition: opacity 0.6s var(--ease), transform 0.6s var(--ease); }
+.scrub-hint.is-on { opacity: 1; transform: translate(-50%, 0); }
+html[data-ground="ink"] .scrub-hint { color: var(--rose-2); }
+html.is-charging .scrub-hint { opacity: 0; }
+.gallery-end.is-signed.is-hinted .gallery-end-credit a { opacity: 0; transition: opacity 0.5s var(--ease); }   /* the shortest screens: the signature makes way */
+@media (prefers-reduced-motion: reduce) { .scrub-hint { transform: translate(-50%, 0); transition: opacity 0.2s linear; } }
+.gallery-end-actions { display: flex; gap: 1rem; flex-wrap: wrap; justify-content: center; margin: 0; }
+
+/* Rail: where you are in the whole gallery; ticks jump to chapters. */
+.rail { position: fixed; right: calc(var(--pad) * 0.5); top: 18vh; bottom: 18vh; width: 1px; background: var(--rule); z-index: 25; }
+.rail-fill { position: absolute; inset: 0 0 auto; height: 100%; background: var(--fg); transform: scaleY(var(--p, 0)); transform-origin: top; }
+.rail-tick { position: absolute; left: -0.9rem; width: 1.8rem; height: 1.8rem; display: grid; place-items: center; text-decoration: none; font-size: 0.7rem; letter-spacing: 0.1em; color: var(--muted); transform: translateY(-50%); }
+.rail-tick::before { content: ""; position: absolute; left: 50%; top: 50%; width: 7px; height: 7px; border-radius: 50%; background: var(--bg); border: 1px solid var(--fg); transform: translate(-50%, -50%); }
+.rail-tick span { position: absolute; right: 2rem; opacity: 0; transition: opacity 0.3s var(--ease); }
+.rail-tick:hover span,
+html:not([data-input="pointer"]) .rail-tick:focus-visible span { opacity: 1; }
+
+.where { position: fixed; right: var(--pad); top: calc(var(--pad) * 0.8); z-index: 30; margin: 0; display: grid; justify-items: end; font-size: 0.85rem; letter-spacing: 0.08em; }
+.where-chapter { font-style: italic; letter-spacing: 0; font-size: 1rem; }
+.where-num { color: var(--muted); }
+
+/* ---------- Viewer: the work alone, on deep ink ---------- */
+
+.viewer {
+  position: fixed;
+  inset: 0;
+  z-index: 60;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(16rem, 22rem);
+  align-items: center;
+  gap: clamp(1.5rem, 4vw, 4rem);
+  padding: clamp(1rem, 4vw, 4rem) clamp(4rem, 8vw, 8rem);
+  background: #110c0b;
+  color: #f4ede4;
+}
+.viewer[hidden] { display: none; }
+.viewer-figure { margin: 0; height: 100%; display: grid; place-items: center; min-height: 0; }
+.viewer-figure img { max-height: calc(100svh - 8rem); width: auto; object-fit: contain; }
+.viewer-count { margin: 0 0 1rem; font-size: 0.85rem; letter-spacing: 0.12em; color: #b9a59c; }
+.viewer-title { margin: 0 0 0.6rem; font-weight: 300; font-style: italic; font-size: clamp(2rem, 3.4vw, 3.4rem); line-height: 1; }
+.viewer-meta { margin: 0 0 1.4rem; color: #cbb9ae; }
+.viewer-close,
+.viewer-step { position: absolute; display: grid; place-items: center; width: 3rem; height: 3rem; border-radius: 50%; border: 1px solid rgb(244 237 228 / 30%); background: none; cursor: pointer; font-size: 1.2rem; transition: background-color 0.3s var(--ease), color 0.3s var(--ease); }
+.viewer-close:hover,
+.viewer-step:hover { background: #f4ede4; color: var(--ink); }
+.viewer-close { top: 1.5rem; right: 1.5rem; font-size: 1.6rem; }
+.viewer-prev { left: 1.5rem; top: 50%; transform: translateY(-50%); }
+.viewer-next { right: 1.5rem; top: 50%; transform: translateY(-50%); }
+.viewer .pill { border-color: rgb(244 237 228 / 40%); }
+
+/* ---------- Socials ---------- */
+
+.connect { height: calc(100svh - var(--pad) * 2); display: grid; grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.4fr); align-items: center; gap: clamp(1.5rem, 4vw, 5rem); }
+.connect-title { margin: 0; font-weight: 300; font-size: clamp(3.6rem, 7.5vw, 8.5rem); line-height: 0.9; letter-spacing: -0.02em; }
+.connect-handle { margin: 1rem 0 2rem; font-style: italic; font-size: 1.3rem; }
+.connect-handle a { text-decoration-color: var(--rose); text-underline-offset: 5px; }
+.connect-sub { margin: 0 0 0.8rem; color: var(--muted); }
+.tiles { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: clamp(0.5rem, 1vw, 1rem); max-height: calc(100svh - var(--pad) * 3); aspect-ratio: 565 / 754; justify-self: center; height: 100%; }
+.tile { display: block; overflow: hidden; }
+.tile img { width: 100%; height: 100%; object-fit: cover; transition: transform 0.7s var(--ease), filter 0.5s var(--ease); }
+.tiles:hover .tile img { filter: saturate(0.7) brightness(0.95); }
+.tiles .tile:hover img { transform: scale(1.04); filter: none; }
+
+/* ---------- Pills and modals ---------- */
+
+.pill { display: inline-block; padding: 0.55rem 1.3rem; border: 1px solid var(--rule); border-radius: 999px; text-decoration: none; transition: background-color 0.3s var(--ease), color 0.3s var(--ease); }
+.pill:hover { background: var(--fg); color: var(--bg); }
+.pill-ink { background: var(--fg); color: var(--bg); border-color: var(--fg); }
+.pill-ink:hover { background: var(--rose); border-color: var(--rose); color: var(--paper); }
+.modal-actions { display: flex; gap: 0.8rem; flex-wrap: wrap; margin: 1.4rem 0 0; }
+
+.modal { position: fixed; inset: 0; z-index: 70; display: grid; place-items: center; }
+.modal[hidden] { display: none; }
+.modal-backdrop { position: absolute; inset: 0; border: 0; background: rgb(18 10 9 / 55%); cursor: pointer; }
+.modal-window { position: relative; width: min(34rem, 92vw); padding: clamp(1.8rem, 4vw, 3rem); background: var(--paper); color: var(--ink); }
+.modal-title { margin: 0; font-weight: 300; font-size: 2.2rem; font-style: italic; }
+.modal-sub { margin: 0.4rem 0 0; color: #7a6560; }
+.modal-body { margin: 1rem 0 0; }
+.modal-close { position: absolute; top: 0.8rem; right: 1rem; border: 0; background: none; font-size: 1.8rem; cursor: pointer; }
+
+/* ---------- Page transition layers (roller coaster logic, I-19) ---------- */
+
+.transit-next { position: fixed; inset: 0; z-index: 40; overflow: hidden; background: var(--bg); pointer-events: none; }
+.transit-ring { position: fixed; z-index: 41; width: 2px; height: 2px; border-radius: 50%; border: 1px solid var(--rose); pointer-events: none; }
+html.is-transit .shell,
+html.is-transit .pager { z-index: 45; }
+
+/* ---------- Small screens ---------- */
+
+@media (max-width: 899px), (max-width: 999px) and (max-height: 520px) and (orientation: landscape) {
+  :root { --nav-w: 0px; }
+  body { overflow: auto; }
+  .shell { inset: 0 0 auto; width: auto; height: auto; padding: 1rem 1.25rem; flex-direction: row; align-items: center; background: color-mix(in srgb, var(--bg) 97%, transparent); }
+  .wordmark { grid-auto-flow: column; align-items: center; gap: 0.6rem; }
+  .wordmark-name { font-size: 1.15rem; }
+  .menu-button { display: grid; gap: 6px; width: 2.6rem; height: 2.6rem; place-content: center; border: 1px solid var(--rule); border-radius: 50%; background: none; cursor: pointer; }
+  .menu-button span:not(.mk-sr) { display: block; width: 18px; height: 1px; background: currentColor; transition: transform 0.4s var(--ease); }
+  .menu-button[aria-expanded="true"] span:nth-child(1) { transform: translateY(3.5px) rotate(45deg); }
+  .menu-button[aria-expanded="true"] span:nth-child(2) { transform: translateY(-3.5px) rotate(-45deg); }
+  .site-nav { position: fixed; inset: 0; padding: 6rem 1.5rem 2rem; background: var(--bg); margin: 0; justify-content: space-between; transform: translateY(-100%); transition: transform 0.6s var(--ease); z-index: -1; }
+  .site-nav.is-open { transform: none; }
+  .nav-index a { font-size: 2.2rem; grid-template-columns: 3rem 1fr; }
+  .stage { padding: 5.5rem 1.25rem 6rem; }
+  .home,
+  .connect { height: auto; min-height: calc(100svh - 11.5rem); grid-template-columns: 1fr; align-content: center; }
+  .home-figure { order: -1; }
+  .home-frame { inset: -8px 8px 8px -8px; }
+  .home-fine { margin: 0.6rem 0 1.2rem; }
+  .cta { margin-top: 1.4rem; }
+  .tiles { height: auto; max-height: none; aspect-ratio: auto; }
+  .chapter-head { grid-template-columns: 1fr; }
+  .chapter-num { grid-row: auto; margin: 0 0 0.6rem; }
+  .hang { grid-template-columns: repeat(6, minmax(0, 1fr)); padding-right: 1.4rem; }
+  .work-l { grid-column: span 6; }
+  .work-m { grid-column: span 4; }
+  .work-s { grid-column: span 3; }
+  .work:nth-child(odd).work-m { grid-column: 1 / span 4; }
+  .work:nth-child(even).work-m { grid-column: 3 / span 4; }
+  .work:nth-child(n) { transform: none; }
+  .where { top: auto; bottom: 1.1rem; left: 1.25rem; right: auto; justify-items: start; }
+  .rail { right: 0.7rem; }
+  .pager { right: 1.25rem; bottom: 1rem; }
+  .pager-name { display: none; }
+  .viewer { grid-template-columns: 1fr; grid-template-rows: minmax(0, 1fr) auto; padding: 4.5rem 1.25rem 1.5rem; }
+  .viewer-figure img { max-height: 62svh; }
+  .viewer-prev,
+  .viewer-next { top: auto; bottom: 1.25rem; transform: none; }
+  .viewer-prev { left: auto; right: 5rem; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after { transition-duration: 0.01ms !important; animation-duration: 0.01ms !important; }
+  .work:nth-child(n) { transform: none; }
+}
+
+/* =====================================================================
+   DEEP — the site as a quiet exhibition.
+   Promo compositions at the entrance (Figma "promo compositions 2" brief; Scarelli's
+   art-at-scale stance), a walk along a wall where works hang at true relative scale,
+   a gallery light that follows the hand (R-2) and settles on the work you choose (R-12),
+   a minimap so you always know where you are on the wall (I-05), and a viewing room
+   where the pointer pans across the magnified texture with an exact mapping (EFF-017).
+   ===================================================================== */
+
+:root { --wall: #efe9e1; --wall-dark: #1a1312; --stone: #e5ddd2; }
+:root { --wall-moss: #323325; --leaf: #c68f81; }   /* the room's wall (magnolia shade) and its accent */
+/* The room's title eases into its own colour as you walk in (the page's 0.9s colour transition). */
+.chapter[data-ground="moss"] .chapter-title { color: var(--room-title); transition: color 0.9s var(--ease); }
+
+/* Entrance: one composition at a time — never one busy screen over another. */
+.entrance { position: relative; height: 100svh; }
+.comp { position: absolute; inset: 0; display: grid; grid-template-columns: minmax(0, 1.15fr) minmax(0, 1fr); }
+.comp[hidden] { display: none; }
+.comp-photo { margin: 0; overflow: hidden; }
+.comp-photo img { width: 100%; height: 100%; object-fit: cover; }
+.comp-work { margin: 0; position: relative; display: grid; align-content: center; justify-items: start; gap: 1rem; background: var(--stone); padding: 21vh 5vw clamp(15.5rem, 38vh, 22rem); }
+.comp-work img { max-height: calc(100svh - 21vh - clamp(15.5rem, 38vh, 22rem) - 4.5rem); width: auto; box-shadow: 0 40px 60px -40px rgb(18 10 9 / 55%); }
+.comp-work figcaption { display: grid; font-size: 0.9rem; }
+.comp-work-title { font-style: italic; font-size: 1.2rem; }
+.comp-work-meta { color: var(--muted); }
+.comp-copy { position: absolute; right: 0; top: 0; width: calc(100% / 2.15); padding: 7vh 5vw 0; color: var(--ink); }
+.comp-head { margin: 0; font-weight: 300; font-size: clamp(2.6rem, 5vw, 6rem); line-height: 0.9; letter-spacing: -0.02em; }
+.comp-sub { margin: 0.6rem 0 0; font-size: 0.8rem; letter-spacing: 0.3em; text-transform: uppercase; color: var(--rose); }
+.entrance-ui { position: absolute; right: 0; bottom: 0; width: calc(100% / 2.15); padding: 0 5vw 3.5vh; display: grid; gap: 1rem; z-index: 2; }
+.entrance-statement { margin: 0; max-width: 38ch; font-size: 0.95rem; color: var(--ink-2); }
+.entrance-controls { display: flex; align-items: center; gap: 0.8rem; flex-wrap: wrap; }
+.entrance-count { margin: 0; font-size: 0.9rem; letter-spacing: 0.1em; min-width: 4.5ch; }
+.entrance-progress { display: flex; gap: 6px; margin-left: 0.6rem; }
+.entrance-progress span { width: 1.6rem; height: 2px; background: var(--rule); }
+.entrance-progress span.is-on { background: var(--ink); }
+.round { width: 2.6rem; height: 2.6rem; border-radius: 50%; border: 1px solid var(--rule); background: none; cursor: pointer; transition: background-color 0.3s var(--ease), color 0.3s var(--ease); }
+.round:hover { background: var(--ink); color: var(--paper); }
+.stage-index .cta { margin-top: 0; justify-self: start; }
+
+/* Gallery: each chapter is a room; the wall scrolls sideways as you scroll down. */
+.stage-gallery { margin-left: 0; padding: 0; }
+.stage-gallery .chapter { padding: 0; position: relative; }
+.stage-gallery .chapter-head { position: absolute; z-index: 2; left: calc(var(--nav-w) + var(--pad)); top: 12vh; margin: 0; pointer-events: none; }
+.stage-gallery .chapter-note { max-width: 34ch; }
+.wall-pin { position: sticky; top: 0; height: 100svh; overflow: hidden; background: var(--wall); }
+.chapter[data-ground="ink"] .wall-pin { background: var(--wall-dark); }
+.chapter[data-ground="moss"] .wall-pin { background: var(--wall-moss); }
+.wall-pin::after { content: ""; position: absolute; inset: 0 auto 0 0; width: calc(var(--nav-w) + 12vw); z-index: 1; pointer-events: none; background: linear-gradient(to right, var(--wall) calc(var(--nav-w) + 1rem), transparent); }
+.chapter[data-ground="ink"] .wall-pin::after { background: linear-gradient(to right, var(--wall-dark) calc(var(--nav-w) + 1rem), transparent); }
+.chapter[data-ground="moss"] .wall-pin::after { background: linear-gradient(to right, var(--wall-moss) calc(var(--nav-w) + 1rem), transparent); }
+.wall { position: absolute; left: 0; top: 0; height: 100%; display: flex; align-items: flex-end; gap: max(9vw, 16rem); padding: 0 30vw 22vh calc(var(--nav-w) + max(48vw, 36rem)); will-change: transform; }
+.wall .work { flex: none; position: relative; transform: none !important; }
+.wall .work-open { cursor: zoom-in; }
+.wall .work-label { position: absolute; left: calc(100% + 1.6rem); bottom: 0; width: min(13rem, calc(max(9vw, 16rem) - 3rem)); margin: 0; }
+.wall .work-mat { display: none; }
+.bench { position: absolute; bottom: 9vh; left: calc(var(--nav-w) + 18vw); width: 18vw; max-width: 260px; fill: none; stroke: currentColor; stroke-width: 1.2; opacity: 0.35; }
+.light { position: absolute; inset: 0; pointer-events: none; background: radial-gradient(38vmax 38vmax at var(--lx, 50%) var(--ly, 45%), rgb(255 250 240 / 55%), transparent 70%); mix-blend-mode: soft-light; transition: opacity 0.6s var(--ease); }
+.chapter[data-ground="ink"] .light { background: radial-gradient(30vmax 30vmax at var(--lx, 50%) var(--ly, 45%), rgb(255 236 214 / 22%), transparent 70%); mix-blend-mode: screen; }
+.chapter[data-ground="moss"] .light { display: none; }   /* no spotlight in the green room */
+.wall .work-open.is-focus img { box-shadow: 0 50px 70px -40px rgb(18 10 9 / 55%); }
+.wall.has-focus .work-open:not(.is-focus) { opacity: 0.8; }
+
+/* Minimap: every work as a small mark; the window is where you are. */
+.minimap { position: fixed; left: 50%; bottom: 1.4rem; transform: translateX(-50%); z-index: 30; display: flex; align-items: flex-end; gap: 3px; padding: 0.5rem 0.7rem; background: color-mix(in srgb, var(--bg) 88%, transparent); border: 1px solid var(--rule); border-radius: 999px; }
+.minimap a { display: block; width: 6px; background: var(--muted); opacity: 0.45; border-radius: 1px; transition: opacity 0.3s var(--ease), background-color 0.3s var(--ease); }
+.minimap a:hover,
+.minimap a.is-here { opacity: 1; background: var(--fg); }
+.minimap .mm-gap { width: 10px; }
+/* 28 marks fit a 320px phone; on the narrowest phones each mark gives up a pixel so the map keeps its margins. */
+@media (max-width: 359px) { .minimap a { width: 5px; } }
+/* Where you are: to the left of the bars, on the same row, so it never sits over the wall. */
+.stage-gallery .where { top: auto; bottom: 1.55rem; left: auto; right: calc(50% + var(--mm-w, 14.5rem) / 2 + 0.95rem); transform: none; justify-items: end; text-align: right; line-height: 1.2; }
+.gallery-end { background: var(--end-wall, var(--bg)); }   /* the last room's wall, so the walk ends inside it (TKT-034) */
+
+/* Viewing room: magnify and move the pointer to travel across the texture. */
+.viewer-figure { overflow: hidden; position: relative; width: 100%; height: calc(100svh - 8rem); }
+.viewer-figure img { max-height: 100%; transform-origin: 0 0; }
+.viewer:not(.is-zoom) .viewer-figure img { cursor: zoom-in; }   /* a click on the picture zooms in (TKT-029) */
+.viewer.is-zoom .viewer-figure { cursor: crosshair; }
+.viewer-zoom { margin-top: 0.6rem; background: none; border: 1px solid rgb(244 237 228 / 35%); color: inherit; border-radius: 999px; padding: 0.45rem 1.1rem; cursor: pointer; }
+@media (hover: hover) { .viewer-zoom:hover { background: #f4ede4; color: var(--ink); } }   /* no sticky hover on touch screens */
+/* Zoomed in (Michael, 2026-10-12): the button stays lit, inverted, wherever you tap, until Zoom Out. */
+.viewer-zoom.is-on,
+.viewer-zoom.is-on:hover { background: #f4ede4; color: var(--ink); border-color: #f4ede4; }
+
+@media (max-width: 899px), (max-width: 999px) and (max-height: 520px) and (orientation: landscape) {
+  .comp { grid-template-columns: 1fr; grid-template-rows: 42svh auto 1fr; overflow-y: auto; }
+  .comp-work { padding: 1rem 6vw 26vh; grid-row: 3; }
+  .comp-work img { max-height: 30svh; }
+  .comp-copy { position: static; width: auto; padding: 1.5rem 1.25rem 0; grid-row: 2; }
+  .comp-head { font-size: clamp(2.6rem, 12vw, 4rem); }
+  .entrance-ui { width: 100%; padding: 0 1.25rem 1.2rem; }
+
+  /* The same sideways walk as desktop, scaled for the smaller screen. */
+  .wall { padding: 0 30vw 24vh max(calc(100vw + 2rem), 24rem); gap: max(9vw, 13rem); }
+  .wall .work-label { width: min(10rem, calc(max(9vw, 13rem) - 2.5rem)); font-size: 0.82rem; left: calc(100% + 1.1rem); }
+  .wall .work-title { font-size: 0.98rem; }
+  .bench { left: 1.25rem; width: min(62vw, 260px); bottom: 16vh; }
+  .light,
+  .wall-pin::after { display: none; }
+  .stage-gallery .chapter-head { left: 1.25rem; top: 6rem; right: 1.25rem; }
+  .stage-gallery .chapter-title { font-size: clamp(2.6rem, 11vw, 4.4rem); }
+  .minimap { left: calc(1.25rem + 6.4rem); transform: none; bottom: 4.6rem; }
+  .stage-gallery .where { left: 1.25rem; right: auto; bottom: 4.8rem; justify-items: start; text-align: left; max-width: 6rem; }
+  .stage-gallery .where-chapter { font-size: 0.85rem; }
+}
+
+
+/* =====================================================================
+   Cut-out works (2026-10-10): the photographed wall is gone, so each work casts its own
+   shape-following shadow, hangs from two thin strings in the bench's line style, and Ague II
+   sits on a line-drawn corner. Everything else is the Deep version as it was.
+   ===================================================================== */
+.wall .work-open { position: relative; overflow: visible; }
+/* min-height: 0 — before a picture loads, a long alt text must not stretch its box past the work's proportions.
+   The box takes the painting's proportions from the script (aspect-ratio), and the alt text stays unseen
+   on the wall until the picture arrives (it is still read by screen readers). */
+.wall .work-open img { position: relative; z-index: 1; width: 100%; height: auto; min-height: 0; color: transparent; box-shadow: none !important; filter: drop-shadow(0 2px 2px rgb(28 18 14 / 22%)) drop-shadow(0 16px 22px rgb(28 18 14 / 16%)); transition: filter 0.45s var(--ease); }
+.wall .work-open.is-focus img { filter: drop-shadow(0 4px 4px rgb(28 18 14 / 20%)) drop-shadow(0 30px 40px rgb(28 18 14 / 24%)); }
+.chapter[data-ground="ink"] .wall .work-open img { filter: drop-shadow(0 2px 2px rgb(0 0 0 / 40%)) drop-shadow(0 16px 24px rgb(0 0 0 / 35%)); }
+.chapter[data-ground="moss"] .wall .work-open img { filter: drop-shadow(0 2px 2px rgb(0 0 0 / 40%)) drop-shadow(0 16px 24px rgb(0 0 0 / 35%)); }
+/* The room's own accent for its numerals and focus ring. */
+.chapter[data-ground="moss"] .chapter-num,
+.chapter[data-ground="moss"] .work-num { color: var(--leaf); }
+.chapter[data-ground="moss"] :focus-visible { outline-color: var(--leaf); }
+/* Charcoal Works arrives as it always did (Michael): its heading starts a very dark brown on the dark
+   wall and brightens into cream. Approached from the green room, the page's words are green, so the
+   heading keeps its own colour, the first room's ink, until the dark room takes over, then eases to
+   cream with the page's 0.9s transition. */
+.chapter[data-ground="ink"] .chapter-head { color: var(--fg); transition: color 0.9s var(--ease); }
+html[data-ground="moss"] .chapter[data-ground="ink"] .chapter-head { --fg: var(--ink); --muted: #7a6560; }
+.strings,
+.corner { position: absolute; z-index: 0; overflow: visible; pointer-events: none; color: var(--fg); opacity: 0.35; }
+.strings line,
+.corner path { fill: none; stroke: currentColor; stroke-width: 1.2px; vector-effect: non-scaling-stroke; stroke-linecap: round; }
+
+
+/* =====================================================================
+   Round 2 (Michael, 2026-10-10). Everything above stays; only these asks change.
+   ===================================================================== */
+
+/* Labels belong to the work on their left: a small, equal step from the painting to its number
+   and from the number to the words (--lg), and a much wider space before the next work (--trail),
+   so it is always clear which label goes with which work (proximity). */
+.wall {
+  --lg: 1.15rem;
+  --trail: clamp(5.5rem, 7.5vw, 9rem);
+  gap: var(--trail);
+  padding-bottom: max(25svh, 7.5rem);                 /* the works sit a little higher than before */
+}
+.wall .work { display: flex; align-items: flex-end; gap: var(--lg); }
+.wall .work-open { flex: none; }
+.wall .work-label {
+  position: static;
+  flex: none;
+  width: max-content;
+  max-width: 12.5rem;
+  grid-template-columns: max-content minmax(0, 1fr);
+  column-gap: var(--lg);
+  margin: 0;
+}
+.wall .work-num { padding-top: 0.28rem; }
+.bench { right: auto; }
+
+/* The room's words sit a little closer to the menu (desktop). */
+@media (min-width: 900px) {
+  .stage-gallery .chapter-head { left: calc(var(--nav-w) + var(--pad) * 0.6); grid-template-columns: 2.4rem minmax(0, 40ch); column-gap: 1.4rem; }
+}
+
+/* Michelle and Kaye share one left edge on tablet and desktop. */
+@media (min-width: 600px) {
+  .home-title-line-2 { padding-left: 0; }
+}
+
+/* Viewer: the whole work always shows, in its own proportions; only "Inspect the surface"
+   fills the frame. The close and step buttons sit above the picture, so a tap on × always closes. */
+.viewer-figure { display: flex; align-items: center; justify-content: center; position: relative; z-index: 1; }
+.viewer-figure img { flex: none; width: auto; height: auto; max-width: 100%; max-height: 100%; min-width: 0; min-height: 0; }
+.viewer-close,
+.viewer-step { z-index: 3; }
+.viewer-info { position: relative; z-index: 2; }
+
+/* Socials: the tiles leave clear air above the page arrows and "03 / 03". */
+.tiles { height: calc(100svh - var(--pad) * 2 - 10rem); max-height: none; }
+
+@media (max-width: 899px), (max-width: 999px) and (max-height: 520px) and (orientation: landscape) {
+  /* The open menu covers the room's title, the counter and the map; the page arrows stay on top. */
+  .shell { z-index: 35; }
+  .pager { z-index: 36; }
+  .wall { padding-bottom: max(25svh, 8rem); }
+  .tiles { height: auto; width: min(100%, max(11rem, calc((100svh - 27rem) * 0.75))); justify-self: start; }
+  .stage-connect { padding-bottom: 6rem; }
+  .viewer { padding-top: 5.25rem; padding-bottom: 5.5rem; }
+  .viewer-figure { height: 100%; }
+  .viewer-figure img { max-height: 100%; }
+}
+
+@media (max-width: 599px) {
+  /* Phone: the title fills the line without breaking; the words use the full width. */
+  .stage-gallery .chapter-title { font-size: calc((100vw - 2.5rem) / 6.2); white-space: nowrap; }
+  /* The words grow with a taller phone, so they fill the room down toward the bench. */
+  .stage-gallery .chapter-note { max-width: none; font-size: clamp(1.16rem, 2.85svh, 1.55rem); line-height: 1.5; }
+  /* Labels sit under each work, all the same height so the works keep one floor line. They are a
+     perfect fourth (x1.333, one step of a classic type scale) larger than before, with a little more
+     air under the painting, and break cleanly: title / size / medium. */
+  .wall { --trail: 3.75rem; padding-bottom: 10.75rem; }
+  .wall .work { flex-direction: column; align-items: flex-start; gap: 1.1rem; }
+  /* The number leads the title's line, so the size and medium below get the label's full width
+     and never break mid-phrase, even under the smallest round works. */
+  .wall .work-label { display: block; max-width: none; height: var(--label-h, auto); text-wrap: balance; }
+  .wall .work-num { display: inline-block; margin-right: 0.6rem; font-size: 1rem; padding-top: 0; vertical-align: 0.12em; }
+  .wall .work-title { font-size: 1.31rem; line-height: 1.2; }
+  .wall .work-meta { display: block; font-size: 1.13rem; line-height: 1.3; margin-top: 0.3rem; }
+  .wall .work-size,
+  .wall .work-medium { display: block; white-space: nowrap; }
+  .wall .work-sep { display: none; }
+  .wall .work-buy { display: inline-block; font-size: 1.07rem; margin-top: 0.45rem; }
+}
+
+/* Page changes: while the next page slides in, a gallery shows only its first room's title
+   and wall colour (its works are hung, then fade in), so no two sets of words ever overlap. */
+.transit-next .stage-gallery .chapter ~ .chapter,
+.transit-next .stage-gallery .gallery-end,
+.transit-next .stage-gallery .minimap,
+.transit-next .stage-gallery .where,
+.transit-next .stage-gallery .wall { display: none; }
+.transit-next .stage-gallery .chapter:first-of-type { height: 100svh; background: var(--wall); }
+
+/* A phone turned sideways: a compact room heading, so the words clear the map and counter. */
+@media (max-height: 520px) and (orientation: landscape) and (max-width: 999px) {
+  .stage-gallery .chapter-head { top: 5.1rem; }
+  .stage-gallery .chapter-num { display: none; }
+  .stage-gallery .chapter-title { font-size: 2.5rem; white-space: nowrap; }
+  .stage-gallery .chapter-note { max-width: 62ch; margin-top: 0.5rem; font-size: 0.86rem; line-height: 1.35; }
+}
+
+
+/* =====================================================================
+   Round 3 (Michael, 2026-10-11): home spacing, a centred phone home, a phone walk you swipe.
+   ===================================================================== */
+
+/* Home: one rhythm. Small, equal steps inside a group (eyebrow, words);
+   larger, equal steps between groups (the name, the artist, the way in). */
+.home-copy { --in: 0.75rem; --out: clamp(2rem, 4.8svh, 3rem); }
+.home-fine { margin: 1.1rem 0 0; }
+.home-about { margin-top: var(--out); }
+.home-about .eyebrow { margin: 0 0 var(--in); }
+.home-about p { margin: 0; }
+.home-about p + p { margin-top: var(--in); }
+.stage-index .cta { margin-top: var(--out); }
+
+/* The invitation to walk sideways (phones): a line that grows and gives way, left to right. */
+.walk-cue { display: none; }
+
+@media (max-width: 599px) {
+  .home-copy { --out: clamp(1.6rem, 3.6svh, 2.4rem); text-align: center; }
+  .home-title-line-2 { padding-left: 0; }
+  .home-fine { margin-top: 0.9rem; }
+  .home-about { margin-inline: auto; }
+  .stage-index .cta { justify-self: center; }
+  /* The portrait scales with the phone's height, so the whole page fits above the page arrows. */
+  .home-figure { width: min(100%, calc(22.5svh * 1.5)); margin-inline: auto; }
+  /* The page arrows and count sit in the middle on a phone. */
+  .pager { left: 50%; right: auto; transform: translateX(-50%); }
+
+
+}
+
+/* Short phones (iPhone SE and similar): the same page, a little tighter, so it still fits whole. */
+@media (max-width: 599px) and (max-height: 720px) {
+  .stage-index { padding-top: 5.1rem; padding-bottom: 4.75rem; }
+  .stage-index .home { min-height: calc(100svh - 9.85rem); gap: 1rem; }
+  .home-copy { --out: 1.25rem; --in: 0.6rem; }
+  .home-figure { width: min(100%, calc(16svh * 1.5)); }
+  .home-title { font-size: 3.6rem; }
+  .home-fine { margin-top: 0.7rem; }
+  .home-about p { line-height: 1.4; }
+}
+
+/* The smallest phones (under 340px): the header's wordmark keeps to one line (TKT-044: "FINE ARTS" broke
+   onto a second line at 320px, against T-LAY-25). A shorter rule and tighter gaps make the room. */
+@media (max-width: 339px) {
+  .wordmark { gap: 0.45rem; }
+  .wordmark-rule { width: 1.25rem; }
+  .wordmark-fine { white-space: nowrap; }
+  .stage-gallery .chapter-note { font-size: clamp(1.1rem, 2.85svh, 1.55rem); }   /* room for the even step under the header */
+}
+
+/* The phone home in two chunks (TKT-044, Michael 2026-10-14): 10px more between "Fine Arts" and "About the
+   Artist". The page is centred on the screen, so the portrait, its frame, the name and "Fine Arts" rise 5px
+   and the words and the way in drop 5px. The smallest phones (600px tall or less) take a smaller portrait
+   and tighter steps, so the page still fits above the arrows. */
+@media (max-width: 599px) {
+  .stage-index .home-about { margin-top: calc(var(--out) + 10px); }
+}
+@media (max-width: 599px) and (max-height: 600px) {
+  .home-figure { width: min(100%, calc(11.5svh * 1.5)); }
+  .home-copy { --out: 0.85rem; }
+}
+
+@keyframes walk-cue {
+  0% { transform: scaleX(0); transform-origin: left; }
+  45% { transform: scaleX(1); transform-origin: left; }
+  55% { transform: scaleX(1); transform-origin: right; }
+  100% { transform: scaleX(0); transform-origin: right; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .walk-cue-line::after { animation: none; }
+}
+
+/* =====================================================================
+   Round 4 (Michael, 2026-10-11): one title. Home, Gallery and Socials set their titles at one
+   size and start them at one top-left point on every screen. The size is the largest that keeps
+   breathing room on all three pages at that screen size:
+     desktop  width: "Michelle" must fit the home's first column (8vw);
+              height: the home's words and button must clear the page arrows (14svh);
+     tablet   the same, on the narrower two-column home (11vw);
+     phone    "Against the Grain" fills one line (the gallery's own rule), and all three follow.
+   ===================================================================== */
+:root {
+  --title-top: clamp(4.5rem, 12svh, 8.5rem);
+  --title-size: clamp(3.4rem, min(8vw, 14svh), 9.5rem);
+}
+@media (max-width: 899px), (max-width: 999px) and (max-height: 520px) and (orientation: landscape) { :root { --title-top: 6.75rem; --title-size: clamp(3.4rem, 11vw, 6rem); } }
+@media (max-width: 599px) { :root { --title-size: calc((100vw - 2.5rem) / 6.2); } }
+@media (max-height: 520px) and (orientation: landscape) and (max-width: 999px) { :root { --title-top: 5.1rem; --title-size: 2.5rem; } }
+
+.home-title,
+.stage-gallery .chapter-title,
+.connect-title { font-size: var(--title-size); line-height: 0.9; letter-spacing: -0.02em; }
+
+/* Gallery: the room's numeral sits just above its title, so the title itself starts at the point. */
+.stage-gallery .chapter-head { top: var(--title-top); left: calc(var(--nav-w) + var(--pad)); grid-template-columns: auto; column-gap: 0; }
+.stage-gallery .chapter-num { position: absolute; left: 0; bottom: 100%; margin: 0 0 0.55rem; }
+.stage-gallery .chapter-title { max-width: 4.2em; }             /* two lines, like Michelle / Kaye */
+
+/* Home and Socials start at the same line (the phone home keeps its centred portrait layout). */
+.stage-connect { padding-top: var(--title-top); }
+@media (min-width: 600px) {
+  .stage-index { padding-top: var(--title-top); }
+  .home { height: calc(100svh - var(--title-top) - var(--pad)); align-items: start; }
+}
+.connect { height: calc(100svh - var(--title-top) - var(--pad)); align-items: start; }
+.tiles { height: calc(100svh - var(--title-top) - var(--pad) * 0.8 - 5.6rem); }
+
+@media (max-width: 899px), (max-width: 999px) and (max-height: 520px) and (orientation: landscape) {
+  .stage-gallery .chapter-head { left: 1.25rem; right: 1.25rem; }
+  .connect { height: auto; min-height: 0; align-content: start; }
+  .tiles { height: auto; width: min(100%, max(11rem, calc((100svh - 29rem) * 0.75))); }
+}
+@media (min-width: 600px) and (max-width: 899px), (min-width: 600px) and (max-width: 999px) and (max-height: 520px) and (orientation: landscape) {
+  /* Tablet home: the desktop's two columns, so its title can start at the shared point too. */
+  .home { height: auto; min-height: 0; grid-template-columns: minmax(0, 1fr) minmax(0, 1.1fr); align-content: start; gap: 1.5rem; }
+  .home-figure { order: 0; }
+}
+@media (max-width: 599px) {
+  .stage-gallery .chapter-title { max-width: none; white-space: nowrap; }
+  /* A title longer than "Against the Grain" (the line the size is set by) keeps the size and takes two lines. */
+  .stage-gallery .chapter-title.is-long { white-space: normal; text-wrap: balance; }
+}
+@media (max-height: 520px) and (orientation: landscape) and (max-width: 999px) {
+  .stage-gallery .chapter-title { max-width: none; white-space: nowrap; }
+  .stage-gallery .chapter-head { top: var(--title-top); }
+}
+
+/* Ague II's corner: fainter lines, so words in front of them read first. */
+.corner { opacity: 0.18; }
+@media (max-width: 599px) {
+  .corner { opacity: 0.14; }
+  /* Phone labels: the label as a block is centred under its work; its words stay left-aligned. */
+  .wall .work { align-items: center; }
+  .wall .work-label { width: max-content; }
+  /* Ague II: its label steps right of the corner's centre line, on a faint frosted, reeded glass. */
+  .wall .work-label.is-glass {
+    height: auto;
+    margin-top: 0;
+    padding: 0.5rem 0.75rem 0.55rem;
+    border-radius: 4px;
+    background:
+      repeating-linear-gradient(90deg, rgb(255 255 255 / 9%) 0 1px, transparent 1px 5px),
+      color-mix(in srgb, var(--wall) 58%, transparent);
+    -webkit-backdrop-filter: blur(5px);
+    backdrop-filter: blur(5px);
+    box-shadow: inset 0 0 0 1px rgb(255 255 255 / 30%), 0 1px 8px rgb(28 18 14 / 5%);
+  }
+}
+@media (min-width: 600px) and (max-width: 899px), (min-width: 600px) and (max-width: 999px) and (max-height: 520px) and (orientation: landscape) {
+  .tiles { width: min(100%, max(11rem, calc((100svh - 31rem) * 0.75))); }
+}
+@media (max-width: 599px) and (max-height: 720px) {
+  .stage-connect { padding-bottom: 4.5rem; }
+}
+@media (max-height: 520px) and (orientation: landscape) and (max-width: 999px) {
+  /* A sideways phone: Socials uses the desktop's two columns, so the tiles fit beside the words. */
+  .connect { grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.2fr); }
+  .tiles { width: auto; height: calc(100svh - var(--title-top) - 4.75rem); justify-self: start; aspect-ratio: 565 / 754; }
+  .stage-connect { padding-bottom: 2rem; }
+}
+
+/* Socials (Michael, 2026-10-11): square tiles, like an Instagram grid, on every screen. */
+.tiles { aspect-ratio: 1 / 1; }
+.tile { aspect-ratio: 1 / 1; }
+.tile img { width: 100%; height: 100%; object-fit: cover; }
+@media (max-width: 899px), (max-width: 999px) and (max-height: 520px) and (orientation: landscape) {
+  .tiles { aspect-ratio: auto; width: min(100%, max(11rem, calc(100svh - 27.5rem))); }
+}
+@media (min-width: 600px) and (max-width: 899px), (min-width: 600px) and (max-width: 999px) and (max-height: 520px) and (orientation: landscape) {
+  .tiles { width: min(100%, max(11rem, calc(100svh - 31rem))); }
+}
+@media (max-height: 520px) and (orientation: landscape) and (max-width: 999px) {
+  .tiles { aspect-ratio: 1 / 1; width: auto; }
+}
+
+/* "Available" in the site's rose accent (the colour of its underlines), on every screen, so a
+   work you can buy is easy to spot; the viewer's shop button uses the lighter rose on the ink. */
+.work-buy { color: var(--rose); font-weight: 500; border-bottom-color: currentColor; transition: color 0.3s var(--ease); }
+.work-buy:hover,
+html:not([data-input="pointer"]) .work-buy:focus-visible { color: var(--ink); }
+.viewer [data-viewer-buy] .pill { color: var(--rose-2); border-color: var(--rose-2); }
+.viewer [data-viewer-buy] .pill:hover,
+html:not([data-input="pointer"]) .viewer [data-viewer-buy] .pill:focus-visible { background: var(--rose-2); color: var(--ink); }
+
+/* Phone gallery, foot of the screen (Michael, 2026-10-11): three centred rows in two chunks.
+   Where you are in the gallery (the map, then its room and number, close together), then, after a
+   larger step, where you are in the site (the page arrows). Both labels share one text size. */
+@media (max-width: 599px) {
+  .stage-gallery .minimap { left: 50%; transform: translateX(-50%); bottom: 6.15rem; }
+  .stage-gallery .where {
+    left: 50%; right: auto; bottom: 4.6rem; transform: translateX(-50%);
+    display: flex; align-items: baseline; justify-content: center;
+    max-width: none; white-space: nowrap; text-align: center; line-height: 1.2; font-size: 0.9rem;
+  }
+  .stage-gallery .where-chapter { font-size: 0.9rem; }
+  .stage-gallery .where-num::before { content: "·"; margin: 0 0.5rem; }
+}
+/* The foot in two clear chunks (Michael, 2026-10-13): the map with its room and number a hair higher,
+   the page arrows a hair lower, so the step between them reads. The works and labels follow the map
+   up (the wall keeps its space above the map). Tall phones take the full step; short ones half. */
+/* Each room's opening sits as far below the white header as the wordmark's letters sit above its edge
+   (--head-shift, measured on each phone; Michael, 2026-10-13). */
+@media (max-width: 599px) {
+  .stage-gallery .chapter-head { top: calc(var(--title-top) + var(--head-shift, 0px)); }
+}
+/* The narrowest phones (320px): the swipe invitation keeps to one line (a little less tracking, a shorter
+   line), which leaves room for the even step under the header. */
+@media (max-width: 340px) {
+  html.walk-touch .stage-gallery .walk-cue { letter-spacing: 0.14em; gap: 0.6rem; }
+  html.walk-touch .stage-gallery .walk-cue-line { width: 2.25rem; }
+}
+/* 2026-10-13, later: the arrows 5px lower and the map 5px higher again, the words between them staying
+   put, for a hair more air between the words and the map (Michael). The works and strings follow the map. */
+@media (max-width: 599px) and (min-height: 700px) {
+  .pager { bottom: calc(0.75rem - 5px); }
+  .stage-gallery .minimap { bottom: calc(6.65rem + 5px); }
+  .stage-gallery .where { bottom: 5.1rem; }
+}
+@media (max-width: 599px) and (max-height: 699px) {
+  .pager { bottom: calc(0.875rem - 5px); }
+  .stage-gallery .minimap { bottom: calc(6.4rem + 5px); }
+  .stage-gallery .where { bottom: 4.85rem; }
+}
+/* Tablets and phones on their side (Michael, 2026-10-13): the room's name, the map and the page arrows on
+   one line near the foot. The map is centred on the screen, stepping right only if the name would touch
+   it (--where-w, the longest room name, measured); the name never breaks. Centres align on one line:
+   3rem from the foot on a tablet, 2.25rem on a phone on its side (the arrows are 42px tall, the map 40px,
+   the name and number 35px). */
+@media (min-width: 600px) and (max-width: 899px), (min-width: 600px) and (max-width: 999px) and (max-height: 520px) and (orientation: landscape) {
+  .stage-gallery .where { max-width: none; white-space: nowrap; bottom: calc(3rem - 17.5px); }
+  .stage-gallery .minimap { left: max(50% - var(--mm-w, 18rem) / 2, 2.5rem + var(--where-w, 10rem)); transform: none; bottom: calc(3rem - 20px); }
+  .pager { bottom: calc(3rem - 21px); }
+}
+@media (min-width: 600px) and (max-width: 999px) and (max-height: 520px) and (orientation: landscape) {
+  .stage-gallery .where { bottom: calc(2.25rem - 17.5px); }
+  .stage-gallery .minimap { bottom: calc(2.25rem - 20px); }
+  .pager { bottom: calc(2.25rem - 21px); }
+}
+@media (max-height: 520px) and (orientation: landscape) and (max-width: 720px) { .minimap a { width: 5px; } }
+/* Tablets 750px and narrower (Michael, 2026-10-14): one row crowds the arrows into the map (they touch by
+   650px), so the foot stacks as on a phone: the map, then the room and number, then the page arrows, all
+   centred. The works keep their space above the map. Phones on their side keep their one row. */
+@media (min-width: 600px) and (max-width: 750px) and (min-height: 521px) {
+  .stage-gallery .minimap { left: 50%; transform: translateX(-50%); bottom: calc(6.65rem + 5px); }
+  .stage-gallery .where {
+    left: 50%; right: auto; bottom: 5.1rem; transform: translateX(-50%);
+    display: flex; align-items: baseline; justify-content: center;
+    max-width: none; white-space: nowrap; text-align: center; line-height: 1.2; font-size: 0.9rem;
+  }
+  .stage-gallery .where-chapter { font-size: 0.9rem; }
+  .stage-gallery .where-num::before { content: "·"; margin: 0 0.5rem; }
+  html[data-page="gallery"] .pager { left: 50%; right: auto; transform: translateX(-50%); bottom: calc(0.75rem - 5px); }
+}
+
+/* Touch screens (phones and tablets): the walk is swiped, so each room opens with the invitation
+   to swipe, and the browser leaves the swipe to the walk (pinch-zoom still works). */
+html.walk-touch .stage-gallery { touch-action: pinch-zoom; }
+html.walk-touch .walk-cue { display: flex; align-items: center; gap: 0.9rem; margin: clamp(1.5rem, 4.5svh, 2.75rem) 0 0; font-size: 0.8rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--muted); }
+html.walk-touch .walk-cue-line { position: relative; width: 4.5rem; height: 1px; overflow: hidden; }
+html.walk-touch .walk-cue-line::after { content: ""; position: absolute; inset: 0; background: currentColor; transform-origin: left; animation: walk-cue 2.6s var(--ease-io) infinite; }
+@media (prefers-reduced-motion: reduce) { html.walk-touch .walk-cue-line::after { animation: none; } }
+
+/* Phone: the works stand a little further apart (Michael, 2026-10-11). */
+@media (max-width: 599px) {
+  .wall { --trail: 4.6rem; }
+}
+
+/* Viewer close (Michael, 2026-10-11): a drawn × exactly centred in its circle, a touch larger,
+   and a touch firmer ring, on every screen. */
+.viewer-close { font-size: 0; border-color: transparent; box-shadow: inset 0 0 0 1.35px rgb(244 237 228 / 34%); }   /* a fractional ring: borders snap to whole pixels */
+.viewer-close svg { display: block; width: 1rem; height: 1rem; fill: none; stroke: currentColor; stroke-width: 1.3; stroke-linecap: round; }
+
+/* Inspecting the surface: a small map of the work, in its own shape, at the picture's corner;
+   the warm glow is where you are. A finger can explore the work freely while it is open. */
+.viewer-nav {
+  position: absolute; right: 1rem; bottom: 1rem; z-index: 2;
+  padding: 0.5rem; box-sizing: content-box; border-radius: 6px;
+  background: rgb(18 10 9 / 55%); -webkit-backdrop-filter: blur(6px); backdrop-filter: blur(6px);
+  opacity: 0; transform: translateY(6px) scale(0.96); transform-origin: 100% 100%;
+  transition: opacity 0.35s var(--ease), transform 0.45s var(--ease); pointer-events: none;
+}
+.viewer.is-zoom .viewer-nav { opacity: 1; transform: none; }
+.viewer-nav svg { display: block; width: 100%; height: 100%; overflow: visible; }
+.viewer-nav-shape { fill: rgb(244 237 228 / 6%); stroke: rgb(244 237 228 / 55%); stroke-width: 1px; vector-effect: non-scaling-stroke; }
+.viewer-nav-glow { fill: url(#viewer-nav-glow); }
+.viewer-nav-dot { fill: #f4ede4; stroke: #c68f81; stroke-width: 1.2px; vector-effect: non-scaling-stroke; }
+.viewer.is-zoom .viewer-figure { touch-action: none; }
+@media (max-width: 599px) {
+  .viewer-nav { right: 0.6rem; bottom: 0.6rem; padding: 0.4rem; }
+}
+
+/* The inspect map, outside the picture (Michael, 2026-10-11): outline only, placed by script beside
+   the details (phones, tablets) or under them (desktop); a soft white dot marks where you are. */
+.viewer-nav { right: auto; bottom: auto; padding: 0; border-radius: 0; background: none; -webkit-backdrop-filter: none; backdrop-filter: none; transform: translateY(6px); transform-origin: 50% 0; }
+.viewer-nav-shape { fill: none; stroke: rgb(244 237 228 / 55%); }
+.viewer-nav-dot { fill: rgb(255 255 255 / 50%); stroke: none; }
+@media (max-width: 899px), (max-width: 999px) and (max-height: 520px) and (orientation: landscape) {
+  .viewer-nav { right: auto; bottom: auto; padding: 0; }
+  .viewer.is-zoom .viewer-info { padding-right: var(--nav-room, 0px); }
+  /* The viewer's arrows sit together in the middle at the bottom. */
+  .viewer-prev,
+  .viewer-next { top: auto; bottom: 1.25rem; transform: none; }
+  .viewer-prev { left: calc(50% - 3.4rem); right: auto; }
+  .viewer-next { left: calc(50% + 0.4rem); right: auto; }
+}
+
+/* The page's name beside the room numeral, on phones only ("GALLERY · I"). */
+.chapter-page { display: none; }
+@media (max-width: 599px) {
+  .stage-gallery .chapter-page { display: inline; text-transform: uppercase; }
+}
+
+/* Socials on a phone: everything centred (Michael, 2026-10-11). */
+@media (max-width: 599px) {
+  .connect-copy { text-align: center; }
+  .connect .modal-actions { justify-content: center; }
+  .tiles { justify-self: center; }
+}
+
+/* Buttons that look like pills (the leave-for-Instagram note). */
+.modal-actions button.pill { background: none; cursor: pointer; font: inherit; color: inherit; }
+.modal-actions button.pill:hover { background: var(--ink); color: var(--paper); }
+@media (max-width: 899px), (max-width: 999px) and (max-height: 520px) and (orientation: landscape) {
+  .viewer.is-zoom [data-viewer-buy] .pill { padding-inline: 1rem; white-space: nowrap; font-size: 0.95em; }
+}
+
+/* The viewer on a tablet (Michael, 2026-10-13): more room for the painting, zoomed or not. The shop link
+   is the lowest item with Zoom to Inspect beside it, and the page arrows sit at the right end of that same
+   row, all on one centre line, halfway between where the buttons' floor and the arrows used to be.
+   Phones, and phones on their side, keep their own layout. */
+@media (min-width: 600px) and (max-width: 899px) and (min-height: 521px) {
+  .viewer { padding-bottom: 3.4rem; }
+  .viewer-info { display: flex; flex-wrap: wrap; align-items: center; column-gap: 0.75rem; row-gap: 0.6rem; }
+  .viewer-count,
+  .viewer-title,
+  .viewer-meta { flex: 0 0 100%; }
+  .viewer-meta { margin-bottom: 0.9rem; }
+  .viewer [data-viewer-buy] { margin: 0; }
+  .viewer [data-viewer-buy]:empty { display: none; }
+  .viewer [data-viewer-buy] .pill,
+  .viewer-zoom { display: inline-flex; align-items: center; height: 2.75rem; padding-block: 0; margin: 0; white-space: nowrap; }
+  .viewer-prev,
+  .viewer-next { bottom: calc(3.4rem - 0.125rem); }                 /* centred on the 2.75rem buttons */
+  .viewer-prev { left: auto; right: calc(1.25rem + 3.4rem); }
+  .viewer-next { left: auto; right: 1.25rem; }
+}
+
+/* The viewer on a phone on its side (TKT-041, Michael 2026-10-14): three columns. The details at the left
+   (count, title, size, then the shop link and Zoom); the picture in the middle; and at the right, one column
+   holding the close button at the top, the inspect map (while zoomed) and the page arrows at the foot.
+   TKT-042 (Michael, 2026-10-14): the details grow with the screen's height (tab bar or not), their buttons
+   sit at the foot level with the arrows, and the details column is as wide as its content, so the gap
+   from the details to the picture equals the gap from the picture to the right-hand column. All three
+   columns share one top line (the details' first letters, the picture's frame, the top of the ×) and one
+   bottom line (the buttons, the frame, the arrows; the last button and the arrows are one height, on one row);
+   the ×, the map and the arrows share one right edge.
+   Sizes follow the visible height (dvh), so they grow as Safari's tab bar slides away. */
+@media (max-width: 999px) and (max-height: 520px) and (orientation: landscape) {
+  .viewer { --btn-h: clamp(2.6rem, 13dvh, 3.25rem); --rcol: calc(var(--btn-h) * 2 + 0.5rem); --vpad: clamp(0.75rem, 3.5dvh, 1.25rem); --cgap: clamp(1.5rem, 4vw, 2.5rem);
+    grid-template-columns: auto minmax(0, 1fr) var(--rcol); grid-template-rows: minmax(0, 1fr);
+    align-items: stretch; column-gap: var(--cgap); padding: var(--vpad) 1.25rem; }
+  .viewer-figure { grid-column: 2; grid-row: 1; height: auto; clip-path: inset(0); }   /* the zoomed picture never shows past its frame */
+  .viewer-figure img { max-height: 100%; }
+  .viewer-info { grid-column: 1; grid-row: 1; align-self: stretch; display: flex; flex-direction: column; align-items: flex-start;
+    min-height: 0; max-width: min(24rem, 40vw); }
+  .viewer.is-zoom .viewer-info { padding-right: 0; }
+  .viewer-count { margin: -0.13em 0 clamp(0.5rem, 2.8dvh, 1rem); font-size: clamp(0.82rem, 3.6dvh, 1rem); line-height: 1.2; }   /* its capitals' tops on the top line */
+  .viewer-title { margin: 0 0 clamp(0.35rem, 2.2dvh, 0.75rem); font-size: clamp(1.95rem, 11.5dvh, 3rem); line-height: 1.05; }
+  .viewer-meta { margin: 0; font-size: clamp(1rem, 4.8dvh, 1.25rem); line-height: 1.35; }
+  .viewer [data-viewer-buy] { margin: auto 0 0; padding-top: 0.75rem; }                  /* the actions sit at the foot */
+  .viewer [data-viewer-buy]:empty { display: none; }
+  .viewer [data-viewer-buy]:empty + .viewer-zoom { margin-top: auto; }
+  .viewer [data-viewer-buy] .pill,
+  .viewer.is-zoom [data-viewer-buy] .pill,
+  .viewer-zoom { display: inline-flex; align-items: center; height: var(--btn-h); padding: 0 clamp(1.05rem, 4.5dvh, 1.45rem);
+    margin: 0; font-size: clamp(0.95rem, 4.4dvh, 1.12rem); white-space: nowrap; }
+  .viewer-zoom { margin-top: clamp(0.5rem, 2.6dvh, 0.8rem); }
+  .viewer-close { top: var(--vpad); right: 1.25rem; }
+  .viewer-prev,
+  .viewer-next { top: auto; bottom: var(--vpad); transform: none; width: var(--btn-h); height: var(--btn-h); }   /* the same row as the Zoom button */
+  .viewer-prev { left: auto; right: calc(1.25rem + var(--btn-h) + 0.5rem); }
+  .viewer-next { left: auto; right: 1.25rem; }
+}
+
+/* The map answers the hand too: point at or drag across it to steer the zoomed view. A finger or pointer
+   just outside its edge still steers (TKT-043: at least 10px around it, 20px on large desktops), on an
+   invisible margin that stays clear of the close button, the arrows and the words. */
+.viewer.is-zoom .viewer-nav { pointer-events: auto; touch-action: none; cursor: crosshair; }
+.viewer.is-zoom .viewer-nav::before { content: ""; position: absolute; inset: calc(-1 * var(--nav-hit, 10px)); }
+@media (min-width: 1200px) and (hover: hover) { .viewer { --nav-hit: 20px; } }
+.viewer-nav-dot { fill: rgb(255 255 255 / 68%); }
+.viewer-nav { z-index: 3; }   /* above the details block, whose reserved space it sits in */
+
+/* Phone gallery heading (Michael, 2026-10-11): the same space above "GALLERY · I" as below it
+   (header 4.6rem, then 0.85rem, the 1.23rem line, 0.85rem, then the title). Socials follows. */
+@media (max-width: 599px) {
+  :root { --title-top: 7.53rem; }
+  .stage-gallery .chapter-num { margin-bottom: 0.85rem; }
+}
+
+/* The swipe invitation in the rose accent, so it is noticed and used (lighter rose on the dark room). */
+html.walk-touch .walk-cue { color: var(--rose); }
+html.walk-touch .chapter[data-ground="ink"] .walk-cue { color: var(--rose-2); }
+html.walk-touch .chapter[data-ground="moss"] .walk-cue { color: var(--leaf); }
+
+/* Map marks light by how much of each work is on screen, set every frame of the walk, so they
+   brighten and fade with the movement itself (Michael, 2026-10-11: no flicker, no delay). */
+.minimap a { position: relative; transition: none; opacity: 1; background: color-mix(in srgb, var(--muted) 45%, transparent); }
+.minimap .mm-lit { position: absolute; inset: 0; border-radius: inherit; background: var(--fg); opacity: 0; will-change: opacity; pointer-events: none; }
+.minimap a:hover .mm-lit { opacity: 1 !important; }
+
+/* A sideways trackpad swipe walks the gallery; it must not turn into the browser's back gesture. */
+html[data-page="gallery"],
+html[data-page="gallery"] body { overscroll-behavior-x: none; }
+
+/* News unfolds and folds smoothly (Michael, 2026-10-11): the list's height eases open, the items
+   around it glide to make room, and each story slides in after the one before. */
+.news-links {
+  display: grid; grid-template-rows: 0fr; gap: 0; margin: 0 0 0 0.8rem; opacity: 0;
+  transition: grid-template-rows 0.6s var(--ease), margin 0.6s var(--ease), opacity 0.45s var(--ease);
+}
+.news-links-inner { display: grid; gap: 0.3rem; min-height: 0; overflow: hidden; }
+.news-links a { opacity: 0; transform: translateY(-0.4rem); transition: opacity 0.4s var(--ease), transform 0.5s var(--ease), color 0.3s var(--ease); }
+.news.is-open .news-links { grid-template-rows: 1fr; margin: 0.4rem 0 0.4rem 0.8rem; opacity: 1; }
+.news.is-open .news-links a { opacity: 1; transform: none; }
+.news.is-open .news-links a:nth-child(2) { transition-delay: 0.05s; }
+.news.is-open .news-links a:nth-child(3) { transition-delay: 0.1s; }
+@media (prefers-reduced-motion: reduce) {
+  .news-links,
+  .news-links a { transition: none; }
+}
+
+
+/* The invitation to walk, on every kind of screen: "Swipe…" on touch screens, and on desktop
+   (a mouse or trackpad, Michael 2026-10-11) "Scroll down…", in the same rose with the same line. */
+.walk-cue-desk { display: none; }
+html.walk-desk .walk-cue { display: flex; align-items: center; gap: 0.9rem; margin: clamp(1.5rem, 4.5svh, 2.75rem) 0 0; font-size: 0.8rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--rose); }
+html.walk-desk .walk-cue-touch { display: none; }
+html.walk-desk .walk-cue-desk { display: inline; }
+html.walk-desk .walk-cue-line { position: relative; width: 4.5rem; height: 1px; overflow: hidden; }
+html.walk-desk .walk-cue-line::after { content: ""; position: absolute; inset: 0; background: currentColor; transform-origin: left; animation: walk-cue 2.6s var(--ease-io) infinite; }
+html.walk-desk .chapter[data-ground="ink"] .walk-cue { color: var(--rose-2); }
+html.walk-desk .chapter[data-ground="moss"] .walk-cue { color: var(--leaf); }
+@media (prefers-reduced-motion: reduce) { html.walk-desk .walk-cue-line::after { animation: none; } }
+
+/* The dark room's hover light, as before but a touch oval (Michael, 2026-10-11): a little taller than
+   wide, as light from above falls on a wall. */
+.chapter[data-ground="ink"] .light { background: radial-gradient(27vmax 33vmax at var(--lx, 50%) var(--ly, 45%), rgb(255 236 214 / 22%), transparent 70%); mix-blend-mode: screen; }
+
+/* Desktop: the sideways line returns beside "Scroll down to walk the gallery" (Michael: the walk is
+   sideways), sliding on the graphics chip like the touch-screen line. */
+html.walk-desk .walk-cue-line::after { transform-origin: 0 0; animation-name: walk-cue-slide; }
+
+/* Touch screens, for a smooth walk (Michael, 2026-10-11): no full-screen blended light layer (it has
+   no pointer to follow there), the swipe line slides on the graphics chip only, and the frosted
+   label keeps its look without a live blur of the moving wall behind it. */
+html.walk-touch .light { display: none; }
+html.walk-touch .walk-cue-line::after { transform-origin: 0 0; animation-name: walk-cue-slide; }
+@keyframes walk-cue-slide {
+  0% { transform: translateX(-100%); }
+  45%, 55% { transform: translateX(0); }
+  100% { transform: translateX(100%); }
+}
+/* The first room's walk cue (Michael, 2026-10-12, TKT-024): it is the first thing a visitor needs to
+   move on, and the paper wall gave it the least contrast. There it is semibold in a deep rose-brown
+   (7.7:1 on the wall; the rose was 3.9:1) with a 2px line. The other rooms keep theirs. */
+.chapter[data-ground="paper"] .walk-cue { color: #6b3a30; font-weight: 600; }
+.chapter[data-ground="paper"] .walk-cue-line { height: 2px; }
+
+html.walk-touch .wall .work-label.is-glass { -webkit-backdrop-filter: none; backdrop-filter: none; background: repeating-linear-gradient(90deg, rgb(255 255 255 / 10%) 0 1px, transparent 1px 5px), color-mix(in srgb, var(--wall) 82%, transparent); }
+
+/* Touch screens: rectangles cast a box-shadow (drawn cheaply) instead of a shape-following filter;
+   round works, the corner piece and the groups keep the filter that follows their shape. */
+html.walk-touch .wall .work[data-shape="rect"] .work-open img { filter: none; box-shadow: 0 2px 3px rgb(28 18 14 / 16%), 0 14px 22px -6px rgb(28 18 14 / 20%); }
+html.walk-touch .chapter[data-ground="ink"] .wall .work[data-shape="rect"] .work-open img { box-shadow: 0 2px 3px rgb(0 0 0 / 35%), 0 14px 24px -6px rgb(0 0 0 / 40%); }
+html.walk-touch .chapter[data-ground="moss"] .wall .work[data-shape="rect"] .work-open img { box-shadow: 0 2px 3px rgb(0 0 0 / 35%), 0 14px 24px -6px rgb(0 0 0 / 40%); }
+
+/* A work whose picture has not been asked for yet shows nothing (not its alt text) until it arrives. */
+.wall img[data-src] { visibility: hidden; }
+
+/* ---------- Socials ends with the ways back (TKT-019, Michael 2026-10-12) ---------- */
+.connect-end { display: flex; flex-wrap: wrap; gap: 0.8rem; margin: 0; }
+@media (min-width: 900px), (max-height: 520px) and (orientation: landscape) and (max-width: 999px) {
+  /* Two columns: the words at the top left, the ways back at the foot of that column, the tiles beside both. */
+  .connect-copy { grid-column: 1; grid-row: 1; }
+  .connect-end { grid-column: 1; grid-row: 2; align-self: end; }
+  .connect .tiles { grid-column: 2; grid-row: 1 / span 2; }
+}
+@media (max-width: 899px) and (min-height: 521px), (max-width: 899px) and (orientation: portrait) {
+  .connect-end { margin-top: 0.6rem; }
+}
+@media (max-width: 599px) {
+  .connect-end { justify-content: center; }
+}
+@media (min-width: 600px) and (max-width: 899px), (min-width: 600px) and (max-width: 999px) and (max-height: 520px) and (orientation: landscape) {
+  .connect .tiles { width: min(100%, max(11rem, calc(100svh - 36.5rem))); }   /* tablets still fit Socials whole, end row included */
+}
+/* Socials on a tablet (Michael, 2026-10-14): like the tablet home, the words at the top left and the
+   squares at the top right, in the home's own columns, so the grid and the home portrait share their top,
+   left and right edges ("they should match each other in the general feel and spacing"). The ways back share the
+   page arrows' line at the foot (both centred 3rem up). The page fits whole, so a scroll at its end goes
+   straight to the push-through instead of moving the page first. */
+@media (min-width: 600px) and (max-width: 899px) and (min-height: 521px) {
+  .stage-connect { padding-bottom: 0; }
+  .connect { height: calc(100svh - var(--title-top) - 1.625rem); min-height: 0; grid-template-columns: minmax(0, 1fr) minmax(0, 1.1fr);   /* the tablet home's own columns */ grid-template-rows: auto minmax(0, 1fr); align-content: stretch; align-items: start; column-gap: 1.5rem; row-gap: 0; }
+  .connect-copy { grid-column: 1; grid-row: 1; }
+  .connect-end { grid-column: 1 / -1; grid-row: 2; align-self: end; justify-self: start; margin: 0; flex-wrap: nowrap; }   /* along the foot row, as wide as its buttons */
+  .connect-end .pill { display: inline-flex; flex: none; align-items: center; height: 2.75rem; padding-block: 0; white-space: nowrap; }
+  .connect .tiles { grid-column: 2; grid-row: 1 / span 2; align-self: start; justify-self: end; aspect-ratio: 1 / 1; height: auto; width: min(100%, calc(100svh - var(--title-top) - 4.75rem)); }   /* the home portrait's width and edges */
+}
+/* Socials on a phone on its side (TKT-041): the same arrangement, fitted to the short screen. The words at
+   the top left, the squares at the top right reaching down to just above the page arrows, and the ways
+   back along the foot on the arrows' line (centred 2.25rem up). No scrolling. */
+@media (max-width: 999px) and (max-height: 520px) and (orientation: landscape) {
+  .stage-connect { padding-bottom: 0; }
+  .connect { height: calc(100svh - var(--title-top) - 1.075rem); min-height: 0; grid-template-columns: minmax(0, 1fr) auto; grid-template-rows: auto minmax(0, 1fr); align-content: stretch; align-items: start; column-gap: 1.5rem; row-gap: 0; }
+  .connect-copy { grid-column: 1; grid-row: 1; }
+  .connect-handle { margin: 0.45rem 0 0.8rem; font-size: 1.05rem; }
+  .connect-sub { margin: 0 0 0.45rem; font-size: 0.85rem; }
+  .connect .modal-actions .pill { padding: 0.4rem 1rem; font-size: 0.9rem; }
+  .connect-end { grid-column: 1 / -1; grid-row: 2; align-self: end; justify-self: start; margin: 0; flex-wrap: nowrap; gap: 0.6rem; }
+  .connect-end .pill { display: inline-flex; flex: none; align-items: center; height: 2.35rem; padding: 0 1rem; font-size: 0.9rem; white-space: nowrap; }
+  .connect .tiles { grid-column: 2; grid-row: 1 / span 2; align-self: start; justify-self: end; aspect-ratio: 1 / 1; height: auto; width: calc(100svh - var(--title-top) - 2.25rem - 21px - 0.75rem); }
+}
+/* With the tab bar (340px tall or less): "Questions for the Artist?" shares its line with the two buttons,
+   so the words keep clear of the ways back. */
+@media (max-width: 999px) and (max-height: 340px) and (orientation: landscape) {
+  .connect-copy { display: grid; grid-template-columns: auto 1fr; align-items: center; column-gap: 1rem; }
+  .connect-title,
+  .connect-handle { grid-column: 1 / -1; }
+  .connect-handle { margin-bottom: 0.6rem; }
+  .connect-sub { grid-column: 1; margin: 0; }
+  .connect-copy .modal-actions { grid-column: 2; margin: 0; }
+}
+
+/* The desktop foot line (TKT-040, Michael 2026-10-14): the page arrows, the map and the room's name share
+   one centre line, and the bottom of the arrows and the map is level with the bottom of the letters of
+   "Contact" at the foot of the menu column (--foot-line, measured by the script), and the arrows keep
+   the same margin to the right edge as its "C" keeps to the left (--foot-side). The arrows are 42px
+   tall, the map 40px and the name 35px. */
+@media (min-width: 1000px), (min-width: 900px) and (min-height: 521px) {
+  .pager { bottom: var(--foot-line, calc(var(--pad) * 0.8)); right: var(--foot-side, var(--pad)); }
+  .stage-gallery .minimap { bottom: var(--foot-line, 1.4rem); }
+  .stage-gallery .where { bottom: calc(var(--foot-line, 1.55rem) + 2.5px); }   /* centred on the map */
+}
+
+/* ---------- Push through to the next page (TKT-019, Michael 2026-10-12) ----------
+   Where a page has nowhere further to go, more scrolling (or swiping, or ↓ →) fills the way on: the
+   button swells a little as a rose tint sweeps through it and a halo grows; the → page arrow's ring
+   fills; a hairline grows along the foot of the screen; a line of words says what is happening. At
+   the brim it bursts and the walk to the next page begins. Let go, and it drains away. */
+[data-charge-target] { --charge: 0; }
+.is-charge-target { position: relative; isolation: isolate; overflow: hidden; transform: scale(calc(1 + var(--charge) * 0.06)); box-shadow: 0 0 0 calc(var(--charge) * 7px) rgb(154 103 92 / calc(var(--charge) * 26%)); }
+.pill.is-charge-target { transform: scale(calc(1 + var(--charge) * 0.04)); box-shadow: 0 0 0 calc(var(--charge) * 5px) rgb(154 103 92 / calc(var(--charge) * 26%)); }   /* in a row: swells less */
+html[data-ground="ink"] .pill.is-charge-target { box-shadow: 0 0 0 calc(var(--charge) * 5px) rgb(198 143 129 / calc(var(--charge) * 30%)); }
+.charge-fill { position: absolute; inset: 0; z-index: -1; border-radius: inherit; background: rgb(154 103 92 / 24%); transform: scaleX(var(--charge)); transform-origin: left center; pointer-events: none; }
+html[data-ground="ink"] .is-charge-target { box-shadow: 0 0 0 calc(var(--charge) * 7px) rgb(198 143 129 / calc(var(--charge) * 30%)); }
+html[data-ground="ink"] .charge-fill,
+.pill-ink .charge-fill { background: rgb(198 143 129 / 42%); }
+.charge-caption { position: fixed; z-index: 46; margin: 0; transform: translate(-50%, 0); font-size: 0.78rem; letter-spacing: 0.2em; text-transform: uppercase; white-space: nowrap; color: var(--rose); opacity: 0; pointer-events: none; }
+html[data-ground="ink"] .charge-caption { color: var(--rose-2); }
+.charge-line { position: fixed; left: 0; right: 0; bottom: 0; z-index: 46; height: 2px; background: var(--rose); transform: scaleX(0); transform-origin: left center; pointer-events: none; }
+html[data-ground="ink"] .charge-line { background: var(--rose-2); }
+.pager-arrow { position: relative; }
+.charge-ring { position: absolute; inset: -4px; width: calc(100% + 8px); height: calc(100% + 8px); transform: rotate(-90deg); fill: none; stroke: var(--rose); stroke-width: 1.5; pointer-events: none; opacity: 0; }
+html[data-ground="ink"] .charge-ring { stroke: var(--rose-2); }
+@media (prefers-reduced-motion: reduce) {
+  .is-charge-target { transform: none; box-shadow: none; }
+}
+
+/* ---------- The screen's edges in the gallery (TKT-021, Michael 2026-10-12) ----------
+   On a phone the browser's own top and bottom take their colour from the page. Each room names the
+   colours of its top (its header band) and bottom (its wall); the gallery script sets --edge-top and
+   --edge-bottom from the room actually at that edge, with no fade, so no room's colour carries into
+   the next. The phone header follows the room at the top, words included. */
+.chapter[data-ground="paper"] { --room-top: #fffdf8; --room-bottom: var(--wall); --room-fg: #120a09; }
+.chapter[data-ground="moss"] { --room-top: #2b2d20; --room-bottom: var(--wall-moss); --room-fg: #f4ede4; }
+.chapter[data-ground="ink"] { --room-top: #110c0b; --room-bottom: var(--wall-dark); --room-fg: #f4ede4; }
+html[data-page="gallery"],
+html[data-page="gallery"] body { background-color: var(--edge-bottom, var(--bg)); }
+html[data-page="gallery"] body { transition: color 0.9s var(--ease); }
+@media (max-width: 899px), (max-width: 999px) and (max-height: 520px) and (orientation: landscape) {
+  html[data-page="gallery"] .shell { background: color-mix(in srgb, var(--edge-top, var(--bg)) 97%, transparent); color: var(--edge-fg, var(--fg)); }
+}
+
+/* ---------- AGUE: one title, then each canvas (TKT-021, Michael 2026-10-12) ---------- */
+.work-label.has-parts .work-title { letter-spacing: 0.06em; }
+.work-parts { display: grid; gap: 0.5rem; margin-top: 0.35rem; }
+.work-part { display: grid; }
+.work-part-name { font-style: italic; font-size: 0.95rem; }
+.viewer-meta { white-space: pre-line; }
+@media (max-width: 599px) {
+  /* Phone: each canvas takes two lines (its name, then size · medium), so AGUE stays compact. */
+  .wall .work-parts { display: block; margin-top: 0.25rem; }
+  .wall .work-part { display: block; margin-top: 0.3rem; }
+  .wall .work-part-name { display: block; font-size: 1.05rem; line-height: 1.25; }
+  .wall .work-part .work-meta { margin-top: 0.05rem; font-size: 1rem; }
+  .wall .work-part .work-size,
+  .wall .work-part .work-medium,
+  .wall .work-part .work-sep { display: inline; }
+}
+
+/* Socials fits a phone whole (TKT-021, Michael 2026-10-12): no room to scroll, so the page arrows
+   never sit over the ways back. The title starts just under the header bar, the squares take the
+   height that is left, and the two buttons share one row above the arrows. */
+@media (max-width: 599px) {
+  .stage-connect { padding-top: 5.6rem; padding-bottom: 0; }
+  .connect { gap: 1.25rem; }
+  .connect .tiles { width: min(100%, max(7.5rem, calc(100svh - 30.5rem))); }
+  .connect-end { margin-top: 0; gap: 0.6rem; flex-wrap: nowrap; }
+  .connect-end .pill { padding: 0.5rem 1rem; font-size: 0.95rem; white-space: nowrap; }
+}
+
+/* ---------- The meter's preview (TKT-022, Michael 2026-10-12) ----------
+   A small bubble above the progress meter, in the meter's own capsule style: a tiny thumbnail of the
+   painting at the mark you are on, its number and title, and a loupe magnifying the marks around it.
+   The meter's touches are its own (no scrolling, no link callout, no text selection). */
+.minimap { touch-action: none; -webkit-touch-callout: none; -webkit-user-select: none; user-select: none; }
+.minimap a.is-peek .mm-lit { opacity: 1 !important; }
+.mm-peek {
+  position: fixed; z-index: 32; display: grid; justify-items: center; gap: 0.45rem;
+  padding: 0.55rem 0.55rem 0.5rem; border: 1px solid var(--rule); border-radius: 14px;
+  background: color-mix(in srgb, var(--bg) 96%, transparent);
+  -webkit-backdrop-filter: blur(8px); backdrop-filter: blur(8px);
+  box-shadow: 0 12px 30px -14px rgb(18 10 9 / 35%);
+  color: var(--fg); pointer-events: none;
+  transform-origin: var(--caret, 50%) calc(100% + 8px);
+  opacity: 0; transform: translateY(6px) scale(0.9);
+  transition: opacity 0.18s var(--ease), transform 0.24s var(--ease), background-color 0.25s var(--ease), color 0.25s var(--ease), border-color 0.25s var(--ease);
+}
+/* The bubble wears the colours of the room the painting hangs in, wherever you are standing
+   (Michael, 2026-10-12): white for Against the Grain, magnolia for Recollections in Nature, brown for
+   Charcoal Works; scrubbing across a room's edge eases from one to the next. Each is a shade lighter
+   than its room's wall (0.04 in OKLab lightness), so it is never colour on the same colour (TKT-023). */
+.mm-peek[data-ground="paper"] { --bg: #fcf6ee; --fg: #120a09; --muted: #7a6560; --rule: rgb(18 10 9 / 14%); }
+.mm-peek[data-ground="moss"] { --bg: #3c3d2f; --fg: #f4ede4; --muted: #bcb8a6; --rule: rgb(244 237 228 / 18%); }
+.mm-peek[data-ground="ink"] { --bg: #231c1b; --fg: #f4ede4; --muted: #b9a59c; --rule: rgb(244 237 228 / 18%); }
+.mm-peek.is-in { opacity: 1; transform: none; }
+.mm-peek::after {
+  content: ""; position: absolute; left: var(--caret, 50%); bottom: -5px; width: 9px; height: 9px;
+  background: color-mix(in srgb, var(--bg) 96%, transparent);
+  border-right: 1px solid var(--rule); border-bottom: 1px solid var(--rule);
+  transition: background-color 0.25s var(--ease), border-color 0.25s var(--ease);
+  transform: translateX(-50%) rotate(45deg);
+}
+.mm-peek-art { display: grid; justify-items: center; gap: 0.3rem; }
+/* One fixed frame, sized for the tallest thumbnail, so the bubble never changes height (Michael): each
+   painting fits inside it and rests on the same baseline. */
+.mm-peek-art img { display: block; width: 3.4rem; height: 3.4rem; object-fit: contain; object-position: center bottom; filter: drop-shadow(0 2px 3px rgb(0 0 0 / 28%)); }
+.mm-peek-cap { margin: 0; width: 8.5rem; text-align: center; max-width: 8.5rem; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; font-size: 0.72rem; line-height: 1.15; }
+.mm-peek-num { margin-right: 0.4rem; letter-spacing: 0.08em; color: var(--muted); }
+.mm-peek-title { font-style: italic; }
+.mm-loupe {
+  position: relative; width: 8.75rem; height: 3.5rem; overflow: hidden; border-radius: 10px;
+  border: 1px solid var(--rule); background: color-mix(in srgb, var(--bg) 70%, transparent);
+  -webkit-mask-image: linear-gradient(90deg, transparent, #000 20%, #000 80%, transparent);
+  mask-image: linear-gradient(90deg, transparent, #000 20%, #000 80%, transparent);
+}
+.mm-loupe::after { content: ""; position: absolute; left: 50%; bottom: 0.18rem; width: 1px; height: 0.22rem; background: var(--fg); opacity: 0.55; }
+.mm-loupe-row { position: absolute; left: 0; bottom: 0.55rem; height: 0; will-change: transform; }
+.mm-loupe-row i { position: absolute; bottom: 0; border-radius: 2px; background: color-mix(in srgb, var(--muted) 50%, transparent); transition: background-color 0.15s var(--ease); }
+.mm-loupe-row i.is-gap { background: none; }
+.mm-loupe-row i.is-here { background: var(--fg); }
+@media (prefers-reduced-motion: reduce) { .mm-peek { transition: none; transform: none; } }
+/* The meter on a phone or tablet (TKT-023, Michael 2026-10-12): its marks are not links, so there is
+   nothing to open, highlight or drag; a press counts anywhere within 15px of the capsule. */
+.minimap, .minimap a { -webkit-tap-highlight-color: transparent; }
+.minimap a { cursor: pointer; -webkit-user-drag: none; }
+@media (hover: none) and (pointer: coarse) {
+  .minimap::before { content: ""; position: absolute; inset: -15px; }
+  .where { pointer-events: none; }              /* the words under the meter never take its touches */
+}
+
+/* The phone browser's bottom bar (TKT-023, Michael 2026-10-12). iPhone Safari takes the bar's colour
+   from the pinned element just inside the bottom edge. A screen-sized one (each room's wall) is read
+   once and then kept, so after a reload the bar stayed white in every room. This strip is what it
+   reads instead: not screen-sized, so its colour is read again whenever it changes. Safari reads the
+   colour at full strength, skips anything 10px tall or less, and skips anything under 10% opacity, so
+   it is 16px at 12%: faint, and under the browser bar anyway. */
+.edge-tint { display: none; }
+@media (hover: none) and (pointer: coarse) {
+  .edge-tint { display: block; position: fixed; left: 0; right: 0; bottom: 0; z-index: 29; height: 16px; background-color: var(--edge-bottom, var(--bg)); opacity: 0.12; pointer-events: none; }
+}
+
+/* ---------- A phone on its side (TKT-036, Michael 2026-10-13) ----------
+   A wide screen in the tablet range that is unusually short: every phone on its side, with or without
+   the browser's tab bar, and short tablet-width windows. It takes the tablet's header-bar layout with
+   its own composition (see the gallery script: works hang lower and larger, the bench rests on the
+   works' floor line at the far left, the first works are in view at the start).
+
+   The menu panel, closed, is fully away: on a short screen it is shorter than its own words, which
+   then spilled back into view under the header ("Contact" and "News" at the top left). */
+@media (max-width: 899px), (max-width: 999px) and (max-height: 520px) and (orientation: landscape) {
+  .site-nav { visibility: hidden; transition: transform 0.6s var(--ease), visibility 0s linear 0.6s; }
+  .site-nav.is-open { visibility: visible; transition: transform 0.6s var(--ease); }
+}
+/* Open on a phone on its side: the pages on the left, News and Contact on the right, side by side and
+   centred in the space under the header bar; it scrolls if a very short screen needs it. */
+@media (max-width: 999px) and (max-height: 520px) and (orientation: landscape) {
+  .site-nav { flex-direction: row; align-items: center; justify-content: center; gap: clamp(3rem, 12vw, 8rem); padding: calc(4.6rem + 0.75rem) 1.5rem 1rem; overflow-y: auto; }
+  .site-nav .nav-index { gap: 0.35rem; }
+  .site-nav .nav-index a { font-size: clamp(1.45rem, 7.5svh, 2.2rem); }
+  .site-nav .nav-secondary { font-size: 1.05rem; gap: 0.7rem; align-self: center; }
+}
+/* The count and the invitation share one line under the paragraph, so the opening is short and the
+   bench has the floor line's far left to itself. */
+@media (max-width: 999px) and (max-height: 520px) and (orientation: landscape) {
+  .stage-gallery .chapter-head { display: grid; grid-template-columns: auto 1fr; align-items: baseline; column-gap: 1.75rem; }
+  .stage-gallery .chapter-title,
+  .stage-gallery .chapter-note { grid-column: 1 / -1; }
+  .stage-gallery .chapter-count { grid-column: 1; margin-top: 0.7rem; }
+  html.walk-touch .stage-gallery .walk-cue { grid-column: 2; justify-self: start; margin-top: 0.7rem; }
+}
+/* With the browser's tab bar showing (a page about 260–340px tall): a compact header, a smaller title,
+   and the paragraph in two or three wide lines, so the whole opening sits above the foot row. */
+@media (max-width: 999px) and (max-height: 340px) and (orientation: landscape) {
+  .shell { padding-top: 0.55rem; padding-bottom: 0.55rem; }
+  :root { --title-size: 2.1rem; --title-top: 4.3rem; }
+  .site-nav { padding-top: calc(3.7rem + 0.6rem); }
+  .stage-gallery .chapter-note { font-size: 0.8rem; line-height: 1.3; max-width: min(40rem, 68vw); margin-top: 0.35rem; }
+  .stage-gallery .chapter-count { margin-top: 0.5rem; }
+  html.walk-touch .stage-gallery .walk-cue { margin-top: 0.5rem; }
+}
+/* A phone on its side: each room's opening sits a measured step below the header, like on phones. */
+@media (max-width: 999px) and (max-height: 520px) and (orientation: landscape) {
+  .stage-gallery .chapter-head { top: calc(var(--title-top) + var(--head-shift, 0px)); }
+}
+
+/* The shortest of them (about 255px with the tab bar): a slimmer header bar, so the room's title has the
+   same air below the bar as the name has inside it. */
+@media (max-width: 999px) and (max-height: 260px) and (orientation: landscape) {
+  .shell { padding-top: 0.45rem; padding-bottom: 0.45rem; }
+}
+/* The home on a phone on its side (Michael, 2026-10-14): one screen, no scrolling. The name on one line,
+   at the rooms' title size and the same measured step below the header bar; the words in two or three
+   wide lines; "Enter the Gallery" on the page arrows' centre line; the portrait at the right, as large as
+   the height above the arrows allows. With the tab bar, the same a size smaller. */
+@media (max-width: 999px) and (max-height: 520px) and (orientation: landscape) {
+  :root { --home-top: 6.4rem; }
+  .stage-index { padding: var(--home-top) 1.25rem 0; }
+  .stage-index .home { height: calc(100svh - var(--home-top) - 0.875rem); min-height: 0; grid-template-columns: minmax(0, 1fr) auto; align-items: stretch; align-content: stretch; gap: 1.5rem; }
+  .home-copy { display: flex; flex-direction: column; align-items: flex-start; min-height: 0; --in: 0.45rem; --out: 1.1rem; }
+  .home-title { font-size: var(--title-size); }
+  .home-title-line { display: inline; }
+  .home-fine { margin-top: 0.6rem; font-size: 0.78rem; }
+  .home-about { max-width: 34rem; }
+  .home-about p { font-size: 0.95rem; line-height: 1.45; }
+  .stage-index .cta { margin-top: auto; height: 2.75rem; padding-block: 0; flex: none; }
+  .home-figure { align-self: start; margin-top: 8px; }
+  .home-figure img { width: min(44vw, calc((100svh - var(--home-top) - 8px - 4.4rem) * 1.5)); height: auto; }
+}
+@media (max-width: 999px) and (max-height: 340px) and (orientation: landscape) {
+  :root { --home-top: 5.15rem; }
+  .home-copy { --in: 0.3rem; --out: 0.7rem; }
+  .home-fine { margin-top: 0.3rem; font-size: 0.72rem; }
+  .home-about .eyebrow { font-size: 0.68rem; }
+  .home-about p { font-size: 0.85rem; line-height: 1.3; }
+}
+/* The shortest (300px or less): "Fine Arts" joins the name's line, as in the header's wordmark. */
+@media (max-width: 999px) and (max-height: 300px) and (orientation: landscape) {
+  .home-copy { display: grid; grid-template-columns: auto 1fr; grid-template-rows: auto auto minmax(0, 1fr); align-items: baseline; column-gap: 1.1rem; }
+  .home-title { font-size: 1.95rem; }
+  .home-fine { margin: 0; }
+  .home-about { grid-column: 1 / -1; }
+  .home-about p { font-size: 0.82rem; }
+  .stage-index .cta { grid-column: 1 / -1; align-self: end; justify-self: start; margin-top: 0; }
+}
+@media (max-width: 999px) and (max-height: 260px) and (orientation: landscape) {
+  :root { --home-top: 4.85rem; }
+}

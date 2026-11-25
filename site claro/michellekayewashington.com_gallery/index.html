@@ -1,0 +1,370 @@
+<!DOCTYPE html>
+<html lang="en" data-page="gallery" style="--foot-line: 52px; --foot-side: 46px; --edge-top: #fffdf8; --edge-fg: #120a09; --edge-bottom: #efe9e1;" class="walk-desk lenis" data-ground="paper" data-ready="gallery"><head><meta charset="utf-8">
+<!-- Website Downloader 3.0: este arquivo é o retrato estático do site (DOM renderizado). Aberto via servidor
+     local (serve.py, ver Como rodar.md), o bootstrap abaixo carrega o site vivo; via file://, mostra este retrato. -->
+<meta name="referrer" content="no-referrer">
+<script data-wd3>window.__WD3__ = {"entryUrl": "https://michellekayewashington.com/gallery", "replayHost": "michellekayewashington.com.localhost", "entryPath": "/gallery", "captureId": "michellekayewashington.com_gallery-daee91a1", "capturedAt": "2026-11-04T18:25:19+00:00", "snapshot": true, "fileFonts": "site/_runtime/file-fonts.css"};</script>
+<script data-wd3>/* Website Downloader 3.0 — bootstrap do index.html.
+ * file://  → fica no retrato estático (e carrega as fontes embutidas, que o Chrome bloqueia em file://).
+ * http(s)  → para de carregar o retrato, registra o Service Worker de replay e abre o site vivo.
+ */
+(function () {
+  var cfg = window.__WD3__ || {};
+  var root = document.documentElement;
+  if (location.protocol === 'file:') {
+    root.setAttribute('data-wd3', 'file');
+    if (cfg.fileFonts) {
+      var link = document.createElement('link');
+      link.rel = 'stylesheet';
+      link.href = cfg.fileFonts;
+      (document.head || root).appendChild(link);
+    }
+    return;
+  }
+  root.setAttribute('data-wd3', 'loading');
+  if (cfg.snapshot) {
+    try { window.stop(); } catch (e) { /* o retrato não precisa carregar: o site vivo vem do SW */ }
+  }
+
+  function fail(msg) {
+    root.setAttribute('data-wd3', 'error');
+    var el = document.getElementById('wd3-error');
+    if (!el) {
+      var body = document.body || root.appendChild(document.createElement('body'));
+      body.innerHTML = '<p style="font:15px system-ui,sans-serif;padding:24px;color:#e8e8e8;background:#050505;margin:0">' +
+        'Não foi possível iniciar o replay: <span id="wd3-error"></span></p>';
+      el = document.getElementById('wd3-error');
+    }
+    el.textContent = msg;
+  }
+  if (!('serviceWorker' in navigator)) return fail('este navegador não suporta Service Workers.');
+
+  function go() { location.replace(cfg.entryPath); }
+  function start() {
+    navigator.serviceWorker.register('/site/_wd3/sw.js', { scope: '/' })
+      .then(function () { return navigator.serviceWorker.ready; })
+      .then(function () {
+        if (navigator.serviceWorker.controller) return go();
+        navigator.serviceWorker.addEventListener('controllerchange', go);
+      })
+      .catch(function (err) { fail(String(err && err.message || err)); });
+  }
+  // Aberto em localhost puro: tenta <domínio>.localhost (mesmo servidor), para sites que checam location.hostname.
+  var plain = location.hostname === 'localhost' || location.hostname === '127.0.0.1';
+  if (!plain || !cfg.replayHost || cfg.replayHost === 'localhost') return start();
+  var target = location.protocol + '//' + cfg.replayHost + (location.port ? ':' + location.port : '');
+  var decided = false;
+  function decide(fn) { if (!decided) { decided = true; fn(); } }
+  setTimeout(function () { decide(start); }, 1500);
+  fetch(target + '/site/_wd3/site-index.json', { mode: 'no-cors', cache: 'no-store' })
+    .then(function () { decide(function () { location.replace(target + cfg.entryPath); }); })
+    .catch(function () { decide(start); });
+})();
+</script>
+<style data-wd3>
+  [data-wd3-banner] { display: none; }
+  html[data-wd3="file"] [data-wd3-banner] { display: flex; }
+  html[data-wd3-unlock], html[data-wd3-unlock] body { overflow-y: auto !important; }
+</style>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="theme-color" content="#fffdf8">
+    <title>Gallery: Paintings &amp; Charcoal Portraits | Michelle Kaye</title>
+    <link rel="icon" href="site/michellekayewashington.com/favicon.ico" sizes="32x32">
+    <link rel="icon" href="site/michellekayewashington.com/favicon.svg" type="image/svg+xml">
+    <link rel="apple-touch-icon" href="site/michellekayewashington.com/apple-touch-icon.png">
+    <link rel="manifest" href="site/michellekayewashington.com/site.webmanifest">
+    <meta name="description" content="Walk Michelle Kaye’s gallery: 15 paintings from Against the Grain, 6 from Recollections in Nature, and 6 charcoal portraits on pastel paper.">
+    <meta name="author" content="Michelle Kaye">
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
+    <link rel="canonical" href="site/michellekayewashington.com/gallery.html">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Michelle Kaye — Fine Arts">
+    <meta property="og:locale" content="en_US">
+    <meta property="og:url" content="https://michellekayewashington.com/gallery">
+    <meta property="og:title" content="Gallery | Michelle Kaye — Fine Arts">
+    <meta property="og:description" content="Walk Michelle Kaye’s gallery: 15 paintings from Against the Grain, 6 from Recollections in Nature, and 6 charcoal portraits on pastel paper.">
+    <meta property="og:image" content="https://michellekayewashington.com/images/share-card.jpg">
+    <meta property="og:image:type" content="image/jpeg">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:image:alt" content="Michelle Kaye at the easel in her studio, painting.">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Gallery | Michelle Kaye — Fine Arts">
+    <meta name="twitter:description" content="Walk Michelle Kaye’s gallery: 15 paintings from Against the Grain, 6 from Recollections in Nature, and 6 charcoal portraits on pastel paper.">
+    <meta name="twitter:image" content="https://michellekayewashington.com/images/share-card.jpg">
+    <meta name="twitter:image:alt" content="Michelle Kaye at the easel in her studio, painting.">
+    
+    
+    <link href="site/fonts.googleapis.com/css2__qc5e3812a.css" rel="stylesheet">
+    <link rel="stylesheet" href="site/michellekayewashington.com/css/deep.css">
+    
+    
+    
+    
+  </head>
+  <body>
+    <a class="skip" href="#stage">Skip to content</a>
+    <div class="edge-tint" aria-hidden="true"></div>
+    <header class="shell" data-shell="">
+      <a class="wordmark" href="https://michellekayewashington.com/" data-nav="index" aria-label="Michelle Kaye — Fine Arts, home"><span class="wordmark-name">Michelle Kaye</span><span class="wordmark-rule" aria-hidden="true"></span><span class="wordmark-fine">Fine Arts</span></a>
+      <button class="menu-button" type="button" aria-expanded="false" aria-controls="site-nav" data-menu-button=""><span></span><span></span><span class="mk-sr">Menu</span></button>
+      <nav class="site-nav" id="site-nav" aria-label="Primary">
+        <ol class="nav-index"><li><a href="https://michellekayewashington.com/" data-nav="index"><span class="nav-num">01</span><span class="nav-label">Michelle</span></a></li><li><a href="https://michellekayewashington.com/gallery" data-nav="gallery" aria-current="page"><span class="nav-num">02</span><span class="nav-label">Gallery</span></a></li><li><a href="https://michellekayewashington.com/connect" data-nav="connect"><span class="nav-num">03</span><span class="nav-label">Socials</span></a></li></ol>
+        <div class="nav-secondary">
+          <div class="news" data-news=""><button type="button" class="link-button" aria-expanded="false" aria-controls="news-links" data-news-toggle="">News</button><div class="news-links" id="news-links" inert=""><div class="news-links-inner"><a href="http://palmettolifesc.com/video/2026/05/21/video-drummond-studio-gallery/" target="_blank" rel="noopener">Drummond Studio Gallery</a><a href="https://charlestoncitypaper.com/2026/06/03/piccolo-art-show-confronts-charlestons-roots-in-rice-plantations/" target="_blank" rel="noopener">Charleston City Paper</a><a href="https://view.publitas.com/gulfstream-communications/charleston-magazine-may-2026/page/212-213" target="_blank" rel="noopener">Charleston Magazine</a></div></div></div>
+          <button type="button" class="link-button" data-open="contact">Contact</button>
+        </div>
+      </nav>
+    </header>
+    <main class="stage stage-gallery is-hung" id="stage" data-stage="gallery" style="--mm-w: 290px; --where-w: 132px;">
+      <h1 class="mk-sr">Gallery: paintings and charcoal drawings by Michelle Kaye</h1>
+        <section class="chapter" id="chapter-1" data-chapter="Against the Grain" data-ground="paper" data-scale="1.5" data-scale-phone="1.3" style="height: 10608px;">
+          <header class="chapter-head">
+            <p class="chapter-num"><span class="chapter-page">Gallery · </span>I</p>
+            <h2 class="chapter-title"><i>Against the Grain</i></h2>
+            <p class="chapter-note">Through repetition and layering, <i>Against the Grain</i> draws on ancestral history to explore enduring questions of human value and humanity’s relationship with nature today.</p>
+            <p class="chapter-count">15 works</p>
+            <p class="walk-cue" aria-hidden="true"><span class="walk-cue-text walk-cue-touch">Swipe to walk the gallery</span><span class="walk-cue-text walk-cue-desk">Scroll down to walk the gallery</span><span class="walk-cue-line"></span></p>
+          </header>
+          <div class="wall-pin" style="height: 900px;"><div class="wall" data-wall="" style="transform: translate3d(0px, 0px, 0px);"><svg class="bench" viewBox="0 0 200 40" aria-hidden="true" style="width: 259.2px; left: 374.392px; bottom: 119.594px;"><path d="M4 12h192M14 12v26M186 12v26M4 12c0-4 2-6 6-6h180c4 0 6 2 6 6"></path></svg>
+          <figure class="work work-m" data-work="" data-index="1" data-lg="images/cut/lg/work-sale-01.webp?v=9057fcb8" data-inches="24" data-ratio="1.2477" data-hang="wire" data-shape="rect" data-outline="[[0.0,0.0],[1.0,0.0],[1.0,1.0],[0.0,1.0]]" data-title="Burdens to bear" data-size="24&quot;x30&quot;" data-medium="acrylic on canvas" data-thumb="images/thumbs/work-sale-01.webp?v=023dee63" data-buy="https://gnvbym-0h.myshopify.com/products/burdens-to-bear?variant=40855047536769">
+            <button class="work-open" type="button" aria-label="View Burdens to bear, 1 of 27" style="width: 404px;"><svg class="strings" aria-hidden="true" viewBox="0 0 404 354.21875" style="left: 0px; top: -351.219px; width: 404px; height: 354.219px;"><line x1="121.19999999999999" y1="0" x2="121.19999999999999" y2="354.21875"></line><line x1="282.79999999999995" y1="0" x2="282.79999999999995" y2="354.21875"></line></svg>
+              <img src="site/michellekayewashington.com/images/cut/work-sale-01__q62563dfd.webp" srcset="site/michellekayewashington.com/images/cut/work-sale-01__q62563dfd.webp 900w, https://michellekayewashington.com/images/cut/lg/work-sale-01.webp?v=9057fcb8 1068w" sizes="(max-width: 599px) 70vw, 25vw" alt="Burdens to bear, acrylic on canvas by Michelle Kaye: a bare shoulder and back at lower left, almost covered by a sweep of painted rice grains" width="1068" height="856" loading="eager" decoding="async" draggable="false" style="aspect-ratio: 1.2477 / 1;">
+            </button>
+            <figcaption class="work-label"><span class="work-num">01</span><span class="work-title">Burdens to bear</span><span class="work-meta"><span class="work-size">24"x30"</span><span class="work-sep"> · </span><span class="work-medium">acrylic on canvas</span></span><a class="work-buy" href="https://gnvbym-0h.myshopify.com/products/burdens-to-bear?variant=40855047536769" target="_blank" rel="noopener">Available</a></figcaption>
+          </figure>
+          <figure class="work work-m" data-work="" data-index="2" data-lg="images/cut/lg/work-sale-02.webp?v=b0338ebe" data-inches="24" data-ratio="0.7470" data-hang="wire" data-shape="rect" data-outline="[[0.0,0.0],[1.0,0.0],[1.0,1.0],[0.0,1.0]]" data-title="Price of Rice" data-size="24&quot;x18&quot;" data-medium="Acrylic on Canvas" data-thumb="images/thumbs/work-sale-02.webp?v=e4c7ba49" data-buy="https://gnvbym-0h.myshopify.com/products/the-price-of-rice?variant=40854905782401">
+            <button class="work-open" type="button" aria-label="View Price of Rice, 2 of 27" style="width: 242px;"><svg class="strings" aria-hidden="true" viewBox="0 0 242 354.046875" style="left: 0px; top: -351.047px; width: 242px; height: 354.047px;"><line x1="72.6" y1="0" x2="72.6" y2="354.046875"></line><line x1="169.39999999999998" y1="0" x2="169.39999999999998" y2="354.046875"></line></svg>
+              <img src="site/michellekayewashington.com/images/cut/work-sale-02__qfd3c1ec8.webp" srcset="site/michellekayewashington.com/images/cut/work-sale-02__qfd3c1ec8.webp 672w, https://michellekayewashington.com/images/cut/lg/work-sale-02.webp?v=b0338ebe 744w" sizes="243px" alt="Price of Rice, acrylic on canvas by Michelle Kaye: five hands in different skin tones reaching into a field of painted rice grains from every edge" width="744" height="996" loading="eager" decoding="async" draggable="false" style="aspect-ratio: 0.747 / 1;">
+            </button>
+            <figcaption class="work-label"><span class="work-num">02</span><span class="work-title">Price of Rice</span><span class="work-meta"><span class="work-size">24"x18"</span><span class="work-sep"> · </span><span class="work-medium">Acrylic on Canvas</span></span><a class="work-buy" href="https://gnvbym-0h.myshopify.com/products/the-price-of-rice?variant=40854905782401" target="_blank" rel="noopener">Available</a></figcaption>
+          </figure>
+          <figure class="work work-m" data-work="" data-index="3" data-lg="images/cut/lg/work-sale-03.webp?v=8d698d2e" data-inches="24" data-ratio="1.2267" data-hang="wire" data-shape="rect" data-outline="[[0.0,0.0],[1.0,0.0],[1.0,1.0],[0.0,1.0]]" data-title="Weight of the World" data-size="24&quot;x30&quot;" data-medium="acrylic on canvas" data-thumb="images/thumbs/work-sale-03.webp?v=a3fac279">
+            <button class="work-open" type="button" aria-label="View Weight of the World, 3 of 27" style="width: 397px;"><svg class="strings" aria-hidden="true" viewBox="0 0 397 354.375" style="left: 0px; top: -351.375px; width: 397px; height: 354.375px;"><line x1="119.1" y1="0" x2="119.1" y2="354.375"></line><line x1="277.9" y1="0" x2="277.9" y2="354.375"></line></svg>
+              <img src="site/michellekayewashington.com/images/cut/work-sale-03__q409d3a01.webp" srcset="site/michellekayewashington.com/images/cut/work-sale-03__q409d3a01.webp 900w, https://michellekayewashington.com/images/cut/lg/work-sale-03.webp?v=8d698d2e 974w" sizes="(max-width: 599px) 70vw, 25vw" alt="Weight of the World, acrylic on canvas by Michelle Kaye: a bare male chest and shoulder at the right edge, half buried in painted rice grains" width="974" height="794" loading="eager" decoding="async" draggable="false" style="aspect-ratio: 1.2267 / 1;">
+            </button>
+            <figcaption class="work-label"><span class="work-num">03</span><span class="work-title">Weight of the World</span><span class="work-meta"><span class="work-size">24"x30"</span><span class="work-sep"> · </span><span class="work-medium">acrylic on canvas</span></span></figcaption>
+          </figure>
+          <figure class="work work-s" data-work="" data-index="4" data-lg="images/cut/lg/work-sale-04.webp?v=fc23f3f0" data-inches="20" data-ratio="0.7500" data-hang="wire" data-shape="rect" data-outline="[[0.0,0.0],[1.0,0.0],[1.0,1.0],[0.0,1.0]]" data-title="Resting place" data-size="20&quot;x16&quot;" data-medium="acrylic on canvas" data-thumb="images/thumbs/work-sale-04.webp?v=9d0acd1b">
+            <button class="work-open" type="button" aria-label="View Resting place, 4 of 27" style="width: 203px;"><svg class="strings" aria-hidden="true" viewBox="0 0 203 407.34375" style="left: 0px; top: -404.344px; width: 203px; height: 407.344px;"><line x1="60.9" y1="0" x2="60.9" y2="407.34375"></line><line x1="142.1" y1="0" x2="142.1" y2="407.34375"></line></svg>
+              <img sizes="203px" alt="Resting place, acrylic on canvas by Michelle Kaye: a face with closed eyes surfacing through a field of painted rice grains" width="1200" height="1600" loading="lazy" decoding="async" draggable="false" style="aspect-ratio: 0.75 / 1;" srcset="site/michellekayewashington.com/images/cut/work-sale-04__qee375afa.webp 675w, https://michellekayewashington.com/images/cut/lg/work-sale-04.webp?v=fc23f3f0 1200w" src="site/michellekayewashington.com/images/cut/work-sale-04__qee375afa.webp">
+            </button>
+            <figcaption class="work-label"><span class="work-num">04</span><span class="work-title">Resting place</span><span class="work-meta"><span class="work-size">20"x16"</span><span class="work-sep"> · </span><span class="work-medium">acrylic on canvas</span></span></figcaption>
+          </figure>
+          <figure class="work work-l" data-work="" data-index="5" data-lg="images/cut/lg/work-sale-05.webp?v=30709354" data-inches="48" data-ratio="1.0010" data-hang="wire" data-shape="rect" data-outline="[[0.0,0.0],[1.0,0.0],[1.0,1.0],[0.0,1.0]]" data-title="Pharaohs and Masters" data-size="48&quot;x48&quot;" data-medium="acrylic on canvas" data-thumb="images/thumbs/work-sale-05.webp?v=ab2910a8" data-buy="https://gnvbym-0h.myshopify.com/products/pharaohs-and-masters?variant=40855206264961">
+            <button class="work-open" type="button" aria-label="View Pharaohs and Masters, 5 of 27" style="width: 556px;"><svg class="strings" aria-hidden="true" viewBox="0 0 556 122.5625" style="left: 0px; top: -119.562px; width: 556px; height: 122.562px;"><line x1="166.79999999999998" y1="0" x2="166.79999999999998" y2="122.5625"></line><line x1="389.2" y1="0" x2="389.2" y2="122.5625"></line></svg>
+              <img sizes="556px" alt="Pharaohs and Masters, acrylic on canvas by Michelle Kaye: an alligator seen from above, gliding through black water patched with bright green duckweed" width="1024" height="1023" loading="lazy" decoding="async" draggable="false" style="aspect-ratio: 1.001 / 1;" srcset="site/michellekayewashington.com/images/cut/work-sale-05__qe9b3bce0.webp 900w, site/michellekayewashington.com/images/cut/lg/work-sale-05__q8f4dd180.webp 1024w" src="site/michellekayewashington.com/images/cut/work-sale-05__qe9b3bce0.webp">
+            </button>
+            <figcaption class="work-label"><span class="work-num">05</span><span class="work-title">Pharaohs and Masters</span><span class="work-meta"><span class="work-size">48"x48"</span><span class="work-sep"> · </span><span class="work-medium">acrylic on canvas</span></span><a class="work-buy" href="https://gnvbym-0h.myshopify.com/products/pharaohs-and-masters?variant=40855206264961" target="_blank" rel="noopener">Available</a></figcaption>
+          </figure>
+          <figure class="work work-m" data-work="" data-index="6" data-lg="images/cut/lg/work-sale-06.webp?v=80f15386" data-inches="36" data-ratio="0.7166" data-hang="wire" data-shape="rect" data-outline="[[0.0,0.0],[1.0,0.0],[1.0,1.0],[0.0,1.0]]" data-title="A Kings Burial" data-size="36&quot;x24&quot;" data-medium="acrylic on canvas" data-thumb="images/thumbs/work-sale-06.webp?v=ef84823b" data-buy="https://gnvbym-0h.myshopify.com/products/a-kigs-burial?variant=40854907093121">
+            <button class="work-open" type="button" aria-label="View A Kings Burial, 6 of 27" style="width: 343px;"><svg class="strings" aria-hidden="true" viewBox="0 0 343 199.359375" style="left: 0px; top: -196.359px; width: 343px; height: 199.359px;"><line x1="102.89999999999999" y1="0" x2="102.89999999999999" y2="199.359375"></line><line x1="240.1" y1="0" x2="240.1" y2="199.359375"></line></svg>
+              <img sizes="344px" alt="A Kings Burial, acrylic on canvas by Michelle Kaye: two dark legs and bare feet, toes pointing down, suspended above a ground of painted rice grains" width="870" height="1214" loading="lazy" decoding="async" draggable="false" style="aspect-ratio: 0.7166 / 1;" srcset="site/michellekayewashington.com/images/cut/work-sale-06__q16336c07.webp 645w, site/michellekayewashington.com/images/cut/lg/work-sale-06__qb5b24d45.webp 870w" src="site/michellekayewashington.com/images/cut/work-sale-06__q16336c07.webp">
+            </button>
+            <figcaption class="work-label"><span class="work-num">06</span><span class="work-title">A Kings Burial</span><span class="work-meta"><span class="work-size">36"x24"</span><span class="work-sep"> · </span><span class="work-medium">acrylic on canvas</span></span><a class="work-buy" href="https://gnvbym-0h.myshopify.com/products/a-kigs-burial?variant=40854907093121" target="_blank" rel="noopener">Available</a></figcaption>
+          </figure>
+          <figure class="work work-s" data-work="" data-index="7" data-lg="images/cut/lg/work-sale-07.webp?v=0efae76b" data-inches="12" data-ratio="1.0012" data-hang="wire" data-shape="round" data-title="Native Species" data-size="12&quot; diameter" data-medium="acrylic on canvas" data-thumb="images/thumbs/work-sale-07.webp?v=244952f9">
+            <button class="work-open" type="button" aria-label="View Native Species, 7 of 27" style="width: 162px;"><svg class="strings" aria-hidden="true" viewBox="0 0 162 522.9653987417154" style="left: 0px; top: -513.203px; width: 162px; height: 522.965px;"><line x1="48.6" y1="0" x2="48.6" y2="522.9653987417154"></line><line x1="113.39999999999999" y1="0" x2="113.39999999999999" y2="522.9653987417154"></line></svg>
+              <img sizes="163px" alt="Native Species, acrylic on round canvas by Michelle Kaye: a yellow tiger swallowtail and a black swallowtail butterfly on painted rice grains" width="841" height="840" loading="lazy" decoding="async" draggable="false" style="aspect-ratio: 1.0012 / 1;" srcset="site/michellekayewashington.com/images/cut/work-sale-07__q5affd861.webp 841w, https://michellekayewashington.com/images/cut/lg/work-sale-07.webp?v=0efae76b 841w" src="site/michellekayewashington.com/images/cut/work-sale-07__q5affd861.webp">
+            </button>
+            <figcaption class="work-label"><span class="work-num">07</span><span class="work-title">Native Species</span><span class="work-meta"><span class="work-size">12" diameter</span><span class="work-sep"> · </span><span class="work-medium">acrylic on canvas</span></span></figcaption>
+          </figure>
+          <figure class="work work-l" data-work="" data-index="8" data-lg="images/cut/lg/work-sale-08.webp?v=dd0e896d" data-inches="48" data-ratio="0.7464" data-hang="wire" data-shape="rect" data-outline="[[0.0,0.0],[1.0,0.0],[1.0,1.0],[0.0,1.0]]" data-title="Here I Lie Here I Remain" data-size="48&quot;x36&quot;" data-medium="acrylic on canvas" data-thumb="images/thumbs/work-sale-08.webp?v=fc2e75cf" data-buy="https://gnvbym-0h.myshopify.com/products/here-i-lie-here-i-remain?variant=40854906929281">
+            <button class="work-open" type="button" aria-label="View Here I Lie Here I Remain, 8 of 27" style="width: 415px;"><svg class="strings" aria-hidden="true" viewBox="0 0 415 122" style="left: 0px; top: -119px; width: 415px; height: 122px;"><line x1="124.5" y1="0" x2="124.5" y2="122"></line><line x1="290.5" y1="0" x2="290.5" y2="122"></line></svg>
+              <img sizes="415px" alt="Here I Lie Here I Remain, acrylic on canvas by Michelle Kaye: bare legs and feet in many skin tones lying and stepping across a field of painted rice" width="1139" height="1526" loading="lazy" decoding="async" draggable="false" style="aspect-ratio: 0.7464 / 1;" srcset="site/michellekayewashington.com/images/cut/work-sale-08__q2032df46.webp 672w, site/michellekayewashington.com/images/cut/lg/work-sale-08__q902efd91.webp 1139w" src="site/michellekayewashington.com/images/cut/work-sale-08__q2032df46.webp">
+            </button>
+            <figcaption class="work-label"><span class="work-num">08</span><span class="work-title">Here I Lie Here I Remain</span><span class="work-meta"><span class="work-size">48"x36"</span><span class="work-sep"> · </span><span class="work-medium">acrylic on canvas</span></span><a class="work-buy" href="https://gnvbym-0h.myshopify.com/products/here-i-lie-here-i-remain?variant=40854906929281" target="_blank" rel="noopener">Available</a></figcaption>
+          </figure>
+          <figure class="work work-s" data-work="" data-index="9" data-lg="images/cut/lg/work-sale-09.webp?v=c7e184b9" data-inches="16" data-ratio="1.0000" data-hang="wire" data-shape="round" data-title="Not From Here" data-size="16&quot; diameter" data-medium="Acrylic on canvas" data-thumb="images/thumbs/work-sale-09.webp?v=2023654a">
+            <button class="work-open" type="button" aria-label="View Not From Here, 9 of 27" style="width: 216px;"><svg class="strings" aria-hidden="true" viewBox="0 0 216 471.01636498895385" style="left: 0px; top: -459px; width: 216px; height: 471.016px;"><line x1="64.8" y1="0" x2="64.8" y2="471.01636498895385"></line><line x1="151.2" y1="0" x2="151.2" y2="471.01636498895385"></line></svg>
+              <img sizes="216px" alt="Not From Here, acrylic on round canvas by Michelle Kaye: three golden-orange butterflies with black-veined wings on a ground of painted rice grains" width="825" height="825" loading="lazy" decoding="async" draggable="false" style="aspect-ratio: 1 / 1;" srcset="site/michellekayewashington.com/images/cut/work-sale-09__q7bcad985.webp 825w, https://michellekayewashington.com/images/cut/lg/work-sale-09.webp?v=c7e184b9 825w" src="site/michellekayewashington.com/images/cut/work-sale-09__q7bcad985.webp">
+            </button>
+            <figcaption class="work-label"><span class="work-num">09</span><span class="work-title">Not From Here</span><span class="work-meta"><span class="work-size">16" diameter</span><span class="work-sep"> · </span><span class="work-medium">Acrylic on canvas</span></span></figcaption>
+          </figure>
+          <figure class="work work-s" data-work="" data-index="10" data-lg="images/cut/lg/work-sale-10.webp?v=5ebaf6b2" data-inches="10" data-ratio="0.9989" data-hang="wire" data-shape="round" data-title="Weight in Gold" data-size="10&quot; diameter" data-medium="acrylic on canvases" data-thumb="images/thumbs/work-sale-10.webp?v=ba8225af">
+            <button class="work-open" type="button" aria-label="View Weight in Gold, 10 of 27" style="width: 135px;"><svg class="strings" aria-hidden="true" viewBox="0 0 135 548.4946031180962" style="left: 0px; top: -539.859px; width: 135px; height: 548.495px;"><line x1="40.5" y1="0" x2="40.5" y2="548.4946031180962"></line><line x1="94.5" y1="0" x2="94.5" y2="548.4946031180962"></line></svg>
+              <img sizes="135px" alt="Weight in Gold, acrylic on round canvas by Michelle Kaye: a field of brown painted rice grains with a single white grain near the center" width="900" height="901" loading="lazy" decoding="async" draggable="false" style="aspect-ratio: 0.9989 / 1;" srcset="site/michellekayewashington.com/images/cut/work-sale-10__qb94bb129.webp 899w, https://michellekayewashington.com/images/cut/lg/work-sale-10.webp?v=5ebaf6b2 900w" src="site/michellekayewashington.com/images/cut/work-sale-10__qb94bb129.webp">
+            </button>
+            <figcaption class="work-label"><span class="work-num">10</span><span class="work-title">Weight in Gold</span><span class="work-meta"><span class="work-size">10" diameter</span><span class="work-sep"> · </span><span class="work-medium">acrylic on canvases</span></span></figcaption>
+          </figure>
+          <figure class="work work-s" data-work="" data-index="11" data-lg="images/cut/lg/work-sale-12.webp?v=abef03db" data-inches="12" data-ratio="1.0000" data-hang="wire" data-shape="round" data-title="Sweet and Sour Grass" data-size="12&quot; diameter" data-medium="acrylic on canvas" data-thumb="images/thumbs/work-sale-12.webp?v=48217d86">
+            <button class="work-open" type="button" aria-label="View Sweet and Sour Grass, 11 of 27" style="width: 162px;"><svg class="strings" aria-hidden="true" viewBox="0 0 162 522.7622737417154" style="left: 0px; top: -513px; width: 162px; height: 522.762px;"><line x1="48.6" y1="0" x2="48.6" y2="522.7622737417154"></line><line x1="113.39999999999999" y1="0" x2="113.39999999999999" y2="522.7622737417154"></line></svg>
+              <img sizes="162px" alt="Sweet and Sour Grass, acrylic on round canvas by Michelle Kaye: a coiled sweetgrass basket seen from above, in rings of sage green, deep brown and cream" width="722" height="722" loading="lazy" decoding="async" draggable="false" style="aspect-ratio: 1 / 1;" srcset="site/michellekayewashington.com/images/cut/work-sale-12__q66cee360.webp 722w, https://michellekayewashington.com/images/cut/lg/work-sale-12.webp?v=abef03db 722w" src="site/michellekayewashington.com/images/cut/work-sale-12__q66cee360.webp">
+            </button>
+            <figcaption class="work-label"><span class="work-num">11</span><span class="work-title">Sweet and Sour Grass</span><span class="work-meta"><span class="work-size">12" diameter</span><span class="work-sep"> · </span><span class="work-medium">acrylic on canvas</span></span></figcaption>
+          </figure>
+          <figure class="work work-s" data-work="" data-index="12" data-lg="images/cut/lg/work-sale-13.webp?v=04424ce2" data-inches="26" data-ratio="1.3034" data-hang="anchor" data-shape="group" data-title="Palettes" data-size="8x10" data-medium="Acrylic on canvas" data-thumb="images/thumbs/work-sale-13.webp?v=3870ec4a">
+            <button class="work-open" type="button" aria-label="View Palettes, 12 of 27" style="width: 457px;">
+              <img sizes="458px" alt="Palettes by Michelle Kaye: six small acrylic works on canvas in gold frames, thick daubs of earth tones, olive, ochre and black like used painter's palettes" width="1598" height="1226" loading="lazy" decoding="async" draggable="false" style="aspect-ratio: 1.3034 / 1;" srcset="site/michellekayewashington.com/images/cut/work-sale-13__q381f84b3.webp 900w, site/michellekayewashington.com/images/cut/lg/work-sale-13__q37bb9e29.webp 1598w" src="site/michellekayewashington.com/images/cut/work-sale-13__q381f84b3.webp">
+            </button>
+            <figcaption class="work-label"><span class="work-num">12</span><span class="work-title">Palettes</span><span class="work-meta"><span class="work-size">8x10</span><span class="work-sep"> · </span><span class="work-medium">Acrylic on canvas</span></span></figcaption>
+          </figure>
+          <figure class="work work-m" data-work="" data-index="13" data-lg="images/cut/lg/work-sale-14.webp?v=0c49468c" data-inches="40" data-ratio="1.7648" data-hang="anchor" data-shape="group" data-title="Shades" data-size="multiple sizes (mosaic pieces)" data-medium="acrylic on canvas" data-thumb="images/thumbs/work-sale-14.webp?v=21e78d0f">
+            <button class="work-open" type="button" aria-label="View Shades, 13 of 27" style="width: 905px;">
+              <img sizes="905px" alt="Shades by Michelle Kaye: small square, round and oval acrylic canvases, each covered in painted rice grains of one color, from wine red to green, ochre and blue" width="1073" height="608" loading="lazy" decoding="async" draggable="false" style="aspect-ratio: 1.7648 / 1;" srcset="https://michellekayewashington.com/images/cut/work-sale-14.webp?v=3da046f0 900w, site/michellekayewashington.com/images/cut/lg/work-sale-14__q8fd9c59b.webp 1073w" src="https://michellekayewashington.com/images/cut/work-sale-14.webp?v=3da046f0">
+            </button>
+            <figcaption class="work-label"><span class="work-num">13</span><span class="work-title">Shades</span><span class="work-meta"><span class="work-size">multiple sizes (mosaic pieces)</span><span class="work-sep"> · </span><span class="work-medium">acrylic on canvas</span></span></figcaption>
+          </figure>
+          <figure class="work work-l" data-work="" data-index="14" data-lg="images/cut/lg/work-sale-15.webp?v=806850e9" data-inches="48" data-ratio="0.6971" data-hang="pillar" data-shape="corner" data-outline="[[0.0012,0.1057],[0.3887,0.0004],[0.998,0.1877],[0.9989,0.6883],[0.4331,0.9995],[0.0187,0.8473]]" data-title="AGUE" data-size="48&quot;x24&quot;" data-medium="Acrylic on Canvas" data-parts="[{&quot;name&quot;:&quot;Ague I (left)&quot;,&quot;size&quot;:&quot;48\&quot;x24\&quot;&quot;,&quot;medium&quot;:&quot;Acrylic on Canvas&quot;},{&quot;name&quot;:&quot;Ague II (right)&quot;,&quot;size&quot;:&quot;48\&quot;x84\&quot;&quot;,&quot;medium&quot;:&quot;Acrylic on Canvas&quot;}]" data-thumb="images/thumbs/work-sale-15.webp?v=51a03f01">
+            <button class="work-open" type="button" aria-label="View AGUE, 14 of 27" style="width: 387px;"><svg class="corner" aria-hidden="true" viewBox="0 -123.84375 387 786.40625" style="left: 0px; top: -123.844px; width: 387px; height: 786.406px;"><path d="M-2.5 -123.8 L9.0 575.3 L170.9 660.6 L386.7 490.3 L385.9 -123.8 M146.6 -123.8 L170.9 660.6"></path></svg>
+              <img sizes="388px" alt="Ague, two acrylic canvases by Michelle Kaye at the corner of a wall: Ague I on the left and Ague II on the right, covered in muted gold painted rice grains" width="902" height="1294" loading="lazy" decoding="async" draggable="false" style="aspect-ratio: 0.6971 / 1;" srcset="site/michellekayewashington.com/images/cut/work-sale-15__qb9ada7cc.webp 627w, site/michellekayewashington.com/images/cut/lg/work-sale-15__q2fb00bfb.webp 902w" src="site/michellekayewashington.com/images/cut/work-sale-15__qb9ada7cc.webp">
+            </button>
+            <figcaption class="work-label has-parts"><span class="work-num">14</span><span class="work-title">AGUE</span><span class="work-parts"><span class="work-part"><span class="work-part-name">Ague I (left)</span><span class="work-meta"><span class="work-size">48"x24"</span><span class="work-sep"> · </span><span class="work-medium">Acrylic on Canvas</span></span></span><span class="work-part"><span class="work-part-name">Ague II (right)</span><span class="work-meta"><span class="work-size">48"x84"</span><span class="work-sep"> · </span><span class="work-medium">Acrylic on Canvas</span></span></span></span></figcaption>
+          </figure>
+          <figure class="work work-m" data-work="" data-index="15" data-lg="images/cut/lg/work-sale-16.webp?v=4644af9a" data-inches="36" data-ratio="0.7500" data-hang="wire" data-shape="rect" data-outline="[[0.0,0.0],[1.0,0.0],[1.0,1.0],[0.0,1.0]]" data-title="All I Have to Give" data-size="36&quot;x24&quot;" data-medium="acrylic on canvas" data-thumb="images/thumbs/work-sale-16.webp?v=e92ba716">
+            <button class="work-open" type="button" aria-label="View All I Have to Give, 15 of 27" style="width: 359px;"><svg class="strings" aria-hidden="true" viewBox="0 0 359 199.34375" style="left: 0px; top: -196.344px; width: 359px; height: 199.344px;"><line x1="107.7" y1="0" x2="107.7" y2="199.34375"></line><line x1="251.29999999999998" y1="0" x2="251.29999999999998" y2="199.34375"></line></svg>
+              <img sizes="360px" alt="All I Have to Give, acrylic on canvas by Michelle Kaye: two raised forearms, hands cupped together offering white rice against a field of golden grain" width="1200" height="1600" loading="lazy" decoding="async" draggable="false" style="aspect-ratio: 0.75 / 1;" srcset="site/michellekayewashington.com/images/cut/work-sale-16__q1b7ea5c7.webp 675w, site/michellekayewashington.com/images/cut/lg/work-sale-16__q4b8048af.webp 1200w" src="site/michellekayewashington.com/images/cut/work-sale-16__q1b7ea5c7.webp">
+            </button>
+            <figcaption class="work-label"><span class="work-num">15</span><span class="work-title">All I Have to Give</span><span class="work-meta"><span class="work-size">36"x24"</span><span class="work-sep"> · </span><span class="work-medium">acrylic on canvas</span></span></figcaption>
+          </figure>
+          </div><div class="light" style="--lx: 720px; --ly: 405px;"></div></div>
+        </section>
+        <section class="chapter" id="chapter-2" data-chapter="Recollections in Nature" data-ground="moss" data-scale="1.5" data-scale-phone="1.3" style="height: 4257px;">
+          <header class="chapter-head">
+            <p class="chapter-num"><span class="chapter-page">Gallery · </span>II</p>
+            <h2 class="chapter-title is-long"><i>Recollections in Nature</i></h2>
+            
+            <p class="chapter-count">6 works</p>
+            <p class="walk-cue" aria-hidden="true"><span class="walk-cue-text walk-cue-touch">Swipe to walk the gallery</span><span class="walk-cue-text walk-cue-desk">Scroll down to walk the gallery</span><span class="walk-cue-line"></span></p>
+          </header>
+          <div class="wall-pin" style="height: 900px;"><div class="wall" data-wall="" style="transform: translate3d(0px, 0px, 0px);"><svg class="bench" viewBox="0 0 200 40" aria-hidden="true" style="width: 259.2px; left: 374.392px; bottom: 119.594px;"><path d="M4 12h192M14 12v26M186 12v26M4 12c0-4 2-6 6-6h180c4 0 6 2 6 6"></path></svg>
+          <figure class="work work-s" data-work="" data-index="16" data-lg="images/cut/lg/sweet-grass.webp?v=d0a38a8f" data-inches="20" data-ratio="0.7963" data-hang="wire" data-shape="rect" data-outline="[[0.0,0.0],[1.0,0.0],[1.0,1.0],[0.0,1.0]]" data-title="Sweet Grass" data-size="20&quot;x16&quot;" data-medium="Acrylic on Canvas" data-thumb="images/thumbs/sweet-grass.webp?v=00d5c8f6">
+            <button class="work-open" type="button" aria-label="View Sweet Grass, 16 of 27" style="width: 215px;"><svg class="strings" aria-hidden="true" viewBox="0 0 215 408.015625" style="left: 0px; top: -405.016px; width: 215px; height: 408.016px;"><line x1="64.5" y1="0" x2="64.5" y2="408.015625"></line><line x1="150.5" y1="0" x2="150.5" y2="408.015625"></line></svg>
+              <img sizes="216px" alt="Sweet Grass, acrylic on canvas by Michelle Kaye: hands in different skin tones reaching up through tall blades of green grass" width="1274" height="1600" loading="lazy" decoding="async" draggable="false" style="aspect-ratio: 0.7963 / 1;" srcset="site/michellekayewashington.com/images/cut/sweet-grass__q5f9c852d.webp 717w, https://michellekayewashington.com/images/cut/lg/sweet-grass.webp?v=d0a38a8f 1274w" src="site/michellekayewashington.com/images/cut/sweet-grass__q5f9c852d.webp">
+            </button>
+            <figcaption class="work-label"><span class="work-num">16</span><span class="work-title">Sweet Grass</span><span class="work-meta"><span class="work-size">20"x16"</span><span class="work-sep"> · </span><span class="work-medium">Acrylic on Canvas</span></span></figcaption>
+          </figure>
+          <figure class="work work-l" data-work="" data-index="17" data-lg="images/cut/lg/sweeter-the-juice.webp?v=caa6daba" data-inches="24" data-ratio="2.0151" data-hang="wire" data-shape="rect" data-outline="[[0.0,0.0],[1.0,0.0],[1.0,1.0],[0.0,1.0]]" data-title="Sweeter the Juice" data-size="24&quot;x48&quot;" data-medium="Acrylic on Canvas" data-thumb="images/thumbs/sweeter-the-juice.webp?v=a4517cf0">
+            <button class="work-open" type="button" aria-label="View Sweeter the Juice, 17 of 27" style="width: 653px;"><svg class="strings" aria-hidden="true" viewBox="0 0 653 353.953125" style="left: 0px; top: -350.953px; width: 653px; height: 353.953px;"><line x1="195.9" y1="0" x2="195.9" y2="353.953125"></line><line x1="457.09999999999997" y1="0" x2="457.09999999999997" y2="353.953125"></line></svg>
+              <img sizes="653px" alt="Sweeter the Juice, acrylic on canvas by Michelle Kaye: a field of striped green watermelons, with a hand reaching in at each side" width="1600" height="794" loading="lazy" decoding="async" draggable="false" style="aspect-ratio: 2.0151 / 1;" srcset="https://michellekayewashington.com/images/cut/sweeter-the-juice.webp?v=66213c80 900w, site/michellekayewashington.com/images/cut/lg/sweeter-the-juice__q67697f16.webp 1600w" src="https://michellekayewashington.com/images/cut/sweeter-the-juice.webp?v=66213c80">
+            </button>
+            <figcaption class="work-label"><span class="work-num">17</span><span class="work-title">Sweeter the Juice</span><span class="work-meta"><span class="work-size">24"x48"</span><span class="work-sep"> · </span><span class="work-medium">Acrylic on Canvas</span></span></figcaption>
+          </figure>
+          <figure class="work work-m" data-work="" data-index="18" data-lg="images/cut/lg/beyond-the-blooms.webp?v=6419e04c" data-inches="24" data-ratio="0.7393" data-hang="wire" data-shape="rect" data-outline="[[0.0,0.0],[1.0,0.0],[1.0,1.0],[0.0,1.0]]" data-title="Beyond the Blooms" data-size="24&quot;x18&quot;" data-medium="Acrylic on Canvas" data-thumb="images/thumbs/beyond-the-blooms.webp?v=aae95f59">
+            <button class="work-open" type="button" aria-label="View Beyond the Blooms, 18 of 27" style="width: 240px;"><svg class="strings" aria-hidden="true" viewBox="0 0 240 353.375" style="left: 0px; top: -350.375px; width: 240px; height: 353.375px;"><line x1="72" y1="0" x2="72" y2="353.375"></line><line x1="168" y1="0" x2="168" y2="353.375"></line></svg>
+              <img sizes="240px" alt="Beyond the Blooms, acrylic on canvas by Michelle Kaye: a figure seen from behind among magnolia leaves and cream blossoms on a terracotta red ground" width="1049" height="1419" loading="lazy" decoding="async" draggable="false" style="aspect-ratio: 0.7393 / 1;" srcset="site/michellekayewashington.com/images/cut/beyond-the-blooms__qf8215273.webp 665w, https://michellekayewashington.com/images/cut/lg/beyond-the-blooms.webp?v=6419e04c 1049w" src="site/michellekayewashington.com/images/cut/beyond-the-blooms__qf8215273.webp">
+            </button>
+            <figcaption class="work-label"><span class="work-num">18</span><span class="work-title">Beyond the Blooms</span><span class="work-meta"><span class="work-size">24"x18"</span><span class="work-sep"> · </span><span class="work-medium">Acrylic on Canvas</span></span></figcaption>
+          </figure>
+          <figure class="work work-m" data-work="" data-index="19" data-lg="images/cut/lg/end-to-beginning.webp?v=680e3e0c" data-inches="24" data-ratio="0.7407" data-hang="wire" data-shape="rect" data-outline="[[0.0,0.0],[1.0,0.0],[1.0,1.0],[0.0,1.0]]" data-title="End to Beginning" data-size="24&quot;x18&quot;" data-medium="Acrylic on Canvas" data-thumb="images/thumbs/end-to-beginning.webp?v=a451d000">
+            <button class="work-open" type="button" aria-label="View End to Beginning, 19 of 27" style="width: 240px;"><svg class="strings" aria-hidden="true" viewBox="0 0 240 353.984375" style="left: 0px; top: -350.984px; width: 240px; height: 353.984px;"><line x1="72" y1="0" x2="72" y2="353.984375"></line><line x1="168" y1="0" x2="168" y2="353.984375"></line></svg>
+              <img sizes="240px" alt="End to Beginning, acrylic on canvas by Michelle Kaye: a bare-shouldered figure seen from behind between magnolia leaves, a white bloom and a red seed pod" width="1000" height="1350" loading="lazy" decoding="async" draggable="false" style="aspect-ratio: 0.7407 / 1;" srcset="site/michellekayewashington.com/images/cut/end-to-beginning__q953907f1.webp 667w, https://michellekayewashington.com/images/cut/lg/end-to-beginning.webp?v=680e3e0c 1000w" src="site/michellekayewashington.com/images/cut/end-to-beginning__q953907f1.webp">
+            </button>
+            <figcaption class="work-label"><span class="work-num">19</span><span class="work-title">End to Beginning</span><span class="work-meta"><span class="work-size">24"x18"</span><span class="work-sep"> · </span><span class="work-medium">Acrylic on Canvas</span></span></figcaption>
+          </figure>
+          <figure class="work work-s" data-work="" data-index="20" data-lg="images/cut/lg/indigos-blues.webp?v=ae9ac9c0" data-inches="20" data-ratio="0.7807" data-hang="wire" data-shape="rect" data-outline="[[0.0,0.0],[1.0,0.0],[1.0,1.0],[0.0,1.0]]" data-title="Indigo’s Blues" data-size="20&quot;x16&quot;" data-medium="Acrylic on Canvas" data-thumb="images/thumbs/indigos-blues.webp?v=fb13d54f">
+            <button class="work-open" type="button" aria-label="View Indigo’s Blues, 20 of 27" style="width: 211px;"><svg class="strings" aria-hidden="true" viewBox="0 0 211 407.734375" style="left: 0px; top: -404.734px; width: 211px; height: 407.734px;"><line x1="63.3" y1="0" x2="63.3" y2="407.734375"></line><line x1="147.7" y1="0" x2="147.7" y2="407.734375"></line></svg>
+              <img sizes="211px" alt="Indigo’s Blues, acrylic on canvas by Michelle Kaye: a woman in a pale blue head wrap seen from behind, among fern leaves against deep indigo" width="1050" height="1345" loading="lazy" decoding="async" draggable="false" style="aspect-ratio: 0.7807 / 1;" srcset="site/michellekayewashington.com/images/cut/indigos-blues__q6049152a.webp 703w, https://michellekayewashington.com/images/cut/lg/indigos-blues.webp?v=ae9ac9c0 1050w" src="site/michellekayewashington.com/images/cut/indigos-blues__q6049152a.webp">
+            </button>
+            <figcaption class="work-label"><span class="work-num">20</span><span class="work-title">Indigo’s Blues</span><span class="work-meta"><span class="work-size">20"x16"</span><span class="work-sep"> · </span><span class="work-medium">Acrylic on Canvas</span></span></figcaption>
+          </figure>
+          <figure class="work work-s" data-work="" data-index="21" data-lg="images/cut/lg/reciprocal.webp?v=7b58251d" data-inches="20" data-ratio="0.7921" data-hang="wire" data-shape="rect" data-outline="[[0.0,0.0],[1.0,0.0],[1.0,1.0],[0.0,1.0]]" data-title="Reciprocal" data-size="20&quot;x16&quot;" data-medium="Acrylic on Canvas" data-thumb="images/thumbs/reciprocal.webp?v=c8a22804">
+            <button class="work-open" type="button" aria-label="View Reciprocal, 21 of 27" style="width: 214px;"><svg class="strings" aria-hidden="true" viewBox="0 0 214 407.84375" style="left: 0px; top: -404.844px; width: 214px; height: 407.844px;"><line x1="64.2" y1="0" x2="64.2" y2="407.84375"></line><line x1="149.79999999999998" y1="0" x2="149.79999999999998" y2="407.84375"></line></svg>
+              <img sizes="214px" alt="Reciprocal, acrylic on canvas by Michelle Kaye: one hand reaching down toward another open, cupped hand above green leaves, against deep indigo" width="987" height="1246" loading="lazy" decoding="async" draggable="false" style="aspect-ratio: 0.7921 / 1;" srcset="site/michellekayewashington.com/images/cut/reciprocal__q0b9952be.webp 713w, https://michellekayewashington.com/images/cut/lg/reciprocal.webp?v=7b58251d 987w" src="site/michellekayewashington.com/images/cut/reciprocal__q0b9952be.webp">
+            </button>
+            <figcaption class="work-label"><span class="work-num">21</span><span class="work-title">Reciprocal</span><span class="work-meta"><span class="work-size">20"x16"</span><span class="work-sep"> · </span><span class="work-medium">Acrylic on Canvas</span></span></figcaption>
+          </figure>
+          </div><div class="light" style="--lx: 720px; --ly: 405px;"></div></div>
+        </section>
+        <section class="chapter" id="chapter-3" data-chapter="Charcoal Works" data-ground="ink" data-scale="2.5" data-scale-phone="2.167" style="height: 4147px;">
+          <header class="chapter-head">
+            <p class="chapter-num"><span class="chapter-page">Gallery · </span>III</p>
+            <h2 class="chapter-title"><i>Charcoal Works</i></h2>
+            
+            <p class="chapter-count">6 works</p>
+            <p class="walk-cue" aria-hidden="true"><span class="walk-cue-text walk-cue-touch">Swipe to walk the gallery</span><span class="walk-cue-text walk-cue-desk">Scroll down to walk the gallery</span><span class="walk-cue-line"></span></p>
+          </header>
+          <div class="wall-pin" style="height: 900px;"><div class="wall" data-wall="" style="transform: translate3d(0px, 0px, 0px);"><svg class="bench" viewBox="0 0 200 40" aria-hidden="true" style="width: 259.2px; left: 374.392px; bottom: 119.594px;"><path d="M4 12h192M14 12v26M186 12v26M4 12c0-4 2-6 6-6h180c4 0 6 2 6 6"></path></svg>
+          <figure class="work work-s" data-work="" data-index="22" data-lg="images/cut/lg/jonathan.webp?v=33d423c6" data-inches="14" data-ratio="0.7467" data-hang="wire" data-shape="rect" data-outline="[[0.0,0.0],[1.0,0.0],[1.0,1.0],[0.0,1.0]]" data-title="Jonathan" data-size="11&quot;x14&quot;" data-medium="charcoal on pastel paper" data-thumb="images/thumbs/jonathan.webp?v=66f77383">
+            <button class="work-open" type="button" aria-label="View Jonathan, 22 of 27" style="width: 235px;"><svg class="strings" aria-hidden="true" viewBox="0 0 235 363.296875" style="left: 0px; top: -360.297px; width: 235px; height: 363.297px;"><line x1="70.5" y1="0" x2="70.5" y2="363.296875"></line><line x1="164.5" y1="0" x2="164.5" y2="363.296875"></line></svg>
+              <img sizes="236px" alt="Jonathan, charcoal on pastel paper by Michelle Kaye: portrait of an older man with a white beard and white-streaked hair, looking off to the right" width="1182" height="1583" loading="lazy" decoding="async" draggable="false" style="aspect-ratio: 0.7467 / 1;" srcset="site/michellekayewashington.com/images/cut/jonathan__q1c4249e5.webp 672w, https://michellekayewashington.com/images/cut/lg/jonathan.webp?v=33d423c6 1182w" src="site/michellekayewashington.com/images/cut/jonathan__q1c4249e5.webp">
+            </button>
+            <figcaption class="work-label"><span class="work-num">22</span><span class="work-title">Jonathan</span><span class="work-meta"><span class="work-size">11"x14"</span><span class="work-sep"> · </span><span class="work-medium">charcoal on pastel paper</span></span></figcaption>
+          </figure>
+          <figure class="work work-s" data-work="" data-index="23" data-lg="images/cut/lg/rosemary.webp?v=7bec20d4" data-inches="14" data-ratio="0.7500" data-hang="wire" data-shape="rect" data-outline="[[0.0,0.0],[1.0,0.0],[1.0,1.0],[0.0,1.0]]" data-title="Rosemary" data-size="11&quot;x14&quot;" data-medium="charcoal on pastel paper" data-thumb="images/thumbs/rosemary.webp?v=372cab3f">
+            <button class="work-open" type="button" aria-label="View Rosemary, 23 of 27" style="width: 236px;"><svg class="strings" aria-hidden="true" viewBox="0 0 236 363.34375" style="left: 0px; top: -360.344px; width: 236px; height: 363.344px;"><line x1="70.8" y1="0" x2="70.8" y2="363.34375"></line><line x1="165.2" y1="0" x2="165.2" y2="363.34375"></line></svg>
+              <img sizes="237px" alt="Rosemary, charcoal on pastel paper by Michelle Kaye: a smiling woman in profile with her hair pulled back, long drop earrings and a cross necklace" width="1200" height="1600" loading="lazy" decoding="async" draggable="false" style="aspect-ratio: 0.75 / 1;" srcset="site/michellekayewashington.com/images/cut/rosemary__qdacba8f5.webp 675w, https://michellekayewashington.com/images/cut/lg/rosemary.webp?v=7bec20d4 1200w" src="site/michellekayewashington.com/images/cut/rosemary__qdacba8f5.webp">
+            </button>
+            <figcaption class="work-label"><span class="work-num">23</span><span class="work-title">Rosemary</span><span class="work-meta"><span class="work-size">11"x14"</span><span class="work-sep"> · </span><span class="work-medium">charcoal on pastel paper</span></span></figcaption>
+          </figure>
+          <figure class="work work-s" data-work="" data-index="24" data-lg="images/cut/lg/toyia.webp?v=32519044" data-inches="16" data-ratio="0.7500" data-hang="wire" data-shape="rect" data-outline="[[0.0,0.0],[1.0,0.0],[1.0,1.0],[0.0,1.0]]" data-title="Toyia" data-size="16&quot;x12&quot;" data-medium="charcoal on pastel paper" data-thumb="images/thumbs/toyia.webp?v=cd1ccbf4">
+            <button class="work-open" type="button" aria-label="View Toyia, 24 of 27" style="width: 270px;"><svg class="strings" aria-hidden="true" viewBox="0 0 270 318" style="left: 0px; top: -315px; width: 270px; height: 318px;"><line x1="81" y1="0" x2="81" y2="318"></line><line x1="189" y1="0" x2="189" y2="318"></line></svg>
+              <img sizes="270px" alt="Toyia, charcoal on pastel paper by Michelle Kaye: portrait of a woman with full curly hair in a white tank top, gazing to the side" width="1200" height="1600" loading="lazy" decoding="async" draggable="false" style="aspect-ratio: 0.75 / 1;" srcset="site/michellekayewashington.com/images/cut/toyia__qc7910474.webp 675w, https://michellekayewashington.com/images/cut/lg/toyia.webp?v=32519044 1200w" src="site/michellekayewashington.com/images/cut/toyia__qc7910474.webp">
+            </button>
+            <figcaption class="work-label"><span class="work-num">24</span><span class="work-title">Toyia</span><span class="work-meta"><span class="work-size">16"x12"</span><span class="work-sep"> · </span><span class="work-medium">charcoal on pastel paper</span></span></figcaption>
+          </figure>
+          <figure class="work work-s" data-work="" data-index="25" data-lg="images/cut/lg/jowaan.webp?v=ccb51b84" data-inches="16" data-ratio="0.7500" data-hang="wire" data-shape="rect" data-outline="[[0.0,0.0],[1.0,0.0],[1.0,1.0],[0.0,1.0]]" data-title="Jowaan" data-size="16&quot;x12&quot;" data-medium="charcoal on pastel paper" data-thumb="images/thumbs/jowaan.webp?v=791e8ba3">
+            <button class="work-open" type="button" aria-label="View Jowaan, 25 of 27" style="width: 270px;"><svg class="strings" aria-hidden="true" viewBox="0 0 270 318" style="left: 0px; top: -315px; width: 270px; height: 318px;"><line x1="81" y1="0" x2="81" y2="318"></line><line x1="189" y1="0" x2="189" y2="318"></line></svg>
+              <img sizes="270px" alt="Jowaan, charcoal on pastel paper by Michelle Kaye: portrait of a young man with full curly hair, a short beard and a chain necklace, looking straight out" width="1200" height="1600" loading="lazy" decoding="async" draggable="false" style="aspect-ratio: 0.75 / 1;" srcset="site/michellekayewashington.com/images/cut/jowaan__qb3f9850b.webp 675w, https://michellekayewashington.com/images/cut/lg/jowaan.webp?v=ccb51b84 1200w" src="site/michellekayewashington.com/images/cut/jowaan__qb3f9850b.webp">
+            </button>
+            <figcaption class="work-label"><span class="work-num">25</span><span class="work-title">Jowaan</span><span class="work-meta"><span class="work-size">16"x12"</span><span class="work-sep"> · </span><span class="work-medium">charcoal on pastel paper</span></span></figcaption>
+          </figure>
+          <figure class="work work-s" data-work="" data-index="26" data-lg="images/cut/lg/kela.webp?v=0fc115a6" data-inches="16" data-ratio="0.7500" data-hang="wire" data-shape="rect" data-outline="[[0.0,0.0],[1.0,0.0],[1.0,1.0],[0.0,1.0]]" data-title="Kela" data-size="16&quot;x12&quot;" data-medium="charcoal on pastel paper" data-thumb="images/thumbs/kela.webp?v=0477bfe9">
+            <button class="work-open" type="button" aria-label="View Kela, 26 of 27" style="width: 270px;"><svg class="strings" aria-hidden="true" viewBox="0 0 270 318" style="left: 0px; top: -315px; width: 270px; height: 318px;"><line x1="81" y1="0" x2="81" y2="318"></line><line x1="189" y1="0" x2="189" y2="318"></line></svg>
+              <img sizes="270px" alt="Kela, charcoal on pastel paper by Michelle Kaye: portrait of a woman with long, loose curly hair and a pendant necklace, looking just past the viewer" width="1200" height="1600" loading="lazy" decoding="async" draggable="false" style="aspect-ratio: 0.75 / 1;" srcset="site/michellekayewashington.com/images/cut/kela__q3c1317d9.webp 675w, https://michellekayewashington.com/images/cut/lg/kela.webp?v=0fc115a6 1200w" src="site/michellekayewashington.com/images/cut/kela__q3c1317d9.webp">
+            </button>
+            <figcaption class="work-label"><span class="work-num">26</span><span class="work-title">Kela</span><span class="work-meta"><span class="work-size">16"x12"</span><span class="work-sep"> · </span><span class="work-medium">charcoal on pastel paper</span></span></figcaption>
+          </figure>
+          <figure class="work work-s" data-work="" data-index="27" data-lg="images/cut/lg/child-with-goat.webp?v=ef9b4159" data-inches="12" data-ratio="0.8125" data-hang="wire" data-shape="rect" data-outline="[[0.0,0.0],[1.0,0.0],[1.0,1.0],[0.0,1.0]]" data-title="Girl with Goat" data-size="9&quot;x12&quot;" data-medium="charcoal on pastel paper" data-thumb="images/thumbs/child-with-goat.webp?v=5df3ac46">
+            <button class="work-open" type="button" aria-label="View Girl with Goat, 27 of 27" style="width: 219px;"><svg class="strings" aria-hidden="true" viewBox="0 0 219 408.46875" style="left: 0px; top: -405.469px; width: 219px; height: 408.469px;"><line x1="65.7" y1="0" x2="65.7" y2="408.46875"></line><line x1="153.29999999999998" y1="0" x2="153.29999999999998" y2="408.46875"></line></svg>
+              <img sizes="220px" alt="Girl with Goat, charcoal on pastel paper by Michelle Kaye: a smiling young girl wrapped in cloth, holding a small goat close to her" width="1200" height="1477" loading="lazy" decoding="async" draggable="false" style="aspect-ratio: 0.8125 / 1;" srcset="site/michellekayewashington.com/images/cut/child-with-goat__q4921c901.webp 731w, https://michellekayewashington.com/images/cut/lg/child-with-goat.webp?v=ef9b4159 1200w" src="site/michellekayewashington.com/images/cut/child-with-goat__q4921c901.webp">
+            </button>
+            <figcaption class="work-label"><span class="work-num">27</span><span class="work-title">Girl with Goat</span><span class="work-meta"><span class="work-size">9"x12"</span><span class="work-sep"> · </span><span class="work-medium">charcoal on pastel paper</span></span></figcaption>
+          </figure>
+          </div><div class="light" style="--lx: 720px; --ly: 405px;"></div></div>
+        </section>
+        <footer class="gallery-end" style="min-height: 900px; --end-wall: #1a1312; --end-top: 0px; --end-bottom: 92px;">
+          <p class="gallery-end-count"><span>End of the gallery</span> · <span>27 works</span></p>
+          <p class="gallery-end-actions"><a class="pill" href="#chapter-1" data-to-top="">Back to the first work</a><a class="pill pill-ink is-charge-target" href="https://michellekayewashington.com/connect" data-nav="connect" data-charge-target=""><span class="charge-fill" aria-hidden="true"></span>Socials →</a></p>
+          <p class="gallery-end-credit"><a href="https://roqpointdesigns.com/" target="_blank" rel="noopener">~ RoqPoint Design Studios</a></p>
+        <i class="gallery-end-sentinel" aria-hidden="true"></i></footer>
+      <nav class="minimap" aria-label="Where you are in the exhibition" data-minimap=""><a role="link" tabindex="0" draggable="false" aria-label="Burdens to bear, 1 of 27" style="height: 10.8px;"><i class="mm-lit" style="opacity: 1;"></i></a><a role="link" tabindex="0" draggable="false" aria-label="Price of Rice, 2 of 27" style="height: 10.8px;"><i class="mm-lit" style="opacity: 0;"></i></a><a role="link" tabindex="0" draggable="false" aria-label="Weight of the World, 3 of 27" style="height: 10.8px;"><i class="mm-lit" style="opacity: 0;"></i></a><a role="link" tabindex="0" draggable="false" aria-label="Resting place, 4 of 27" style="height: 9px;"><i class="mm-lit" style="opacity: 0;"></i></a><a role="link" tabindex="0" draggable="false" aria-label="Pharaohs and Masters, 5 of 27" style="height: 21.6px;"><i class="mm-lit" style="opacity: 0;"></i></a><a role="link" tabindex="0" draggable="false" aria-label="A Kings Burial, 6 of 27" style="height: 16.2px;"><i class="mm-lit" style="opacity: 0;"></i></a><a role="link" tabindex="0" draggable="false" aria-label="Native Species, 7 of 27" style="height: 6px;"><i class="mm-lit" style="opacity: 0;"></i></a><a role="link" tabindex="0" draggable="false" aria-label="Here I Lie Here I Remain, 8 of 27" style="height: 21.6px;"><i class="mm-lit" style="opacity: 0;"></i></a><a role="link" tabindex="0" draggable="false" aria-label="Not From Here, 9 of 27" style="height: 7.2px;"><i class="mm-lit" style="opacity: 0;"></i></a><a role="link" tabindex="0" draggable="false" aria-label="Weight in Gold, 10 of 27" style="height: 6px;"><i class="mm-lit" style="opacity: 0;"></i></a><a role="link" tabindex="0" draggable="false" aria-label="Sweet and Sour Grass, 11 of 27" style="height: 6px;"><i class="mm-lit" style="opacity: 0;"></i></a><a role="link" tabindex="0" draggable="false" aria-label="Palettes, 12 of 27" style="height: 11.7px;"><i class="mm-lit" style="opacity: 0;"></i></a><a role="link" tabindex="0" draggable="false" aria-label="Shades, 13 of 27" style="height: 18px;"><i class="mm-lit" style="opacity: 0;"></i></a><a role="link" tabindex="0" draggable="false" aria-label="AGUE, 14 of 27" style="height: 21.6px;"><i class="mm-lit" style="opacity: 0;"></i></a><a role="link" tabindex="0" draggable="false" aria-label="All I Have to Give, 15 of 27" style="height: 16.2px;"><i class="mm-lit" style="opacity: 0;"></i></a><span class="mm-gap"></span><a role="link" tabindex="0" draggable="false" aria-label="Sweet Grass, 16 of 27" style="height: 9px;"><i class="mm-lit" style="opacity: 0;"></i></a><a role="link" tabindex="0" draggable="false" aria-label="Sweeter the Juice, 17 of 27" style="height: 10.8px;"><i class="mm-lit" style="opacity: 0;"></i></a><a role="link" tabindex="0" draggable="false" aria-label="Beyond the Blooms, 18 of 27" style="height: 10.8px;"><i class="mm-lit" style="opacity: 0;"></i></a><a role="link" tabindex="0" draggable="false" aria-label="End to Beginning, 19 of 27" style="height: 10.8px;"><i class="mm-lit" style="opacity: 0;"></i></a><a role="link" tabindex="0" draggable="false" aria-label="Indigo’s Blues, 20 of 27" style="height: 9px;"><i class="mm-lit" style="opacity: 0;"></i></a><a role="link" tabindex="0" draggable="false" aria-label="Reciprocal, 21 of 27" style="height: 9px;"><i class="mm-lit" style="opacity: 0;"></i></a><span class="mm-gap"></span><a role="link" tabindex="0" draggable="false" aria-label="Jonathan, 22 of 27" style="height: 6.3px;"><i class="mm-lit" style="opacity: 0;"></i></a><a role="link" tabindex="0" draggable="false" aria-label="Rosemary, 23 of 27" style="height: 6.3px;"><i class="mm-lit" style="opacity: 0;"></i></a><a role="link" tabindex="0" draggable="false" aria-label="Toyia, 24 of 27" style="height: 7.2px;"><i class="mm-lit" style="opacity: 0;"></i></a><a role="link" tabindex="0" draggable="false" aria-label="Jowaan, 25 of 27" style="height: 7.2px;"><i class="mm-lit" style="opacity: 0;"></i></a><a role="link" tabindex="0" draggable="false" aria-label="Kela, 26 of 27" style="height: 7.2px;"><i class="mm-lit" style="opacity: 0;"></i></a><a role="link" tabindex="0" draggable="false" aria-label="Girl with Goat, 27 of 27" style="height: 6px;"><i class="mm-lit" style="opacity: 0;"></i></a></nav><div class="mm-peek" aria-hidden="true" hidden=""><div class="mm-peek-art"><img alt="" decoding="async"><p class="mm-peek-cap"><span class="mm-peek-num"></span><span class="mm-peek-title"></span></p></div><div class="mm-loupe"><div class="mm-loupe-row"></div></div></div>
+      <p class="where" data-where="" aria-live="off"><span class="where-chapter" data-where-chapter="">Against the Grain</span><span class="where-num"><span data-where-num="">01</span> / 27</span></p>
+    </main>
+    <div class="viewer" role="dialog" aria-modal="true" aria-label="Artwork viewer" hidden="" data-viewer="">
+      <button class="viewer-close" type="button" aria-label="Close viewer" data-viewer-close=""><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M3.1 3.1 12.9 12.9M12.9 3.1 3.1 12.9"></path></svg></button>
+      <figure class="viewer-figure"><img alt="" data-viewer-img=""></figure>
+      <div class="viewer-nav" aria-hidden="true" data-viewer-nav=""><svg><path class="viewer-nav-shape"></path><circle class="viewer-nav-dot" r="11"></circle></svg></div>
+      <div class="viewer-info">
+        <p class="viewer-count" aria-live="polite"><span data-viewer-num="">01</span> / 27 · <span data-viewer-chapter=""></span></p>
+        <h2 class="viewer-title" data-viewer-title=""></h2>
+        <p class="viewer-meta" data-viewer-meta=""></p>
+        <p data-viewer-buy=""></p>
+      <button type="button" class="viewer-zoom" aria-pressed="false">Zoom to Inspect</button></div>
+      <button class="viewer-step viewer-prev" type="button" aria-label="Previous work" data-viewer-prev="">←</button>
+      <button class="viewer-step viewer-next" type="button" aria-label="Next work" data-viewer-next="">→</button>
+    </div>
+    <nav class="pager" aria-label="Pages" data-pager="">
+      <a class="pager-arrow" href="https://michellekayewashington.com/" data-nav="index" rel="prev" aria-label="Previous page: Michelle"><span aria-hidden="true">←</span></a>
+      <p class="pager-count"><span data-pager-num="">02</span><span class="pager-of"> / 03</span> <span class="pager-name" data-pager-name="">Gallery</span></p>
+      <a class="pager-arrow" href="https://michellekayewashington.com/connect" data-nav="connect" rel="next" aria-label="Next page: Socials"><span aria-hidden="true">→</span><svg class="charge-ring" viewBox="0 0 50 50" aria-hidden="true"><circle cx="25" cy="25" r="24" pathLength="100" stroke-dasharray="100" stroke-dashoffset="100"></circle></svg></a>
+    </nav>
+    <div class="modal" id="contact" role="dialog" aria-modal="true" aria-labelledby="contact-title" hidden="" data-modal="">
+      <button class="modal-backdrop" type="button" aria-label="Close" data-close=""></button>
+      <div class="modal-window">
+        <button class="modal-close" type="button" aria-label="Close" data-close="">×</button>
+        <h2 class="modal-title" id="contact-title">Questions for the Artist?</h2>
+        <p class="modal-sub">Ways to get in touch</p>
+        <p class="modal-actions"><a class="pill" href="https://www.instagram.com/Mkwashingtonart/" target="_blank" rel="noopener">Instagram</a><a class="pill" href="https://gnvbym-0h.myshopify.com/pages/contact" target="_blank" rel="noopener">Shopify</a></p>
+      </div>
+    </div>
+    <div class="modal" id="leave" role="dialog" aria-modal="true" aria-labelledby="leave-title" hidden="" data-modal="">
+      <button class="modal-backdrop" type="button" aria-label="Go back" data-close=""></button>
+      <div class="modal-window">
+        <button class="modal-close" type="button" aria-label="Go back" data-close="">×</button>
+        <h2 class="modal-title" id="leave-title" data-leave-title="">Leaving this site</h2>
+        <p class="modal-sub" data-leave-text=""></p>
+        <p class="modal-actions"><a class="pill pill-ink" href="https://www.instagram.com/Mkwashingtonart/" target="_blank" rel="noopener" data-leave-go="">Continue</a><button class="pill" type="button" data-close="">Go back</button></p>
+      </div>
+    </div>
+    
+  
+
+<p class="scrub-hint" aria-hidden="true">Try Exploring with Our Scrubbing Tool Below</p><p class="charge-caption" aria-hidden="true" hidden="">Keep scrolling to Socials</p><div class="charge-line" aria-hidden="true" hidden=""></div><div data-wd3-banner style="position:fixed;z-index:2147483647;left:16px;bottom:16px;max-width:min(560px,calc(100vw - 32px));align-items:center;gap:12px;padding:12px 14px;border-radius:12px;background:rgba(5,5,5,.92);color:#e8e8e8;border:1px solid #1d1d1d;box-shadow:0 8px 30px rgba(0,0,0,.35);font:13px/1.45 ui-sans-serif,system-ui,-apple-system,'Segoe UI',sans-serif;backdrop-filter:blur(8px)">
+  <span style="width:8px;height:8px;border-radius:50%;background:#00ffa3;flex:none"></span>
+  <span>Versão estática, sem animações. Para ver o site vivo, rode no terminal, nesta pasta: <b style="color:#00ffa3">python3 serve.py --open</b> (Windows: <b style="color:#00ffa3">py serve.py --open</b>). Passo a passo em <b style="color:#00ffa3">Como rodar.md</b>.</span>
+  <button type="button" onclick="this.parentNode.remove()" aria-label="Fechar" style="flex:none;background:none;border:0;color:#8a8a8a;font-size:18px;cursor:pointer;padding:0 2px">×</button>
+</div>
+</body></html>

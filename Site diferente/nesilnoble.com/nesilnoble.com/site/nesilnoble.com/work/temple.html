@@ -1,0 +1,669 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Temple, a case study by Nesil Noble</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Doto:wght@500;800&family=Urbanist:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,400&display=swap" rel="stylesheet">
+<style>
+:root{
+  --night:#212522; --room:#262B27; --side:#4C564E; --lime:#E6F493; --limedeep:#8FA11E;
+  --paper:#F2EFE7; --sheet:#FFFFFF; --ink:#1E211E; --mute:#62665F; --line:#DCD8CC;
+  --linedark:rgba(242,239,231,.14); --mutedark:rgba(242,239,231,.62);
+  --cut:#D8402F; --r:22px; --maxw:1280px; --pad:48px; --spine:210px;
+  --ease:cubic-bezier(.22,.61,.36,1);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{background:var(--paper);color:var(--ink);font-family:"Urbanist",system-ui,sans-serif;font-size:19px;line-height:1.6;-webkit-font-smoothing:antialiased}
+img{display:block;max-width:100%;height:auto}
+.wrap{max-width:var(--maxw);margin:0 auto;padding:0 var(--pad)}
+.dot{font-family:"Doto",monospace}
+section{padding:136px 0}
+.dark{background:var(--night);color:var(--paper)}
+
+/* spine */
+.row{display:grid;grid-template-columns:var(--spine) minmax(0,1fr);gap:56px;align-items:start}
+.lab{font-size:15px;font-weight:600;color:var(--mute);padding-top:16px;display:flex;gap:10px;align-items:center;line-height:1.3}
+.lab::before{content:"";width:9px;height:9px;border-radius:50%;background:var(--limedeep);flex:none}
+.dark .lab{color:var(--mutedark)} .dark .lab::before{background:var(--lime)}
+h2{font-size:clamp(32px,4.2vw,56px);line-height:1.06;font-weight:700;letter-spacing:-.02em;max-width:21ch}
+h2 .lt{font-weight:300;color:var(--mute)} .dark h2 .lt{color:var(--mutedark)}
+h3{font-size:clamp(26px,2.6vw,36px);line-height:1.12;font-weight:700;letter-spacing:-.015em;max-width:24ch}
+.body{max-width:64ch;margin-top:28px}
+.body p+p{margin-top:16px}
+.dark .body{color:rgba(242,239,231,.86)}
+.mute{color:var(--mute)} .dark .mute{color:var(--mutedark)}
+.small{font-size:15px;line-height:1.5}
+
+/* figures */
+figure{margin-top:56px}
+.frame{border-radius:var(--r);overflow:hidden;background:var(--night);box-shadow:0 1px 0 rgba(0,0,0,.04),0 30px 60px -30px rgba(33,37,34,.45);border:1px solid rgba(0,0,0,.08)}
+.dark .frame{border:1px solid var(--linedark);box-shadow:none}
+figcaption{font-size:15px;line-height:1.5;color:var(--mute);margin-top:16px;max-width:80ch;display:flex;gap:10px}
+.dark figcaption{color:var(--mutedark)}
+.sample{display:inline-block;flex:none;font-size:12px;font-weight:700;letter-spacing:.02em;padding:2px 9px;border-radius:99px;background:var(--ink);color:var(--lime);height:fit-content;margin-top:2px}
+.dark .sample{background:var(--lime);color:var(--night)}
+
+/* hero */
+.hero{padding:40px 0 0;position:relative;overflow:hidden}
+.hero::before{content:"";position:absolute;inset:0;background-image:radial-gradient(rgba(230,244,147,.13) 1.2px,transparent 1.3px);background-size:22px 22px;mask-image:linear-gradient(#000,transparent 70%);-webkit-mask-image:linear-gradient(#000,transparent 70%);pointer-events:none}
+.top{display:flex;justify-content:space-between;align-items:center;font-size:15px;color:var(--mutedark);position:relative}
+.top b{color:var(--paper);font-weight:600}
+.title{position:relative;margin-top:120px;display:flex;align-items:flex-end;gap:32px;flex-wrap:wrap}
+h1{font-size:clamp(88px,15vw,212px);line-height:.82;font-weight:800;letter-spacing:-.045em}
+.tag{font-style:italic;color:var(--mutedark);font-size:clamp(20px,2vw,28px);padding-bottom:12px}
+.oneline{position:relative;margin-top:40px;font-size:clamp(20px,1.8vw,24px);color:var(--mutedark);max-width:48ch}
+.hook{position:relative;margin-top:88px;font-size:clamp(28px,3.4vw,46px);line-height:1.22;font-weight:300;color:rgba(242,239,231,.5);max-width:30ch;letter-spacing:-.01em}
+.hook b{font-weight:700;color:var(--paper)}
+.herofig{position:relative;margin-top:88px;padding-bottom:0}
+.herofig .frame{border-bottom-left-radius:0;border-bottom-right-radius:0;border-bottom:0}
+
+/* glance */
+.glance{display:grid;grid-template-columns:1fr 1fr;border-top:1px solid var(--ink)}
+.glance div{padding:22px 0 24px;border-bottom:1px solid var(--line);display:grid;grid-template-columns:150px 1fr;gap:20px}
+.glance div:nth-child(odd){padding-right:40px}
+.glance div:nth-child(even){padding-left:40px;border-left:1px solid var(--line)}
+.glance dt{font-size:15px;font-weight:600;color:var(--mute);padding-top:2px}
+.glance dd{font-size:17px;line-height:1.5}
+.glance dd b{font-weight:700}
+.rooms{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:40px}
+.room{border:1px solid var(--line);border-radius:18px;padding:22px 24px;background:rgba(255,255,255,.4)}
+.room h4{font-size:20px;font-weight:700}
+.room p{font-size:15px;line-height:1.5;color:var(--mute);margin-top:6px}
+.room.on{background:var(--night);color:var(--paper);border-color:var(--night)}
+.room.on p{color:var(--mutedark)}
+.room .flag{display:inline-block;margin-top:14px;font-size:13px;font-weight:700;color:var(--night);background:var(--lime);padding:3px 10px;border-radius:99px}
+
+/* before and after */
+.week{margin-top:56px;border-top:1px solid var(--ink)}
+.week .h,.week .r{display:grid;grid-template-columns:1.1fr 1fr;gap:40px;padding:18px 0;border-bottom:1px solid var(--line)}
+.week .h{font-size:14px;font-weight:700;color:var(--mute)}
+.week .r div:first-child{color:var(--mute);text-decoration:line-through;text-decoration-color:rgba(216,64,47,.55);text-decoration-thickness:1.5px}
+.week .r div:last-child{font-weight:600}
+.week .r div:last-child::before{content:"→";color:var(--limedeep);margin-right:10px;font-weight:700}
+
+/* jtbd */
+.jobs{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:48px}
+.job{background:var(--sheet);border-radius:18px;padding:26px 28px;border:1px solid var(--line);font-size:18px;line-height:1.5}
+.job span{display:block;color:var(--mute);font-weight:400}
+.job b{font-weight:700}
+
+/* turn */
+.turn{padding:150px 0 130px}
+.turnq{font-size:clamp(34px,4.4vw,64px);line-height:1.12;font-weight:300;letter-spacing:-.02em;color:rgba(242,239,231,.5);max-width:24ch}
+.turnq b{font-weight:700;color:var(--paper)}
+.turnq b.l{color:var(--lime)}
+.outputs{display:grid;grid-template-columns:1.25fr 1fr;gap:40px;margin-top:80px;align-items:stretch}
+.out{background:var(--room);border:1px solid var(--linedark);border-radius:var(--r);padding:28px}
+.out h4{font-size:15px;font-weight:600;color:var(--mutedark);margin-bottom:14px}
+.out svg{width:100%;height:auto;display:block}
+.route path.road{fill:none;stroke:rgba(242,239,231,.14);stroke-width:3}
+.route path.drive{fill:none;stroke:var(--lime);stroke-width:3;stroke-linecap:round}
+.route circle{fill:var(--room);stroke:rgba(242,239,231,.35);stroke-width:2;transition:fill .3s,stroke .3s}
+.route circle.hit{fill:var(--lime);stroke:var(--lime)}
+.route text{fill:rgba(242,239,231,.75);font:500 13px Urbanist,sans-serif}
+.bubble{opacity:0;transform:translateY(10px);transition:opacity .5s var(--ease),transform .5s var(--ease)}
+.bubble.show{opacity:1;transform:none}
+.a4 .slip{opacity:0;transform:translateY(-14px);transition:opacity .45s var(--ease),transform .45s var(--ease)}
+.a4.show .slip{opacity:1;transform:none}
+.a4 .cutl{stroke:var(--cut);stroke-width:1.6;stroke-dasharray:6 5;fill:none}
+.a4 .guide{stroke-dashoffset:0}
+.stat{display:flex;gap:28px;margin-top:18px;flex-wrap:wrap}
+.stat div{font-size:14px;color:var(--mutedark);line-height:1.35}
+.stat b{display:block;font-family:"Doto",monospace;font-size:34px;font-weight:800;color:var(--lime);line-height:1}
+
+/* branches */
+.tree{margin-top:64px}
+.pcard{max-width:560px;margin:0 auto;background:var(--night);color:var(--paper);border-radius:18px;padding:22px 28px;text-align:center;font-size:20px;font-weight:600;line-height:1.4}
+.pcard span{display:block;font-size:14px;color:var(--mutedark);font-weight:500;margin-bottom:6px}
+.stem{height:40px;width:1px;background:var(--ink);margin:0 auto}
+.bar{height:1px;background:var(--ink);margin:0 12.5%}
+.opts{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+.opt{position:relative;background:var(--sheet);border:1px solid var(--line);border-radius:18px;padding:22px 22px 24px;margin-top:32px;font-size:16px;line-height:1.5}
+.opt::before{content:"";position:absolute;top:-33px;left:50%;width:1px;height:32px;background:var(--ink)}
+.opt h4{font-size:19px;font-weight:700;margin:10px 0 8px;line-height:1.25}
+.verdict{display:inline-block;font-size:12px;font-weight:700;padding:3px 10px;border-radius:99px;border:1px solid var(--line);color:var(--mute)}
+.verdict.kill{color:var(--cut);border-color:rgba(216,64,47,.35)}
+.verdict.keep{color:var(--ink);border-color:var(--ink)}
+.opt.win{background:var(--night);color:var(--paper);border-color:var(--night)}
+.opt.win .verdict{background:var(--lime);color:var(--night);border-color:var(--lime)}
+.opt.win p{color:rgba(242,239,231,.8)}
+.chips{display:flex;flex-wrap:wrap;gap:10px;margin-top:40px}
+.chips span{font-size:14px;font-weight:600;padding:7px 14px;border-radius:99px;border:1px solid var(--ink)}
+.rev{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:28px}
+.rv3{border-top:2px solid var(--cut);padding-top:18px;font-size:16px;line-height:1.55}
+.rv3 h4{font-size:19px;font-weight:700;line-height:1.25;margin-bottom:8px}
+.subhead{font-size:22px;font-weight:700;margin-top:72px}
+
+/* decisions */
+.dec{padding:120px 0 0}
+.dec:last-of-type{padding-bottom:136px}
+.num{font-family:"Doto",monospace;font-weight:800;font-size:84px;line-height:.8;color:var(--limedeep);opacity:.55;margin-bottom:22px;display:block}
+.pair{display:grid;grid-template-columns:1.45fr 1fr;gap:24px;align-items:start}
+
+/* craft */
+.pal{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:56px}
+.sw{border-radius:16px;overflow:hidden;border:1px solid var(--linedark)}
+.sw .c{height:104px;padding:14px;font-size:13px;font-weight:600}
+.sw .m{padding:14px 16px;font-size:14px;line-height:1.45;background:var(--room)}
+.sw .m b{display:block;font-size:16px}
+.sw .m span{color:var(--mutedark)}
+.pass{display:inline-block;margin-top:6px;font-size:12px;font-weight:700;padding:2px 8px;border-radius:99px;background:rgba(230,244,147,.14);color:var(--lime)}
+.pass.no{background:rgba(216,64,47,.2);color:#FF8C7D}
+.type{display:grid;grid-template-columns:1fr 1fr;gap:40px;margin-top:64px;border-top:1px solid var(--linedark);padding-top:40px}
+.spec{font-size:13px;color:var(--mutedark);margin-top:10px;font-weight:500}
+.bug{margin-top:72px;display:grid;grid-template-columns:1fr 1.2fr;gap:48px;align-items:center;border-top:1px solid var(--linedark);padding-top:48px}
+.ruler{position:relative;height:120px}
+.ruler .axis{position:absolute;left:0;right:0;top:64px;height:1px;background:rgba(242,239,231,.4)}
+.ruler .mk{position:absolute;top:44px;width:1px;height:40px;background:rgba(242,239,231,.4)}
+.ruler .mk span{position:absolute;top:46px;left:50%;transform:translateX(-50%);font-size:13px;color:var(--mutedark);white-space:nowrap}
+.ruler .dev{position:absolute;top:52px;height:24px;background:rgba(230,244,147,.25);border:1px solid var(--lime);border-radius:6px}
+.ruler .old{position:absolute;top:10px;width:2px;height:108px;background:var(--cut)}
+.ruler .new{position:absolute;top:10px;width:2px;height:108px;background:var(--lime)}
+.ruler .old b,.ruler .new b{position:absolute;top:-4px;left:8px;font-size:13px;white-space:nowrap}
+.ruler .old b{color:#FF8C7D}.ruler .new b{color:var(--lime)}
+
+/* outcome */
+.retired{display:grid;grid-template-columns:repeat(5,1fr);gap:12px;margin-top:48px}
+.retired div{background:var(--sheet);border:1px solid var(--line);border-radius:16px;padding:18px;font-size:16px;font-weight:600;line-height:1.35}
+.retired div span{display:block;font-size:13px;font-weight:600;color:var(--cut);margin-bottom:8px}
+.still{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:12px}
+.still div{border:1px dashed var(--mute);border-radius:16px;padding:18px;font-size:15px;line-height:1.45;color:var(--mute)}
+.still div b{display:block;color:var(--ink);font-size:16px;margin-bottom:4px}
+.metric{display:inline;background:#FFF1A8;border:1px dashed #B59A00;padding:1px 8px;border-radius:6px;font-size:.9em;font-weight:600}
+.flaws{margin-top:56px;background:var(--sheet);border-radius:var(--r);padding:32px 36px;border-left:4px solid var(--cut)}
+.flaws h4{font-size:20px;font-weight:700}
+.flaws p{margin-top:10px;font-size:17px;max-width:70ch}
+
+/* roadmap */
+.road{margin-top:64px;display:grid;grid-template-columns:repeat(6,1fr);position:relative}
+.road::before{content:"";position:absolute;left:0;right:0;top:9px;height:2px;background:var(--line)}
+.road .st{position:relative;padding-top:34px;padding-right:18px;font-size:15px;line-height:1.4}
+.road .st::before{content:"";position:absolute;top:2px;left:0;width:16px;height:16px;border-radius:50%;background:var(--ink)}
+.road .st.f{color:var(--mute)} .road .st.f::before{background:var(--paper);border:2px solid var(--line)}
+.road .st b{display:block;font-size:13px;color:var(--mute);font-weight:600;margin-bottom:4px}
+.road .here{position:absolute;top:-30px;left:0;font-size:12px;font-weight:700;background:var(--lime);color:var(--night);padding:2px 9px;border-radius:99px;white-space:nowrap}
+
+footer{padding:96px 0 80px;font-size:15px;line-height:1.6}
+.cred{display:grid;grid-template-columns:repeat(4,1fr);gap:32px;border-top:1px solid var(--linedark);padding-top:32px}
+.cred b{display:block;color:var(--paper);font-weight:700;margin-bottom:6px}
+.cred div{color:var(--mutedark)}
+
+/* reveal */
+.rv{opacity:0;transform:translateY(22px);filter:blur(6px);transition:opacity .8s var(--ease),transform .8s var(--ease),filter .8s var(--ease)}
+.rv.in{opacity:1;transform:none;filter:none}
+@media (prefers-reduced-motion:reduce){
+  .rv{opacity:1;transform:none;filter:none;transition:none}
+  html{scroll-behavior:auto}
+  .bubble,.a4 .slip{opacity:1;transform:none;transition:none}
+}
+@media (max-width:980px){
+  :root{--pad:24px}
+  section{padding:96px 0}
+  .row{grid-template-columns:1fr;gap:14px}
+  .lab{padding-top:0}
+  .glance{grid-template-columns:1fr}
+  .glance div:nth-child(even){padding-left:0;border-left:0}
+  .glance div:nth-child(odd){padding-right:0}
+  .glance div{grid-template-columns:120px 1fr}
+  .rooms,.jobs,.outputs,.pair,.type,.bug,.rev,.still{grid-template-columns:1fr}
+  .opts{grid-template-columns:1fr 1fr}
+  .opt::before,.bar{display:none}
+  .pal{grid-template-columns:1fr 1fr}
+  .retired{grid-template-columns:1fr 1fr}
+  .road{grid-template-columns:1fr 1fr;row-gap:28px}
+  .road::before{display:none}
+  .cred{grid-template-columns:1fr 1fr}
+  .week .h,.week .r{grid-template-columns:1fr;gap:6px}
+  .week .h div:last-child{display:none}
+  .title{margin-top:72px}
+}
+</style>
+</head>
+<body>
+
+<!-- HERO -->
+<header class="dark hero">
+  <div class="wrap">
+    <div class="top"><span><b>Nesil Noble</b> &nbsp;·&nbsp; Case study</span><span>Internal tool &nbsp;·&nbsp; Shipped 2026</span></div>
+    <div class="title">
+      <h1>Temple</h1>
+      <span class="tag">Where Malayali Kada runs…</span>
+    </div>
+    <p class="oneline">The internal dashboard that took Malayali Kada’s weekly delivery off pen and paper.</p>
+    <p class="hook">Every week, <b>five co founders</b> grouped orders <b>by hand</b>, wrote <b>every packing slip</b>, drew the <b>route on paper</b> and worked out profit on a <b>calculator</b>. Spreadsheets, Shopify’s dashboard and inventory apps all failed. <b>I designed Temple in Figma and built it with Claude Code.</b></p>
+    <figure class="herofig">
+      <div class="frame"><img decoding="async" src="media/temple/01.webp" width="2000" height="1270" alt="Temple Delivery home: a greeting with 22 orders to fulfil, an Order Health comparison, orders split across Ecity, Begur and Others, and the orders table."></div>
+    </figure>
+  </div>
+</header>
+<div class="dark"><div class="wrap"><figcaption style="margin:0;padding:18px 0 40px"><span class="sample">Sample data</span>Delivery, the week of 5 to 11 September 2026. Member names and flat numbers replaced; real figures withheld.</figcaption></div></div>
+
+<!-- AT A GLANCE -->
+<section class="tight" style="padding:96px 0 120px">
+  <div class="wrap">
+    <div class="row">
+      <div class="lab">At a glance</div>
+      <div>
+        <dl class="glance rv">
+          <div><dt>Role</dt><dd><b>Sole designer and builder.</b> Also a co founder of Malayali Kada.</dd></div>
+          <div><dt>What I owned</dt><dd>Problem definition, information architecture, wireframes, hi fi screens in Figma, a written spec for every screen, every data rule, testing against live orders, every deploy.</dd></div>
+          <div><dt>What I didn’t</dt><dd><b>The code.</b> Claude Code wrote it from my specs. I directed, reviewed and tested it; I didn’t write it by hand.</dd></div>
+          <div><dt>Users</dt><dd>The five co founders. The delivery person never logs in; they only receive what Temple produces.</dd></div>
+          <div><dt>Timeline</dt><dd>Started 22 May 2026. Inventory and Delivery live by the end of May. Finance live in June.</dd></div>
+          <div><dt>Status</dt><dd>Shipped and in use. Web, on laptops and phones, behind a sign in.</dd></div>
+          <div><dt>Stack</dt><dd>Next.js, Shopify Admin API, Google Sheets, Upstash Redis, Vercel.</dd></div>
+          <div><dt>Budget</dt><dd>None for software. That constraint shaped everything below.</dd></div>
+        </dl>
+        <div class="rooms rv">
+          <div class="room"><h4>Inventory</h4><p>Stock across two locations, and the list of what to restock.</p></div>
+          <div class="room on"><h4>Delivery</h4><p>Orders, sourcing, packing slips, routes.</p><span class="flag">This page follows Delivery</span></div>
+          <div class="room"><h4>Finance</h4><p>A weekly ledger with cost frozen per order.</p></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTEXT -->
+<section style="padding-top:0">
+  <div class="wrap">
+    <div class="row">
+      <div class="lab">Context</div>
+      <div>
+        <h2 class="rv">A Kerala food store in Bengaluru, <span class="lt">two stock locations and one delivery run a week.</span></h2>
+        <div class="body rv">
+          <p>Malayali Kada sells homemade and small batch Kerala food to Malayalis in Bengaluru. Orders come through a Shopify store. Stock sits in two places, Electronic City and Begur, and delivery runs once a week, by choice.</p>
+          <p>By May 2026 the store had outgrown the way we ran it: WhatsApp groups, spreadsheets, and pen and paper. There was no budget for an analytics product or a delivery app. So I designed the tool and built it. We named it Temple, after the building at the centre of a Kerala village.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PROBLEM -->
+<section style="padding-top:0">
+  <div class="wrap">
+    <div class="row">
+      <div class="lab">The problem</div>
+      <div>
+        <h2 class="rv">Shopify could tell us what sold. <span class="lt">It couldn’t tell us what to pack, for whom, or in what order.</span></h2>
+        <div class="body rv">
+          <p>Shopify’s analytics dashboard is built for a bigger store: too much information, too many trackers, and none of the answers a weekly run needs. It shows stock, but not what to restock across two locations. It lists orders, but can’t group them by building, print a slip or plan a route. So every week, the same six jobs were done by hand.</p>
+        </div>
+        <div class="week rv" role="table" aria-label="The weekly routine before and after Temple">
+          <div class="h" role="row"><div>Before, every week</div><div>Now, in Temple</div></div>
+          <div class="r" role="row"><div>Open Shopify, check two locations, guess what needs restocking</div><div>A restock list, split by location</div></div>
+          <div class="r" role="row"><div>Scan addresses to find orders going to the same building</div><div>Orders grouped by building</div></div>
+          <div class="r" role="row"><div>Write a packing slip for every order</div><div>Four slips per A4 sheet, printed</div></div>
+          <div class="r" role="row"><div>Work out who sources which items for which orders</div><div>One sourcing list per founder</div></div>
+          <div class="r" role="row"><div>Draw the delivery route on paper</div><div>A WhatsApp message in drive order</div></div>
+          <div class="r" role="row"><div>Excel, a calculator, and a script someone ran every Sunday</div><div>A weekly ledger that updates itself</div></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- EVIDENCE -->
+<section style="padding-top:0">
+  <div class="wrap">
+    <div class="row">
+      <div class="lab">Evidence</div>
+      <div>
+        <h2 class="rv">No research budget. <span class="lt">The evidence was our own weeks and the orders in Shopify.</span></h2>
+        <div class="body rv">
+          <p>I didn’t run interviews or a survey. The users were the five founders, me included, and I did the weekly routine myself. I worked from that routine, the live Shopify orders, the pricing and sourcing sheets we already kept, and every failure that real data exposed once Temple was running.</p>
+          <p class="mute">The limit is plain: this is a tool designed by one of its five users. It proves the design worked for us, not that it would work for anyone else.</p>
+        </div>
+        <div class="jobs rv">
+          <div class="job"><span>When a week’s orders close,</span> <b>I want them grouped by building,</b> <span>so one stop serves every order there.</span></div>
+          <div class="job"><span>When we pack,</span> <b>I want a printed slip for every order,</b> <span>so nobody copies an address by hand.</span></div>
+          <div class="job"><span>When the route goes out,</span> <b>I want it in the delivery person’s WhatsApp,</b> <span>so they never need our tool.</span></div>
+          <div class="job"><span>When I read profit,</span> <b>I want each order to keep the cost it sold at,</b> <span>so last month doesn’t change when a price does.</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- THE TURN -->
+<section class="dark turn">
+  <div class="wrap">
+    <div class="row">
+      <div class="lab">The turn</div>
+      <div>
+        <p class="turnq rv">A weekly delivery doesn’t need a dashboard to <b>look at</b>. It needs two things it can <b class="l">hand over</b>: a <b>WhatsApp message</b> the delivery person can follow, and a <b>sheet of paper</b> someone can cut.</p>
+        <p class="body rv">Once I saw that, the brief changed. Every screen in Delivery exists to produce those two outputs correctly. The charts are secondary.</p>
+      </div>
+    </div>
+    <div class="outputs">
+      <div class="out">
+        <h4>Output one: the route, in the order it is driven</h4>
+        <svg class="route" id="route" viewBox="0 0 640 380" role="img" aria-label="A delivery route through six buildings in Electronic City, ending in a WhatsApp message listing each stop.">
+          <path class="road" d="M40 320 C 120 320, 110 220, 190 220 S 270 300, 330 250 S 380 110, 450 120 S 540 200, 600 90"/>
+          <path class="drive" id="drive" d="M40 320 C 120 320, 110 220, 190 220 S 270 300, 330 250 S 380 110, 450 120 S 540 200, 600 90"/>
+          <g id="stops">
+            <circle cx="40" cy="320" r="8"/><text x="52" y="346">GM Infinite Ecity</text>
+            <circle cx="190" cy="220" r="8"/><text x="150" y="200">Smondo 2</text>
+            <circle cx="275" cy="280" r="8"/><text x="236" y="310">Green Terraces</text>
+            <circle cx="330" cy="250" r="8"/><text x="300" y="234">MJR Clique Hercules</text>
+            <circle cx="450" cy="120" r="8"/><text x="380" y="100">Concorde Manhattans</text>
+            <circle cx="600" cy="90" r="8"/><text x="506" y="66">Gopalan Lakefront</text>
+          </g>
+          <g class="bubble" id="bubble">
+            <rect x="476" y="206" width="156" height="150" rx="16" fill="#F2EFE7"/>
+            <path d="M606 356 l18 14 l-4 -18z" fill="#F2EFE7"/>
+            <text x="490" y="232" style="fill:#1E211E;font:700 12px Urbanist">MK 1882</text>
+            <text x="490" y="250" style="fill:#62665F;font:500 12px Urbanist">GM Infinite Ecity</text>
+            <text x="490" y="268" style="fill:#62665F;font:500 12px Urbanist">Mob: +91 90000 00001</text>
+            <line x1="490" y1="280" x2="618" y2="280" stroke="#DCD8CC"/>
+            <text x="490" y="300" style="fill:#1E211E;font:700 12px Urbanist">MK 1879</text>
+            <text x="490" y="318" style="fill:#62665F;font:500 12px Urbanist">GM Global Techie Town</text>
+            <text x="490" y="336" style="fill:#62665F;font:500 12px Urbanist">Mob: +91 90000 00003</text>
+          </g>
+        </svg>
+        <div class="stat"><div><b>24</b>buildings on the<br>Ecity route map</div><div><b>4</b>on the<br>Begur map</div><div><b>1</b>message, pasted<br>into WhatsApp</div></div>
+      </div>
+      <div class="out">
+        <h4>Output two: four slips to a sheet</h4>
+        <svg class="a4" id="a4" viewBox="0 0 420 380" role="img" aria-label="An A4 sheet holding four packing slips in a two by two grid, with red dashed cut guides between them.">
+          <rect x="75" y="10" width="270" height="360" rx="6" fill="#F2EFE7"/>
+          <g class="slip" style="transition-delay:.05s"><rect x="89" y="24" width="115" height="158" rx="6" fill="#fff"/><rect x="89" y="24" width="115" height="30" rx="6" fill="#1B1D1B"/><circle cx="110" cy="39" r="7" fill="#F3CF5A"/><rect x="122" y="35" width="60" height="7" rx="3" fill="#E6F493"/><rect x="99" y="66" width="44" height="8" rx="3" fill="#1E211E"/><rect x="99" y="82" width="70" height="6" rx="3" fill="#9A9E97"/><rect x="99" y="94" width="92" height="5" rx="2" fill="#C9C7BF"/><rect x="99" y="104" width="84" height="5" rx="2" fill="#C9C7BF"/><rect x="99" y="126" width="94" height="1" fill="#DCD8CC"/><rect x="99" y="136" width="40" height="6" rx="3" fill="#1E211E"/><rect x="171" y="135" width="22" height="8" rx="3" fill="#1E211E"/></g>
+          <g class="slip" style="transition-delay:.2s"><rect x="216" y="24" width="115" height="158" rx="6" fill="#fff"/><rect x="216" y="24" width="115" height="30" rx="6" fill="#1B1D1B"/><circle cx="237" cy="39" r="7" fill="#F3CF5A"/><rect x="249" y="35" width="60" height="7" rx="3" fill="#E6F493"/><rect x="226" y="66" width="44" height="8" rx="3" fill="#1E211E"/><rect x="226" y="82" width="60" height="6" rx="3" fill="#9A9E97"/><rect x="226" y="94" width="92" height="5" rx="2" fill="#C9C7BF"/><rect x="226" y="104" width="78" height="5" rx="2" fill="#C9C7BF"/><rect x="226" y="126" width="94" height="1" fill="#DCD8CC"/><rect x="226" y="136" width="40" height="6" rx="3" fill="#1E211E"/><rect x="298" y="135" width="22" height="8" rx="3" fill="#1E211E"/></g>
+          <g class="slip" style="transition-delay:.35s"><rect x="89" y="198" width="115" height="158" rx="6" fill="#fff"/><rect x="89" y="198" width="115" height="30" rx="6" fill="#1B1D1B"/><circle cx="110" cy="213" r="7" fill="#F3CF5A"/><rect x="122" y="209" width="60" height="7" rx="3" fill="#E6F493"/><rect x="99" y="240" width="44" height="8" rx="3" fill="#1E211E"/><rect x="99" y="256" width="66" height="6" rx="3" fill="#9A9E97"/><rect x="99" y="268" width="92" height="5" rx="2" fill="#C9C7BF"/><rect x="99" y="278" width="70" height="5" rx="2" fill="#C9C7BF"/><rect x="99" y="300" width="94" height="1" fill="#DCD8CC"/><rect x="99" y="310" width="40" height="6" rx="3" fill="#1E211E"/><rect x="171" y="309" width="22" height="8" rx="3" fill="#1E211E"/></g>
+          <g class="slip" style="transition-delay:.5s"><rect x="216" y="198" width="115" height="158" rx="6" fill="#fff"/><rect x="216" y="198" width="115" height="30" rx="6" fill="#1B1D1B"/><circle cx="237" cy="213" r="7" fill="#F3CF5A"/><rect x="249" y="209" width="60" height="7" rx="3" fill="#E6F493"/><rect x="226" y="240" width="44" height="8" rx="3" fill="#1E211E"/><rect x="226" y="256" width="72" height="6" rx="3" fill="#9A9E97"/><rect x="226" y="268" width="92" height="5" rx="2" fill="#C9C7BF"/><rect x="226" y="278" width="86" height="5" rx="2" fill="#C9C7BF"/><rect x="226" y="300" width="94" height="1" fill="#DCD8CC"/><rect x="226" y="310" width="40" height="6" rx="3" fill="#1E211E"/><rect x="298" y="309" width="22" height="8" rx="3" fill="#1E211E"/></g>
+          <line class="cutl guide" id="cutv" x1="210" y1="14" x2="210" y2="366"/>
+          <line class="cutl guide" id="cuth" x1="79" y1="190" x2="341" y2="190"/>
+          <text x="352" y="194" style="fill:#FF8C7D;font:600 12px Urbanist">cut</text>
+        </svg>
+        <div class="stat"><div><b>4</b>slips per<br>A4 sheet</div><div><b>2</b>cuts per<br>sheet</div><div><b>1:1</b>print scale,<br>from any device</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- EXPLORATIONS -->
+<section>
+  <div class="wrap">
+    <div class="row">
+      <div class="lab">Options and tradeoffs</div>
+      <div>
+        <h2 class="rv">Spreadsheets survived as the database <span class="lt">and died as the interface.</span></h2>
+        <div class="body rv">
+          <p>We tried the obvious tools before building anything. Each one failed at a specific job, and one of them earned a second life inside Temple.</p>
+        </div>
+      </div>
+    </div>
+    <div class="tree rv">
+      <div class="pcard"><span>The problem, stated as constraints</span>Five founders. One weekly run. Two stock locations. No budget.</div>
+      <div class="stem"></div><div class="bar"></div>
+      <div class="opts">
+        <div class="opt"><span class="verdict kill">Killed</span><h4>Shopify’s dashboard</h4><p>Too many trackers for five people, and no way to group orders by building, print a slip or plan a route.</p></div>
+        <div class="opt"><span class="verdict kill">Killed</span><h4>Inventory apps</h4><p>They covered stock, not the delivery run. The budget couldn’t stretch to one paid tool per job.</p></div>
+        <div class="opt"><span class="verdict keep">Kept, as data</span><h4>Spreadsheets</h4><p>The founders already maintained the pricing and sourcing sheets. Temple reads them directly: no migration, nothing new to learn.</p></div>
+        <div class="opt win"><span class="verdict">Chosen</span><h4>Build it ourselves</h4><p>The cost: I become the maintainer. So it’s plain JavaScript, inline styles, no component library, one file per module. Choices I can read.</p></div>
+      </div>
+    </div>
+    <div class="row" style="margin-top:24px">
+      <div></div>
+      <div>
+        <div class="chips rv"><span>No software budget</span><span>Shopify is the only backend</span><span>Sheets stay the source of truth</span><span>A non engineer maintains it</span><span>Vercel Hobby plan</span><span>Our phones: 768 to 820 px wide</span></div>
+        <p class="subhead rv">Three things I built, then reversed</p>
+        <div class="rev rv">
+          <div class="rv3"><h4>Routing by pincode</h4><p>Shopify hands you a pincode, so version one sorted orders by it. Then an order from a Lakeview address, a building already on our route map, landed in Others. A pincode describes a post office, not a road.</p></div>
+          <div class="rv3"><h4>Making Order Health consistent</h4><p>I matched both bars to unfulfilled orders, then put Last Week back to all orders. This week is a to do count; last week is a volume reference. Consistency was the wrong instinct.</p></div>
+          <div class="rv3"><h4>Reading cost live</h4><p>Profit read cost from the sheet on every load, so one edit to a cost rewrote every past week. Revenue was already frozen by Shopify at checkout. Cost was the missing half.</p></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- DECISIONS -->
+<div class="wrap"><div class="row"><div class="lab">The solution</div><div><h2 class="rv">Five decisions, <span class="lt">in the order the week happens.</span></h2></div></div></div>
+
+<section class="dec" style="padding-top:88px">
+  <div class="wrap">
+    <div class="row">
+      <div class="lab">When orders close</div>
+      <div>
+        <span class="num" aria-hidden="true">01</span>
+        <h3 class="rv">Sourcing is split by founder, and labelled with the name printed on the slip.</h3>
+        <div class="body rv"><p>Unfulfilled orders become one list per founder, using the owner column of the sourcing sheet. Shopify titles and sheet names never match exactly, so a matcher compares word sets; I tested it against 24 real product titles before it shipped. Anything it can’t place is listed as unmapped: a to do for the sheet. Lists show Shopify’s name, because that is the name the packer reads.</p></div>
+      </div>
+    </div>
+    <figure class="rv"><div class="frame"><img decoding="async" loading="lazy" src="media/temple/02.webp" width="2000" height="1272" alt="Fulfilment Dependency tab: one card per founder listing products and unit counts to source, with an empty state reading Nothing to source."></div>
+      <figcaption>Sabin’s card shows the empty state, “Nothing to source”, instead of hiding the card: every founder can see the whole week.</figcaption></figure>
+  </div>
+</section>
+
+<section class="dec">
+  <div class="wrap">
+    <div class="row">
+      <div class="lab">When we pack</div>
+      <div>
+        <span class="num" aria-hidden="true">02</span>
+        <h3 class="rv">Four slips to an A4 sheet, cut guides included, printed full size from a phone.</h3>
+        <div class="body rv"><p>On a phone the preview is scaled to half, so a whole sheet fits the screen. The print always comes out full size, because it renders in its own window with its own styles. Red dashed guides mark the two cuts. The slip carries the Malayali Kada logo, not Temple’s: members see the slip, never the tool. One tap adds every order to the print queue.</p></div>
+      </div>
+    </div>
+    <figure class="rv"><div class="pair">
+      <div class="frame"><img decoding="async" loading="lazy" src="media/temple/03.webp" width="2000" height="1269" alt="Printing Paper view: a queue of order numbers on the left and a preview of packing slips with red cut guides on the right."></div>
+      <div class="frame" style="background:#6f6f6f"><img decoding="async" loading="lazy" src="media/temple/04.webp" width="1939" height="1357" alt="The browser print dialog showing one A4 page holding four packing slips with cut guides."></div>
+    </div><figcaption><span class="sample">Sample data</span>Left, the print queue. Right, what reaches the printer: four slips on one page.</figcaption></figure>
+  </div>
+</section>
+
+<section class="dec">
+  <div class="wrap">
+    <div class="row">
+      <div class="lab">Before the run</div>
+      <div>
+        <span class="num" aria-hidden="true">03</span>
+        <h3 class="rv">Orders are routed by the building in the address, not the pincode.</h3>
+        <div class="body rv"><p>Each region has a root route map: its buildings, in the order they are driven. Temple scans every address for a building on those maps. Anything unmatched goes to Others, which turned from a dumping ground into a to do list of orders that aren’t on a route yet. Pincodes are still stored, but never used to route.</p></div>
+      </div>
+    </div>
+    <figure class="rv"><div class="frame"><img decoding="async" loading="lazy" src="media/temple/05.webp" width="2000" height="1265" alt="Edit Root Route Map: 24 Electronic City buildings in numbered cards that can be dragged to reorder."></div></figure>
+    <figure class="rv" style="margin-top:20px"><div class="frame"><img decoding="async" loading="lazy" src="media/temple/06.webp" width="1667" height="354" alt="Route Map footer warning: 7 orders in this date range don't match any block in the route maps, see the Others tab."></div>
+      <figcaption>The warning that proves the reversal: seven orders this week sit outside every route, and Temple says so instead of guessing.</figcaption></figure>
+  </div>
+</section>
+
+<section class="dec">
+  <div class="wrap">
+    <div class="row">
+      <div class="lab">Dispatch</div>
+      <div>
+        <span class="num" aria-hidden="true">04</span>
+        <h3 class="rv">The route leaves Temple as a WhatsApp message, in drive order.</h3>
+        <div class="body rv"><p>The delivery person has no login and needs none. Generate Preview writes one message with the order number, address and phone for every stop, in route order. Copy, paste, send. The design goal was an output someone else can use without ever learning Temple.</p></div>
+      </div>
+    </div>
+    <figure class="rv"><div class="frame"><img decoding="async" loading="lazy" src="media/temple/07.webp" width="2000" height="1249" alt="Route Map tab for Ecity: stops listed in drive order on the left and the generated WhatsApp message preview with a Copy button on the right."></div>
+      <figcaption><span class="sample">Sample data</span>Phone numbers and flat numbers replaced.</figcaption></figure>
+  </div>
+</section>
+
+<section class="dec">
+  <div class="wrap">
+    <div class="row">
+      <div class="lab">When the week closes</div>
+      <div>
+        <span class="num" aria-hidden="true">05</span>
+        <h3 class="rv">Every order keeps the cost it was sold at.</h3>
+        <div class="body rv"><p>The ledger runs on our own finance week, Saturday to Friday 10 pm IST, and rolls up to months and years. Revenue is the price Shopify recorded at checkout. Cost is frozen per order line the first time Temple sees it, so a cost edit in the sheet only affects orders after the edit. Tips are excluded, and a 500g pack can never match the 1kg row.</p></div>
+      </div>
+    </div>
+    <figure class="rv"><div class="frame"><img decoding="async" loading="lazy" src="media/temple/08.webp" width="2000" height="1271" alt="Finance home: business health and product health cards, a product of the period card, and a yearly ledger table."></div>
+      <figcaption><span class="sample">Sample data</span>All revenue, cost and profit figures replaced. Real figures withheld.</figcaption></figure>
+  </div>
+</section>
+
+<!-- CRAFT -->
+<section class="dark">
+  <div class="wrap">
+    <div class="row">
+      <div class="lab">Craft</div>
+      <div>
+        <h2 class="rv">Dark cards, light tables. <span class="lt">Long lists of names and numbers read better on paper.</span></h2>
+        <div class="body rv"><p>Temple’s cards sit on a near black green, and every table inside them is light. The switch is deliberate: the dark carries summaries you glance at, the light carries rows you read. One accent, a pale lime, marks what needs action: the active tab, the primary button, the figure that matters.</p></div>
+      </div>
+    </div>
+    <div class="pal rv">
+      <div class="sw"><div class="c" style="background:#212522;color:#F2EFE7">#212522</div><div class="m"><b>Night</b><span>App background</span></div></div>
+      <div class="sw"><div class="c" style="background:#262B27;color:#F2EFE7">#262B27</div><div class="m"><b>Room</b><span>Cards and surfaces</span></div></div>
+      <div class="sw"><div class="c" style="background:#4C564E;color:#F2EFE7">#4C564E</div><div class="m"><b>Sidebar</b><span>The floating nav capsule</span></div></div>
+      <div class="sw"><div class="c" style="background:#E6F493;color:#212522">#E6F493</div><div class="m"><b>Lime</b><span>On Night: 13.1:1</span><br><span class="pass">AAA</span></div></div>
+      <div class="sw"><div class="c" style="background:#FFFFFF;color:#212522">#FFFFFF</div><div class="m"><b>Paper</b><span>Night text on Paper: 15.5:1</span><br><span class="pass">AAA</span></div></div>
+      <div class="sw"><div class="c" style="background:#CCE2BB;color:#213B29">#CCE2BB / #213B29</div><div class="m"><b>Connected</b><span>Shopify status pill: 8.8:1</span><br><span class="pass">AAA</span></div></div>
+      <div class="sw"><div class="c" style="background:#F07D0B;color:#212522">#F07D0B</div><div class="m"><b>Low stock</b><span>On Night: 5.7:1</span><br><span class="pass">AA</span></div></div>
+      <div class="sw"><div class="c" style="background:#E42222;color:#fff">#E42222</div><div class="m"><b>Out of stock</b><span>On Night: 3.4:1</span><br><span class="pass no">Large text only</span></div></div>
+    </div>
+    <div class="type rv">
+      <div>
+        <p style="font-size:44px;font-weight:700;line-height:1.1">Hi Nesil,</p>
+        <p class="spec">Urbanist Bold · 44 / 48 · the greeting that states the week’s job</p>
+        <p style="font-size:22px;font-weight:400;line-height:1.4;margin-top:24px;color:rgba(242,239,231,.8)">welcome to MK Temple. You have <b style="color:#FF7A5C;font-weight:700">22 orders</b> to fulfil</p>
+        <p class="spec">Urbanist Regular · 22 / 31 · one count, coloured, so the number is the sentence</p>
+      </div>
+      <div>
+        <p class="dot" style="font-size:88px;font-weight:800;line-height:.9;color:var(--lime)">55%</p>
+        <p class="spec">Matrix Sans Print, used once: the inventory health numeral. Shown here in Doto, a close dot matrix cousin.</p>
+        <p class="small mute" style="margin-top:18px;max-width:40ch">A second typeface, allowed exactly one job. Health is the one number that should look like an instrument reading, not a label.</p>
+      </div>
+    </div>
+    <figure class="rv"><div class="frame"><img decoding="async" loading="lazy" src="media/temple/09.webp" width="2000" height="1270" alt="Inventory home: a dot matrix health percentage, total stock split between Ecity and Begur, low stock counts, and the product table."></div>
+      <figcaption>Inventory, the first module built. Health numeral in Matrix Sans Print, stock split by location, out of stock rows tinted.</figcaption></figure>
+    <div class="bug rv">
+      <div>
+        <h3>Five mobile bugs, one line of code.</h3>
+        <p class="body small" style="margin-top:16px">After the first mobile pass I logged five bugs: a sticky bar covering content, a clipped print popup, a calendar running off screen, cramped drag handles, a table that wouldn’t reflow. The fixes for all five already existed. Our devices measured 768 to 820 pixels wide, just above the 760 breakpoint, so they were being served the desktop layout. Moving the breakpoint to 900 fixed all five at once.</p>
+      </div>
+      <div class="ruler" aria-label="A width ruler: the devices sat between 768 and 820 pixels, above the old 760 breakpoint and below the new 900 breakpoint.">
+        <div class="axis"></div>
+        <div class="mk" style="left:0%"><span>600 px</span></div>
+        <div class="mk" style="left:33.3%"><span>700</span></div>
+        <div class="mk" style="left:66.6%"><span>800</span></div>
+        <div class="mk" style="left:99.8%"><span>900</span></div>
+        <div class="dev" style="left:56%;width:17.3%"></div>
+        <div class="old" style="left:53.3%"><b>760, before</b></div>
+        <div class="new" style="left:99.5%"><b style="left:auto;right:8px">900, after</b></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- OUTCOME -->
+<section>
+  <div class="wrap">
+    <div class="row">
+      <div class="lab">Outcome, qualitative</div>
+      <div>
+        <h2 class="rv">The notebook is gone. <span class="lt">The weekly cost form is still typed by hand.</span></h2>
+        <div class="body rv">
+          <p>No time study was run, so this is qualitative. The founders’ own estimate is that the weekly routine now takes hours less. <span class="metric">[METRIC NEEDED: weekly prep time before and after Temple, as a founder estimate, and who did the work]</span></p>
+        </div>
+        <p class="subhead rv" style="margin-top:48px">Retired</p>
+        <div class="retired rv">
+          <div><span>Gone</span>Handwritten packing slips</div>
+          <div><span>Gone</span>The route drawn on paper</div>
+          <div><span>Gone</span>Grouping orders by eye</div>
+          <div><span>Gone</span>Profit on a calculator</div>
+          <div><span>Gone</span>The script run by hand every Sunday</div>
+        </div>
+        <p class="subhead rv" style="margin-top:40px">Not solved</p>
+        <div class="still rv">
+          <div><b>Business costs</b>Delivery, fees and corrections are still entered by hand each week.</div>
+          <div><b>Bundles</b>The Adukkala Box has no cost yet, so it sits outside profit.</div>
+          <div><b>Name drift</b>Product names still drift between the sheet and Shopify. Temple surfaces the drift; it doesn’t fix it.</div>
+        </div>
+        <div class="flaws rv">
+          <h4>Two things on these screens are still wrong.</h4>
+          <p>The Order Health badge compares this week’s unfulfilled orders with last week’s total orders, so its percentage means nothing. And years with no orders are labelled “PROFIT ₹0” with a +100% badge, when they should read as no data. Both are on the fix list; I’d rather show them than crop them out.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- REFLECTION -->
+<section style="padding-top:0">
+  <div class="wrap">
+    <div class="row">
+      <div class="lab">Reflection</div>
+      <div>
+        <h2 class="rv">I started from the fields Shopify gave me, <span class="lt">not the road the delivery person drives.</span></h2>
+        <div class="body rv"><p>Pincode routing was the most expensive mistake in the build, and it came from designing around the data I had instead of the job being done. The route map, the order of buildings on an actual drive, was the real model all along. Next time I’d map the physical routine first and fit the data to it second.</p></div>
+        <div class="road rv">
+          <div class="st"><b>May 2026</b>Naming and first mock</div>
+          <div class="st"><b>May</b>Inventory, live Shopify stock</div>
+          <div class="st"><b>May</b>Delivery</div>
+          <div class="st"><span class="here">We are here</span><b>June</b>Finance</div>
+          <div class="st f"><b>Next</b>Automated weekly summaries</div>
+          <div class="st f"><b>Later</b>More delivery zones</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer class="dark">
+  <div class="wrap">
+    <div class="cred">
+      <div><b>Design and product</b>Nesil Noble: problem, IA, wireframes, screens, specs, data rules, testing, deploys.</div>
+      <div><b>Code</b>Claude Code, directed by Nesil from Figma files and written specs.</div>
+      <div><b>Users</b>Nesil, Ebin, Arun, Sabin and Rohit, the co founders of Malayali Kada.</div>
+      <div><b>Tools</b>Figma, Claude Code, VS Code, GitHub, Vercel, Upstash, Shopify, Google Sheets.</div>
+    </div>
+    <p class="small mute" style="margin-top:40px;max-width:80ch">Screens are from the live product, September 2026. Member names, flat numbers, phone numbers and all financial figures are replaced with sample data.</p>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var reduce=window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var io=new IntersectionObserver(function(es){es.forEach(function(e){if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target);}})},{threshold:.12});
+  document.querySelectorAll('.rv').forEach(function(el){ if(reduce){el.classList.add('in')} else io.observe(el); });
+
+  var drive=document.getElementById('drive'), route=document.getElementById('route');
+  var stops=[].slice.call(document.querySelectorAll('#stops circle'));
+  var bubble=document.getElementById('bubble');
+  var len=drive.getTotalLength();
+  var marks=stops.map(function(c){
+    var best=0,bd=1e9,cx=+c.getAttribute('cx'),cy=+c.getAttribute('cy');
+    for(var i=0;i<=200;i++){var p=drive.getPointAtLength(len*i/200),d=(p.x-cx)*(p.x-cx)+(p.y-cy)*(p.y-cy);if(d<bd){bd=d;best=i/200}}
+    return best;
+  });
+  function setRoute(t){
+    drive.style.strokeDasharray=len; drive.style.strokeDashoffset=len*(1-t);
+    stops.forEach(function(c,i){c.classList.toggle('hit',t>=marks[i]-0.01)});
+    bubble.classList.toggle('show',t>0.97);
+  }
+  var a4=document.getElementById('a4'), guides=[document.getElementById('cutv'),document.getElementById('cuth')];
+  function setGuides(t){guides.forEach(function(g){var L=g.getTotalLength();g.style.strokeDasharray='6 5';g.style.clipPath='inset(0 '+(100-t*100)+'% '+(100-t*100)+'% 0)'})}
+  if(reduce){setRoute(1);a4.classList.add('show');setGuides(1);return;}
+  setRoute(0); setGuides(0);
+  var ticking=false;
+  function onScroll(){
+    if(ticking)return; ticking=true;
+    requestAnimationFrame(function(){
+      var r=route.getBoundingClientRect(), vh=window.innerHeight;
+      var t=Math.min(1,Math.max(0,(vh*0.9-r.top)/(vh*0.6)));
+      setRoute(t);
+      var q=a4.getBoundingClientRect();
+      if(q.top<vh*0.75) a4.classList.add('show');
+      var g=Math.min(1,Math.max(0,(vh*0.7-q.top)/(vh*0.4)));
+      setGuides(g);
+      ticking=false;
+    });
+  }
+  window.addEventListener('scroll',onScroll,{passive:true}); onScroll();
+})();
+</script>
+</body>
+</html>

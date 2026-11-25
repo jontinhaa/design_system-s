@@ -1,0 +1,14 @@
+
+/* footer DOH!: letters wobble like jelly when the cursor touches them */
+.footer-wordmark .jl{display:inline-block;transform-origin:50% 100%;cursor:default}
+.footer-wordmark .jl.wob{animation:doh-jelly .9s cubic-bezier(.3,.7,.4,1) both}
+@keyframes doh-jelly{
+0%{transform:scale3d(1,1,1)}
+18%{transform:scale3d(1.22,.78,1)}
+32%{transform:scale3d(.82,1.2,1) translateY(-4%)}
+46%{transform:scale3d(1.12,.9,1)}
+60%{transform:scale3d(.95,1.06,1)}
+74%{transform:scale3d(1.04,.97,1)}
+88%{transform:scale3d(.99,1.01,1)}
+100%{transform:scale3d(1,1,1)}}
+@media(prefers-reduced-motion:reduce){.footer-wordmark .jl.wob{animation:none}}

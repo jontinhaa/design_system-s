@@ -1,0 +1,1352 @@
+<!DOCTYPE html>
+<html lang="en" data-page="gallery" data-ground="paper">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#fffdf8">
+<title>Design System | Michelle Kaye — Fine Arts</title>
+<meta name="description" content="Living design system and pattern library for the Michelle Kaye gallery: typography, rooms and surfaces, components, layout, motion and line icons, built from the original deep.css and deep.js.">
+<meta name="robots" content="noindex">
+<link rel="icon" href="site/michellekayewashington.com/favicon.ico" sizes="32x32">
+<link rel="icon" href="site/michellekayewashington.com/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="site/michellekayewashington.com/apple-touch-icon.png">
+<!-- Same assets as the original gallery: Cormorant (Google Fonts copy + the capture's embedded copy, for file://), deep.css, Lenis 1.1.20 and deep.js. -->
+<link href="site/fonts.googleapis.com/css2__qc5e3812a.css" rel="stylesheet">
+<link href="site/_runtime/file-fonts.css" rel="stylesheet">
+<link rel="stylesheet" href="site/michellekayewashington.com/css/deep.css">
+<style>
+/* =====================================================================
+   DESIGN-SYSTEM SCAFFOLDING (ds-*)
+   Layout of the documentation only. Every colour, size, font, easing and duration below is an
+   original token from deep.css or a declaration copied from it (the source rule is named), so
+   nothing here is a new style. State classes (.ds-hover, .ds-focus, .ds-active) freeze the
+   original :hover / :focus-visible / :active declarations so states can sit side by side.
+   ===================================================================== */
+.ds-docs { position: relative; z-index: 1; background: var(--bg); color: var(--fg); padding-bottom: 6rem; transition: background-color 0.9s var(--ease), color 0.9s var(--ease); }  /* body's own transition */
+.ds-section { border-top: 1px solid var(--rule); scroll-margin-top: 1rem; }
+.ds-block { margin: 0 0 clamp(3.5rem, 10vh, 7rem); }
+.ds-block:last-child { margin-bottom: 0; }
+.ds-sub { margin: 0 0 1.4rem; }
+.ds-lead { max-width: 62ch; margin: -0.6rem 0 1.8rem; }
+.ds-code { font: inherit; font-size: 0.85rem; letter-spacing: 0.02em; color: var(--muted); overflow-wrap: anywhere; }
+.ds-gap { display: block; height: 1.2rem; }
+
+/* Top horizontal nav: the minimap's capsule (deep.css .minimap) in the desktop .where slot (top right). */
+.ds-topnav { position: fixed; z-index: 31; top: calc(var(--pad) * 0.8); right: var(--pad); max-width: calc(100vw - var(--nav-w) - var(--pad) * 2); padding: 0.5rem 1.15rem; overflow-x: auto; scrollbar-width: none; background: color-mix(in srgb, var(--bg) 88%, transparent); border: 1px solid var(--rule); border-radius: 999px; transition: background-color 0.9s var(--ease), border-color 0.9s var(--ease); }
+.ds-topnav::-webkit-scrollbar { display: none; }
+.ds-topnav .nav-index { grid-auto-flow: column; gap: 1.25rem; }
+.ds-topnav .nav-index a { grid-template-columns: auto auto; column-gap: 0.45rem; font-size: 0.95rem; white-space: nowrap; }
+@media (max-width: 899px), (max-width: 999px) and (max-height: 520px) and (orientation: landscape) {
+  .ds-topnav { position: sticky; top: 4.6rem; right: auto; max-width: none; margin: 0 -1.25rem; padding: 0.6rem 1.25rem; border-width: 1px 0; border-radius: 0; }
+  .ds-section { scroll-margin-top: 7.4rem; }
+}
+
+/* Spec table (typography, tokens, durations) */
+.ds-spec { border-top: 1px solid var(--rule); }
+.ds-row { display: grid; grid-template-columns: minmax(9rem, 13rem) minmax(0, 1fr) minmax(7rem, auto); align-items: center; column-gap: clamp(1rem, 3vw, 3rem); padding: clamp(1.2rem, 3vh, 2rem) 0; border-bottom: 1px solid var(--rule); }
+.ds-row-name { display: grid; gap: 0.35rem; align-self: start; padding-top: 0.3rem; }
+.ds-row-preview { min-width: 0; }
+.ds-row-preview > * { margin: 0; }
+.ds-row-size { justify-self: end; text-align: right; white-space: nowrap; }
+@media (max-width: 599px) {
+  .ds-row { grid-template-columns: minmax(0, 1fr); row-gap: 0.9rem; }
+  .ds-row-size { justify-self: start; text-align: left; }
+}
+
+/* Grids, swatches, cards */
+.ds-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(10.5rem, 1fr)); gap: 2rem 1.25rem; }
+.ds-grid-2 { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 22rem), 1fr)); gap: 1.5rem; }
+.ds-grid-3 { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 17rem), 1fr)); gap: 1.25rem; }
+.ds-sw { display: grid; align-content: start; gap: 0.2rem; }
+.ds-sw .work-title { margin-top: 0.55rem; }
+.ds-chip { height: 5.5rem; border: 1px solid var(--rule); }
+.ds-chip[data-c="paper"] { background: var(--paper); }
+.ds-chip[data-c="wall"] { background: var(--wall); }
+.ds-chip[data-c="ink"] { background: var(--ink); }
+.ds-chip[data-c="muted"] { background: var(--muted); }
+.ds-chip[data-c="rose"] { background: var(--rose); }
+.ds-chip[data-c="rose-2"] { background: var(--rose-2); }
+.ds-chip[data-c="leaf"] { background: var(--leaf); }
+.ds-chip[data-c="cue"] { background: #6b3a30; }               /* .chapter[data-ground="paper"] .walk-cue */
+.ds-chip[data-c="rule"] { background: linear-gradient(var(--paper) calc(50% - 0.5px), rgb(18 10 9 / 14%) 0 calc(50% + 0.5px), var(--paper) 0); }
+.ds-chip[data-c="moss-ground"] { background: #2b2d20; }       /* html[data-ground="moss"] --bg */
+.ds-chip[data-c="wall-moss"] { background: var(--wall-moss); }
+.ds-chip[data-c="moss-muted"] { background: #bcb8a6; }
+.ds-chip[data-c="cream"] { background: #f4ede4; }             /* --fg on moss and ink */
+.ds-chip[data-c="ink-ground"] { background: #110c0b; }        /* html[data-ground="ink"] --bg, viewer */
+.ds-chip[data-c="wall-dark"] { background: var(--wall-dark); }
+.ds-chip[data-c="ink-muted"] { background: #b9a59c; }
+.ds-chip[data-c="viewer-meta"] { background: #cbb9ae; }       /* .viewer-meta */
+.ds-chip[data-c="peek-paper"] { background: #fcf6ee; }        /* .mm-peek[data-ground] bubbles */
+.ds-chip[data-c="peek-moss"] { background: #3c3d2f; }
+.ds-chip[data-c="peek-ink"] { background: #231c1b; }
+.ds-card { display: grid; grid-template-rows: auto auto 1fr auto; gap: 0.7rem; min-width: 0; padding: 1.4rem; border: 1px solid var(--rule); }
+.ds-card > .work-title { margin: 0; }
+.ds-card > .work-meta { margin: 0; }
+.ds-card > .pill { justify-self: start; }
+.ds-live { max-width: 62ch; margin: 0 0 1.4rem; }
+/* While the documentation is read, the gallery's fixed meter, place and page arrows step aside (they return over the hero and at the end). */
+#stage .minimap, #stage .where, [data-pager] { transition: opacity 0.6s var(--ease), visibility 0s linear 0s; }
+html.ds-reading #stage .minimap, html.ds-reading #stage .where, html.ds-reading [data-pager] { opacity: 0; visibility: hidden; pointer-events: none; transition: opacity 0.6s var(--ease), visibility 0s linear 0.6s; }
+.ds-stage { position: relative; display: grid; place-items: center; min-height: 10rem; padding: 1.5rem; overflow: hidden; background: var(--wall); }
+.ds-stage.is-plain { background: none; padding: 1rem 0; }
+.ds-states { display: flex; flex-wrap: wrap; align-items: flex-end; gap: 1.6rem 2.4rem; }
+.ds-state { display: grid; justify-items: start; gap: 0.75rem; }
+.ds-state > .work-meta { white-space: nowrap; }
+.ds-panel { position: relative; padding: clamp(1.5rem, 3vw, 2.5rem); border: 1px solid var(--rule); }
+.ds-dark { background: #110c0b; color: #f4ede4; border-color: rgb(244 237 228 / 16%); }   /* the viewer's ink */
+.ds-dark .work-meta { color: #cbb9ae; }
+.ds-c-rose { color: var(--rose); }
+.ds-c-muted { color: var(--muted); }
+
+/* Room contexts: a scoped copy of the html[data-ground] tokens (deep.css L27–46), so the three rooms
+   can be shown side by side; the walls, light and accents come from the original .chapter[data-ground] rules. */
+.chapter.ds-ctx { padding: 0; }
+.ds-room[data-ground="paper"] { --fg: var(--ink); --bg: var(--paper); --rule: rgb(18 10 9 / 14%); --muted: #7a6560; }
+.ds-room[data-ground="moss"] { --fg: #f4ede4; --bg: #2b2d20; --rule: rgb(244 237 228 / 16%); --muted: #bcb8a6; --room-title: #f4ede4; }
+.ds-room[data-ground="ink"] { --fg: #f4ede4; --bg: #110c0b; --rule: rgb(244 237 228 / 16%); --muted: #b9a59c; }
+.ds-room { color: var(--fg); }
+.wall-pin.ds-wallpin { position: relative; top: auto; height: auto; min-height: 15rem; }
+.ds-wallpin.ds-nofade::after { content: none; }
+.ds-room-in { position: relative; display: grid; align-content: start; gap: 0.3rem; padding: 1.6rem; }
+.ds-room-in .viewer-title { margin: 0.1rem 0 0.35rem; }
+.ds-band { display: flex; flex-wrap: wrap; align-items: center; gap: 0.5rem 1rem; padding: 0.9rem 1.6rem; background: var(--bg); color: var(--fg); }
+.ds-dot { display: inline-block; width: 1.4rem; height: 1.4rem; margin-right: 0.35rem; border-radius: 50%; border: 1px solid var(--rule); vertical-align: middle; }
+.ds-dot[data-v="fg"] { background: var(--fg); }
+.ds-dot[data-v="muted"] { background: var(--muted); }
+.ds-dot[data-v="rule"] { background: var(--rule); }
+.ds-dot[data-v="accent"] { background: var(--rose); }
+.ds-room[data-ground="moss"] .ds-dot[data-v="accent"] { background: var(--leaf); }
+.ds-room[data-ground="ink"] .ds-dot[data-v="accent"] { background: var(--rose-2); }
+
+/* Mini walls: the real .wall / .work / .work-label markup, unpinned and wrapping. */
+.ds-wall.wall-pin { position: relative; top: auto; height: auto; overflow: hidden; }
+.ds-wall.wall-pin::after { content: none; }
+.ds-wall .wall { position: relative; height: auto; min-height: 20rem; padding: 6rem clamp(1.5rem, 4vw, 3rem) 3rem; flex-wrap: wrap; row-gap: 7rem; will-change: auto; }
+.ds-wall .wall { gap: clamp(3rem, 4.5vw, 5.5rem); }   /* demo walls: a condensed --trail so a few works share one row */
+.ds-wall .work.ds-w-s .work-open { width: 6.5rem; }
+.ds-wall .wall .work-label { max-width: 9.5rem; }
+.ds-wall .work.ds-w-m .work-open { width: 11rem; }
+.ds-wall .work.ds-w-l .work-open { width: 14rem; }
+.ds-wall .bench { left: auto; right: clamp(1.5rem, 4vw, 3rem); bottom: 1rem; width: 8rem; }
+.strings.ds-strings { left: 0; top: -5.5rem; width: 100%; height: calc(5.5rem + 3px); }
+.strings.ds-strings.ds-round { height: calc(5.5rem + 3px + 4.2%); }
+.ds-lift { transform: translateY(-6px); }                   /* end of deep.js's 450ms hover lift */
+.ds-glass { padding: 0.5rem 0.75rem 0.55rem; border-radius: 4px; background: repeating-linear-gradient(90deg, rgb(255 255 255 / 9%) 0 1px, transparent 1px 5px), color-mix(in srgb, var(--wall) 58%, transparent); -webkit-backdrop-filter: blur(5px); backdrop-filter: blur(5px); box-shadow: inset 0 0 0 1px rgb(255 255 255 / 30%), 0 1px 8px rgb(28 18 14 / 5%); }   /* .wall .work-label.is-glass (phones) */
+
+/* Frozen states (copied from the original :hover / :focus-visible / :active rules) */
+.pill.ds-hover { background: var(--fg); color: var(--bg); }
+.pill-ink.ds-hover { background: var(--rose); border-color: var(--rose); color: var(--paper); }
+.modal-actions button.pill.ds-hover { background: var(--ink); color: var(--paper); }
+.ds-focus { outline: 2px solid var(--rose); outline-offset: 4px; }
+.pager-arrow.ds-hover { background: var(--fg); color: var(--bg); }
+.pager-arrow.ds-active { transform: scale(0.94); }
+.link-button.ds-hover { color: var(--fg); }
+.nav-index a.ds-hover { color: var(--fg); }
+.nav-index a.ds-hover .nav-label::after { transform: scaleX(1); }
+.news-links a.ds-hover { color: var(--fg); text-decoration: underline; text-underline-offset: 3px; }
+.work-buy.ds-hover { color: var(--ink); }
+.viewer-close.ds-hover,
+.viewer-step.ds-hover,
+.viewer-zoom.ds-hover { background: #f4ede4; color: var(--ink); }
+.viewer [data-viewer-buy] .pill.ds-hover { background: var(--rose-2); color: var(--ink); }
+.minimap a.ds-hover .mm-lit { opacity: 1 !important; }
+
+/* Fixed chrome shown in place (minimap, where, pager, peek, hint, charge words) */
+.minimap.ds-static,
+.where.ds-static,
+.pager.ds-static,
+.charge-caption.ds-static { position: relative; inset: auto; transform: none; z-index: auto; }
+.minimap.ds-static { display: inline-flex; }
+.where.ds-static { display: inline-grid; line-height: 1.2; }
+.mm-peek.ds-static { position: relative; inset: auto; z-index: auto; display: inline-grid; }
+.scrub-hint.ds-static { position: relative; left: 50%; display: block; z-index: auto; }
+.charge-line.ds-static { position: absolute; z-index: auto; }
+.ds-viewer-states.viewer { position: relative; inset: auto; z-index: auto; display: block; padding: clamp(1.5rem, 3vw, 2.5rem); }
+.ds-viewer-states .viewer-close,
+.ds-viewer-states .viewer-step { position: relative; inset: auto; transform: none; }
+.ds-viewer.viewer { position: relative; inset: auto; z-index: auto; min-height: 34rem; }
+.ds-viewer .viewer-figure { height: 26rem; }
+.ds-modal.modal { position: relative; inset: auto; z-index: auto; min-height: 24rem; padding: 2.5rem 1.25rem; overflow: hidden; background: center / cover no-repeat url("site/michellekayewashington.com/images/cut/work-sale-05__qe9b3bce0.webp"); }
+.ds-modal .modal-backdrop { cursor: default; }
+.ds-ring-on .charge-ring { opacity: 1; }
+.ds-charge-60 { --charge: 0.6; }
+/* Menu button as on phones and tablets (copied from the max-width: 899px rules) */
+.menu-button.ds-menu { display: grid; gap: 6px; width: 2.6rem; height: 2.6rem; place-content: center; border: 1px solid var(--rule); border-radius: 50%; background: none; cursor: pointer; }
+.ds-menu span:not(.mk-sr) { display: block; width: 18px; height: 1px; background: currentColor; transition: transform 0.4s var(--ease); }
+.ds-menu[aria-expanded="true"] span:nth-child(1) { transform: translateY(3.5px) rotate(45deg); }
+.ds-menu[aria-expanded="true"] span:nth-child(2) { transform: translateY(-3.5px) rotate(-45deg); }
+
+/* Surfaces over a painting: overlays and glass */
+.ds-over { position: relative; display: grid; place-items: center; height: 12rem; overflow: hidden; border: 1px solid var(--rule); background: var(--wall) center / cover no-repeat; }
+.ds-over[data-img="05"] { background-image: url("site/michellekayewashington.com/images/cut/work-sale-05__qe9b3bce0.webp"); }
+.ds-over[data-img="13"] { background-image: url("site/michellekayewashington.com/images/cut/lg/work-sale-13__q37bb9e29.webp"); }
+.ds-over[data-img="15"] { background-image: url("site/michellekayewashington.com/images/cut/work-sale-15__qb9ada7cc.webp"); }
+.ds-over[data-img="blooms"] { background-image: url("site/michellekayewashington.com/images/cut/beyond-the-blooms__qf8215273.webp"); }
+.ds-over[data-img="grass"] { background-image: url("site/michellekayewashington.com/images/cut/sweet-grass__q5f9c852d.webp"); }
+.ds-over > .modal-backdrop { cursor: default; }
+.ds-over > .ds-veil { position: absolute; inset: 0; }
+.ds-veil[data-v="viewer"] { background: #110c0b; opacity: 0.92; }
+.ds-veil[data-v="bar"] { inset: 0 0 auto; height: 4.6rem; background: color-mix(in srgb, var(--paper) 97%, transparent); }   /* phone header band */
+
+/* Gradients as swatches (each the original gradient) */
+.ds-grad { height: 6rem; border: 1px solid var(--rule); }
+.ds-grad[data-g="edge"] { background: linear-gradient(to right, var(--wall) calc(var(--nav-w) + 1rem), transparent), center / cover url("site/michellekayewashington.com/images/cut/lg/work-sale-14__q8fd9c59b.webp"); }
+.ds-grad[data-g="edge-ink"] { background: linear-gradient(to right, var(--wall-dark) calc(var(--nav-w) + 1rem), transparent), center / cover url("site/michellekayewashington.com/images/cut/kela__q3c1317d9.webp"); }
+.ds-grad[data-g="sweep"] { background: linear-gradient(90deg, var(--muted) 0 38%, var(--fg) 46%, transparent 56%) 50% 0 / 260% 100% no-repeat; }
+.ds-grad[data-g="loupe"] { background: var(--muted); -webkit-mask-image: linear-gradient(90deg, transparent, #000 20%, #000 80%, transparent); mask-image: linear-gradient(90deg, transparent, #000 20%, #000 80%, transparent); }
+.ds-grad[data-g="reeded"] { background: repeating-linear-gradient(90deg, rgb(255 255 255 / 9%) 0 1px, transparent 1px 5px), color-mix(in srgb, var(--wall) 58%, transparent), center / cover url("site/michellekayewashington.com/images/cut/work-sale-15__qb9ada7cc.webp"); }
+.ds-grad[data-g="charge"] { background: linear-gradient(to right, rgb(154 103 92 / 24%) 60%, transparent 60%), var(--paper); }
+.ds-light-box { position: relative; height: 12rem; overflow: hidden; border: 1px solid var(--rule); }
+
+/* Layout patterns */
+.ds-frame { position: relative; display: grid; grid-template-columns: var(--nav-w) minmax(0, 1fr); min-height: 36rem; overflow: hidden; border: 1px solid var(--rule); background: var(--wall); }
+.ds-frame-shell { position: relative; z-index: 3; display: flex; flex-direction: column; justify-content: space-between; padding: var(--pad) 0 var(--pad) var(--pad); background: linear-gradient(to right, var(--wall) calc(100% - 1px), var(--rule) 0); }
+.ds-frame.stage-gallery .chapter-head { left: calc(var(--nav-w) + var(--pad)); }
+.ds-frame-wall.wall { position: absolute; left: calc(var(--nav-w) + max(40vw, 30rem)); top: auto; right: auto; bottom: max(25svh, 7.5rem); height: auto; padding: 0; display: flex; align-items: flex-end; will-change: auto; }
+.ds-frame-wall .work-open { width: 9rem; }
+.ds-frame-floor { position: absolute; left: var(--nav-w); right: 0; bottom: max(25svh, 7.5rem); border-top: 1px solid var(--rule); }
+.ds-frame-floor > .work-meta { position: absolute; right: 1rem; top: 0.4rem; }
+@media (max-width: 899px), (max-width: 999px) and (max-height: 520px) and (orientation: landscape) {
+  .ds-frame { grid-template-columns: minmax(0, 1fr); min-height: 40rem; }
+  .ds-frame-shell { position: absolute; inset: 0 0 auto; flex-direction: row; align-items: center; padding: 1rem 1.25rem; background: color-mix(in srgb, var(--paper) 97%, transparent); }
+  .ds-frame-shell .site-nav { display: none; }
+  .ds-frame.stage-gallery .chapter-head { left: 1.25rem; top: 7.5rem; }
+  .ds-frame-floor { left: 0; }
+}
+.ds-legend { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(100%, 15rem), 1fr)); gap: 1rem 2rem; margin: 1.5rem 0 0; }
+.ds-legend > div { display: grid; gap: 0.15rem; padding-top: 0.75rem; border-top: 1px solid var(--rule); }
+.ds-legend dt, .ds-legend dd { margin: 0; }
+.ds-foot { display: flex; flex-wrap: wrap; align-items: center; justify-content: center; gap: 1rem 0.95rem; padding: 2rem 1.25rem; }
+.ds-foot .pager.ds-static { margin-left: auto; }
+@media (max-width: 899px) { .ds-foot { flex-direction: column; } .ds-foot .pager.ds-static { margin-left: 0; } }
+
+/* Motion demos */
+.ds-curve { display: block; width: 100%; max-width: 11rem; height: auto; overflow: visible; color: var(--fg); }
+.ds-curve path { fill: none; stroke: currentColor; stroke-width: 1.2px; vector-effect: non-scaling-stroke; stroke-linecap: round; }
+.ds-curve line { stroke: var(--rule); stroke-width: 1px; vector-effect: non-scaling-stroke; }
+.ds-track { position: relative; height: 1px; margin: 1.6rem 0.4rem 0.6rem; background: var(--rule); }
+.ds-track i { position: absolute; left: 0; top: 50%; width: 0.75rem; height: 0.75rem; margin: -0.375rem 0 0 -0.375rem; border-radius: 50%; background: var(--rose); transition: left 0.9s var(--ease); }
+.ds-track[data-e="io"] i { transition: left 0.95s var(--ease-io); }
+.is-play .ds-track i { left: 100%; }
+.ds-walk { min-height: 13rem; padding: 0; }
+.ds-walk-page { position: absolute; inset: 0; display: none; place-content: center; justify-items: center; gap: 0.2rem; background: var(--bg); text-align: center; }
+.ds-walk-page.is-current { display: grid; z-index: 1; }
+.ds-walk-page.is-next { display: grid; z-index: 2; }
+.ds-walk-page .viewer-title { margin: 0; }
+.ds-charge { min-height: 12rem; align-content: center; gap: 1.6rem; }
+.ds-charge .charge-caption { opacity: 0; }
+.ds-hint-box { display: grid; align-content: end; justify-items: center; gap: 0.85rem; min-height: 10rem; }
+
+/* Icons */
+.ds-icons { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 13rem), 1fr)); gap: 1.25rem; }
+.ds-icon { display: grid; grid-template-rows: 9rem auto auto; gap: 0.35rem; }
+.ds-icon-stage { position: relative; display: flex; align-items: center; justify-content: center; gap: 1.25rem; padding: 1rem; overflow: hidden; border: 1px solid var(--rule); }
+.ds-icon-stage .bench { position: static; max-width: none; }
+.bench.ds-s { width: 3rem; }
+.bench.ds-m { width: 6rem; }
+.bench.ds-l { width: 10rem; }
+.ds-glyph svg { display: block; fill: none; stroke: currentColor; stroke-width: 1.3; stroke-linecap: round; }   /* .viewer-close svg */
+.ds-glyph.ds-s svg { width: 1rem; height: 1rem; }
+.ds-glyph.ds-m svg { width: 1.5rem; height: 1.5rem; }
+.ds-glyph.ds-l svg { width: 2.25rem; height: 2.25rem; }
+.ds-icon-stage .strings,
+.ds-icon-stage .corner { position: relative; }
+.ds-hang { position: relative; width: 4.5rem; margin-top: 3.4rem; }
+.ds-hang img { width: 100%; filter: drop-shadow(0 2px 2px rgb(28 18 14 / 22%)) drop-shadow(0 16px 22px rgb(28 18 14 / 16%)); }
+.ds-hang .strings { position: absolute; left: 0; top: -3.4rem; width: 100%; height: calc(3.4rem + 3px); }
+.ds-corner-svg { width: 5.5rem; height: auto; }
+.ds-navmap { width: 4.5rem; height: auto; overflow: visible; }
+.ds-tone { display: flex; flex-wrap: wrap; gap: 0; border: 1px solid var(--rule); }
+.ds-tone > div { flex: 1 1 9rem; display: grid; justify-items: center; gap: 0.8rem; padding: 1.4rem 0.75rem; }
+.ds-tone .bench { position: static; width: 5rem; max-width: none; }
+.ds-tone > .ds-room { display: block; justify-items: normal; padding: 0; }
+.ds-tone .ds-wallpin { min-height: 100%; }
+.ds-tone .ds-room-in { justify-items: center; gap: 0.8rem; padding: 1.4rem 0.75rem; }
+/* Touch screens: the gallery's pinch-zoom-only rule must not stop the documentation from scrolling */
+html.walk-touch .ds-docs .stage-gallery { touch-action: auto; }
+html .ds-row-preview .walk-cue { margin-top: 0; }
+</style>
+<script>
+  /* The original page's safety net (gallery.html): if deep.js fails to start, reload once. */
+  (function () {
+    var d = document.documentElement, gone = false;
+    function retry() {
+      if (gone || d.getAttribute("data-ready")) return;
+      try { if (sessionStorage.getItem("mk-retry")) return; sessionStorage.setItem("mk-retry", "1"); } catch (e) { return; }
+      gone = true; location.reload();
+    }
+    window.mkRetry = retry;
+    addEventListener("error", function (e) {
+      var t = e.target, src = (t && t.src) || e.filename || "";
+      if (src.indexOf("js/deep.js") > -1) setTimeout(retry, 0);
+    }, true);
+    addEventListener("unhandledrejection", function (e) {
+      if (String(e.reason && e.reason.stack || "").indexOf("deep.js") > -1) setTimeout(retry, 0);
+    });
+    addEventListener("load", function () { setTimeout(retry, 4000); });
+  })();
+</script>
+<script defer src="site/cdn.jsdelivr.net/npm/lenis@1.1.20/dist/lenis.min.js"></script>
+<script defer src="site/michellekayewashington.com/js/deep.js"></script>
+</head>
+<body>
+<a class="skip" href="#stage">Skip to content</a>
+<div class="edge-tint" aria-hidden="true"></div>
+<header class="shell" data-shell>
+  <a class="wordmark" href="https://michellekayewashington.com/" aria-label="Michelle Kaye — Fine Arts, home"><span class="wordmark-name">Michelle Kaye</span><span class="wordmark-rule" aria-hidden="true"></span><span class="wordmark-fine">Fine Arts</span></a>
+  <button class="menu-button" type="button" aria-expanded="false" aria-controls="site-nav" data-menu-button><span></span><span></span><span class="mk-sr">Menu</span></button>
+  <nav class="site-nav" id="site-nav" aria-label="Primary">
+    <ol class="nav-index"><li><a href="https://michellekayewashington.com/"><span class="nav-num">01</span><span class="nav-label">Michelle</span></a></li><li><a href="https://michellekayewashington.com/gallery" aria-current="page"><span class="nav-num">02</span><span class="nav-label">Gallery</span></a></li><li><a href="https://michellekayewashington.com/connect"><span class="nav-num">03</span><span class="nav-label">Socials</span></a></li></ol>
+    <div class="nav-secondary">
+      <div class="news" data-news><button type="button" class="link-button" aria-expanded="false" aria-controls="news-links" data-news-toggle>News</button><div class="news-links" id="news-links" inert><div class="news-links-inner"><a href="http://palmettolifesc.com/video/2026/05/21/video-drummond-studio-gallery/" target="_blank" rel="noopener">Drummond Studio Gallery</a><a href="https://charlestoncitypaper.com/2026/06/03/piccolo-art-show-confronts-charlestons-roots-in-rice-plantations/" target="_blank" rel="noopener">Charleston City Paper</a><a href="https://view.publitas.com/gulfstream-communications/charleston-magazine-may-2026/page/212-213" target="_blank" rel="noopener">Charleston Magazine</a></div></div></div>
+      <button type="button" class="link-button" data-open="contact">Contact</button>
+    </div>
+  </nav>
+</header>
+
+<!-- ================================================================
+     00 · HERO — a direct clone of the gallery's first room (chapter-1):
+     same markup, classes, works, wall walk, light, minimap and viewer,
+     driven by the original deep.js. Only the room's words are adapted.
+     ================================================================ -->
+<main class="stage stage-gallery" id="stage" data-stage="gallery">
+  <h1 class="mk-sr">Design system: the Michelle Kaye gallery, documented</h1>
+  <section class="chapter" id="chapter-1" data-chapter="Design System" data-ground="paper" data-scale="1.5" data-scale-phone="1.3">
+          <header class="chapter-head">
+            <p class="chapter-num"><span class="chapter-page">Design System · </span>I</p>
+            <h2 class="chapter-title"><i>Design System</i></h2>
+            <p class="chapter-note">Through type, colour and light, the <i>Design System</i> gathers every room, wall, label and movement of this exhibition, so each new page can hang as quietly as the first.</p>
+            <p class="chapter-count">6 chapters · 15 works</p>
+            <p class="walk-cue" aria-hidden="true"><span class="walk-cue-text walk-cue-touch">Swipe to walk the system</span><span class="walk-cue-text walk-cue-desk">Scroll down to walk the system</span><span class="walk-cue-line"></span></p>
+          </header>
+          <div class="wall" data-wall><svg class="bench" viewBox="0 0 200 40" aria-hidden="true"><path d="M4 12h192M14 12v26M186 12v26M4 12c0-4 2-6 6-6h180c4 0 6 2 6 6"></path></svg>
+          <figure class="work work-m" data-work data-index="1" data-lg="https://michellekayewashington.com/images/cut/lg/work-sale-01.webp?v=9057fcb8" data-inches="24" data-ratio="1.2477" data-hang="wire" data-shape="rect" data-outline="[[0.0,0.0],[1.0,0.0],[1.0,1.0],[0.0,1.0]]" data-title="Burdens to bear" data-size="24&quot;x30&quot;" data-medium="acrylic on canvas" data-thumb="https://michellekayewashington.com/images/thumbs/work-sale-01.webp?v=023dee63" data-buy="https://gnvbym-0h.myshopify.com/products/burdens-to-bear?variant=40855047536769">
+            <button class="work-open" type="button" aria-label="View Burdens to bear, 1 of 15">
+              <img src="site/michellekayewashington.com/images/cut/work-sale-01__q62563dfd.webp" srcset="site/michellekayewashington.com/images/cut/work-sale-01__q62563dfd.webp 900w, https://michellekayewashington.com/images/cut/lg/work-sale-01.webp?v=9057fcb8 1068w" sizes="(max-width: 599px) 70vw, 25vw" alt="Burdens to bear, acrylic on canvas by Michelle Kaye: a bare shoulder and back at lower left, almost covered by a sweep of painted rice grains" width="1068" height="856" loading="eager" decoding="async" draggable="false">
+            </button>
+            <figcaption class="work-label"><span class="work-num">01</span><span class="work-title">Burdens to bear</span><span class="work-meta"><span class="work-size">24"x30"</span><span class="work-sep"> · </span><span class="work-medium">acrylic on canvas</span></span><a class="work-buy" href="https://gnvbym-0h.myshopify.com/products/burdens-to-bear?variant=40855047536769" target="_blank" rel="noopener">Available</a></figcaption>
+          </figure>
+          <figure class="work work-m" data-work data-index="2" data-lg="https://michellekayewashington.com/images/cut/lg/work-sale-02.webp?v=b0338ebe" data-inches="24" data-ratio="0.7470" data-hang="wire" data-shape="rect" data-outline="[[0.0,0.0],[1.0,0.0],[1.0,1.0],[0.0,1.0]]" data-title="Price of Rice" data-size="24&quot;x18&quot;" data-medium="Acrylic on Canvas" data-thumb="https://michellekayewashington.com/images/thumbs/work-sale-02.webp?v=e4c7ba49" data-buy="https://gnvbym-0h.myshopify.com/products/the-price-of-rice?variant=40854905782401">
+            <button class="work-open" type="button" aria-label="View Price of Rice, 2 of 15">
+              <img src="site/michellekayewashington.com/images/cut/work-sale-02__qfd3c1ec8.webp" srcset="site/michellekayewashington.com/images/cut/work-sale-02__qfd3c1ec8.webp 672w, https://michellekayewashington.com/images/cut/lg/work-sale-02.webp?v=b0338ebe 744w" sizes="243px" alt="Price of Rice, acrylic on canvas by Michelle Kaye: five hands in different skin tones reaching into a field of painted rice grains from every edge" width="744" height="996" loading="eager" decoding="async" draggable="false">
+            </button>
+            <figcaption class="work-label"><span class="work-num">02</span><span class="work-title">Price of Rice</span><span class="work-meta"><span class="work-size">24"x18"</span><span class="work-sep"> · </span><span class="work-medium">Acrylic on Canvas</span></span><a class="work-buy" href="https://gnvbym-0h.myshopify.com/products/the-price-of-rice?variant=40854905782401" target="_blank" rel="noopener">Available</a></figcaption>
+          </figure>
+          <figure class="work work-m" data-work data-index="3" data-lg="https://michellekayewashington.com/images/cut/lg/work-sale-03.webp?v=8d698d2e" data-inches="24" data-ratio="1.2267" data-hang="wire" data-shape="rect" data-outline="[[0.0,0.0],[1.0,0.0],[1.0,1.0],[0.0,1.0]]" data-title="Weight of the World" data-size="24&quot;x30&quot;" data-medium="acrylic on canvas" data-thumb="https://michellekayewashington.com/images/thumbs/work-sale-03.webp?v=a3fac279">
+            <button class="work-open" type="button" aria-label="View Weight of the World, 3 of 15">
+              <img src="site/michellekayewashington.com/images/cut/work-sale-03__q409d3a01.webp" srcset="site/michellekayewashington.com/images/cut/work-sale-03__q409d3a01.webp 900w, https://michellekayewashington.com/images/cut/lg/work-sale-03.webp?v=8d698d2e 974w" sizes="(max-width: 599px) 70vw, 25vw" alt="Weight of the World, acrylic on canvas by Michelle Kaye: a bare male chest and shoulder at the right edge, half buried in painted rice grains" width="974" height="794" loading="eager" decoding="async" draggable="false">
+            </button>
+            <figcaption class="work-label"><span class="work-num">03</span><span class="work-title">Weight of the World</span><span class="work-meta"><span class="work-size">24"x30"</span><span class="work-sep"> · </span><span class="work-medium">acrylic on canvas</span></span></figcaption>
+          </figure>
+          <figure class="work work-s" data-work data-index="4" data-lg="https://michellekayewashington.com/images/cut/lg/work-sale-04.webp?v=fc23f3f0" data-inches="20" data-ratio="0.7500" data-hang="wire" data-shape="rect" data-outline="[[0.0,0.0],[1.0,0.0],[1.0,1.0],[0.0,1.0]]" data-title="Resting place" data-size="20&quot;x16&quot;" data-medium="acrylic on canvas" data-thumb="https://michellekayewashington.com/images/thumbs/work-sale-04.webp?v=9d0acd1b">
+            <button class="work-open" type="button" aria-label="View Resting place, 4 of 15">
+              <img sizes="203px" alt="Resting place, acrylic on canvas by Michelle Kaye: a face with closed eyes surfacing through a field of painted rice grains" width="1200" height="1600" loading="lazy" decoding="async" draggable="false" srcset="site/michellekayewashington.com/images/cut/work-sale-04__qee375afa.webp 675w, https://michellekayewashington.com/images/cut/lg/work-sale-04.webp?v=fc23f3f0 1200w" src="site/michellekayewashington.com/images/cut/work-sale-04__qee375afa.webp">
+            </button>
+            <figcaption class="work-label"><span class="work-num">04</span><span class="work-title">Resting place</span><span class="work-meta"><span class="work-size">20"x16"</span><span class="work-sep"> · </span><span class="work-medium">acrylic on canvas</span></span></figcaption>
+          </figure>
+          <figure class="work work-l" data-work data-index="5" data-lg="site/michellekayewashington.com/images/cut/lg/work-sale-05__q8f4dd180.webp" data-inches="48" data-ratio="1.0010" data-hang="wire" data-shape="rect" data-outline="[[0.0,0.0],[1.0,0.0],[1.0,1.0],[0.0,1.0]]" data-title="Pharaohs and Masters" data-size="48&quot;x48&quot;" data-medium="acrylic on canvas" data-thumb="https://michellekayewashington.com/images/thumbs/work-sale-05.webp?v=ab2910a8" data-buy="https://gnvbym-0h.myshopify.com/products/pharaohs-and-masters?variant=40855206264961">
+            <button class="work-open" type="button" aria-label="View Pharaohs and Masters, 5 of 15">
+              <img sizes="556px" alt="Pharaohs and Masters, acrylic on canvas by Michelle Kaye: an alligator seen from above, gliding through black water patched with bright green duckweed" width="1024" height="1023" loading="lazy" decoding="async" draggable="false" srcset="site/michellekayewashington.com/images/cut/work-sale-05__qe9b3bce0.webp 900w, site/michellekayewashington.com/images/cut/lg/work-sale-05__q8f4dd180.webp 1024w" src="site/michellekayewashington.com/images/cut/work-sale-05__qe9b3bce0.webp">
+            </button>
+            <figcaption class="work-label"><span class="work-num">05</span><span class="work-title">Pharaohs and Masters</span><span class="work-meta"><span class="work-size">48"x48"</span><span class="work-sep"> · </span><span class="work-medium">acrylic on canvas</span></span><a class="work-buy" href="https://gnvbym-0h.myshopify.com/products/pharaohs-and-masters?variant=40855206264961" target="_blank" rel="noopener">Available</a></figcaption>
+          </figure>
+          <figure class="work work-m" data-work data-index="6" data-lg="site/michellekayewashington.com/images/cut/lg/work-sale-06__qb5b24d45.webp" data-inches="36" data-ratio="0.7166" data-hang="wire" data-shape="rect" data-outline="[[0.0,0.0],[1.0,0.0],[1.0,1.0],[0.0,1.0]]" data-title="A Kings Burial" data-size="36&quot;x24&quot;" data-medium="acrylic on canvas" data-thumb="https://michellekayewashington.com/images/thumbs/work-sale-06.webp?v=ef84823b" data-buy="https://gnvbym-0h.myshopify.com/products/a-kigs-burial?variant=40854907093121">
+            <button class="work-open" type="button" aria-label="View A Kings Burial, 6 of 15">
+              <img sizes="344px" alt="A Kings Burial, acrylic on canvas by Michelle Kaye: two dark legs and bare feet, toes pointing down, suspended above a ground of painted rice grains" width="870" height="1214" loading="lazy" decoding="async" draggable="false" srcset="site/michellekayewashington.com/images/cut/work-sale-06__q16336c07.webp 645w, site/michellekayewashington.com/images/cut/lg/work-sale-06__qb5b24d45.webp 870w" src="site/michellekayewashington.com/images/cut/work-sale-06__q16336c07.webp">
+            </button>
+            <figcaption class="work-label"><span class="work-num">06</span><span class="work-title">A Kings Burial</span><span class="work-meta"><span class="work-size">36"x24"</span><span class="work-sep"> · </span><span class="work-medium">acrylic on canvas</span></span><a class="work-buy" href="https://gnvbym-0h.myshopify.com/products/a-kigs-burial?variant=40854907093121" target="_blank" rel="noopener">Available</a></figcaption>
+          </figure>
+          <figure class="work work-s" data-work data-index="7" data-lg="https://michellekayewashington.com/images/cut/lg/work-sale-07.webp?v=0efae76b" data-inches="12" data-ratio="1.0012" data-hang="wire" data-shape="round" data-title="Native Species" data-size="12&quot; diameter" data-medium="acrylic on canvas" data-thumb="https://michellekayewashington.com/images/thumbs/work-sale-07.webp?v=244952f9">
+            <button class="work-open" type="button" aria-label="View Native Species, 7 of 15">
+              <img sizes="163px" alt="Native Species, acrylic on round canvas by Michelle Kaye: a yellow tiger swallowtail and a black swallowtail butterfly on painted rice grains" width="841" height="840" loading="lazy" decoding="async" draggable="false" srcset="site/michellekayewashington.com/images/cut/work-sale-07__q5affd861.webp 841w, https://michellekayewashington.com/images/cut/lg/work-sale-07.webp?v=0efae76b 841w" src="site/michellekayewashington.com/images/cut/work-sale-07__q5affd861.webp">
+            </button>
+            <figcaption class="work-label"><span class="work-num">07</span><span class="work-title">Native Species</span><span class="work-meta"><span class="work-size">12" diameter</span><span class="work-sep"> · </span><span class="work-medium">acrylic on canvas</span></span></figcaption>
+          </figure>
+          <figure class="work work-l" data-work data-index="8" data-lg="site/michellekayewashington.com/images/cut/lg/work-sale-08__q902efd91.webp" data-inches="48" data-ratio="0.7464" data-hang="wire" data-shape="rect" data-outline="[[0.0,0.0],[1.0,0.0],[1.0,1.0],[0.0,1.0]]" data-title="Here I Lie Here I Remain" data-size="48&quot;x36&quot;" data-medium="acrylic on canvas" data-thumb="https://michellekayewashington.com/images/thumbs/work-sale-08.webp?v=fc2e75cf" data-buy="https://gnvbym-0h.myshopify.com/products/here-i-lie-here-i-remain?variant=40854906929281">
+            <button class="work-open" type="button" aria-label="View Here I Lie Here I Remain, 8 of 15">
+              <img sizes="415px" alt="Here I Lie Here I Remain, acrylic on canvas by Michelle Kaye: bare legs and feet in many skin tones lying and stepping across a field of painted rice" width="1139" height="1526" loading="lazy" decoding="async" draggable="false" srcset="site/michellekayewashington.com/images/cut/work-sale-08__q2032df46.webp 672w, site/michellekayewashington.com/images/cut/lg/work-sale-08__q902efd91.webp 1139w" src="site/michellekayewashington.com/images/cut/work-sale-08__q2032df46.webp">
+            </button>
+            <figcaption class="work-label"><span class="work-num">08</span><span class="work-title">Here I Lie Here I Remain</span><span class="work-meta"><span class="work-size">48"x36"</span><span class="work-sep"> · </span><span class="work-medium">acrylic on canvas</span></span><a class="work-buy" href="https://gnvbym-0h.myshopify.com/products/here-i-lie-here-i-remain?variant=40854906929281" target="_blank" rel="noopener">Available</a></figcaption>
+          </figure>
+          <figure class="work work-s" data-work data-index="9" data-lg="https://michellekayewashington.com/images/cut/lg/work-sale-09.webp?v=c7e184b9" data-inches="16" data-ratio="1.0000" data-hang="wire" data-shape="round" data-title="Not From Here" data-size="16&quot; diameter" data-medium="Acrylic on canvas" data-thumb="https://michellekayewashington.com/images/thumbs/work-sale-09.webp?v=2023654a">
+            <button class="work-open" type="button" aria-label="View Not From Here, 9 of 15">
+              <img sizes="216px" alt="Not From Here, acrylic on round canvas by Michelle Kaye: three golden-orange butterflies with black-veined wings on a ground of painted rice grains" width="825" height="825" loading="lazy" decoding="async" draggable="false" srcset="site/michellekayewashington.com/images/cut/work-sale-09__q7bcad985.webp 825w, https://michellekayewashington.com/images/cut/lg/work-sale-09.webp?v=c7e184b9 825w" src="site/michellekayewashington.com/images/cut/work-sale-09__q7bcad985.webp">
+            </button>
+            <figcaption class="work-label"><span class="work-num">09</span><span class="work-title">Not From Here</span><span class="work-meta"><span class="work-size">16" diameter</span><span class="work-sep"> · </span><span class="work-medium">Acrylic on canvas</span></span></figcaption>
+          </figure>
+          <figure class="work work-s" data-work data-index="10" data-lg="https://michellekayewashington.com/images/cut/lg/work-sale-10.webp?v=5ebaf6b2" data-inches="10" data-ratio="0.9989" data-hang="wire" data-shape="round" data-title="Weight in Gold" data-size="10&quot; diameter" data-medium="acrylic on canvases" data-thumb="https://michellekayewashington.com/images/thumbs/work-sale-10.webp?v=ba8225af">
+            <button class="work-open" type="button" aria-label="View Weight in Gold, 10 of 15">
+              <img sizes="135px" alt="Weight in Gold, acrylic on round canvas by Michelle Kaye: a field of brown painted rice grains with a single white grain near the center" width="900" height="901" loading="lazy" decoding="async" draggable="false" srcset="site/michellekayewashington.com/images/cut/work-sale-10__qb94bb129.webp 899w, https://michellekayewashington.com/images/cut/lg/work-sale-10.webp?v=5ebaf6b2 900w" src="site/michellekayewashington.com/images/cut/work-sale-10__qb94bb129.webp">
+            </button>
+            <figcaption class="work-label"><span class="work-num">10</span><span class="work-title">Weight in Gold</span><span class="work-meta"><span class="work-size">10" diameter</span><span class="work-sep"> · </span><span class="work-medium">acrylic on canvases</span></span></figcaption>
+          </figure>
+          <figure class="work work-s" data-work data-index="11" data-lg="https://michellekayewashington.com/images/cut/lg/work-sale-12.webp?v=abef03db" data-inches="12" data-ratio="1.0000" data-hang="wire" data-shape="round" data-title="Sweet and Sour Grass" data-size="12&quot; diameter" data-medium="acrylic on canvas" data-thumb="https://michellekayewashington.com/images/thumbs/work-sale-12.webp?v=48217d86">
+            <button class="work-open" type="button" aria-label="View Sweet and Sour Grass, 11 of 15">
+              <img sizes="162px" alt="Sweet and Sour Grass, acrylic on round canvas by Michelle Kaye: a coiled sweetgrass basket seen from above, in rings of sage green, deep brown and cream" width="722" height="722" loading="lazy" decoding="async" draggable="false" srcset="site/michellekayewashington.com/images/cut/work-sale-12__q66cee360.webp 722w, https://michellekayewashington.com/images/cut/lg/work-sale-12.webp?v=abef03db 722w" src="site/michellekayewashington.com/images/cut/work-sale-12__q66cee360.webp">
+            </button>
+            <figcaption class="work-label"><span class="work-num">11</span><span class="work-title">Sweet and Sour Grass</span><span class="work-meta"><span class="work-size">12" diameter</span><span class="work-sep"> · </span><span class="work-medium">acrylic on canvas</span></span></figcaption>
+          </figure>
+          <figure class="work work-s" data-work data-index="12" data-lg="site/michellekayewashington.com/images/cut/lg/work-sale-13__q37bb9e29.webp" data-inches="26" data-ratio="1.3034" data-hang="anchor" data-shape="group" data-title="Palettes" data-size="8x10" data-medium="Acrylic on canvas" data-thumb="https://michellekayewashington.com/images/thumbs/work-sale-13.webp?v=3870ec4a">
+            <button class="work-open" type="button" aria-label="View Palettes, 12 of 15">
+              <img sizes="458px" alt="Palettes by Michelle Kaye: six small acrylic works on canvas in gold frames, thick daubs of earth tones, olive, ochre and black like used painter's palettes" width="1598" height="1226" loading="lazy" decoding="async" draggable="false" srcset="site/michellekayewashington.com/images/cut/work-sale-13__q381f84b3.webp 900w, site/michellekayewashington.com/images/cut/lg/work-sale-13__q37bb9e29.webp 1598w" src="site/michellekayewashington.com/images/cut/work-sale-13__q381f84b3.webp">
+            </button>
+            <figcaption class="work-label"><span class="work-num">12</span><span class="work-title">Palettes</span><span class="work-meta"><span class="work-size">8x10</span><span class="work-sep"> · </span><span class="work-medium">Acrylic on canvas</span></span></figcaption>
+          </figure>
+          <figure class="work work-m" data-work data-index="13" data-lg="site/michellekayewashington.com/images/cut/lg/work-sale-14__q8fd9c59b.webp" data-inches="40" data-ratio="1.7648" data-hang="anchor" data-shape="group" data-title="Shades" data-size="multiple sizes (mosaic pieces)" data-medium="acrylic on canvas" data-thumb="https://michellekayewashington.com/images/thumbs/work-sale-14.webp?v=21e78d0f">
+            <button class="work-open" type="button" aria-label="View Shades, 13 of 15">
+              <img sizes="905px" alt="Shades by Michelle Kaye: small square, round and oval acrylic canvases, each covered in painted rice grains of one color, from wine red to green, ochre and blue" width="1073" height="608" loading="lazy" decoding="async" draggable="false" srcset="https://michellekayewashington.com/images/cut/work-sale-14.webp?v=3da046f0 900w, site/michellekayewashington.com/images/cut/lg/work-sale-14__q8fd9c59b.webp 1073w" src="site/michellekayewashington.com/images/cut/lg/work-sale-14__q8fd9c59b.webp">
+            </button>
+            <figcaption class="work-label"><span class="work-num">13</span><span class="work-title">Shades</span><span class="work-meta"><span class="work-size">multiple sizes (mosaic pieces)</span><span class="work-sep"> · </span><span class="work-medium">acrylic on canvas</span></span></figcaption>
+          </figure>
+          <figure class="work work-l" data-work data-index="14" data-lg="site/michellekayewashington.com/images/cut/lg/work-sale-15__q2fb00bfb.webp" data-inches="48" data-ratio="0.6971" data-hang="pillar" data-shape="corner" data-outline="[[0.0012,0.1057],[0.3887,0.0004],[0.998,0.1877],[0.9989,0.6883],[0.4331,0.9995],[0.0187,0.8473]]" data-title="AGUE" data-size="48&quot;x24&quot;" data-medium="Acrylic on Canvas" data-parts="[{&quot;name&quot;:&quot;Ague I (left)&quot;,&quot;size&quot;:&quot;48\&quot;x24\&quot;&quot;,&quot;medium&quot;:&quot;Acrylic on Canvas&quot;},{&quot;name&quot;:&quot;Ague II (right)&quot;,&quot;size&quot;:&quot;48\&quot;x84\&quot;&quot;,&quot;medium&quot;:&quot;Acrylic on Canvas&quot;}]" data-thumb="https://michellekayewashington.com/images/thumbs/work-sale-15.webp?v=51a03f01">
+            <button class="work-open" type="button" aria-label="View AGUE, 14 of 15">
+              <img sizes="388px" alt="Ague, two acrylic canvases by Michelle Kaye at the corner of a wall: Ague I on the left and Ague II on the right, covered in muted gold painted rice grains" width="902" height="1294" loading="lazy" decoding="async" draggable="false" srcset="site/michellekayewashington.com/images/cut/work-sale-15__qb9ada7cc.webp 627w, site/michellekayewashington.com/images/cut/lg/work-sale-15__q2fb00bfb.webp 902w" src="site/michellekayewashington.com/images/cut/work-sale-15__qb9ada7cc.webp">
+            </button>
+            <figcaption class="work-label has-parts"><span class="work-num">14</span><span class="work-title">AGUE</span><span class="work-parts"><span class="work-part"><span class="work-part-name">Ague I (left)</span><span class="work-meta"><span class="work-size">48"x24"</span><span class="work-sep"> · </span><span class="work-medium">Acrylic on Canvas</span></span></span><span class="work-part"><span class="work-part-name">Ague II (right)</span><span class="work-meta"><span class="work-size">48"x84"</span><span class="work-sep"> · </span><span class="work-medium">Acrylic on Canvas</span></span></span></span></figcaption>
+          </figure>
+          <figure class="work work-m" data-work data-index="15" data-lg="site/michellekayewashington.com/images/cut/lg/work-sale-16__q4b8048af.webp" data-inches="36" data-ratio="0.7500" data-hang="wire" data-shape="rect" data-outline="[[0.0,0.0],[1.0,0.0],[1.0,1.0],[0.0,1.0]]" data-title="All I Have to Give" data-size="36&quot;x24&quot;" data-medium="acrylic on canvas" data-thumb="https://michellekayewashington.com/images/thumbs/work-sale-16.webp?v=e92ba716">
+            <button class="work-open" type="button" aria-label="View All I Have to Give, 15 of 15">
+              <img sizes="360px" alt="All I Have to Give, acrylic on canvas by Michelle Kaye: two raised forearms, hands cupped together offering white rice against a field of golden grain" width="1200" height="1600" loading="lazy" decoding="async" draggable="false" srcset="site/michellekayewashington.com/images/cut/work-sale-16__q1b7ea5c7.webp 675w, site/michellekayewashington.com/images/cut/lg/work-sale-16__q4b8048af.webp 1200w" src="site/michellekayewashington.com/images/cut/work-sale-16__q1b7ea5c7.webp">
+            </button>
+            <figcaption class="work-label"><span class="work-num">15</span><span class="work-title">All I Have to Give</span><span class="work-meta"><span class="work-size">36"x24"</span><span class="work-sep"> · </span><span class="work-medium">acrylic on canvas</span></span></figcaption>
+          </figure>
+          </div>
+        </section>
+  <nav class="minimap" aria-label="Where you are in the exhibition" data-minimap></nav>
+  <p class="where" data-where aria-live="off"><span class="where-chapter" data-where-chapter>Design System</span><span class="where-num"><span data-where-num>01</span> / 15</span></p>
+</main>
+
+<div class="stage ds-docs" id="ds">
+  <nav class="ds-topnav" aria-label="Design system sections">
+    <ol class="nav-index">
+      <li><a href="#chapter-1"><span class="nav-num">00</span><span class="nav-label">Hero</span></a></li>
+      <li><a href="#typography"><span class="nav-num">01</span><span class="nav-label">Typography</span></a></li>
+      <li><a href="#colors"><span class="nav-num">02</span><span class="nav-label">Colors</span></a></li>
+      <li><a href="#components"><span class="nav-num">03</span><span class="nav-label">Components</span></a></li>
+      <li><a href="#layout"><span class="nav-num">04</span><span class="nav-label">Layout</span></a></li>
+      <li><a href="#motion"><span class="nav-num">05</span><span class="nav-label">Motion</span></a></li>
+      <li><a href="#icons"><span class="nav-num">06</span><span class="nav-label">Icons</span></a></li>
+    </ol>
+  </nav>
+
+  <!-- ================================================================ 01 · TYPOGRAPHY -->
+  <section class="chapter ds-section" id="typography" aria-labelledby="ds-typography-title">
+    <header class="chapter-head">
+      <p class="chapter-num">01</p>
+      <h2 class="chapter-title" id="ds-typography-title"><i>Typography</i></h2>
+      <p class="chapter-note">One family, Cormorant, set light and very large for the rooms, plain for the words. Italic carries every name (rooms, works, pages); small capitals with wide tracking carry the counts and numerals.</p>
+      <p class="chapter-count">Cormorant · 300 · 400 · 500 · 600 · italic 300 · 400</p>
+    </header>
+    <p class="chapter-note ds-lead">Each preview below is the original element with its original classes. The size on the right is read live from the page, so it follows the fluid <code class="ds-code">clamp()</code> scale as the window changes.</p>
+    <div class="ds-spec">
+      <div class="ds-row" data-ds-type>
+        <div class="ds-row-name"><span class="chapter-count">Heading 1</span><code class="ds-code">h2.chapter-title &gt; i · 300 · var(--title-size) · 0.9 · −0.02em</code></div>
+        <div class="ds-row-preview"><div class="stage-gallery"><h2 class="chapter-title" data-ds-target><i>Against the Grain</i></h2></div></div>
+        <span class="work-meta ds-row-size" data-ds-size>—</span>
+      </div>
+      <div class="ds-row" data-ds-type>
+        <div class="ds-row-name"><span class="chapter-count">Heading 2</span><code class="ds-code">h2.viewer-title · 300 italic · clamp(2rem, 3.4vw, 3.4rem)</code></div>
+        <div class="ds-row-preview"><h2 class="viewer-title" data-ds-target>Pharaohs and Masters</h2></div>
+        <span class="work-meta ds-row-size" data-ds-size>—</span>
+      </div>
+      <div class="ds-row" data-ds-type>
+        <div class="ds-row-name"><span class="chapter-count">Heading 3</span><code class="ds-code">p.gallery-end-count · 300 italic · clamp(1.6rem, 3vw, 2.6rem)</code></div>
+        <div class="ds-row-preview"><p class="gallery-end-count" data-ds-target><span>End of the gallery</span> · <span>27 works</span></p></div>
+        <span class="work-meta ds-row-size" data-ds-size>—</span>
+      </div>
+      <div class="ds-row" data-ds-type>
+        <div class="ds-row-name"><span class="chapter-count">Heading 4</span><code class="ds-code">h2.modal-title · 300 italic · 2.2rem</code></div>
+        <div class="ds-row-preview"><h2 class="modal-title" data-ds-target>Questions for the Artist?</h2></div>
+        <span class="work-meta ds-row-size" data-ds-size>—</span>
+      </div>
+      <div class="ds-row" data-ds-type>
+        <div class="ds-row-name"><span class="chapter-count">Bold M</span><code class="ds-code">p.walk-cue (paper room) · 600 · 0.8rem · 0.2em caps · #6b3a30</code></div>
+        <div class="ds-row-preview"><div class="chapter ds-ctx" data-ground="paper"><p class="walk-cue" data-ds-target aria-hidden="true"><span class="walk-cue-text walk-cue-touch">Swipe to walk the gallery</span><span class="walk-cue-text walk-cue-desk">Scroll down to walk the gallery</span><span class="walk-cue-line"></span></p></div></div>
+        <span class="work-meta ds-row-size" data-ds-size>—</span>
+      </div>
+      <div class="ds-row" data-ds-type>
+        <div class="ds-row-name"><span class="chapter-count">Bold S</span><code class="ds-code">a.work-buy · 500 · 0.8rem · 0.16em caps · rose</code></div>
+        <div class="ds-row-preview"><a class="work-buy" href="#typography" data-ds-target>Available</a></div>
+        <span class="work-meta ds-row-size" data-ds-size>—</span>
+      </div>
+      <div class="ds-row" data-ds-type>
+        <div class="ds-row-name"><span class="chapter-count">Paragraph</span><code class="ds-code">p.chapter-note · 400 · body clamp(17px, 1.05vw + 10px, 21px) · 1.45 · muted</code></div>
+        <div class="ds-row-preview"><p class="chapter-note" data-ds-target>Through repetition and layering, <i>Against the Grain</i> draws on ancestral history to explore enduring questions of human value and humanity’s relationship with nature today.</p></div>
+        <span class="work-meta ds-row-size" data-ds-size>—</span>
+      </div>
+      <div class="ds-row" data-ds-type>
+        <div class="ds-row-name"><span class="chapter-count">Regular L</span><code class="ds-code">span.wordmark-name · 400 · 1.35rem · 0.01em</code></div>
+        <div class="ds-row-preview"><span class="wordmark-name" data-ds-target>Michelle Kaye</span></div>
+        <span class="work-meta ds-row-size" data-ds-size>—</span>
+      </div>
+      <div class="ds-row" data-ds-type>
+        <div class="ds-row-name"><span class="chapter-count">Regular M</span><code class="ds-code">span.work-title · 400 italic · 1.1rem</code></div>
+        <div class="ds-row-preview"><span class="work-title" data-ds-target>Here I Lie Here I Remain</span></div>
+        <span class="work-meta ds-row-size" data-ds-size>—</span>
+      </div>
+      <div class="ds-row" data-ds-type>
+        <div class="ds-row-name"><span class="chapter-count">Regular S</span><code class="ds-code">span.work-meta · 400 · 0.85rem · muted</code></div>
+        <div class="ds-row-preview"><span class="work-meta" data-ds-target><span class="work-size">48"x36"</span><span class="work-sep"> · </span><span class="work-medium">acrylic on canvas</span></span></div>
+        <span class="work-meta ds-row-size" data-ds-size>—</span>
+      </div>
+      <div class="ds-row" data-ds-type>
+        <div class="ds-row-name"><span class="chapter-count">Regular S · Caps</span><code class="ds-code">p.chapter-num · 0.85rem · 0.3em · rose</code></div>
+        <div class="ds-row-preview"><p class="chapter-num" data-ds-target>III</p></div>
+        <span class="work-meta ds-row-size" data-ds-size>—</span>
+      </div>
+      <div class="ds-row" data-ds-type>
+        <div class="ds-row-name"><span class="chapter-count">Regular XS · Caps</span><code class="ds-code">p.chapter-count · 0.8rem · 0.2em caps · muted</code></div>
+        <div class="ds-row-preview"><p class="chapter-count" data-ds-target>15 works</p></div>
+        <span class="work-meta ds-row-size" data-ds-size>—</span>
+      </div>
+      <div class="ds-row" data-ds-type>
+        <div class="ds-row-name"><span class="chapter-count">Regular XS · Numeral</span><code class="ds-code">span.work-num · 0.75rem · 0.1em · rose</code></div>
+        <div class="ds-row-preview"><span class="work-num" data-ds-target>08</span></div>
+        <span class="work-meta ds-row-size" data-ds-size>—</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================================================================ 02 · COLORS & SURFACES -->
+  <section class="chapter ds-section" id="colors" aria-labelledby="ds-colors-title">
+    <header class="chapter-head">
+      <p class="chapter-num">02</p>
+      <h2 class="chapter-title" id="ds-colors-title"><i>Colors &amp; Surfaces</i></h2>
+      <p class="chapter-note">Three rooms, three grounds: daylight paper, the magnolia shade of the green room and the night of the charcoal room. The page’s words, rules and accents change with the room you stand in, over 0.9s.</p>
+      <p class="chapter-count">14 colours · 3 grounds</p>
+    </header>
+
+    <div class="ds-block">
+      <h3 class="chapter-count ds-sub">Paper room · Against the Grain</h3>
+      <div class="ds-grid">
+        <div class="ds-sw"><div class="ds-chip" data-c="paper"></div><span class="work-title">Paper</span><span class="work-meta"><code class="ds-code">--paper</code> · #fffdf8</span><span class="work-meta">Page ground, header band, note window</span></div>
+        <div class="ds-sw"><div class="ds-chip" data-c="wall"></div><span class="work-title">Wall</span><span class="work-meta"><code class="ds-code">--wall</code> · #efe9e1</span><span class="work-meta">The first room’s wall, the screen’s bottom edge</span></div>
+        <div class="ds-sw"><div class="ds-chip" data-c="ink"></div><span class="work-title">Ink</span><span class="work-meta"><code class="ds-code">--ink</code> · #120a09</span><span class="work-meta">Words, ink pill, skip link</span></div>
+        <div class="ds-sw"><div class="ds-chip" data-c="muted"></div><span class="work-title">Muted</span><span class="work-meta"><code class="ds-code">--muted</code> · #7a6560</span><span class="work-meta">Notes, sizes, menu at rest</span></div>
+        <div class="ds-sw"><div class="ds-chip" data-c="rule"></div><span class="work-title">Rule</span><span class="work-meta"><code class="ds-code">--rule</code> · rgb(18 10 9 / 14%)</span><span class="work-meta">Hairlines, pill and arrow outlines</span></div>
+        <div class="ds-sw"><div class="ds-chip" data-c="cue"></div><span class="work-title">Walk cue</span><span class="work-meta">#6b3a30 · 7.7:1 on the wall</span><span class="work-meta">The first room’s invitation to walk</span></div>
+      </div>
+    </div>
+
+    <div class="ds-block">
+      <h3 class="chapter-count ds-sub">Accents</h3>
+      <div class="ds-grid">
+        <div class="ds-sw"><div class="ds-chip" data-c="rose"></div><span class="work-title">Rose</span><span class="work-meta"><code class="ds-code">--rose</code> · #9a675c</span><span class="work-meta">Numerals, “Available”, underlines, focus ring, charge</span></div>
+        <div class="ds-sw"><div class="ds-chip" data-c="rose-2"></div><span class="work-title">Rose, light</span><span class="work-meta"><code class="ds-code">--rose-2</code> · #c68f81</span><span class="work-meta">The same accent on the dark room and in the viewer</span></div>
+        <div class="ds-sw"><div class="ds-chip" data-c="leaf"></div><span class="work-title">Leaf</span><span class="work-meta"><code class="ds-code">--leaf</code> · #c68f81</span><span class="work-meta">The green room’s numerals, cue and focus ring</span></div>
+      </div>
+    </div>
+
+    <div class="ds-block">
+      <h3 class="chapter-count ds-sub">Moss room · Recollections in Nature</h3>
+      <div class="ds-grid">
+        <div class="ds-sw"><div class="ds-chip" data-c="wall-moss"></div><span class="work-title">Magnolia shade</span><span class="work-meta"><code class="ds-code">--wall-moss</code> · #323325</span><span class="work-meta">The green room’s wall</span></div>
+        <div class="ds-sw"><div class="ds-chip" data-c="moss-ground"></div><span class="work-title">Moss ground</span><span class="work-meta"><code class="ds-code">--bg</code> · #2b2d20</span><span class="work-meta">Page ground in the green room</span></div>
+        <div class="ds-sw"><div class="ds-chip" data-c="cream"></div><span class="work-title">Cream</span><span class="work-meta"><code class="ds-code">--fg</code> · #f4ede4 · 11.1:1</span><span class="work-meta">Words on the moss and ink rooms</span></div>
+        <div class="ds-sw"><div class="ds-chip" data-c="moss-muted"></div><span class="work-title">Moss muted</span><span class="work-meta"><code class="ds-code">--muted</code> · #bcb8a6</span><span class="work-meta">Notes in the green room</span></div>
+      </div>
+    </div>
+
+    <div class="ds-block">
+      <h3 class="chapter-count ds-sub">Ink room · Charcoal Works and the viewer</h3>
+      <div class="ds-grid">
+        <div class="ds-sw"><div class="ds-chip" data-c="wall-dark"></div><span class="work-title">Charcoal wall</span><span class="work-meta"><code class="ds-code">--wall-dark</code> · #1a1312</span><span class="work-meta">The dark room’s wall, the end of the walk</span></div>
+        <div class="ds-sw"><div class="ds-chip" data-c="ink-ground"></div><span class="work-title">Deep charcoal</span><span class="work-meta"><code class="ds-code">--bg</code> · #110c0b</span><span class="work-meta">Dark room ground, the viewing room</span></div>
+        <div class="ds-sw"><div class="ds-chip" data-c="ink-muted"></div><span class="work-title">Ink muted</span><span class="work-meta"><code class="ds-code">--muted</code> · #b9a59c</span><span class="work-meta">Notes in the dark, the viewer’s count</span></div>
+        <div class="ds-sw"><div class="ds-chip" data-c="viewer-meta"></div><span class="work-title">Viewer meta</span><span class="work-meta">#cbb9ae</span><span class="work-meta">Size and medium in the viewer</span></div>
+      </div>
+    </div>
+
+    <div class="ds-block">
+      <h3 class="chapter-count ds-sub">Meter bubbles · one shade lighter than each wall</h3>
+      <div class="ds-grid">
+        <div class="ds-sw"><div class="ds-chip" data-c="peek-paper"></div><span class="work-title">Peek · paper</span><span class="work-meta">.mm-peek[data-ground="paper"] · #fcf6ee</span></div>
+        <div class="ds-sw"><div class="ds-chip" data-c="peek-moss"></div><span class="work-title">Peek · moss</span><span class="work-meta">.mm-peek[data-ground="moss"] · #3c3d2f</span></div>
+        <div class="ds-sw"><div class="ds-chip" data-c="peek-ink"></div><span class="work-title">Peek · ink</span><span class="work-meta">.mm-peek[data-ground="ink"] · #231c1b</span></div>
+      </div>
+    </div>
+
+    <div class="ds-block">
+      <h3 class="chapter-count ds-sub">Rooms · wall, ground and words together</h3>
+      <p class="chapter-note ds-lead">Each card is a real <code class="ds-code">.wall-pin</code> inside <code class="ds-code">.chapter[data-ground]</code>, with the room’s <code class="ds-code">.light</code>. With a mouse, the light follows the pointer: soft-light on paper, screen on ink, none in the green room.</p>
+      <div class="ds-grid-3">
+        <div class="chapter ds-ctx ds-room" data-ground="paper">
+          <div class="wall-pin ds-wallpin ds-nofade" data-ds-light>
+            <div class="ds-room-in">
+              <p class="chapter-num">I</p>
+              <p class="viewer-title">Against the Grain</p>
+              <span class="work-meta">wall #efe9e1 · ground #fffdf8</span>
+              <p class="walk-cue" aria-hidden="true"><span class="walk-cue-text walk-cue-touch">Swipe to walk the gallery</span><span class="walk-cue-text walk-cue-desk">Scroll down to walk the gallery</span><span class="walk-cue-line"></span></p>
+            </div>
+            <div class="light"></div>
+          </div>
+          <div class="ds-band"><span class="work-meta"><i class="ds-dot" data-v="fg"></i>words</span><span class="work-meta"><i class="ds-dot" data-v="muted"></i>muted</span><span class="work-meta"><i class="ds-dot" data-v="rule"></i>rule</span><span class="work-meta"><i class="ds-dot" data-v="accent"></i>rose</span></div>
+        </div>
+        <div class="chapter ds-ctx ds-room" data-ground="moss">
+          <div class="wall-pin ds-wallpin ds-nofade" data-ds-light>
+            <div class="ds-room-in">
+              <p class="chapter-num">II</p>
+              <p class="viewer-title">Recollections in Nature</p>
+              <span class="work-meta">wall #323325 · ground #2b2d20</span>
+              <p class="walk-cue" aria-hidden="true"><span class="walk-cue-text walk-cue-touch">Swipe to walk the gallery</span><span class="walk-cue-text walk-cue-desk">Scroll down to walk the gallery</span><span class="walk-cue-line"></span></p>
+            </div>
+            <div class="light"></div>
+          </div>
+          <div class="ds-band"><span class="work-meta"><i class="ds-dot" data-v="fg"></i>words</span><span class="work-meta"><i class="ds-dot" data-v="muted"></i>muted</span><span class="work-meta"><i class="ds-dot" data-v="rule"></i>rule</span><span class="work-meta"><i class="ds-dot" data-v="accent"></i>leaf</span></div>
+        </div>
+        <div class="chapter ds-ctx ds-room" data-ground="ink">
+          <div class="wall-pin ds-wallpin ds-nofade" data-ds-light>
+            <div class="ds-room-in">
+              <p class="chapter-num">III</p>
+              <p class="viewer-title">Charcoal Works</p>
+              <span class="work-meta">wall #1a1312 · ground #110c0b</span>
+              <p class="walk-cue" aria-hidden="true"><span class="walk-cue-text walk-cue-touch">Swipe to walk the gallery</span><span class="walk-cue-text walk-cue-desk">Scroll down to walk the gallery</span><span class="walk-cue-line"></span></p>
+            </div>
+            <div class="light"></div>
+          </div>
+          <div class="ds-band"><span class="work-meta"><i class="ds-dot" data-v="fg"></i>words</span><span class="work-meta"><i class="ds-dot" data-v="muted"></i>muted</span><span class="work-meta"><i class="ds-dot" data-v="rule"></i>rule</span><span class="work-meta"><i class="ds-dot" data-v="accent"></i>rose, light</span></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="ds-block">
+      <h3 class="chapter-count ds-sub">Borders &amp; dividers</h3>
+      <div class="ds-grid-3">
+        <div class="ds-card"><span class="work-title">Hairline</span><span class="work-meta">1px var(--rule) · 14% ink on paper, 16% cream in the dark</span><div class="ds-stage is-plain"><a class="pill" href="#colors">Back to the first work</a></div><code class="ds-code">.pill, .pager-arrow, .minimap, .mm-peek</code></div>
+        <div class="ds-card"><span class="work-title">Wordmark rule</span><span class="work-meta">2rem × 1px · currentColor at 50%</span><div class="ds-stage is-plain"><span class="wordmark"><span class="wordmark-name">Michelle Kaye</span><span class="wordmark-rule" aria-hidden="true"></span><span class="wordmark-fine">Fine Arts</span></span></div><code class="ds-code">.wordmark-rule</code></div>
+        <div class="ds-card"><span class="work-title">Accent underline</span><span class="work-meta">1px var(--rose) · grows from the left on hover</span><div class="ds-stage is-plain"><span class="ds-states"><a class="work-buy" href="#colors">Available</a><ol class="nav-index"><li><a href="#colors" aria-current="page"><span class="nav-num">02</span><span class="nav-label">Gallery</span></a></li></ol></span></div><code class="ds-code">.work-buy border-bottom · .nav-label::after</code></div>
+        <div class="ds-card"><span class="work-title">Focus ring</span><span class="work-meta">2px solid var(--rose) · 4px offset · keyboard only</span><div class="ds-stage is-plain"><span class="pill ds-focus">Contact</span></div><code class="ds-code">:focus-visible · html[data-input="pointer"] hides it</code></div>
+        <div class="ds-card"><span class="work-title">Fractional ring</span><span class="work-meta">inset 1.35px rgb(244 237 228 / 34%) on ink</span><div class="ds-stage ds-dark"><div class="viewer ds-viewer-states"><button class="viewer-close" type="button" aria-label="Close viewer (example)" tabindex="-1"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M3.1 3.1 12.9 12.9M12.9 3.1 3.1 12.9"/></svg></button></div></div><code class="ds-code">.viewer-close box-shadow</code></div>
+        <div class="ds-card"><span class="work-title">Strings &amp; corner</span><span class="work-meta">1.2px currentColor · 35% (strings) · 18% (corner)</span><div class="ds-stage"><span class="ds-hang"><svg class="strings" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true"><line x1="30" y1="0" x2="30" y2="100"/><line x1="70" y1="0" x2="70" y2="100"/></svg><img src="site/michellekayewashington.com/images/cut/work-sale-04__qee375afa.webp" alt="" width="675" height="900"></span></div><code class="ds-code">.strings line, .corner path</code></div>
+      </div>
+    </div>
+
+    <div class="ds-block">
+      <h3 class="chapter-count ds-sub">Overlays &amp; glass</h3>
+      <div class="ds-grid-3">
+        <div class="ds-card"><span class="work-title">Note backdrop</span><span class="work-meta">rgb(18 10 9 / 55%) under the contact and leave notes</span><div class="ds-over" data-img="05"><button class="modal-backdrop" type="button" tabindex="-1" aria-hidden="true"></button></div><code class="ds-code">.modal-backdrop</code></div>
+        <div class="ds-card"><span class="work-title">Meter capsule</span><span class="work-meta">var(--bg) at 88% over the moving wall</span><div class="ds-over" data-img="13"><nav class="minimap ds-static" aria-label="Meter (example)"><a role="link" tabindex="-1" style="height: 10.8px;"><i class="mm-lit" style="opacity: 1;"></i></a><a role="link" tabindex="-1" style="height: 21.6px;"><i class="mm-lit" style="opacity: 0.5;"></i></a><a role="link" tabindex="-1" style="height: 16.2px;"><i class="mm-lit" style="opacity: 0;"></i></a><a role="link" tabindex="-1" style="height: 6px;"><i class="mm-lit" style="opacity: 0;"></i></a><span class="mm-gap"></span><a role="link" tabindex="-1" style="height: 9px;"><i class="mm-lit" style="opacity: 0;"></i></a><a role="link" tabindex="-1" style="height: 10.8px;"><i class="mm-lit" style="opacity: 0;"></i></a></nav></div><code class="ds-code">.minimap · color-mix(in srgb, var(--bg) 88%, transparent)</code></div>
+        <div class="ds-card"><span class="work-title">Peek glass</span><span class="work-meta">96% ground + 8px blur + soft drop</span><div class="ds-over" data-img="blooms"><div class="mm-peek ds-static is-in" data-ground="paper" aria-hidden="true"><div class="mm-peek-art"><img alt="" src="site/michellekayewashington.com/images/cut/work-sale-07__q5affd861.webp"><p class="mm-peek-cap"><span class="mm-peek-num">07</span><span class="mm-peek-title">Native Species</span></p></div></div></div><code class="ds-code">.mm-peek · backdrop-filter: blur(8px)</code></div>
+        <div class="ds-card"><span class="work-title">Reeded glass</span><span class="work-meta">1px lines every 5px over the wall at 58%, 5px blur</span><div class="ds-over" data-img="15"><span class="work-label has-parts ds-glass"><span class="work-num">14</span><span class="work-title">AGUE</span></span></div><code class="ds-code">.wall .work-label.is-glass (phones)</code></div>
+        <div class="ds-card"><span class="work-title">Viewing room</span><span class="work-meta">#110c0b, the work alone on deep ink</span><div class="ds-over" data-img="grass"><span class="ds-veil" data-v="viewer"></span></div><code class="ds-code">.viewer background</code></div>
+        <div class="ds-card"><span class="work-title">Header band</span><span class="work-meta">the room’s top colour at 97% (phones, tablets)</span><div class="ds-over" data-img="13"><span class="ds-veil" data-v="bar"></span></div><code class="ds-code">.shell · color-mix(var(--edge-top) 97%)</code></div>
+      </div>
+    </div>
+
+    <div class="ds-block">
+      <h3 class="chapter-count ds-sub">Gradients</h3>
+      <div class="ds-grid-3">
+        <div class="ds-card"><span class="work-title">Wall edge · paper</span><span class="work-meta">the wall fades in past the menu column</span><div class="ds-grad" data-g="edge"></div><code class="ds-code">.wall-pin::after · to right, var(--wall) calc(var(--nav-w) + 1rem), transparent</code></div>
+        <div class="ds-card"><span class="work-title">Wall edge · ink</span><span class="work-meta">the same fade on the charcoal wall</span><div class="ds-grad" data-g="edge-ink"></div><code class="ds-code">.chapter[data-ground="ink"] .wall-pin::after</code></div>
+        <div class="ds-card"><span class="work-title">Gallery light · paper</span><span class="work-meta">38vmax warm white at 55%, soft-light</span><div class="chapter ds-ctx ds-room" data-ground="paper"><div class="wall-pin ds-wallpin ds-nofade ds-light-box" data-ds-light><div class="light"></div></div></div><code class="ds-code">.light · radial-gradient(… rgb(255 250 240 / 55%), transparent 70%)</code></div>
+        <div class="ds-card"><span class="work-title">Gallery light · ink</span><span class="work-meta">27 × 33vmax oval at 22%, screen</span><div class="chapter ds-ctx ds-room" data-ground="ink"><div class="wall-pin ds-wallpin ds-nofade ds-light-box" data-ds-light><div class="light"></div></div></div><code class="ds-code">.chapter[data-ground="ink"] .light</code></div>
+        <div class="ds-card"><span class="work-title">Signature sweep</span><span class="work-meta">a light passes over the credit, 1.9s</span><div class="ds-grad" data-g="sweep"></div><code class="ds-code">.gallery-end-credit a · 90deg, muted 0 38%, fg 46%, transparent 56%</code></div>
+        <div class="ds-card"><span class="work-title">Loupe mask</span><span class="work-meta">marks fade out at both ends of the loupe</span><div class="ds-grad" data-g="loupe"></div><code class="ds-code">.mm-loupe mask-image</code></div>
+        <div class="ds-card"><span class="work-title">Reeded</span><span class="work-meta">repeating 1px / 5px light lines</span><div class="ds-grad" data-g="reeded"></div><code class="ds-code">repeating-linear-gradient(90deg, rgb(255 255 255 / 9%) 0 1px, transparent 1px 5px)</code></div>
+        <div class="ds-card"><span class="work-title">Charge fill</span><span class="work-meta">rose at 24%, scaled from the left by --charge</span><div class="ds-grad" data-g="charge"></div><code class="ds-code">.charge-fill · rgb(154 103 92 / 24%)</code></div>
+      </div>
+    </div>
+
+    <div class="ds-block">
+      <h3 class="chapter-count ds-sub">Elevation · shadows that follow the work’s shape</h3>
+      <div class="ds-grid-2">
+        <div class="chapter ds-ctx" data-ground="paper">
+          <div class="wall-pin ds-wall">
+            <div class="wall">
+              <figure class="work work-s ds-w-m" data-title="Price of Rice"><button class="work-open" type="button" tabindex="-1"><svg class="strings ds-strings" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true"><line x1="30" y1="0" x2="30" y2="100"/><line x1="70" y1="0" x2="70" y2="100"/></svg><img src="site/michellekayewashington.com/images/cut/work-sale-02__qfd3c1ec8.webp" alt="Price of Rice" width="744" height="996"></button><figcaption class="work-label"><span class="work-num">Rest</span><span class="work-title">On the wall</span><span class="work-meta">drop-shadow 0 2px 2px / 22% + 0 16px 22px / 16%</span></figcaption></figure>
+              <figure class="work work-s ds-w-m" data-title="Price of Rice"><button class="work-open is-focus ds-lift" type="button" tabindex="-1"><svg class="strings ds-strings" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true"><line x1="30" y1="0" x2="30" y2="100"/><line x1="70" y1="0" x2="70" y2="100"/></svg><img src="site/michellekayewashington.com/images/cut/work-sale-02__qfd3c1ec8.webp" alt="Price of Rice, raised" width="744" height="996"></button><figcaption class="work-label"><span class="work-num">Focus</span><span class="work-title">Faces you</span><span class="work-meta">0 4px 4px / 20% + 0 30px 40px / 24% · −6px</span></figcaption></figure>
+            </div>
+          </div>
+        </div>
+        <div class="chapter ds-ctx ds-room" data-ground="ink">
+          <div class="wall-pin ds-wall">
+            <div class="wall">
+              <figure class="work work-s ds-w-m" data-title="Kela"><button class="work-open" type="button" tabindex="-1"><svg class="strings ds-strings" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true"><line x1="30" y1="0" x2="30" y2="100"/><line x1="70" y1="0" x2="70" y2="100"/></svg><img src="site/michellekayewashington.com/images/cut/kela__q3c1317d9.webp" alt="Kela" width="675" height="900"></button><figcaption class="work-label"><span class="work-num">Dark</span><span class="work-title">Charcoal wall</span><span class="work-meta">0 2px 2px black 40% + 0 16px 24px black 35%</span></figcaption></figure>
+              <figure class="work work-s ds-w-m" data-title="Jonathan"><button class="work-open" type="button" tabindex="-1"><svg class="strings ds-strings" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true"><line x1="30" y1="0" x2="30" y2="100"/><line x1="70" y1="0" x2="70" y2="100"/></svg><img src="site/michellekayewashington.com/images/cut/jonathan__q1c4249e5.webp" alt="Jonathan" width="672" height="900"></button><figcaption class="work-label"><span class="work-num">22</span><span class="work-title">Jonathan</span><span class="work-meta">charcoal on pastel paper</span></figcaption></figure>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================================================================ 03 · UI COMPONENTS -->
+  <section class="chapter ds-section" id="components" aria-labelledby="ds-components-title">
+    <header class="chapter-head">
+      <p class="chapter-num">03</p>
+      <h2 class="chapter-title" id="ds-components-title"><i>Components</i></h2>
+      <p class="chapter-note">Few pieces, all quiet: round pills and arrows outlined in a hairline, text links that underline in rose, and the work itself, a cut-out hung on two strings with its label beside it.</p>
+      <p class="chapter-count">States side by side · default, hover, focus, active</p>
+    </header>
+    <p class="chapter-note ds-lead">Only states that exist in the source are shown. Nothing in the gallery has a disabled state, and it has no text inputs, so neither appears here.</p>
+
+    <div class="ds-block">
+      <h3 class="chapter-count ds-sub">Pills</h3>
+      <div class="ds-states">
+        <div class="ds-state"><a class="pill" href="#components">Back to the first work</a><span class="work-meta">.pill · default</span></div>
+        <div class="ds-state"><a class="pill ds-hover" href="#components">Back to the first work</a><span class="work-meta">hover · fg on bg, 0.3s</span></div>
+        <div class="ds-state"><a class="pill ds-focus" href="#components">Back to the first work</a><span class="work-meta">focus-visible</span></div>
+        <div class="ds-state"><a class="pill pill-ink" href="#components">Socials →</a><span class="work-meta">.pill-ink · default</span></div>
+        <div class="ds-state"><a class="pill pill-ink ds-hover" href="#components">Socials →</a><span class="work-meta">.pill-ink · hover · rose</span></div>
+        <div class="ds-state"><p class="modal-actions"><button class="pill" type="button">Go back</button></p><span class="work-meta">button.pill · default</span></div>
+        <div class="ds-state"><p class="modal-actions"><button class="pill ds-hover" type="button">Go back</button></p><span class="work-meta">button.pill · hover · ink</span></div>
+      </div>
+    </div>
+
+    <div class="ds-block">
+      <h3 class="chapter-count ds-sub">Round arrows</h3>
+      <div class="ds-states">
+        <div class="ds-state"><a class="pager-arrow" href="#components" aria-label="Next (example)"><span aria-hidden="true">→</span></a><span class="work-meta">.pager-arrow · default</span></div>
+        <div class="ds-state"><a class="pager-arrow ds-hover" href="#components" aria-label="Next (example)"><span aria-hidden="true">→</span></a><span class="work-meta">hover</span></div>
+        <div class="ds-state"><a class="pager-arrow ds-active" href="#components" aria-label="Next (example)"><span aria-hidden="true">→</span></a><span class="work-meta">active · scale 0.94</span></div>
+        <div class="ds-state"><a class="pager-arrow ds-focus" href="#components" aria-label="Next (example)"><span aria-hidden="true">→</span></a><span class="work-meta">focus-visible</span></div>
+        <div class="ds-state"><a class="pager-arrow ds-ring-on" href="#components" aria-label="Next (example)"><span aria-hidden="true">→</span><svg class="charge-ring" viewBox="0 0 50 50" aria-hidden="true"><circle cx="25" cy="25" r="24" pathLength="100" stroke-dasharray="100" stroke-dashoffset="35"></circle></svg></a><span class="work-meta">charging · ring at 65%</span></div>
+      </div>
+    </div>
+
+    <div class="ds-block">
+      <h3 class="chapter-count ds-sub">In the viewing room</h3>
+      <div class="viewer ds-viewer-states">
+        <div class="ds-states">
+          <div class="ds-state"><button class="viewer-close" type="button" aria-label="Close (example)"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M3.1 3.1 12.9 12.9M12.9 3.1 3.1 12.9"/></svg></button><span class="work-meta">.viewer-close</span></div>
+          <div class="ds-state"><button class="viewer-close ds-hover" type="button" aria-label="Close (example)"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M3.1 3.1 12.9 12.9M12.9 3.1 3.1 12.9"/></svg></button><span class="work-meta">hover</span></div>
+          <div class="ds-state"><button class="viewer-step" type="button" aria-label="Previous (example)">←</button><span class="work-meta">.viewer-step</span></div>
+          <div class="ds-state"><button class="viewer-step ds-hover" type="button" aria-label="Next (example)">→</button><span class="work-meta">hover</span></div>
+          <div class="ds-state"><button type="button" class="viewer-zoom">Zoom to Inspect</button><span class="work-meta">.viewer-zoom</span></div>
+          <div class="ds-state"><button type="button" class="viewer-zoom ds-hover">Zoom to Inspect</button><span class="work-meta">hover</span></div>
+          <div class="ds-state"><button type="button" class="viewer-zoom is-on" aria-pressed="true">Zoom Out</button><span class="work-meta">.is-on · zoomed</span></div>
+          <div class="ds-state"><p data-viewer-buy><a class="pill" href="#components">Available — view in shop</a></p><span class="work-meta">shop pill · rose-2</span></div>
+          <div class="ds-state"><p data-viewer-buy><a class="pill ds-hover" href="#components">Available — view in shop</a></p><span class="work-meta">hover</span></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="ds-block">
+      <h3 class="chapter-count ds-sub">Text links &amp; menu</h3>
+      <div class="ds-states">
+        <div class="ds-state"><ol class="nav-index"><li><a href="#components"><span class="nav-num">01</span><span class="nav-label">Michelle</span></a></li></ol><span class="work-meta">.nav-index a · default</span></div>
+        <div class="ds-state"><ol class="nav-index"><li><a class="ds-hover" href="#components"><span class="nav-num">01</span><span class="nav-label">Michelle</span></a></li></ol><span class="work-meta">hover · underline grows</span></div>
+        <div class="ds-state"><ol class="nav-index"><li><a href="#components" aria-current="page"><span class="nav-num">02</span><span class="nav-label">Gallery</span></a></li></ol><span class="work-meta">aria-current="page"</span></div>
+        <div class="ds-state"><span class="nav-secondary"><button type="button" class="link-button">Contact</button></span><span class="work-meta">.link-button</span></div>
+        <div class="ds-state"><span class="nav-secondary"><button type="button" class="link-button ds-hover">Contact</button></span><span class="work-meta">hover</span></div>
+        <div class="ds-state"><a class="work-buy" href="#components">Available</a><span class="work-meta">.work-buy</span></div>
+        <div class="ds-state"><a class="work-buy ds-hover" href="#components">Available</a><span class="work-meta">hover · ink</span></div>
+        <div class="ds-state"><div class="news is-open"><div class="news-links"><div class="news-links-inner"><a href="#components">Charleston City Paper</a><a class="ds-hover" href="#components">Charleston Magazine</a></div></div></div><span class="work-meta">.news-links a · default / hover</span></div>
+      </div>
+    </div>
+
+    <div class="ds-block">
+      <h3 class="chapter-count ds-sub">Wordmark, menu button and news</h3>
+      <div class="ds-states">
+        <div class="ds-state"><a class="wordmark" href="#components" aria-label="Wordmark (example)"><span class="wordmark-name">Michelle Kaye</span><span class="wordmark-rule" aria-hidden="true"></span><span class="wordmark-fine">Fine Arts</span></a><span class="work-meta">.wordmark</span></div>
+        <div class="ds-state"><button class="menu-button ds-menu" type="button" aria-expanded="false" data-ds-menu><span></span><span></span><span class="mk-sr">Menu (example)</span></button><span class="work-meta">.menu-button · closed (tap)</span></div>
+        <div class="ds-state"><button class="menu-button ds-menu" type="button" aria-expanded="true" data-ds-menu><span></span><span></span><span class="mk-sr">Menu (example)</span></button><span class="work-meta">aria-expanded="true"</span></div>
+        <div class="ds-state"><div class="nav-secondary"><div class="news" data-news><button type="button" class="link-button" aria-expanded="false" aria-controls="ds-news-links" data-news-toggle>News</button><div class="news-links" id="ds-news-links" inert><div class="news-links-inner"><a href="http://palmettolifesc.com/video/2026/05/21/video-drummond-studio-gallery/" target="_blank" rel="noopener">Drummond Studio Gallery</a><a href="https://charlestoncitypaper.com/2026/06/03/piccolo-art-show-confronts-charlestons-roots-in-rice-plantations/" target="_blank" rel="noopener">Charleston City Paper</a><a href="https://view.publitas.com/gulfstream-communications/charleston-magazine-may-2026/page/212-213" target="_blank" rel="noopener">Charleston Magazine</a></div></div></div><button type="button" class="link-button" data-open="contact">Contact</button></div><span class="work-meta">.nav-secondary · live (opens with the menu’s News)</span></div>
+      </div>
+    </div>
+
+    <div class="ds-block">
+      <h3 class="chapter-count ds-sub">Work · label variants</h3>
+      <p class="chapter-note ds-lead">A <code class="ds-code">figure.work</code> holds the cut-out picture inside <code class="ds-code">button.work-open</code> and its <code class="ds-code">figcaption.work-label</code>: numeral, italic title, size · medium, and “Available” when it is in the shop. A work in two canvases lists each part.</p>
+      <div class="chapter ds-ctx" data-ground="paper">
+        <div class="wall-pin ds-wall">
+          <div class="wall">
+            <figure class="work work-m ds-w-l" data-title="Burdens to bear"><button class="work-open" type="button" tabindex="-1"><svg class="strings ds-strings" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true"><line x1="30" y1="0" x2="30" y2="100"/><line x1="70" y1="0" x2="70" y2="100"/></svg><img src="site/michellekayewashington.com/images/cut/work-sale-01__q62563dfd.webp" alt="Burdens to bear" width="1068" height="856"></button><figcaption class="work-label"><span class="work-num">01</span><span class="work-title">Burdens to bear</span><span class="work-meta"><span class="work-size">24"x30"</span><span class="work-sep"> · </span><span class="work-medium">acrylic on canvas</span></span><a class="work-buy" href="https://gnvbym-0h.myshopify.com/products/burdens-to-bear?variant=40855047536769" target="_blank" rel="noopener">Available</a></figcaption></figure>
+            <figure class="work work-s ds-w-s" data-title="Native Species"><button class="work-open" type="button" tabindex="-1"><svg class="strings ds-strings ds-round" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true"><line x1="30" y1="0" x2="30" y2="100"/><line x1="70" y1="0" x2="70" y2="100"/></svg><img src="site/michellekayewashington.com/images/cut/work-sale-07__q5affd861.webp" alt="Native Species" width="841" height="840"></button><figcaption class="work-label"><span class="work-num">07</span><span class="work-title">Native Species</span><span class="work-meta"><span class="work-size">12" diameter</span><span class="work-sep"> · </span><span class="work-medium">acrylic on canvas</span></span></figcaption></figure>
+            <figure class="work work-l ds-w-m" data-title="AGUE"><button class="work-open" type="button" tabindex="-1"><img src="site/michellekayewashington.com/images/cut/work-sale-15__qb9ada7cc.webp" alt="AGUE" width="627" height="900"></button><figcaption class="work-label has-parts"><span class="work-num">14</span><span class="work-title">AGUE</span><span class="work-parts"><span class="work-part"><span class="work-part-name">Ague I (left)</span><span class="work-meta"><span class="work-size">48"x24"</span><span class="work-sep"> · </span><span class="work-medium">Acrylic on Canvas</span></span></span><span class="work-part"><span class="work-part-name">Ague II (right)</span><span class="work-meta"><span class="work-size">48"x84"</span><span class="work-sep"> · </span><span class="work-medium">Acrylic on Canvas</span></span></span></span></figcaption></figure>
+            <svg class="bench" viewBox="0 0 200 40" aria-hidden="true"><path d="M4 12h192M14 12v26M186 12v26M4 12c0-4 2-6 6-6h180c4 0 6 2 6 6"/></svg>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="ds-block">
+      <h3 class="chapter-count ds-sub">Work · interaction states</h3>
+      <div class="chapter ds-ctx" data-ground="paper">
+        <div class="wall-pin ds-wall">
+          <div class="wall has-focus">
+            <figure class="work work-s ds-w-s" data-title="Resting place"><button class="work-open" type="button" tabindex="-1"><svg class="strings ds-strings" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true"><line x1="30" y1="0" x2="30" y2="100"/><line x1="70" y1="0" x2="70" y2="100"/></svg><img src="site/michellekayewashington.com/images/cut/work-sale-04__qee375afa.webp" alt="Resting place, dimmed" width="675" height="900"></button><figcaption class="work-label"><span class="work-num">A</span><span class="work-title">Dimmed</span><span class="work-meta">a neighbour has focus · opacity 0.8</span></figcaption></figure>
+            <figure class="work work-s ds-w-s" data-title="Resting place"><button class="work-open is-focus ds-lift" type="button" tabindex="-1"><svg class="strings ds-strings" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true"><line x1="30" y1="0" x2="30" y2="100"/><line x1="70" y1="0" x2="70" y2="100"/></svg><img src="site/michellekayewashington.com/images/cut/work-sale-04__qee375afa.webp" alt="Resting place, in focus" width="675" height="900"></button><figcaption class="work-label"><span class="work-num">B</span><span class="work-title">Focus</span><span class="work-meta">.is-focus · lifted 6px · deeper shadow</span></figcaption></figure>
+            <figure class="work work-s ds-w-s" data-title="Resting place"><button class="work-open ds-focus" type="button" tabindex="-1"><svg class="strings ds-strings" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true"><line x1="30" y1="0" x2="30" y2="100"/><line x1="70" y1="0" x2="70" y2="100"/></svg><img src="site/michellekayewashington.com/images/cut/work-sale-04__qee375afa.webp" alt="Resting place, keyboard focus" width="675" height="900"></button><figcaption class="work-label"><span class="work-num">C</span><span class="work-title">Keyboard</span><span class="work-meta">focus-visible ring · cursor zoom-in</span></figcaption></figure>
+          </div>
+        </div>
+      </div>
+      <span class="ds-gap"></span>
+      <p class="chapter-note ds-live">Live: hover the works below (mouse). The work lifts 6px over 450ms, its shadow deepens, its neighbours fall back and the light settles on it. A click on any work in the hero opens the viewing room.</p>
+      <div class="chapter ds-ctx" data-ground="paper">
+        <div class="wall-pin ds-wall" data-ds-light data-ds-lift>
+          <div class="wall">
+            <figure class="work work-m ds-w-m" data-title="Weight of the World"><button class="work-open" type="button" tabindex="-1"><svg class="strings ds-strings" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true"><line x1="30" y1="0" x2="30" y2="100"/><line x1="70" y1="0" x2="70" y2="100"/></svg><img src="site/michellekayewashington.com/images/cut/work-sale-03__q409d3a01.webp" alt="Weight of the World" width="974" height="794"></button><figcaption class="work-label"><span class="work-num">03</span><span class="work-title">Weight of the World</span><span class="work-meta"><span class="work-size">24"x30"</span><span class="work-sep"> · </span><span class="work-medium">acrylic on canvas</span></span></figcaption></figure>
+            <figure class="work work-s ds-w-s" data-title="Not From Here"><button class="work-open" type="button" tabindex="-1"><svg class="strings ds-strings ds-round" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true"><line x1="30" y1="0" x2="30" y2="100"/><line x1="70" y1="0" x2="70" y2="100"/></svg><img src="site/michellekayewashington.com/images/cut/work-sale-09__q7bcad985.webp" alt="Not From Here" width="825" height="825"></button><figcaption class="work-label"><span class="work-num">09</span><span class="work-title">Not From Here</span><span class="work-meta"><span class="work-size">16" diameter</span><span class="work-sep"> · </span><span class="work-medium">Acrylic on canvas</span></span></figcaption></figure>
+            <figure class="work work-m ds-w-m" data-title="All I Have to Give"><button class="work-open" type="button" tabindex="-1"><svg class="strings ds-strings" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true"><line x1="30" y1="0" x2="30" y2="100"/><line x1="70" y1="0" x2="70" y2="100"/></svg><img src="site/michellekayewashington.com/images/cut/work-sale-16__q1b7ea5c7.webp" alt="All I Have to Give" width="675" height="900"></button><figcaption class="work-label"><span class="work-num">15</span><span class="work-title">All I Have to Give</span><span class="work-meta"><span class="work-size">36"x24"</span><span class="work-sep"> · </span><span class="work-medium">acrylic on canvas</span></span></figcaption></figure>
+          </div>
+          <div class="light"></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="ds-block">
+      <h3 class="chapter-count ds-sub">Wayfinding · meter, place and pages</h3>
+      <div class="ds-grid-3">
+        <div class="ds-card"><span class="work-title">Meter</span><span class="work-meta">one mark per work, its height by real size; marks light by how much of the work is on screen</span><div class="ds-stage is-plain"><nav class="minimap ds-static" aria-label="Meter (example)"><a role="link" tabindex="-1" style="height: 10.8px;"><i class="mm-lit" style="opacity: 0;"></i></a><a role="link" tabindex="-1" style="height: 10.8px;"><i class="mm-lit" style="opacity: 0;"></i></a><a role="link" tabindex="-1" style="height: 10.8px;"><i class="mm-lit" style="opacity: 0;"></i></a><a role="link" tabindex="-1" style="height: 9px;"><i class="mm-lit" style="opacity: 0.4;"></i></a><a role="link" tabindex="-1" style="height: 21.6px;"><i class="mm-lit" style="opacity: 1;"></i></a><a role="link" tabindex="-1" style="height: 16.2px;"><i class="mm-lit" style="opacity: 0.6;"></i></a><a role="link" tabindex="-1" style="height: 6px;"><i class="mm-lit" style="opacity: 0;"></i></a><a role="link" tabindex="-1" style="height: 21.6px;"><i class="mm-lit" style="opacity: 0;"></i></a><a role="link" tabindex="-1" style="height: 7.2px;"><i class="mm-lit" style="opacity: 0;"></i></a><a role="link" tabindex="-1" style="height: 6px;"><i class="mm-lit" style="opacity: 0;"></i></a><a role="link" tabindex="-1" style="height: 6px;"><i class="mm-lit" style="opacity: 0;"></i></a><a role="link" tabindex="-1" style="height: 11.7px;"><i class="mm-lit" style="opacity: 0;"></i></a><a role="link" tabindex="-1" style="height: 18px;"><i class="mm-lit" style="opacity: 0;"></i></a><a role="link" tabindex="-1" style="height: 21.6px;"><i class="mm-lit" style="opacity: 0;"></i></a><a role="link" tabindex="-1" style="height: 16.2px;"><i class="mm-lit" style="opacity: 0;"></i></a><span class="mm-gap"></span><a role="link" tabindex="-1" style="height: 9px;"><i class="mm-lit" style="opacity: 0;"></i></a><a role="link" tabindex="-1" style="height: 10.8px;"><i class="mm-lit" style="opacity: 0;"></i></a><a role="link" tabindex="-1" style="height: 10.8px;"><i class="mm-lit" style="opacity: 0;"></i></a></nav></div><code class="ds-code">.minimap · .mm-lit · .mm-gap (between rooms)</code></div>
+        <div class="ds-card"><span class="work-title">Where you are</span><span class="work-meta">the room in italics, the number of the work in front of you</span><div class="ds-stage is-plain"><p class="where ds-static"><span class="where-chapter">Against the Grain</span><span class="where-num"><span>05</span> / 27</span></p></div><code class="ds-code">.where · .where-chapter · .where-num</code></div>
+        <div class="ds-card"><span class="work-title">Pages</span><span class="work-meta">the site’s three pages, previous and next</span><div class="ds-stage is-plain"><nav class="pager ds-static" aria-label="Pages (example)"><a class="pager-arrow" href="#components" aria-label="Previous (example)"><span aria-hidden="true">←</span></a><p class="pager-count"><span>02</span><span class="pager-of"> / 03</span> <span class="pager-name">Gallery</span></p><a class="pager-arrow" href="#components" aria-label="Next (example)"><span aria-hidden="true">→</span></a></nav></div><code class="ds-code">.pager · .pager-count · .pager-of · .pager-name</code></div>
+      </div>
+      <span class="ds-gap"></span>
+      <div class="ds-grid-3">
+        <div class="ds-card"><span class="work-title">Meter peek · paper</span><span class="work-meta">thumbnail, number and title, and a loupe of the marks around you</span><div class="ds-stage is-plain"><div class="mm-peek ds-static is-in" data-ground="paper" aria-hidden="true"><div class="mm-peek-art"><img alt="" src="site/michellekayewashington.com/images/cut/work-sale-05__qe9b3bce0.webp"><p class="mm-peek-cap"><span class="mm-peek-num">05</span><span class="mm-peek-title">Pharaohs and Masters</span></p></div><div class="mm-loupe"><div class="mm-loupe-row" style="transform: translateX(-35.6px);"><i style="left:0px;width:13.2px;height:23.8px"></i><i style="left:19.8px;width:13.2px;height:23.8px"></i><i style="left:39.6px;width:13.2px;height:23.8px"></i><i style="left:59.4px;width:13.2px;height:19.8px"></i><i class="is-here" style="left:79.2px;width:13.2px;height:47.5px"></i><i style="left:99px;width:13.2px;height:35.6px"></i><i style="left:118.8px;width:13.2px;height:13.2px"></i><i style="left:138.6px;width:13.2px;height:47.5px"></i><i style="left:158.4px;width:13.2px;height:15.8px"></i></div></div></div></div><code class="ds-code">.mm-peek[data-ground="paper"]</code></div>
+        <div class="ds-card"><span class="work-title">Meter peek · moss</span><span class="work-meta">the bubble wears the colours of the painting’s own room</span><div class="ds-stage is-plain"><div class="mm-peek ds-static is-in" data-ground="moss" aria-hidden="true"><div class="mm-peek-art"><img alt="" src="site/michellekayewashington.com/images/cut/sweet-grass__q5f9c852d.webp"><p class="mm-peek-cap"><span class="mm-peek-num">16</span><span class="mm-peek-title">Sweet Grass</span></p></div><div class="mm-loupe"><div class="mm-loupe-row" style="transform: translateX(28.4px);"><i style="left:0px;width:13.2px;height:35.6px"></i><i class="is-gap" style="left:19.8px;width:22px;height:0px"></i><i class="is-here" style="left:48.4px;width:13.2px;height:19.8px"></i><i style="left:68.2px;width:13.2px;height:23.8px"></i><i style="left:88px;width:13.2px;height:23.8px"></i><i style="left:107.8px;width:13.2px;height:23.8px"></i></div></div></div></div><code class="ds-code">.mm-peek[data-ground="moss"]</code></div>
+        <div class="ds-card"><span class="work-title">Meter peek · ink</span><span class="work-meta">one shade lighter than the charcoal wall, never colour on colour</span><div class="ds-stage is-plain"><div class="mm-peek ds-static is-in" data-ground="ink" aria-hidden="true"><div class="mm-peek-art"><img alt="" src="site/michellekayewashington.com/images/cut/jonathan__q1c4249e5.webp"><p class="mm-peek-cap"><span class="mm-peek-num">22</span><span class="mm-peek-title">Jonathan</span></p></div><div class="mm-loupe"><div class="mm-loupe-row" style="transform: translateX(8.6px);"><i style="left:0px;width:13.2px;height:19.8px"></i><i style="left:19.8px;width:13.2px;height:19.8px"></i><i class="is-gap" style="left:39.6px;width:22px;height:0px"></i><i class="is-here" style="left:68.2px;width:13.2px;height:13.9px"></i><i style="left:88px;width:13.2px;height:13.9px"></i><i style="left:107.8px;width:13.2px;height:15.8px"></i><i style="left:127.6px;width:13.2px;height:15.8px"></i></div></div></div></div><code class="ds-code">.mm-peek[data-ground="ink"]</code></div>
+      </div>
+    </div>
+
+    <div class="ds-block">
+      <h3 class="chapter-count ds-sub">Notes (modals)</h3>
+      <div class="ds-grid-2">
+        <div class="modal ds-modal" role="presentation">
+          <button class="modal-backdrop" type="button" tabindex="-1" aria-hidden="true"></button>
+          <div class="modal-window">
+            <button class="modal-close" type="button" aria-label="Close (example)" tabindex="-1">×</button>
+            <h2 class="modal-title">Questions for the Artist?</h2>
+            <p class="modal-sub">Ways to get in touch</p>
+            <p class="modal-actions"><a class="pill" href="https://www.instagram.com/Mkwashingtonart/" target="_blank" rel="noopener">Instagram</a><a class="pill" href="https://gnvbym-0h.myshopify.com/pages/contact" target="_blank" rel="noopener">Shopify</a></p>
+          </div>
+        </div>
+        <div class="modal ds-modal" role="presentation">
+          <button class="modal-backdrop" type="button" tabindex="-1" aria-hidden="true"></button>
+          <div class="modal-window">
+            <button class="modal-close" type="button" aria-label="Go back (example)" tabindex="-1">×</button>
+            <h2 class="modal-title">Off to Instagram</h2>
+            <p class="modal-sub">You are leaving this site for Michelle's Instagram, @Mkwashingtonart.</p>
+            <p class="modal-actions"><a class="pill pill-ink" href="#components">Go to Instagram</a><button class="pill" type="button">Go back</button></p>
+          </div>
+        </div>
+      </div>
+      <span class="ds-gap"></span>
+      <p class="modal-actions"><a class="pill pill-ink" href="#contact" role="button" data-open="contact">Open the contact note</a><a class="pill" href="https://www.instagram.com/Mkwashingtonart/" target="_blank" rel="noopener">Open the leave note</a></p>
+    </div>
+  </section>
+
+  <!-- ================================================================ 04 · LAYOUT & SPACING -->
+  <section class="chapter ds-section" id="layout" aria-labelledby="ds-layout-title">
+    <header class="chapter-head">
+      <p class="chapter-num">04</p>
+      <h2 class="chapter-title" id="ds-layout-title"><i>Layout &amp; Spacing</i></h2>
+      <p class="chapter-note">A fixed menu column, one shared point where every title starts, and a wall that runs sideways with the works standing on a common floor line. Spacing is fluid and measured, not stepped.</p>
+      <p class="chapter-count">Tokens · breakpoints · 4 patterns</p>
+    </header>
+
+    <div class="ds-block">
+      <h3 class="chapter-count ds-sub">Spacing tokens · live at this window size</h3>
+      <div class="ds-spec">
+        <div class="ds-row"><div class="ds-row-name"><span class="chapter-count">Page margin</span><code class="ds-code">--pad</code></div><span class="work-meta">clamp(1.25rem, 3.2vw, 4rem) · stage padding, header and pager insets</span><span class="work-meta ds-row-size" data-ds-token="var(--pad)">—</span></div>
+        <div class="ds-row"><div class="ds-row-name"><span class="chapter-count">Menu column</span><code class="ds-code">--nav-w</code></div><span class="work-meta">clamp(190px, 15vw, 300px) · 0 on phones and tablets (menu becomes a bar)</span><span class="work-meta ds-row-size" data-ds-token="var(--nav-w)">—</span></div>
+        <div class="ds-row"><div class="ds-row-name"><span class="chapter-count">Title point</span><code class="ds-code">--title-top</code></div><span class="work-meta">clamp(4.5rem, 12svh, 8.5rem) · 6.75rem tablet · 7.53rem phone</span><span class="work-meta ds-row-size" data-ds-token="var(--title-top)">—</span></div>
+        <div class="ds-row"><div class="ds-row-name"><span class="chapter-count">Title size</span><code class="ds-code">--title-size</code></div><span class="work-meta">clamp(3.4rem, min(8vw, 14svh), 9.5rem) · phone: (100vw − 2.5rem) / 6.2</span><span class="work-meta ds-row-size" data-ds-token="var(--title-size)">—</span></div>
+        <div class="ds-row"><div class="ds-row-name"><span class="chapter-count">Label step</span><code class="ds-code">--lg</code></div><span class="work-meta">1.15rem · painting to numeral to words</span><span class="work-meta ds-row-size" data-ds-token="var(--lg)" data-ds-scope="#stage .wall">—</span></div>
+        <div class="ds-row"><div class="ds-row-name"><span class="chapter-count">Trail</span><code class="ds-code">--trail</code></div><span class="work-meta">clamp(5.5rem, 7.5vw, 9rem) · the gap before the next work · 4.6rem phone</span><span class="work-meta ds-row-size" data-ds-token="var(--trail)" data-ds-scope="#stage .wall">—</span></div>
+        <div class="ds-row"><div class="ds-row-name"><span class="chapter-count">Floor line</span><code class="ds-code">.wall padding-bottom</code></div><span class="work-meta">max(25svh, 7.5rem) · every work stands on it</span><span class="work-meta ds-row-size" data-ds-token="max(25svh, 7.5rem)">—</span></div>
+        <div class="ds-row"><div class="ds-row-name"><span class="chapter-count">Section rhythm</span><code class="ds-code">.chapter padding</code></div><span class="work-meta">clamp(3rem, 10vh, 8rem) top · clamp(4rem, 12vh, 10rem) bottom · head gap clamp(3rem, 9vh, 7rem)</span><span class="work-meta ds-row-size" data-ds-token="clamp(3rem, 10vh, 8rem)">—</span></div>
+        <div class="ds-row"><div class="ds-row-name"><span class="chapter-count">Controls</span><code class="ds-code">pill · arrows</code></div><span class="work-meta">pill 0.55rem × 1.3rem, radius 999px · page arrow 2.6rem · viewer buttons 3rem · meter marks 6px, gap 3px</span><span class="work-meta ds-row-size" data-ds-token="2.6rem">—</span></div>
+        <div class="ds-row"><div class="ds-row-name"><span class="chapter-count">Scale</span><code class="ds-code">data-scale</code></div><span class="work-meta">1 inch of canvas = 1% of the view’s height × the room’s scale (1.5 paintings · 1.3 phone · 2.5 charcoal)</span><span class="work-meta ds-row-size" data-ds-token="1vh">—</span></div>
+      </div>
+    </div>
+
+    <div class="ds-block">
+      <h3 class="chapter-count ds-sub">Breakpoints</h3>
+      <div class="ds-spec">
+        <div class="ds-row"><div class="ds-row-name"><span class="chapter-count">Desktop</span><code class="ds-code">≥ 900px</code></div><span class="work-meta">menu column at left, foot line (meter · place · pages) level with “Contact”</span><span class="work-meta ds-row-size">min-width: 900px</span></div>
+        <div class="ds-row"><div class="ds-row-name"><span class="chapter-count">Tablet</span><code class="ds-code">600–899px</code></div><span class="work-meta">menu becomes a header bar; the first works show at the right; the foot is one row</span><span class="work-meta ds-row-size">max-width: 899px</span></div>
+        <div class="ds-row"><div class="ds-row-name"><span class="chapter-count">Narrow tablet</span><code class="ds-code">600–750px</code></div><span class="work-meta">the foot stacks as on a phone</span><span class="work-meta ds-row-size">max-width: 750px</span></div>
+        <div class="ds-row"><div class="ds-row-name"><span class="chapter-count">Phone</span><code class="ds-code">≤ 599px</code></div><span class="work-meta">labels under each work, title on one line, everything centred at the foot</span><span class="work-meta ds-row-size">max-width: 599px</span></div>
+        <div class="ds-row"><div class="ds-row-name"><span class="chapter-count">Phone on its side</span><code class="ds-code">≤ 999 × ≤ 520 landscape</code></div><span class="work-meta">header bar, works hang lower and larger; with the tab bar (≤ 340px tall) a compact header</span><span class="work-meta ds-row-size">max-height: 520px</span></div>
+        <div class="ds-row"><div class="ds-row-name"><span class="chapter-count">Smallest</span><code class="ds-code">≤ 339px</code></div><span class="work-meta">shorter wordmark rule, meter marks 5px</span><span class="work-meta ds-row-size">max-width: 339px</span></div>
+      </div>
+    </div>
+
+    <div class="ds-block">
+      <h3 class="chapter-count ds-sub">Pattern A · The room: menu column, title point and the floor line</h3>
+      <div class="ds-frame stage-gallery">
+        <div class="ds-frame-shell">
+          <span class="wordmark"><span class="wordmark-name">Michelle Kaye</span><span class="wordmark-rule" aria-hidden="true"></span><span class="wordmark-fine">Fine Arts</span></span>
+          <div class="site-nav"><ol class="nav-index"><li><a href="#layout"><span class="nav-num">01</span><span class="nav-label">Michelle</span></a></li><li><a href="#layout" aria-current="page"><span class="nav-num">02</span><span class="nav-label">Gallery</span></a></li><li><a href="#layout"><span class="nav-num">03</span><span class="nav-label">Socials</span></a></li></ol><div class="nav-secondary"><span class="link-button">News</span><span class="link-button">Contact</span></div></div>
+        </div>
+        <header class="chapter-head">
+          <p class="chapter-num"><span class="chapter-page">Gallery · </span>II</p>
+          <p class="chapter-title is-long"><i>Recollections in Nature</i></p>
+          <p class="chapter-count">6 works</p>
+        </header>
+        <div class="ds-frame-floor"><span class="work-meta">floor line · max(25svh, 7.5rem)</span></div>
+        <div class="ds-frame-wall wall">
+          <figure class="work work-s"><span class="work-open"><img src="site/michellekayewashington.com/images/cut/indigos-blues__q6049152a.webp" alt="" width="703" height="900"></span><figcaption class="work-label"><span class="work-num">20</span><span class="work-title">Indigo’s Blues</span><span class="work-meta">20"x16"</span></figcaption></figure>
+          <figure class="work work-s"><span class="work-open"><img src="site/michellekayewashington.com/images/cut/reciprocal__q0b9952be.webp" alt="" width="713" height="900"></span><figcaption class="work-label"><span class="work-num">21</span><span class="work-title">Reciprocal</span><span class="work-meta">20"x16"</span></figcaption></figure>
+        </div>
+      </div>
+      <dl class="ds-legend">
+        <div><dt class="chapter-count">Menu column</dt><dd class="work-meta">fixed, var(--nav-w) wide; the stage starts after it</dd></div>
+        <div><dt class="chapter-count">Title point</dt><dd class="work-meta">top var(--title-top), left var(--nav-w) + var(--pad); the numeral sits just above</dd></div>
+        <div><dt class="chapter-count">Floor line</dt><dd class="work-meta">works align to flex-end on max(25svh, 7.5rem); labels sit beside, var(--lg) away</dd></div>
+        <div><dt class="chapter-count">The walk</dt><dd class="work-meta">the room is pinned (sticky, 100svh) while scroll moves the wall sideways</dd></div>
+      </dl>
+    </div>
+
+    <div class="ds-block">
+      <h3 class="chapter-count ds-sub">Pattern B · The viewing room: the work, then its details</h3>
+      <div class="viewer ds-viewer" role="presentation">
+        <button class="viewer-close" type="button" aria-label="Close (example)" tabindex="-1"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M3.1 3.1 12.9 12.9M12.9 3.1 3.1 12.9"/></svg></button>
+        <figure class="viewer-figure"><img src="site/michellekayewashington.com/images/cut/lg/work-sale-08__q902efd91.webp" alt="Here I Lie Here I Remain, in the viewing room"></figure>
+        <div class="viewer-info">
+          <p class="viewer-count"><span>08</span> / 27 · <span>Against the Grain</span></p>
+          <p class="viewer-title">Here I Lie Here I Remain</p>
+          <p class="viewer-meta">48"x36" · acrylic on canvas</p>
+          <p data-viewer-buy><a class="pill" href="https://gnvbym-0h.myshopify.com/products/here-i-lie-here-i-remain?variant=40854906929281" target="_blank" rel="noopener">Available — view in shop</a></p>
+          <button type="button" class="viewer-zoom" tabindex="-1">Zoom to Inspect</button>
+        </div>
+        <button class="viewer-step viewer-prev" type="button" aria-label="Previous (example)" tabindex="-1">←</button>
+        <button class="viewer-step viewer-next" type="button" aria-label="Next (example)" tabindex="-1">→</button>
+      </div>
+      <dl class="ds-legend">
+        <div><dt class="chapter-count">Split</dt><dd class="work-meta">grid: minmax(0, 1fr) | minmax(16rem, 22rem), gap clamp(1.5rem, 4vw, 4rem)</dd></div>
+        <div><dt class="chapter-count">Padding</dt><dd class="work-meta">clamp(1rem, 4vw, 4rem) × clamp(4rem, 8vw, 8rem), room for the side arrows</dd></div>
+        <div><dt class="chapter-count">Phones</dt><dd class="work-meta">one column: the picture, then the details; arrows meet at the bottom centre</dd></div>
+        <div><dt class="chapter-count">Live</dt><dd class="work-meta"><a class="pill" href="#layout" role="button" data-ds-open-work="1">Open the real viewer</a></dd></div>
+      </dl>
+    </div>
+
+    <div class="ds-block">
+      <h3 class="chapter-count ds-sub">Pattern C · The foot line: meter, place and pages on one centre line</h3>
+      <div class="ds-panel ds-foot">
+        <p class="where ds-static"><span class="where-chapter">Charcoal Works</span><span class="where-num"><span>24</span> / 27</span></p>
+        <nav class="minimap ds-static" aria-label="Meter (example)"><a role="link" tabindex="-1" style="height: 9px;"><i class="mm-lit" style="opacity: 0;"></i></a><a role="link" tabindex="-1" style="height: 10.8px;"><i class="mm-lit" style="opacity: 0;"></i></a><a role="link" tabindex="-1" style="height: 10.8px;"><i class="mm-lit" style="opacity: 0;"></i></a><span class="mm-gap"></span><a role="link" tabindex="-1" style="height: 6.3px;"><i class="mm-lit" style="opacity: 0;"></i></a><a role="link" tabindex="-1" style="height: 6.3px;"><i class="mm-lit" style="opacity: 0.5;"></i></a><a role="link" tabindex="-1" style="height: 7.2px;"><i class="mm-lit" style="opacity: 1;"></i></a><a role="link" tabindex="-1" style="height: 7.2px;"><i class="mm-lit" style="opacity: 0.3;"></i></a><a role="link" tabindex="-1" style="height: 7.2px;"><i class="mm-lit" style="opacity: 0;"></i></a><a role="link" tabindex="-1" style="height: 6px;"><i class="mm-lit" style="opacity: 0;"></i></a></nav>
+        <nav class="pager ds-static" aria-label="Pages (example)"><a class="pager-arrow" href="#layout" aria-label="Previous (example)"><span aria-hidden="true">←</span></a><p class="pager-count"><span>02</span><span class="pager-of"> / 03</span> <span class="pager-name">Gallery</span></p><a class="pager-arrow" href="#layout" aria-label="Next (example)"><span aria-hidden="true">→</span></a></nav>
+      </div>
+      <dl class="ds-legend">
+        <div><dt class="chapter-count">Desktop</dt><dd class="work-meta">meter centred; the room’s name to its left; page arrows at the right, all level with “Contact” (--foot-line)</dd></div>
+        <div><dt class="chapter-count">Phone</dt><dd class="work-meta">three centred rows: the meter, the room and number, then the page arrows</dd></div>
+      </dl>
+    </div>
+
+    <div class="ds-block">
+      <h3 class="chapter-count ds-sub">Pattern D · The end of the walk</h3>
+      <p class="chapter-note">A full screen in the last room’s wall colour, words centred in the space the fixed header, meter and arrows leave free. It is the footer of this page: <a class="work-buy" href="#ds-end">go to the end</a>.</p>
+    </div>
+  </section>
+
+  <!-- ================================================================ 05 · MOTION & INTERACTION -->
+  <section class="chapter ds-section" id="motion" aria-labelledby="ds-motion-title">
+    <header class="chapter-head">
+      <p class="chapter-num">05</p>
+      <h2 class="chapter-title" id="ds-motion-title"><i>Motion &amp; Interaction</i></h2>
+      <p class="chapter-note">Movement is slow to settle and never bounces: one ease-out curve for almost everything, a symmetric curve for the walk between pages, and scroll that stops when you stop. Reduced motion removes all of it.</p>
+      <p class="chapter-count">2 curves · 14 behaviours</p>
+    </header>
+
+    <div class="ds-block">
+      <h3 class="chapter-count ds-sub">Easing</h3>
+      <div class="ds-grid-2" data-ds-ease>
+        <div class="ds-card">
+          <span class="work-title">Ease · settle</span>
+          <span class="work-meta"><code class="ds-code">--ease: cubic-bezier(0.22, 1, 0.36, 1)</code> · hovers, colours, lifts, the room change</span>
+          <svg class="ds-curve" viewBox="0 0 100 100" aria-hidden="true"><line x1="0" y1="100" x2="100" y2="100"/><line x1="0" y1="0" x2="0" y2="100"/><path d="M0 100 C22 0 36 0 100 0"/></svg>
+          <div class="ds-track"><i></i></div>
+        </div>
+        <div class="ds-card">
+          <span class="work-title">Ease in-out · walk</span>
+          <span class="work-meta"><code class="ds-code">--ease-io: cubic-bezier(0.65, 0, 0.35, 1)</code> · the page walk, the walk cue line</span>
+          <svg class="ds-curve" viewBox="0 0 100 100" aria-hidden="true"><line x1="0" y1="100" x2="100" y2="100"/><line x1="0" y1="0" x2="0" y2="100"/><path d="M0 100 C65 100 35 0 100 0"/></svg>
+          <div class="ds-track" data-e="io"><i></i></div>
+        </div>
+      </div>
+      <span class="ds-gap"></span>
+      <a class="pill pill-ink" href="#motion" role="button" data-ds-ease-play>Play both curves</a>
+    </div>
+
+    <div class="ds-block">
+      <h3 class="chapter-count ds-sub">Durations</h3>
+      <div class="ds-spec">
+        <div class="ds-row"><div class="ds-row-name"><span class="chapter-count">0.18 – 0.24s</span></div><span class="work-meta">meter peek in (opacity, then scale from 0.9)</span><code class="ds-code ds-row-size">.mm-peek</code></div>
+        <div class="ds-row"><div class="ds-row-name"><span class="chapter-count">0.3s</span></div><span class="work-meta">hover colours: pills, arrows, links, viewer buttons, “Available”</span><code class="ds-code ds-row-size">.pill · .pager-arrow</code></div>
+        <div class="ds-row"><div class="ds-row-name"><span class="chapter-count">0.38 – 0.45s</span></div><span class="work-meta">work lift (450ms in, 380ms out), menu underline, work shadow</span><code class="ds-code ds-row-size">.nav-label::after · .work-open img</code></div>
+        <div class="ds-row"><div class="ds-row-name"><span class="chapter-count">0.4 – 0.6s</span></div><span class="work-meta">menu lines, news unfold (+0.05s per story), menu panel, scrub hint</span><code class="ds-code ds-row-size">.news-links · .site-nav</code></div>
+        <div class="ds-row"><div class="ds-row-name"><span class="chapter-count">0.9s</span></div><span class="work-meta">the room change: page ground and words ease into the next room</span><code class="ds-code ds-row-size">body · html[data-ground]</code></div>
+        <div class="ds-row"><div class="ds-row-name"><span class="chapter-count">0.95s</span></div><span class="work-meta">the walk to the next page (old words leave in 420ms)</span><code class="ds-code ds-row-size">deep.js go()</code></div>
+        <div class="ds-row"><div class="ds-row-name"><span class="chapter-count">1.9s</span></div><span class="work-meta">the signature’s light sweep at the end of the walk</span><code class="ds-code ds-row-size">.gallery-end-credit a</code></div>
+        <div class="ds-row"><div class="ds-row-name"><span class="chapter-count">2.6s loop</span></div><span class="work-meta">the walk cue’s line slides across and away</span><code class="ds-code ds-row-size">@keyframes walk-cue-slide</code></div>
+      </div>
+    </div>
+
+    <div class="ds-block">
+      <h3 class="chapter-count ds-sub">Motion gallery</h3>
+      <div class="ds-grid-3">
+        <div class="ds-card">
+          <span class="work-title">Walk cue</span>
+          <span class="work-meta">a line slides in, rests, slides on · 2.6s infinite, ease-io</span>
+          <div class="ds-stage"><div class="chapter ds-ctx" data-ground="paper"><p class="walk-cue" aria-hidden="true"><span class="walk-cue-text walk-cue-touch">Swipe to walk the gallery</span><span class="walk-cue-text walk-cue-desk">Scroll down to walk the gallery</span><span class="walk-cue-line"></span></p></div></div>
+          <code class="ds-code">.walk-cue-line::after · walk-cue-slide</code>
+        </div>
+        <div class="ds-card">
+          <span class="work-title">Menu underline</span>
+          <span class="work-meta">hover: the word darkens, a rose line grows from the left · 0.45s</span>
+          <div class="ds-stage is-plain"><ol class="nav-index"><li><a href="#motion"><span class="nav-num">01</span><span class="nav-label">Michelle</span></a></li><li><a href="#motion"><span class="nav-num">02</span><span class="nav-label">Gallery</span></a></li><li><a href="#motion"><span class="nav-num">03</span><span class="nav-label">Socials</span></a></li></ol></div>
+          <code class="ds-code">.nav-label::after scaleX(0 → 1)</code>
+        </div>
+        <div class="ds-card">
+          <span class="work-title">Pill and arrow hover</span>
+          <span class="work-meta">fill swaps to the words’ colour; arrows press to 0.94</span>
+          <div class="ds-stage is-plain"><span class="ds-states"><a class="pill" href="#motion">Back to the first work</a><a class="pill pill-ink" href="#motion">Socials →</a><a class="pager-arrow" href="#motion" aria-label="Next (example)"><span aria-hidden="true">→</span></a></span></div>
+          <code class="ds-code">background-color, color 0.3s var(--ease)</code>
+        </div>
+        <div class="ds-card">
+          <span class="work-title">Work lift &amp; gallery light</span>
+          <span class="work-meta">hover a work: it rises 6px, its neighbours dim, the light settles on it</span>
+          <div class="chapter ds-ctx" data-ground="paper"><div class="wall-pin ds-wall" data-ds-light data-ds-lift><div class="wall"><figure class="work work-s ds-w-s"><button class="work-open" type="button" tabindex="-1"><svg class="strings ds-strings ds-round" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true"><line x1="30" y1="0" x2="30" y2="100"/><line x1="70" y1="0" x2="70" y2="100"/></svg><img src="site/michellekayewashington.com/images/cut/work-sale-12__q66cee360.webp" alt="Sweet and Sour Grass" width="722" height="722"></button></figure><figure class="work work-s ds-w-s"><button class="work-open" type="button" tabindex="-1"><svg class="strings ds-strings" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true"><line x1="30" y1="0" x2="30" y2="100"/><line x1="70" y1="0" x2="70" y2="100"/></svg><img src="site/michellekayewashington.com/images/cut/work-sale-02__qfd3c1ec8.webp" alt="Price of Rice" width="744" height="996"></button></figure></div><div class="light"></div></div></div>
+          <code class="ds-code">deep.js · .is-focus · .has-focus · .light --lx/--ly</code>
+        </div>
+        <div class="ds-card">
+          <span class="work-title">Room change</span>
+          <span class="work-meta">the page takes the room’s colours over 0.9s. Scrolling returns you to the room you stand in.</span>
+          <div class="ds-stage is-plain"><span class="ds-states"><a class="pill pill-ink" href="#motion" role="button" data-ds-ground="paper">Paper</a><a class="pill" href="#motion" role="button" data-ds-ground="moss">Moss</a><a class="pill" href="#motion" role="button" data-ds-ground="ink">Ink</a></span></div>
+          <code class="ds-code">html[data-ground] · transition 0.9s var(--ease)</code>
+        </div>
+        <div class="ds-card">
+          <span class="work-title">The walk between pages</span>
+          <span class="work-meta">the old room slides 6vw away as its words leave; the next is uncovered from the side</span>
+          <div class="ds-stage ds-walk" data-ds-walk>
+            <div class="ds-walk-page chapter ds-ctx ds-room" data-ground="paper"><p class="chapter-num">I</p><p class="viewer-title">Against the Grain</p></div>
+            <div class="ds-walk-page chapter ds-ctx ds-room" data-ground="moss"><p class="chapter-num">II</p><p class="viewer-title">Recollections in Nature</p></div>
+            <div class="ds-walk-page chapter ds-ctx ds-room" data-ground="ink"><p class="chapter-num">III</p><p class="viewer-title">Charcoal Works</p></div>
+          </div>
+          <span class="ds-states"><a class="pager-arrow" href="#motion" role="button" data-ds-walk-go="-1" aria-label="Walk back"><span aria-hidden="true">←</span></a><a class="pager-arrow" href="#motion" role="button" data-ds-walk-go="1" aria-label="Walk on"><span aria-hidden="true">→</span></a></span>
+        </div>
+        <div class="ds-card">
+          <span class="work-title">Push through</span>
+          <span class="work-meta">press and hold: the button swells as rose sweeps through it, the ring fills, a hairline grows; at the brim it bursts</span>
+          <div class="ds-stage is-plain ds-charge" data-ds-charge>
+            <span class="ds-states"><a class="pill pill-ink is-charge-target" href="#motion" data-charge-target><span class="charge-fill" aria-hidden="true"></span>Socials →</a><span class="pager-arrow" aria-hidden="true"><span>→</span><svg class="charge-ring" viewBox="0 0 50 50" aria-hidden="true"><circle cx="25" cy="25" r="24" pathLength="100" stroke-dasharray="100" stroke-dashoffset="100"></circle></svg></span></span>
+            <p class="charge-caption ds-static" aria-hidden="true">Keep scrolling to Socials</p>
+            <div class="charge-line ds-static" aria-hidden="true"></div>
+          </div>
+          <code class="ds-code">--charge 0 → 1 · .charge-fill · .charge-ring · .charge-line</code>
+        </div>
+        <div class="ds-card">
+          <span class="work-title">News unfolds</span>
+          <span class="work-meta">the list’s height eases open, each story slides in after the one before</span>
+          <div class="ds-stage is-plain"><div class="nav-secondary"><div class="news" data-news><button type="button" class="link-button" aria-expanded="false" aria-controls="ds-news-links-2" data-news-toggle>News</button><div class="news-links" id="ds-news-links-2" inert><div class="news-links-inner"><a href="http://palmettolifesc.com/video/2026/05/21/video-drummond-studio-gallery/" target="_blank" rel="noopener">Drummond Studio Gallery</a><a href="https://charlestoncitypaper.com/2026/06/03/piccolo-art-show-confronts-charlestons-roots-in-rice-plantations/" target="_blank" rel="noopener">Charleston City Paper</a><a href="https://view.publitas.com/gulfstream-communications/charleston-magazine-may-2026/page/212-213" target="_blank" rel="noopener">Charleston Magazine</a></div></div></div><button type="button" class="link-button" data-open="contact">Contact</button></div></div>
+          <code class="ds-code">grid-template-rows 0fr → 1fr 0.6s · stagger 0.05s</code>
+        </div>
+        <div class="ds-card">
+          <span class="work-title">Menu button</span>
+          <span class="work-meta">two lines turn into a cross · 0.4s (phones and tablets)</span>
+          <div class="ds-stage is-plain"><button class="menu-button ds-menu" type="button" aria-expanded="false" data-ds-menu><span></span><span></span><span class="mk-sr">Menu (example)</span></button></div>
+          <code class="ds-code">.menu-button[aria-expanded="true"] span</code>
+        </div>
+        <div class="ds-card">
+          <span class="work-title">Meter peek</span>
+          <span class="work-meta">rises from its caret: opacity 0.18s, translate and scale 0.24s</span>
+          <div class="ds-stage is-plain"><div class="mm-peek ds-static is-in" data-ground="paper" aria-hidden="true" data-ds-peek><div class="mm-peek-art"><img alt="" src="site/michellekayewashington.com/images/cut/work-sale-01__q62563dfd.webp"><p class="mm-peek-cap"><span class="mm-peek-num">01</span><span class="mm-peek-title">Burdens to bear</span></p></div></div></div>
+          <a class="pill" href="#motion" role="button" data-ds-replay="[data-ds-peek]" data-ds-class="is-in">Replay</a>
+        </div>
+        <div class="ds-card">
+          <span class="work-title">Scrub hint</span>
+          <span class="work-meta">the invitation above the meter fades in and up · 0.6s</span>
+          <div class="ds-stage is-plain ds-hint-box"><p class="scrub-hint ds-static is-on" aria-hidden="true" data-ds-hint>Try Exploring with Our Scrubbing Tool Below</p><nav class="minimap ds-static" aria-label="Meter (example)"><a role="link" tabindex="-1" style="height: 9px;"><i class="mm-lit" style="opacity: 0;"></i></a><a role="link" tabindex="-1" style="height: 7.2px;"><i class="mm-lit" style="opacity: 0;"></i></a><a role="link" tabindex="-1" style="height: 6px;"><i class="mm-lit" style="opacity: 1;"></i></a></nav></div>
+          <a class="pill" href="#motion" role="button" data-ds-replay="[data-ds-hint]" data-ds-class="is-on">Replay</a>
+        </div>
+        <div class="ds-card">
+          <span class="work-title">Viewing room</span>
+          <span class="work-meta">click a work to open it; Zoom to Inspect magnifies, the pointer travels across the texture, a small map shows where you are</span>
+          <div class="ds-stage is-plain"><a class="pill pill-ink" href="#motion" role="button" data-ds-open-work="5">Open Pharaohs and Masters</a></div>
+          <code class="ds-code">.viewer · .is-zoom · .viewer-nav</code>
+        </div>
+        <div class="ds-card">
+          <span class="work-title">The wall walk</span>
+          <span class="work-meta">scrolling down moves the wall sideways under a pinned room; Lenis eases the scroll and stops when you stop</span>
+          <div class="ds-stage is-plain"><a class="pill" href="#chapter-1">Walk the hero wall</a></div>
+          <code class="ds-code">.wall-pin sticky · .wall translate3d · Lenis lerp 0.1</code>
+        </div>
+        <div class="ds-card">
+          <span class="work-title">Signature</span>
+          <span class="work-meta">at the very end, a soft light passes over the studio’s credit, left to right, and fades when you turn back</span>
+          <div class="ds-stage is-plain"><a class="pill" href="#ds-end">Go to the end</a></div>
+          <code class="ds-code">.gallery-end.is-signed · background-position 1.9s</code>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================================================================ 06 · ICONS -->
+  <section class="chapter ds-section" id="icons" aria-labelledby="ds-icons-title">
+    <header class="chapter-head">
+      <p class="chapter-num">06</p>
+      <h2 class="chapter-title" id="ds-icons-title"><i>Icons</i></h2>
+      <p class="chapter-note">Line drawings in the bench’s style: inline SVG, no fill, a 1.2px stroke (1.3px for the close cross) in currentColor with round caps, kept at one weight at every size. Arrows are the typeface’s own ← and →.</p>
+      <p class="chapter-count">7 icons · currentColor · non-scaling stroke</p>
+    </header>
+
+    <div class="ds-block">
+      <h3 class="chapter-count ds-sub">The set</h3>
+      <div class="ds-icons">
+        <div class="ds-icon"><div class="ds-icon-stage"><svg class="bench ds-s" viewBox="0 0 200 40" aria-hidden="true"><path d="M4 12h192M14 12v26M186 12v26M4 12c0-4 2-6 6-6h180c4 0 6 2 6 6"/></svg><svg class="bench ds-m" viewBox="0 0 200 40" aria-hidden="true"><path d="M4 12h192M14 12v26M186 12v26M4 12c0-4 2-6 6-6h180c4 0 6 2 6 6"/></svg></div><span class="work-title">Bench</span><span class="work-meta">svg.bench · 1.2px · 35% · 3rem, 6rem (up to 260px on the wall)</span></div>
+        <div class="ds-icon"><div class="ds-icon-stage"><span class="ds-glyph ds-s"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M3.1 3.1 12.9 12.9M12.9 3.1 3.1 12.9"/></svg></span><span class="ds-glyph ds-m"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M3.1 3.1 12.9 12.9M12.9 3.1 3.1 12.9"/></svg></span><span class="ds-glyph ds-l"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M3.1 3.1 12.9 12.9M12.9 3.1 3.1 12.9"/></svg></span></div><span class="work-title">Close</span><span class="work-meta">.viewer-close svg · 1.3px · 1rem (as used), 1.5rem, 2.25rem</span></div>
+        <div class="ds-icon"><div class="ds-icon-stage"><span class="ds-hang"><svg class="strings" viewBox="0 0 100 100" preserveAspectRatio="none" aria-hidden="true"><line x1="30" y1="0" x2="30" y2="100"/><line x1="70" y1="0" x2="70" y2="100"/></svg><img src="site/michellekayewashington.com/images/cut/work-sale-10__qb94bb129.webp" alt="" width="899" height="900"></span></div><span class="work-title">Strings</span><span class="work-meta">svg.strings · two lines at 30% and 70% of the work’s top edge</span></div>
+        <div class="ds-icon"><div class="ds-icon-stage"><svg class="corner ds-corner-svg" aria-hidden="true" viewBox="0 -123.84375 387 786.40625"><path d="M-2.5 -123.8 L9.0 575.3 L170.9 660.6 L386.7 490.3 L385.9 -123.8 M146.6 -123.8 L170.9 660.6"></path></svg></div><span class="work-title">Corner</span><span class="work-meta">svg.corner · the wall corner AGUE wraps · 18%</span></div>
+        <div class="ds-icon"><div class="ds-icon-stage"><span class="pager-arrow ds-ring-on" aria-hidden="true"><span>→</span><svg class="charge-ring" viewBox="0 0 50 50" aria-hidden="true"><circle cx="25" cy="25" r="24" pathLength="100" stroke-dasharray="100" stroke-dashoffset="25"></circle></svg></span></div><span class="work-title">Charge ring</span><span class="work-meta">svg.charge-ring · 1.5px rose, fills clockwise from the top</span></div>
+        <div class="ds-icon"><div class="ds-icon-stage ds-dark"><svg class="ds-navmap" viewBox="0 0 120 150" aria-hidden="true"><path class="viewer-nav-shape" d="M0 0H120V150H0Z"></path><circle class="viewer-nav-dot" cx="72" cy="58" r="11"></circle></svg></div><span class="work-title">Inspect map</span><span class="work-meta">.viewer-nav-shape · cream 55% outline · dot white 68%</span></div>
+        <div class="ds-icon"><div class="ds-icon-stage"><span class="pager-arrow" aria-hidden="true"><span>←</span></span><span class="pager-arrow" aria-hidden="true"><span>→</span></span><button class="menu-button ds-menu" type="button" aria-expanded="false" data-ds-menu tabindex="-1"><span></span><span></span><span class="mk-sr">Menu (example)</span></button></div><span class="work-title">Arrows &amp; menu</span><span class="work-meta">Cormorant ← → in a 2.6rem ring · two 1px lines</span></div>
+      </div>
+    </div>
+
+    <div class="ds-block">
+      <h3 class="chapter-count ds-sub">Colour inheritance · one drawing, every room</h3>
+      <div class="ds-tone">
+        <div><svg class="bench" viewBox="0 0 200 40" aria-hidden="true"><path d="M4 12h192M14 12v26M186 12v26M4 12c0-4 2-6 6-6h180c4 0 6 2 6 6"/></svg><span class="ds-glyph ds-m"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M3.1 3.1 12.9 12.9M12.9 3.1 3.1 12.9"/></svg></span><span class="work-meta">words · --fg</span></div>
+        <div class="ds-c-rose"><svg class="bench" viewBox="0 0 200 40" aria-hidden="true"><path d="M4 12h192M14 12v26M186 12v26M4 12c0-4 2-6 6-6h180c4 0 6 2 6 6"/></svg><span class="ds-glyph ds-m"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M3.1 3.1 12.9 12.9M12.9 3.1 3.1 12.9"/></svg></span><span class="work-meta">rose · --rose</span></div>
+        <div class="ds-c-muted"><svg class="bench" viewBox="0 0 200 40" aria-hidden="true"><path d="M4 12h192M14 12v26M186 12v26M4 12c0-4 2-6 6-6h180c4 0 6 2 6 6"/></svg><span class="ds-glyph ds-m"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M3.1 3.1 12.9 12.9M12.9 3.1 3.1 12.9"/></svg></span><span class="work-meta">muted · --muted</span></div>
+        <div class="chapter ds-ctx ds-room" data-ground="moss"><div class="wall-pin ds-wallpin ds-nofade"><div class="ds-room-in"><svg class="bench" viewBox="0 0 200 40" aria-hidden="true"><path d="M4 12h192M14 12v26M186 12v26M4 12c0-4 2-6 6-6h180c4 0 6 2 6 6"/></svg><span class="ds-glyph ds-m"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M3.1 3.1 12.9 12.9M12.9 3.1 3.1 12.9"/></svg></span><span class="work-meta">moss room · cream</span></div></div></div>
+        <div class="chapter ds-ctx ds-room" data-ground="ink"><div class="wall-pin ds-wallpin ds-nofade"><div class="ds-room-in"><svg class="bench" viewBox="0 0 200 40" aria-hidden="true"><path d="M4 12h192M14 12v26M186 12v26M4 12c0-4 2-6 6-6h180c4 0 6 2 6 6"/></svg><span class="ds-glyph ds-m"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M3.1 3.1 12.9 12.9M12.9 3.1 3.1 12.9"/></svg></span><span class="work-meta">ink room · cream</span></div></div></div>
+      </div>
+    </div>
+  </section>
+</div>
+
+<!-- The end of the walk (the original .gallery-end, as this page's footer) -->
+<footer class="gallery-end" id="ds-end">
+  <p class="gallery-end-count"><span>End of the design system</span> · <span>6 chapters</span></p>
+  <p class="gallery-end-actions"><a class="pill" href="#chapter-1" data-to-top>Back to the first work</a><a class="pill pill-ink" href="https://michellekayewashington.com/connect">Socials →</a></p>
+  <p class="gallery-end-credit"><a href="https://roqpointdesigns.com" target="_blank" rel="noopener">~ RoqPoint Design Studios</a></p>
+</footer>
+
+<div class="viewer" role="dialog" aria-modal="true" aria-label="Artwork viewer" hidden data-viewer>
+  <button class="viewer-close" type="button" aria-label="Close viewer" data-viewer-close><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M3.1 3.1 12.9 12.9M12.9 3.1 3.1 12.9"/></svg></button>
+  <figure class="viewer-figure"><img alt="" data-viewer-img></figure>
+  <div class="viewer-nav" aria-hidden="true" data-viewer-nav><svg><path class="viewer-nav-shape"/><circle class="viewer-nav-dot" r="11"/></svg></div>
+  <div class="viewer-info">
+    <p class="viewer-count" aria-live="polite"><span data-viewer-num>01</span> / 15 · <span data-viewer-chapter></span></p>
+    <h2 class="viewer-title" data-viewer-title></h2>
+    <p class="viewer-meta" data-viewer-meta></p>
+    <p data-viewer-buy></p>
+  </div>
+  <button class="viewer-step viewer-prev" type="button" aria-label="Previous work" data-viewer-prev>←</button>
+  <button class="viewer-step viewer-next" type="button" aria-label="Next work" data-viewer-next>→</button>
+</div>
+<nav class="pager" aria-label="Pages" data-pager>
+  <a class="pager-arrow" href="https://michellekayewashington.com/" rel="prev" aria-label="Previous page: Michelle"><span aria-hidden="true">←</span></a>
+  <p class="pager-count"><span data-pager-num>02</span><span class="pager-of"> / 03</span> <span class="pager-name" data-pager-name>Gallery</span></p>
+  <a class="pager-arrow" href="https://michellekayewashington.com/connect" rel="next" aria-label="Next page: Socials"><span aria-hidden="true">→</span></a>
+</nav>
+<div class="modal" id="contact" role="dialog" aria-modal="true" aria-labelledby="contact-title" hidden data-modal>
+  <button class="modal-backdrop" type="button" aria-label="Close" data-close></button>
+  <div class="modal-window">
+    <button class="modal-close" type="button" aria-label="Close" data-close>×</button>
+    <h2 class="modal-title" id="contact-title">Questions for the Artist?</h2>
+    <p class="modal-sub">Ways to get in touch</p>
+    <p class="modal-actions"><a class="pill" href="https://www.instagram.com/Mkwashingtonart/" target="_blank" rel="noopener">Instagram</a><a class="pill" href="https://gnvbym-0h.myshopify.com/pages/contact" target="_blank" rel="noopener">Shopify</a></p>
+  </div>
+</div>
+<div class="modal" id="leave" role="dialog" aria-modal="true" aria-labelledby="leave-title" hidden data-modal>
+  <button class="modal-backdrop" type="button" aria-label="Go back" data-close></button>
+  <div class="modal-window">
+    <button class="modal-close" type="button" aria-label="Go back" data-close>×</button>
+    <h2 class="modal-title" id="leave-title" data-leave-title>Leaving this site</h2>
+    <p class="modal-sub" data-leave-text></p>
+    <p class="modal-actions"><a class="pill pill-ink" href="https://www.instagram.com/Mkwashingtonart/" target="_blank" rel="noopener" data-leave-go>Continue</a><button class="pill" type="button" data-close>Go back</button></p>
+  </div>
+</div>
+
+<script>
+/* Design-system page helpers. They only measure, toggle original classes, or replay the original
+   behaviours (deep.js) on the documentation's demo elements; the hero itself is run by deep.js. */
+(() => {
+  "use strict";
+  const root = document.documentElement;
+  const reduced = matchMedia("(prefers-reduced-motion: reduce)").matches;
+  const fine = matchMedia("(hover: hover) and (pointer: fine)").matches;
+  const lerp = (a, b, t) => a + (b - a) * t;
+  const clamp = (v, a, b) => Math.min(b, Math.max(a, v));
+  const px = (v) => `${Math.round(v * 10) / 10}px`;
+  const EASE = "cubic-bezier(0.22, 1, 0.36, 1)", EASE_IO = "cubic-bezier(0.65, 0, 0.35, 1)";
+
+  // Live type sizes (font-size / line-height) and token values at this window size.
+  const measure = () => {
+    document.querySelectorAll("[data-ds-type]").forEach((row) => {
+      const el = row.querySelector("[data-ds-target]"), out = row.querySelector("[data-ds-size]");
+      if (!el || !out) return;
+      const cs = getComputedStyle(el), fs = parseFloat(cs.fontSize);
+      let lh = parseFloat(cs.lineHeight); if (Number.isNaN(lh)) lh = fs * 1.2;
+      out.textContent = `${px(fs)} / ${px(lh)}`;
+    });
+    document.querySelectorAll("[data-ds-token]").forEach((out) => {
+      const host = (out.dataset.dsScope && document.querySelector(out.dataset.dsScope)) || document.getElementById("ds");
+      const probe = document.createElement("i");
+      probe.style.cssText = `position:absolute;left:0;top:0;height:0;visibility:hidden;pointer-events:none;width:${out.dataset.dsToken}`;
+      host.append(probe);
+      out.textContent = `${Math.round(probe.getBoundingClientRect().width)}px`;
+      probe.remove();
+    });
+  };
+  measure();
+  addEventListener("resize", measure);
+  document.fonts?.ready.then(measure);
+
+  // The top nav marks the section you are in (the menu's own aria-current look).
+  const links = [...document.querySelectorAll(".ds-topnav a[href^='#']")];
+  const targets = links.map((a) => document.getElementById(a.getAttribute("href").slice(1)));
+  let navRaf = 0;
+  const mark = () => {
+    navRaf = 0;
+    let k = 0;
+    targets.forEach((t, j) => { if (t && t.getBoundingClientRect().top <= innerHeight * 0.4) k = j; });
+    links.forEach((a, j) => { if (j === k) { if (!a.hasAttribute("aria-current")) { a.setAttribute("aria-current", "page"); a.scrollIntoView?.({ block: "nearest", inline: "nearest" }); } } else a.removeAttribute("aria-current"); });
+  };
+  // The fixed meter, place and page arrows step aside over the documentation.
+  const docs = document.getElementById("ds");
+  const reading = () => { const r = docs.getBoundingClientRect(); root.classList.toggle("ds-reading", r.top < innerHeight * 0.5 && r.bottom > innerHeight * 0.85); };
+  addEventListener("scroll", () => { if (!navRaf) navRaf = requestAnimationFrame(() => { mark(); reading(); }); }, { passive: true });
+  addEventListener("resize", reading);
+  // deep.js gives the room its height (the walk's length) after this runs: check again when it does.
+  if (window.ResizeObserver) new ResizeObserver(() => { mark(); reading(); }).observe(document.getElementById("stage"));
+  mark(); reading();
+
+  // Room change: set the page's ground as the walk does (deep.js restores the room you stand in on scroll).
+  const groundBtns = [...document.querySelectorAll("[data-ds-ground]")];
+  const syncGround = () => groundBtns.forEach((b) => { const on = b.dataset.dsGround === (root.dataset.ground || "paper"); b.classList.toggle("pill-ink", on); b.setAttribute("aria-pressed", String(on)); });
+  groundBtns.forEach((b) => b.addEventListener("click", (e) => { e.preventDefault(); root.dataset.ground = b.dataset.dsGround; }));
+  new MutationObserver(syncGround).observe(root, { attributes: true, attributeFilter: ["data-ground"] });
+  syncGround();
+
+  // Gallery light and hover lift on the demo walls (the same values as deep.js's gallery).
+  if (fine && !reduced) {
+    document.querySelectorAll("[data-ds-light]").forEach((box) => {
+      const light = box.querySelector(":scope > .light");
+      if (!light) return;
+      const r0 = box.getBoundingClientRect();
+      const st = { x: r0.width / 2, y: r0.height * 0.45, tx: r0.width / 2, ty: r0.height * 0.45 };
+      let raf = 0, inside = false;
+      const tick = () => {
+        st.x = lerp(st.x, st.tx, 0.08); st.y = lerp(st.y, st.ty, 0.08);
+        light.style.setProperty("--lx", `${st.x}px`); light.style.setProperty("--ly", `${st.y}px`);
+        raf = inside || Math.abs(st.x - st.tx) > 0.5 || Math.abs(st.y - st.ty) > 0.5 ? requestAnimationFrame(tick) : 0;
+      };
+      const kick = () => { if (!raf) raf = requestAnimationFrame(tick); };
+      box.addEventListener("pointerenter", () => { inside = true; kick(); });
+      box.addEventListener("pointerleave", () => { inside = false; });
+      box.addEventListener("pointermove", (e) => { const r = box.getBoundingClientRect(); st.tx = e.clientX - r.left; st.ty = e.clientY - r.top; kick(); });
+      box._ds = { st, kick };
+    });
+    document.querySelectorAll("[data-ds-lift] .work-open").forEach((btn) => {
+      const wall = btn.closest(".wall"), box = btn.closest("[data-ds-light]");
+      btn.addEventListener("pointerenter", () => {
+        if (box?._ds) { const r = box.getBoundingClientRect(), b = btn.getBoundingClientRect(); box._ds.st.tx = b.left - r.left + b.width / 2; box._ds.st.ty = b.top - r.top + b.height * 0.4; box._ds.kick(); }
+        btn.classList.add("is-focus"); wall.classList.add("has-focus");
+        btn.animate([{ transform: "translateY(0)" }, { transform: "translateY(-6px)" }], { duration: 450, easing: EASE, fill: "forwards" });
+      });
+      btn.addEventListener("pointerleave", () => {
+        btn.classList.remove("is-focus"); wall.classList.remove("has-focus");
+        btn.animate([{ transform: "translateY(-6px)" }, { transform: "translateY(0)" }], { duration: 380, easing: "ease-out", fill: "forwards" });
+      });
+    });
+  }
+
+  // Menu button replicas: closed / open.
+  document.querySelectorAll("[data-ds-menu]").forEach((b) => b.addEventListener("click", () => b.setAttribute("aria-expanded", String(b.getAttribute("aria-expanded") !== "true"))));
+
+  // Easing tracks.
+  const easeBox = document.querySelector("[data-ds-ease]");
+  document.querySelector("[data-ds-ease-play]")?.addEventListener("click", (e) => { e.preventDefault(); easeBox?.classList.toggle("is-play"); });
+
+  // Replays (peek bubble, scrub hint): take the class off, then put it back.
+  document.querySelectorAll("[data-ds-replay]").forEach((b) => b.addEventListener("click", (e) => {
+    e.preventDefault();
+    const el = document.querySelector(b.dataset.dsReplay), cls = b.dataset.dsClass;
+    if (!el) return;
+    el.classList.remove(cls);
+    setTimeout(() => el.classList.add(cls), 450);
+  }));
+
+  // Open the real viewer on a hero work.
+  document.querySelectorAll("[data-ds-open-work]").forEach((b) => b.addEventListener("click", (e) => {
+    e.preventDefault();
+    document.querySelector(`#stage [data-work][data-index="${b.dataset.dsOpenWork}"] .work-open`)?.click();
+  }));
+
+  // The walk between pages (deep.js go(): 950ms ease-io, the old words leave in 420ms).
+  document.querySelectorAll("[data-ds-walk]").forEach((box) => {
+    const pages = [...box.querySelectorAll(".ds-walk-page")];
+    let i = 0, busy = false;
+    pages[0].classList.add("is-current");
+    const walk = async (dir) => {
+      if (busy) return;
+      busy = true;
+      const from = pages[i], to = pages[(i + dir + pages.length) % pages.length];
+      to.classList.add("is-next");
+      if (reduced) {
+        await to.animate([{ opacity: 0 }, { opacity: 1 }], { duration: 180, fill: "forwards" }).finished;
+      } else {
+        const crawl = from.animate([{ opacity: 1 }, { opacity: 0 }], { duration: 420, easing: EASE, fill: "forwards" });
+        const slide = from.animate([{ transform: "translateX(0)" }, { transform: `translateX(${-6 * dir}vw)` }], { duration: 950, easing: EASE_IO, fill: "forwards" });
+        await to.animate(
+          [{ clipPath: dir > 0 ? "inset(0 0 0 100%)" : "inset(0 100% 0 0)", transform: `translateX(${4 * dir}vw)` }, { clipPath: "inset(0 0 0 0)", transform: "translateX(0)" }],
+          { duration: 950, easing: EASE_IO, fill: "forwards" }
+        ).finished;
+        crawl.cancel(); slide.cancel();
+      }
+      to.getAnimations().forEach((a) => a.cancel());
+      from.classList.remove("is-current"); to.classList.remove("is-next"); to.classList.add("is-current");
+      i = pages.indexOf(to);
+      busy = false;
+    };
+    box.parentElement.querySelectorAll("[data-ds-walk-go]").forEach((b) => b.addEventListener("click", (e) => { e.preventDefault(); walk(Number(b.dataset.dsWalkGo)); }));
+  });
+
+  // Push through, held instead of scrolled (deep.js charger(): fills at 1/0.66s, drains at 1.4/s after 240ms).
+  document.querySelectorAll("[data-ds-charge]").forEach((box) => {
+    const target = box.querySelector("[data-charge-target]"), ringSvg = box.querySelector(".charge-ring");
+    const ring = ringSvg?.firstElementChild, line = box.querySelector(".charge-line"), cap = box.querySelector(".charge-caption");
+    const RATE = 1 / 0.66, GRACE = 240;
+    let held = false, charge = 0, shown = 0, raf = 0, prev = 0, last = 0, gone = false;
+    const paint = (v) => {
+      target.style.setProperty("--charge", v.toFixed(3));
+      line.style.transform = `scaleX(${v.toFixed(3)})`;
+      if (ring) { ringSvg.style.opacity = v > 0.01 ? "1" : "0"; ring.setAttribute("stroke-dashoffset", (100 * (1 - v)).toFixed(1)); }
+      cap.style.opacity = clamp(v * 4 - 0.15, 0, 1).toFixed(2);
+    };
+    const burst = () => {
+      gone = true; held = false; paint(1);
+      if (!reduced) {
+        target.animate([{ transform: "scale(1.06)", boxShadow: "0 0 0 7px rgb(154 103 92 / 26%)" }, { transform: "scale(1.13)", boxShadow: "0 0 0 24px rgb(154 103 92 / 0%)" }], { duration: 340, easing: EASE, fill: "forwards" });
+        ringSvg?.animate([{ transform: "rotate(-90deg) scale(1)", opacity: 1 }, { transform: "rotate(-90deg) scale(1.4)", opacity: 0 }], { duration: 420, easing: EASE, fill: "forwards" });
+        line.animate([{ opacity: 1 }, { opacity: 0 }], { duration: 420, easing: EASE, fill: "forwards" });
+        cap.animate([{ opacity: 1 }, { opacity: 0 }], { duration: 220, fill: "forwards" });
+      }
+      setTimeout(() => {
+        [target, ringSvg, line, cap].forEach((el) => el?.getAnimations().forEach((a) => a.cancel()));
+        charge = shown = 0; prev = 0; gone = false; paint(0);
+      }, 1100);
+    };
+    const tick = (now) => {
+      raf = 0;
+      const dt = prev ? Math.min((now - prev) / 1000, 0.25) : 0; prev = now;
+      if (held) { charge = Math.min(1, charge + dt * RATE); last = now; }
+      else if (now - last > GRACE) charge = Math.max(0, charge - dt * 1.4);
+      shown += (charge - shown) * (reduced ? 1 : 0.24);
+      if (Math.abs(charge - shown) < 0.002) shown = charge;
+      paint(shown);
+      if (charge >= 1 && shown > 0.96) { burst(); return; }
+      if (held || shown > 0 || charge > 0) raf = requestAnimationFrame(tick); else prev = 0;
+    };
+    const start = (e) => { e.preventDefault(); if (gone) return; held = true; last = performance.now(); if (!raf) raf = requestAnimationFrame(tick); };
+    const stop = () => { if (!held) return; held = false; last = performance.now(); if (!raf) raf = requestAnimationFrame(tick); };
+    target.addEventListener("pointerdown", start);
+    target.addEventListener("pointerleave", stop);
+    addEventListener("pointerup", stop);
+    addEventListener("pointercancel", stop);
+    target.addEventListener("click", (e) => e.preventDefault());
+    target.addEventListener("keydown", (e) => { if ((e.key === " " || e.key === "Enter") && !held) start(e); });
+    target.addEventListener("keyup", stop);
+    paint(0);
+  });
+})();
+</script>
+</body>
+</html>

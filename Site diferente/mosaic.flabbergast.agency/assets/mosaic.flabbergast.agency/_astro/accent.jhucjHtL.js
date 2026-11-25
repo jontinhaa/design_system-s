@@ -1,0 +1,1 @@
+var e=[`#7352c8`,`#2e9a66`,`#0a86c0`,`#f4782e`,`#00a9cc`],t=`mosaic:card-accent`,n=null;function r(){if(n)return n;try{let r=sessionStorage.getItem(t);if(r&&e.includes(r))return n=r}catch{}n=e[Math.floor(Math.random()*e.length)];try{sessionStorage.setItem(t,n)}catch{}return n}function i(){document.documentElement.style.setProperty(`--color-accent`,r())}export{i as n,r,e as t};

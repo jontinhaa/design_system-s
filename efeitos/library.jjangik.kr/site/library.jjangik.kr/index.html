@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en" translate="no" class="notranslate">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="google" content="notranslate">
+  <title>Interaction Library · Jungik Lee</title>
+  <meta name="description" content="A personal collection of interaction samples by Jungik Lee, kept as notebooks on a shelf. Pull one out, open it, and try the interaction yourself.">
+  <meta name="theme-color" content="#0d0b0a">
+  <link rel="canonical" href="https://library.jjangik.kr/">
+  <script type="application/ld+json">{"@context":"https://schema.org","@type":"WebSite","name":"Interaction Library","alternateName":"Interaction Library · Jungik Lee","url":"https://library.jjangik.kr/","author":{"@type":"Person","name":"Jungik Lee"}}</script>   
+  <link rel="icon" href="./favicon-192.png?v=2" sizes="192x192" type="image/png">   
+  <link rel="icon" href="./favicon-96.png?v=2" sizes="96x96" type="image/png">
+  <link rel="icon" href="./favicon-48.png?v=2" sizes="48x48" type="image/png">
+  <link rel="icon" href="./favicon-32.png?v=2" sizes="32x32" type="image/png">
+  <link rel="icon" href="./favicon.svg?v=2" type="image/svg+xml">
+  <link rel="apple-touch-icon" href="./apple-touch-icon.png?v=2">
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Interaction Library">
+  <meta property="og:title" content="Interaction Library">
+  <meta property="og:description" content="Small interaction samples by Jungik Lee, kept as notebooks on a shelf. Pull one out and try it.">
+  <meta property="og:url" content="https://library.jjangik.kr/">
+  <meta property="og:image" content="https://library.jjangik.kr/share.jpg?v=2">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="preload" href="./fonts/pretendard/woff2/PretendardVariable.subset.91.woff2" as="font" type="font/woff2" crossorigin>   
+  <script>if (/[?&]intro=(a|curtain)(&|$)/.test(location.search)) document.documentElement.classList.add('curtain-named');</script>
+  <link rel="stylesheet" href="./fonts/pretendard/pretendard.css">
+  <link rel="stylesheet" href="./shelf.css?v=177">
+  <script>
+    // Google Analytics (GA4): loaded only at the live address, and only once its measurement ID is written here
+    // (from the property the owner makes in their own Google account). Nothing is sent from anywhere else.
+    window.GA_ID = 'G-PSBJ7YNKP6';   // (the "Interaction Library" property, made 2026-10-19)
+    if (window.GA_ID && location.hostname === 'library.jjangik.kr') {
+      const s = document.createElement('script'); s.async = true; s.src = 'https://www.googletagmanager.com/gtag/js?id=' + window.GA_ID; document.head.appendChild(s);
+      window.dataLayer = window.dataLayer || []; window.gtag = function () { window.dataLayer.push(arguments); };
+      window.gtag('js', new Date()); window.gtag('config', window.GA_ID);
+    }
+  </script>
+</head>
+<body>
+  <canvas id="room" role="img" aria-label="A room with a bookcase under a lamp. A row of notebooks stands on its upper shelf, one for each interaction sample."></canvas>
+  <div class="vignette"></div>
+  <div class="grain"></div>
+  <main class="page" id="page">
+    <i class="tether" id="tether"></i>
+    <div class="label" id="label" aria-live="polite">
+      <i class="line"></i>
+      <div class="words"><h2 id="labelName"></h2><p id="labelSub"></p></div>
+    </div>
+    <i class="link" id="link"></i>
+  </main>
+  <nav class="menu" aria-label="About and contact">
+    <button type="button" data-thing="about">About</button>
+    <button type="button" data-thing="contact">Contact</button>
+  </nav>
+  <button type="button" class="sound-toggle" id="sound" aria-pressed="false" aria-label="Sound on"><svg viewBox="0 0 28 12" aria-hidden="true"><g class="wave"><path d="M-28 6q3.5-5 7 0t7 0t7 0t7 0t7 0t7 0t7 0t7 0t7 0"/></g></svg></button>
+  <div class="views" id="views" role="group" aria-label="How the shelf is seen">
+    <button type="button" data-view="room" aria-pressed="true" aria-label="The shelf"><svg viewBox="0 0 20 20" aria-hidden="true"><rect x="3" y="4.81" width="3.4" height="12.3" rx="0.9"/><rect x="8.3" y="2.89" width="3.4" height="14.22" rx="0.9"/><rect x="13.6" y="6.1" width="3.4" height="11.01" rx="0.9"/></svg></button>
+    <button type="button" data-view="list" aria-pressed="false" aria-label="A list"><svg viewBox="0 0 20 20" aria-hidden="true"><rect x="3" y="2.89" width="14" height="3" rx="0.9"/><rect x="3" y="8.5" width="14" height="3" rx="0.9"/><rect x="3" y="14.11" width="14" height="3" rx="0.9"/></svg></button>
+  </div>
+  <div class="rows" id="rows"></div>
+  <a class="mark" id="mark" href="./" aria-label="Interaction Library: back to the shelf"><b>Interaction</b><span>Library</span></a>
+  <section class="plain" id="plain" aria-label="Interaction Library in plain words">
+    <h1>Interaction Library</h1>
+    <p>Whenever I had a spare moment, I built small samples of interactions I wanted to try, the way you jot ideas in a notebook. None of them made it into a real product; they just sat on my server. So I gathered a few and gave them a shelf: an interaction library.</p>
+    <h2>The samples</h2>
+    <ul id="plainList"></ul>
+    <h2>Contact</h2>
+    <p>Hello. I’m a designer with a keen interest in interaction, and in building it. <a id="plainMail"></a></p>
+    <p>Copyright © Jungik Lee. All rights reserved.</p>
+  </section>
+  <div id="tiles"></div>
+  <p class="step-hint" id="hint">Click the page to open it · Esc puts it back</p>
+  <div class="cursor-tag" id="cursorTag" aria-hidden="true"><span></span></div>   
+  <p class="in-hint" id="inHint"><span></span></p>
+  <button type="button" id="close" aria-label="Put it back"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 7l10 10M17 7L7 17"/></svg></button>   
+  <div class="curtain" id="curtain" aria-hidden="true"><p><span>Interaction Library</span><i id="curtainCount"></i></p><div class="line" id="curtainLine"><div></div></div></div>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/Observer.min.js"></script>
+  <script type="importmap">
+    { "imports": { "three": "https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.min.js", "three/addons/": "https://cdn.jsdelivr.net/npm/three@0.160.0/examples/jsm/" } }
+  </script>
+  <script type="module" src="./shelf.js?v=312"></script>
+</body>
+</html>

@@ -1,0 +1,1 @@
+import{bH as s}from"./entry.a59f3271.js";const t="responsive",i=s(t,{state:()=>({mobile:!1,desktop:!1}),getters:{isMobile:e=>e.mobile,isDesktop:e=>e.desktop},actions:{setMobile(){this.mobile=!0,this.desktop=!1},setDesktop(){this.mobile=!1,this.desktop=!0}}});export{i as u};

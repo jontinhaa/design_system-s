@@ -1,0 +1,1821 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Design System — Emmaüs A.G.I.R.</title>
+<meta name="description" content="Design system vivo do site Emmaüs A.G.I.R.: tipografia, cores, componentes, layout, movimento e ícones com as classes e animações originais.">
+<meta name="theme-color" content="#f1ece1">
+<link rel="icon" href="site/emmaus-agir-31.fr/images/favicons/favicon.ico" sizes="any">
+<link rel="icon" type="image/png" sizes="32x32" href="site/emmaus-agir-31.fr/images/favicons/favicon-32x32.png">
+
+<!-- CSS original do site (sem alterações) -->
+<link rel="stylesheet" href="site/emmaus-agir-31.fr/_next/static/css/cb5fb5e3d6fc1f64.css">
+<!-- Variáveis de fonte do runtime (--font-sans / --font-serif) e as fontes embutidas da captura -->
+<link rel="stylesheet" href="site/_runtime/style-0.css">
+<link rel="stylesheet" href="site/_runtime/file-fonts.css">
+
+<noscript><style>.loader{display:none!important}html{overflow:auto!important}</style></noscript>
+
+<style>
+/* =====================================================================
+   ANDAIME DE DOCUMENTAÇÃO (prefixo ds-)
+   Só organiza as páginas do guia: grades, tabelas e caixas de exemplo.
+   Toda cor, fonte, curva e duração vem dos tokens do CSS original.
+   ===================================================================== */
+
+/* Caminhos relativos: o CSS original usa /images/... (raiz do domínio) */
+.paper{background-image:url(site/emmaus-agir-31.fr/images/paper-grain.png),url(site/emmaus-agir-31.fr/images/paper-mottle.jpg)}
+.activites__grain{background-image:url(site/emmaus-agir-31.fr/images/noise.png)}
+
+/* Navegação horizontal do guia (usa .footer__links + .label do original) */
+.ds-nav{flex-wrap:nowrap;gap:1.5rem;margin-inline:auto 1.25rem;padding:.85rem 1.4rem;border-radius:var(--radius-pill);background:var(--fond);box-shadow:inset 0 0 0 1px var(--ligne)}
+.ds-nav a{white-space:nowrap}
+.ds-nav a[aria-current]{background-size:100% 1px}
+@media (max-width:1100px){
+  .ds-nav a{display:inline-flex;align-items:center;min-height:var(--tap)}
+  .ds-nav{display:flex;position:fixed;left:0;right:0;top:var(--header-h);gap:1.25rem;margin:0;padding:0 var(--gutter);border-radius:0;box-shadow:none;overflow-x:auto;scrollbar-width:none;background:var(--fond);border-block:1px solid var(--ligne)}
+  .ds-nav::-webkit-scrollbar{display:none}
+}
+
+/* Seções do guia */
+.ds-section{position:relative;padding-block:clamp(64px,12vh,160px);border-top:1px solid var(--ligne);color:var(--gris)}
+.ds-section__header{display:grid;justify-items:start;gap:.9rem;margin-bottom:clamp(40px,8vh,96px)}
+.ds-section__title{max-width:12ch}
+.ds-muted{color:var(--gris-doux)}
+.ds-meta{color:var(--gris-doux);font-size:var(--fs-xs);line-height:1.45}
+.ds-block{margin-top:clamp(56px,9vh,120px)}
+.ds-block:first-of-type{margin-top:0}
+.ds-block__head{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:end;gap:.75rem 2rem;padding-bottom:1rem;margin-bottom:clamp(24px,4vh,40px);border-bottom:1px solid var(--ligne)}
+.ds-block__head .ds-meta{max-width:52ch}
+
+/* Tabela de especificação tipográfica */
+.ds-spec__row{display:grid;grid-template-columns:minmax(9rem,13rem) minmax(0,1fr) auto;align-items:center;gap:1rem clamp(24px,4vw,64px);padding-block:clamp(20px,3vw,36px);border-bottom:1px solid var(--ligne)}
+.ds-spec__row:first-child{border-top:1px solid var(--ligne)}
+.ds-spec__name{display:grid;gap:.45rem;align-self:start;padding-top:.4rem}
+.ds-spec__preview{min-width:0;overflow-wrap:anywhere}
+.ds-spec__size{justify-self:end;white-space:nowrap;font-feature-settings:"tnum";font-variant-numeric:tabular-nums}
+@media (max-width:800px){.ds-spec__row{grid-template-columns:minmax(0,1fr) auto}.ds-spec__preview{grid-column:1/-1;grid-row:2}}
+
+/* Amostras de cor */
+.ds-swatches{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,190px),1fr));gap:2rem 1.5rem}
+.ds-swatch{display:grid;gap:.8rem;align-content:start;margin:0}
+.ds-swatch__chip{aspect-ratio:4/3;border-radius:8px;background:var(--chip);box-shadow:inset 0 0 0 1px var(--ligne)}
+.ds-swatch p{font-size:var(--fs-xs);line-height:1.45}
+.ds-swatch .label{font-size:var(--fs-label)}
+
+/* Caixas de exemplo */
+.ds-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,300px),1fr));gap:1.25rem}
+.ds-stage{position:relative;display:grid;place-items:center;align-content:center;gap:1rem;min-height:220px;padding:clamp(20px,3vw,36px);border-radius:8px;box-shadow:inset 0 0 0 1px var(--ligne)}
+.ds-stage--ink{background:var(--gris);color:var(--fond);box-shadow:none}
+.ds-stage--soft{background:var(--fond-2);box-shadow:none}
+.ds-caption{display:grid;gap:.35rem;margin-top:.9rem}
+
+/* Matriz de estados */
+.ds-states{display:grid;grid-template-columns:minmax(8rem,12rem) repeat(var(--cols,3),minmax(0,1fr));align-items:center;gap:1.5rem 1.5rem}
+.ds-states>.label{color:var(--gris-doux)}
+.ds-states__cell{display:flex;flex-wrap:wrap;align-items:center;gap:.6rem;min-height:64px}
+.ds-states__name{display:grid;gap:.3rem}
+.ds-states__rule{grid-column:1/-1;height:1px;background:var(--ligne)}
+@media (max-width:900px){
+  .ds-states{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .ds-states>.label:not(:first-child),.ds-states>span:first-child{display:none}
+  .ds-states__name{grid-column:1/-1}
+  .ds-states__cell::before{content:attr(data-state);display:block;width:100%;color:var(--gris-doux);font-size:.6875rem;font-weight:560;letter-spacing:.1em;text-transform:uppercase}
+}
+
+/* ESTADOS FORÇADOS — cópia literal das regras :hover / :focus-visible de cb5fb5e3d6fc1f64.css,
+   presas a uma classe para mostrar o estado parado lado a lado. */
+.ds-hover.btn{color:var(--btn-bg)}
+.ds-hover.btn:before{scale:16}
+.ds-hover.btn .arrow svg{transform:translateX(3px)}
+.ds-hover.btn--ghost{color:var(--fond)}
+.ds-hover.btn:not(:has(.arrow)):before{scale:16}
+.ds-focus{outline:3px solid var(--gris);outline-offset:3px}
+.ds-hover.shop__action{background:var(--jaune);color:var(--gris);box-shadow:inset 0 0 0 1px var(--jaune)}
+.ds-hover.menu-button:not(.is-open) .menu-button__lines span:last-child{width:60%}
+.ds-hover.hero__badge:before{scale:1.15}
+.ds-hover.activites__node{scale:1.12}
+.ds-hover.activites__handle{box-shadow:inset 0 0 0 2px var(--gris),0 0 0 10px rgba(235,192,23,.3)}
+.ds-hover.activites__handle span{opacity:1}
+.ds-hover.activites__handle:before{translate:3px 0}
+.ds-hover.activites__handle:after{translate:-3px 0}
+.ds-hover.histoire__year{background:var(--gris);color:var(--fond)}
+.ds-hover.header__brand .header__logo{transform:scale(1.06) rotate(-3deg)}
+.footer__links a.ds-hover{background-size:100% 1px}
+.ds-hover.shop{color:var(--fond);--encre:0%}
+.ds-hover.shop .shop__annee{opacity:0;translate:22px 0}
+.ds-hover.shop .shop__name{background-size:100% .16em}
+.ds-hover.shop .shop__address,.ds-hover.shop .shop__actions{opacity:1;translate:none}
+.ds-hover.shop .shop__name-arrow{translate:.2em 0}
+.ds-hover.menu__link>.menu__link-roll>span{transform:translateY(-100%)}
+.ds-hover.menu__link>.menu__link-roll>span+span{transform:none}
+
+/* Contextos que o original fornece pelo pai (variáveis de .activites, posição de elementos fixos) */
+.ds-activites{--dial:min(62svh,40vw);--poignee:clamp(80px,6.2vw,96px);--noeud:clamp(44px,3.6vw,56px);--orbite:var(--poignee);position:relative;color:var(--gris)}
+@media (hover:none) and (pointer:coarse){.ds-activites{--orbite:var(--noeud)}}
+@media (max-width:1024px) and (orientation:portrait){.ds-activites{--noeud:clamp(34px,9vw,42px);--poignee:calc(var(--noeud) + 38px);--rangee:clamp(20px,3svh,34px)}}
+.ds-activites .activites__stage{position:relative}
+.ds-states .histoire__year{position:relative}
+.ds-orbit{position:relative;width:110px;height:120px}
+.ds-orbit .activites__handle-orbit{top:40%}
+.ds-cursor .cursor__ring,.ds-cursor .cursor__dot{position:relative;opacity:1;z-index:auto;transform:none}
+.ds-menu-demo .menu__link{transform:none;font-size:clamp(2.2rem,1.2rem + 2.4vw,3.6rem)}
+.ds-film{position:relative;width:min(100%,300px);aspect-ratio:1}
+.ds-film .activites__film{inset:0}
+.ds-flower{position:relative;width:220px;aspect-ratio:1}
+.ds-flower .hero__flower{left:50%;top:50%;translate:-50% -50%;scale:.4}
+.ds-marker-box{position:relative;width:100%;height:40px}
+.ds-panel{display:grid;justify-items:start;gap:.8rem}
+.ds-panel .histoire__counter{font-size:clamp(3.5rem,2rem + 4vw,6rem)}
+.ds-years{display:flex;flex-wrap:wrap;gap:.4rem}
+.ds-years .histoire__year{position:relative}
+.ds-pin-row{display:flex;justify-content:center;gap:3rem;width:100%}
+.ds-pin-row .globe-pin__inner{transition:none}
+.ds-acc{width:100%}
+.ds-w100{width:100%}
+.ds-nw{white-space:nowrap}
+.ds-row .activites__node{width:var(--noeud)}
+.ds-track-static{width:100%;pointer-events:none}
+.ds-slider{grid-column:auto;grid-row:auto}
+.ds-rec{position:relative;left:auto;top:auto;translate:none}
+.ds-thumb-static{position:relative;translate:none}
+html.menu-open .ds-nav{visibility:hidden}
+.ds-acc .shop__actions{gap:.5rem}
+
+/* Galeria de movimento */
+.ds-card{display:grid;grid-template-rows:auto minmax(220px,1fr) auto;gap:1rem;padding:1.25rem;border-radius:8px;box-shadow:inset 0 0 0 1px var(--ligne)}
+.ds-card__stage{display:grid;place-items:center;align-content:center;gap:1rem;overflow:clip;padding-block:.5rem;text-align:center}
+.ds-card__foot{display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:.75rem}
+.ds-row{display:flex;flex-wrap:wrap;justify-content:center;align-items:center;gap:1rem}
+.ds-ease{display:grid;gap:1.4rem}
+.ds-ease__row{display:grid;grid-template-columns:minmax(9rem,14rem) minmax(0,1fr);align-items:center;gap:1rem 2rem}
+.ds-ease__rail{position:relative;height:40px;margin-inline:20px}
+.ds-ease__rail:before{content:"";position:absolute;left:0;right:0;top:50%;height:2px;background:repeating-linear-gradient(to right,var(--ligne) 0 6px,transparent 6px 10px)}
+.ds-ease__runner{position:absolute;left:0;top:50%;width:100%;height:0;transition:translate 1.2s var(--ease)}
+.ds-ease.is-played .ds-ease__runner{translate:100% 0}
+@media (max-width:700px){.ds-ease__row{grid-template-columns:1fr}}
+
+/* Tabelas simples */
+.ds-table{width:100%;border-collapse:collapse;font-size:var(--fs-small)}
+.ds-table th{padding:.6rem 1rem .6rem 0;text-align:left;color:var(--gris-doux);font-size:var(--fs-label);font-weight:560;letter-spacing:.1em;text-transform:uppercase;border-bottom:1px solid var(--ligne)}
+.ds-table td{padding:.85rem 1rem .85rem 0;vertical-align:top;border-bottom:1px solid var(--ligne);line-height:1.45}
+.ds-table td:first-child{font-weight:620;white-space:nowrap}
+.ds-table-wrap{overflow-x:auto}
+.ds-bar{display:block;height:10px;width:var(--s);max-width:100%;border-radius:2px;background:var(--jaune);box-shadow:inset 0 0 0 1px var(--gris)}
+
+/* Anatomia do hero */
+.ds-anatomy{display:grid;grid-template-rows:auto auto 1fr auto;gap:.75rem;min-height:340px;padding:1rem;border-radius:8px;box-shadow:inset 0 0 0 1px var(--ligne)}
+.ds-anatomy>*,.ds-anatomy__row>*{display:grid;place-items:center;padding:.6rem;border-radius:6px;border:1px dashed var(--gris-doux);color:var(--gris-doux);font-size:var(--fs-xs);text-align:center}
+.ds-anatomy__row{display:grid;gap:.75rem;padding:0;border:0}
+.ds-anatomy__row--a{grid-template-columns:1fr .7fr 1fr}
+.ds-anatomy__row--bottom{grid-template-columns:1fr auto 1fr}
+.ds-anatomy__flower{border-radius:50%;aspect-ratio:1;background:var(--jaune);color:var(--gris);border-style:solid}
+.ds-anatomy__line-b{justify-self:end;width:55%}
+
+/* Ícones */
+.ds-icons{display:grid;grid-template-columns:repeat(auto-fill,minmax(min(100%,180px),1fr));gap:1.25rem}
+.ds-icon{display:grid;justify-items:center;align-content:center;gap:.8rem;min-height:150px;padding:1rem;border-radius:8px;box-shadow:inset 0 0 0 1px var(--ligne);text-align:center}
+.ds-ink--doux{color:var(--gris-doux)}
+.ds-ink--bleu{color:var(--bleu)}
+.ds-ink--vert{color:var(--vert)}
+.ds-scale{display:flex;flex-wrap:wrap;align-items:baseline;gap:1.5rem 2.5rem}
+.ds-logo{width:auto;height:72px}
+</style>
+</head>
+
+<body>
+<div id="__next">
+
+<!-- ============================ LOADER (original) ============================ -->
+<div class="loader" role="status" aria-live="polite">
+  <div class="loader__bg"></div>
+  <div class="loader__center" aria-hidden="true">
+    <div class="loader__ring">
+      <div class="loader__disc"></div>
+      <svg viewBox="0 0 160 160" aria-hidden="true"><circle class="loader__track" cx="80" cy="80" r="70"></circle><circle class="loader__stroke" cx="80" cy="80" r="70" stroke-dasharray="439.822971502571" stroke-dashoffset="439.822971502571"></circle></svg>
+      <span class="loader__count">000</span>
+    </div>
+    <p class="loader__motto label">Agisons ensemble</p>
+  </div>
+  <span class="visually-hidden">Carregando o design system</span>
+</div>
+
+<a href="#contenu" class="skip-link">Pular para o conteúdo</a>
+
+<!-- ============================ HEADER (original + nav do guia) ============================ -->
+<header class="header">
+  <a href="#accueil" class="header__brand" aria-label="Emmaüs A.G.I.R., voltar ao início"><img alt="" width="34" height="52" decoding="async" class="header__logo" src="site/emmaus-agir-31.fr/images/logo.svg"></a>
+  <nav class="ds-nav footer__links label" aria-label="Seções do design system">
+    <a href="#tipografia">Tipografia</a>
+    <a href="#cores">Cores</a>
+    <a href="#componentes">Componentes</a>
+    <a href="#layout">Layout</a>
+    <a href="#movimento">Movimento</a>
+    <a href="#icones">Ícones</a>
+  </nav>
+  <div class="header__actions">
+    <a href="#componentes" class="btn btn--small header__cta">Componentes</a>
+    <button type="button" class="menu-button" aria-expanded="false" aria-controls="menu" aria-label="Abrir o menu" data-cursor="hover">
+      <svg class="menu-button__ring" viewBox="0 0 50 50" aria-hidden="true"><circle class="menu-button__track" cx="25" cy="25" r="23"></circle><circle class="menu-button__progress" cx="25" cy="25" r="23" stroke-dasharray="144.51326206513048" stroke-dashoffset="144.51326206513048"></circle></svg>
+      <span class="menu-button__lines" aria-hidden="true"><span></span><span></span></span>
+    </button>
+  </div>
+</header>
+
+<!-- ============================ MENU (original) ============================ -->
+<nav id="menu" class="menu" aria-label="Menu principal" inert>
+  <div class="menu__shape" aria-hidden="true"><svg viewBox="0 0 900 800" preserveAspectRatio="none"><path d="M300-10c0,0,0,164,0,410c0,232,0,410,0,410"></path></svg></div>
+  <div class="menu__inner" data-lenis-prevent>
+    <ol class="menu__links">
+      <li style="--i:0"><a href="#accueil" class="menu__link is-active" aria-current="location"><span class="menu__link-index">01</span><span class="menu__link-roll"><span>Início</span><span class="accent" aria-hidden="true">Início</span></span></a></li>
+      <li style="--i:1"><a href="#tipografia" class="menu__link"><span class="menu__link-index">02</span><span class="menu__link-roll"><span>Tipografia</span><span class="accent" aria-hidden="true">Tipografia</span></span></a></li>
+      <li style="--i:2"><a href="#cores" class="menu__link"><span class="menu__link-index">03</span><span class="menu__link-roll"><span>Cores</span><span class="accent" aria-hidden="true">Cores</span></span></a></li>
+      <li style="--i:3"><a href="#componentes" class="menu__link"><span class="menu__link-index">04</span><span class="menu__link-roll"><span>Componentes</span><span class="accent" aria-hidden="true">Componentes</span></span></a></li>
+      <li style="--i:4"><a href="#layout" class="menu__link"><span class="menu__link-index">05</span><span class="menu__link-roll"><span>Layout</span><span class="accent" aria-hidden="true">Layout</span></span></a></li>
+      <li style="--i:5"><a href="#movimento" class="menu__link"><span class="menu__link-index">06</span><span class="menu__link-roll"><span>Movimento</span><span class="accent" aria-hidden="true">Movimento</span></span></a></li>
+      <li style="--i:6"><a href="#icones" class="menu__link"><span class="menu__link-index">07</span><span class="menu__link-roll"><span>Ícones</span><span class="accent" aria-hidden="true">Ícones</span></span></a></li>
+    </ol>
+    <div class="menu__rule" aria-hidden="true"></div>
+    <div class="menu__shops">
+      <p class="label">Tokens principais · :root do CSS original</p>
+      <ul>
+        <li class="menu__shop"><span class="menu__shop-name">Jaune</span><address><span class="ds-nw">--jaune</span> · #ebc017</address><a href="#cores">Ver na paleta</a></li>
+        <li class="menu__shop"><span class="menu__shop-name">Gris</span><address><span class="ds-nw">--gris</span> · #1b1b1b</address><a href="#cores">Ver na paleta</a></li>
+        <li class="menu__shop"><span class="menu__shop-name">Fond</span><address><span class="ds-nw">--fond</span> · #f1ece1</address><a href="#cores">Ver na paleta</a></li>
+        <li class="menu__shop"><span class="menu__shop-name">Fond 2</span><address><span class="ds-nw">--fond-2</span> · #e7e1d3</address><a href="#cores">Ver na paleta</a></li>
+        <li class="menu__shop"><span class="menu__shop-name">Bleu</span><address><span class="ds-nw">--bleu</span> · #33669b</address><a href="#cores">Ver na paleta</a></li>
+        <li class="menu__shop"><span class="menu__shop-name">Vert</span><address><span class="ds-nw">--vert</span> · #43744e</address><a href="#cores">Ver na paleta</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<main id="contenu">
+
+<!-- =====================================================================
+     0) HERO — clone exato do original; só o texto foi trocado
+     ===================================================================== -->
+<section id="accueil" class="hero" data-section>
+  <div class="hero__stage" data-stage>
+    <p class="hero__side label" aria-hidden="true">Design system · Biblioteca de padrões · Emmaüs A.G.I.R.</p>
+    <h1 class="hero__title" aria-label="Design vivo, sistema visual.">
+      <span class="hero__line-a" aria-hidden="true">
+        <span class="hero__word hero__word--a">Design</span>
+        <span class="hero__slot">
+          <span class="hero__anchor" data-circle="hero"></span>
+          <span class="hero__center-anchor" data-circle="hero-center"></span>
+          <span class="hero__flower-holder"><span class="hero__flower"><div class="sunflower" data-cursor="Tourner"></div></span></span>
+        </span>
+        <span class="hero__word hero__word--b">vivo,</span>
+      </span>
+      <span class="hero__line-b accent" aria-hidden="true">sistema <span class="marker">visual.</span></span>
+    </h1>
+    <div class="hero__bottom wrap">
+      <p class="hero__lead">Tipografia, cores, componentes e movimento do site Emmaüs A.G.I.R., reunidos com as classes, os tempos e as curvas originais.</p>
+      <a href="#tipografia" class="hero__badge" aria-label="Ir para a tipografia" data-cursor="hover">
+        <svg class="hero__badge-text" viewBox="0 0 120 120" aria-hidden="true"><defs><path id="hero-badge-path" d="M60,60 m-46,0 a46,46 0 1,1 92,0 a46,46 0 1,1 -92,0"></path></defs><text><textPath href="#hero-badge-path" textLength="285">Role a página · Design system vivo · </textPath></text></svg>
+        <span class="arrow hero__badge-arrow" aria-hidden="true"><svg viewBox="0 0 16 16" style="rotate:90deg"><path d="M1 8h13M9 3l5 5-5 5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"></path></svg></span>
+      </a>
+      <div class="hero__aside">
+        <dl class="hero__facts"><div><dt>06</dt><dd>seções do guia</dd></div><div><dt>02</dt><dd>famílias de fonte</dd></div></dl>
+        <div class="hero__ctas">
+          <a href="#componentes" class="btn">Ver componentes <span class="arrow" aria-hidden="true"><svg viewBox="0 0 16 16"><path d="M1 8h13M9 3l5 5-5 5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"></path></svg></span></a>
+          <a href="#cores" class="btn btn--ghost">Paleta de cores</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- =====================================================================
+     1) TIPOGRAFIA
+     ===================================================================== -->
+<section id="tipografia" class="ds-section" data-section>
+  <header class="ds-section__header wrap">
+    <p class="label"><span class="label__index">01</span> Tipografia</p>
+    <h2 class="h2 ds-section__title">Hierarquia, escala <span class="accent marker">e ritmo.</span></h2>
+    <p class="lead ds-muted">Bricolage Grotesque (variável: peso, opsz e largura) para tudo; Instrument Serif itálico só como acento. Os tamanhos são fluidos (clamp): os valores à direita são medidos ao vivo na largura atual da tela.</p>
+  </header>
+
+  <div class="wrap">
+    <div class="ds-spec">
+      <div class="ds-spec__row">
+        <div class="ds-spec__name"><p class="label">Heading 1</p><p class="ds-meta">.display · 720 · wdth 82 · lh .86 · <span class="ds-nw">--fs-display</span></p></div>
+        <div class="ds-spec__preview"><p class="display">Agisons <span class="accent marker">ensemble.</span></p></div>
+        <p class="ds-spec__size label" data-measure=".display">—</p>
+      </div>
+      <div class="ds-spec__row">
+        <div class="ds-spec__name"><p class="label">Heading 1 · número</p><p class="ds-meta">.histoire__counter · 760 · wdth 74 · tabular</p></div>
+        <div class="ds-spec__preview"><p class="histoire__counter">1998</p></div>
+        <p class="ds-spec__size label" data-measure=".histoire__counter">—</p>
+      </div>
+      <div class="ds-spec__row">
+        <div class="ds-spec__name"><p class="label">Heading 2</p><p class="ds-meta">.h2 · 680 · wdth 86 · lh .92 · <span class="ds-nw">--fs-h2</span></p></div>
+        <div class="ds-spec__preview"><p class="h2">Le parcours <span class="accent marker">d’un don.</span></p></div>
+        <p class="ds-spec__size label" data-measure=".h2">—</p>
+      </div>
+      <div class="ds-spec__row">
+        <div class="ds-spec__name"><p class="label">Heading 3</p><p class="ds-meta">.h3 · 620 · wdth 92 · lh 1.02 · <span class="ds-nw">--fs-h3</span></p></div>
+        <div class="ds-spec__preview"><h3 class="h3">Réparer plutôt que jeter</h3></div>
+        <p class="ds-spec__size label" data-measure=".h3">—</p>
+      </div>
+      <div class="ds-spec__row">
+        <div class="ds-spec__name"><p class="label">Accent</p><p class="ds-meta">.accent · Instrument Serif itálico · 1.08em do pai</p></div>
+        <div class="ds-spec__preview"><p class="h3"><span class="accent">seconde chance.</span></p></div>
+        <p class="ds-spec__size label" data-measure=".accent">—</p>
+      </div>
+      <div class="ds-spec__row">
+        <div class="ds-spec__name"><p class="label">Bold S · Label</p><p class="ds-meta">.label + .label__index · 560 · wdth 78 · caixa alta · tracking .1em</p></div>
+        <div class="ds-spec__preview"><p class="label"><span class="label__index">02</span> Activités</p></div>
+        <p class="ds-spec__size label" data-measure=".label">—</p>
+      </div>
+      <div class="ds-spec__row">
+        <div class="ds-spec__name"><p class="label">Paragraph · Lead</p><p class="ds-meta">.lead · opsz 20 · lh 1.45 · máx. 38ch</p></div>
+        <div class="ds-spec__preview"><p class="lead">Un objet donné, c’est un emploi créé et une ressource préservée.</p></div>
+        <p class="ds-spec__size label" data-measure=".lead">—</p>
+      </div>
+      <div class="ds-spec__row">
+        <div class="ds-spec__name"><p class="label">Regular L · Body</p><p class="ds-meta">body · opsz 14 · lh 1.5 · <span class="ds-nw">--fs-body</span></p></div>
+        <div class="ds-spec__preview"><p>Chaque don est examiné puis trié par catégorie. Tout ce qui est en bon état prend la direction de nos boutiques.</p></div>
+        <p class="ds-spec__size label" data-measure="p">—</p>
+      </div>
+      <div class="ds-spec__row">
+        <div class="ds-spec__name"><p class="label">Regular M · Small</p><p class="ds-meta">.shop__status · 560 + detalhe 400 · <span class="ds-nw">--fs-small</span></p></div>
+        <div class="ds-spec__preview"><p class="shop__status"><span class="shop__status-dot" aria-hidden="true"></span>Fermé<span class="shop__status-detail"> · ouvre demain à 10h</span></p></div>
+        <p class="ds-spec__size label" data-measure=".shop__status">—</p>
+      </div>
+      <div class="ds-spec__row">
+        <div class="ds-spec__name"><p class="label">Regular S · XS</p><p class="ds-meta">.shop__transit-list · lh 1.5 · <span class="ds-nw">--fs-xs</span></p></div>
+        <div class="ds-spec__preview"><ul class="shop__transit-list"><li>Métro François Verdier, puis 6 min à pied</li><li>Bus Saint-Georges (L1, L8, L9, 29), puis 5 min à pied</li></ul></div>
+        <p class="ds-spec__size label" data-measure=".shop__transit-list">—</p>
+      </div>
+    </div>
+    <p class="ds-meta ds-block">Título do hero (.hero__title) usa uma escala própria: <span class="ds-nw">--title</span> = clamp(3.6rem, min(.4rem + 11vw, (50svh − 13rem)/1.3), 15.5rem), peso 740, wdth 80, lh .84. Não há Heading 4 nem Bold L/M no CSS original.</p>
+  </div>
+</section>
+
+<!-- =====================================================================
+     2) CORES & SUPERFÍCIES
+     ===================================================================== -->
+<section id="cores" class="ds-section" data-section>
+  <header class="ds-section__header wrap">
+    <p class="label"><span class="label__index">02</span> Cores &amp; superfícies</p>
+    <h2 class="h2 ds-section__title">Papel, tinta <span class="accent marker">e girassol.</span></h2>
+    <p class="lead ds-muted">Paleta curta: papel creme, tinta quase preta e um amarelo que marca tudo o que importa. A textura .paper (grão + manchas, multiply 75%) cobre a página inteira, então todas as amostras abaixo já aparecem com ela.</p>
+  </header>
+
+  <div class="wrap">
+    <div class="ds-block">
+      <div class="ds-block__head"><h3 class="h3">Tokens de cor</h3><p class="ds-meta">Definidos em :root no CSS original.</p></div>
+      <div class="ds-swatches">
+        <figure class="ds-swatch"><span class="ds-swatch__chip" style="--chip:var(--fond)"></span><figcaption><p class="label">Fond</p><p><span class="ds-nw">--fond</span> · #f1ece1</p><p class="ds-muted">Fundo de html/body, texto sobre tinta.</p></figcaption></figure>
+        <figure class="ds-swatch"><span class="ds-swatch__chip" style="--chip:var(--fond-2)"></span><figcaption><p class="label">Fond 2</p><p><span class="ds-nw">--fond-2</span> · #e7e1d3</p><p class="ds-muted">Superfície do filme circular (.activites__film).</p></figcaption></figure>
+        <figure class="ds-swatch"><span class="ds-swatch__chip" style="--chip:var(--gris)"></span><figcaption><p class="label">Gris (ink)</p><p><span class="ds-nw">--gris</span> · #1b1b1b</p><p class="ds-muted">Texto, contornos, preenchimento de hover.</p></figcaption></figure>
+        <figure class="ds-swatch"><span class="ds-swatch__chip" style="--chip:var(--gris-doux)"></span><figcaption><p class="label">Gris doux</p><p><span class="ds-nw">--gris-doux</span> · #5f5d57</p><p class="ds-muted">Texto secundário, leads, legendas.</p></figcaption></figure>
+        <figure class="ds-swatch"><span class="ds-swatch__chip" style="--chip:var(--jaune)"></span><figcaption><p class="label">Jaune</p><p><span class="ds-nw">--jaune</span> · #ebc017</p><p class="ds-muted">Botões, marcador, nós ativos, seleção.</p></figcaption></figure>
+        <figure class="ds-swatch"><span class="ds-swatch__chip" style="--chip:var(--bleu)"></span><figcaption><p class="label">Bleu</p><p><span class="ds-nw">--bleu</span> · #33669b</p><p class="ds-muted">Acento serifado (.boutiques__line--accent), região do mapa.</p></figcaption></figure>
+        <figure class="ds-swatch"><span class="ds-swatch__chip" style="--chip:var(--vert)"></span><figcaption><p class="label">Vert</p><p><span class="ds-nw">--vert</span> · #43744e</p><p class="ds-muted">Ponto “Ouvert” (.shop__status.is-open).</p></figcaption></figure>
+        <figure class="ds-swatch"><span class="ds-swatch__chip" style="--chip:var(--ligne)"></span><figcaption><p class="label">Ligne</p><p><span class="ds-nw">--ligne</span> · rgba(27,27,27,.18)</p><p class="ds-muted">Divisórias, bordas, contorno do botão ghost.</p></figcaption></figure>
+      </div>
+    </div>
+
+    <div class="ds-block">
+      <div class="ds-block__head"><h3 class="h3">Cores locais</h3><p class="ds-meta">Valores fixos dentro de componentes (não são tokens globais).</p></div>
+      <div class="ds-swatches">
+        <figure class="ds-swatch"><span class="ds-swatch__chip" style="--chip:#dedcd7"></span><figcaption><p class="label">Filigrane</p><p>#dedcd7</p><p class="ds-muted">Texto gigante do marquee (<span class="ds-nw">--filigrane</span>).</p></figcaption></figure>
+        <figure class="ds-swatch"><span class="ds-swatch__chip" style="--chip:rgba(249,249,246,.85)"></span><figcaption><p class="label">Pílula clara</p><p>rgba(249,249,246,.85 / .9)</p><p class="ds-muted">Selo “Photo/Film” e rótulo dos pinos.</p></figcaption></figure>
+        <figure class="ds-swatch"><span class="ds-swatch__chip" style="--chip:rgba(235,192,23,.14)"></span><figcaption><p class="label">Jaune 14%</p><p>rgba(235,192,23,.14)</p><p class="ds-muted">Anel do cursor em hover.</p></figcaption></figure>
+        <figure class="ds-swatch"><span class="ds-swatch__chip" style="--chip:rgba(235,192,23,.3)"></span><figcaption><p class="label">Jaune 30%</p><p>rgba(235,192,23,.3)</p><p class="ds-muted">Halo de 10px da alça do dial.</p></figcaption></figure>
+        <figure class="ds-swatch"><span class="ds-swatch__chip" style="--chip:rgba(27,27,27,.15)"></span><figcaption><p class="label">Ligne menu</p><p>rgba(27,27,27,.15)</p><p class="ds-muted">Filete vertical e bordas das lojas no menu.</p></figcaption></figure>
+      </div>
+    </div>
+
+    <div class="ds-block">
+      <div class="ds-block__head"><h3 class="h3">Superfícies</h3><p class="ds-meta">Não há vidro/blur no original. As superfícies são papel, papel 2 com grão de filme e tinta.</p></div>
+      <div class="ds-grid">
+        <div>
+          <div class="ds-stage"><p class="h3">Papel</p></div>
+          <div class="ds-caption"><p class="label">Página</p><p class="ds-meta"><span class="ds-nw">--fond</span> + .paper (paper-grain 256px + paper-mottle 900px, multiply, .75) fixo sobre tudo.</p></div>
+        </div>
+        <div>
+          <div class="ds-stage">
+            <div class="ds-film"><div class="activites__film" aria-hidden="true" style="--photo:1"><span class="activites__grain"></span><span class="activites__rec label"><span class="activites__rec-dot"></span><span class="activites__rec-photo">Photo</span><span class="activites__rec-film">Film</span></span></div></div>
+          </div>
+          <div class="ds-caption"><p class="label">Filme circular</p><p class="ds-meta">.activites__film: <span class="ds-nw">--fond-2</span>, contorno inset 1px <span class="ds-nw">--ligne</span>, grão noise.png animado (multiply).</p></div>
+        </div>
+        <div>
+          <div class="ds-stage ds-stage--ink"><p class="h3">Tinta</p><p class="label">Hover das lojas</p></div>
+          <div class="ds-caption"><p class="label">Tinta</p><p class="ds-meta"><span class="ds-nw">--gris</span> com texto <span class="ds-nw">--fond</span>: preenchimento inclinado do .shop__fill e da capa do .btn.</p></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="ds-block">
+      <div class="ds-block__head"><h3 class="h3">Bordas, divisórias e anéis</h3></div>
+      <div class="ds-grid">
+        <div>
+          <div class="ds-stage"><ul class="shops ds-w100"><li class="shop__head"><p class="label">Divisória</p></li></ul></div>
+          <div class="ds-caption"><p class="label">Hairline</p><p class="ds-meta">1px solid <span class="ds-nw">--ligne</span> em .shops, .shop, .footer, .footer__bottom.</p></div>
+        </div>
+        <div>
+          <div class="ds-stage"><a href="#cores" class="btn btn--ghost" tabindex="-1">Contorno ghost</a></div>
+          <div class="ds-caption"><p class="label">Contorno inset</p><p class="ds-meta">box-shadow inset 0 0 0 1.5px <span class="ds-nw">--ligne</span> (.btn--ghost); 1px currentColor (.shop__action).</p></div>
+        </div>
+        <div>
+          <div class="ds-stage"><div class="ds-marker-box"><span class="histoire__ring-marker" aria-hidden="true"></span></div><div class="ds-row ds-activites"><button type="button" class="activites__node" tabindex="-1">01</button></div></div>
+          <div class="ds-caption"><p class="label">Anéis duplos</p><p class="ds-meta">Marcador: 0 0 0 2.5px <span class="ds-nw">--fond</span> + 0 0 0 3.5px <span class="ds-nw">--gris</span>. Nó: inset 1.5px <span class="ds-nw">--gris</span>.</p></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="ds-block">
+      <div class="ds-block__head"><h3 class="h3">Gradientes</h3><p class="ds-meta">Todos os gradientes do original são funcionais: grifo, sublinhado, placeholder e tracejado.</p></div>
+      <div class="ds-grid">
+        <div>
+          <div class="ds-stage"><p class="h2"><span class="marker">grifo</span></p></div>
+          <div class="ds-caption"><p class="label">.marker</p><p class="ds-meta">linear-gradient(<span class="ds-nw">--jaune</span>) 0 88% / var(<span class="ds-nw">--marker</span>) .32em. A largura <span class="ds-nw">--marker</span> anima de 0% a 100%.</p></div>
+        </div>
+        <div>
+          <div class="ds-stage"><ol class="histoire__entries"><li class="histoire__entry is-active"><h3 class="h3">Emmaüs France</h3></li></ol></div>
+          <div class="ds-caption"><p class="label">Sublinhado de entrada</p><p class="ds-meta">.histoire__entry .h3: <span class="ds-nw">--jaune</span> 0 90% / 100% .28em.</p></div>
+        </div>
+        <div>
+          <div class="ds-stage"><div class="ds-flower"><span class="hero__flower"></span></div></div>
+          <div class="ds-caption"><p class="label">Girassol placeholder</p><p class="ds-meta">.hero__flower:before: dois radial-gradient (miolo #6b4a1f, pétalas #f4cf46 → #e8b71a → #d2a016) até o 3D carregar.</p></div>
+        </div>
+        <div>
+          <div class="ds-stage"><div class="activites__track ds-track-static" style="--value:.45"><span class="activites__track-fill"></span></div></div>
+          <div class="ds-caption"><p class="label">Tracejado</p><p class="ds-meta">repeating-linear-gradient(to right, <span class="ds-nw">--ligne</span> 0 6px, transparent 6px 10px) no trilho do slider.</p></div>
+        </div>
+      </div>
+      <p class="ds-meta ds-block">Seleção de texto também é da marca: ::selection usa <span class="ds-nw">--jaune</span> com texto <span class="ds-nw">--gris</span>. Selecione qualquer trecho desta página para ver.</p>
+    </div>
+  </div>
+</section>
+
+<!-- =====================================================================
+     3) COMPONENTES
+     ===================================================================== -->
+<section id="componentes" class="ds-section" data-section>
+  <header class="ds-section__header wrap">
+    <p class="label"><span class="label__index">03</span> Componentes</p>
+    <h2 class="h2 ds-section__title">Peças que <span class="accent marker">se repetem.</span></h2>
+    <p class="lead ds-muted">Cada peça aparece com a marcação original. Os estados hover e foco foram presos por classe (cópia literal das regras do CSS) para comparar lado a lado; passe o mouse na coluna “Padrão” para ver a transição real.</p>
+  </header>
+
+  <div class="wrap">
+    <!-- Botões -->
+    <div class="ds-block">
+      <div class="ds-block__head"><h3 class="h3">Botões</h3><p class="ds-meta">.btn: raio 8px, altura 52px, capa circular <span class="ds-nw">--gris</span> que cresce (scale 16) em .6s <span class="ds-nw">--ease-out</span>. Não existem estados active nem disabled no original.</p></div>
+      <div class="ds-states" style="--cols:3">
+        <span></span><p class="label">Padrão</p><p class="label">Hover</p><p class="label">Focus-visible</p>
+        <div class="ds-states__name"><p class="label">Primário com seta</p><p class="ds-meta">.btn + .arrow</p></div>
+        <div class="ds-states__cell" data-state="Padrão"><a href="#componentes" class="btn">Donner des objets <span class="arrow" aria-hidden="true"><svg viewBox="0 0 16 16"><path d="M1 8h13M9 3l5 5-5 5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"></path></svg></span></a></div>
+        <div class="ds-states__cell" data-state="Hover"><a href="#componentes" class="btn ds-hover" tabindex="-1">Donner des objets <span class="arrow" aria-hidden="true"><svg viewBox="0 0 16 16"><path d="M1 8h13M9 3l5 5-5 5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"></path></svg></span></a></div>
+        <div class="ds-states__cell" data-state="Focus"><a href="#componentes" class="btn ds-focus" tabindex="-1">Donner des objets <span class="arrow" aria-hidden="true"><svg viewBox="0 0 16 16"><path d="M1 8h13M9 3l5 5-5 5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"></path></svg></span></a></div>
+        <div class="ds-states__rule"></div>
+        <div class="ds-states__name"><p class="label">Primário sem seta</p><p class="ds-meta">.btn — capa nasce do centro</p></div>
+        <div class="ds-states__cell" data-state="Padrão"><a href="#componentes" class="btn">Donner des objets</a></div>
+        <div class="ds-states__cell" data-state="Hover"><a href="#componentes" class="btn ds-hover" tabindex="-1">Donner des objets</a></div>
+        <div class="ds-states__cell" data-state="Focus"><a href="#componentes" class="btn ds-focus" tabindex="-1">Donner des objets</a></div>
+        <div class="ds-states__rule"></div>
+        <div class="ds-states__name"><p class="label">Ghost</p><p class="ds-meta">.btn.btn--ghost</p></div>
+        <div class="ds-states__cell" data-state="Padrão"><a href="#componentes" class="btn btn--ghost">Nos boutiques</a></div>
+        <div class="ds-states__cell" data-state="Hover"><a href="#componentes" class="btn btn--ghost ds-hover" tabindex="-1">Nos boutiques</a></div>
+        <div class="ds-states__cell" data-state="Focus"><a href="#componentes" class="btn btn--ghost ds-focus" tabindex="-1">Nos boutiques</a></div>
+        <div class="ds-states__rule"></div>
+        <div class="ds-states__name"><p class="label">Pequeno</p><p class="ds-meta">.btn.btn--small (CTA do header, 44px)</p></div>
+        <div class="ds-states__cell" data-state="Padrão"><a href="#componentes" class="btn btn--small">Donner</a></div>
+        <div class="ds-states__cell" data-state="Hover"><a href="#componentes" class="btn btn--small ds-hover" tabindex="-1">Donner</a></div>
+        <div class="ds-states__cell" data-state="Focus"><a href="#componentes" class="btn btn--small ds-focus" tabindex="-1">Donner</a></div>
+      </div>
+    </div>
+
+    <!-- Pílulas de ação -->
+    <div class="ds-block">
+      <div class="ds-block__head"><h3 class="h3">Pílulas de ação</h3><p class="ds-meta">.shop__action: pílula 44px, contorno 1px currentColor; vira amarela no hover. O botão de transporte gira o chevron 180° quando aberto.</p></div>
+      <div class="ds-states" style="--cols:3">
+        <span></span><p class="label">Padrão</p><p class="label">Hover</p><p class="label">Focus-visible</p>
+        <div class="ds-states__name"><p class="label">Telefone</p><p class="ds-meta">a.shop__action</p></div>
+        <div class="ds-states__cell" data-state="Padrão"><a class="shop__action" href="tel:+33561631494">05 61 63 14 94</a></div>
+        <div class="ds-states__cell" data-state="Hover"><a class="shop__action ds-hover" href="tel:+33561631494" tabindex="-1">05 61 63 14 94</a></div>
+        <div class="ds-states__cell" data-state="Focus"><a class="shop__action ds-focus" href="tel:+33561631494" tabindex="-1">05 61 63 14 94</a></div>
+        <div class="ds-states__rule"></div>
+        <div class="ds-states__name"><p class="label">Itinerário</p><p class="ds-meta">seta up-right (-45°)</p></div>
+        <div class="ds-states__cell" data-state="Padrão"><a class="shop__action" href="#componentes">Itinéraire <span class="arrow" aria-hidden="true"><svg viewBox="0 0 16 16" style="rotate:-45deg"><path d="M1 8h13M9 3l5 5-5 5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"></path></svg></span></a></div>
+        <div class="ds-states__cell" data-state="Hover"><a class="shop__action ds-hover" href="#componentes" tabindex="-1">Itinéraire <span class="arrow" aria-hidden="true"><svg viewBox="0 0 16 16" style="rotate:-45deg"><path d="M1 8h13M9 3l5 5-5 5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"></path></svg></span></a></div>
+        <div class="ds-states__cell" data-state="Focus"><a class="shop__action ds-focus" href="#componentes" tabindex="-1">Itinéraire <span class="arrow" aria-hidden="true"><svg viewBox="0 0 16 16" style="rotate:-45deg"><path d="M1 8h13M9 3l5 5-5 5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"></path></svg></span></a></div>
+        <div class="ds-states__rule"></div>
+        <div class="ds-states__name"><p class="label">Transporte</p><p class="ds-meta">button[aria-expanded] + .shop__chevron</p></div>
+        <div class="ds-states__cell" data-state="Fechado"><button type="button" class="shop__action shop__action--transit" aria-expanded="false" tabindex="-1">Accès en transports<span class="shop__chevron" aria-hidden="true"><svg viewBox="0 0 16 16"><path d="M4 6.5L8 10.5L12 6.5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"></path></svg></span></button></div>
+        <div class="ds-states__cell" data-state="Hover"><button type="button" class="shop__action shop__action--transit ds-hover" aria-expanded="false" tabindex="-1">Accès en transports<span class="shop__chevron" aria-hidden="true"><svg viewBox="0 0 16 16"><path d="M4 6.5L8 10.5L12 6.5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"></path></svg></span></button></div>
+        <div class="ds-states__cell" data-state="Aberto"><button type="button" class="shop__action shop__action--transit" aria-expanded="true" tabindex="-1">Accès en transports<span class="shop__chevron" aria-hidden="true"><svg viewBox="0 0 16 16"><path d="M4 6.5L8 10.5L12 6.5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"></path></svg></span></button></div>
+      </div>
+    </div>
+
+    <!-- Card de loja -->
+    <div class="ds-block">
+      <div class="ds-block__head"><h3 class="h3">Card de loja</h3><p class="ds-meta">li.shop: tinta inclinada (skewX -9°) entra da esquerda em .55s; o ano gigante sai, endereço e ações sobem em cascata (.1s / .18s). Clique em “Accès en transports” para abrir o acordeão.</p></div>
+      <ul class="shops">
+        <li class="shop" data-cursor-invert>
+          <span class="shop__fill" aria-hidden="true"></span><span class="shop__annee" aria-hidden="true">1998</span>
+          <div class="shop__head">
+            <p class="shop__meta label"><span class="label__index">1998</span> Friperie · Saint-Aubin · <span class="ds-muted">padrão</span></p>
+            <h3 class="shop__name h3"><a href="#componentes">Frip’Fouille<span class="arrow shop__name-arrow" aria-hidden="true"><svg viewBox="0 0 16 16"><path d="M1 8h13M9 3l5 5-5 5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"></path></svg></span></a></h3>
+            <p class="shop__status" data-shop-status><span class="shop__status-dot" aria-hidden="true"></span>Fermé<span class="shop__status-detail"> · ouvre demain à 10h</span></p>
+          </div>
+          <div class="shop__body">
+            <address class="shop__address">2 boulevard Jules Michelet<br>31000 Toulouse</address>
+            <div class="shop__actions">
+              <a class="shop__action" href="tel:+33561631494">05 61 63 14 94</a>
+              <a class="shop__action" href="#componentes">Itinéraire <span class="arrow" aria-hidden="true"><svg viewBox="0 0 16 16" style="rotate:-45deg"><path d="M1 8h13M9 3l5 5-5 5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"></path></svg></span></a>
+              <button type="button" class="shop__action shop__action--transit" aria-expanded="false" aria-controls="ds-transit-1">Accès en transports<span class="shop__chevron" aria-hidden="true"><svg viewBox="0 0 16 16"><path d="M4 6.5L8 10.5L12 6.5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"></path></svg></span></button>
+            </div>
+            <div id="ds-transit-1" class="shop__transit" inert><ul class="shop__transit-list"><li>Métro François Verdier, puis 6 min à pied</li><li>Métro Jean Jaurès, puis 8 min à pied</li><li>Bus Saint-Georges (L1, L8, L9, 29), puis 5 min à pied</li></ul></div>
+          </div>
+        </li>
+        <li class="shop ds-hover" data-cursor-invert>
+          <span class="shop__fill" aria-hidden="true"></span><span class="shop__annee" aria-hidden="true">2008</span>
+          <div class="shop__head">
+            <p class="shop__meta label"><span class="label__index">2008</span> Friperie · Saint-Agne · hover</p>
+            <h3 class="shop__name h3"><a href="#componentes" tabindex="-1">Frip’Em<span class="arrow shop__name-arrow" aria-hidden="true"><svg viewBox="0 0 16 16"><path d="M1 8h13M9 3l5 5-5 5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"></path></svg></span></a></h3>
+            <p class="shop__status is-open"><span class="shop__status-dot" aria-hidden="true"></span>Ouvert<span class="shop__status-detail"> · jusqu’à 18h30</span></p>
+          </div>
+          <div class="shop__body">
+            <address class="shop__address">43 avenue de l’URSS<br>31400 Toulouse</address>
+            <div class="shop__actions">
+              <a class="shop__action" href="tel:+33561520223" tabindex="-1">05 61 52 02 23</a>
+              <a class="shop__action" href="#componentes" tabindex="-1">Itinéraire <span class="arrow" aria-hidden="true"><svg viewBox="0 0 16 16" style="rotate:-45deg"><path d="M1 8h13M9 3l5 5-5 5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"></path></svg></span></a>
+              <button type="button" class="shop__action shop__action--transit" aria-expanded="false" tabindex="-1">Accès en transports<span class="shop__chevron" aria-hidden="true"><svg viewBox="0 0 16 16"><path d="M4 6.5L8 10.5L12 6.5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"></path></svg></span></button>
+            </div>
+            <div class="shop__transit" inert><ul class="shop__transit-list"><li>Métro Saint-Agne SNCF, puis 2 min à pied</li></ul></div>
+          </div>
+        </li>
+      </ul>
+    </div>
+
+    <!-- Status -->
+    <div class="ds-block">
+      <div class="ds-block__head"><h3 class="h3">Status de funcionamento</h3><p class="ds-meta">Calculado pelo horário de Paris (ter a sáb, 10h–18h30), como no original.</p></div>
+      <div class="ds-states" style="--cols:2">
+        <span></span><p class="label">Fechado</p><p class="label">Aberto</p>
+        <div class="ds-states__name"><p class="label">.shop__status</p><p class="ds-meta">ponto 9px; verde só quando .is-open</p></div>
+        <div class="ds-states__cell" data-state="Fechado"><p class="shop__status"><span class="shop__status-dot" aria-hidden="true"></span>Fermé<span class="shop__status-detail"> · ouvre demain à 10h</span></p></div>
+        <div class="ds-states__cell" data-state="Aberto"><p class="shop__status is-open"><span class="shop__status-dot" aria-hidden="true"></span>Ouvert<span class="shop__status-detail"> · jusqu’à 18h30</span></p></div>
+      </div>
+    </div>
+
+    <!-- Menu button + badge + logo -->
+    <div class="ds-block">
+      <div class="ds-block__head"><h3 class="h3">Navegação</h3><p class="ds-meta">Botão de menu com anel de progresso da rolagem (o do header está ligado à página), logo com giro sutil e badge circular.</p></div>
+      <div class="ds-states" style="--cols:3">
+        <span></span><p class="label">Padrão</p><p class="label">Hover</p><p class="label">Ativo / aberto</p>
+        <div class="ds-states__name"><p class="label">Botão de menu</p><p class="ds-meta">.menu-button · anel r=23</p></div>
+        <div class="ds-states__cell" data-state="Padrão"><button type="button" class="menu-button" tabindex="-1" aria-label="Exemplo"><svg class="menu-button__ring" viewBox="0 0 50 50" aria-hidden="true"><circle class="menu-button__track" cx="25" cy="25" r="23"></circle><circle class="menu-button__progress" cx="25" cy="25" r="23" stroke-dasharray="144.51326206513048" stroke-dashoffset="100"></circle></svg><span class="menu-button__lines" aria-hidden="true"><span></span><span></span></span></button></div>
+        <div class="ds-states__cell" data-state="Hover"><button type="button" class="menu-button ds-hover" tabindex="-1" aria-label="Exemplo"><svg class="menu-button__ring" viewBox="0 0 50 50" aria-hidden="true"><circle class="menu-button__track" cx="25" cy="25" r="23"></circle><circle class="menu-button__progress" cx="25" cy="25" r="23" stroke-dasharray="144.51326206513048" stroke-dashoffset="100"></circle></svg><span class="menu-button__lines" aria-hidden="true"><span></span><span></span></span></button></div>
+        <div class="ds-states__cell" data-state="Aberto"><button type="button" class="menu-button is-open" tabindex="-1" aria-label="Exemplo"><svg class="menu-button__ring" viewBox="0 0 50 50" aria-hidden="true"><circle class="menu-button__track" cx="25" cy="25" r="23"></circle><circle class="menu-button__progress" cx="25" cy="25" r="23" stroke-dasharray="144.51326206513048" stroke-dashoffset="40"></circle></svg><span class="menu-button__lines" aria-hidden="true"><span></span><span></span></span></button></div>
+        <div class="ds-states__rule"></div>
+        <div class="ds-states__name"><p class="label">Logo</p><p class="ds-meta">.header__brand .header__logo</p></div>
+        <div class="ds-states__cell" data-state="Padrão"><a href="#accueil" class="header__brand" aria-label="Início"><img alt="" width="34" height="52" class="header__logo" src="site/emmaus-agir-31.fr/images/logo.svg"></a></div>
+        <div class="ds-states__cell" data-state="Hover"><a href="#accueil" class="header__brand ds-hover" aria-label="Início" tabindex="-1"><img alt="" width="34" height="52" class="header__logo" src="site/emmaus-agir-31.fr/images/logo.svg"></a></div>
+        <div class="ds-states__cell" data-state="—"><span class="ds-meta">—</span></div>
+        <div class="ds-states__rule"></div>
+        <div class="ds-states__name"><p class="label">Badge giratório</p><p class="ds-meta">.hero__badge · texto em spin 18s</p></div>
+        <div class="ds-states__cell" data-state="Padrão"><a href="#componentes" class="hero__badge" aria-label="Exemplo" data-cursor="hover"><svg class="hero__badge-text" viewBox="0 0 120 120" aria-hidden="true"><defs><path id="ds-badge-path-1" d="M60,60 m-46,0 a46,46 0 1,1 92,0 a46,46 0 1,1 -92,0"></path></defs><text><textPath href="#ds-badge-path-1" textLength="285">Faites défiler · Agisons ensemble · </textPath></text></svg><span class="arrow hero__badge-arrow" aria-hidden="true"><svg viewBox="0 0 16 16" style="rotate:90deg"><path d="M1 8h13M9 3l5 5-5 5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"></path></svg></span></a></div>
+        <div class="ds-states__cell" data-state="Hover"><a href="#componentes" class="hero__badge ds-hover" aria-label="Exemplo" tabindex="-1"><svg class="hero__badge-text" viewBox="0 0 120 120" aria-hidden="true"><defs><path id="ds-badge-path-2" d="M60,60 m-46,0 a46,46 0 1,1 92,0 a46,46 0 1,1 -92,0"></path></defs><text><textPath href="#ds-badge-path-2" textLength="285">Faites défiler · Agisons ensemble · </textPath></text></svg><span class="arrow hero__badge-arrow" aria-hidden="true"><svg viewBox="0 0 16 16" style="rotate:90deg"><path d="M1 8h13M9 3l5 5-5 5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"></path></svg></span></a></div>
+        <div class="ds-states__cell" data-state="—"><span class="ds-meta">—</span></div>
+        <div class="ds-states__rule"></div>
+        <div class="ds-states__name"><p class="label">Links de texto</p><p class="ds-meta">.footer__links a · sublinhado 1px cresce em .4s</p></div>
+        <div class="ds-states__cell footer__links" data-state="Padrão"><a href="#componentes">Mentions légales</a></div>
+        <div class="ds-states__cell footer__links" data-state="Hover"><a href="#componentes" class="ds-hover" tabindex="-1">Mentions légales</a></div>
+        <div class="ds-states__cell" data-state="—"><span class="ds-meta">—</span></div>
+      </div>
+    </div>
+
+    <!-- Controles do dial -->
+    <div class="ds-block">
+      <div class="ds-block__head"><h3 class="h3">Controles circulares</h3><p class="ds-meta">Nós de etapa, alça de arraste e anos da linha do tempo. O conjunto completo e interativo está em Layout → Palco 5/7.</p></div>
+      <div class="ds-states ds-activites" style="--cols:4">
+        <span></span><p class="label">Padrão</p><p class="label">Hover</p><p class="label">Passado</p><p class="label">Ativo</p>
+        <div class="ds-states__name"><p class="label">Nó de etapa</p><p class="ds-meta">.activites__node</p></div>
+        <div class="ds-states__cell" data-state="Padrão"><button type="button" class="activites__node" tabindex="-1">01</button></div>
+        <div class="ds-states__cell" data-state="Hover"><button type="button" class="activites__node ds-hover" tabindex="-1">02</button></div>
+        <div class="ds-states__cell" data-state="Passado"><button type="button" class="activites__node is-past" tabindex="-1">03</button></div>
+        <div class="ds-states__cell" data-state="Ativo"><button type="button" class="activites__node is-active" tabindex="-1">04</button></div>
+        <div class="ds-states__rule"></div>
+        <div class="ds-states__name"><p class="label">Ano</p><p class="ds-meta">.histoire__year</p></div>
+        <div class="ds-states__cell" data-state="Padrão"><button type="button" class="histoire__year" tabindex="-1">1954</button></div>
+        <div class="ds-states__cell" data-state="Hover"><button type="button" class="histoire__year ds-hover" tabindex="-1">1969</button></div>
+        <div class="ds-states__cell" data-state="—"><span class="ds-meta">—</span></div>
+        <div class="ds-states__cell" data-state="Ativo"><button type="button" class="histoire__year is-active" tabindex="-1">1998</button></div>
+        <div class="ds-states__rule"></div>
+        <div class="ds-states__name"><p class="label">Alça do dial</p><p class="ds-meta">.activites__handle · data-cursor “Glisser”</p></div>
+        <div class="ds-states__cell" data-state="Padrão"><div class="ds-orbit"><div class="activites__handle-orbit" style="--angle:0deg"><button type="button" class="activites__handle" tabindex="-1" data-cursor="Glisser"><span>Glisser</span></button></div></div></div>
+        <div class="ds-states__cell" data-state="Hover"><div class="ds-orbit"><div class="activites__handle-orbit" style="--angle:0deg"><button type="button" class="activites__handle ds-hover" tabindex="-1"><span>Glisser</span></button></div></div></div>
+        <div class="ds-states__cell" data-state="Arrastando"><div class="ds-orbit"><div class="activites__handle-orbit" style="--angle:0deg"><button type="button" class="activites__handle is-dragging" tabindex="-1"><span>Glisser</span></button></div></div></div>
+        <div class="ds-states__cell" data-state="—"><span class="ds-meta">—</span></div>
+      </div>
+    </div>
+
+    <!-- Slider -->
+    <div class="ds-block">
+      <div class="ds-block__head"><h3 class="h3">Controle deslizante</h3><p class="ds-meta">O único “input” do site: role="slider" com trilho tracejado, preenchimento <span class="ds-nw">--gris</span> e polegar amarelo. Arraste ou use as setas do teclado.</p></div>
+      <div class="ds-stage">
+        <div class="activites__slider ds-slider">
+          <span class="label activites__slider-from">Photo</span>
+          <div class="activites__track" role="slider" tabindex="0" aria-label="Da foto ao filme" aria-valuemin="0" aria-valuemax="100" aria-valuenow="35" data-cursor="Glisser" style="--value:.35"><span class="activites__track-fill"></span><span class="activites__track-cursor"><span class="activites__track-thumb"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M6 4l4 4-4 4" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"></path></svg></span></span></div>
+          <span class="label activites__slider-to">Film</span>
+          <span class="activites__time label">00:02 / 00:05</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Linha do tempo -->
+    <div class="ds-block">
+      <div class="ds-block__head"><h3 class="h3">Entrada de linha do tempo</h3><p class="ds-meta">Contador gigante + entrada com sublinhado amarelo. Clique nos anos: a entrada ativa troca com fade/translate (.8s / 1s <span class="ds-nw">--ease-out</span>).</p></div>
+      <div class="ds-grid">
+        <div class="ds-panel">
+          <p class="label"><span class="label__index">03</span> Notre histoire</p>
+          <p class="histoire__counter" aria-hidden="true" data-ds-counter>1998</p>
+          <ol class="histoire__entries" data-ds-entries>
+            <li class="histoire__entry is-active"><h3 class="h3">Début de l’aventure</h3><p>Ouverture de Frip’Fouille, la friperie historique d’Emmaüs à Toulouse.</p></li>
+            <li class="histoire__entry"><h3 class="h3">Frip’Em</h3><p>Ouverture de Frip’Em à Saint-Agne, pour élargir le champ d’action des friperies.</p></li>
+            <li class="histoire__entry"><h3 class="h3">Toulouse Nord</h3><p>Le réseau continue de grandir avec l’ouverture de Frip’d’Oc, au nord de Toulouse.</p></li>
+            <li class="histoire__entry"><h3 class="h3">Book’Em et l’Atelier</h3><p>Book’Em ouvre, première boutique spécialisée dans les livres, et l’Atelier lance la couture et l’upcycling.</p></li>
+          </ol>
+        </div>
+        <div class="ds-stage">
+          <div class="ds-years" data-ds-years>
+            <button type="button" class="histoire__year is-active" aria-current="step">1998</button>
+            <button type="button" class="histoire__year">2008</button>
+            <button type="button" class="histoire__year">2012</button>
+            <button type="button" class="histoire__year">2022</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Pinos + cursor -->
+    <div class="ds-block">
+      <div class="ds-block__head"><h3 class="h3">Pino do mapa e cursor</h3><p class="ds-meta">O pino nasce com <span class="ds-nw">--ease-back</span> (.9s) e pulsa; o cursor próprio (só em mouse) troca de estado conforme data-cursor e data-cursor-invert.</p></div>
+      <div class="ds-grid">
+        <div>
+          <div class="ds-stage">
+            <div class="ds-pin-row">
+              <div class="globe-pin is-visible"><span class="globe-pin__inner"><span class="globe-pin__dot"></span><span class="globe-pin__label"><b>1998</b>Frip’Fouille</span></span></div>
+            </div>
+            <div class="ds-pin-row">
+              <div class="globe-pin globe-pin--left is-visible"><span class="globe-pin__inner"><span class="globe-pin__dot"></span><span class="globe-pin__label"><b>2014</b>Mur&amp;Em</span></span></div>
+            </div>
+          </div>
+          <div class="ds-caption"><p class="label">.globe-pin / <span class="ds-nw">--left</span></p><p class="ds-meta">Ponto 14px com anel pin-pulse 2.4s; rótulo em pílula clara.</p></div>
+        </div>
+        <div>
+          <div class="ds-stage ds-cursor">
+            <div class="ds-row">
+              <div class="cursor__ring"><span class="cursor__label"></span></div>
+              <div class="cursor__ring is-hover"><span class="cursor__label"></span></div>
+              <div class="cursor__ring is-down"><span class="cursor__label"></span></div>
+              <div class="cursor__dot"></div>
+            </div>
+            <div class="ds-row"><div class="cursor__ring is-label"><span class="cursor__label">Glisser</span></div></div>
+          </div>
+          <div class="ds-caption"><p class="label">.cursor__ring / __dot</p><p class="ds-meta">Padrão 40px · hover 64px amarelo 14% · pressionado 30px · rótulo 92px amarelo.</p></div>
+        </div>
+        <div>
+          <div class="ds-stage ds-stage--ink ds-cursor">
+            <div class="ds-row">
+              <div class="cursor__ring is-invert"><span class="cursor__label"></span></div>
+              <div class="cursor__dot is-invert"></div>
+            </div>
+          </div>
+          <div class="ds-caption"><p class="label">Invertido</p><p class="ds-meta">Sobre [data-cursor-invert] (lojas em hover): anel e ponto em <span class="ds-nw">--fond</span>.</p></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- =====================================================================
+     4) LAYOUT & ESPAÇAMENTO
+     ===================================================================== -->
+<section id="layout" class="ds-section" data-section>
+  <header class="ds-section__header wrap">
+    <p class="label"><span class="label__index">04</span> Layout &amp; espaçamento</p>
+    <h2 class="h2 ds-section__title">Palcos fixos, <span class="accent marker">rolagem longa.</span></h2>
+    <p class="lead ds-muted">O site é uma sequência de seções altas (até 1500svh) com um palco sticky de 100svh. Margens laterais saem de um único token, <span class="ds-nw">--gutter</span>.</p>
+  </header>
+
+  <div class="wrap">
+    <div class="ds-block">
+      <div class="ds-block__head"><h3 class="h3">Tokens de layout</h3><p class="ds-meta">Valor resolvido na largura atual entre parênteses.</p></div>
+      <div class="ds-table-wrap">
+        <table class="ds-table">
+          <thead><tr><th>Token</th><th>Definição</th><th>Agora</th><th>Uso</th></tr></thead>
+          <tbody>
+            <tr><td><span class="ds-nw">--gutter</span></td><td>max(clamp(20px, 4vw, 64px), safe-area)</td><td data-token="--gutter">—</td><td>padding-inline de .wrap, do header e do menu</td></tr>
+            <tr><td><span class="ds-nw">--header-h</span></td><td>clamp(56px, 8vw, 88px)</td><td data-token="--header-h">—</td><td>altura do header fixo; recuo superior dos palcos</td></tr>
+            <tr><td><span class="ds-nw">--tap</span></td><td>44px</td><td data-token="--tap">—</td><td>área mínima de toque (.btn--small, links, nós)</td></tr>
+            <tr><td><span class="ds-nw">--radius-pill</span></td><td>999px</td><td>999px</td><td>pílulas: .shop__action, .histoire__year, skip-link</td></tr>
+            <tr><td>raio .btn</td><td>8px</td><td>8px</td><td>botões e rótulo dos pinos (6px)</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="ds-block">
+      <div class="ds-block__head"><h3 class="h3">Espaçamentos recorrentes</h3><p class="ds-meta">Não há escala nomeada; estes são os valores que se repetem no CSS.</p></div>
+      <div class="ds-table-wrap">
+        <table class="ds-table">
+          <thead><tr><th>Valor</th><th>Escala</th><th>Onde</th></tr></thead>
+          <tbody>
+            <tr><td>.5–.75rem</td><td><span class="ds-bar" style="--s:.75rem"></span></td><td>gap de ações (.shop__actions, .hero__ctas .6rem, .header__actions .75rem)</td></tr>
+            <tr><td>.9rem</td><td><span class="ds-bar" style="--s:.9rem"></span></td><td>gap de cabeçalho de seção (label → título)</td></tr>
+            <tr><td>1.25rem · 2rem</td><td><span class="ds-bar" style="--s:2rem"></span></td><td>gap linha/coluna de .shop e da lista do menu</td></tr>
+            <tr><td>clamp(24px, 3.2vw, 40px)</td><td><span class="ds-bar" style="--s:clamp(24px,3.2vw,40px)"></span></td><td>padding vertical de .shop</td></tr>
+            <tr><td>clamp(24px, 4vw, 80px)</td><td><span class="ds-bar" style="--s:clamp(24px,4vw,80px)"></span></td><td>gap de colunas dos palcos (.activites__stage)</td></tr>
+            <tr><td>clamp(32px, 5vw, 96px)</td><td><span class="ds-bar" style="--s:clamp(32px,5vw,96px)"></span></td><td>gap do split .boutiques__body</td></tr>
+            <tr><td>clamp(56px, 12vh, 160px)</td><td><span class="ds-bar" style="--s:clamp(56px,12vh,160px)"></span></td><td>respiro de seção (.boutiques__header, padding-bottom de .boutiques)</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="ds-block">
+      <div class="ds-block__head"><h3 class="h3">Seções sticky</h3><p class="ds-meta">Cada seção tem altura grande; dentro, .xxx__stage fica sticky top:0 com 100svh e overflow clip. A rolagem vira progresso de animação.</p></div>
+      <div class="ds-table-wrap">
+        <table class="ds-table">
+          <thead><tr><th>Seção</th><th>Altura</th><th>Palco</th></tr></thead>
+          <tbody>
+            <tr><td>.hero</td><td>210vh (190svh retrato)</td><td>título em grid + base em 3 colunas</td></tr>
+            <tr><td>.activites</td><td>560svh</td><td>grid 5fr / 7fr, 3 linhas</td></tr>
+            <tr><td>.histoire</td><td>1500svh</td><td>intro central → painel + anel de anos</td></tr>
+            <tr><td>.carte</td><td>620svh</td><td>globo 3D + cabeçalho + legenda</td></tr>
+            <tr><td>.boutiques</td><td>fluxo normal</td><td>split 4fr / 8fr com lateral sticky</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="ds-meta ds-block">Breakpoints: 1024px retrato (empilha), 640px (celular), 400px, altura ≤ 620px paisagem, (hover:hover) and (pointer:fine) para hover e cursor, prefers-reduced-motion corta animações.</p>
+    </div>
+
+    <!-- Padrão 1: hero -->
+    <div class="ds-block">
+      <div class="ds-block__head"><h3 class="h3">Padrão 1 · Hero</h3><p class="ds-meta">O hero real está no topo. Anatomia: linha A em flex space-between com o slot do girassol (1.9em), linha B serifada à direita, base em grid 1fr / auto / 1fr.</p></div>
+      <div class="ds-anatomy" aria-hidden="true">
+        <div>.hero__side (label vertical, só &gt; 1024px)</div>
+        <div class="ds-anatomy__row ds-anatomy__row--a"><div>.hero__word--a</div><div class="ds-anatomy__flower">.hero__slot</div><div>.hero__word--b</div></div>
+        <div class="ds-anatomy__line-b">.hero__line-b.accent + .marker</div>
+        <div class="ds-anatomy__row ds-anatomy__row--bottom"><div>.hero__lead</div><div>.hero__badge</div><div>.hero__aside (.hero__facts + .hero__ctas)</div></div>
+      </div>
+    </div>
+
+    <!-- Padrão 2: palco 5/7 -->
+    <div class="ds-block">
+      <div class="ds-block__head"><h3 class="h3">Padrão 2 · Palco 5/7</h3><p class="ds-meta">.activites__stage real: cabeçalho e textos à esquerda, dial circular à direita, slider embaixo. Clique nos nós, arraste a alça e o slider.</p></div>
+    </div>
+  </div>
+
+  <div class="ds-activites">
+    <div class="activites__stage wrap" data-ds-dial>
+      <header class="activites__header">
+        <p class="label"><span class="label__index">02</span> Activités</p>
+        <p class="activites__title h2">Le parcours <span class="accent marker">d’un don.</span></p>
+      </header>
+      <div class="activites__info">
+        <p class="activites__count" aria-hidden="true"><span>0</span><span class="activites__digits"><span class="activites__digits-track" style="--step:0"><span>1</span><span>2</span><span>3</span><span>4</span></span></span><span class="activites__count-line"></span><span class="activites__count-total">04</span></p>
+        <div class="activites__texts">
+          <article class="activites__text is-active"><h3 class="h3">Réception des dons</h3><p>Emmaüs A.G.I.R. reçoit les dons des particuliers : en grande majorité du textile, mais aussi des objets, des livres, des jouets, des bijoux et des petits meubles.</p></article>
+          <article class="activites__text"><h3 class="h3">Tri par catégorie</h3><p>Chaque don est examiné puis trié par catégorie. Tout ce qui est en bon état prend la direction de nos boutiques.</p></article>
+          <article class="activites__text"><h3 class="h3">Réparer plutôt que jeter</h3><p>Abîmé ? À l’Atelier, il est recousu, réparé et remis en boutique. Ce qui ne peut plus servir rejoint la bonne filière de recyclage.</p></article>
+          <article class="activites__text"><h3 class="h3">Vente</h3><p>En bon état, l’article est étiqueté, mis en boutique et vendu à petit prix. Chaque vente finance des emplois d’insertion.</p></article>
+        </div>
+        <p class="activites__hint label"><span class="activites__hint-dot" aria-hidden="true"></span> Glissez le cercle ou cliquez une étape</p>
+      </div>
+      <div class="activites__dial">
+        <span class="activites__anchor"></span>
+        <div class="activites__film" aria-hidden="true" style="--photo:1"><span class="activites__grain"></span><span class="activites__rec label"><span class="activites__rec-dot"></span><span class="activites__rec-photo">Photo</span><span class="activites__rec-film">Film</span></span></div>
+        <svg class="activites__ring" viewBox="0 0 100 100" aria-hidden="true"><circle class="activites__arc" cx="50" cy="50" r="50" pathLength="100" stroke-dasharray="100" stroke-dashoffset="100" transform="rotate(-90 50 50)"></circle></svg>
+        <span class="activites__slot" style="--node-angle:0deg"><button type="button" class="activites__node is-active" aria-label="Étape 01 : Réception des dons" aria-current="step">01</button></span>
+        <span class="activites__slot" style="--node-angle:90deg"><button type="button" class="activites__node" aria-label="Étape 02 : Tri par catégorie">02</button></span>
+        <span class="activites__slot" style="--node-angle:180deg"><button type="button" class="activites__node" aria-label="Étape 03 : Réparer plutôt que jeter">03</button></span>
+        <span class="activites__slot" style="--node-angle:270deg"><button type="button" class="activites__node" aria-label="Étape 04 : Vente">04</button></span>
+        <div class="activites__handle-orbit" style="--angle:0deg"><button type="button" class="activites__handle" aria-label="Faire tourner le cercle pour changer d’étape" data-cursor="Glisser"><span>Glisser</span></button></div>
+      </div>
+      <div class="activites__slider">
+        <span class="label activites__slider-from">Photo</span>
+        <div class="activites__track" role="slider" tabindex="0" aria-label="De la photo au film" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0" data-cursor="Glisser" style="--value:0"><span class="activites__track-fill"></span><span class="activites__track-cursor"><span class="activites__track-thumb"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M6 4l4 4-4 4" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"></path></svg></span></span></div>
+        <span class="label activites__slider-to">Film</span>
+        <span class="activites__time label">00:00 / 00:05</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="wrap">
+    <div class="ds-block">
+      <div class="ds-block__head"><h3 class="h3">Padrão 3 · Marquee + split 4/8</h3><p class="ds-meta">.boutiques real: palavra gigante em filigrana rolando, duas frases que cruzam a tela com a rolagem e, abaixo, lateral sticky + lista de lojas.</p></div>
+    </div>
+  </div>
+
+  <div class="boutiques">
+    <header class="boutiques__header">
+      <div class="boutiques__marquee" aria-hidden="true"><div class="boutiques__marquee-track"><span>Contact</span><span>Contact</span></div></div>
+      <div class="boutiques__lines">
+        <p class="boutiques__line">Les boutiques ouvrent de 10h à 18h30, du mardi au samedi.</p>
+        <p class="boutiques__line boutiques__line--accent">Six adresses pour donner, chiner et agir.</p>
+      </div>
+    </header>
+    <div class="boutiques__body wrap">
+      <div class="boutiques__aside">
+        <p class="label"><span class="label__index">05</span> Adresses</p>
+        <h2 class="h2">Nos boutiques</h2>
+        <p class="boutiques__hours">Du mardi au samedi, de 10h à 18h30</p>
+      </div>
+      <ul class="shops">
+        <li class="shop" data-cursor-invert>
+          <span class="shop__fill" aria-hidden="true"></span><span class="shop__annee" aria-hidden="true">2012</span>
+          <div class="shop__head">
+            <p class="shop__meta label"><span class="label__index">2012</span> Friperie · Croix Bénite</p>
+            <h3 class="shop__name h3"><a href="#layout">Frip’d’Oc<span class="arrow shop__name-arrow" aria-hidden="true"><svg viewBox="0 0 16 16"><path d="M1 8h13M9 3l5 5-5 5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"></path></svg></span></a></h3>
+            <p class="shop__status" data-shop-status><span class="shop__status-dot" aria-hidden="true"></span>Fermé<span class="shop__status-detail"> · ouvre demain à 10h</span></p>
+          </div>
+          <div class="shop__body">
+            <address class="shop__address">17 bis chemin de la Croix Bénite<br>31200 Toulouse</address>
+            <div class="shop__actions">
+              <a class="shop__action" href="tel:+33953539305">09 53 53 93 05</a>
+              <a class="shop__action" href="#layout">Itinéraire <span class="arrow" aria-hidden="true"><svg viewBox="0 0 16 16" style="rotate:-45deg"><path d="M1 8h13M9 3l5 5-5 5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"></path></svg></span></a>
+              <button type="button" class="shop__action shop__action--transit" aria-expanded="false" aria-controls="ds-transit-2">Accès en transports<span class="shop__chevron" aria-hidden="true"><svg viewBox="0 0 16 16"><path d="M4 6.5L8 10.5L12 6.5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"></path></svg></span></button>
+            </div>
+            <div id="ds-transit-2" class="shop__transit" inert><ul class="shop__transit-list"><li>Métro Trois Cocus, puis bus 60 arrêt Croix Bénite et 4 min à pied</li><li>Bus Roubiéchou (L10, 29, 69), puis 5 min à pied</li></ul></div>
+          </div>
+        </li>
+        <li class="shop" data-cursor-invert>
+          <span class="shop__fill" aria-hidden="true"></span><span class="shop__annee" aria-hidden="true">2014</span>
+          <div class="shop__head">
+            <p class="shop__meta label"><span class="label__index">2014</span> Friperie · Muret</p>
+            <h3 class="shop__name h3"><a href="#layout">Mur&amp;Em<span class="arrow shop__name-arrow" aria-hidden="true"><svg viewBox="0 0 16 16"><path d="M1 8h13M9 3l5 5-5 5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"></path></svg></span></a></h3>
+            <p class="shop__status" data-shop-status><span class="shop__status-dot" aria-hidden="true"></span>Fermé<span class="shop__status-detail"> · ouvre demain à 10h</span></p>
+          </div>
+          <div class="shop__body">
+            <address class="shop__address">1 place du Languedoc<br>31600 Muret</address>
+            <div class="shop__actions">
+              <a class="shop__action" href="tel:+33984128062">09 84 12 80 62</a>
+              <a class="shop__action" href="#layout">Itinéraire <span class="arrow" aria-hidden="true"><svg viewBox="0 0 16 16" style="rotate:-45deg"><path d="M1 8h13M9 3l5 5-5 5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"></path></svg></span></a>
+              <button type="button" class="shop__action shop__action--transit" aria-expanded="false" aria-controls="ds-transit-3">Accès en transports<span class="shop__chevron" aria-hidden="true"><svg viewBox="0 0 16 16"><path d="M4 6.5L8 10.5L12 6.5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"></path></svg></span></button>
+            </div>
+            <div id="ds-transit-3" class="shop__transit" inert><ul class="shop__transit-list"><li>TER et bus 117 Muret Gare SNCF, puis 7 min à pied</li><li>Bus Séro (58, 302, 303, 310, 314), puis 1 min à pied</li></ul></div>
+          </div>
+        </li>
+        <li class="shop" data-cursor-invert>
+          <span class="shop__fill" aria-hidden="true"></span><span class="shop__annee" aria-hidden="true">2016</span>
+          <div class="shop__head">
+            <p class="shop__meta label"><span class="label__index">2016</span> Grande boutique · Portet-sur-Garonne</p>
+            <h3 class="shop__name h3"><a href="#layout">J’Em Portet<span class="arrow shop__name-arrow" aria-hidden="true"><svg viewBox="0 0 16 16"><path d="M1 8h13M9 3l5 5-5 5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"></path></svg></span></a></h3>
+            <p class="shop__status" data-shop-status><span class="shop__status-dot" aria-hidden="true"></span>Fermé<span class="shop__status-detail"> · ouvre demain à 10h</span></p>
+          </div>
+          <div class="shop__body">
+            <address class="shop__address">11 boulevard de l’Europe<br>31120 Portet-sur-Garonne</address>
+            <div class="shop__actions">
+              <a class="shop__action" href="tel:+33952080421">09 52 08 04 21</a>
+              <a class="shop__action" href="#layout">Itinéraire <span class="arrow" aria-hidden="true"><svg viewBox="0 0 16 16" style="rotate:-45deg"><path d="M1 8h13M9 3l5 5-5 5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"></path></svg></span></a>
+              <button type="button" class="shop__action shop__action--transit" aria-expanded="false" aria-controls="ds-transit-4">Accès en transports<span class="shop__chevron" aria-hidden="true"><svg viewBox="0 0 16 16"><path d="M4 6.5L8 10.5L12 6.5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"></path></svg></span></button>
+            </div>
+            <div id="ds-transit-4" class="shop__transit" inert><ul class="shop__transit-list"><li>Bus Boulevard de l’Europe (L5, 117), puis 5 min à pied</li><li>TER Portet Gare SNCF, puis 18 min à pied</li></ul></div>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- =====================================================================
+     5) MOVIMENTO & INTERAÇÃO
+     ===================================================================== -->
+<section id="movimento" class="ds-section" data-section>
+  <header class="ds-section__header wrap">
+    <p class="label"><span class="label__index">05</span> Movimento &amp; interação</p>
+    <h2 class="h2 ds-section__title">Tudo gira, <span class="accent marker">nada pula.</span></h2>
+    <p class="lead ds-muted">GSAP (SplitText + ScrollTrigger) para entradas e rolagem, Lenis (lerp .09) para a rolagem suave e transições CSS com três curvas próprias. Com prefers-reduced-motion, tudo isso é desligado.</p>
+  </header>
+
+  <div class="wrap">
+    <div class="ds-block">
+      <div class="ds-block__head"><h3 class="h3">Curvas</h3><button type="button" class="btn btn--small btn--ghost" data-ds-ease-play>Reproduzir</button></div>
+      <div class="ds-ease" data-ds-ease>
+        <div class="ds-ease__row"><div class="ds-states__name"><p class="label"><span class="ds-nw">--ease-out</span></p><p class="ds-meta">cubic-bezier(.16, 1, .3, 1) · padrão de hover e entradas</p></div><div class="ds-ease__rail"><span class="ds-ease__runner" style="--ease:var(--ease-out)"><span class="activites__track-thumb"></span></span></div></div>
+        <div class="ds-ease__row"><div class="ds-states__name"><p class="label"><span class="ds-nw">--ease-in-out</span></p><p class="ds-meta">cubic-bezier(.65, 0, .35, 1) · abrir/fechar menu, bob</p></div><div class="ds-ease__rail"><span class="ds-ease__runner" style="--ease:var(--ease-in-out)"><span class="activites__track-thumb"></span></span></div></div>
+        <div class="ds-ease__row"><div class="ds-states__name"><p class="label"><span class="ds-nw">--ease-back</span></p><p class="ds-meta">cubic-bezier(.34, 1.8, .64, 1) · pinos do mapa</p></div><div class="ds-ease__rail"><span class="ds-ease__runner" style="--ease:var(--ease-back)"><span class="activites__track-thumb"></span></span></div></div>
+      </div>
+      <p class="ds-meta ds-block">No GSAP: expo.out (entradas), expo.inOut (voo do loader), back.out(1.4) e back.out(2) (girassol e nós), elastic.out(1, .45) (girassol volta ao soltar), elastic.out(1, .3) (forma do menu), power3.inOut (marcador). Durações típicas: .3–.6s em hover, .8–1.2s em entradas, 1.6–2.5s nos elásticos.</p>
+    </div>
+
+    <div class="ds-block">
+      <div class="ds-block__head"><h3 class="h3">Keyframes</h3><p class="ds-meta">Animações CSS em loop definidas no original.</p></div>
+      <div class="ds-table-wrap">
+        <table class="ds-table">
+          <thead><tr><th>@keyframes</th><th>Tempo</th><th>Onde</th></tr></thead>
+          <tbody>
+            <tr><td>spin</td><td>18s linear ∞ · 65s reverse · 45s</td><td>texto do badge; anéis do círculo-guia</td></tr>
+            <tr><td>hero-bob</td><td>2.4s <span class="ds-nw">--ease-in-out</span> ∞</td><td>seta do badge sobe e desce (−3px → 4px)</td></tr>
+            <tr><td>pulse-dot</td><td>1.8s / 1.2s <span class="ds-nw">--ease-in-out</span> ∞</td><td>ponto da dica; ponto “Film” ao vivo</td></tr>
+            <tr><td>pin-pulse</td><td>2.4s <span class="ds-nw">--ease-out</span> ∞</td><td>onda em volta do pino (scale .6 → 1.9)</td></tr>
+            <tr><td>grain</td><td>.9s steps(5) ∞</td><td>grão do filme circular</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="ds-block">
+      <div class="ds-block__head"><h3 class="h3">Galeria de movimento</h3><p class="ds-meta">Cada cartão roda ao entrar na tela. “Rejouer” repete.</p></div>
+      <div class="ds-grid">
+
+        <article class="ds-card">
+          <p class="label"><span class="label__index">A</span> Letras com máscara</p>
+          <div class="ds-card__stage"><p class="h3" data-ds-anim="chars">Seconde vie,</p></div>
+          <div class="ds-card__foot"><p class="ds-meta">yPercent 120, rotate 6°, .95s, stagger .018, expo.out · hero</p><button type="button" class="btn btn--small btn--ghost" data-ds-replay>Rejouer</button></div>
+        </article>
+
+        <article class="ds-card">
+          <p class="label"><span class="label__index">B</span> Linhas + marcador</p>
+          <div class="ds-card__stage"><p class="h3" data-ds-anim="lines">Le parcours <span class="accent marker">d’un don.</span></p></div>
+          <div class="ds-card__foot"><p class="ds-meta">linhas yPercent 110, 1.2s, stagger .1; <span class="ds-nw">--marker</span> 0→100% em 1s</p><button type="button" class="btn btn--small btn--ghost" data-ds-replay>Rejouer</button></div>
+        </article>
+
+        <article class="ds-card">
+          <p class="label"><span class="label__index">C</span> Letras do rodapé</p>
+          <div class="ds-card__stage"><p class="h3" data-ds-anim="footer"><span class="footer__word">Agisons</span> <span class="footer__word accent marker">ensemble.</span></p></div>
+          <div class="ds-card__foot"><p class="ds-meta">sem máscara: yPercent 100 + opacity 0, 1s, stagger .03</p><button type="button" class="btn btn--small btn--ghost" data-ds-replay>Rejouer</button></div>
+        </article>
+
+        <article class="ds-card">
+          <p class="label"><span class="label__index">D</span> Cascata</p>
+          <div class="ds-card__stage" data-ds-anim="stagger">
+            <p class="lead">Emmaüs A.G.I.R. collecte vos dons.</p>
+            <dl class="hero__facts"><div><dt>06</dt><dd>boutiques</dd></div><div><dt>1998</dt><dd>à Toulouse</dd></div></dl>
+            <a href="#movimento" class="btn btn--small">Donner</a>
+          </div>
+          <div class="ds-card__foot"><p class="ds-meta">y 40 + autoAlpha, 1s, stagger .08, expo.out · base do hero, lojas</p><button type="button" class="btn btn--small btn--ghost" data-ds-replay>Rejouer</button></div>
+        </article>
+
+        <article class="ds-card ds-activites">
+          <p class="label"><span class="label__index">E</span> Pop dos nós</p>
+          <div class="ds-card__stage"><div class="ds-row" data-ds-anim="pop"><button type="button" class="activites__node is-past" tabindex="-1">01</button><button type="button" class="activites__node is-active" tabindex="-1">02</button><button type="button" class="activites__node" tabindex="-1">03</button><button type="button" class="activites__node" tabindex="-1">04</button></div></div>
+          <div class="ds-card__foot"><p class="ds-meta">scale 0 → 1, .7s, stagger .1, back.out(2)</p><button type="button" class="btn btn--small btn--ghost" data-ds-replay>Rejouer</button></div>
+        </article>
+
+        <article class="ds-card">
+          <p class="label"><span class="label__index">F</span> Contador rolante</p>
+          <div class="ds-card__stage"><p class="activites__count" aria-hidden="true" data-ds-anim="count"><span>0</span><span class="activites__digits"><span class="activites__digits-track" style="--step:0"><span>1</span><span>2</span><span>3</span><span>4</span></span></span><span class="activites__count-line"></span><span class="activites__count-total">04</span></p></div>
+          <div class="ds-card__foot"><p class="ds-meta">translateY(<span class="ds-nw">--step</span> × −.85em) em .9s <span class="ds-nw">--ease-out</span></p><button type="button" class="btn btn--small btn--ghost" data-ds-replay>Próximo</button></div>
+        </article>
+
+        <article class="ds-card">
+          <p class="label"><span class="label__index">G</span> Link que rola</p>
+          <div class="ds-card__stage ds-menu-demo"><a href="#movimento" class="menu__link"><span class="menu__link-index">02</span><span class="menu__link-roll"><span>Activités</span><span class="accent" aria-hidden="true">Activités</span></span></a><a href="#movimento" class="menu__link ds-hover" tabindex="-1"><span class="menu__link-index">03</span><span class="menu__link-roll"><span>Histoire</span><span class="accent" aria-hidden="true">Histoire</span></span></a></div>
+          <div class="ds-card__foot"><p class="ds-meta">hover: sans sobe, serifa itálica entra por baixo, .6s <span class="ds-nw">--ease-out</span>. O 2º está preso em hover.</p></div>
+        </article>
+
+        <article class="ds-card">
+          <p class="label"><span class="label__index">H</span> Badge + seta</p>
+          <div class="ds-card__stage"><a href="#movimento" class="hero__badge" aria-label="Exemplo" data-cursor="hover"><svg class="hero__badge-text" viewBox="0 0 120 120" aria-hidden="true"><defs><path id="ds-badge-path-3" d="M60,60 m-46,0 a46,46 0 1,1 92,0 a46,46 0 1,1 -92,0"></path></defs><text><textPath href="#ds-badge-path-3" textLength="285">Faites défiler · Agisons ensemble · </textPath></text></svg><span class="arrow hero__badge-arrow" aria-hidden="true"><svg viewBox="0 0 16 16" style="rotate:90deg"><path d="M1 8h13M9 3l5 5-5 5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"></path></svg></span></a></div>
+          <div class="ds-card__foot"><p class="ds-meta">spin 18s + hero-bob 2.4s; disco amarelo scale 1.15 no hover</p></div>
+        </article>
+
+        <article class="ds-card">
+          <p class="label"><span class="label__index">I</span> Pulsos</p>
+          <div class="ds-card__stage">
+            <p class="activites__hint label"><span class="activites__hint-dot" aria-hidden="true"></span> Glissez le cercle</p>
+            <div class="is-live"><span class="activites__rec label ds-rec"><span class="activites__rec-dot"></span><span class="activites__rec-photo">Photo</span><span class="activites__rec-film">Film</span></span></div>
+            <div class="globe-pin is-visible"><span class="globe-pin__inner"><span class="globe-pin__dot"></span></span></div>
+          </div>
+          <div class="ds-card__foot"><p class="ds-meta">pulse-dot 1.8s / 1.2s · pin-pulse 2.4s</p></div>
+        </article>
+
+        <article class="ds-card">
+          <p class="label"><span class="label__index">J</span> Grão de filme</p>
+          <div class="ds-card__stage"><div class="ds-film"><div class="activites__film" aria-hidden="true" style="--photo:1"><span class="activites__grain"></span><span class="activites__rec label"><span class="activites__rec-dot"></span><span class="activites__rec-photo">Photo</span><span class="activites__rec-film">Film</span></span></div></div></div>
+          <div class="ds-card__foot"><p class="ds-meta">grain .9s steps(5); opacidade = <span class="ds-nw">--photo</span> × .45</p></div>
+        </article>
+
+        <article class="ds-card">
+          <p class="label"><span class="label__index">K</span> Acordeão</p>
+          <div class="ds-card__stage">
+            <div class="ds-acc" data-ds-acc>
+              <div class="shop__body">
+                <div class="shop__actions"><button type="button" class="shop__action shop__action--transit" aria-expanded="false" aria-controls="ds-transit-5">Accès en transports<span class="shop__chevron" aria-hidden="true"><svg viewBox="0 0 16 16"><path d="M4 6.5L8 10.5L12 6.5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"></path></svg></span></button></div>
+                <div id="ds-transit-5" class="shop__transit" inert><ul class="shop__transit-list"><li>Métro Saint-Agne SNCF, puis 2 min à pied</li><li>TER Saint-Agne SNCF, puis 2 min à pied</li><li>Bus Saint-Agne SNCF (34, 115), puis 2 min à pied</li></ul></div>
+              </div>
+            </div>
+          </div>
+          <div class="ds-card__foot"><p class="ds-meta">grid-template-rows 0fr → 1fr em .45s <span class="ds-nw">--ease-out</span>; chevron 180°</p></div>
+        </article>
+
+        <article class="ds-card">
+          <p class="label"><span class="label__index">L</span> Loader</p>
+          <div class="ds-card__stage" data-ds-anim="loader">
+            <div class="loader__ring"><div class="loader__disc"></div><svg viewBox="0 0 160 160" aria-hidden="true"><circle class="loader__track" cx="80" cy="80" r="70"></circle><circle class="loader__stroke" cx="80" cy="80" r="70" stroke-dasharray="439.822971502571" stroke-dashoffset="439.822971502571"></circle></svg><span class="loader__count">000</span></div>
+          </div>
+          <div class="ds-card__foot"><p class="ds-meta">contagem 000→100, disco amarelo expo.out; em tela cheia o anel voa até o girassol (expo.inOut 1.2s)</p><button type="button" class="btn btn--small btn--ghost" data-ds-loader>Tela cheia</button></div>
+        </article>
+
+        <article class="ds-card">
+          <p class="label"><span class="label__index">M</span> Menu elástico</p>
+          <div class="ds-card__stage"><a href="#menu" class="btn" data-ds-open-menu>Abrir o menu <span class="arrow" aria-hidden="true"><svg viewBox="0 0 16 16"><path d="M1 8h13M9 3l5 5-5 5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"></path></svg></span></a></div>
+          <div class="ds-card__foot"><p class="ds-meta">painel desliza (.5s <span class="ds-nw">--ease-in-out</span>); borda SVG faz morph elastic.out(1, .3) em 2.5s; links sobem em cascata (+.07s)</p></div>
+        </article>
+
+        <article class="ds-card">
+          <p class="label"><span class="label__index">N</span> Ligados à rolagem</p>
+          <div class="ds-card__stage">
+            <p class="ds-meta">Hero: palavras se afastam (−35% / +45%) e o girassol some · anel do botão de menu = progresso da página · selo do rodapé gira 240° · frases das lojas cruzam a tela · círculo-guia leva o girassol do título ao centro.</p>
+            <a href="#accueil" class="btn btn--small">Ver no hero</a>
+          </div>
+          <div class="ds-card__foot"><p class="ds-meta">ScrollTrigger com scrub .3–.8</p></div>
+        </article>
+
+        <article class="ds-card">
+          <p class="label"><span class="label__index">O</span> Girassol 3D</p>
+          <div class="ds-card__stage">
+            <p class="ds-meta">Three.js r170, modelo sunflower.glb (meshopt). Inclina com o mouse e com a rolagem; arraste para girar e ele volta com elastic.out(1, .45). O cursor vira “Tourner”.</p>
+            <a href="#accueil" class="btn btn--small">Girar no hero</a>
+          </div>
+          <div class="ds-card__foot"><p class="ds-meta">entrada: scale 0, rotate −40°, 1.6s back.out(1.4)</p></div>
+        </article>
+
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- =====================================================================
+     6) ÍCONES
+     ===================================================================== -->
+<section id="icones" class="ds-section" data-section>
+  <header class="ds-section__header wrap">
+    <p class="label"><span class="label__index">06</span> Ícones</p>
+    <h2 class="h2 ds-section__title">Traço fino, <span class="accent marker">cor herdada.</span></h2>
+    <p class="lead ds-muted">Um único sistema: SVG 16×16, traço 1,6 com pontas redondas e stroke="currentColor". O tamanho vem do contexto (em) e a direção da seta, de rotate.</p>
+  </header>
+
+  <div class="wrap">
+    <div class="ds-block">
+      <div class="ds-block__head"><h3 class="h3">Conjunto</h3></div>
+      <div class="ds-icons">
+        <div class="ds-icon"><span class="arrow h3" aria-hidden="true"><svg viewBox="0 0 16 16"><path d="M1 8h13M9 3l5 5-5 5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"></path></svg></span><p class="label">Seta · right</p><p class="ds-meta">padrão (0°)</p></div>
+        <div class="ds-icon"><span class="arrow h3" aria-hidden="true"><svg viewBox="0 0 16 16" style="rotate:90deg"><path d="M1 8h13M9 3l5 5-5 5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"></path></svg></span><p class="label">Seta · down</p><p class="ds-meta">rotate 90° (badge)</p></div>
+        <div class="ds-icon"><span class="arrow h3" aria-hidden="true"><svg viewBox="0 0 16 16" style="rotate:-45deg"><path d="M1 8h13M9 3l5 5-5 5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"></path></svg></span><p class="label">Seta · up-right</p><p class="ds-meta">rotate −45° (link externo)</p></div>
+        <div class="ds-icon"><span class="shop__chevron h3" aria-hidden="true"><svg viewBox="0 0 16 16"><path d="M4 6.5L8 10.5L12 6.5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"></path></svg></span><p class="label">Chevron</p><p class="ds-meta">.shop__chevron (gira 180°)</p></div>
+        <div class="ds-icon"><span class="activites__track-thumb ds-thumb-static"><svg viewBox="0 0 16 16" aria-hidden="true"><path d="M6 4l4 4-4 4" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"></path></svg></span><p class="label">Polegar</p><p class="ds-meta">chevron 14px no slider</p></div>
+        <div class="ds-icon"><img class="ds-logo" src="site/emmaus-agir-31.fr/images/logo.svg" alt="Logo Emmaüs A.G.I.R." width="47" height="72"><p class="label">Logo</p><p class="ds-meta">logo.svg · 40–54px no header</p></div>
+        <div class="ds-icon"><p class="shop__status is-open"><span class="shop__status-dot" aria-hidden="true"></span></p><p class="label">Ponto de status</p><p class="ds-meta">9px · currentColor .5 ou <span class="ds-nw">--vert</span></p></div>
+        <div class="ds-icon"><div class="ds-marker-box"><span class="histoire__ring-marker" aria-hidden="true"></span></div><p class="label">Marcador</p><p class="ds-meta">9px amarelo com anel duplo</p></div>
+      </div>
+    </div>
+
+    <div class="ds-block">
+      <div class="ds-block__head"><h3 class="h3">Tamanhos</h3><p class="ds-meta">.arrow svg mede .95em: herda o tamanho da fonte em volta. Nos componentes, o original ajusta por contexto.</p></div>
+      <div class="ds-scale">
+        <p class="label">Label <span class="arrow" aria-hidden="true"><svg viewBox="0 0 16 16"><path d="M1 8h13M9 3l5 5-5 5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"></path></svg></span></p>
+        <p class="shop__status">Small <span class="arrow" aria-hidden="true"><svg viewBox="0 0 16 16"><path d="M1 8h13M9 3l5 5-5 5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"></path></svg></span></p>
+        <p class="lead">Lead <span class="arrow" aria-hidden="true"><svg viewBox="0 0 16 16"><path d="M1 8h13M9 3l5 5-5 5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"></path></svg></span></p>
+        <h3 class="shop__name h3"><a href="#icones">Nome da loja<span class="arrow shop__name-arrow" aria-hidden="true"><svg viewBox="0 0 16 16"><path d="M1 8h13M9 3l5 5-5 5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"></path></svg></span></a></h3>
+        <p class="h2">H2 <span class="arrow" aria-hidden="true"><svg viewBox="0 0 16 16"><path d="M1 8h13M9 3l5 5-5 5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"></path></svg></span></p>
+      </div>
+      <div class="ds-table-wrap ds-block">
+        <table class="ds-table">
+          <thead><tr><th>Contexto</th><th>Tamanho</th></tr></thead>
+          <tbody>
+            <tr><td>.arrow svg</td><td>.95em do texto</td></tr>
+            <tr><td>.btn .arrow</td><td>círculo de 2.1em (1.7em no small) com seta .95em</td></tr>
+            <tr><td>.shop__name-arrow</td><td>.52em do título h3</td></tr>
+            <tr><td>.shop__action .arrow / .shop__chevron</td><td>.8em</td></tr>
+            <tr><td>.hero__badge-arrow</td><td>20px fixo</td></tr>
+            <tr><td>.activites__track-thumb svg</td><td>14px fixo</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="ds-block">
+      <div class="ds-block__head"><h3 class="h3">Cor herdada</h3><p class="ds-meta">stroke="currentColor": o ícone assume a cor do texto. Dentro do .btn, a seta usa <span class="ds-nw">--btn-bg</span> sobre a capa <span class="ds-nw">--gris</span>.</p></div>
+      <div class="ds-grid">
+        <div class="ds-stage"><p class="lead">Gris <span class="arrow" aria-hidden="true"><svg viewBox="0 0 16 16"><path d="M1 8h13M9 3l5 5-5 5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"></path></svg></span></p></div>
+        <div class="ds-stage"><p class="lead ds-ink--doux">Gris doux <span class="arrow" aria-hidden="true"><svg viewBox="0 0 16 16"><path d="M1 8h13M9 3l5 5-5 5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"></path></svg></span></p></div>
+        <div class="ds-stage"><p class="lead ds-ink--bleu">Bleu <span class="arrow" aria-hidden="true"><svg viewBox="0 0 16 16" style="rotate:-45deg"><path d="M1 8h13M9 3l5 5-5 5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"></path></svg></span></p></div>
+        <div class="ds-stage ds-stage--ink"><p class="lead">Fond sobre tinta <span class="arrow" aria-hidden="true"><svg viewBox="0 0 16 16" style="rotate:90deg"><path d="M1 8h13M9 3l5 5-5 5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"></path></svg></span></p></div>
+        <div class="ds-stage"><a href="#icones" class="btn">Dentro do botão <span class="arrow" aria-hidden="true"><svg viewBox="0 0 16 16"><path d="M1 8h13M9 3l5 5-5 5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"></path></svg></span></a></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<!-- ============================ FOOTER (original) ============================ -->
+<footer class="footer">
+  <div class="footer__main wrap">
+    <div class="footer__seal" aria-hidden="true">
+      <svg viewBox="0 0 200 200"><defs><path id="seal-path" d="M100,100 m-78,0 a78,78 0 1,1 156,0 a78,78 0 1,1 -156,0"></path></defs><text><textPath href="#seal-path" textLength="486">Agisons ensemble · Emmaüs A.G.I.R. · Toulouse ·</textPath></text></svg>
+      <img alt="" loading="lazy" width="66" height="100" decoding="async" class="footer__seal-logo" src="site/emmaus-agir-31.fr/images/logo.svg">
+    </div>
+    <h2 class="footer__title display" aria-label="Agisons ensemble."><span class="footer__word" aria-hidden="true">Agisons</span> <span class="footer__word accent marker" aria-hidden="true">ensemble.</span></h2>
+    <p class="footer__text lead">Um guia vivo para reaproveitar cada peça do site com as classes, as curvas e os tempos originais.</p>
+    <div class="footer__ctas">
+      <a href="#accueil" class="btn">Voltar ao início</a>
+      <a href="#componentes" class="btn btn--ghost">Ver componentes</a>
+    </div>
+  </div>
+  <div class="footer__bottom wrap">
+    <nav class="footer__legal" aria-label="Fontes do guia">
+      <a href="site/emmaus-agir-31.fr/_next/static/css/cb5fb5e3d6fc1f64.css">CSS original</a>
+      <a href="index.html">Site capturado</a>
+    </nav>
+    <nav class="footer__social" aria-label="Seções">
+      <p class="footer__social-title label" aria-hidden="true">Seções</p>
+      <ul><li><a href="#tipografia">Tipografia</a></li><li><a href="#movimento">Movimento</a></li></ul>
+    </nav>
+    <p class="footer__copy">© 2026 Emmaüs A.G.I.R. · Design system extraído para referência</p>
+  </div>
+</footer>
+
+<!-- Círculo-guia, cursor e textura de papel (globais, originais) -->
+<div class="circle-guide" aria-hidden="true"><svg viewBox="0 0 1000 1000"><circle class="circle-guide__ring circle-guide__ring--0" cx="500" cy="500" r="450"></circle><circle class="circle-guide__ring circle-guide__ring--1" cx="500" cy="500" r="440"></circle><circle class="circle-guide__ring circle-guide__ring--2" cx="500" cy="500" r="430"></circle></svg></div>
+<div class="cursor" aria-hidden="true"><div class="cursor__ring"><span class="cursor__label"></span></div><div class="cursor__dot"></div></div>
+<div class="paper" aria-hidden="true"></div>
+</div>
+
+<!-- Mesmas bibliotecas do original: GSAP (+ SplitText, ScrollTrigger), Lenis e Three.js r170 -->
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/gsap.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/ScrollTrigger.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/SplitText.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/lenis@1.1.13/dist/lenis.min.js"></script>
+<script type="importmap">{"imports":{"three":"https://cdn.jsdelivr.net/npm/three@0.170.0/build/three.module.js","three/addons/":"https://cdn.jsdelivr.net/npm/three@0.170.0/examples/jsm/"}}</script>
+
+<script>
+/* =====================================================================
+   Lógica portada do bundle original (pages/index-*.js), sem React.
+   ===================================================================== */
+(function () {
+  var root = document.documentElement;
+  var loaderEl = document.querySelector('.loader');
+  /* Trava de segurança: se algo quebrar antes do loader terminar, libera a página mesmo assim */
+  var lenis = null;
+  var safety = setTimeout(function () {
+    if (loaderEl) loaderEl.classList.add('is-done');
+    root.classList.remove('is-locked');
+    try { lenis && lenis.start(); } catch (e) { /* sem Lenis, a rolagem nativa já volta */ }
+  }, 12000);
+  var gsap = window.gsap, ST = window.ScrollTrigger, Split = window.SplitText;
+  if (!gsap || !ST || !Split) { clearTimeout(safety); if (loaderEl) loaderEl.classList.add('is-done'); return; }
+  gsap.registerPlugin(ST, Split);
+
+  var mq = function (q) { return window.matchMedia(q).matches; };
+  var reduced = function () { return mq('(prefers-reduced-motion: reduce)'); };
+  var portrait = function () { return mq('(max-width: 1024px) and (orientation: portrait)'); };
+  var clamp01 = function (e) { return Math.min(1, Math.max(0, e)); };
+  var lerp = function (a, b, t) { return a + (b - a) * t; };
+  var smooth = function (e) { return e * e * (3 - 2 * e); };
+  var $ = function (s, c) { return (c || document).querySelector(s); };
+  var $$ = function (s, c) { return Array.prototype.slice.call((c || document).querySelectorAll(s)); };
+  var fontsReady = document.fonts ? document.fonts.ready : Promise.resolve();
+
+  /* ---------- Lenis (lerp .09, igual ao original) ---------- */
+  if (!reduced() && window.Lenis) {
+    lenis = new window.Lenis({ lerp: 0.09, wheelMultiplier: 1, touchMultiplier: 1.4 });
+    lenis.on('scroll', ST.update);
+    gsap.ticker.add(function (t) { lenis.raf(1000 * t); });
+    gsap.ticker.lagSmoothing(0);
+  }
+  var loading = true, menuOpen = false;
+  function syncLock() {
+    var locked = loading || menuOpen;
+    root.classList.toggle('is-locked', locked);
+    if (lenis) { locked ? lenis.stop() : lenis.start(); }
+  }
+  function scrollToId(id) {
+    var el = id === 'accueil' ? 0 : document.getElementById(id);
+    if (el === null) return;
+    if (lenis) { lenis.scrollTo(el, { duration: 1.8, easing: function (e) { return 1 - Math.pow(1 - e, 4); } }); return; }
+    var top = typeof el === 'number' ? el : el.getBoundingClientRect().top + window.scrollY;
+    window.scrollTo({ top: top, behavior: reduced() ? 'auto' : 'smooth' });
+  }
+  document.addEventListener('click', function (e) {
+    var a = e.target.closest && e.target.closest('a[href^="#"]');
+    if (!a || a.closest('#menu') || a.hasAttribute('data-ds-open-menu') || a.classList.contains('skip-link')) return;
+    var id = a.getAttribute('href').slice(1);
+    if (!id || !document.getElementById(id)) return;
+    e.preventDefault();
+    scrollToId(id);
+  });
+  if (document.fonts) document.fonts.ready.then(function () { ST.refresh(); });
+
+  /* ---------- Cursor (só mouse) ---------- */
+  (function () {
+    if (!mq('(hover: hover) and (pointer: fine)')) return;
+    root.classList.add('has-cursor');
+    var dot = $('.cursor > .cursor__dot'), ring = $('.cursor > .cursor__ring'), label = ring.querySelector('.cursor__label');
+    gsap.set([dot, ring], { xPercent: -50, yPercent: -50 });
+    var dx = gsap.quickTo(dot, 'x', { duration: 0.12, ease: 'power3.out' }), dy = gsap.quickTo(dot, 'y', { duration: 0.12, ease: 'power3.out' });
+    var rx = gsap.quickTo(ring, 'x', { duration: 0.5, ease: 'power3.out' }), ry = gsap.quickTo(ring, 'y', { duration: 0.5, ease: 'power3.out' });
+    var cur = '', inv = false;
+    window.addEventListener('pointermove', function (e) {
+      dx(e.clientX); dy(e.clientY); rx(e.clientX); ry(e.clientY);
+      root.classList.add('cursor-visible');
+      var t = e.target.closest && e.target.closest('[data-cursor], a, button, [role="button"]');
+      var kind = t ? (t.dataset.cursor || 'hover') : '';
+      var invert = !!(e.target.closest && e.target.closest('[data-cursor-invert]'));
+      if (invert !== inv) { inv = invert; dot.classList.toggle('is-invert', invert); ring.classList.toggle('is-invert', invert); }
+      if (kind === cur) return;
+      cur = kind;
+      var isLabel = kind && kind !== 'hover';
+      label.textContent = isLabel ? kind : '';
+      ring.classList.toggle('is-hover', kind === 'hover');
+      ring.classList.toggle('is-label', !!isLabel);
+      dot.classList.toggle('is-hidden', !!kind);
+    }, { passive: true });
+    document.addEventListener('pointerleave', function () { root.classList.remove('cursor-visible'); });
+    window.addEventListener('pointerdown', function () { ring.classList.add('is-down'); });
+    window.addEventListener('pointerup', function () { ring.classList.remove('is-down'); });
+    window.addEventListener('pointercancel', function () { ring.classList.remove('is-down'); });
+  })();
+
+  /* ---------- Menu (morph elástico, foco preso, Esc) ---------- */
+  var menu = $('#menu'), menuBtn = $('.header .menu-button'), shapePath = $('.menu__shape path');
+  var D_CLOSED = 'M300-10c0,0,0,164,0,410c0,232,0,410,0,410', D_OPEN = 'M300-10c0,0,295,164,295,410c0,232-295,410-295,410';
+  var wasOpen = false;
+  function setMenu(open) {
+    menuOpen = open;
+    menu.classList.toggle('is-open', open);
+    menuBtn.classList.toggle('is-open', open);
+    menuBtn.setAttribute('aria-expanded', String(open));
+    menuBtn.setAttribute('aria-label', open ? 'Fechar o menu' : 'Abrir o menu');
+    open ? menu.removeAttribute('inert') : menu.setAttribute('inert', '');
+    root.classList.toggle('menu-open', open);
+    syncLock();
+    if (open) {
+      gsap.to(shapePath, { attr: { d: D_OPEN }, duration: 2.5, ease: 'elastic.out(1, 0.3)', delay: 0.2 });
+      setTimeout(function () { var a = menu.querySelector('a'); a && a.focus({ preventScroll: true }); }, 650);
+      wasOpen = true;
+    } else {
+      gsap.to(shapePath, { attr: { d: D_CLOSED }, duration: 0.4, ease: 'power2.inOut' });
+      if (wasOpen) { menuBtn.focus({ preventScroll: true }); wasOpen = false; }
+    }
+  }
+  menuBtn.addEventListener('click', function () { setMenu(!menuOpen); });
+  $$('[data-ds-open-menu]').forEach(function (b) { b.addEventListener('click', function (e) { e.preventDefault(); setMenu(true); }); });
+  document.addEventListener('keydown', function (e) {
+    if (!menuOpen) return;
+    if (e.key === 'Escape') { setMenu(false); return; }
+    if (e.key !== 'Tab') return;
+    var f = [menuBtn].concat($$('a[href], button', menu)), first = f[0], last = f[f.length - 1];
+    if (e.shiftKey && document.activeElement === first) { e.preventDefault(); last.focus(); }
+    else if (!e.shiftKey && document.activeElement === last) { e.preventDefault(); first.focus(); }
+  });
+  $$('#menu a[href^="#"]').forEach(function (a) {
+    a.addEventListener('click', function (e) {
+      e.preventDefault();
+      var id = a.getAttribute('href').slice(1);
+      setMenu(false);
+      setTimeout(function () { scrollToId(id); }, 420);
+    });
+  });
+  (function () {
+    var prog = $('.header .menu-button__progress'), C = 2 * Math.PI * 23;
+    ST.create({ start: 0, end: 'max', onUpdate: function (s) { prog.style.strokeDashoffset = String(C * (1 - s.progress)); } });
+  })();
+
+  /* Seção ativa: menu (is-active) e nav do guia (aria-current) */
+  (function () {
+    var ids = ['accueil', 'tipografia', 'cores', 'componentes', 'layout', 'movimento', 'icones'];
+    function setActive(id) {
+      $$('.menu__link').forEach(function (l) {
+        var on = l.getAttribute('href') === '#' + id;
+        l.classList.toggle('is-active', on);
+        on ? l.setAttribute('aria-current', 'location') : l.removeAttribute('aria-current');
+      });
+      $$('.ds-nav a').forEach(function (l) {
+        l.getAttribute('href') === '#' + id ? l.setAttribute('aria-current', 'true') : l.removeAttribute('aria-current');
+      });
+    }
+    ids.forEach(function (id) {
+      var el = document.getElementById(id);
+      if (el) ST.create({ trigger: el, start: 'top center', end: 'bottom center', onToggle: function (s) { if (s.isActive) setActive(id); } });
+    });
+  })();
+
+  /* ---------- Hero: entrada (após o loader) e rolagem ---------- */
+  var hero = $('#accueil');
+  var heroIntro = null;
+  function buildHeroIntro() {
+    if (reduced()) { heroIntro = gsap.from('.hero__title, .hero__bottom, .hero__side', { autoAlpha: 0, duration: 0.6 }); return; }
+    var tl = gsap.timeline({ defaults: { ease: 'expo.out' } });
+    Split.create('.hero__word, .hero__line-b', { aria: 'none', type: 'chars', mask: 'chars', onSplit: function (t) { tl.from(t.chars, { yPercent: 120, rotate: 6, duration: 0.95, stagger: 0.018 }, 0.05); } });
+    tl.from('.hero .hero__flower', { scale: 0, rotate: -40, duration: 1.6, ease: 'back.out(1.4)' }, 0)
+      .fromTo('.hero__line-b .marker', { '--marker': '0%' }, { '--marker': '100%', duration: 1.1, ease: 'power3.inOut' }, 0.75)
+      .from('.hero__side', { autoAlpha: 0, x: -20, duration: 1 }, 0.6)
+      .from('.hero__bottom > *', { y: 40, autoAlpha: 0, stagger: 0.08, duration: 1, ease: 'expo.out' }, 0.7);
+    heroIntro = tl;
+  }
+  gsap.timeline({ defaults: { ease: 'none' }, scrollTrigger: { trigger: hero, start: 'top top', end: 'bottom bottom', scrub: reduced() ? true : 0.6, onUpdate: function (s) { window.dsSunflower && window.dsSunflower.setProgress(s.progress); } } })
+    .to('.hero__word--a', { xPercent: -35, autoAlpha: 0, duration: 0.6 }, 0)
+    .to('.hero__word--b', { xPercent: 45, autoAlpha: 0, duration: 0.6 }, 0)
+    .to('.hero__line-b', { yPercent: 60, autoAlpha: 0, duration: 0.5 }, 0.05)
+    .to('.hero__bottom, .hero__side', { autoAlpha: 0, y: 30, duration: 0.3 }, 0);
+  gsap.timeline({ scrollTrigger: { trigger: hero, start: 'bottom bottom-=30%', end: 'bottom bottom-=88%', scrub: reduced() ? true : 0.5 } })
+    .to('.hero .hero__flower', { autoAlpha: 0, scale: 0.92, ease: 'power1.in' });
+  window.addEventListener('sunflower:ready', function () { $('.hero .hero__flower').classList.add('is-ready'); });
+
+  /* ---------- Círculo-guia (leva o girassol do título ao centro) ---------- */
+  var guide = $('.circle-guide');
+  (function () {
+    var rings = $$('circle', guide);
+    var RINGS = [{ width: 1.2, dash: [5, 5] }, { width: 1.6, dash: null }, { width: 1, dash: [8, 5] }];
+    function anchor(name) {
+      var t = $('[data-circle="' + name + '"]'), st = t && t.closest('[data-stage]');
+      if (!t || !st) return null;
+      var n = t.getBoundingClientRect();
+      if (getComputedStyle(t).position === 'fixed') return { x: n.left + n.width / 2, y: n.top + n.height / 2, d: n.width };
+      var a = st.getBoundingClientRect();
+      return { x: n.left - a.left + n.width / 2, y: n.top - a.top + n.height / 2, d: n.width };
+    }
+    function at(id, p) {
+      var el = document.getElementById(id);
+      if (!el) return null;
+      var top = el.getBoundingClientRect().top + window.scrollY, len = Math.max(1, el.offsetHeight - window.innerHeight);
+      return top + len * p;
+    }
+    var keys = [];
+    function build() {
+      var h = anchor('hero'), c = anchor('hero-center'), end = at('accueil', 1) + 0.35 * window.innerHeight;
+      keys = portrait()
+        ? [{ y: 0, s: h, o: 1 }, { y: at('accueil', 0.18), s: h, o: 1 }, { y: at('accueil', 0.5), s: c, o: 1 }, { y: at('accueil', 0.72), s: c, o: 1 }, { y: at('accueil', 0.86), s: c, o: 1, f: 0 }, { y: end, s: c, o: 0, f: 0 }]
+        : [{ y: 0, s: h, o: 1 }, { y: at('accueil', 0.18), s: h, o: 1 }, { y: at('accueil', 0.5), s: c, o: 1 }, { y: at('accueil', 0.7), s: c, o: 1 }, { y: end, s: c, o: 0 }];
+      keys = keys.filter(function (k) { return k.s && k.y !== null; });
+    }
+    function update(t) {
+      if (!keys.length) return;
+      var i = keys.findIndex(function (k) { return k.y > t; }) - 1;
+      if (i < -1) i = keys.length - 1;
+      var a = keys[Math.max(0, i)], b = keys[Math.min(keys.length - 1, i + 1)];
+      var d = b.y > a.y ? smooth(clamp01((t - a.y) / (b.y - a.y))) : 0;
+      var x = lerp(a.s.x, b.s.x, d), y = lerp(a.s.y, b.s.y, d), dia = lerp(a.s.d, b.s.d, d), o = lerp(a.o, b.o, d);
+      var f = lerp(a.f != null ? a.f : a.o, b.f != null ? b.f : b.o, d);
+      var sc = dia / 900;
+      guide.style.transform = 'translate3d(' + (x - 500) + 'px, ' + (y - 500) + 'px, 0) scale(' + sc + ')';
+      guide.style.opacity = String(o);
+      var s = root.style;
+      s.setProperty('--circle-x', x.toFixed(1) + 'px');
+      s.setProperty('--circle-y', y.toFixed(1) + 'px');
+      s.setProperty('--circle-scale', (dia / 560).toFixed(4));
+      s.setProperty('--circle-o', o.toFixed(3));
+      s.setProperty('--circle-fleur', f.toFixed(3));
+      rings.forEach(function (r, k) {
+        var cfg = RINGS[k];
+        r.setAttribute('stroke-width', (cfg.width / sc).toFixed(2));
+        if (cfg.dash) r.setAttribute('stroke-dasharray', cfg.dash.map(function (v) { return (v / sc).toFixed(2); }).join(' '));
+      });
+    }
+    build();
+    ST.create({ start: 0, end: 'max', onUpdate: function (s) { update(s.scroll()); }, onRefresh: function (s) { build(); update(s.scroll()); } });
+    update(window.scrollY);
+  })();
+
+  /* ---------- Loader (contagem → disco → voo até o girassol) ---------- */
+  var loader = (function () {
+    var C = 2 * Math.PI * 70;
+    var ring = $('.loader__ring', loaderEl), disc = $('.loader__disc', loaderEl), stroke = $('.loader__stroke', loaderEl), count = $('.loader__count', loaderEl);
+    var timers = [];
+    function render(v) { count.textContent = String(Math.round(v.value)).padStart(3, '0'); stroke.style.strokeDashoffset = String(C * (1 - v.value / 100)); }
+    function run(onLoaded) {
+      var t0 = performance.now(), st = { fonts: 0 }, v = { value: 0 }, done = false, finished = false;
+      loading = true; syncLock();
+      function finish() {
+        if (finished) return; finished = true;
+        timers.forEach(clearTimeout); timers.forEach(clearInterval);
+        var a = $('.hero__anchor');
+        var end = function () { clearTimeout(safety); loaderEl.classList.add('is-done'); loading = false; syncLock(); };
+        if (!a || reduced()) { onLoaded(); gsap.to(loaderEl, { autoAlpha: 0, duration: 0.5, onComplete: end }); return; }
+        var r = ring.getBoundingClientRect(), h = a.getBoundingClientRect();
+        var dx = h.left + h.width / 2 - (r.left + r.width / 2), dy = h.top + h.height / 2 - (r.top + r.height / 2), sc = h.width / disc.offsetWidth;
+        onLoaded();
+        gsap.timeline({ onComplete: end })
+          .to('.loader .loader__count, .loader .loader__motto', { autoAlpha: 0, y: -12, duration: 0.4, ease: 'power2.in' })
+          .to(disc, { scale: 1, duration: 0.7, ease: 'expo.out' }, '-=0.1')
+          .to(ring, { x: dx, y: dy, scale: sc, duration: 1.2, ease: 'expo.inOut' }, '<')
+          .to(stroke, { autoAlpha: 0, duration: 0.3 }, '<')
+          .to('.loader__bg', { autoAlpha: 0, duration: 0.9, ease: 'power2.inOut' }, '<0.35')
+          .to(ring, { autoAlpha: 0, duration: 0.7, ease: 'power2.out' }, '-=0.35')
+          .set(loaderEl, { autoAlpha: 0 });
+      }
+      function tick() {
+        if (done) return;
+        var target = Math.round(100 * Math.min(1, 0.9 * ((performance.now() - t0) / 600) + 0.1 * st.fonts));
+        gsap.to(v, { value: target, duration: 0.5, ease: 'power2.out', overwrite: true, onUpdate: function () { render(v); } });
+        if (st.fonts === 1 && performance.now() - t0 >= 600) {
+          done = true;
+          gsap.to(v, { value: 100, duration: 0.3, overwrite: true, onUpdate: function () { render(v); } });
+          gsap.delayedCall(0.35, finish);
+        }
+      }
+      (document.fonts ? document.fonts.ready : Promise.resolve()).then(function () { st.fonts = 1; tick(); });
+      timers.push(setInterval(tick, 180));
+      timers.push(setTimeout(function () { st.fonts = 1; tick(); }, 1200));
+      timers.push(setTimeout(finish, 8000));
+      tick();
+    }
+    function replay() {
+      if (lenis) lenis.scrollTo(0, { immediate: true, force: true }); else window.scrollTo(0, 0);
+      gsap.set([loaderEl, ring, disc, stroke, count, '.loader__motto', '.loader__bg'], { clearProps: 'all' });
+      loaderEl.classList.remove('is-done');
+      count.textContent = '000'; stroke.style.strokeDashoffset = String(C);
+      requestAnimationFrame(function () { run(function () { heroIntro && heroIntro.restart(); }); });
+    }
+    return { run: run, replay: replay };
+  })();
+
+  /* ---------- Cabeçalhos de seção: linhas com máscara + marcador ---------- */
+  function revealHeaders() {
+    $$('.ds-section__header').forEach(function (head) {
+      var title = $('.ds-section__title', head);
+      Split.create(title, {
+        type: 'lines', mask: 'lines', linesClass: 'split-line', autoSplit: true,
+        onSplit: function (self) {
+          var tl = gsap.timeline({ scrollTrigger: { trigger: head, start: 'top 78%', once: true } });
+          tl.from(self.lines, { yPercent: 110, stagger: 0.1, duration: 1.2, ease: 'expo.out' }, 0)
+            .fromTo($$('.marker', title), { '--marker': '0%' }, { '--marker': '100%', duration: 1, ease: 'power3.inOut' }, 0.5)
+            .from($$('.label, .lead', head), { y: 30, autoAlpha: 0, stagger: 0.08, duration: 1, ease: 'expo.out' }, 0.2);
+          return tl;
+        }
+      });
+    });
+  }
+
+  /* ---------- Medidas ao vivo (tipografia e tokens) ---------- */
+  function measure() {
+    $$('[data-measure]').forEach(function (out) {
+      var row = out.closest('.ds-spec__row'), el = row && row.querySelector('.ds-spec__preview ' + out.dataset.measure);
+      if (!el) return;
+      var cs = getComputedStyle(el), fs = parseFloat(cs.fontSize), lh = cs.lineHeight === 'normal' ? fs * 1.2 : parseFloat(cs.lineHeight);
+      out.textContent = Math.round(fs) + 'px / ' + Math.round(lh) + 'px';
+    });
+    var probe = document.createElement('div');
+    probe.style.cssText = 'position:absolute;visibility:hidden;height:0';
+    document.body.appendChild(probe);
+    $$('[data-token]').forEach(function (td) {
+      probe.style.width = 'var(' + td.dataset.token + ')';
+      td.textContent = Math.round(parseFloat(getComputedStyle(probe).width)) + 'px';
+    });
+    probe.remove();
+  }
+  var mt = 0;
+  window.addEventListener('resize', function () { clearTimeout(mt); mt = setTimeout(measure, 150); });
+
+  /* ---------- Lojas: status (horário de Paris), acordeão, entrada ---------- */
+  (function () {
+    var DAYS = ['dimanche', 'lundi', 'mardi', 'mercredi', 'jeudi', 'vendredi', 'samedi'];
+    function status() {
+      try {
+        var parts = new Intl.DateTimeFormat('en-GB', { timeZone: 'Europe/Paris', weekday: 'short', hour: '2-digit', minute: '2-digit', hourCycle: 'h23' }).formatToParts(new Date());
+        var get = function (t) { var p = parts.find(function (x) { return x.type === t; }); return p ? p.value : ''; };
+        var day = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'].indexOf(get('weekday')), min = 60 * parseInt(get('hour'), 10) + parseInt(get('minute'), 10);
+        var open = [2, 3, 4, 5, 6], o = 600, c = 1110;
+        if (open.indexOf(day) >= 0 && min >= o && min < c) return { isOpen: true, label: 'Ouvert', detail: 'jusqu’à 18h30' };
+        for (var k = 0; k < 8; k++) {
+          var d = (day + k) % 7;
+          if (open.indexOf(d) < 0 || (k === 0 && min >= o)) continue;
+          var name = k === 0 ? 'aujourd’hui' : k === 1 ? 'demain' : DAYS[d];
+          return { isOpen: false, label: 'Fermé', detail: 'ouvre ' + name + ' à 10h' };
+        }
+      } catch (e) { /* mantém o texto estático */ }
+      return null;
+    }
+    var s = status();
+    if (s) $$('[data-shop-status]').forEach(function (p) {
+      p.classList.toggle('is-open', s.isOpen);
+      p.innerHTML = '<span class="shop__status-dot" aria-hidden="true"></span>' + s.label + '<span class="shop__status-detail"> · ' + s.detail + '</span>';
+    });
+    $$('.shop__action--transit[aria-controls]').forEach(function (b) {
+      b.addEventListener('click', function () {
+        var open = b.getAttribute('aria-expanded') !== 'true';
+        b.setAttribute('aria-expanded', String(open));
+        var panel = document.getElementById(b.getAttribute('aria-controls'));
+        open ? panel.removeAttribute('inert') : panel.setAttribute('inert', '');
+        var host = b.closest('.shop') || b.closest('[data-ds-acc]');
+        host && host.classList.toggle('is-expanded', open);
+      });
+    });
+    if (!reduced()) {
+      gsap.from('.boutiques .shop', { y: 40, autoAlpha: 0, stagger: 0.08, duration: 1, ease: 'expo.out', scrollTrigger: { trigger: '.boutiques .shops', start: 'top 80%', once: true } });
+    }
+  })();
+
+  /* ---------- Marquee + frases em scrub ---------- */
+  (function () {
+    if (reduced()) return;
+    var mqEl = $('.boutiques__marquee'), track = $('.boutiques__marquee-track');
+    var startLoop = function () {
+      var w = track.scrollWidth / 2;
+      if (w < 1) return;
+      var p = { x: 0 };
+      gsap.to(p, { x: w, duration: w / 77, ease: 'none', repeat: -1, onUpdate: function () { mqEl.scrollLeft = p.x; } });
+    };
+    document.fonts ? document.fonts.ready.then(startLoop) : startLoop();
+    var head = $('.boutiques__header'), l1 = $('.boutiques__line'), l2 = $('.boutiques__line--accent');
+    if (window.innerWidth > 640) {
+      gsap.timeline({ defaults: { ease: 'none' }, scrollTrigger: { trigger: head, start: 'top 90%', end: 'bottom top', scrub: 0.8, invalidateOnRefresh: true } })
+        .fromTo(l1, { x: function () { return -(window.innerWidth / 2); } }, { x: 0, duration: 0.55 }, 0)
+        .fromTo(l2, { x: function () { return window.innerWidth / 2; } }, { x: 0, duration: 0.55 }, 0)
+        .to(l1, { x: function () { return 0.6 * (window.innerWidth / 2); }, duration: 0.45 }, 0.55)
+        .to(l2, { x: function () { return -(0.6 * (window.innerWidth / 2)); }, duration: 0.45 }, 0.55);
+    } else {
+      gsap.from([l1, l2], { y: 34, autoAlpha: 0, stagger: 0.12, duration: 1, ease: 'expo.out', scrollTrigger: { trigger: head, start: 'top 85%', once: true } });
+    }
+  })();
+
+  /* ---------- Palco 5/7: dial, alça, slider ---------- */
+  fontsReady.then(function () {
+    var stage = $('[data-ds-dial]');
+    if (!stage) return;
+    var nodes = $$('.activites__node', stage), texts = $$('.activites__text', stage), digits = $('.activites__digits-track', stage);
+    var orbit = $('.activites__handle-orbit', stage), handle = $('.activites__handle', stage), arc = $('.activites__arc', stage), dial = $('.activites__dial', stage);
+    var film = $('.activites__film', stage), track = $('.activites__track', stage), time = $('.activites__time', stage);
+    var N = 4, step = 0, angle = { v: 0 };
+    function paintAngle() { orbit.style.setProperty('--angle', angle.v + 'deg'); arc.style.strokeDashoffset = String(100 - angle.v / 3.6); }
+    function setStep(i, animate) {
+      step = (i + N) % N;
+      digits.style.setProperty('--step', step);
+      texts.forEach(function (t, k) { t.classList.toggle('is-active', k === step); t.classList.toggle('is-past', k < step); });
+      nodes.forEach(function (n, k) {
+        n.classList.toggle('is-active', k === step); n.classList.toggle('is-past', k < step);
+        k === step ? n.setAttribute('aria-current', 'step') : n.removeAttribute('aria-current');
+      });
+      gsap.to(angle, { v: step * 90, duration: animate === false ? 0 : 0.9, ease: 'expo.out', onUpdate: paintAngle });
+    }
+    nodes.forEach(function (n, k) { n.addEventListener('click', function () { setStep(k); }); });
+    handle.addEventListener('pointerdown', function (e) {
+      e.preventDefault();
+      handle.setPointerCapture(e.pointerId);
+      handle.classList.add('is-dragging');
+      gsap.killTweensOf(angle);
+      var move = function (ev) {
+        var r = dial.getBoundingClientRect(), cx = r.left + r.width / 2, cy = r.top + r.height / 2;
+        var a = Math.atan2(ev.clientX - cx, -(ev.clientY - cy)) * 180 / Math.PI;
+        angle.v = Math.min(270, (a + 360) % 360); paintAngle();
+      };
+      var up = function () {
+        handle.classList.remove('is-dragging');
+        handle.removeEventListener('pointermove', move); handle.removeEventListener('pointerup', up); handle.removeEventListener('pointercancel', up);
+        setStep(Math.round(angle.v / 90) % N);
+      };
+      handle.addEventListener('pointermove', move); handle.addEventListener('pointerup', up); handle.addEventListener('pointercancel', up);
+    });
+    handle.addEventListener('keydown', function (e) {
+      if (e.key === 'ArrowRight' || e.key === 'ArrowDown') { e.preventDefault(); setStep(step + 1); }
+      if (e.key === 'ArrowLeft' || e.key === 'ArrowUp') { e.preventDefault(); setStep(step - 1); }
+    });
+    setStep(0, false);
+
+    var player = { v: 0, demo: null };
+    function fmt(s) { var t = Math.max(0, Math.floor(s)); return String(Math.floor(t / 60)).padStart(2, '0') + ':' + String(t % 60).padStart(2, '0'); }
+    function setV(v) {
+      player.v = v;
+      track.style.setProperty('--value', v.toFixed(3));
+      track.setAttribute('aria-valuenow', String(Math.round(v * 100)));
+      time.textContent = fmt(v * 5) + ' / 00:05';
+      film.style.setProperty('--photo', (1 - v).toFixed(3));
+      film.classList.toggle('is-live', v > 0.5);
+    }
+    bindTrack(track, setV, function () { player.demo && player.demo.kill(); });
+    setV(0);
+
+    if (reduced()) return;
+    var tl = gsap.timeline({ scrollTrigger: { trigger: stage, start: 'top 62%', once: true } });
+    Split.create($('.activites__title', stage), { aria: 'none', type: 'lines', mask: 'lines', linesClass: 'split-line', onSplit: function (s) { tl.from(s.lines, { yPercent: 110, stagger: 0.1, duration: 1.2, ease: 'expo.out' }, 0); } });
+    tl.fromTo($('.activites__title .marker', stage), { '--marker': '0%' }, { '--marker': '100%', duration: 1, ease: 'power3.inOut' }, 0.5)
+      .from($('.activites__info', stage), { y: 40, autoAlpha: 0, duration: 1, ease: 'expo.out' }, 0.45);
+    gsap.timeline({ scrollTrigger: { trigger: stage, start: 'top 45%', once: true } })
+      .from(film, { scale: 0.6, autoAlpha: 0, duration: 1.1, ease: 'expo.out' }, 0)
+      .from(nodes, { scale: 0, autoAlpha: 0, stagger: 0.1, duration: 0.7, ease: 'back.out(2)' }, 0.12)
+      .from([$('.activites__ring', stage), orbit], { autoAlpha: 0, duration: 0.6, ease: 'power2.out' }, 0.1)
+      .from($('.activites__slider', stage), { y: 30, autoAlpha: 0, duration: 0.8, ease: 'expo.out' }, 0.3)
+      .add(function () { var o = { v: player.v }; player.demo = gsap.to(o, { v: 1, duration: 5, ease: 'none', onUpdate: function () { setV(o.v); } }); }, 0.1);
+  });
+
+  /* Slider reutilizável (pointer + setas), como o onTrackPointer/onTrackKey original */
+  function bindTrack(track, setV, onUser) {
+    var cur = parseFloat(track.style.getPropertyValue('--value')) || 0;
+    var set = function (v) { cur = clamp01(v); setV(cur); };
+    track.addEventListener('pointerdown', function (e) {
+      onUser && onUser();
+      var at = function (ev) { var r = track.getBoundingClientRect(); set((ev.clientX - r.left) / r.width); };
+      at(e);
+      track.setPointerCapture(e.pointerId);
+      var up = function () { track.removeEventListener('pointermove', at); track.removeEventListener('pointerup', up); track.removeEventListener('pointercancel', up); };
+      track.addEventListener('pointermove', at); track.addEventListener('pointerup', up); track.addEventListener('pointercancel', up);
+    });
+    track.addEventListener('keydown', function (e) {
+      var d = { ArrowRight: 0.1, ArrowUp: 0.1, ArrowLeft: -0.1, ArrowDown: -0.1 }[e.key];
+      if (d === undefined) return;
+      e.preventDefault(); onUser && onUser();
+      var now = parseFloat(track.style.getPropertyValue('--value'));
+      set((isNaN(now) ? cur : now) + d);
+    });
+  }
+  (function () {
+    var t = $('.ds-slider .activites__track'), time = $('.ds-slider .activites__time');
+    if (!t) return;
+    bindTrack(t, function (v) {
+      t.style.setProperty('--value', v.toFixed(3));
+      t.setAttribute('aria-valuenow', String(Math.round(v * 100)));
+      time.textContent = '00:0' + Math.floor(v * 5) + ' / 00:05';
+    });
+  })();
+
+  /* ---------- Linha do tempo (componente) ---------- */
+  (function () {
+    var years = $$('[data-ds-years] .histoire__year'), entries = $$('[data-ds-entries] .histoire__entry'), counter = $('[data-ds-counter]');
+    years.forEach(function (y, k) {
+      y.addEventListener('click', function () {
+        years.forEach(function (o, j) { o.classList.toggle('is-active', j === k); j === k ? o.setAttribute('aria-current', 'step') : o.removeAttribute('aria-current'); });
+        entries.forEach(function (en, j) { en.classList.toggle('is-active', j === k); });
+        var from = { n: parseInt(counter.textContent, 10) };
+        gsap.to(from, { n: parseInt(y.textContent, 10), duration: 0.8, ease: 'expo.out', onUpdate: function () { counter.textContent = String(Math.round(from.n)); } });
+      });
+    });
+  })();
+
+  /* ---------- Curvas ---------- */
+  (function () {
+    var box = $('[data-ds-ease]'), btn = $('[data-ds-ease-play]');
+    btn.addEventListener('click', function () { box.classList.toggle('is-played'); });
+    ST.create({ trigger: box, start: 'top 70%', once: true, onEnter: function () { box.classList.add('is-played'); } });
+  })();
+
+  /* ---------- Galeria de movimento ---------- */
+  fontsReady.then(function () {
+    var C = 2 * Math.PI * 70;
+    $$('.ds-card').forEach(function (card) {
+      var el = $('[data-ds-anim]', card), btn = $('[data-ds-replay]', card);
+      if (!el) return;
+      var kind = el.dataset.dsAnim, tl = null;
+      if (kind === 'chars') {
+        var s1 = Split.create(el, { type: 'words,chars', mask: 'chars' });
+        tl = gsap.timeline({ paused: true }).from(s1.chars, { yPercent: 120, rotate: 6, duration: 0.95, stagger: 0.018, ease: 'expo.out' });
+      } else if (kind === 'lines') {
+        tl = gsap.timeline({ paused: true });
+        Split.create(el, { type: 'lines', mask: 'lines', linesClass: 'split-line', onSplit: function (s) { tl.from(s.lines, { yPercent: 110, stagger: 0.1, duration: 1.2, ease: 'expo.out' }, 0); } });
+        tl.fromTo($$('.marker', el), { '--marker': '0%' }, { '--marker': '100%', duration: 1, ease: 'power3.inOut' }, 0.5);
+      } else if (kind === 'footer') {
+        tl = gsap.timeline({ paused: true });
+        $$('.footer__word', el).forEach(function (w) {
+          var s = Split.create(w, { type: 'words,chars' });
+          tl.from(s.chars, { yPercent: 100, opacity: 0, stagger: 0.03, duration: 1, ease: 'expo.out' }, 0);
+        });
+      } else if (kind === 'stagger') {
+        tl = gsap.timeline({ paused: true }).from(el.children, { y: 40, autoAlpha: 0, stagger: 0.08, duration: 1, ease: 'expo.out' });
+      } else if (kind === 'pop') {
+        tl = gsap.timeline({ paused: true }).from(el.children, { scale: 0, autoAlpha: 0, stagger: 0.1, duration: 0.7, ease: 'back.out(2)' });
+      } else if (kind === 'count') {
+        var trackEl = $('.activites__digits-track', el), n = 0;
+        var next = function () { n = (n + 1) % 4; trackEl.style.setProperty('--step', n); };
+        btn && btn.addEventListener('click', next);
+        var iv = null;
+        ST.create({ trigger: el, start: 'top bottom', end: 'bottom top', onToggle: function (s) { clearInterval(iv); if (s.isActive && !reduced()) iv = setInterval(next, 1600); } });
+        return;
+      } else if (kind === 'loader') {
+        var disc = $('.loader__disc', el), stroke = $('.loader__stroke', el), count = $('.loader__count', el), v = { value: 0 };
+        tl = gsap.timeline({ paused: true })
+          .set(disc, { scale: 0 }).set(count, { autoAlpha: 1, y: 0 }).set(v, { value: 0 })
+          .to(v, { value: 100, duration: 1.4, ease: 'power2.out', onUpdate: function () { count.textContent = String(Math.round(v.value)).padStart(3, '0'); stroke.style.strokeDashoffset = String(C * (1 - v.value / 100)); } })
+          .to(count, { autoAlpha: 0, y: -12, duration: 0.4, ease: 'power2.in' }, '+=0.2')
+          .to(disc, { scale: 1, duration: 0.7, ease: 'expo.out' }, '-=0.1');
+        $('[data-ds-loader]', card).addEventListener('click', function () { loader.replay(); });
+      }
+      if (!tl) return;
+      if (reduced()) { tl.progress(1); return; }
+      ST.create({ trigger: card, start: 'top 80%', once: true, onEnter: function () { tl.play(0); } });
+      btn && btn.addEventListener('click', function () { tl.restart(); });
+    });
+  });
+
+  /* ---------- Rodapé: selo gira com a rolagem, letras sobem ---------- */
+  (function () {
+    if (reduced()) return;
+    var footer = $('.footer');
+    gsap.to('.footer__seal svg', { rotation: 240, ease: 'none', scrollTrigger: { trigger: footer, start: 'top bottom', end: 'bottom bottom', scrub: true } });
+    Split.create($$('.footer__title .footer__word'), { type: 'words,chars', autoSplit: true, aria: 'none', onSplit: function (e) {
+      return gsap.from(e.chars, { yPercent: 100, opacity: 0, stagger: 0.03, duration: 1, ease: 'expo.out', scrollTrigger: { trigger: '.footer__title', start: 'top 85%', once: true } });
+    } });
+  })();
+
+  /* ---------- Inicialização ---------- */
+  fontsReady.then(function () {
+    measure();
+    revealHeaders();
+    buildHeroIntro();
+    heroIntro.pause(0);
+    loader.run(function () {
+      heroIntro.play(0);
+      gsap.to(guide, { autoAlpha: 1, duration: 0.8, delay: 0.9 });
+    });
+    ST.refresh();
+  });
+})();
+</script>
+
+<script type="module">
+/* Girassol 3D — porte direto do chunk 155 original (Three.js r170 + GLTFLoader + Meshopt). */
+import * as THREE from 'three';
+import { GLTFLoader } from 'three/addons/loaders/GLTFLoader.js';
+import { MeshoptDecoder } from 'three/addons/libs/meshopt_decoder.module.js';
+
+const host = document.querySelector('.hero .sunflower');
+const emit = (n) => window.dispatchEvent(new CustomEvent(n));
+const reduced = () => window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+function mount() {
+  let renderer, failed = false;
+  const fail = (e) => { if (failed) return; failed = true; console.warn('Girassol 3D indisponível (abra por um servidor http):', e); stop(); emit('sunflower:fallback'); };
+  try { renderer = new THREE.WebGLRenderer({ antialias: true, alpha: true, powerPreference: 'high-performance' }); } catch (e) { fail(e); return; }
+  const mobile = window.matchMedia('(max-width: 640px)').matches;
+  renderer.setPixelRatio(Math.min(window.devicePixelRatio, mobile ? 1.5 : 2));
+  renderer.setClearColor(0, 0);
+  renderer.toneMapping = THREE.ACESFilmicToneMapping;
+  renderer.toneMappingExposure = 1.2;
+  renderer.outputColorSpace = THREE.SRGBColorSpace;
+  renderer.domElement.dataset.engine = 'three.js r170';
+  host.appendChild(renderer.domElement);
+
+  const scene = new THREE.Scene();
+  const cam = new THREE.PerspectiveCamera(32, 1, 10, 2e4);
+  cam.position.set(0, 4e3, -4500); cam.lookAt(0, 0, 0);
+  scene.add(new THREE.AmbientLight(0xfff8dc, 0.5));
+  const dl = new THREE.DirectionalLight(0xfff8dc, 0.2); dl.position.set(10, 0, 5); scene.add(dl);
+  const p1 = new THREE.PointLight(0xfff8dc, 0.8, 1500); p1.position.set(-8, 8, 3); scene.add(p1);
+  const p2 = new THREE.PointLight(0xfff8dc, 0.6, 1500); p2.position.set(8, -8, 3); scene.add(p2);
+  const p3 = new THREE.PointLight(0xfff8dc, 0.4, 1200); p3.position.set(0, 5, 2); scene.add(p3);
+  scene.add(new THREE.HemisphereLight(0xfff8dc, 0x98fb98, 0.8));
+  const p4 = new THREE.PointLight(0xfff8dc, 0.8, 2e3); p4.position.set(0, 0, 8); scene.add(p4);
+
+  const PETALS = { color: new THREE.Color(0xffd700).multiplyScalar(1.2), shininess: 10, emissive: 4473856, emissiveIntensity: 0.3, specular: 0 };
+  const CENTER = { color: new THREE.Color(9127187).multiplyScalar(0.8), shininess: 20, emissive: 1118464, emissiveIntensity: 0.1, specular: 1118481 };
+  const tilt = new THREE.Group(), spin = new THREE.Group();
+  tilt.add(spin); scene.add(tilt);
+  const st = { progress: 0, px: 0, py: 0, visible: true, frame: 0, dragging: false };
+  let model = null;
+
+  const loader = new GLTFLoader();
+  loader.setMeshoptDecoder(MeshoptDecoder);
+  loader.load('site/emmaus-agir-31.fr/models/sunflower.glb', (g) => {
+    model = g.scene;
+    model.traverse((o) => {
+      if (!o.isMesh) return;
+      const m = o.material;
+      o.material = new THREE.MeshPhongMaterial({ ...(m.name === 'Center' ? CENTER : PETALS), map: m.map, side: THREE.DoubleSide });
+      m.dispose();
+    });
+    const ref = model.getObjectByName('Petals_Main') || model;
+    model.position.sub(new THREE.Box3().setFromObject(ref).getCenter(new THREE.Vector3()));
+    spin.add(model);
+    emit('sunflower:ready');
+  }, undefined, fail);
+
+  let W = 0, H = 0;
+  const resize = () => { const w = host.offsetWidth, h = host.offsetHeight; if (!w || !h || (Math.abs(w - W) < 2 && Math.abs(h - H) < 2)) return; W = w; H = h; renderer.setSize(w, h, false); cam.aspect = w / h; cam.updateProjectionMatrix(); };
+  new ResizeObserver(resize).observe(host); resize();
+  window.addEventListener('pointermove', (e) => { st.px = e.clientX / window.innerWidth * 2 - 1; st.py = e.clientY / window.innerHeight * 2 - 1; }, { passive: true });
+
+  let last = null;
+  host.addEventListener('pointerdown', (e) => { if (e.pointerType !== 'mouse') return; st.dragging = true; last = { x: e.clientX, y: e.clientY }; window.gsap && gsap.killTweensOf(spin.rotation); host.setPointerCapture(e.pointerId); });
+  host.addEventListener('pointermove', (e) => { if (!st.dragging) return; spin.rotation.y += (e.clientX - last.x) * 0.01; spin.rotation.x += (e.clientY - last.y) * 0.01; last = { x: e.clientX, y: e.clientY }; });
+  const release = () => { if (!st.dragging) return; st.dragging = false; window.gsap && gsap.to(spin.rotation, { x: 0, y: 0, duration: 1.6, ease: 'elastic.out(1, 0.45)' }); };
+  host.addEventListener('pointerup', release); host.addEventListener('pointercancel', release);
+
+  const clock = new THREE.Clock(), still = reduced();
+  const loop = () => {
+    const t = still ? 0 : clock.getElapsedTime();
+    if (model) { model.rotation.y = 0.09 * t; tilt.position.y = 10 * Math.sin(0.5 * t); }
+    const rx = -(0.25 * Math.PI) * Math.min(1, 2.2 * st.progress) + 0.06 * st.py;
+    const rz = 0.05 * Math.sin(0.3 * t) - 0.08 * st.px;
+    tilt.rotation.x += (rx - tilt.rotation.x) * 0.08;
+    tilt.rotation.z += (rz - tilt.rotation.z) * 0.05;
+    p1.intensity = 0.6 + 0.15 * Math.sin(0.5 * t);
+    p2.intensity = 0.4 + 0.1 * Math.cos(0.3 * t);
+    renderer.render(scene, cam);
+    st.frame = requestAnimationFrame(loop);
+  };
+  function start() { if (failed || st.frame || !st.visible || document.hidden) return; st.frame = requestAnimationFrame(loop); }
+  function stop() { cancelAnimationFrame(st.frame); st.frame = 0; }
+  new IntersectionObserver(([e]) => { st.visible = e.isIntersecting; st.visible ? start() : stop(); }).observe(host);
+  document.addEventListener('visibilitychange', () => (document.hidden ? stop() : start()));
+  window.dsSunflower = { setProgress: (p) => { st.progress = p; p > 0.95 ? stop() : start(); } };
+  start();
+}
+
+if (host) {
+  const idle = (fn) => ('requestIdleCallback' in window ? requestIdleCallback(fn, { timeout: 1500 }) : setTimeout(fn, 200));
+  (document.fonts ? document.fonts.ready : Promise.resolve()).then(() => idle(mount));
+}
+</script>
+</body>
+</html>

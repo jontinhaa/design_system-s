@@ -1,0 +1,65 @@
+
+/* Design tokens — neutral scale + one vivid accent */
+
+/* Stand-in for Neue Haas Grotesk while it loads: Helvetica or Arial resized to its width and line box, so
+   the text takes the same room and nothing jumps when the real face arrives */
+@font-face {
+  font-family: "NHG Fallback";
+  font-weight: 400;
+  src: local("Helvetica Neue"), local("HelveticaNeue"), local("Helvetica"), local("Arial"), local("ArialMT");
+  size-adjust: 92.68%;
+  ascent-override: 98.84%;
+  descent-override: 24.6%;
+  line-gap-override: 0%;
+}
+
+@font-face {
+  font-family: "NHG Fallback";
+  font-weight: 700;
+  src: local("Helvetica Neue Bold"), local("HelveticaNeue-Bold"), local("Helvetica Bold"), local("Helvetica-Bold"), local("Arial Bold"), local("Arial-BoldMT");
+  size-adjust: 92.4%;
+  ascent-override: 101.19%;
+  descent-override: 28.46%;
+  line-gap-override: 0%;
+}
+
+:root {
+  /* Neutral */
+  --neutral-0: #ffffff;
+  --neutral-900: #17140f;
+  --neutral-1000: #0a0806;
+
+  /* Orange — vivid, lightness-only states. A true orange, deep enough for white text on top (4.56:1) */
+  --vivid: #c85000;
+  --vivid-hover: #ad4500;
+  --vivid-active: #933a00;
+
+  /* Subtle tints — same hue, alpha only (provisional alpha values) */
+  --subtle-bg-on-light: rgb(200 80 0 / 0.08);
+  --subtle-bg-on-dark: rgb(200 80 0 / 0.12);
+
+  /* Typography */
+  --font-display: "neue-haas-grotesk-display", "Neue Haas Grotesk Display Pro", "NHG Fallback",
+    "Helvetica Neue", Helvetica, Arial, sans-serif;
+  --font-body: "Satoshi", system-ui, -apple-system, "Segoe UI", sans-serif;
+}
+/* Lo que la versión de WordPress añade a la web: el vídeo opcional de un caso */
+
+.case-video {
+  width: 100%;
+  margin-top: var(--gutter);
+  border-radius: var(--case-radius);
+  overflow: hidden;
+  background: var(--neutral-1000);
+}
+
+.case-video video,
+.case-video iframe {
+  display: block;
+  width: 100%;
+  height: auto;
+  aspect-ratio: 16 / 9;
+  border: 0;
+}
+
+/*# sourceURL=de-main-inline-css */

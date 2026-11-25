@@ -1,0 +1,929 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="js"><head><meta charset="utf-8">
+<!-- Website Downloader 3.0: este arquivo é o retrato estático do site (DOM renderizado). Aberto via servidor
+     local (serve.py, ver Como rodar.md), o bootstrap abaixo carrega o site vivo; via file://, mostra este retrato. -->
+<meta name="referrer" content="no-referrer">
+<script data-wd3>window.__WD3__ = {"entryUrl": "https://www.duduautoescolapatos.com.br/", "replayHost": "www.duduautoescolapatos.com.br.localhost", "entryPath": "/", "captureId": "duduautoescolapatos.com.br-0bbea1de", "capturedAt": "2026-11-16T22:05:54+00:00", "snapshot": true, "fileFonts": "site/_runtime/file-fonts.css"};</script>
+<script data-wd3>/* Website Downloader 3.0 — bootstrap do index.html.
+ * file://  → fica no retrato estático (e carrega as fontes embutidas, que o Chrome bloqueia em file://).
+ * http(s)  → para de carregar o retrato, registra o Service Worker de replay e abre o site vivo.
+ */
+(function () {
+  var cfg = window.__WD3__ || {};
+  var root = document.documentElement;
+  if (location.protocol === 'file:') {
+    root.setAttribute('data-wd3', 'file');
+    if (cfg.fileFonts) {
+      var link = document.createElement('link');
+      link.rel = 'stylesheet';
+      link.href = cfg.fileFonts;
+      (document.head || root).appendChild(link);
+    }
+    return;
+  }
+  root.setAttribute('data-wd3', 'loading');
+  if (cfg.snapshot) {
+    try { window.stop(); } catch (e) { /* o retrato não precisa carregar: o site vivo vem do SW */ }
+  }
+
+  function fail(msg) {
+    root.setAttribute('data-wd3', 'error');
+    var el = document.getElementById('wd3-error');
+    if (!el) {
+      var body = document.body || root.appendChild(document.createElement('body'));
+      body.innerHTML = '<p style="font:15px system-ui,sans-serif;padding:24px;color:#e8e8e8;background:#050505;margin:0">' +
+        'Não foi possível iniciar o replay: <span id="wd3-error"></span></p>';
+      el = document.getElementById('wd3-error');
+    }
+    el.textContent = msg;
+  }
+  if (!('serviceWorker' in navigator)) return fail('este navegador não suporta Service Workers.');
+
+  function go() { location.replace(cfg.entryPath); }
+  function start() {
+    navigator.serviceWorker.register('/site/_wd3/sw.js', { scope: '/' })
+      .then(function () { return navigator.serviceWorker.ready; })
+      .then(function () {
+        if (navigator.serviceWorker.controller) return go();
+        navigator.serviceWorker.addEventListener('controllerchange', go);
+      })
+      .catch(function (err) { fail(String(err && err.message || err)); });
+  }
+  // Aberto em localhost puro: tenta <domínio>.localhost (mesmo servidor), para sites que checam location.hostname.
+  var plain = location.hostname === 'localhost' || location.hostname === '127.0.0.1';
+  if (!plain || !cfg.replayHost || cfg.replayHost === 'localhost') return start();
+  var target = location.protocol + '//' + cfg.replayHost + (location.port ? ':' + location.port : '');
+  var decided = false;
+  function decide(fn) { if (!decided) { decided = true; fn(); } }
+  setTimeout(function () { decide(start); }, 1500);
+  fetch(target + '/site/_wd3/site-index.json', { mode: 'no-cors', cache: 'no-store' })
+    .then(function () { decide(function () { location.replace(target + cfg.entryPath); }); })
+    .catch(function () { decide(start); });
+})();
+</script>
+<style data-wd3>
+  [data-wd3-banner] { display: none; }
+  html[data-wd3="file"] [data-wd3-banner] { display: flex; }
+  html[data-wd3-unlock], html[data-wd3-unlock] body { overflow-y: auto !important; }
+</style>
+
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<!-- Domínio oficial: https://duduautoescolapatos.com.br (também em robots.txt, sitemap.xml e llms.txt). -->
+<meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
+<title>Autoescola Dudu em Patos de Minas | CNH A, B, AB, D e E</title>
+<meta name="description" content="Autoescola em Patos de Minas há mais de 20 anos. Tire sua CNH de moto, carro manual ou automático, ônibus e carreta. Nota 4,8 no Google. Chame no WhatsApp.">
+<link rel="canonical" href="https://duduautoescolapatos.com.br/">
+<meta name="theme-color" content="#111111">
+<meta name="geo.region" content="BR-MG">
+<meta name="geo.placename" content="Patos de Minas">
+<meta property="og:type" content="website">
+<meta property="og:locale" content="pt_BR">
+<meta property="og:site_name" content="Autoescola Dudu">
+<meta property="og:title" content="Autoescola Dudu em Patos de Minas | CNH A, B, AB, D e E">
+<meta property="og:description" content="Aulas de moto, carro manual ou automático, ônibus e carreta no Centro de Patos de Minas. Mais de 20 anos formando condutores.">
+<meta property="og:url" content="https://duduautoescolapatos.com.br/">
+<meta property="og:image" content="https://duduautoescolapatos.com.br/img/og-autoescola-dudu-v2.jpg">
+<meta property="og:image:type" content="image/jpeg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="Autoescola Dudu em Patos de Minas: CNH A, B, AB, D e E. Moto, carro manual ou automático, ônibus e carreta.">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://duduautoescolapatos.com.br/img/og-autoescola-dudu-v2.jpg">
+<meta name="twitter:image:alt" content="Autoescola Dudu em Patos de Minas: CNH A, B, AB, D e E. Moto, carro manual ou automático, ônibus e carreta.">
+
+<meta name="google-site-verification" content="uln8oETW-DTvWMCX3LAAHrmOeLdroJ9VK4KdZbZ69fY">
+
+
+<link rel="icon" href="site/www.duduautoescolapatos.com.br/img/favicon.ico" sizes="any">
+<link rel="icon" type="image/png" href="site/www.duduautoescolapatos.com.br/img/favicon.png">
+<link rel="apple-touch-icon" href="site/www.duduautoescolapatos.com.br/img/apple-touch-icon.png">
+
+
+<link rel="stylesheet" href="site/www.duduautoescolapatos.com.br/css/style.css">
+</head>
+<body>
+
+
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+  <defs>
+    <symbol id="i-wa" viewBox="0 0 24 24"><path fill="currentColor" d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18.1a8.1 8.1 0 0 1-4.1-1.1l-.3-.2-3 .8.8-2.9-.2-.3A8.1 8.1 0 1 1 12 20.100zm4.500-6c-.2-.1-1.500-.7-1.700-.8s-.4-.1-.6.1-.7.8-.8 1-.3.2-.6.1a6.700 6.700 0 0 1-3.300-2.900c-.2-.4.200-.4.700-1.300.1-.2 0-.3 0-.4l-.8-1.800c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3 3 3 0 0 0-.9 2.200 5.200 5.200 0 0 0 1.100 2.800 11.800 11.800 0 0 0 4.500 4c1.700.7 2.300.8 3.200.7a2.700 2.700 0 0 0 1.800-1.300 2.200 2.200 0 0 0 .2-1.300c-.1-.1-.3-.2-.5-.3z"></path></symbol>
+    <symbol id="i-tel" viewBox="0 0 24 24"><path fill="currentColor" d="M6.600 10.800a15 15 0 0 0 6.600 6.600l2.200-2.200a1 1 0 0 1 1-.2 11.400 11.400 0 0 0 3.600.6 1 1 0 0 1 1 1V20a1 1 0 0 1-1 1A17 17 0 0 1 3 4a1 1 0 0 1 1-1h3.500a1 1 0 0 1 1 1c0 1.300.2 2.500.6 3.600a1 1 0 0 1-.3 1z"></path></symbol>
+    <symbol id="i-ig" viewBox="0 0 24 24"><path fill="currentColor" d="M7.800 2h8.400A5.800 5.800 0 0 1 22 7.800v8.400a5.800 5.800 0 0 1-5.800 5.800H7.800A5.800 5.800 0 0 1 2 16.200V7.800A5.800 5.800 0 0 1 7.800 2zm-.2 2A3.600 3.600 0 0 0 4 7.600v8.800A3.600 3.600 0 0 0 7.600 20h8.800a3.600 3.600 0 0 0 3.600-3.600V7.600A3.600 3.600 0 0 0 16.400 4H7.600zM12 7a5 5 0 1 1 0 10 5 5 0 0 1 0-10zm0 2a3 3 0 1 0 0 6 3 3 0 0 0 0-6zm5.200-3.200a1.200 1.200 0 1 1 0 2.400 1.200 1.200 0 0 1 0-2.400z"></path></symbol>
+    <symbol id="i-pin" viewBox="0 0 24 24"><path fill="currentColor" d="M12 2a7 7 0 0 0-7 7c0 5.200 7 13 7 13s7-7.800 7-13a7 7 0 0 0-7-7zm0 9.500A2.500 2.500 0 1 1 12 6.500a2.500 2.500 0 0 1 0 5z"></path></symbol>
+  </defs>
+</svg>
+
+<header class="top" data-theme="dark">
+  <a class="wm-tag" href="#topo" aria-label="Dudu Centro de Formação de Condutores"><img class="wm-logo" src="site/www.duduautoescolapatos.com.br/img/logo-dudu-330.webp" width="107" height="46" alt="DuDu Centro de Formação de Condutores"></a>
+  <nav class="top-nav" aria-label="Seções">
+    <a href="#categorias">Categorias</a>
+    <a href="#frota">Frota</a>
+    <a href="#trilha">Etapas</a>
+    <a href="#avaliacoes">Avaliações</a>
+    <a href="#duvidas">Dúvidas</a>
+    <a href="#onde">Onde</a>
+  </nav>
+  <a class="btn btn-y btn-sm" href="https://wa.me/5534991300500?text=Ol%C3%A1!%20Quero%20saber%20como%20funciona%20para%20tirar%20a%20habilita%C3%A7%C3%A3o." target="_blank" rel="noopener"><svg class="ic"><use href="#i-wa"></use></svg><span>WhatsApp</span></a>
+</header>
+
+<main id="topo">
+
+<!-- HERO -->
+<section class="hero">
+  <!-- frota nas laterais: esquerda (carros e moto) e direita (carreta e ônibus), todos virados para o centro -->
+  <div class="hero-side hero-side-l h-in" style="--d: 700ms; opacity: 1; transform: translateX(0px) skewX(0deg);" aria-hidden="true">
+    <img class="v v-man" src="site/www.duduautoescolapatos.com.br/img/carro-manual-800.webp" srcset="site/www.duduautoescolapatos.com.br/img/carro-manual-480.webp 480w, site/www.duduautoescolapatos.com.br/img/carro-manual-800.webp 800w, site/www.duduautoescolapatos.com.br/img/carro-manual-1200.webp 1200w, https://www.duduautoescolapatos.com.br/img/carro-manual.webp 1536w" sizes="(min-width:760px) 23vw, 33vw" alt="" width="1536" height="1024" decoding="async">
+    <img class="v v-ele" src="site/www.duduautoescolapatos.com.br/img/carro-eletrico-800.webp" srcset="site/www.duduautoescolapatos.com.br/img/carro-eletrico-480.webp 480w, site/www.duduautoescolapatos.com.br/img/carro-eletrico-800.webp 800w, site/www.duduautoescolapatos.com.br/img/carro-eletrico-1200.webp 1200w, https://www.duduautoescolapatos.com.br/img/carro-eletrico.webp 1536w" sizes="(min-width:760px) 23vw, 33vw" alt="" width="1536" height="1024" decoding="async">
+    <img class="v v-mot" src="site/www.duduautoescolapatos.com.br/img/moto-800.webp" srcset="site/www.duduautoescolapatos.com.br/img/moto-480.webp 480w, site/www.duduautoescolapatos.com.br/img/moto-800.webp 800w, site/www.duduautoescolapatos.com.br/img/moto-1200.webp 1200w, https://www.duduautoescolapatos.com.br/img/moto.webp 1536w" sizes="(min-width:760px) 23vw, 33vw" alt="" width="1536" height="1024" decoding="async">
+    <img class="v v-sem" src="site/www.duduautoescolapatos.com.br/img/moto-semiautomatica-800.webp" srcset="site/www.duduautoescolapatos.com.br/img/moto-semiautomatica-480.webp 480w, site/www.duduautoescolapatos.com.br/img/moto-semiautomatica-800.webp 800w, https://www.duduautoescolapatos.com.br/img/moto-semiautomatica-1200.webp 1200w, https://www.duduautoescolapatos.com.br/img/moto-semiautomatica.webp 1536w" sizes="(min-width:760px) 23vw, 33vw" alt="" width="1536" height="1024" decoding="async">
+  </div>
+  <div class="hero-side hero-side-r h-in" style="--d: 800ms; opacity: 1; transform: translateX(0px) skewX(0deg);" aria-hidden="true">
+    <img class="v v-car" src="site/www.duduautoescolapatos.com.br/img/carreta-800.webp" srcset="site/www.duduautoescolapatos.com.br/img/carreta-480.webp 480w, site/www.duduautoescolapatos.com.br/img/carreta-800.webp 800w, site/www.duduautoescolapatos.com.br/img/carreta-1200.webp 1200w, https://www.duduautoescolapatos.com.br/img/carreta.webp 1536w" sizes="(min-width:760px) 23vw, 33vw" alt="" width="1536" height="1024" decoding="async">
+    <img class="v v-bus" src="site/www.duduautoescolapatos.com.br/img/onibus-800.webp" srcset="site/www.duduautoescolapatos.com.br/img/onibus-480.webp 480w, site/www.duduautoescolapatos.com.br/img/onibus-800.webp 800w, site/www.duduautoescolapatos.com.br/img/onibus-1200.webp 1200w, https://www.duduautoescolapatos.com.br/img/onibus.webp 1536w" sizes="(min-width:760px) 23vw, 33vw" alt="" width="1536" height="1024" decoding="async">
+  </div>
+  <div class="wrap hero-grid">
+    <div class="hero-txt">
+      <h1 class="h1">
+        <span class="h1-kick h-in" style="--d: 60ms; opacity: 1; transform: translateX(0px) skewX(0deg);">Autoescola em Patos de Minas</span>
+        <span class="ln h-in" style="--d: 120ms; opacity: 1; transform: translateX(0px) skewX(0deg);">Sua habilitação</span>
+        <span class="ln h-in" style="--d: 240ms; opacity: 1; transform: translateX(0px) skewX(0deg);">começa <em>na Dudu</em></span>
+      </h1>
+      <p class="hero-lead h-in" style="--d: 380ms; opacity: 1; transform: translateX(0px) skewX(0deg);">CNH A, B, AB, D e E: moto, carro manual ou automático, ônibus e carreta, no Centro de Patos de Minas.</p>
+      <div class="cta-row h-in" style="--d: 500ms; opacity: 1; transform: translateX(0px) skewX(0deg);">
+        <a class="btn btn-y" href="https://wa.me/5534991300500?text=Ol%C3%A1!%20Quero%20saber%20como%20funciona%20para%20tirar%20a%20habilita%C3%A7%C3%A3o." target="_blank" rel="noopener"><svg class="ic"><use href="#i-wa"></use></svg><span>Chamar no WhatsApp</span></a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- APROVADOS: carrossel infinito na divisa entre o hero (preto) e a seção branca -->
+<section class="wall" aria-label="Alunos aprovados">
+  <div class="wrap wall-head h-in" style="--d: 900ms; opacity: 1; transform: translateX(0px) skewX(0deg);">
+    <p class="kicker k-y">Quem já passou por aqui</p>
+    <p class="wall-sub" style="background-size: 100% 100%;">Alunos aprovados na Dudu</p>
+    <div class="seal" role="img" aria-label="Mais de 20 anos formando condutores">
+      <svg class="seal-ring" viewBox="0 0 120 120" aria-hidden="true" focusable="false">
+        <defs><path id="seal-path" d="M20 60a40 40 0 1 1 80 0a40 40 0 1 1-80 0"></path></defs>
+        <text><textPath href="#seal-path" textLength="248" lengthAdjust="spacing">MAIS DE 20 ANOS FORMANDO CONDUTORES •</textPath></text>
+      </svg>
+      <span class="seal-core" aria-hidden="true"><svg class="seal-medal" viewBox="0 0 24 24" focusable="false"><path d="M8.3 10 5.5 2.5h4.200L12 7.300M15.700 10l2.800-7.500h-4.200L12 7.300" fill="none" stroke="currentColor" stroke-width="1.800" stroke-linecap="round" stroke-linejoin="round"></path><circle cx="12" cy="15" r="6.500" fill="currentColor"></circle><path fill="#fff" d="m12 12 .7 2 2.150.07-1.710 1.300.62 2.060L12 16.200l-1.760 1.240.62-2.060-1.710-1.300 2.150-.07z"></path></svg></span>
+    </div>
+  </div>
+  <div class="wall-stage h-in" style="--d:1000ms" data-nav="split">
+    <div class="wall-vp" id="wall" style="opacity: 1; transform: translateX(0px) skewX(0deg);">
+      <ul class="wall-track" style="transform: translate3d(-355.72px, 0px, 0px);">
+        <li class="win" style="--dy: 0px;"><div class="win-in"><img src="https://www.duduautoescolapatos.com.br/img/aprovados/01-360.webp" srcset="https://www.duduautoescolapatos.com.br/img/aprovados/01-360.webp 360w, https://www.duduautoescolapatos.com.br/img/aprovados/01-600.webp 600w, site/www.duduautoescolapatos.com.br/img/aprovados/01.webp 720w" sizes="(min-width:760px) 320px, 220px" alt="Aluna aprovada segurando o comprovante ao lado do instrutor e de um carro de aula da Dudu" width="480" height="640" loading="eager" decoding="async"></div><span class="win-stamp">Aprovada</span></li>
+        <li class="win" style="--dy: 20px;"><div class="win-in"><img src="https://www.duduautoescolapatos.com.br/img/aprovados/02-360.webp" srcset="https://www.duduautoescolapatos.com.br/img/aprovados/02-360.webp 360w, https://www.duduautoescolapatos.com.br/img/aprovados/02-600.webp 600w, site/www.duduautoescolapatos.com.br/img/aprovados/02.webp 720w" sizes="(min-width:760px) 320px, 220px" alt="Aluno aprovado segurando o comprovante ao lado de um instrutor e de um carro de aula da Dudu" width="480" height="640" loading="eager" decoding="async"></div><span class="win-stamp">Aprovado</span></li>
+        <li class="win" style="--dy: 8px;"><div class="win-in"><img src="https://www.duduautoescolapatos.com.br/img/aprovados/03-360.webp" srcset="https://www.duduautoescolapatos.com.br/img/aprovados/03-360.webp 360w, https://www.duduautoescolapatos.com.br/img/aprovados/03-600.webp 600w, site/www.duduautoescolapatos.com.br/img/aprovados/03.webp 720w" sizes="(min-width:760px) 320px, 220px" alt="Aluna aprovada segurando o comprovante ao lado de um instrutor" width="480" height="640" loading="eager" decoding="async"></div><span class="win-stamp">Aprovada</span></li>
+        <li class="win" style="--dy: 20px;"><div class="win-in"><img src="https://www.duduautoescolapatos.com.br/img/aprovados/11-360.webp" srcset="https://www.duduautoescolapatos.com.br/img/aprovados/11-360.webp 360w, https://www.duduautoescolapatos.com.br/img/aprovados/11-600.webp 600w, site/www.duduautoescolapatos.com.br/img/aprovados/11.webp 720w" sizes="(min-width:760px) 320px, 220px" alt="Aluno aprovado segurando o comprovante ao lado de um instrutor e de um caminhão de aula da Dudu" width="480" height="640" loading="eager" decoding="async"></div><span class="win-stamp">Aprovado</span></li>
+        <li class="win" style="--dy: 0px;"><div class="win-in"><img src="https://www.duduautoescolapatos.com.br/img/aprovados/04-360.webp" srcset="https://www.duduautoescolapatos.com.br/img/aprovados/04-360.webp 360w, site/www.duduautoescolapatos.com.br/img/aprovados/04.webp 576w" sizes="(min-width:760px) 320px, 220px" alt="Aluna aprovada segurando o comprovante ao lado de um instrutor e de um carro de aula da Dudu" width="480" height="640" loading="eager" decoding="async"></div><span class="win-stamp">Aprovada</span></li>
+        <li class="win" style="--dy: 8px;"><div class="win-in"><img src="https://www.duduautoescolapatos.com.br/img/aprovados/05-360.webp" srcset="https://www.duduautoescolapatos.com.br/img/aprovados/05-360.webp 360w, https://www.duduautoescolapatos.com.br/img/aprovados/05-600.webp 600w, site/www.duduautoescolapatos.com.br/img/aprovados/05.webp 720w" sizes="(min-width:760px) 320px, 220px" alt="Aluna aprovada com o comprovante, cercada por instrutores da Dudu no pátio" width="480" height="640" loading="eager" decoding="async"></div><span class="win-stamp">Aprovada</span></li>
+        <li class="win" style="--dy: 0px;"><div class="win-in"><img src="https://www.duduautoescolapatos.com.br/img/aprovados/06-360.webp" srcset="https://www.duduautoescolapatos.com.br/img/aprovados/06-360.webp 360w, https://www.duduautoescolapatos.com.br/img/aprovados/06-600.webp 600w, site/www.duduautoescolapatos.com.br/img/aprovados/06.webp 720w" sizes="(min-width:760px) 320px, 220px" alt="Aluno aprovado segurando o comprovante ao lado de um instrutor e de um carro de aula da Dudu" width="480" height="640" loading="eager" decoding="async"></div><span class="win-stamp">Aprovado</span></li>
+        <li class="win" style="--dy: 20px;"><div class="win-in"><img src="https://www.duduautoescolapatos.com.br/img/aprovados/12-360.webp" srcset="https://www.duduautoescolapatos.com.br/img/aprovados/12-360.webp 360w, https://www.duduautoescolapatos.com.br/img/aprovados/12-600.webp 600w, site/www.duduautoescolapatos.com.br/img/aprovados/12.webp 720w" sizes="(min-width:760px) 320px, 220px" alt="Aluno aprovado mostrando o comprovante ao lado de um instrutor, com um micro-ônibus da autoescola ao fundo" width="480" height="640" loading="eager" decoding="async"></div><span class="win-stamp">Aprovado</span></li>
+        <li class="win" style="--dy: 8px;"><div class="win-in"><img src="https://www.duduautoescolapatos.com.br/img/aprovados/07-360.webp" srcset="https://www.duduautoescolapatos.com.br/img/aprovados/07-360.webp 360w, https://www.duduautoescolapatos.com.br/img/aprovados/07-600.webp 600w, site/www.duduautoescolapatos.com.br/img/aprovados/07.webp 720w" sizes="(min-width:760px) 320px, 220px" alt="Aluno aprovado mostrando o comprovante ao lado de um instrutor e de um carro de aula da Dudu" width="480" height="640" loading="eager" decoding="async"></div><span class="win-stamp">Aprovado</span></li>
+        <li class="win" style="--dy: 20px;"><div class="win-in"><img src="https://www.duduautoescolapatos.com.br/img/aprovados/08-360.webp" srcset="https://www.duduautoescolapatos.com.br/img/aprovados/08-360.webp 360w, site/www.duduautoescolapatos.com.br/img/aprovados/08.webp 576w" sizes="(min-width:760px) 320px, 220px" alt="Aluno aprovado segurando o comprovante ao lado de um instrutor" width="480" height="640" loading="eager" decoding="async"></div><span class="win-stamp">Aprovado</span></li>
+        <li class="win" style="--dy: 0px;"><div class="win-in"><img src="https://www.duduautoescolapatos.com.br/img/aprovados/09-360.webp" srcset="https://www.duduautoescolapatos.com.br/img/aprovados/09-360.webp 360w, https://www.duduautoescolapatos.com.br/img/aprovados/09-600.webp 600w, site/www.duduautoescolapatos.com.br/img/aprovados/09.webp 720w" sizes="(min-width:760px) 320px, 220px" alt="Aluna aprovada mostrando o comprovante ao lado de um instrutor, com um micro-ônibus da autoescola ao fundo" width="480" height="640" loading="eager" decoding="async"></div><span class="win-stamp">Aprovada</span></li>
+        <li class="win" style="--dy: 8px;"><div class="win-in"><img src="https://www.duduautoescolapatos.com.br/img/aprovados/10-360.webp" srcset="https://www.duduautoescolapatos.com.br/img/aprovados/10-360.webp 360w, https://www.duduautoescolapatos.com.br/img/aprovados/10-600.webp 600w, site/www.duduautoescolapatos.com.br/img/aprovados/10.webp 720w" sizes="(min-width:760px) 320px, 220px" alt="Aluna aprovada segurando o comprovante ao lado de um instrutor e de um carro de aula da Dudu" width="480" height="640" loading="eager" decoding="async"></div><span class="win-stamp">Aprovada</span></li>
+      <li class="win" style="--dy: 0px;" data-clone="" aria-hidden="true"><div class="win-in"><img src="https://www.duduautoescolapatos.com.br/img/aprovados/01-360.webp" srcset="https://www.duduautoescolapatos.com.br/img/aprovados/01-360.webp 360w, https://www.duduautoescolapatos.com.br/img/aprovados/01-600.webp 600w, site/www.duduautoescolapatos.com.br/img/aprovados/01.webp 720w" sizes="(min-width:760px) 320px, 220px" alt="Aluna aprovada segurando o comprovante ao lado do instrutor e de um carro de aula da Dudu" width="480" height="640" loading="eager" decoding="async"></div><span class="win-stamp">Aprovada</span></li><li class="win" style="--dy: 20px;" data-clone="" aria-hidden="true"><div class="win-in"><img src="https://www.duduautoescolapatos.com.br/img/aprovados/02-360.webp" srcset="https://www.duduautoescolapatos.com.br/img/aprovados/02-360.webp 360w, https://www.duduautoescolapatos.com.br/img/aprovados/02-600.webp 600w, site/www.duduautoescolapatos.com.br/img/aprovados/02.webp 720w" sizes="(min-width:760px) 320px, 220px" alt="Aluno aprovado segurando o comprovante ao lado de um instrutor e de um carro de aula da Dudu" width="480" height="640" loading="eager" decoding="async"></div><span class="win-stamp">Aprovado</span></li><li class="win" style="--dy: 8px;" data-clone="" aria-hidden="true"><div class="win-in"><img src="https://www.duduautoescolapatos.com.br/img/aprovados/03-360.webp" srcset="https://www.duduautoescolapatos.com.br/img/aprovados/03-360.webp 360w, https://www.duduautoescolapatos.com.br/img/aprovados/03-600.webp 600w, site/www.duduautoescolapatos.com.br/img/aprovados/03.webp 720w" sizes="(min-width:760px) 320px, 220px" alt="Aluna aprovada segurando o comprovante ao lado de um instrutor" width="480" height="640" loading="eager" decoding="async"></div><span class="win-stamp">Aprovada</span></li><li class="win" style="--dy: 20px;" data-clone="" aria-hidden="true"><div class="win-in"><img src="https://www.duduautoescolapatos.com.br/img/aprovados/11-360.webp" srcset="https://www.duduautoescolapatos.com.br/img/aprovados/11-360.webp 360w, https://www.duduautoescolapatos.com.br/img/aprovados/11-600.webp 600w, site/www.duduautoescolapatos.com.br/img/aprovados/11.webp 720w" sizes="(min-width:760px) 320px, 220px" alt="Aluno aprovado segurando o comprovante ao lado de um instrutor e de um caminhão de aula da Dudu" width="480" height="640" loading="eager" decoding="async"></div><span class="win-stamp">Aprovado</span></li><li class="win" style="--dy: 0px;" data-clone="" aria-hidden="true"><div class="win-in"><img src="https://www.duduautoescolapatos.com.br/img/aprovados/04-360.webp" srcset="https://www.duduautoescolapatos.com.br/img/aprovados/04-360.webp 360w, site/www.duduautoescolapatos.com.br/img/aprovados/04.webp 576w" sizes="(min-width:760px) 320px, 220px" alt="Aluna aprovada segurando o comprovante ao lado de um instrutor e de um carro de aula da Dudu" width="480" height="640" loading="eager" decoding="async"></div><span class="win-stamp">Aprovada</span></li><li class="win" style="--dy: 8px;" data-clone="" aria-hidden="true"><div class="win-in"><img src="https://www.duduautoescolapatos.com.br/img/aprovados/05-360.webp" srcset="https://www.duduautoescolapatos.com.br/img/aprovados/05-360.webp 360w, https://www.duduautoescolapatos.com.br/img/aprovados/05-600.webp 600w, site/www.duduautoescolapatos.com.br/img/aprovados/05.webp 720w" sizes="(min-width:760px) 320px, 220px" alt="Aluna aprovada com o comprovante, cercada por instrutores da Dudu no pátio" width="480" height="640" loading="eager" decoding="async"></div><span class="win-stamp">Aprovada</span></li><li class="win" style="--dy: 0px;" data-clone="" aria-hidden="true"><div class="win-in"><img src="https://www.duduautoescolapatos.com.br/img/aprovados/06-360.webp" srcset="https://www.duduautoescolapatos.com.br/img/aprovados/06-360.webp 360w, https://www.duduautoescolapatos.com.br/img/aprovados/06-600.webp 600w, site/www.duduautoescolapatos.com.br/img/aprovados/06.webp 720w" sizes="(min-width:760px) 320px, 220px" alt="Aluno aprovado segurando o comprovante ao lado de um instrutor e de um carro de aula da Dudu" width="480" height="640" loading="eager" decoding="async"></div><span class="win-stamp">Aprovado</span></li><li class="win" style="--dy: 20px;" data-clone="" aria-hidden="true"><div class="win-in"><img src="https://www.duduautoescolapatos.com.br/img/aprovados/12-360.webp" srcset="https://www.duduautoescolapatos.com.br/img/aprovados/12-360.webp 360w, https://www.duduautoescolapatos.com.br/img/aprovados/12-600.webp 600w, site/www.duduautoescolapatos.com.br/img/aprovados/12.webp 720w" sizes="(min-width:760px) 320px, 220px" alt="Aluno aprovado mostrando o comprovante ao lado de um instrutor, com um micro-ônibus da autoescola ao fundo" width="480" height="640" loading="eager" decoding="async"></div><span class="win-stamp">Aprovado</span></li><li class="win" style="--dy: 8px;" data-clone="" aria-hidden="true"><div class="win-in"><img src="https://www.duduautoescolapatos.com.br/img/aprovados/07-360.webp" srcset="https://www.duduautoescolapatos.com.br/img/aprovados/07-360.webp 360w, https://www.duduautoescolapatos.com.br/img/aprovados/07-600.webp 600w, site/www.duduautoescolapatos.com.br/img/aprovados/07.webp 720w" sizes="(min-width:760px) 320px, 220px" alt="Aluno aprovado mostrando o comprovante ao lado de um instrutor e de um carro de aula da Dudu" width="480" height="640" loading="eager" decoding="async"></div><span class="win-stamp">Aprovado</span></li><li class="win" style="--dy: 20px;" data-clone="" aria-hidden="true"><div class="win-in"><img src="https://www.duduautoescolapatos.com.br/img/aprovados/08-360.webp" srcset="https://www.duduautoescolapatos.com.br/img/aprovados/08-360.webp 360w, site/www.duduautoescolapatos.com.br/img/aprovados/08.webp 576w" sizes="(min-width:760px) 320px, 220px" alt="Aluno aprovado segurando o comprovante ao lado de um instrutor" width="480" height="640" loading="eager" decoding="async"></div><span class="win-stamp">Aprovado</span></li><li class="win" style="--dy: 0px;" data-clone="" aria-hidden="true"><div class="win-in"><img src="https://www.duduautoescolapatos.com.br/img/aprovados/09-360.webp" srcset="https://www.duduautoescolapatos.com.br/img/aprovados/09-360.webp 360w, https://www.duduautoescolapatos.com.br/img/aprovados/09-600.webp 600w, site/www.duduautoescolapatos.com.br/img/aprovados/09.webp 720w" sizes="(min-width:760px) 320px, 220px" alt="Aluna aprovada mostrando o comprovante ao lado de um instrutor, com um micro-ônibus da autoescola ao fundo" width="480" height="640" loading="eager" decoding="async"></div><span class="win-stamp">Aprovada</span></li><li class="win" style="--dy: 8px;" data-clone="" aria-hidden="true"><div class="win-in"><img src="https://www.duduautoescolapatos.com.br/img/aprovados/10-360.webp" srcset="https://www.duduautoescolapatos.com.br/img/aprovados/10-360.webp 360w, https://www.duduautoescolapatos.com.br/img/aprovados/10-600.webp 600w, site/www.duduautoescolapatos.com.br/img/aprovados/10.webp 720w" sizes="(min-width:760px) 320px, 220px" alt="Aluna aprovada segurando o comprovante ao lado de um instrutor e de um carro de aula da Dudu" width="480" height="640" loading="eager" decoding="async"></div><span class="win-stamp">Aprovada</span></li></ul>
+    </div>
+  </div>
+</section>
+
+
+<!-- CATEGORIAS -->
+<section class="sec sec-light" id="categorias">
+  <div class="wrap">
+    <h2 class="h2 rv" data-from="l" style="--i:1">Escolha a categoria da sua CNH</h2>
+    <p class="sub rv" data-from="l" style="--i:2">Moto (A), carro (B), moto e carro (AB), ônibus (D) ou carreta (E): escolha a categoria da habilitação que combina com o seu objetivo e fale com a equipe da Dudu para saber como começar.</p>
+
+    <ul class="plates">
+      <li class="plate rv" data-from="r" style="--i:0">
+        <div class="plate-img plate-img-duo">
+          <img class="p-man" src="site/www.duduautoescolapatos.com.br/img/moto-800.webp" srcset="site/www.duduautoescolapatos.com.br/img/moto-480.webp 480w, site/www.duduautoescolapatos.com.br/img/moto-800.webp 800w, site/www.duduautoescolapatos.com.br/img/moto-1200.webp 1200w, https://www.duduautoescolapatos.com.br/img/moto.webp 1536w" sizes="(min-width:1280px) min(14vw,265px), (min-width:1100px) 19vw, (min-width:760px) 25vw, 37vw" alt="Moto de aula da Dudu, câmbio manual" width="1536" height="1024" loading="lazy" decoding="async">
+          <img class="p-ele" src="site/www.duduautoescolapatos.com.br/img/moto-semiautomatica-800.webp" srcset="site/www.duduautoescolapatos.com.br/img/moto-semiautomatica-480.webp 480w, site/www.duduautoescolapatos.com.br/img/moto-semiautomatica-800.webp 800w, https://www.duduautoescolapatos.com.br/img/moto-semiautomatica-1200.webp 1200w, https://www.duduautoescolapatos.com.br/img/moto-semiautomatica.webp 1536w" sizes="(min-width:1280px) min(14vw,265px), (min-width:1100px) 19vw, (min-width:760px) 25vw, 37vw" alt="Moto de aula da Dudu, semiautomática" width="1536" height="1024" loading="lazy" decoding="async">
+        </div>
+        <h3>Moto</h3>
+        <span class="plate-cat">Categoria <b>A</b></span>
+        <p class="plate-note">Temos moto manual e semiautomática.</p>
+        <a class="plate-cta" href="https://wa.me/5534991300500?text=Ol%C3%A1%21%20Quero%20saber%20sobre%20a%20categoria%20A%20%28moto%29." target="_blank" rel="noopener">Quero saber mais</a>
+      </li>
+      <li class="plate rv" data-from="r" style="--i:1">
+        <div class="plate-img plate-img-duo">
+          <img class="p-man" src="site/www.duduautoescolapatos.com.br/img/carro-manual-800.webp" srcset="site/www.duduautoescolapatos.com.br/img/carro-manual-480.webp 480w, site/www.duduautoescolapatos.com.br/img/carro-manual-800.webp 800w, site/www.duduautoescolapatos.com.br/img/carro-manual-1200.webp 1200w, https://www.duduautoescolapatos.com.br/img/carro-manual.webp 1536w" sizes="(min-width:1280px) min(14vw,265px), (min-width:1100px) 19vw, (min-width:760px) 25vw, 37vw" alt="Carro de aula da Dudu, câmbio manual" width="1536" height="1024" loading="lazy" decoding="async">
+          <img class="p-ele" src="site/www.duduautoescolapatos.com.br/img/carro-eletrico-800.webp" srcset="site/www.duduautoescolapatos.com.br/img/carro-eletrico-480.webp 480w, site/www.duduautoescolapatos.com.br/img/carro-eletrico-800.webp 800w, site/www.duduautoescolapatos.com.br/img/carro-eletrico-1200.webp 1200w, https://www.duduautoescolapatos.com.br/img/carro-eletrico.webp 1536w" sizes="(min-width:1280px) min(14vw,265px), (min-width:1100px) 19vw, (min-width:760px) 25vw, 37vw" alt="Carro de aula da Dudu, automático" width="1536" height="1024" loading="lazy" decoding="async">
+        </div>
+        <h3>Carro</h3>
+        <span class="plate-cat">Categoria <b>B</b></span>
+        <p class="plate-note">Temos carro manual e automático.</p>
+        <a class="plate-cta" href="https://wa.me/5534991300500?text=Ol%C3%A1%21%20Quero%20saber%20sobre%20a%20categoria%20B%20%28carro%29." target="_blank" rel="noopener">Quero saber mais</a>
+      </li>
+      <li class="plate rv" data-from="r" style="--i:2">
+        <div class="plate-img plate-img-duo">
+          <img class="p-man" src="site/www.duduautoescolapatos.com.br/img/carro-manual-800.webp" srcset="site/www.duduautoescolapatos.com.br/img/carro-manual-480.webp 480w, site/www.duduautoescolapatos.com.br/img/carro-manual-800.webp 800w, site/www.duduautoescolapatos.com.br/img/carro-manual-1200.webp 1200w, https://www.duduautoescolapatos.com.br/img/carro-manual.webp 1536w" sizes="(min-width:1280px) min(14vw,265px), (min-width:1100px) 19vw, (min-width:760px) 25vw, 37vw" alt="Carro de aula da Dudu" width="1536" height="1024" loading="lazy" decoding="async">
+          <img class="p-ele" src="site/www.duduautoescolapatos.com.br/img/moto-800.webp" srcset="site/www.duduautoescolapatos.com.br/img/moto-480.webp 480w, site/www.duduautoescolapatos.com.br/img/moto-800.webp 800w, site/www.duduautoescolapatos.com.br/img/moto-1200.webp 1200w, https://www.duduautoescolapatos.com.br/img/moto.webp 1536w" sizes="(min-width:1280px) min(14vw,265px), (min-width:1100px) 19vw, (min-width:760px) 25vw, 37vw" alt="Moto de aula da Dudu" width="1536" height="1024" loading="lazy" decoding="async">
+        </div>
+        <h3>Moto e Carro</h3>
+        <span class="plate-cat">Categoria <b>AB</b></span>
+        <a class="plate-cta" href="https://wa.me/5534991300500?text=Ol%C3%A1%21%20Quero%20saber%20sobre%20a%20categoria%20AB%20%28moto%20e%20carro%29." target="_blank" rel="noopener">Quero saber mais</a>
+      </li>
+      <li class="plate rv" data-from="r" style="--i:3">
+        <div class="plate-img">
+          <img src="site/www.duduautoescolapatos.com.br/img/onibus-800.webp" srcset="site/www.duduautoescolapatos.com.br/img/onibus-480.webp 480w, site/www.duduautoescolapatos.com.br/img/onibus-800.webp 800w, site/www.duduautoescolapatos.com.br/img/onibus-1200.webp 1200w, https://www.duduautoescolapatos.com.br/img/onibus.webp 1536w" sizes="(min-width:1280px) min(20vw,370px), (min-width:1100px) 26vw, (min-width:760px) 34vw, 50vw" alt="Micro-ônibus de aula da Dudu" width="1536" height="1024" loading="lazy" decoding="async">
+        </div>
+        <h3>Ônibus</h3>
+        <span class="plate-cat">Categoria <b>D</b></span>
+        <a class="plate-cta" href="https://wa.me/5534991300500?text=Ol%C3%A1%21%20Quero%20saber%20sobre%20a%20categoria%20D%20%28%C3%B4nibus%29." target="_blank" rel="noopener">Quero saber mais</a>
+      </li>
+      <li class="plate rv" data-from="r" style="--i:4">
+        <div class="plate-img">
+          <img src="site/www.duduautoescolapatos.com.br/img/carreta-800.webp" srcset="site/www.duduautoescolapatos.com.br/img/carreta-480.webp 480w, site/www.duduautoescolapatos.com.br/img/carreta-800.webp 800w, site/www.duduautoescolapatos.com.br/img/carreta-1200.webp 1200w, https://www.duduautoescolapatos.com.br/img/carreta.webp 1536w" sizes="(min-width:1280px) min(20vw,370px), (min-width:1100px) 26vw, (min-width:760px) 34vw, 50vw" alt="Caminhão de aula da Dudu" width="1536" height="1024" loading="lazy" decoding="async">
+        </div>
+        <h3>Carreta</h3>
+        <span class="plate-cat">Categoria <b>E</b></span>
+        <a class="plate-cta" href="https://wa.me/5534991300500?text=Ol%C3%A1%21%20Quero%20saber%20sobre%20a%20categoria%20E%20%28carreta%29." target="_blank" rel="noopener">Quero saber mais</a>
+      </li>
+    </ul>
+
+    <div class="banner rv" data-from="l">
+      <div>
+        <h3>Na dúvida sobre a categoria?</h3>
+        <p>A Dudu forma condutores nas categorias A, B, AB, D e E, com aulas em moto, carro, ônibus e carreta da própria frota. Já tem CNH e quer adicionar ou mudar de categoria? Chame a equipe e conte o que você quer dirigir.</p>
+      </div>
+      <a class="btn" href="https://wa.me/5534991300500?text=Ol%C3%A1%21%20Tenho%20d%C3%BAvida%20sobre%20qual%20categoria%20fazer." target="_blank" rel="noopener"><svg class="ic"><use href="#i-wa"></use></svg><span>Perguntar no WhatsApp</span></a>
+    </div>
+  </div>
+</section>
+
+<!-- FROTA -->
+<section class="sec sec-light" id="frota">
+  <div class="wrap fleet-grid">
+    <div class="fleet-copy">
+      <p class="kicker rv" data-from="l">A frota</p>
+      <h2 class="h2 rv" data-from="l" style="--i:1">5 carros de aula, manual ou automático</h2>
+      <p class="sub rv" data-from="l" style="--i:2">Você escolhe como quer aprender a dirigir: a Dudu tem carro automático elétrico e também carro manual, todos adesivados e prontos para a aula de direção.</p>
+
+      <ul class="fleet-pick rv" data-from="l" style="--i:3">
+        <li class="fp fp-auto">
+          <b class="fp-n">4</b>
+          <span class="fp-t"><strong>Automático elétrico</strong>BYD, sem troca de marcha</span>
+        </li>
+        <li class="fp fp-man">
+          <b class="fp-n">1</b>
+          <span class="fp-t"><strong>Manual</strong>Fiat Mobi, para quem vai dirigir com câmbio</span>
+        </li>
+      </ul>
+    </div>
+
+    <!-- foto da frota: um quadro só que troca sozinho entre as fotos de img/frota/ (5 s cada, 15 s no ciclo). Sem controles.
+         Para trocar as fotos, mude os src; para incluir uma 4ª, ajuste a duração (15 s) e os atrasos de .fslide no CSS. -->
+    <div class="fleet-photo rv" data-from="r" style="--i:2">
+      <div class="fleet-frame">
+        <img class="fslide" src="https://www.duduautoescolapatos.com.br/img/frota/frota-carros-1-480.webp" srcset="https://www.duduautoescolapatos.com.br/img/frota/frota-carros-1-480.webp 480w, https://www.duduautoescolapatos.com.br/img/frota/frota-carros-1-720.webp 720w, site/www.duduautoescolapatos.com.br/img/frota/frota-carros-1-960.webp 960w, https://www.duduautoescolapatos.com.br/img/frota/frota-carros-1.webp 1200w" sizes="(min-width:1100px) 440px, (min-width:760px) 320px, min(74vw,300px)" alt="Os carros de aula da Autoescola Dudu: quatro BYD automáticos elétricos e um Fiat Mobi manual, no pátio coberto" width="1200" height="1600" loading="lazy" decoding="async" style="opacity: 0.9995; transform: scale(1.01167);">
+        <img class="fslide" src="https://www.duduautoescolapatos.com.br/img/frota/frota-carros-2-480.webp" srcset="https://www.duduautoescolapatos.com.br/img/frota/frota-carros-2-480.webp 480w, https://www.duduautoescolapatos.com.br/img/frota/frota-carros-2-720.webp 720w, site/www.duduautoescolapatos.com.br/img/frota/frota-carros-2.webp 960w" sizes="(min-width:1100px) 440px, (min-width:760px) 320px, min(74vw,300px)" alt="" width="960" height="1280" loading="lazy" decoding="async" style="opacity: 0; transform: none;">
+        <img class="fslide" src="https://www.duduautoescolapatos.com.br/img/frota/frota-carros-3-480.webp" srcset="https://www.duduautoescolapatos.com.br/img/frota/frota-carros-3-480.webp 480w, https://www.duduautoescolapatos.com.br/img/frota/frota-carros-3-720.webp 720w, site/www.duduautoescolapatos.com.br/img/frota/frota-carros-3.webp 960w" sizes="(min-width:1100px) 440px, (min-width:760px) 320px, min(74vw,300px)" alt="" width="960" height="1280" loading="lazy" decoding="async" style="opacity: 0; transform: none;">
+      </div>
+    </div>
+  </div>
+
+  <!-- motos: mesmo formato dos carros, com a foto à esquerda no desktop. 5 fotos de img/frota/frota-motos-*.webp (4 s cada, 20 s no ciclo) -->
+  <div class="wrap fleet-grid fleet-grid-motos">
+    <div class="fleet-copy">
+      <p class="kicker rv" data-from="l">A frota de motos</p>
+      <h2 class="h2 rv" data-from="l" style="--i:1">5 motos de aula, manual ou semiautomática</h2>
+      <p class="sub rv" data-from="l" style="--i:2">Para a categoria A, a Dudu tem moto de câmbio manual e também semiautomática. Você escolhe com qual quer aprender.</p>
+
+      <ul class="fleet-pick rv" data-from="l" style="--i:3">
+        <li class="fp fp-man">
+          <b class="fp-n">4</b>
+          <span class="fp-t"><strong>Manual</strong>Yamaha Factor, com troca de marchas</span>
+        </li>
+        <li class="fp fp-auto">
+          <b class="fp-n">1</b>
+          <span class="fp-t"><strong>Semiautomática</strong>Honda Biz, sem manete de embreagem</span>
+        </li>
+      </ul>
+    </div>
+
+    <div class="fleet-photo fleet-photo-motos rv" data-from="l" style="--i:2">
+      <div class="fleet-frame">
+        <img class="fslide" src="https://www.duduautoescolapatos.com.br/img/frota/frota-motos-1-480.webp" srcset="https://www.duduautoescolapatos.com.br/img/frota/frota-motos-1-480.webp 480w, https://www.duduautoescolapatos.com.br/img/frota/frota-motos-1-720.webp 720w, site/www.duduautoescolapatos.com.br/img/frota/frota-motos-1.webp 960w" sizes="(min-width:1100px) 440px, (min-width:760px) 320px, min(74vw,300px)" alt="As motos de aula da Autoescola Dudu: quatro Yamaha Factor manuais e uma Honda Biz semiautomática, no pátio de treino" width="960" height="1280" loading="lazy" decoding="async" style="opacity: 1; transform: scale(1.01167);">
+        <img class="fslide" src="https://www.duduautoescolapatos.com.br/img/frota/frota-motos-2-480.webp" srcset="https://www.duduautoescolapatos.com.br/img/frota/frota-motos-2-480.webp 480w, https://www.duduautoescolapatos.com.br/img/frota/frota-motos-2-720.webp 720w, site/www.duduautoescolapatos.com.br/img/frota/frota-motos-2.webp 960w" sizes="(min-width:1100px) 440px, (min-width:760px) 320px, min(74vw,300px)" alt="" width="960" height="1280" loading="lazy" decoding="async" style="opacity: 0; transform: none;">
+        <img class="fslide" src="https://www.duduautoescolapatos.com.br/img/frota/frota-motos-3-480.webp" srcset="https://www.duduautoescolapatos.com.br/img/frota/frota-motos-3-480.webp 480w, https://www.duduautoescolapatos.com.br/img/frota/frota-motos-3-720.webp 720w, site/www.duduautoescolapatos.com.br/img/frota/frota-motos-3.webp 960w" sizes="(min-width:1100px) 440px, (min-width:760px) 320px, min(74vw,300px)" alt="" width="960" height="1280" loading="lazy" decoding="async" style="opacity: 0; transform: none;">
+        <img class="fslide" src="https://www.duduautoescolapatos.com.br/img/frota/frota-motos-4-480.webp" srcset="https://www.duduautoescolapatos.com.br/img/frota/frota-motos-4-480.webp 480w, https://www.duduautoescolapatos.com.br/img/frota/frota-motos-4-720.webp 720w, site/www.duduautoescolapatos.com.br/img/frota/frota-motos-4.webp 960w" sizes="(min-width:1100px) 440px, (min-width:760px) 320px, min(74vw,300px)" alt="" width="960" height="1280" loading="lazy" decoding="async" style="opacity: 0; transform: none;">
+        <img class="fslide" src="https://www.duduautoescolapatos.com.br/img/frota/frota-motos-5-480.webp" srcset="https://www.duduautoescolapatos.com.br/img/frota/frota-motos-5-480.webp 480w, https://www.duduautoescolapatos.com.br/img/frota/frota-motos-5-720.webp 720w, site/www.duduautoescolapatos.com.br/img/frota/frota-motos-5.webp 960w" sizes="(min-width:1100px) 440px, (min-width:760px) 320px, min(74vw,300px)" alt="" width="960" height="1280" loading="lazy" decoding="async" style="opacity: 0; transform: none;">
+      </div>
+    </div>
+  </div>
+
+  <!-- veículos pesados: os dois lado a lado (1 ônibus e 1 carreta). Cada um com 1 foto fixa -->
+  <div class="fleet-heavy">
+    <div class="wrap">
+      <p class="kicker rv" data-from="l">Veículos pesados</p>
+      <h2 class="h2 rv" data-from="l" style="--i:1">Ônibus e carreta de aula</h2>
+
+      <div class="hv-grid">
+        <article class="hv rv" data-from="l" style="--i:2">
+          <div class="hv-pic hv-single">
+            <img class="fslide" src="https://www.duduautoescolapatos.com.br/img/frota/frota-onibus-1-480.webp" srcset="https://www.duduautoescolapatos.com.br/img/frota/frota-onibus-1-480.webp 480w, site/www.duduautoescolapatos.com.br/img/frota/frota-onibus-1-720.webp 720w, site/www.duduautoescolapatos.com.br/img/frota/frota-onibus-1.webp 960w" sizes="(min-width:1100px) 300px, 46vw" alt="Micro-ônibus Volare prata de aula para a CNH categoria D, com a faixa amarela Auto Escola" width="960" height="1280" loading="lazy" decoding="async">
+          </div>
+          <div class="hv-info">
+            <p class="hv-count"><b>1</b> ônibus</p>
+            <h3>Ônibus de aula</h3>
+            <p class="hv-model">Volare · micro-ônibus</p>
+            <p class="hv-txt">Micro-ônibus prata com a faixa amarela Auto Escola.</p>
+          </div>
+        </article>
+
+        <article class="hv rv" data-from="r" style="--i:3">
+          <div class="hv-pic hv-single">
+            <img class="fslide" src="https://www.duduautoescolapatos.com.br/img/frota/frota-carreta-480.webp" srcset="https://www.duduautoescolapatos.com.br/img/frota/frota-carreta-480.webp 480w, site/www.duduautoescolapatos.com.br/img/frota/frota-carreta-720.webp 720w, site/www.duduautoescolapatos.com.br/img/frota/frota-carreta.webp 960w" sizes="(min-width:1100px) 300px, 46vw" alt="Carreta Agrale prata de aula para a CNH categoria E, com carroceria aberta e faixa Auto Escola" width="960" height="1280" loading="lazy" decoding="async">
+          </div>
+          <div class="hv-info">
+            <p class="hv-count"><b>1</b> carreta</p>
+            <h3>Carreta de aula</h3>
+            <p class="hv-model">Agrale</p>
+            <p class="hv-txt">Carreta prata com a faixa Auto Escola na cabine.</p>
+          </div>
+        </article>
+      </div>
+    </div>
+  </div>
+
+  <!-- MODELOS: um card por modelo. Clicar abre as fotos num carrossel (<dialog id="gal"> no fim da página; js/main.js).
+       Para incluir mais fotos de um modelo (ex.: interior do ônibus e da carreta), copie uma linha <img data-src alt> dentro do .mc-gallery do card. -->
+  <div class="wrap fleet-models">
+    <p class="kicker rv" data-from="l">Conheça cada modelo</p>
+    <h2 class="h2 rv" data-from="l" style="--i:1">Veja de perto cada veículo da frota</h2>
+    <p class="sub rv" data-from="l" style="--i:2">Toque em um card para ver mais fotos do modelo.</p>
+
+    <ul class="mc-grid">
+      <li class="mc mc-cut mc-yel rv" data-from="l" style="--i:0">
+        <div class="mc-pic"><img src="site/www.duduautoescolapatos.com.br/img/carro-manual-800.webp" srcset="site/www.duduautoescolapatos.com.br/img/carro-manual-480.webp 480w, site/www.duduautoescolapatos.com.br/img/carro-manual-800.webp 800w, site/www.duduautoescolapatos.com.br/img/carro-manual-1200.webp 1200w, https://www.duduautoescolapatos.com.br/img/carro-manual.webp 1536w" sizes="(min-width:1100px) 370px, (min-width:577px) 300px, 52vw" alt="Fiat Mobi preto de aula, com a faixa amarela Auto Escola" width="1536" height="1024" loading="lazy" decoding="async"></div>
+        <div class="mc-body">
+          <p class="mc-kind">Carro · Manual</p>
+          <h3>Fiat Mobi</h3>
+          <button type="button" class="mc-open" data-title="Fiat Mobi · carro manual" aria-haspopup="dialog" aria-label="Ver veículo: Fiat Mobi · carro manual">Ver veículo</button>
+        </div>
+        <div class="mc-gallery" hidden="">
+          <img data-src="img/frota/frota-mobi-2.webp" alt="Frente do Fiat Mobi preto de aula, com a placa à mostra" src="site/www.duduautoescolapatos.com.br/img/frota/frota-mobi-2.webp">
+          <img data-src="img/frota/frota-mobi-1.webp" alt="Fiat Mobi preto visto de frente, no pátio coberto" src="site/www.duduautoescolapatos.com.br/img/frota/frota-mobi-1.webp">
+          <img data-src="img/frota/frota-mobi-3.webp" alt="Lateral do Fiat Mobi com a faixa amarela Auto Escola e o logo da Dudu" src="site/www.duduautoescolapatos.com.br/img/frota/frota-mobi-3.webp">
+          <img data-src="img/frota/frota-mobi-4.webp" alt="Traseira do Fiat Mobi com a faixa amarela Auto Escola" src="site/www.duduautoescolapatos.com.br/img/frota/frota-mobi-4.webp">
+          <img data-src="img/frota/frota-mobi-5.webp" alt="Interior do Fiat Mobi: painel, volante e câmbio manual" src="site/www.duduautoescolapatos.com.br/img/frota/frota-mobi-5.webp">
+          <img data-src="img/frota/frota-mobi-6.webp" alt="Painel e central multimídia do Fiat Mobi" src="site/www.duduautoescolapatos.com.br/img/frota/frota-mobi-6.webp">
+          <img data-src="img/frota/frota-mobi-7.webp" alt="Volante e câmbio manual do Fiat Mobi, vistos do banco do aluno" src="site/www.duduautoescolapatos.com.br/img/frota/frota-mobi-7.webp">
+        </div>
+      </li>
+
+      <li class="mc mc-cut mc-red rv" data-from="r" style="--i:1">
+        <div class="mc-pic"><img src="site/www.duduautoescolapatos.com.br/img/carro-eletrico-800.webp" srcset="site/www.duduautoescolapatos.com.br/img/carro-eletrico-480.webp 480w, site/www.duduautoescolapatos.com.br/img/carro-eletrico-800.webp 800w, site/www.duduautoescolapatos.com.br/img/carro-eletrico-1200.webp 1200w, https://www.duduautoescolapatos.com.br/img/carro-eletrico.webp 1536w" sizes="(min-width:1100px) 370px, (min-width:577px) 300px, 52vw" alt="BYD branco de aula com a faixa amarela Auto Escola" width="1536" height="1024" loading="lazy" decoding="async"></div>
+        <div class="mc-body">
+          <p class="mc-kind">Carro · Automático elétrico</p>
+          <h3>BYD</h3>
+          <button type="button" class="mc-open" data-title="BYD · carro automático elétrico" aria-haspopup="dialog" aria-label="Ver veículo: BYD · carro automático elétrico">Ver veículo</button>
+        </div>
+        <div class="mc-gallery" hidden="">
+          <img data-src="img/frota/frota-byd-1.webp" alt="Frente do BYD branco de aula com a faixa amarela Auto Escola" src="site/www.duduautoescolapatos.com.br/img/frota/frota-byd-1.webp">
+          <img data-src="img/frota/frota-byd-3.webp" alt="BYD branco de aula visto de lado, com os outros carros da frota ao fundo" src="site/www.duduautoescolapatos.com.br/img/frota/frota-byd-3.webp">
+          <img data-src="img/frota/frota-byd-4.webp" alt="Os BYD brancos alinhados no pátio coberto" src="site/www.duduautoescolapatos.com.br/img/frota/frota-byd-4.webp">
+          <img data-src="img/frota/frota-byd-2.webp" alt="Traseira do BYD branco com a faixa amarela Auto Escola" src="site/www.duduautoescolapatos.com.br/img/frota/frota-byd-2.webp">
+          <img data-src="img/frota/frota-byd-5.webp" alt="Interior do BYD: painel, central multimídia e console" src="site/www.duduautoescolapatos.com.br/img/frota/frota-byd-5.webp">
+          <img data-src="img/frota/frota-byd-6.webp" alt="Volante e painel do BYD, vistos do banco do aluno" src="site/www.duduautoescolapatos.com.br/img/frota/frota-byd-6.webp">
+          <img data-src="img/frota/frota-byd-7.webp" alt="Volante e painel digital do BYD" src="site/www.duduautoescolapatos.com.br/img/frota/frota-byd-7.webp">
+        </div>
+      </li>
+
+      <li class="mc mc-cut mc-yel rv" data-from="r" style="--i:2">
+        <div class="mc-pic"><img src="site/www.duduautoescolapatos.com.br/img/moto-800.webp" srcset="site/www.duduautoescolapatos.com.br/img/moto-480.webp 480w, site/www.duduautoescolapatos.com.br/img/moto-800.webp 800w, site/www.duduautoescolapatos.com.br/img/moto-1200.webp 1200w, https://www.duduautoescolapatos.com.br/img/moto.webp 1536w" sizes="(min-width:1100px) 370px, (min-width:577px) 300px, 52vw" alt="Moto Yamaha Factor vermelha e preta de aula" width="1536" height="1024" loading="lazy" decoding="async"></div>
+        <div class="mc-body">
+          <p class="mc-kind">Moto · Manual</p>
+          <h3>Yamaha Factor</h3>
+          <button type="button" class="mc-open" data-title="Yamaha Factor · moto manual" aria-haspopup="dialog" aria-label="Ver veículo: Yamaha Factor · moto manual">Ver veículo</button>
+        </div>
+        <div class="mc-gallery" hidden="">
+          <img data-src="img/frota/frota-moto-manual-1.webp" alt="Yamaha Factor vermelha e preta, vista de frente" src="site/www.duduautoescolapatos.com.br/img/frota/frota-moto-manual-1.webp">
+          <img data-src="img/frota/frota-moto-manual-2.webp" alt="Roda dianteira e suspensão da Yamaha Factor" src="site/www.duduautoescolapatos.com.br/img/frota/frota-moto-manual-2.webp">
+          <img data-src="img/frota/frota-moto-manual-3.webp" alt="Yamaha Factor vista por trás, com a placa à mostra" src="site/www.duduautoescolapatos.com.br/img/frota/frota-moto-manual-3.webp">
+        </div>
+      </li>
+
+      <li class="mc mc-cut mc-red rv" data-from="l" style="--i:3">
+        <div class="mc-pic"><img src="site/www.duduautoescolapatos.com.br/img/moto-semiautomatica-800.webp" srcset="site/www.duduautoescolapatos.com.br/img/moto-semiautomatica-480.webp 480w, site/www.duduautoescolapatos.com.br/img/moto-semiautomatica-800.webp 800w, https://www.duduautoescolapatos.com.br/img/moto-semiautomatica-1200.webp 1200w, https://www.duduautoescolapatos.com.br/img/moto-semiautomatica.webp 1536w" sizes="(min-width:1100px) 370px, (min-width:577px) 300px, 52vw" alt="Honda Biz branca de aula, câmbio semiautomático" width="1536" height="1024" loading="lazy" decoding="async"></div>
+        <div class="mc-body">
+          <p class="mc-kind">Moto · Semiautomática</p>
+          <h3>Honda Biz</h3>
+          <button type="button" class="mc-open" data-title="Honda Biz · moto semiautomática" aria-haspopup="dialog" aria-label="Ver veículo: Honda Biz · moto semiautomática">Ver veículo</button>
+        </div>
+        <div class="mc-gallery" hidden="">
+          <img data-src="img/frota/frota-moto-semiautomatica-1.webp" alt="Honda Biz branca de aula, vista de frente" src="site/www.duduautoescolapatos.com.br/img/frota/frota-moto-semiautomatica-1.webp">
+          <img data-src="img/frota/frota-moto-semiautomatica-2.webp" alt="Honda Biz branca vista de lado, no pátio de treino" src="site/www.duduautoescolapatos.com.br/img/frota/frota-moto-semiautomatica-2.webp">
+          <img data-src="img/frota/frota-moto-semiautomatica-3.webp" alt="Honda Biz branca vista por trás, com a placa à mostra" src="site/www.duduautoescolapatos.com.br/img/frota/frota-moto-semiautomatica-3.webp">
+        </div>
+      </li>
+
+      <li class="mc mc-cut mc-ink rv" data-from="l" style="--i:4">
+        <div class="mc-pic"><img src="site/www.duduautoescolapatos.com.br/img/onibus-800.webp" srcset="site/www.duduautoescolapatos.com.br/img/onibus-480.webp 480w, site/www.duduautoescolapatos.com.br/img/onibus-800.webp 800w, site/www.duduautoescolapatos.com.br/img/onibus-1200.webp 1200w, https://www.duduautoescolapatos.com.br/img/onibus.webp 1536w" sizes="(min-width:1100px) 370px, (min-width:577px) 300px, 52vw" alt="Micro-ônibus Volare prata com a faixa amarela Auto Escola" width="1536" height="1024" loading="lazy" decoding="async"></div>
+        <div class="mc-body">
+          <p class="mc-kind">Ônibus</p>
+          <h3>Volare</h3>
+          <button type="button" class="mc-open" data-title="Volare · micro-ônibus" aria-haspopup="dialog" aria-label="Ver veículo: Volare · micro-ônibus">Ver veículo</button>
+        </div>
+        <div class="mc-gallery" hidden="">
+          <img data-src="img/frota/frota-onibus-1.webp" alt="Micro-ônibus Volare prata com a faixa amarela Auto Escola" src="site/www.duduautoescolapatos.com.br/img/frota/frota-onibus-1.webp">
+          <img data-src="img/frota/frota-onibus-2.webp" alt="Frente do micro-ônibus Volare, com a faixa Autoescola no para-choque" src="site/www.duduautoescolapatos.com.br/img/frota/frota-onibus-2.webp">
+        </div>
+      </li>
+
+      <li class="mc mc-cut mc-ink rv" data-from="r" style="--i:5">
+        <div class="mc-pic"><img src="site/www.duduautoescolapatos.com.br/img/carreta-800.webp" srcset="site/www.duduautoescolapatos.com.br/img/carreta-480.webp 480w, site/www.duduautoescolapatos.com.br/img/carreta-800.webp 800w, site/www.duduautoescolapatos.com.br/img/carreta-1200.webp 1200w, https://www.duduautoescolapatos.com.br/img/carreta.webp 1536w" sizes="(min-width:1100px) 370px, (min-width:577px) 300px, 52vw" alt="Carreta Agrale prata com carroceria aberta e faixa Auto Escola" width="1536" height="1024" loading="lazy" decoding="async"></div>
+        <div class="mc-body">
+          <p class="mc-kind">Carreta</p>
+          <h3>Agrale</h3>
+          <button type="button" class="mc-open" data-title="Agrale · carreta" aria-haspopup="dialog" aria-label="Ver veículo: Agrale · carreta">Ver veículo</button>
+        </div>
+        <div class="mc-gallery" hidden="">
+          <img data-src="img/frota/frota-carreta.webp" alt="Carreta Agrale prata com carroceria aberta e faixa Auto Escola" src="site/www.duduautoescolapatos.com.br/img/frota/frota-carreta.webp">
+        </div>
+      </li>
+    </ul><div class="mc-dots" hidden=""><button type="button" aria-label="Ir para Fiat Mobi"></button><button type="button" aria-label="Ir para BYD"></button><button type="button" aria-label="Ir para Yamaha Factor"></button><button type="button" aria-label="Ir para Honda Biz"></button><button type="button" aria-label="Ir para Volare"></button><button type="button" aria-label="Ir para Agrale"></button></div>
+  </div>
+</section>
+
+<!-- TRILHA: a seção fica fixa na tela e a rolagem leva o carro por cada etapa (js/main.js adiciona .trip-on).
+     Sem JS ou com movimento reduzido, as etapas aparecem como lista -->
+<section class="trip trip-on is-off" id="trilha">
+  <div class="trip-pin">
+    <svg class="trip-svg" viewBox="0 0 1297.3 600" aria-hidden="true" focusable="false">
+      <defs>
+        <pattern id="t-kerb" width="40" height="10" patternUnits="userSpaceOnUse"><rect width="20" height="10" fill="#E81820"></rect><rect x="20" width="20" height="10" fill="#fff"></rect></pattern>
+        <pattern id="t-chk" width="20" height="20" patternUnits="userSpaceOnUse"><rect width="20" height="20" fill="#fff"></rect><path d="M0 0h10v10H0zM10 10h10v10H10z" fill="#111"></path></pattern>
+        <radialGradient id="t-halo"><stop offset=".35" stop-color="#FFE08A" stop-opacity=".55"></stop><stop offset="1" stop-color="#FFE08A" stop-opacity="0"></stop></radialGradient>
+        <g id="t-cloud"><circle r="20"></circle><circle cx="28" cy="-14" r="26"></circle><circle cx="58" cy="-4" r="20"></circle><circle cx="80" cy="6" r="14"></circle><rect x="-20" y="0" width="114" height="20" rx="10"></rect></g>
+        <g id="t-cone"><path d="M-14 0l10-42h8L14 0z" fill="#E81820"></path><path d="M-9.5-19h19M-6.5-32h13" stroke="#fff" stroke-width="5"></path><rect x="-19" y="-4" width="38" height="6" rx="2" fill="#E81820"></rect></g>
+        <clipPath id="t-avatar"><circle cx="-50" cy="186" r="12"></circle></clipPath>
+        <clipPath id="t-ground"><rect x="-400" y="0" width="800" height="430"></rect></clipPath>
+        <g id="t-wh"><circle r="18" fill="#111" stroke="#4a4a4a" stroke-width="2"></circle><circle r="10" fill="#cfcfca"></circle><path d="M0-10V10M-10 0H10" stroke="#777" stroke-width="3"></path></g>
+      </defs>
+      <g class="t-sun" transform="translate(1127 96)">
+        <circle class="t-halo" r="80"></circle>
+        <g style="transform: rotate(0deg);"><path d="M0-48v-14M0 48v14M-48 0h-14M48 0h14M-34-34l-10-10M34 34l10 10M-34 34l-10 10M34-34l10-10"></path></g>
+        <circle r="32"></circle>
+      </g>
+      <g class="t-clouds" transform="translate(61.8 0)"><use href="#t-cloud" transform="translate(-200 60) scale(1.24)" opacity="0.79"></use><use href="#t-cloud" transform="translate(106 155) scale(0.97)" opacity="0.80"></use><use href="#t-cloud" transform="translate(532 158) scale(0.98)" opacity="0.91"></use><use href="#t-cloud" transform="translate(932 166) scale(0.77)" opacity="0.81"></use><use href="#t-cloud" transform="translate(1347 151) scale(0.64)" opacity="0.91"></use><use href="#t-cloud" transform="translate(1710 180) scale(1.17)" opacity="0.74"></use><use href="#t-cloud" transform="translate(2083 180) scale(1.08)" opacity="0.89"></use><use href="#t-cloud" transform="translate(2470 179) scale(1.24)" opacity="0.81"></use><use href="#t-cloud" transform="translate(2804 169) scale(0.83)" opacity="0.75"></use><use href="#t-cloud" transform="translate(3130 116) scale(0.81)" opacity="0.98"></use><use href="#t-cloud" transform="translate(3512 155) scale(1.21)" opacity="0.72"></use></g>
+      <g class="t-sky" transform="translate(216.4 0)"><rect x="-900" y="255" width="110" height="177" fill="#c3d2de"></rect><rect class="t-win" x="-854" y="269" width="7" height="10"></rect><rect x="-782" y="337" width="134" height="95" fill="#c3d2de"></rect><rect class="t-win" x="-772" y="351" width="7" height="10"></rect><rect class="t-win" x="-754" y="351" width="7" height="10"></rect><rect class="t-win" x="-682" y="351" width="7" height="10"></rect><rect class="t-win" x="-754" y="373" width="7" height="10"></rect><rect class="t-win" x="-736" y="395" width="7" height="10"></rect><rect class="t-win" x="-700" y="395" width="7" height="10"></rect><rect class="t-win" x="-682" y="395" width="7" height="10"></rect><rect x="-638" y="259" width="127" height="173" fill="#b4c5d3"></rect><rect class="t-win" x="-538" y="273" width="7" height="10"></rect><rect class="t-win" x="-610" y="295" width="7" height="10"></rect><rect class="t-win" x="-538" y="295" width="7" height="10"></rect><rect class="t-win" x="-574" y="339" width="7" height="10"></rect><rect class="t-win" x="-592" y="361" width="7" height="10"></rect><rect class="t-win" x="-574" y="361" width="7" height="10"></rect><rect class="t-win" x="-538" y="361" width="7" height="10"></rect><rect class="t-win" x="-592" y="383" width="7" height="10"></rect><rect x="-495" y="275" width="81" height="157" fill="#b4c5d3"></rect><rect class="t-win" x="-485" y="377" width="7" height="10"></rect><rect x="-405" y="253" width="120" height="179" fill="#b4c5d3"></rect><rect class="t-win" x="-323" y="267" width="7" height="10"></rect><rect class="t-win" x="-377" y="311" width="7" height="10"></rect><rect class="t-win" x="-359" y="333" width="7" height="10"></rect><rect class="t-win" x="-377" y="355" width="7" height="10"></rect><rect class="t-win" x="-359" y="355" width="7" height="10"></rect><rect class="t-win" x="-341" y="355" width="7" height="10"></rect><rect class="t-win" x="-323" y="355" width="7" height="10"></rect><rect class="t-win" x="-305" y="355" width="7" height="10"></rect><rect class="t-win" x="-395" y="377" width="7" height="10"></rect><rect class="t-win" x="-323" y="377" width="7" height="10"></rect><rect x="-258" y="273" width="96" height="159" fill="#c3d2de"></rect><rect class="t-win" x="-194" y="287" width="7" height="10"></rect><rect class="t-win" x="-212" y="309" width="7" height="10"></rect><rect class="t-win" x="-212" y="331" width="7" height="10"></rect><rect class="t-win" x="-248" y="375" width="7" height="10"></rect><rect class="t-win" x="-194" y="375" width="7" height="10"></rect><rect class="t-win" x="-248" y="397" width="7" height="10"></rect><rect class="t-win" x="-212" y="397" width="7" height="10"></rect><rect x="-130" y="207" width="130" height="225" fill="#c3d2de"></rect><rect class="t-win" x="-48" y="287" width="7" height="10"></rect><rect class="t-win" x="-84" y="331" width="7" height="10"></rect><rect x="7" y="177" width="88" height="255" fill="#c3d2de"></rect><rect class="t-win" x="17" y="191" width="7" height="10"></rect><rect class="t-win" x="53" y="191" width="7" height="10"></rect><rect class="t-win" x="53" y="235" width="7" height="10"></rect><rect class="t-win" x="17" y="257" width="7" height="10"></rect><rect class="t-win" x="17" y="279" width="7" height="10"></rect><rect class="t-win" x="53" y="323" width="7" height="10"></rect><rect class="t-win" x="71" y="323" width="7" height="10"></rect><rect class="t-win" x="53" y="389" width="7" height="10"></rect><rect x="111" y="227" width="131" height="205" fill="#b4c5d3"></rect><rect class="t-win" x="121" y="241" width="7" height="10"></rect><rect class="t-win" x="121" y="285" width="7" height="10"></rect><rect class="t-win" x="139" y="285" width="7" height="10"></rect><rect class="t-win" x="193" y="285" width="7" height="10"></rect><rect class="t-win" x="211" y="285" width="7" height="10"></rect><rect class="t-win" x="121" y="329" width="7" height="10"></rect><rect class="t-win" x="175" y="329" width="7" height="10"></rect><rect class="t-win" x="139" y="351" width="7" height="10"></rect><rect class="t-win" x="157" y="351" width="7" height="10"></rect><rect class="t-win" x="175" y="351" width="7" height="10"></rect><rect x="251" y="214" width="66" height="218" fill="#b4c5d3"></rect><rect class="t-win" x="279" y="250" width="7" height="10"></rect><rect class="t-win" x="297" y="250" width="7" height="10"></rect><rect class="t-win" x="261" y="272" width="7" height="10"></rect><rect class="t-win" x="297" y="294" width="7" height="10"></rect><rect class="t-win" x="261" y="316" width="7" height="10"></rect><rect class="t-win" x="279" y="316" width="7" height="10"></rect><rect class="t-win" x="279" y="338" width="7" height="10"></rect><rect class="t-win" x="279" y="382" width="7" height="10"></rect><rect x="322" y="208" width="76" height="224" fill="#b4c5d3"></rect><rect x="427" y="308" width="64" height="124" fill="#c3d2de"></rect><rect class="t-win" x="437" y="322" width="7" height="10"></rect><rect x="509" y="218" width="82" height="214" fill="#b4c5d3"></rect><rect class="t-win" x="537" y="298" width="7" height="10"></rect><rect class="t-win" x="537" y="342" width="7" height="10"></rect><rect class="t-win" x="555" y="342" width="7" height="10"></rect><rect class="t-win" x="573" y="342" width="7" height="10"></rect><rect class="t-win" x="555" y="364" width="7" height="10"></rect><rect class="t-win" x="555" y="386" width="7" height="10"></rect><rect class="t-win" x="555" y="408" width="7" height="10"></rect><rect x="609" y="237" width="78" height="195" fill="#b4c5d3"></rect><rect class="t-win" x="655" y="273" width="7" height="10"></rect><rect class="t-win" x="637" y="339" width="7" height="10"></rect><rect class="t-win" x="655" y="339" width="7" height="10"></rect><rect x="715" y="241" width="121" height="191" fill="#b4c5d3"></rect><rect class="t-win" x="743" y="255" width="7" height="10"></rect><rect class="t-win" x="743" y="277" width="7" height="10"></rect><rect class="t-win" x="815" y="299" width="7" height="10"></rect><rect class="t-win" x="725" y="365" width="7" height="10"></rect><rect class="t-win" x="797" y="365" width="7" height="10"></rect><rect class="t-win" x="797" y="387" width="7" height="10"></rect><rect x="867" y="264" width="145" height="168" fill="#b4c5d3"></rect><rect class="t-win" x="949" y="278" width="7" height="10"></rect><rect class="t-win" x="985" y="278" width="7" height="10"></rect><rect class="t-win" x="895" y="300" width="7" height="10"></rect><rect class="t-win" x="985" y="300" width="7" height="10"></rect><rect class="t-win" x="949" y="322" width="7" height="10"></rect><rect class="t-win" x="913" y="344" width="7" height="10"></rect><rect class="t-win" x="949" y="344" width="7" height="10"></rect><rect class="t-win" x="967" y="366" width="7" height="10"></rect><rect class="t-win" x="985" y="366" width="7" height="10"></rect><rect class="t-win" x="913" y="388" width="7" height="10"></rect><rect x="1035" y="175" width="74" height="257" fill="#b4c5d3"></rect><rect class="t-win" x="1063" y="211" width="7" height="10"></rect><rect class="t-win" x="1063" y="277" width="7" height="10"></rect><rect class="t-win" x="1081" y="321" width="7" height="10"></rect><rect class="t-win" x="1081" y="343" width="7" height="10"></rect><rect class="t-win" x="1063" y="387" width="7" height="10"></rect><rect class="t-win" x="1063" y="409" width="7" height="10"></rect><rect x="1114" y="215" width="142" height="217" fill="#b4c5d3"></rect><rect class="t-win" x="1232" y="229" width="7" height="10"></rect><rect class="t-win" x="1124" y="251" width="7" height="10"></rect><rect class="t-win" x="1142" y="251" width="7" height="10"></rect><rect class="t-win" x="1160" y="251" width="7" height="10"></rect><rect class="t-win" x="1196" y="251" width="7" height="10"></rect><rect class="t-win" x="1124" y="383" width="7" height="10"></rect><rect class="t-win" x="1196" y="383" width="7" height="10"></rect><rect class="t-win" x="1124" y="405" width="7" height="10"></rect><rect x="1262" y="283" width="128" height="149" fill="#b4c5d3"></rect><rect class="t-win" x="1272" y="297" width="7" height="10"></rect><rect class="t-win" x="1308" y="297" width="7" height="10"></rect><rect class="t-win" x="1290" y="319" width="7" height="10"></rect><rect class="t-win" x="1272" y="341" width="7" height="10"></rect><rect class="t-win" x="1344" y="341" width="7" height="10"></rect><rect class="t-win" x="1362" y="341" width="7" height="10"></rect><rect class="t-win" x="1290" y="363" width="7" height="10"></rect><rect class="t-win" x="1308" y="385" width="7" height="10"></rect><rect class="t-win" x="1344" y="407" width="7" height="10"></rect><rect x="1412" y="346" width="119" height="86" fill="#b4c5d3"></rect><rect class="t-win" x="1422" y="360" width="7" height="10"></rect><rect class="t-win" x="1440" y="360" width="7" height="10"></rect><rect class="t-win" x="1440" y="382" width="7" height="10"></rect><rect class="t-win" x="1440" y="404" width="7" height="10"></rect><rect class="t-win" x="1458" y="404" width="7" height="10"></rect><rect class="t-win" x="1512" y="404" width="7" height="10"></rect><rect x="1551" y="328" width="117" height="104" fill="#b4c5d3"></rect><rect class="t-win" x="1633" y="342" width="7" height="10"></rect><rect class="t-win" x="1597" y="364" width="7" height="10"></rect><rect class="t-win" x="1633" y="386" width="7" height="10"></rect><rect x="1682" y="349" width="108" height="83" fill="#b4c5d3"></rect><rect class="t-win" x="1692" y="363" width="7" height="10"></rect><rect class="t-win" x="1764" y="363" width="7" height="10"></rect><rect class="t-win" x="1746" y="385" width="7" height="10"></rect><rect class="t-win" x="1764" y="385" width="7" height="10"></rect><rect x="1817" y="279" width="135" height="153" fill="#b4c5d3"></rect><rect class="t-win" x="1863" y="293" width="7" height="10"></rect><rect class="t-win" x="1881" y="293" width="7" height="10"></rect><rect class="t-win" x="1899" y="293" width="7" height="10"></rect><rect class="t-win" x="1917" y="293" width="7" height="10"></rect><rect class="t-win" x="1863" y="315" width="7" height="10"></rect><rect class="t-win" x="1881" y="315" width="7" height="10"></rect><rect class="t-win" x="1917" y="337" width="7" height="10"></rect><rect class="t-win" x="1863" y="381" width="7" height="10"></rect><rect class="t-win" x="1881" y="381" width="7" height="10"></rect><rect class="t-win" x="1827" y="403" width="7" height="10"></rect><rect class="t-win" x="1863" y="403" width="7" height="10"></rect><rect x="1981" y="193" width="63" height="239" fill="#b4c5d3"></rect><rect class="t-win" x="2009" y="229" width="7" height="10"></rect><rect class="t-win" x="2009" y="251" width="7" height="10"></rect><rect class="t-win" x="2009" y="273" width="7" height="10"></rect><rect class="t-win" x="2027" y="295" width="7" height="10"></rect><rect class="t-win" x="2027" y="383" width="7" height="10"></rect><rect x="2053" y="306" width="112" height="126" fill="#c3d2de"></rect><rect class="t-win" x="2117" y="320" width="7" height="10"></rect><rect class="t-win" x="2081" y="342" width="7" height="10"></rect><rect class="t-win" x="2081" y="364" width="7" height="10"></rect><rect class="t-win" x="2135" y="364" width="7" height="10"></rect><rect class="t-win" x="2063" y="408" width="7" height="10"></rect><rect class="t-win" x="2081" y="408" width="7" height="10"></rect><rect x="2172" y="267" width="105" height="165" fill="#b4c5d3"></rect><rect class="t-win" x="2218" y="281" width="7" height="10"></rect><rect class="t-win" x="2236" y="281" width="7" height="10"></rect><rect class="t-win" x="2254" y="369" width="7" height="10"></rect><rect x="2304" y="224" width="69" height="208" fill="#b4c5d3"></rect><rect class="t-win" x="2314" y="238" width="7" height="10"></rect><rect class="t-win" x="2332" y="260" width="7" height="10"></rect><rect class="t-win" x="2332" y="304" width="7" height="10"></rect><rect class="t-win" x="2350" y="326" width="7" height="10"></rect><rect class="t-win" x="2332" y="370" width="7" height="10"></rect><rect x="2385" y="196" width="64" height="236" fill="#c3d2de"></rect><rect class="t-win" x="2431" y="254" width="7" height="10"></rect><rect class="t-win" x="2413" y="276" width="7" height="10"></rect><rect class="t-win" x="2395" y="320" width="7" height="10"></rect><rect x="2474" y="333" width="138" height="99" fill="#b4c5d3"></rect><rect class="t-win" x="2520" y="347" width="7" height="10"></rect><rect class="t-win" x="2484" y="369" width="7" height="10"></rect><rect class="t-win" x="2520" y="369" width="7" height="10"></rect><rect class="t-win" x="2556" y="369" width="7" height="10"></rect><rect class="t-win" x="2574" y="369" width="7" height="10"></rect><rect class="t-win" x="2556" y="391" width="7" height="10"></rect><rect class="t-win" x="2592" y="391" width="7" height="10"></rect><rect x="2642" y="249" width="136" height="183" fill="#b4c5d3"></rect><rect class="t-win" x="2670" y="285" width="7" height="10"></rect><rect class="t-win" x="2742" y="285" width="7" height="10"></rect><rect class="t-win" x="2760" y="329" width="7" height="10"></rect><rect class="t-win" x="2760" y="351" width="7" height="10"></rect><rect class="t-win" x="2670" y="395" width="7" height="10"></rect><rect class="t-win" x="2742" y="395" width="7" height="10"></rect><rect x="2786" y="275" width="142" height="157" fill="#b4c5d3"></rect><rect class="t-win" x="2850" y="289" width="7" height="10"></rect><rect class="t-win" x="2832" y="311" width="7" height="10"></rect><rect class="t-win" x="2832" y="333" width="7" height="10"></rect><rect class="t-win" x="2850" y="399" width="7" height="10"></rect><rect x="2941" y="198" width="98" height="234" fill="#b4c5d3"></rect><rect class="t-win" x="2987" y="256" width="7" height="10"></rect><rect class="t-win" x="2969" y="278" width="7" height="10"></rect><rect class="t-win" x="2987" y="278" width="7" height="10"></rect><rect class="t-win" x="2951" y="300" width="7" height="10"></rect><rect class="t-win" x="2969" y="300" width="7" height="10"></rect><rect class="t-win" x="3023" y="300" width="7" height="10"></rect><rect class="t-win" x="2987" y="322" width="7" height="10"></rect><rect class="t-win" x="2987" y="388" width="7" height="10"></rect><rect class="t-win" x="3023" y="388" width="7" height="10"></rect><rect x="3067" y="313" width="95" height="119" fill="#b4c5d3"></rect><rect class="t-win" x="3113" y="327" width="7" height="10"></rect><rect class="t-win" x="3113" y="371" width="7" height="10"></rect><rect x="3190" y="301" width="106" height="131" fill="#b4c5d3"></rect><rect class="t-win" x="3218" y="359" width="7" height="10"></rect><rect class="t-win" x="3200" y="381" width="7" height="10"></rect><rect class="t-win" x="3254" y="381" width="7" height="10"></rect><rect class="t-win" x="3272" y="381" width="7" height="10"></rect><rect class="t-win" x="3236" y="403" width="7" height="10"></rect><rect x="3310" y="218" width="100" height="214" fill="#c3d2de"></rect><rect class="t-win" x="3320" y="232" width="7" height="10"></rect><rect class="t-win" x="3374" y="254" width="7" height="10"></rect><rect class="t-win" x="3320" y="320" width="7" height="10"></rect><rect class="t-win" x="3356" y="342" width="7" height="10"></rect><rect class="t-win" x="3338" y="364" width="7" height="10"></rect><rect class="t-win" x="3338" y="386" width="7" height="10"></rect><rect class="t-win" x="3374" y="386" width="7" height="10"></rect><rect class="t-win" x="3356" y="408" width="7" height="10"></rect><rect x="3423" y="295" width="103" height="137" fill="#b4c5d3"></rect><rect class="t-win" x="3487" y="331" width="7" height="10"></rect><rect class="t-win" x="3487" y="353" width="7" height="10"></rect><rect class="t-win" x="3505" y="375" width="7" height="10"></rect><rect x="3558" y="183" width="136" height="249" fill="#b4c5d3"></rect><rect class="t-win" x="3604" y="197" width="7" height="10"></rect><rect class="t-win" x="3640" y="197" width="7" height="10"></rect><rect class="t-win" x="3658" y="197" width="7" height="10"></rect><rect class="t-win" x="3586" y="241" width="7" height="10"></rect><rect class="t-win" x="3676" y="263" width="7" height="10"></rect><rect class="t-win" x="3568" y="285" width="7" height="10"></rect><rect class="t-win" x="3676" y="285" width="7" height="10"></rect><rect class="t-win" x="3676" y="307" width="7" height="10"></rect><rect class="t-win" x="3622" y="351" width="7" height="10"></rect><rect class="t-win" x="3640" y="351" width="7" height="10"></rect><rect class="t-win" x="3658" y="351" width="7" height="10"></rect><rect class="t-win" x="3658" y="373" width="7" height="10"></rect><rect class="t-win" x="3676" y="373" width="7" height="10"></rect><rect x="3704" y="277" width="78" height="155" fill="#b4c5d3"></rect><rect class="t-win" x="3714" y="313" width="7" height="10"></rect><rect class="t-win" x="3750" y="357" width="7" height="10"></rect><rect class="t-win" x="3768" y="357" width="7" height="10"></rect><rect class="t-win" x="3714" y="401" width="7" height="10"></rect><rect x="3812" y="223" width="122" height="209" fill="#b4c5d3"></rect><rect class="t-win" x="3876" y="237" width="7" height="10"></rect><rect class="t-win" x="3876" y="259" width="7" height="10"></rect><rect class="t-win" x="3840" y="281" width="7" height="10"></rect><rect class="t-win" x="3822" y="325" width="7" height="10"></rect><rect class="t-win" x="3894" y="347" width="7" height="10"></rect><rect class="t-win" x="3822" y="369" width="7" height="10"></rect><rect class="t-win" x="3876" y="369" width="7" height="10"></rect><rect class="t-win" x="3876" y="391" width="7" height="10"></rect><rect x="3946" y="258" width="125" height="174" fill="#b4c5d3"></rect><rect class="t-win" x="3992" y="272" width="7" height="10"></rect><rect class="t-win" x="3956" y="338" width="7" height="10"></rect><rect class="t-win" x="4028" y="338" width="7" height="10"></rect><rect class="t-win" x="4010" y="360" width="7" height="10"></rect><rect class="t-win" x="3974" y="382" width="7" height="10"></rect><rect class="t-win" x="4028" y="404" width="7" height="10"></rect><rect x="4094" y="202" width="117" height="230" fill="#c3d2de"></rect><rect class="t-win" x="4176" y="348" width="7" height="10"></rect><rect x="4240" y="276" width="144" height="156" fill="#c3d2de"></rect><rect class="t-win" x="4322" y="290" width="7" height="10"></rect><rect class="t-win" x="4268" y="312" width="7" height="10"></rect><rect class="t-win" x="4304" y="312" width="7" height="10"></rect><rect class="t-win" x="4304" y="356" width="7" height="10"></rect><rect class="t-win" x="4322" y="356" width="7" height="10"></rect><rect class="t-win" x="4340" y="378" width="7" height="10"></rect><rect x="4397" y="221" width="119" height="211" fill="#c3d2de"></rect><rect class="t-win" x="4443" y="235" width="7" height="10"></rect><rect class="t-win" x="4425" y="257" width="7" height="10"></rect><rect class="t-win" x="4479" y="257" width="7" height="10"></rect><rect class="t-win" x="4497" y="257" width="7" height="10"></rect><rect class="t-win" x="4425" y="279" width="7" height="10"></rect><rect class="t-win" x="4479" y="279" width="7" height="10"></rect><rect class="t-win" x="4497" y="301" width="7" height="10"></rect><rect class="t-win" x="4443" y="345" width="7" height="10"></rect><rect class="t-win" x="4407" y="367" width="7" height="10"></rect><rect class="t-win" x="4443" y="367" width="7" height="10"></rect><rect class="t-win" x="4443" y="389" width="7" height="10"></rect></g>
+      <g class="t-world" transform="translate(618.4 0)">
+        <rect x="-3000" y="430" width="12000" height="20" fill="#c9c9c4"></rect>
+        <rect x="-3000" y="448" width="12000" height="10" fill="url(#t-kerb)"></rect>
+        <rect x="-3000" y="458" width="12000" height="142" fill="#111"></rect>
+        <line class="t-dash" x1="-3000" y1="530" x2="9000" y2="530"></line>
+        <g class="t-lamps"><g transform="translate(250 0)"><path class="t-pole" d="M0 436V252q0-14 14-14h26"></path><rect class="t-head" x="34" y="234" width="26" height="8" rx="3"></rect></g><g transform="translate(1150 0)"><path class="t-pole" d="M0 436V252q0-14 14-14h26"></path><rect class="t-head" x="34" y="234" width="26" height="8" rx="3"></rect></g><g transform="translate(2050 0)"><path class="t-pole" d="M0 436V252q0-14 14-14h26"></path><rect class="t-head" x="34" y="234" width="26" height="8" rx="3"></rect></g><g transform="translate(2950 0)"><path class="t-pole" d="M0 436V252q0-14 14-14h26"></path><rect class="t-head" x="34" y="234" width="26" height="8" rx="3"></rect></g><g transform="translate(3850 0)"><path class="t-pole" d="M0 436V252q0-14 14-14h26"></path><rect class="t-head" x="34" y="234" width="26" height="8" rx="3"></rect></g><g transform="translate(4750 0)"><path class="t-pole" d="M0 436V252q0-14 14-14h26"></path><rect class="t-head" x="34" y="234" width="26" height="8" rx="3"></rect></g><g transform="translate(5650 0)"><path class="t-pole" d="M0 436V252q0-14 14-14h26"></path><rect class="t-head" x="34" y="234" width="26" height="8" rx="3"></rect></g></g>
+
+        <!-- 1. primeiro contato: celular gigante com a conversa chegando -->
+        <g class="sc" transform="translate(700 0)">
+          <g class="s1-ring"><path d="M-102 236a56 56 0 0 0 0 76M102 236a56 56 0 0 1 0 76"></path><path d="M-122 220a80 80 0 0 0 0 108M122 220a80 80 0 0 1 0 108"></path></g>
+          <rect x="-6" y="384" width="12" height="52" fill="#4a4a4a"></rect>
+          <g class="s1-phone an">
+            <rect x="-78" y="148" width="156" height="240" rx="22" fill="#111" stroke="#fff" stroke-width="5"></rect>
+            <rect x="-66" y="172" width="132" height="196" rx="6" fill="#f1f0ec"></rect>
+            <rect x="-66" y="172" width="132" height="28" fill="#E81820"></rect>
+            <circle cx="-50" cy="186" r="12" fill="#fff"></circle>
+            <image href="site/www.duduautoescolapatos.com.br/img/favicon-96.webp" x="-62" y="174" width="24" height="24" clip-path="url(#t-avatar)"></image>
+            <text class="s1-name tl" x="-33" y="191">Dudu</text>
+            <g class="s1-b pop" style="--d:300ms"><rect x="-14" y="210" width="78" height="40" rx="8" fill="#E81820"></rect><text class="s1-t s1-tw tl" x="-6" y="226">Quero tirar</text><text class="s1-t s1-tw tl" x="-6" y="242">a CNH!</text></g>
+            <g class="s1-b pop" style="--d:1000ms"><rect x="-58" y="260" width="98" height="40" rx="8" fill="#fff" stroke="#ddd"></rect><text class="s1-t tl" x="-50" y="276">Bora! A gente</text><text class="s1-t tl" x="-50" y="292">te explica.</text></g>
+            <g class="s1-b s1-dots pop" style="--d:1700ms"><rect x="-14" y="310" width="50" height="26" rx="13" fill="#E81820"></rect><circle cx="0" cy="323" r="3.5"></circle><circle cx="11" cy="323" r="3.5"></circle><circle cx="22" cy="323" r="3.5"></circle></g>
+            <rect x="-20" y="377" width="40" height="5" rx="2.5" fill="#444"></rect>
+          </g>
+        <g><rect class="t-mk-p" x="196" y="330" width="6" height="106"></rect><rect class="t-mk-b" x="172" y="280" width="54" height="54" rx="7"></rect><text class="t-mk-s" x="199" y="297">ETAPA</text><text class="t-mk-n" x="199" y="326">1</text></g></g>
+
+        <!-- 2. documentos e matrícula: fachada da autoescola, papéis voando e o carimbo -->
+        <g class="sc" transform="translate(1600 0)">
+          <rect x="-150" y="252" width="300" height="184" fill="#f4f3ef" stroke="#111" stroke-width="4"></rect>
+          <rect x="-160" y="238" width="320" height="20" fill="#E81820"></rect>
+          <rect x="-96" y="204" width="192" height="36" rx="4" fill="#111" stroke="#fff" stroke-width="3"></rect>
+          <text class="s2-sign" x="0" y="229">AUTOESCOLA DUDU</text>
+          <rect class="s2-win" x="-130" y="288" width="80" height="50" style="--d:150ms"></rect>
+          <rect class="s2-win" x="50" y="288" width="80" height="50" style="--d:300ms"></rect>
+          <rect x="-28" y="356" width="56" height="80" fill="#111"></rect>
+          <g class="s2-doc s2-d1 pop" style="--d:200ms"><rect x="-122" y="104" width="62" height="80" rx="4"></rect><path d="M-112 124h42M-112 138h42M-112 152h30"></path></g>
+          <g class="s2-doc s2-d3 pop" style="--d:600ms"><rect x="60" y="104" width="62" height="80" rx="4"></rect><path d="M70 124h42M70 138h42M70 152h42M70 166h24"></path></g>
+          <g class="s2-doc pop" style="--d:400ms"><rect x="-31" y="92" width="62" height="80" rx="4"></rect><rect class="s2-ph" x="-21" y="102" width="20" height="26"></rect><path d="M5 108h16M5 120h16M-21 142h42M-21 156h30"></path></g>
+          <g class="s2-stamp"><circle cx="0" cy="140" r="36"></circle><text x="0" y="136">MATRÍCULA</text><path d="M-12 146l8 8 16-16"></path></g>
+        <g><rect class="t-mk-p" x="196" y="330" width="6" height="106"></rect><rect class="t-mk-b" x="172" y="280" width="54" height="54" rx="7"></rect><text class="t-mk-s" x="199" y="297">ETAPA</text><text class="t-mk-n" x="199" y="326">2</text></g></g>
+
+        <!-- 3. teoria: quadro com as placas virando e o "check" de cada uma -->
+        <g class="sc" transform="translate(2500 0)">
+          <path d="M-110 366v70M110 366v70" stroke="#4a4a4a" stroke-width="8"></path>
+          <rect x="-150" y="192" width="300" height="176" rx="6" fill="#262626" stroke="#fff" stroke-width="5"></rect>
+          <text class="s3-t tl" x="-130" y="224">TEORIA</text>
+          <g class="s3-s pop" style="--d:200ms"><path d="M-102 244h24l17 17v24l-17 17h-24l-17-17v-24z" fill="#E81820" stroke="#fff" stroke-width="3"></path><text class="s3-pare" x="-90" y="278">PARE</text></g>
+          <g class="s3-s pop" style="--d:550ms"><path d="M-32 248h64L0 304z" fill="#fff" stroke="#E81820" stroke-width="7" stroke-linejoin="round"></path></g>
+          <g class="s3-s pop" style="--d:900ms"><circle cx="90" cy="273" r="29" fill="#fff" stroke="#E81820" stroke-width="7"></circle><text class="s3-km" x="90" y="281">40</text></g>
+          <path class="t-trace s3-ck" d="M-102 334l8 8 16-16" style="--d:700ms"></path>
+          <path class="t-trace s3-ck" d="M-12 334l8 8 16-16" style="--d:1050ms"></path>
+          <path class="t-trace s3-ck" d="M78 334l8 8 16-16" style="--d:1400ms"></path>
+          <g class="s3-bulb"><path d="M120 116v-14M90 128l-10-10M150 128l10-10M84 156H70M156 156h14"></path><circle cx="120" cy="156" r="20"></circle><rect x="112" y="174" width="16" height="12" rx="2" fill="#777"></rect></g>
+        <g><rect class="t-mk-p" x="196" y="330" width="6" height="106"></rect><rect class="t-mk-b" x="172" y="280" width="54" height="54" rx="7"></rect><text class="t-mk-s" x="199" y="297">ETAPA</text><text class="t-mk-n" x="199" y="326">3</text></g></g>
+
+        <!-- 4. aulas práticas: semáforo, cones subindo, a vaga da baliza e o instrutor -->
+        <g class="sc" transform="translate(3400 0)">
+          <rect x="-172" y="300" width="8" height="136" fill="#4a4a4a"></rect>
+          <rect x="-186" y="226" width="36" height="88" rx="8" fill="#111" stroke="#fff" stroke-width="3"></rect>
+          <circle class="t-l s4-r" cx="-168" cy="248" r="10" style="fill: rgb(232, 24, 32);"></circle><circle class="t-l s4-y" cx="-168" cy="270" r="10" style="fill: rgb(51, 51, 51);"></circle><circle class="t-l s4-g" cx="-168" cy="292" r="10" style="fill: rgb(51, 51, 51);"></circle>
+          <use class="pop" href="#t-cone" x="-100" y="436" style="--d:150ms"></use>
+          <use class="pop" href="#t-cone" x="-40" y="436" style="--d:300ms"></use>
+          <use class="pop" href="#t-cone" x="20" y="436" style="--d:450ms"></use>
+          <use class="pop" href="#t-cone" x="80" y="436" style="--d:600ms"></use>
+          <use class="pop" href="#t-cone" x="140" y="436" style="--d:750ms"></use>
+          <rect class="s4-box" x="-132" y="462" width="264" height="62" rx="3"></rect>
+          <g class="s4-say pop" style="--d:1100ms"><rect x="-70" y="196" width="190" height="46" rx="10"></rect><path d="M-30 240l-8 20 26-20z"></path><text class="s4-t" x="25" y="225">Seta, espelho... isso!</text></g>
+        <g><rect class="t-mk-p" x="196" y="330" width="6" height="106"></rect><rect class="t-mk-b" x="172" y="280" width="54" height="54" rx="7"></rect><text class="t-mk-s" x="199" y="297">ETAPA</text><text class="t-mk-n" x="199" y="326">4</text></g></g>
+
+        <!-- 5. exame: prancheta do examinador e o semáforo que abre -->
+        <g class="sc" transform="translate(4300 0)">
+          <rect x="-226" y="300" width="124" height="136" fill="#f4f3ef" stroke="#111" stroke-width="4"></rect>
+          <rect x="-234" y="284" width="140" height="22" fill="#111"></rect>
+          <text class="s5-b" x="-164" y="301">EXAME</text>
+          <rect x="-208" y="324" width="88" height="46" fill="#2b2b2b"></rect>
+          <g class="s5-clip an">
+            <rect x="-10" y="176" width="132" height="168" rx="8" fill="#fff" stroke="#111" stroke-width="4"></rect>
+            <rect x="32" y="166" width="48" height="18" rx="4" fill="#111"></rect>
+            <text class="s5-h" x="56" y="210">EXAME DE RUA</text>
+            <rect x="4" y="226" width="18" height="18" rx="3" class="s5-bx"></rect><text class="s5-i tl" x="32" y="241">Seta</text>
+            <rect x="4" y="260" width="18" height="18" rx="3" class="s5-bx"></rect><text class="s5-i tl" x="32" y="275">Baliza</text>
+            <rect x="4" y="294" width="18" height="18" rx="3" class="s5-bx"></rect><text class="s5-i tl" x="32" y="309">Atenção</text>
+            <path class="t-trace s5-ck" d="M6 234l6 6 13-13" style="--d:500ms"></path>
+            <path class="t-trace s5-ck" d="M6 268l6 6 13-13" style="--d:1000ms"></path>
+            <path class="t-trace s5-ck" d="M6 302l6 6 13-13" style="--d:1500ms"></path>
+          </g>
+          <rect x="-76" y="300" width="8" height="136" fill="#4a4a4a"></rect>
+          <rect x="-90" y="226" width="36" height="88" rx="8" fill="#111" stroke="#fff" stroke-width="3"></rect>
+          <circle class="t-l s5-r" cx="-72" cy="248" r="10"></circle><circle class="t-l s5-y" cx="-72" cy="270" r="10"></circle><circle class="t-l s5-g" cx="-72" cy="292" r="10"></circle>
+        <g><rect class="t-mk-p" x="196" y="330" width="6" height="106"></rect><rect class="t-mk-b" x="172" y="280" width="54" height="54" rx="7"></rect><text class="t-mk-s" x="199" y="297">ETAPA</text><text class="t-mk-n" x="199" y="326">5</text></g></g>
+
+        <!-- 6. chegada: pórtico quadriculado, a CNH subindo, raios e confete -->
+        <g class="sc" transform="translate(5200 0)">
+          <g class="s6-rays" clip-path="url(#t-ground)"><g style="transform: rotate(0deg);"><path d="M0 297L297 258L297 336z"></path><path d="M0 297L277 412L238 479z"></path><path d="M0 297L182 535L115 574z"></path><path d="M0 297L39 594L-39 594z"></path><path d="M0 297L-115 574L-182 535z"></path><path d="M0 297L-238 479L-277 412z"></path><path d="M0 297L-297 336L-297 258z"></path><path d="M0 297L-277 182L-238 115z"></path><path d="M0 297L-182 59L-115 20z"></path><path d="M0 297L-39 0L39 0z"></path><path d="M0 297L115 20L182 59z"></path><path d="M0 297L238 115L277 182z"></path></g></g>
+          <rect x="-178" y="180" width="12" height="256" fill="#4a4a4a"></rect>
+          <rect x="166" y="180" width="12" height="256" fill="#4a4a4a"></rect>
+          <g class="s6-card pop" style="--d:250ms">
+            <rect x="-120" y="222" width="240" height="150" rx="12" fill="#fff" stroke="#111" stroke-width="4"></rect>
+            <path d="M-108 222h216a12 12 0 0 1 12 12v26h-240v-26a12 12 0 0 1 12-12z" fill="#E81820" stroke="#111" stroke-width="4"></path>
+            <text class="s6-cnh tl" x="-104" y="250">CNH</text>
+            <text class="s6-hab" x="106" y="248">HABILITAÇÃO</text>
+            <rect x="-104" y="274" width="64" height="82" rx="4" fill="#e6e5e0"></rect>
+            <circle cx="-72" cy="304" r="14" fill="#9a9a95"></circle><path d="M-96 356a24 22 0 0 1 48 0z" fill="#9a9a95"></path>
+            <path d="M-24 286h108M-24 304h80M-24 322h96" stroke="#d0d0cb" stroke-width="7" stroke-linecap="round"></path>
+            <rect x="54" y="334" width="32" height="24" rx="4" fill="#FFC400"></rect>
+          </g>
+          <rect x="-184" y="160" width="368" height="40" fill="url(#t-chk)" stroke="#111" stroke-width="3"></rect>
+          <rect x="-72" y="166" width="144" height="28" fill="#E81820"></rect>
+          <text class="s6-t" x="0" y="187">CHEGADA</text>
+          <g class="s6-cf"><rect x="-4" y="292" width="11" height="4" fill="#E81820" style="--x:137px;--y:-214px;--r:-45deg;--d:2194ms"></rect><rect x="-4" y="292" width="11" height="4" fill="#FFC400" style="--x:-172px;--y:-229px;--r:355deg;--d:472ms"></rect><rect x="-4" y="292" width="8" height="8" fill="#111" style="--x:37px;--y:-191px;--r:244deg;--d:627ms"></rect><rect x="-4" y="292" width="9" height="6" fill="#E81820" style="--x:-169px;--y:-253px;--r:-106deg;--d:1403ms"></rect><rect x="-4" y="292" width="7" height="7" fill="#FFC400" style="--x:65px;--y:-84px;--r:206deg;--d:960ms"></rect><rect x="-4" y="292" width="10" height="8" fill="#111" style="--x:-204px;--y:-126px;--r:-291deg;--d:1223ms"></rect><rect x="-4" y="292" width="11" height="8" fill="#E81820" style="--x:125px;--y:-148px;--r:275deg;--d:2087ms"></rect><rect x="-4" y="292" width="8" height="6" fill="#FFC400" style="--x:133px;--y:-79px;--r:396deg;--d:1522ms"></rect><rect x="-4" y="292" width="8" height="9" fill="#111" style="--x:94px;--y:-231px;--r:-393deg;--d:518ms"></rect><rect x="-4" y="292" width="8" height="6" fill="#E81820" style="--x:-238px;--y:-224px;--r:-227deg;--d:301ms"></rect><rect x="-4" y="292" width="10" height="8" fill="#FFC400" style="--x:209px;--y:-211px;--r:156deg;--d:734ms"></rect><rect x="-4" y="292" width="9" height="9" fill="#111" style="--x:220px;--y:-156px;--r:-417deg;--d:1515ms"></rect><rect x="-4" y="292" width="8" height="7" fill="#E81820" style="--x:1px;--y:-154px;--r:248deg;--d:312ms"></rect><rect x="-4" y="292" width="7" height="4" fill="#FFC400" style="--x:-90px;--y:-134px;--r:-35deg;--d:785ms"></rect><rect x="-4" y="292" width="11" height="6" fill="#111" style="--x:138px;--y:-115px;--r:-164deg;--d:1223ms"></rect><rect x="-4" y="292" width="9" height="6" fill="#E81820" style="--x:166px;--y:-202px;--r:281deg;--d:1158ms"></rect><rect x="-4" y="292" width="6" height="9" fill="#FFC400" style="--x:132px;--y:-140px;--r:-95deg;--d:1160ms"></rect><rect x="-4" y="292" width="7" height="10" fill="#111" style="--x:-22px;--y:-166px;--r:-275deg;--d:1913ms"></rect><rect x="-4" y="292" width="11" height="7" fill="#E81820" style="--x:-114px;--y:-228px;--r:13deg;--d:2186ms"></rect><rect x="-4" y="292" width="9" height="10" fill="#FFC400" style="--x:186px;--y:-147px;--r:102deg;--d:325ms"></rect><rect x="-4" y="292" width="10" height="8" fill="#111" style="--x:67px;--y:-206px;--r:271deg;--d:882ms"></rect><rect x="-4" y="292" width="10" height="8" fill="#E81820" style="--x:-226px;--y:-121px;--r:164deg;--d:1839ms"></rect><rect x="-4" y="292" width="6" height="8" fill="#FFC400" style="--x:-120px;--y:-258px;--r:380deg;--d:1262ms"></rect><rect x="-4" y="292" width="11" height="9" fill="#111" style="--x:17px;--y:-196px;--r:-65deg;--d:1719ms"></rect><rect x="-4" y="292" width="11" height="6" fill="#E81820" style="--x:125px;--y:-204px;--r:376deg;--d:1744ms"></rect><rect x="-4" y="292" width="6" height="5" fill="#FFC400" style="--x:195px;--y:-90px;--r:-249deg;--d:1645ms"></rect></g>
+        </g>
+
+        <!-- carro de aula (anda pela rolagem; js/main.js move, gira as rodas e inclina na freada) -->
+        <g class="t-car" transform="translate(45.0 420)">
+          <ellipse cx="115" cy="93" rx="112" ry="6" fill="rgba(0,0,0,.45)"></ellipse>
+          <g class="t-smoke"><circle cx="0" cy="80" r="6"></circle><circle cx="0" cy="80" r="6"></circle><circle cx="0" cy="80" r="6"></circle></g>
+          <path class="t-speed" d="M-14 24h-70M-6 44h-96M-20 62h-56"></path>
+          <g class="t-body" transform="translate(0 0.00) rotate(0.00 115 80)">
+            <path d="M6 74V50q0-10 12-12l30-4 22-22q4-4 12-4h68q10 0 16 6l24 22q24 3 30 10 4 4 4 12v10q0 6-6 6z" fill="#ececea"></path>
+            <path d="M55 34l18-19q2-2 5-2h30v21zM116 13h32q7 0 11 4l17 17h-60z" fill="#2a2f35"></path>
+            <path d="M7 52h216" stroke="#E81820" stroke-width="6"></path>
+            <path d="M112 36v12" stroke="#c4c4c0" stroke-width="2"></path>
+            <image href="site/www.duduautoescolapatos.com.br/img/logo-dudu-sem-fundo-160.webp" x="96" y="57" width="38" height="16.5"></image>
+            <path d="M216 46l8 5v5h-10z" fill="#FFC400"></path>
+            <rect class="t-tail" x="6" y="40" width="6" height="10" rx="1"></rect>
+            <path d="M31 74a23 23 0 0 1 46 0zM153 74a23 23 0 0 1 46 0z" fill="#161616"></path>
+          </g>
+          <g transform="translate(54 74)"><use class="t-wheel" href="#t-wh" transform="rotate(0.0)"></use></g>
+          <g transform="translate(176 74)"><use class="t-wheel" href="#t-wh" transform="rotate(0.0)"></use></g>
+        </g>
+      </g>
+    </svg>
+
+    <div class="wrap trip-hud">
+      <p class="kicker rv" data-from="l">Do primeiro dia à habilitação</p>
+      <h2 class="h2 rv" data-from="l" style="--i:1">Como tirar a CNH, etapa por etapa</h2>
+      <p class="sub trip-sub rv" data-from="l" style="--i:2">Mapa geral do caminho, sem prazo. Exigências e datas do exame são as do Detran, e podem mudar conforme a categoria.</p>
+      <ol class="trip-steps">
+        <li class="trip-step is-active"><h3>Primeiro contato</h3><p>Conversa com a equipe, pelo WhatsApp ou telefone, para tirar as dúvidas.</p></li>
+        <li class="trip-step"><h3>Documentos e matrícula</h3><p>Cadastro na autoescola. Documentos: identidade, endereço, e-mail e telefone.</p></li>
+        <li class="trip-step"><h3>Teoria</h3><p>Curso teórico pelo aplicativo CNH do Brasil.</p></li>
+        <li class="trip-step"><h3>Aulas práticas</h3><p>Aulas com instrutor, nos veículos da frota. Carga horária obrigatória de 02 horas.</p></li>
+        <li class="trip-step"><h3>Exame</h3><p>Avaliação prática, o "exame de rua" que clientes citam nas avaliações. Datas e agendamento são do Detran.</p></li>
+        <li class="trip-step"><h3>Habilitação</h3><p>A emissão é do Detran. A autoescola acompanha o caminho até lá.</p></li>
+      </ol>
+      <div class="trip-dots" role="group" aria-label="Ir para uma etapa">
+        <button type="button" class="trip-dot is-active" aria-label="Etapa 1: Primeiro contato" aria-current="step"></button>
+        <button type="button" class="trip-dot" aria-label="Etapa 2: Documentos e matrícula"></button>
+        <button type="button" class="trip-dot" aria-label="Etapa 3: Teoria"></button>
+        <button type="button" class="trip-dot" aria-label="Etapa 4: Aulas práticas"></button>
+        <button type="button" class="trip-dot" aria-label="Etapa 5: Exame"></button>
+        <button type="button" class="trip-dot" aria-label="Chegada: Habilitação"></button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- AVALIACOES -->
+<section class="sec sec-ink" id="avaliacoes">
+  <div class="wrap rate-head rv" data-from="l">
+    <div class="rate-title">
+      <p class="kicker k-y">Avaliações no Google Maps</p>
+      <h2 class="h2 on-dark">Quem fez aula na Dudu conta</h2>
+    </div>
+    <div class="rate-score">
+      <p class="score"><span data-count="4,8" data-dec="1" data-final="4,8">0,0</span></p>
+      <p class="score-sub"><span data-count="62" data-final="62">0</span> avaliações na ficha da autoescola</p>
+      <span class="stars" role="img" aria-label="Nota 4,8 de 5 estrelas"></span>
+    </div>
+  </div>
+
+  <!-- depoimentos: para incluir mais um, copie um <li class="quote"> e troque o texto e o nome.
+       Use só avaliações reais da ficha no Google Maps. -->
+  <div class="wall-vp rev-vp" role="region" data-speed="30" aria-label="Avaliações de alunos no Google Maps">
+    <ul class="wall-track" style="transform: translate3d(-1px, 0px, 0px);">
+      <li class="quote">
+        <blockquote>"Tive uma ótima experiência nas aulas, bons carros e equipe bem estruturada."</blockquote>
+        <p class="quote-by">Ana Luiza de Souza</p>
+      </li>
+      <li class="quote">
+        <blockquote>"(...) com sua paciência e didática me preparou para o dia do exame de rua e o dia a dia."</blockquote>
+        <p class="quote-by">Otavio Augusto Ottoni</p>
+      </li>
+    <li class="quote" data-clone="" aria-hidden="true">
+        <blockquote>"Tive uma ótima experiência nas aulas, bons carros e equipe bem estruturada."</blockquote>
+        <p class="quote-by">Ana Luiza de Souza</p>
+      </li><li class="quote" data-clone="" aria-hidden="true">
+        <blockquote>"(...) com sua paciência e didática me preparou para o dia do exame de rua e o dia a dia."</blockquote>
+        <p class="quote-by">Otavio Augusto Ottoni</p>
+      </li><li class="quote" data-clone="" aria-hidden="true">
+        <blockquote>"Tive uma ótima experiência nas aulas, bons carros e equipe bem estruturada."</blockquote>
+        <p class="quote-by">Ana Luiza de Souza</p>
+      </li><li class="quote" data-clone="" aria-hidden="true">
+        <blockquote>"(...) com sua paciência e didática me preparou para o dia do exame de rua e o dia a dia."</blockquote>
+        <p class="quote-by">Otavio Augusto Ottoni</p>
+      </li></ul>
+  </div>
+
+  <div class="wrap rate-sub rv" data-from="l">
+    <p class="wall-sub">Alunos aprovados na Dudu</p>
+  </div>
+  <div class="wall-vp rev-vp rev-vp-pics" role="region" data-speed="38" data-dir="-1" aria-label="Alunos aprovados">
+    <ul class="wall-track" style="transform: translate3d(-2748.99px, 0px, 0px);">
+      <li class="win" style="--dy: 0px;"><div class="win-in"><img src="https://www.duduautoescolapatos.com.br/img/aprovados/05-360.webp" srcset="https://www.duduautoescolapatos.com.br/img/aprovados/05-360.webp 360w, https://www.duduautoescolapatos.com.br/img/aprovados/05-600.webp 600w, site/www.duduautoescolapatos.com.br/img/aprovados/05.webp 720w" sizes="(min-width:760px) 320px, 220px" alt="Aluna aprovada com o comprovante, cercada por instrutores da Dudu no pátio" width="480" height="640" loading="lazy" decoding="async"></div><span class="win-stamp">Aprovada</span></li>
+      <li class="win" style="--dy: 20px;"><div class="win-in"><img src="https://www.duduautoescolapatos.com.br/img/aprovados/08-360.webp" srcset="https://www.duduautoescolapatos.com.br/img/aprovados/08-360.webp 360w, site/www.duduautoescolapatos.com.br/img/aprovados/08.webp 576w" sizes="(min-width:760px) 320px, 220px" alt="Aluno aprovado segurando o comprovante ao lado de um instrutor" width="480" height="640" loading="lazy" decoding="async"></div><span class="win-stamp">Aprovado</span></li>
+      <li class="win" style="--dy: 8px;"><div class="win-in"><img src="https://www.duduautoescolapatos.com.br/img/aprovados/01-360.webp" srcset="https://www.duduautoescolapatos.com.br/img/aprovados/01-360.webp 360w, https://www.duduautoescolapatos.com.br/img/aprovados/01-600.webp 600w, site/www.duduautoescolapatos.com.br/img/aprovados/01.webp 720w" sizes="(min-width:760px) 320px, 220px" alt="Aluna aprovada segurando o comprovante ao lado do instrutor e de um carro de aula da Dudu" width="480" height="640" loading="lazy" decoding="async"></div><span class="win-stamp">Aprovada</span></li>
+      <li class="win" style="--dy: 20px;"><div class="win-in"><img src="https://www.duduautoescolapatos.com.br/img/aprovados/11-360.webp" srcset="https://www.duduautoescolapatos.com.br/img/aprovados/11-360.webp 360w, https://www.duduautoescolapatos.com.br/img/aprovados/11-600.webp 600w, site/www.duduautoescolapatos.com.br/img/aprovados/11.webp 720w" sizes="(min-width:760px) 320px, 220px" alt="Aluno aprovado segurando o comprovante ao lado de um instrutor e de um caminhão de aula da Dudu" width="480" height="640" loading="lazy" decoding="async"></div><span class="win-stamp">Aprovado</span></li>
+      <li class="win" style="--dy: 0px;"><div class="win-in"><img src="https://www.duduautoescolapatos.com.br/img/aprovados/07-360.webp" srcset="https://www.duduautoescolapatos.com.br/img/aprovados/07-360.webp 360w, https://www.duduautoescolapatos.com.br/img/aprovados/07-600.webp 600w, site/www.duduautoescolapatos.com.br/img/aprovados/07.webp 720w" sizes="(min-width:760px) 320px, 220px" alt="Aluno aprovado mostrando o comprovante ao lado de um instrutor e de um carro de aula da Dudu" width="480" height="640" loading="lazy" decoding="async"></div><span class="win-stamp">Aprovado</span></li>
+      <li class="win" style="--dy: 8px;"><div class="win-in"><img src="https://www.duduautoescolapatos.com.br/img/aprovados/09-360.webp" srcset="https://www.duduautoescolapatos.com.br/img/aprovados/09-360.webp 360w, https://www.duduautoescolapatos.com.br/img/aprovados/09-600.webp 600w, site/www.duduautoescolapatos.com.br/img/aprovados/09.webp 720w" sizes="(min-width:760px) 320px, 220px" alt="Aluna aprovada mostrando o comprovante ao lado de um instrutor, com um micro-ônibus da autoescola ao fundo" width="480" height="640" loading="lazy" decoding="async"></div><span class="win-stamp">Aprovada</span></li>
+      <li class="win" style="--dy: 0px;"><div class="win-in"><img src="https://www.duduautoescolapatos.com.br/img/aprovados/03-360.webp" srcset="https://www.duduautoescolapatos.com.br/img/aprovados/03-360.webp 360w, https://www.duduautoescolapatos.com.br/img/aprovados/03-600.webp 600w, site/www.duduautoescolapatos.com.br/img/aprovados/03.webp 720w" sizes="(min-width:760px) 320px, 220px" alt="Aluna aprovada segurando o comprovante ao lado de um instrutor" width="480" height="640" loading="lazy" decoding="async"></div><span class="win-stamp">Aprovada</span></li>
+      <li class="win" style="--dy: 20px;"><div class="win-in"><img src="https://www.duduautoescolapatos.com.br/img/aprovados/12-360.webp" srcset="https://www.duduautoescolapatos.com.br/img/aprovados/12-360.webp 360w, https://www.duduautoescolapatos.com.br/img/aprovados/12-600.webp 600w, site/www.duduautoescolapatos.com.br/img/aprovados/12.webp 720w" sizes="(min-width:760px) 320px, 220px" alt="Aluno aprovado mostrando o comprovante ao lado de um instrutor, com um micro-ônibus da autoescola ao fundo" width="480" height="640" loading="lazy" decoding="async"></div><span class="win-stamp">Aprovado</span></li>
+      <li class="win" style="--dy: 8px;"><div class="win-in"><img src="https://www.duduautoescolapatos.com.br/img/aprovados/06-360.webp" srcset="https://www.duduautoescolapatos.com.br/img/aprovados/06-360.webp 360w, https://www.duduautoescolapatos.com.br/img/aprovados/06-600.webp 600w, site/www.duduautoescolapatos.com.br/img/aprovados/06.webp 720w" sizes="(min-width:760px) 320px, 220px" alt="Aluno aprovado segurando o comprovante ao lado de um instrutor e de um carro de aula da Dudu" width="480" height="640" loading="lazy" decoding="async"></div><span class="win-stamp">Aprovado</span></li>
+      <li class="win" style="--dy: 20px;"><div class="win-in"><img src="https://www.duduautoescolapatos.com.br/img/aprovados/10-360.webp" srcset="https://www.duduautoescolapatos.com.br/img/aprovados/10-360.webp 360w, https://www.duduautoescolapatos.com.br/img/aprovados/10-600.webp 600w, site/www.duduautoescolapatos.com.br/img/aprovados/10.webp 720w" sizes="(min-width:760px) 320px, 220px" alt="Aluna aprovada segurando o comprovante ao lado de um instrutor e de um carro de aula da Dudu" width="480" height="640" loading="lazy" decoding="async"></div><span class="win-stamp">Aprovada</span></li>
+      <li class="win" style="--dy: 0px;"><div class="win-in"><img src="https://www.duduautoescolapatos.com.br/img/aprovados/02-360.webp" srcset="https://www.duduautoescolapatos.com.br/img/aprovados/02-360.webp 360w, https://www.duduautoescolapatos.com.br/img/aprovados/02-600.webp 600w, site/www.duduautoescolapatos.com.br/img/aprovados/02.webp 720w" sizes="(min-width:760px) 320px, 220px" alt="Aluno aprovado segurando o comprovante ao lado de um instrutor e de um carro de aula da Dudu" width="480" height="640" loading="lazy" decoding="async"></div><span class="win-stamp">Aprovado</span></li>
+      <li class="win" style="--dy: 8px;"><div class="win-in"><img src="https://www.duduautoescolapatos.com.br/img/aprovados/04-360.webp" srcset="https://www.duduautoescolapatos.com.br/img/aprovados/04-360.webp 360w, site/www.duduautoescolapatos.com.br/img/aprovados/04.webp 576w" sizes="(min-width:760px) 320px, 220px" alt="Aluna aprovada segurando o comprovante ao lado de um instrutor e de um carro de aula da Dudu" width="480" height="640" loading="lazy" decoding="async"></div><span class="win-stamp">Aprovada</span></li>
+    <li class="win" style="--dy: 0px;" data-clone="" aria-hidden="true"><div class="win-in"><img src="https://www.duduautoescolapatos.com.br/img/aprovados/05-360.webp" srcset="https://www.duduautoescolapatos.com.br/img/aprovados/05-360.webp 360w, https://www.duduautoescolapatos.com.br/img/aprovados/05-600.webp 600w, site/www.duduautoescolapatos.com.br/img/aprovados/05.webp 720w" sizes="(min-width:760px) 320px, 220px" alt="Aluna aprovada com o comprovante, cercada por instrutores da Dudu no pátio" width="480" height="640" loading="lazy" decoding="async"></div><span class="win-stamp">Aprovada</span></li><li class="win" style="--dy: 20px;" data-clone="" aria-hidden="true"><div class="win-in"><img src="https://www.duduautoescolapatos.com.br/img/aprovados/08-360.webp" srcset="https://www.duduautoescolapatos.com.br/img/aprovados/08-360.webp 360w, site/www.duduautoescolapatos.com.br/img/aprovados/08.webp 576w" sizes="(min-width:760px) 320px, 220px" alt="Aluno aprovado segurando o comprovante ao lado de um instrutor" width="480" height="640" loading="lazy" decoding="async"></div><span class="win-stamp">Aprovado</span></li><li class="win" style="--dy: 8px;" data-clone="" aria-hidden="true"><div class="win-in"><img src="https://www.duduautoescolapatos.com.br/img/aprovados/01-360.webp" srcset="https://www.duduautoescolapatos.com.br/img/aprovados/01-360.webp 360w, https://www.duduautoescolapatos.com.br/img/aprovados/01-600.webp 600w, site/www.duduautoescolapatos.com.br/img/aprovados/01.webp 720w" sizes="(min-width:760px) 320px, 220px" alt="Aluna aprovada segurando o comprovante ao lado do instrutor e de um carro de aula da Dudu" width="480" height="640" loading="lazy" decoding="async"></div><span class="win-stamp">Aprovada</span></li><li class="win" style="--dy: 20px;" data-clone="" aria-hidden="true"><div class="win-in"><img src="https://www.duduautoescolapatos.com.br/img/aprovados/11-360.webp" srcset="https://www.duduautoescolapatos.com.br/img/aprovados/11-360.webp 360w, https://www.duduautoescolapatos.com.br/img/aprovados/11-600.webp 600w, site/www.duduautoescolapatos.com.br/img/aprovados/11.webp 720w" sizes="(min-width:760px) 320px, 220px" alt="Aluno aprovado segurando o comprovante ao lado de um instrutor e de um caminhão de aula da Dudu" width="480" height="640" loading="lazy" decoding="async"></div><span class="win-stamp">Aprovado</span></li><li class="win" style="--dy: 0px;" data-clone="" aria-hidden="true"><div class="win-in"><img src="https://www.duduautoescolapatos.com.br/img/aprovados/07-360.webp" srcset="https://www.duduautoescolapatos.com.br/img/aprovados/07-360.webp 360w, https://www.duduautoescolapatos.com.br/img/aprovados/07-600.webp 600w, site/www.duduautoescolapatos.com.br/img/aprovados/07.webp 720w" sizes="(min-width:760px) 320px, 220px" alt="Aluno aprovado mostrando o comprovante ao lado de um instrutor e de um carro de aula da Dudu" width="480" height="640" loading="lazy" decoding="async"></div><span class="win-stamp">Aprovado</span></li><li class="win" style="--dy: 8px;" data-clone="" aria-hidden="true"><div class="win-in"><img src="https://www.duduautoescolapatos.com.br/img/aprovados/09-360.webp" srcset="https://www.duduautoescolapatos.com.br/img/aprovados/09-360.webp 360w, https://www.duduautoescolapatos.com.br/img/aprovados/09-600.webp 600w, site/www.duduautoescolapatos.com.br/img/aprovados/09.webp 720w" sizes="(min-width:760px) 320px, 220px" alt="Aluna aprovada mostrando o comprovante ao lado de um instrutor, com um micro-ônibus da autoescola ao fundo" width="480" height="640" loading="lazy" decoding="async"></div><span class="win-stamp">Aprovada</span></li><li class="win" style="--dy: 0px;" data-clone="" aria-hidden="true"><div class="win-in"><img src="https://www.duduautoescolapatos.com.br/img/aprovados/03-360.webp" srcset="https://www.duduautoescolapatos.com.br/img/aprovados/03-360.webp 360w, https://www.duduautoescolapatos.com.br/img/aprovados/03-600.webp 600w, site/www.duduautoescolapatos.com.br/img/aprovados/03.webp 720w" sizes="(min-width:760px) 320px, 220px" alt="Aluna aprovada segurando o comprovante ao lado de um instrutor" width="480" height="640" loading="lazy" decoding="async"></div><span class="win-stamp">Aprovada</span></li><li class="win" style="--dy: 20px;" data-clone="" aria-hidden="true"><div class="win-in"><img src="https://www.duduautoescolapatos.com.br/img/aprovados/12-360.webp" srcset="https://www.duduautoescolapatos.com.br/img/aprovados/12-360.webp 360w, https://www.duduautoescolapatos.com.br/img/aprovados/12-600.webp 600w, site/www.duduautoescolapatos.com.br/img/aprovados/12.webp 720w" sizes="(min-width:760px) 320px, 220px" alt="Aluno aprovado mostrando o comprovante ao lado de um instrutor, com um micro-ônibus da autoescola ao fundo" width="480" height="640" loading="lazy" decoding="async"></div><span class="win-stamp">Aprovado</span></li><li class="win" style="--dy: 8px;" data-clone="" aria-hidden="true"><div class="win-in"><img src="https://www.duduautoescolapatos.com.br/img/aprovados/06-360.webp" srcset="https://www.duduautoescolapatos.com.br/img/aprovados/06-360.webp 360w, https://www.duduautoescolapatos.com.br/img/aprovados/06-600.webp 600w, site/www.duduautoescolapatos.com.br/img/aprovados/06.webp 720w" sizes="(min-width:760px) 320px, 220px" alt="Aluno aprovado segurando o comprovante ao lado de um instrutor e de um carro de aula da Dudu" width="480" height="640" loading="lazy" decoding="async"></div><span class="win-stamp">Aprovado</span></li><li class="win" style="--dy: 20px;" data-clone="" aria-hidden="true"><div class="win-in"><img src="https://www.duduautoescolapatos.com.br/img/aprovados/10-360.webp" srcset="https://www.duduautoescolapatos.com.br/img/aprovados/10-360.webp 360w, https://www.duduautoescolapatos.com.br/img/aprovados/10-600.webp 600w, site/www.duduautoescolapatos.com.br/img/aprovados/10.webp 720w" sizes="(min-width:760px) 320px, 220px" alt="Aluna aprovada segurando o comprovante ao lado de um instrutor e de um carro de aula da Dudu" width="480" height="640" loading="lazy" decoding="async"></div><span class="win-stamp">Aprovada</span></li><li class="win" style="--dy: 0px;" data-clone="" aria-hidden="true"><div class="win-in"><img src="https://www.duduautoescolapatos.com.br/img/aprovados/02-360.webp" srcset="https://www.duduautoescolapatos.com.br/img/aprovados/02-360.webp 360w, https://www.duduautoescolapatos.com.br/img/aprovados/02-600.webp 600w, site/www.duduautoescolapatos.com.br/img/aprovados/02.webp 720w" sizes="(min-width:760px) 320px, 220px" alt="Aluno aprovado segurando o comprovante ao lado de um instrutor e de um carro de aula da Dudu" width="480" height="640" loading="lazy" decoding="async"></div><span class="win-stamp">Aprovado</span></li><li class="win" style="--dy: 8px;" data-clone="" aria-hidden="true"><div class="win-in"><img src="https://www.duduautoescolapatos.com.br/img/aprovados/04-360.webp" srcset="https://www.duduautoescolapatos.com.br/img/aprovados/04-360.webp 360w, site/www.duduautoescolapatos.com.br/img/aprovados/04.webp 576w" sizes="(min-width:760px) 320px, 220px" alt="Aluna aprovada segurando o comprovante ao lado de um instrutor e de um carro de aula da Dudu" width="480" height="640" loading="lazy" decoding="async"></div><span class="win-stamp">Aprovada</span></li></ul>
+  </div>
+</section>
+
+<!-- DUVIDAS (FAQ): acordeão à direita; à esquerda, o palco com os veículos da frota. Cada pergunta tem data-v (man, ele, mot, bus, car)
+     e, ao abrir, o veículo correspondente entra no palco (js/main.js). Sem JS, todas as respostas ficam abertas e o primeiro veículo aparece.
+     Para incluir uma pergunta, copie um <li class="faq-item rv">, troque data-v, o texto e o id (faq-a9, faq-q9...). Só escreva o que a equipe confirmou. -->
+<section class="sec sec-ink faq" id="duvidas">
+  <div class="wrap faq-grid">
+    <div class="faq-side">
+      <div class="faq-head">
+        <p class="kicker k-y rv" data-from="l">Antes de começar</p>
+        <h2 class="h2 on-dark rv" data-from="l" style="--i:1">Dúvidas frequentes</h2>
+        <p class="sub on-dark rv" data-from="l" style="--i:2">Respostas rápidas sobre categorias, frota e como começar. O que depende da autoescola ou do Detran, a equipe confirma com você.</p>
+      </div>
+
+      <div class="faq-stage rv" data-from="l" style="--i:2" aria-hidden="true">
+        <img class="faq-car is-on" data-v="man" src="site/www.duduautoescolapatos.com.br/img/carro-manual-800.webp" srcset="site/www.duduautoescolapatos.com.br/img/carro-manual-480.webp 480w, site/www.duduautoescolapatos.com.br/img/carro-manual-800.webp 800w, site/www.duduautoescolapatos.com.br/img/carro-manual-1200.webp 1200w, https://www.duduautoescolapatos.com.br/img/carro-manual.webp 1536w" sizes="(min-width:600px) 540px, 92vw" alt="" width="1536" height="1024" loading="lazy" decoding="async">
+        <img class="faq-car" data-v="ele" src="site/www.duduautoescolapatos.com.br/img/carro-eletrico-800.webp" srcset="site/www.duduautoescolapatos.com.br/img/carro-eletrico-480.webp 480w, site/www.duduautoescolapatos.com.br/img/carro-eletrico-800.webp 800w, site/www.duduautoescolapatos.com.br/img/carro-eletrico-1200.webp 1200w, https://www.duduautoescolapatos.com.br/img/carro-eletrico.webp 1536w" sizes="(min-width:600px) 540px, 92vw" alt="" width="1536" height="1024" loading="lazy" decoding="async">
+        <img class="faq-car" data-v="mot" src="site/www.duduautoescolapatos.com.br/img/moto-800.webp" srcset="site/www.duduautoescolapatos.com.br/img/moto-480.webp 480w, site/www.duduautoescolapatos.com.br/img/moto-800.webp 800w, site/www.duduautoescolapatos.com.br/img/moto-1200.webp 1200w, https://www.duduautoescolapatos.com.br/img/moto.webp 1536w" sizes="(min-width:600px) 540px, 92vw" alt="" width="1536" height="1024" loading="lazy" decoding="async">
+        <img class="faq-car" data-v="bus" src="site/www.duduautoescolapatos.com.br/img/onibus-800.webp" srcset="site/www.duduautoescolapatos.com.br/img/onibus-480.webp 480w, site/www.duduautoescolapatos.com.br/img/onibus-800.webp 800w, site/www.duduautoescolapatos.com.br/img/onibus-1200.webp 1200w, https://www.duduautoescolapatos.com.br/img/onibus.webp 1536w" sizes="(min-width:600px) 540px, 92vw" alt="" width="1536" height="1024" loading="lazy" decoding="async">
+        <img class="faq-car" data-v="car" src="site/www.duduautoescolapatos.com.br/img/carreta-800.webp" srcset="site/www.duduautoescolapatos.com.br/img/carreta-480.webp 480w, site/www.duduautoescolapatos.com.br/img/carreta-800.webp 800w, site/www.duduautoescolapatos.com.br/img/carreta-1200.webp 1200w, https://www.duduautoescolapatos.com.br/img/carreta.webp 1536w" sizes="(min-width:600px) 540px, 92vw" alt="" width="1536" height="1024" loading="lazy" decoding="async">
+      </div>
+
+      <div class="faq-cta rv" data-from="l" style="--i:3">
+        <a class="btn btn-y" href="https://wa.me/5534991300500?text=Ol%C3%A1!%20Tenho%20uma%20d%C3%BAvida%20sobre%20a%20autoescola." target="_blank" rel="noopener"><svg class="ic"><use href="#i-wa"></use></svg><span>Ainda com dúvida? Chame a equipe</span></a>
+      </div>
+    </div>
+
+    <ul class="faq-list">
+      <li class="faq-item rv" data-from="r" data-v="man" style="--i:0">
+        <div class="faq-card">
+          <h3 class="faq-h"><button type="button" class="faq-q" id="faq-q1" aria-expanded="false" aria-controls="faq-a1"><span class="faq-t">Como faço para começar a tirar a CNH na Dudu?</span><span class="faq-i" aria-hidden="true"></span></button></h3>
+          <div class="faq-a" id="faq-a1" role="region" aria-labelledby="faq-q1"><div class="faq-a-in"><div class="faq-a-body">
+            <p>É só chamar a equipe pelo WhatsApp (34) 99130-0500, ligar para (34) 3821-3838 ou passar na autoescola, na R. Teófilo Otoni, 475, Centro, Patos de Minas. A equipe explica o caminho completo: matrícula, teoria, aulas práticas e exame. <a class="faq-link" href="#trilha">Ver as etapas</a></p>
+          </div></div></div>
+        </div>
+      </li>
+
+      <li class="faq-item rv" data-from="r" data-v="bus" style="--i:1">
+        <div class="faq-card">
+          <h3 class="faq-h"><button type="button" class="faq-q" id="faq-q2" aria-expanded="false" aria-controls="faq-a2"><span class="faq-t">Quais categorias de CNH a Dudu forma?</span><span class="faq-i" aria-hidden="true"></span></button></h3>
+          <div class="faq-a" id="faq-a2" role="region" aria-labelledby="faq-q2"><div class="faq-a-in"><div class="faq-a-body">
+            <p>A, B, AB, D e E: moto, carro, moto e carro, ônibus e carreta. As aulas são nos veículos da própria frota. <a class="faq-link" href="#categorias">Ver as categorias</a></p>
+          </div></div></div>
+        </div>
+      </li>
+
+      <li class="faq-item rv" data-from="r" data-v="ele" style="--i:2">
+        <div class="faq-card">
+          <h3 class="faq-h"><button type="button" class="faq-q" id="faq-q3" aria-expanded="false" aria-controls="faq-a3"><span class="faq-t">Tem autoescola com carro automático em Patos de Minas?</span><span class="faq-i" aria-hidden="true"></span></button></h3>
+          <div class="faq-a" id="faq-a3" role="region" aria-labelledby="faq-q3"><div class="faq-a-in"><div class="faq-a-body">
+            <p>Na Dudu, sim. A frota tem 4 carros automáticos elétricos (BYD) e 1 carro manual (Fiat Mobi). Você escolhe com qual quer aprender. <a class="faq-link" href="#frota">Conhecer a frota</a></p>
+          </div></div></div>
+        </div>
+      </li>
+
+      <li class="faq-item rv" data-from="r" data-v="mot" style="--i:3">
+        <div class="faq-card">
+          <h3 class="faq-h"><button type="button" class="faq-q" id="faq-q4" aria-expanded="false" aria-controls="faq-a4"><span class="faq-t">Para moto, tem aula em moto manual e semiautomática?</span><span class="faq-i" aria-hidden="true"></span></button></h3>
+          <div class="faq-a" id="faq-a4" role="region" aria-labelledby="faq-q4"><div class="faq-a-in"><div class="faq-a-body">
+            <p>Tem as duas: 4 motos Yamaha Factor, de câmbio manual, e 1 Honda Biz semiautomática, sem manete de embreagem. Você escolhe com qual quer aprender.</p>
+          </div></div></div>
+        </div>
+      </li>
+
+      <li class="faq-item rv" data-from="r" data-v="car" style="--i:0">
+        <div class="faq-card">
+          <h3 class="faq-h"><button type="button" class="faq-q" id="faq-q5" aria-expanded="false" aria-controls="faq-a5"><span class="faq-t">Quais documentos preciso para fazer a matrícula?</span><span class="faq-i" aria-hidden="true"></span></button></h3>
+          <div class="faq-a" id="faq-a5" role="region" aria-labelledby="faq-q5"><div class="faq-a-in"><div class="faq-a-body">
+            <p>Para o cadastro na autoescola, leve documento de identidade e comprovante de endereço, e informe um e-mail e um telefone. A lista pode mudar conforme a categoria e as exigências do Detran, então confirme com a equipe antes de ir.</p>
+          </div></div></div>
+        </div>
+      </li>
+
+      <li class="faq-item rv" data-from="r" data-v="ele" style="--i:1">
+        <div class="faq-card">
+          <h3 class="faq-h"><button type="button" class="faq-q" id="faq-q6" aria-expanded="false" aria-controls="faq-a6"><span class="faq-t">Quanto custa tirar a CNH e como posso pagar?</span><span class="faq-i" aria-hidden="true"></span></button></h3>
+          <div class="faq-a" id="faq-a6" role="region" aria-labelledby="faq-q6"><div class="faq-a-in"><div class="faq-a-body">
+            <p>Os valores e as formas de pagamento são passados pela equipe, direto no WhatsApp ou na autoescola. Conte qual categoria você quer e peça os valores atualizados.</p>
+          </div></div></div>
+        </div>
+      </li>
+
+      <li class="faq-item rv" data-from="r" data-v="man" style="--i:2">
+        <div class="faq-card">
+          <h3 class="faq-h"><button type="button" class="faq-q" id="faq-q7" aria-expanded="false" aria-controls="faq-a7"><span class="faq-t">Quantas aulas práticas preciso fazer e quanto tempo leva?</span><span class="faq-i" aria-hidden="true"></span></button></h3>
+          <div class="faq-a" id="faq-a7" role="region" aria-labelledby="faq-q7"><div class="faq-a-in"><div class="faq-a-body">
+            <p>A carga horária mínima obrigatória de aulas práticas é de 2 horas. A quantidade de aulas, os horários e o prazo são combinados com a equipe, conforme a categoria e a sua disponibilidade. O atendimento é de segunda a sexta, das 7h às 19h.</p>
+          </div></div></div>
+        </div>
+      </li>
+
+      <li class="faq-item rv" data-from="r" data-v="ele" style="--i:3">
+        <div class="faq-card">
+          <h3 class="faq-h"><button type="button" class="faq-q" id="faq-q8" aria-expanded="false" aria-controls="faq-a8"><span class="faq-t">Como ficou a CNH com as novas regras?</span><span class="faq-i" aria-hidden="true"></span></button></h3>
+          <div class="faq-a" id="faq-a8" role="region" aria-labelledby="faq-q8"><div class="faq-a-in"><div class="faq-a-body">
+            <p>Com a Resolução nº 1.020/2025 do Contran, o curso teórico passou a ser feito pelo aplicativo CNH do Brasil e a carga mínima obrigatória de aulas práticas ficou em 2 horas. As provas e a emissão da habilitação continuam com o Detran-MG. Na Dudu, as aulas práticas são com instrutor e nos veículos da frota.</p>
+          </div></div></div>
+        </div>
+      </li>
+
+      <li class="faq-item rv" data-from="r" data-v="car" style="--i:0">
+        <div class="faq-card">
+          <h3 class="faq-h"><button type="button" class="faq-q" id="faq-q9" aria-expanded="false" aria-controls="faq-a9"><span class="faq-t">Já sou habilitado. Posso tirar a CNH de ônibus ou carreta?</span><span class="faq-i" aria-hidden="true"></span></button></h3>
+          <div class="faq-a" id="faq-a9" role="region" aria-labelledby="faq-q9"><div class="faq-a-in"><div class="faq-a-body">
+            <p>Ônibus (D) e carreta (E) são adição ou mudança de categoria: pelo Código de Trânsito, só pode fazer quem já é habilitado e tem o tempo mínimo de habilitação na categoria anterior. A Dudu tem micro-ônibus Volare e carreta Agrale para as aulas. Chame a equipe para conferir se você já pode começar.</p>
+          </div></div></div>
+        </div>
+      </li>
+
+      <li class="faq-item rv" data-from="r" data-v="bus" style="--i:1">
+        <div class="faq-card">
+          <h3 class="faq-h"><button type="button" class="faq-q" id="faq-q10" aria-expanded="false" aria-controls="faq-a10"><span class="faq-t">Quem marca o exame e emite a habilitação?</span><span class="faq-i" aria-hidden="true"></span></button></h3>
+          <div class="faq-a" id="faq-a10" role="region" aria-labelledby="faq-q10"><div class="faq-a-in"><div class="faq-a-body">
+            <p>Datas e agendamento do exame são do Detran, assim como a emissão da habilitação. A Dudu acompanha o caminho até lá e prepara você, nas aulas, para o exame de rua.</p>
+          </div></div></div>
+        </div>
+      </li>
+
+      <li class="faq-item rv" data-from="r" data-v="man" style="--i:2">
+        <div class="faq-card">
+          <h3 class="faq-h"><button type="button" class="faq-q" id="faq-q11" aria-expanded="false" aria-controls="faq-a11"><span class="faq-t">Onde fica a Autoescola Dudu e qual o horário?</span><span class="faq-i" aria-hidden="true"></span></button></h3>
+          <div class="faq-a" id="faq-a11" role="region" aria-labelledby="faq-q11"><div class="faq-a-in"><div class="faq-a-body">
+            <p>Na R. Teófilo Otoni, 475, Centro, Patos de Minas, MG, CEP 38700-056. O atendimento é de segunda a sexta, das 7h às 19h. Telefone (34) 3821-3838 e WhatsApp (34) 99130-0500. <a class="faq-link" href="#onde">Ver no mapa</a></p>
+          </div></div></div>
+        </div>
+      </li>
+    </ul>
+  </div>
+</section>
+
+<!-- ONDE -->
+<section class="sec sec-light" id="onde">
+  <img class="onde-car onde-car-l" src="site/www.duduautoescolapatos.com.br/img/carro-manual-800.webp" srcset="site/www.duduautoescolapatos.com.br/img/carro-manual-480.webp 480w, site/www.duduautoescolapatos.com.br/img/carro-manual-800.webp 800w, site/www.duduautoescolapatos.com.br/img/carro-manual-1200.webp 1200w, https://www.duduautoescolapatos.com.br/img/carro-manual.webp 1536w" sizes="22vw" alt="" width="1536" height="1024" loading="lazy" decoding="async" aria-hidden="true">
+  <img class="onde-car onde-car-r" src="site/www.duduautoescolapatos.com.br/img/carro-eletrico-800.webp" srcset="site/www.duduautoescolapatos.com.br/img/carro-eletrico-480.webp 480w, site/www.duduautoescolapatos.com.br/img/carro-eletrico-800.webp 800w, site/www.duduautoescolapatos.com.br/img/carro-eletrico-1200.webp 1200w, https://www.duduautoescolapatos.com.br/img/carro-eletrico.webp 1536w" sizes="22vw" alt="" width="1536" height="1024" loading="lazy" decoding="async" aria-hidden="true">
+  <div class="wrap where">
+    <div class="where-head">
+      <p class="kicker rv" data-from="l">Onde fica</p>
+      <h2 class="h2 rv" data-from="l" style="--i:1">Autoescola no Centro de Patos de Minas</h2>
+    </div>
+    <figure class="where-pic rv" data-from="r">
+      <div class="fl-img"><img src="https://www.duduautoescolapatos.com.br/img/faxada-autoescola-800.webp" srcset="https://www.duduautoescolapatos.com.br/img/faxada-autoescola-800.webp 800w, site/www.duduautoescolapatos.com.br/img/faxada-autoescola-1280.webp 1280w, site/www.duduautoescolapatos.com.br/img/faxada-autoescola.webp 1920w" sizes="(min-width:1044px) 980px, calc(100vw - 40px)" width="1920" height="2560" decoding="async" loading="lazy" alt="Fachada da Autoescola Dudu na R. Teófilo Otoni, 475, Centro de Patos de Minas, com a placa Credenciado pelo Detran-MG e um carro de aula na entrada"></div>
+    </figure>
+    <div class="where-txt">
+      <address class="rv" data-from="l" style="--i:2">
+      <ul class="info">
+        <li><svg class="ic"><use href="#i-pin"></use></svg><span>R. Teófilo Otoni, 475, Centro, Patos de Minas, MG, 38700-056</span></li>
+        <li><svg class="ic"><use href="#i-tel"></use></svg><span>(34) 3821-3838 (fixo)</span></li>
+        <li><svg class="ic"><use href="#i-wa"></use></svg><span>WhatsApp (34) 99130-0500</span></li>
+      </ul>
+      </address>
+      <div class="cta-row rv" data-from="l" style="--i:4">
+        <a class="btn btn-r" href="https://wa.me/5534991300500?text=Ol%C3%A1!%20Quero%20saber%20como%20funciona%20para%20tirar%20a%20habilita%C3%A7%C3%A3o." target="_blank" rel="noopener"><svg class="ic"><use href="#i-wa"></use></svg><span>Chamar no WhatsApp</span></a>
+        <a class="btn btn-k" href="tel:+553438213838"><svg class="ic"><use href="#i-tel"></use></svg><span>Ligar</span></a>
+        <a class="btn btn-line" href="https://www.google.com/maps/search/?api=1&amp;query=R.+Te%C3%B3filo+Otoni%2C+475%2C+Patos+de+Minas+MG" target="_blank" rel="noopener"><svg class="ic"><use href="#i-pin"></use></svg><span>Abrir no Maps</span></a>
+      </div>
+      <p class="hours rv" data-from="l" style="--i:4"><strong>Horário:</strong> Atendimento de segunda a sexta, das 7h às 19h.</p>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer class="foot">
+  <div class="wrap foot-in">
+    <a class="foot-logo" href="#topo" aria-label="DuDu Centro de Formação de Condutores, voltar ao topo"><img src="site/www.duduautoescolapatos.com.br/img/logo-dudu-sem-fundo-880.webp" width="949" height="409" loading="lazy" decoding="async" alt="Logo DuDu Centro de Formação de Condutores"></a>
+
+    <div class="foot-cols">
+      <nav class="foot-col" aria-label="Navegação do rodapé">
+        <h3 class="foot-h">Navegação</h3>
+        <ul>
+          <li><a href="#categorias">Categorias</a></li>
+          <li><a href="#frota">Frota</a></li>
+          <li><a href="#trilha">Etapas</a></li>
+          <li><a href="#avaliacoes">Avaliações</a></li>
+          <li><a href="#duvidas">Dúvidas</a></li>
+          <li><a href="#onde">Onde fica</a></li>
+        </ul>
+      </nav>
+
+      <div class="foot-col">
+        <h3 class="foot-h">Contato</h3>
+        <ul>
+          <li><svg class="ic"><use href="#i-pin"></use></svg><a href="https://www.google.com/maps/search/?api=1&amp;query=R.+Te%C3%B3filo+Otoni%2C+475%2C+Patos+de+Minas+MG" target="_blank" rel="noopener">R. Teófilo Otoni, 475, Centro<br>Patos de Minas, MG, 38700-056</a></li>
+          <li><svg class="ic"><use href="#i-tel"></use></svg><a href="tel:+553438213838">(34) 3821-3838</a></li>
+          <li><svg class="ic"><use href="#i-wa"></use></svg><a href="https://wa.me/5534991300500?text=Ol%C3%A1!%20Quero%20saber%20como%20funciona%20para%20tirar%20a%20habilita%C3%A7%C3%A3o." target="_blank" rel="noopener">(34) 99130-0500</a></li>
+          <li><span class="foot-hours">Segunda a sexta, das 7h às 19h</span></li>
+        </ul>
+      </div>
+
+      <div class="foot-col">
+        <h3 class="foot-h">Redes sociais</h3>
+        <ul>
+          <li><svg class="ic"><use href="#i-ig"></use></svg><a href="https://www.instagram.com/autoescoladudupatos/" target="_blank" rel="noopener">@autoescoladudupatos</a></li>
+          <li><svg class="ic"><use href="#i-wa"></use></svg><a href="https://wa.me/5534991300500?text=Ol%C3%A1!%20Quero%20saber%20como%20funciona%20para%20tirar%20a%20habilita%C3%A7%C3%A3o." target="_blank" rel="noopener">WhatsApp</a></li>
+          <li><svg class="ic"><use href="#i-pin"></use></svg><a href="https://www.google.com/maps/search/?api=1&amp;query=R.+Te%C3%B3filo+Otoni%2C+475%2C+Patos+de+Minas+MG" target="_blank" rel="noopener">Google Maps</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="foot-bottom">
+      <p class="foot-copy">Autoescola Dudu, Centro de Formação de Condutores credenciado pelo Detran-MG, em Patos de Minas, MG.</p>
+      <p class="foot-copy">© 2026 Centro de Formação de Condutores Dudu. Todos os direitos reservados.</p>
+    </div>
+  </div>
+</footer>
+
+<a class="fab" href="https://wa.me/5534991300500?text=Ol%C3%A1!%20Quero%20saber%20como%20funciona%20para%20tirar%20a%20habilita%C3%A7%C3%A3o." target="_blank" rel="noopener" aria-label="Chamar no WhatsApp"><svg class="ic"><use href="#i-wa"></use></svg></a>
+
+<!-- --nav-h: altura real da header. O ResizeObserver mede depois do layout e antes da pintura (sem forçar um layout extra) e só grava se for diferente dos 66px padrão do CSS -->
+
+<!-- fotos dos modelos da frota (preenchido por js/main.js ao clicar num .mc-open) -->
+<dialog class="gal" id="gal" aria-labelledby="gal-title">
+  <div class="gal-box">
+    <div class="gal-head">
+      <h3 class="gal-title" id="gal-title"></h3>
+      <button type="button" class="gal-x" aria-label="Fechar fotos">×</button>
+    </div>
+    <div class="gal-stage">
+      <ul class="gal-track" tabindex="0" aria-label="Fotos do modelo"></ul>
+      <button type="button" class="gal-nav gal-prev" aria-label="Foto anterior">‹</button>
+      <button type="button" class="gal-nav gal-next" aria-label="Próxima foto">›</button>
+    </div>
+    <div class="gal-foot">
+      <p class="gal-n" aria-live="polite"></p>
+      <div class="gal-dots" aria-hidden="true"></div>
+    </div>
+  </div>
+</dialog>
+
+<div class="sb"><div class="sb-t" style="height: 51.5891px; transform: translateY(0px);"></div></div>
+
+
+<div data-wd3-banner style="position:fixed;z-index:2147483647;left:16px;bottom:16px;max-width:min(560px,calc(100vw - 32px));align-items:center;gap:12px;padding:12px 14px;border-radius:12px;background:rgba(5,5,5,.92);color:#e8e8e8;border:1px solid #1d1d1d;box-shadow:0 8px 30px rgba(0,0,0,.35);font:13px/1.45 ui-sans-serif,system-ui,-apple-system,'Segoe UI',sans-serif;backdrop-filter:blur(8px)">
+  <span style="width:8px;height:8px;border-radius:50%;background:#00ffa3;flex:none"></span>
+  <span>Versão estática, sem animações. Para ver o site vivo, rode no terminal, nesta pasta: <b style="color:#00ffa3">python3 serve.py --open</b> (Windows: <b style="color:#00ffa3">py serve.py --open</b>). Passo a passo em <b style="color:#00ffa3">Como rodar.md</b>.</span>
+  <button type="button" onclick="this.parentNode.remove()" aria-label="Fechar" style="flex:none;background:none;border:0;color:#8a8a8a;font-size:18px;cursor:pointer;padding:0 2px">×</button>
+</div>
+</body></html>

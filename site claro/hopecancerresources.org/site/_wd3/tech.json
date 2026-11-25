@@ -1,0 +1,56 @@
+{
+ "builders": [
+  "wordpress"
+ ],
+ "libraries": [
+  {
+   "name": "jquery",
+   "version": "1.8.3",
+   "sources": [
+    "página",
+    "https://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.8.3.js"
+   ]
+  },
+  {
+   "name": "vimeo player",
+   "version": null,
+   "sources": [
+    "https://player.vimeo.com/video/1162686214?badge=0?autoplay=1&background=1&badge=0&player_id=0&app_id=58479"
+   ]
+  }
+ ],
+ "runtime": {
+  "contexts": {},
+  "wasm": 0,
+  "workers": 1,
+  "webgpu": false,
+  "shadowRoots": 0,
+  "canvases": 0
+ },
+ "cssFeatures": [],
+ "fonts": {
+  "families": [
+   "BrandonText",
+   "SourceSans",
+   "EightiesComebackIt"
+  ],
+  "sources": [
+   "self-hosted"
+  ]
+ },
+ "videos": [
+  {
+   "src": "",
+   "kind": "conteúdo",
+   "reason": "player de plataforma (iframe vimeo.com)",
+   "hosting": "plataforma",
+   "action": "fica online (plataforma)"
+  }
+ ],
+ "files": {
+  "text": 9,
+  "font": 8,
+  "image": 64,
+  "application": 9
+ }
+}

@@ -1,0 +1,29 @@
+
+/* ===== Hero (text left, donut right): brand display face with a sticker shadow, new copy, two calls to action ===== */
+.hero h1{font-family:var(--display);font-weight:400;font-size:clamp(64px,min(9.6vw,15.5svh),168px);line-height:.86;letter-spacing:-.01em;color:var(--cream);text-shadow:.032em .042em 0 var(--ink);margin:0 0 30px}
+.hero h1 em{color:var(--yellow);text-shadow:.032em .042em 0 var(--ink)}
+.hero h1 .ch{display:inline-block;transform:translateY(.55em) rotate(4deg);opacity:0;transition:transform 1s cubic-bezier(.2,.9,.2,1.15),opacity .6s ease;transition-delay:calc(var(--k) * 45ms + .1s)}
+.scene-ready .hero h1 .ch,.no-webgl .hero h1 .ch{transform:none;opacity:1}
+.hero .description{max-width:430px;font-size:17px;line-height:1.55;opacity:1;margin:0 0 30px}
+.hero .description b{display:block;font-family:var(--display);font-weight:400;font-size:27px;line-height:1.1;margin-bottom:8px}
+.hero-ctas{display:flex;align-items:center;gap:12px;flex-wrap:wrap}
+.hero .hero-ctas .button{position:relative;left:auto;right:auto;bottom:auto;min-height:64px;font-size:17px;padding:8px 8px 8px 28px;gap:20px;box-shadow:0 18px 40px -16px rgba(23,60,49,.75)}
+.hero .hero-ctas .button .arw{width:48px;height:48px}
+.hero .hero-ctas .button:not(:hover)>.arw{animation:hero-nudge 2.6s cubic-bezier(.3,.7,.3,1) infinite 1.8s}
+@keyframes hero-nudge{0%,70%,100%{transform:none}78%{transform:translate(3px,-3px)}86%{transform:none}}
+.hero-ghost{display:inline-flex;align-items:center;min-height:64px;padding:0 26px;border-radius:999px;border:2px solid var(--ink);color:var(--ink);font-weight:700;font-size:16px;text-decoration:none;background:rgba(255,250,240,.35);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);transition:background .3s,transform .35s cubic-bezier(.2,.9,.25,1.25)}
+.hero-ghost:hover{background:var(--cream);transform:translateY(-3px)}
+.hero-ghost:focus-visible{outline:3px solid var(--ink);outline-offset:4px}
+.hero-sprinkles{position:absolute;inset:0;width:100%;height:100%;pointer-events:none}
+.hero-sprinkles.front{z-index:2}
+@media(max-height:760px) and (min-width:801px){.hero .description{margin-bottom:20px;font-size:15px}.hero .description b{font-size:22px}.hero h1{margin-bottom:20px}}
+@media(max-width:800px){
+.hero h1{font-size:clamp(56px,19vw,100px);margin:0 0 14px}
+.hero .description{font-size:15px;margin:0;max-width:62vw}
+.hero .description b{font-size:20px;margin-bottom:4px}
+.hero-ctas{position:absolute;top:calc(100svh - 100px - 78px);left:0;right:0;width:100%}
+.hero-ghost{display:none}
+.hero .hero-ctas .button{flex:1;min-height:58px;font-size:16px}
+.hero .hero-ctas .button .arw{width:42px;height:42px}
+}
+@media(prefers-reduced-motion:reduce){.hero h1 .ch{transition:none;transform:none;opacity:1}.hero .hero-ctas .button>.arw{animation:none!important}}

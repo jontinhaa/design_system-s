@@ -1,0 +1,40 @@
+
+.orbit-dot {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 80px;
+  height: 80px;
+  margin: -40px 0 0 -40px;
+  transform: rotate(calc(var(--angle) + var(--ring-rotation, 0deg)))
+             translateX(var(--orbit-radius))
+             rotate(90deg);
+}
+.circle.is--small {
+  --orbit-radius: 17.78vw;
+}
+.circle.is--medium {
+  --orbit-radius: 32.78vw;
+}
+.circle.is--large {
+  --orbit-radius: 47.78vw;
+}
+@media screen and (max-width: 1200px) {
+  .circle.is--small {
+    --orbit-radius: 29.04vw;
+  }
+  .circle.is--medium {
+    --orbit-radius: 49.04vw;
+  }
+  .circle.is--large {
+    display: none;
+  }
+}
+@media screen and (max-width: 767px) {
+  .circle.is--small {
+    --orbit-radius: 215px;
+  }
+  .circle.is--medium {
+    --orbit-radius: 365px;
+  }
+}

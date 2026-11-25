@@ -1,0 +1,36 @@
+{
+ "builders": [
+  "wordpress"
+ ],
+ "libraries": [],
+ "runtime": {
+  "contexts": {
+   "2d": 14
+  },
+  "wasm": 0,
+  "workers": 1,
+  "webgpu": false,
+  "shadowRoots": 0,
+  "canvases": 14
+ },
+ "cssFeatures": [
+  "scroll-driven animations"
+ ],
+ "fonts": {
+  "families": [
+   "neue-haas-grotesk-display",
+   "Satoshi"
+  ],
+  "sources": [
+   "adobe typekit",
+   "self-hosted"
+  ]
+ },
+ "videos": [],
+ "files": {
+  "application": 7,
+  "text": 4,
+  "image": 30,
+  "font": 2
+ }
+}

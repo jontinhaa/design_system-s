@@ -1,0 +1,1 @@
+import{I as e,It as t,f as n}from"./CVqvTHbZ.js";import{t as r}from"./BDNMzG2s.js";var i={class:`base-title`},a=r({__name:`BaseTitle`,props:{title:String},setup(r){return(a,o)=>(e(),n(`h2`,i,t(r.title),1))}},[[`__scopeId`,`data-v-4a4379f9`]]);export{a as t};

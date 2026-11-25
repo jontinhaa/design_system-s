@@ -1,0 +1,1 @@
+import{t as e}from"./yGrUTzAm.js";var t={rating:null,userRatingCount:0,mapsUri:``,reviews:[]};function n(){return e(`/api/google-reviews`,{key:`google-reviews`,default:()=>({...t})},`$Lo9hFN-IvZ`)}export{n as t};

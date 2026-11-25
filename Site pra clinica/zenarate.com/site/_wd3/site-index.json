@@ -1,0 +1,2604 @@
+{
+ "version": 1,
+ "tool": "wd3 0.1.0",
+ "captureId": "zenarate.com-2d7f0457",
+ "capturedAt": "2026-10-26T19:46:17+00:00",
+ "entry": {
+  "url": "https://www.zenarate.com/",
+  "path": "/",
+  "search": "",
+  "file": "site/www.zenarate.com/index.html",
+  "contentType": "text/html; charset=utf-8"
+ },
+ "blocked": [
+  "^https?://([^/?#]+\\.)?(google\\-analytics\\.com|analytics\\.google\\.com|googletagmanager\\.com|googleadservices\\.com|doubleclick\\.net|googlesyndication\\.com|googleoptimize\\.com|connect\\.facebook\\.net|bat\\.bing\\.com|snap\\.licdn\\.com|px\\.ads\\.linkedin\\.com|analytics\\.tiktok\\.com|ct\\.pinterest\\.com|static\\.ads\\-twitter\\.com|analytics\\.twitter\\.com|tr\\.snapchat\\.com|sc\\-static\\.net|mc\\.yandex\\.ru|hotjar\\.com|hotjar\\.io|clarity\\.ms|cdn\\.segment\\.com|api\\.segment\\.io|cdn\\.mxpnl\\.com|api\\-js\\.mixpanel\\.com|api\\.mixpanel\\.com|api\\.amplitude\\.com|api2\\.amplitude\\.com|api\\-secure\\.amplitude\\.com|api\\-sr\\.amplitude\\.com|sr\\-client\\-cfg\\.amplitude\\.com|plausible\\.io|cloud\\.umami\\.is|analytics\\.umami\\.is|static\\.cloudflareinsights\\.com|cloudflareinsights\\.com|vitals\\.vercel\\-insights\\.com|browser\\-intake\\-datadoghq\\.com|browser\\-intake\\-datadoghq\\.eu|js\\-agent\\.newrelic\\.com|bam\\.nr\\-data\\.net|bam\\-cell\\.nr\\-data\\.net|fullstory\\.com|script\\.crazyegg\\.com|mouseflow\\.com|smartlook\\.com|heapanalytics\\.com|i\\.posthog\\.com|stats\\.wp\\.com|pixel\\.wp\\.com|promotekit\\.com|ingest\\.sentry\\.io|ingest\\.us\\.sentry\\.io|ingest\\.de\\.sentry\\.io|widget\\.intercom\\.io|js\\.intercomcdn\\.com|api\\-iam\\.intercom\\.io|js\\.hs\\-scripts\\.com|js\\.hs\\-analytics\\.net|js\\.hs\\-banner\\.com|js\\.hscollectedforms\\.net|js\\.usemessages\\.com|track\\.hubspot\\.com|client\\.crisp\\.chat|embed\\.tawk\\.to|js\\.driftt\\.com|static\\.zdassets\\.com|ekr\\.zdassets\\.com|cdn\\.cookielaw\\.org|geolocation\\.onetrust\\.com|consent\\.cookiebot\\.com|consentcdn\\.cookiebot\\.com|app\\.usercentrics\\.eu|api\\.usercentrics\\.eu|cdn\\.iubenda\\.com|cmp\\.osano\\.com|cdn\\.termly\\.io)(:\\d+)?([/?#]|$)",
+  "/rpc/increment_shared_code_views",
+  "^https?://(umami|analytics|stats|plausible)\\.[^/]+/(api/send|api/collect|api/event|script\\.js)",
+  "/g/c(ollect)?\\?v=2&",
+  "sentry\\.io/api/\\d+/(envelope|store)",
+  "/api/meta-capi",
+  "^https?://(leadtracker|tracking|track|events?|collect)\\.[^/]+/",
+  "^https?://a\\.vturb\\.com/",
+  "facebook\\.com/tr[/?]",
+  "/_vercel/(speed-)?insights/",
+  "/cdn-cgi/rum",
+  "/cdn-cgi/challenge-platform/",
+  "google\\.com/(pagead|ads)/"
+ ],
+ "volatileParams": [
+  "v",
+  "_rsc",
+  "dpl",
+  "_",
+  "t",
+  "ts",
+  "timestamp",
+  "cb",
+  "cachebust",
+  "cacheBust",
+  "nocache",
+  "rnd",
+  "rand",
+  "random",
+  "_t"
+ ],
+ "entries": [
+  {
+   "url": "https://www.zenarate.com/",
+   "method": "GET",
+   "status": 200,
+   "contentType": "text/html; charset=utf-8",
+   "headers": {
+    "content-type": "text/html; charset=utf-8",
+    "link": "<https://cdn.prod.website-files.com>; rel=preconnect; crossorigin, <https://cdn.prod.website-files.com/6aaaa33647246359b83375c4/css/zenarate-staging.webflow.shared.9665a9e7d.css>; rel=preload; as=style; crossorigin; integrity=\"sha384-lmWp59+MAGjlR2PzTAXgXSXo6JRYcG1p9wR8yMVbnDtzZ3lnECPsBXPaYfKYGDCv\", <https://fonts.googleapis.com>; rel=preconnect, <https://fonts.gstatic.com>; rel=preconnect; crossorigin, <https://unpkg.com/lenis@1.3.25/dist/lenis.css>; rel=preload; as=style, <https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css>; rel=preload; as=style",
+    "o2o-cache-status": "HIT",
+    "surrogate-control": "max-age=432000",
+    "surrogate-key": "www.zenarate.com 6aaaa33647246359b83375c4 pageId:6aaaa33647246359b833758e 6aaaa33647246359b83375e7 6aaaa33647246359b833760d 6aaaa33647246359b833764f 6aaaa33647246359b8337661 6aaaa33647246359b8337634 6aaaa33647246359b8337673 6aaaa33647246359b8337677 6aaaa33647246359b8337679",
+    "x-lambda-id": "ae711707-600c-4cbf-97c0-78ea44b27869",
+    "x-wf-region": "us-east-1"
+   },
+   "resourceType": "document",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "file": "site/www.zenarate.com/index.html",
+   "size": 530020,
+   "modes": [
+    "navigate"
+   ]
+  },
+  {
+   "url": "https://cdn.prod.website-files.com/6aaaa33647246359b83375c4/css/zenarate-staging.webflow.shared.9665a9e7d.css",
+   "method": "GET",
+   "status": 200,
+   "contentType": "text/css",
+   "headers": {
+    "access-control-allow-methods": "GET, HEAD",
+    "access-control-allow-origin": "*",
+    "access-control-max-age": "3000",
+    "content-type": "text/css",
+    "priority": "u=0,i=?0",
+    "x-amz-id-2": "2IK5uY1mj4tBJHgMb756iCZ1OJG7nl/yGq2TNiSjjxylUxDBgmUtZmy2mrtbi7ezF+qMSPzj+v4=",
+    "x-amz-request-id": "1080ZJC4745DE9CR",
+    "x-amz-server-side-encryption": "AES256",
+    "x-amz-version-id": "mya4Ma9xt5tjLYFDrhdTfk9TxwM1vkcz"
+   },
+   "resourceType": "stylesheet",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "file": "site/cdn.prod.website-files.com/6aaaa33647246359b83375c4/css/zenarate-staging.webflow.shared.9665a9e7d.css",
+   "size": 140776,
+   "modes": [
+    "cors"
+   ]
+  },
+  {
+   "url": "https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css",
+   "method": "GET",
+   "status": 200,
+   "contentType": "text/css; charset=utf-8",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "access-control-expose-headers": "*",
+    "content-type": "text/css; charset=utf-8",
+    "timing-allow-origin": "*",
+    "x-jsd-version": "11.2.10",
+    "x-jsd-version-type": "version"
+   },
+   "resourceType": "stylesheet",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "file": "site/cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css",
+   "size": 18454,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://unpkg.com/lenis@1.3.25/dist/lenis.css",
+   "method": "GET",
+   "status": 200,
+   "contentType": "text/css; charset=utf-8",
+   "headers": {
+    "access-control-allow-headers": "*",
+    "access-control-allow-methods": "GET, HEAD, OPTIONS",
+    "access-control-allow-origin": "*",
+    "access-control-expose-headers": "*",
+    "content-digest": "sha256=:L2aK6EpmgyfyRvr4p3A4Oiv2kZbSFCkPvE1VSJEGBsU=:",
+    "content-type": "text/css; charset=utf-8",
+    "fly-request-id": "01KZZ7VADKKT600C5433EWFC1J-dfw",
+    "priority": "u=0,i=?0"
+   },
+   "resourceType": "stylesheet",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "file": "site/unpkg.com/lenis@1.3.25/dist/lenis.css",
+   "size": 513,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://cdn.prod.website-files.com/6aaaa33647246359b83375c4/6ac612ccac0747e25eae8a43_HomeFallback%20Desktop.webp",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/webp",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "content-type": "image/webp",
+    "priority": "u=2,i",
+    "x-amz-id-2": "Igf2m4SkjB4MzLlkrQ2wOvJA0U55M3OMB8MCVNTsSEUwPDwp1AzSq6ASo9RwLKS6P8KoZ2/yyvQ=",
+    "x-amz-request-id": "Q360NFHZPSESAZKZ",
+    "x-amz-server-side-encryption": "AES256",
+    "x-amz-version-id": "9g0SekQmZtgWIGAgSGaeJRJlHH9cWyEZ"
+   },
+   "resourceType": "image",
+   "passes": [
+    "desktop"
+   ],
+   "file": "site/cdn.prod.website-files.com/6aaaa33647246359b83375c4/6ac612ccac0747e25eae8a43_HomeFallback Desktop.webp",
+   "size": 79190,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://ajax.googleapis.com/ajax/libs/webfont/1.6.26/webfont.js",
+   "method": "GET",
+   "status": 200,
+   "contentType": "text/javascript; charset=UTF-8",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "content-type": "text/javascript; charset=UTF-8",
+    "timing-allow-origin": "*"
+   },
+   "resourceType": "script",
+   "passes": [
+    "mobile",
+    "desktop"
+   ],
+   "file": "site/ajax.googleapis.com/ajax/libs/webfont/1.6.26/webfont.js",
+   "size": 13188,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://unpkg.com/lenis@1.3.25/dist/lenis.min.js",
+   "method": "GET",
+   "status": 200,
+   "contentType": "text/javascript; charset=utf-8",
+   "headers": {
+    "access-control-allow-headers": "*",
+    "access-control-allow-methods": "GET, HEAD, OPTIONS",
+    "access-control-allow-origin": "*",
+    "access-control-expose-headers": "*",
+    "content-digest": "sha256=:089N5P768VgMQqBLsaozJstZrsGwo9QuB5NzMc9yego=:",
+    "content-type": "text/javascript; charset=utf-8",
+    "fly-request-id": "01KZ8D3PZ6MAVWX7JZ5VVQC8FG-iad",
+    "priority": "u=1,i=?0"
+   },
+   "resourceType": "script",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "file": "site/unpkg.com/lenis@1.3.25/dist/lenis.min.js",
+   "size": 18429,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js",
+   "method": "GET",
+   "status": 200,
+   "contentType": "application/javascript; charset=utf-8",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "access-control-expose-headers": "*",
+    "content-type": "application/javascript; charset=utf-8",
+    "timing-allow-origin": "*",
+    "x-jsd-version": "3.12.5",
+    "x-jsd-version-type": "version"
+   },
+   "resourceType": "script",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "file": "site/cdn.jsdelivr.net/npm/gsap@3.12.5/dist/ScrollTrigger.min.js",
+   "size": 43380,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js",
+   "method": "GET",
+   "status": 200,
+   "contentType": "application/javascript; charset=utf-8",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "access-control-expose-headers": "*",
+    "content-type": "application/javascript; charset=utf-8",
+    "timing-allow-origin": "*",
+    "x-jsd-version": "3.12.5",
+    "x-jsd-version-type": "version"
+   },
+   "resourceType": "script",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "file": "site/cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js",
+   "size": 72214,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://cdn.jsdelivr.net/npm/gsap@3.15/dist/gsap.min.js",
+   "method": "GET",
+   "status": 200,
+   "contentType": "application/javascript; charset=utf-8",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "access-control-expose-headers": "*",
+    "content-type": "application/javascript; charset=utf-8",
+    "timing-allow-origin": "*",
+    "x-jsd-version": "3.15.0",
+    "x-jsd-version-type": "version"
+   },
+   "resourceType": "script",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "file": "site/cdn.jsdelivr.net/npm/gsap@3.15/dist/gsap.min.js",
+   "size": 72927,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://cdn.prod.website-files.com/6aaaa33647246359b83375c4/6ac612ccac0747e25eae8a43_HomeFallback%20Desktop-p-1600.webp",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/webp",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "content-type": "image/webp",
+    "priority": "u=2,i",
+    "x-amz-id-2": "SOU+ca/I/eCpFwwbSuzAwka9SMyK7WK/UL4zOIK/68kj3hWjMwDaMy2CXFSPg1LmHBUUoNyKMNuvs0ByHamvRh4ZykYciWhi",
+    "x-amz-request-id": "5YSAZ0PVW6JSVE6R",
+    "x-amz-server-side-encryption": "AES256",
+    "x-amz-version-id": "_fMBuUn1rsdS9N6Pt0DiQsMe4gQGpdz7"
+   },
+   "resourceType": "image",
+   "passes": [
+    "mobile"
+   ],
+   "file": "site/cdn.prod.website-files.com/6aaaa33647246359b83375c4/6ac612ccac0747e25eae8a43_HomeFallback Desktop-p-1600.webp",
+   "size": 63360,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js",
+   "method": "GET",
+   "status": 200,
+   "contentType": "application/javascript; charset=utf-8",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "access-control-expose-headers": "*",
+    "content-type": "application/javascript; charset=utf-8",
+    "timing-allow-origin": "*",
+    "x-jsd-version": "11.2.10",
+    "x-jsd-version-type": "version"
+   },
+   "resourceType": "script",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "file": "site/cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js",
+   "size": 154597,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://d3e54v103j8qbb.cloudfront.net/js/jquery-3.5.1.min.dc5e7f18c8.js?site=6aaaa33647246359b83375c4",
+   "method": "GET",
+   "status": 200,
+   "contentType": "application/javascript",
+   "headers": {
+    "access-control-allow-methods": "GET",
+    "access-control-allow-origin": "*",
+    "access-control-max-age": "3000",
+    "content-type": "application/javascript"
+   },
+   "resourceType": "script",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "file": "site/d3e54v103j8qbb.cloudfront.net/js/jquery-3.5.1.min.dc5e7f18c8__q781bb525.js",
+   "size": 89476,
+   "modes": [
+    "cors"
+   ]
+  },
+  {
+   "url": "https://cdn.prod.website-files.com/6aaaa33647246359b83375c4/js/webflow.schunk.2053c11937251ac9.js",
+   "method": "GET",
+   "status": 200,
+   "contentType": "text/javascript",
+   "headers": {
+    "access-control-allow-methods": "GET, HEAD",
+    "access-control-allow-origin": "*",
+    "access-control-max-age": "3000",
+    "content-type": "text/javascript",
+    "priority": "u=2,i=?0",
+    "x-amz-id-2": "lsM9CoD0fReHuJeo8N3dR20ugyRz697Xxw8uSv37OMgZ1qAlejJKXE433uC23NTpEWAIP0/sQSk=",
+    "x-amz-request-id": "1087CY944MKKF8XF",
+    "x-amz-server-side-encryption": "AES256",
+    "x-amz-version-id": "Zud5wCH3v3TIkNDQ9.V0ZgyrLkebcbxO"
+   },
+   "resourceType": "script",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "file": "site/cdn.prod.website-files.com/6aaaa33647246359b83375c4/js/webflow.schunk.2053c11937251ac9.js",
+   "size": 267505,
+   "modes": [
+    "cors"
+   ]
+  },
+  {
+   "url": "https://cdn.prod.website-files.com/6aaaa33647246359b83375c4/js/webflow.574530f5.2a39c053ed907283.js",
+   "method": "GET",
+   "status": 200,
+   "contentType": "text/javascript",
+   "headers": {
+    "access-control-allow-methods": "GET, HEAD",
+    "access-control-allow-origin": "*",
+    "access-control-max-age": "3000",
+    "content-type": "text/javascript",
+    "priority": "u=2,i=?0",
+    "x-amz-id-2": "brHnNTlmJlICydzzlnssPBiBqO4JM2Oy3o5WeJyAlKP8gcSEnOQxpG3Tuvnctx3KUHftfFPqoyDYCfRxgv+rTOf4rsoAr38O",
+    "x-amz-request-id": "68RDXAQ9BH0E65DS",
+    "x-amz-server-side-encryption": "AES256",
+    "x-amz-version-id": "eWm45Dab7dJubBy2bjBvEGIJkI8lediG"
+   },
+   "resourceType": "script",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "file": "site/cdn.prod.website-files.com/6aaaa33647246359b83375c4/js/webflow.574530f5.2a39c053ed907283.js",
+   "size": 2430,
+   "modes": [
+    "cors"
+   ]
+  },
+  {
+   "url": "https://fonts.googleapis.com/css?family=Manrope:400,500,800",
+   "method": "GET",
+   "status": 200,
+   "contentType": "text/css; charset=utf-8",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "content-type": "text/css; charset=utf-8",
+    "timing-allow-origin": "*"
+   },
+   "resourceType": "stylesheet",
+   "passes": [
+    "mobile",
+    "desktop"
+   ],
+   "file": "site/fonts.googleapis.com/css__q77fbe585.css",
+   "size": 6141,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://cdn.prod.website-files.com/6aaaa33647246359b83375c4/6aaaa33647246359b83375d2_SuisseIntlMono-Regular-WebS.woff2",
+   "method": "GET",
+   "status": 200,
+   "contentType": "font/woff2",
+   "headers": {
+    "access-control-allow-methods": "GET, HEAD",
+    "access-control-allow-origin": "*",
+    "access-control-max-age": "3000",
+    "content-type": "font/woff2",
+    "priority": "u=0,i=?0",
+    "x-amz-id-2": "33v++TDLh1Fep2bKui6z79AXqrqtKqlLkJGr3iwcECVYqzLDfi0l5FuUHeDO8cH9iYmXkHrrs1M=",
+    "x-amz-request-id": "3S6EYRD0CJ9H0J04",
+    "x-amz-server-side-encryption": "AES256",
+    "x-amz-version-id": "h0fgtpve9W.i8Inc0nthe6pPk3m0nJt0"
+   },
+   "resourceType": "font",
+   "passes": [
+    "mobile",
+    "desktop"
+   ],
+   "file": "site/cdn.prod.website-files.com/6aaaa33647246359b83375c4/6aaaa33647246359b83375d2_SuisseIntlMono-Regular-WebS.woff2",
+   "size": 13844,
+   "modes": [
+    "cors"
+   ]
+  },
+  {
+   "url": "https://cdn.prod.website-files.com/6aaaa33647246359b83375bf/6ab992b7bdf94165b19b60e9_10-p-1600.webp",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/webp",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "content-type": "image/webp",
+    "priority": "u=3,i",
+    "x-amz-id-2": "1aXZZqVPoKrH2zOktB4lu9bzYjqLJ3sJlRslUZc2aONcb5kKjycXLHDzFoUJfwir1puN0X6JjRhZIMFMh9M471WxJFDAAiLr",
+    "x-amz-request-id": "S7TZDG71B9ZDQAZH",
+    "x-amz-server-side-encryption": "AES256",
+    "x-amz-version-id": "Zg871OD63QzlEBV2AhXPK2i8hHCM8Z_K"
+   },
+   "resourceType": "image",
+   "passes": [
+    "mobile"
+   ],
+   "file": "site/cdn.prod.website-files.com/6aaaa33647246359b83375bf/6ab992b7bdf94165b19b60e9_10-p-1600.webp",
+   "size": 58370,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://zenaratepull.b-cdn.net/Home%20Page%20First%20Frame.png",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/png",
+   "headers": {
+    "access-control-allow-headers": "Server, x-goog-meta-frames, Content-Length, Content-Type, Range, X-Requested-With, If-Modified-Since, If-None-Match",
+    "access-control-allow-origin": "*",
+    "access-control-expose-headers": "Server, x-goog-meta-frames, Content-Length, Content-Type, Range, X-Requested-With, If-Modified-Since, If-None-Match",
+    "cdn-cache": "HIT",
+    "cdn-cachedat": "09/30/2026 18:34:23",
+    "cdn-edgestorageid": "1310",
+    "cdn-fileserver": "1415",
+    "cdn-proxyver": "1.70",
+    "cdn-pullzone": "6625029",
+    "cdn-requestcountrycode": "US",
+    "cdn-requestid": "a4e3960e48c4a937b8b3330742f22b65",
+    "cdn-requestpullcode": "206",
+    "cdn-requestpullsuccess": "True",
+    "cdn-requesttime": "0",
+    "cdn-status": "200",
+    "cdn-storageserver": "NY-1311",
+    "content-type": "image/png"
+   },
+   "resourceType": "image",
+   "passes": [
+    "mobile"
+   ],
+   "file": "site/zenaratepull.b-cdn.net/Home Page First Frame.png",
+   "size": 1674096,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://hubspotv2.use1-marketplace-1p-apps-prod-red.if.webflow.services/static/disable-hubspot-chatbot.js",
+   "method": "GET",
+   "status": 200,
+   "contentType": "text/javascript; charset=utf-8",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "content-type": "text/javascript; charset=utf-8"
+   },
+   "resourceType": "script",
+   "passes": [
+    "mobile",
+    "desktop"
+   ],
+   "file": "site/hubspotv2.use1-marketplace-1p-apps-prod-red.if.webflow.services/static/disable-hubspot-chatbot.js",
+   "size": 105,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://cdn.prod.website-files.com/gsap/3.15.0/ScrollTrigger.min.js",
+   "method": "GET",
+   "status": 200,
+   "contentType": "text/javascript",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "content-type": "text/javascript",
+    "priority": "u=2,i=?0",
+    "x-amz-id-2": "vslggvUqsHDqplTzqOKxXMpFTXCB80PNsqv/iFh6YnBS1C8hdx9ueYom5jRMPdsPaUiy/Pgz8mg=",
+    "x-amz-request-id": "6J4GKGVC0P8B0Y0M",
+    "x-amz-server-side-encryption": "AES256",
+    "x-amz-version-id": "OwL74efHwP8jBBvlF0cUA1BVsecA11LA"
+   },
+   "resourceType": "script",
+   "passes": [
+    "mobile",
+    "desktop"
+   ],
+   "file": "site/cdn.prod.website-files.com/gsap/3.15.0/ScrollTrigger.min.js",
+   "size": 44575,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://cdn.prod.website-files.com/6aaaa33647246359b83375c4%2F68e957c63d1f4d01749665eb%2F6ab2900e7e4d22aa9cdd1fb9%2Fhs_trackcode_20564515-1.0.6.js",
+   "method": "GET",
+   "status": 200,
+   "contentType": "application/javascript",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "content-type": "application/javascript",
+    "priority": "u=2,i=?0",
+    "x-amz-id-2": "YlTGN2faUW5kBSAoxXt5DiX6izI3ht4IBVbfTC2HWLxHdgAjOa++WNTXf+7c1i7uQD2oZ4z87bw=",
+    "x-amz-request-id": "2964AKWC6JVZ3PQR",
+    "x-amz-server-side-encryption": "AES256",
+    "x-amz-version-id": "vVLfEsZekJVGstFWAuUnYfYO36Tl9MUT"
+   },
+   "resourceType": "script",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "file": "site/cdn.prod.website-files.com/6aaaa33647246359b83375c4/68e957c63d1f4d01749665eb/6ab2900e7e4d22aa9cdd1fb9/hs_tr_1b285ef5.js",
+   "size": 145,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://cdn.prod.website-files.com/gsap/3.15.0/gsap.min.js",
+   "method": "GET",
+   "status": 200,
+   "contentType": "text/javascript",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "content-type": "text/javascript",
+    "priority": "u=2,i=?0",
+    "x-amz-id-2": "PCDLmBD4DvXCkfs8Y5s3i3XO1Q+iICWMSxiTgeB3yJxp1Lz2YxClIxyfCwObd/QGeIIA50tkUOuzxhel9CoKWXYemPC3E+T5",
+    "x-amz-request-id": "JAG25T3VKPH987VG",
+    "x-amz-server-side-encryption": "AES256",
+    "x-amz-version-id": "V8op0kZq.Xpg2kvTPCwvwCTfWicx89F0"
+   },
+   "resourceType": "script",
+   "passes": [
+    "mobile",
+    "desktop"
+   ],
+   "file": "site/cdn.prod.website-files.com/gsap/3.15.0/gsap.min.js",
+   "size": 72927,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://cdn.prod.website-files.com/6aaaa33647246359b83375c4/6aaaa33647246359b83375e9_Recital-Upright-Variable.woff2",
+   "method": "GET",
+   "status": 200,
+   "contentType": "font/woff2",
+   "headers": {
+    "access-control-allow-methods": "GET, HEAD",
+    "access-control-allow-origin": "*",
+    "access-control-max-age": "3000",
+    "content-type": "font/woff2",
+    "priority": "u=0,i=?0",
+    "x-amz-id-2": "O9BSCRzqQxyceQ6Kq43rCpe/PX4LvC5nf4lmToJBIAFykp2pFsW2lD4Z+VJbznw/06cdLHMSQZI=",
+    "x-amz-request-id": "3S6FWS3MR0WZ28M4",
+    "x-amz-server-side-encryption": "AES256",
+    "x-amz-version-id": "p7qPxBESciW9nAOixZumTm3IJv68YIRl"
+   },
+   "resourceType": "font",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "file": "site/cdn.prod.website-files.com/6aaaa33647246359b83375c4/6aaaa33647246359b83375e9_Recital-Upright-Variable.woff2",
+   "size": 85672,
+   "modes": [
+    "cors"
+   ]
+  },
+  {
+   "url": "https://hubspotonwebflow.com/assets/js/form-124.js",
+   "method": "GET",
+   "status": 200,
+   "contentType": "application/javascript; charset=UTF-8",
+   "headers": {
+    "access-control-allow-methods": "GET, OPTIONS",
+    "access-control-allow-origin": "*",
+    "content-type": "application/javascript; charset=UTF-8"
+   },
+   "resourceType": "script",
+   "passes": [
+    "mobile",
+    "desktop"
+   ],
+   "file": "site/hubspotonwebflow.com/assets/js/form-124.js",
+   "size": 10536,
+   "modes": [
+    "cors"
+   ]
+  },
+  {
+   "url": "https://cdn.prod.website-files.com/6aaaa33647246359b83375bf/6abd57b8c7b76fe994c7afdd_T-Mobile.svg",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/svg+xml",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "content-type": "image/svg+xml",
+    "priority": "u=3,i",
+    "x-amz-id-2": "Y9LWTL+eVYqwPJ5+2Z2X94DzfBdgbHTT/tj7fCVoSiCqEQlfoOvYl6baYnM8qkRatz398QVyEvyd48inrRYcz+1ZdOjYpjDo",
+    "x-amz-request-id": "BJPZZWE7CJ0J4SW8",
+    "x-amz-server-side-encryption": "AES256",
+    "x-amz-version-id": "tCoqEVMGWjlQkqGCxxsH69gNkklZpcPU"
+   },
+   "resourceType": "image",
+   "passes": [
+    "mobile",
+    "desktop"
+   ],
+   "file": "site/cdn.prod.website-files.com/6aaaa33647246359b83375bf/6abd57b8c7b76fe994c7afdd_T-Mobile.svg",
+   "size": 35373,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://cdn.prod.website-files.com/6aaaa33647246359b83375bf/6add46a6e41361088a8df6de_Assurant%20Gray%20Logo%20Lockup-p-1600.png",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/png",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "content-type": "image/png",
+    "priority": "u=3,i",
+    "x-amz-id-2": "jYQKIfC2DBxlKi1gPTZ01F2wr/aPRfkOWtXOYBGlBbR5hwEo1aHxPSLRxQqDuEHYpEQnowRYnyM=",
+    "x-amz-request-id": "C0VQFGNCJ5BHWMT6",
+    "x-amz-server-side-encryption": "AES256",
+    "x-amz-version-id": "uCv5koCdzTOhbfx.Wk.ElPcsOlBPAeLY"
+   },
+   "resourceType": "image",
+   "passes": [
+    "mobile"
+   ],
+   "file": "site/cdn.prod.website-files.com/6aaaa33647246359b83375bf/6add46a6e41361088a8df6de_Assurant Gray Logo Lockup-p-1600.png",
+   "size": 93698,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://fonts.gstatic.com/s/manrope/v20/xn7gYHE41ni1AdIRggexSvfedN4.woff2",
+   "method": "GET",
+   "status": 200,
+   "contentType": "font/woff2",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "content-type": "font/woff2",
+    "timing-allow-origin": "*"
+   },
+   "resourceType": "font",
+   "passes": [
+    "mobile",
+    "desktop"
+   ],
+   "file": "site/fonts.gstatic.com/s/manrope/v20/xn7gYHE41ni1AdIRggexSvfedN4.woff2",
+   "size": 24576,
+   "modes": [
+    "cors"
+   ]
+  },
+  {
+   "url": "https://cdn.prod.website-files.com/6aaaa33647246359b83375bf/6aaaa33647246359b8337680_Adidas_Logo_Alternative_0.svg",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/svg+xml",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "content-type": "image/svg+xml",
+    "priority": "u=3,i",
+    "x-amz-id-2": "z1Y4Hk195aRiECUFYyFVCXUbdb2BY4/z7FBFbutEmnpo4qDjVHTGsZ+67o/lw4uZssRFP2NGfXE=",
+    "x-amz-request-id": "3QDRM814BSW95X3N",
+    "x-amz-server-side-encryption": "AES256",
+    "x-amz-version-id": "caL3ZyE9Zj6ZYVlRnjvgvbAt1XO7UQti"
+   },
+   "resourceType": "image",
+   "passes": [
+    "mobile",
+    "desktop"
+   ],
+   "file": "site/cdn.prod.website-files.com/6aaaa33647246359b83375bf/6aaaa33647246359b8337680_Adidas_Logo_Alternative_0.svg",
+   "size": 1846,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://cdn.prod.website-files.com/6aaaa33647246359b83375bf/6abdb35c57e8958936816e8d_Bill%20Gosling%20Outsourcing.svg",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/svg+xml",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "content-type": "image/svg+xml",
+    "priority": "u=3,i",
+    "x-amz-id-2": "+IvJWBtmBySFdHihkM6vCbo+QxZOwz3VaiCl6ml6BmAQJR0ypqSPauRVXe2gENFtqO0HnbYRks9sar54OlSjE73ySGggfPwy",
+    "x-amz-request-id": "HHHS98TYXMDYGQWB",
+    "x-amz-server-side-encryption": "AES256",
+    "x-amz-version-id": "6ikCIgDErvMKYs4zCizm3FTm.5XUQYm2"
+   },
+   "resourceType": "image",
+   "passes": [
+    "mobile",
+    "desktop"
+   ],
+   "file": "site/cdn.prod.website-files.com/6aaaa33647246359b83375bf/6abdb35c57e8958936816e8d_Bill Gosling Outsourcing.svg",
+   "size": 21662,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://cdn.prod.website-files.com/6aaaa33647246359b83375bf/6abdb2e99b4d0a2e91a75444_Comcast.svg",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/svg+xml",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "content-type": "image/svg+xml",
+    "priority": "u=3,i",
+    "x-amz-id-2": "DLdwFIU7Hc6axpks+VhC/HRkZHrsiGcnJIasVv8y4QLa12p5/mw4ppQFVLTpr9ZOsXWw5ySZMpiRH2qYVmZzBUYeO14wrm30",
+    "x-amz-request-id": "TPGF80MW2BGSVG35",
+    "x-amz-server-side-encryption": "AES256",
+    "x-amz-version-id": "rx83a.sdBF2bSOVRnUnclu.A8ItB1OyS"
+   },
+   "resourceType": "image",
+   "passes": [
+    "mobile",
+    "desktop"
+   ],
+   "file": "site/cdn.prod.website-files.com/6aaaa33647246359b83375bf/6abdb2e99b4d0a2e91a75444_Comcast.svg",
+   "size": 22740,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://cdn.prod.website-files.com/6aaaa33647246359b83375bf/6ab992b7bdf94165b19b60e9_10.webp",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/webp",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "content-type": "image/webp",
+    "priority": "u=3,i",
+    "x-amz-id-2": "w0fjH+Uj0Tb/qfIlLBzUu7Icv/loi10az7/lpApVURam9VAbrM/zc5AB6Shg6UbW0rBuxqOHOhxIue3R0M+p0/LK9sRVRNMq",
+    "x-amz-request-id": "GBZYN90NPVD6DXQ3",
+    "x-amz-server-side-encryption": "AES256",
+    "x-amz-version-id": "XF5dhQp4zhA5sxwO.QN_3G6niDwnBlLj"
+   },
+   "resourceType": "image",
+   "passes": [
+    "desktop"
+   ],
+   "file": "site/cdn.prod.website-files.com/6aaaa33647246359b83375bf/6ab992b7bdf94165b19b60e9_10.webp",
+   "size": 148978,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://cdn.prod.website-files.com/6aaaa33647246359b83375bf/6abd56d8e69327d616561680_Foundever.svg",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/svg+xml",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "content-type": "image/svg+xml",
+    "priority": "u=3,i",
+    "x-amz-id-2": "8wss+IjHr7OYodzhlEiVF3IzPDmUWESC5COIw+sFSCeODStG+k+GERpsp1Gpk0cG3/l9OBf4vmbfGcRtU0DnrsFP6lsFbhS+",
+    "x-amz-request-id": "ATT4WW1EX9AERZ6B",
+    "x-amz-server-side-encryption": "AES256",
+    "x-amz-version-id": "iqVDXLts.WT.eX4rhI_Hy.0bj0h_gSWW"
+   },
+   "resourceType": "image",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "file": "site/cdn.prod.website-files.com/6aaaa33647246359b83375bf/6abd56d8e69327d616561680_Foundever.svg",
+   "size": 16491,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://cdn.prod.website-files.com/6aaaa33647246359b83375bf/6add4b8e043cf26c1389f62c_DISH%20Charcoal%20Wordmark%20Logo-p-1600.png",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/png",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "content-type": "image/png",
+    "priority": "u=3,i",
+    "x-amz-id-2": "8wV4r0OTqZrVB3WLh1JPZpsETuzGCdimZ7cAyowa5T2T7BuCRUFhZimdJ3OyftanA7q7hP5HHPzXKv6qfSW5D4wQsAsDIxTx",
+    "x-amz-request-id": "FVH90KMHEKR3EZYZ",
+    "x-amz-server-side-encryption": "AES256",
+    "x-amz-version-id": "4Fg3QM0nnQc0aLawPYvQkrMUgozLzqqV"
+   },
+   "resourceType": "image",
+   "passes": [
+    "mobile"
+   ],
+   "file": "site/cdn.prod.website-files.com/6aaaa33647246359b83375bf/6add4b8e043cf26c1389f62c_DISH Charcoal Wordmark Logo-p-1600.png",
+   "size": 112605,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://cdn.prod.website-files.com/6aaaa33647246359b83375bf/6add438e86ce994badc41dbd_northwestern%20mutual-p-2000.png",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/png",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "content-type": "image/png",
+    "priority": "u=3,i",
+    "x-amz-id-2": "YzNTI7l/3fkvoNY5dQfqBYToUKXvaLOrwzYLcA/5LRyn9lVa8TuewLG/JC9s5sDC3nxdxL4NhgI=",
+    "x-amz-request-id": "4A0MRF5CDTSK728T",
+    "x-amz-server-side-encryption": "AES256",
+    "x-amz-version-id": "UkGYiTl.DAPgzUYxD3xoiZcBC54Mgf2W"
+   },
+   "resourceType": "image",
+   "passes": [
+    "desktop"
+   ],
+   "file": "site/cdn.prod.website-files.com/6aaaa33647246359b83375bf/6add438e86ce994badc41dbd_northwestern mutual-p-2000.png",
+   "size": 97682,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://cdn.prod.website-files.com/6aaaa33647246359b83375bf/6add4b8e043cf26c1389f62c_DISH%20Charcoal%20Wordmark%20Logo-p-2000.png",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/png",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "content-type": "image/png",
+    "priority": "u=3,i",
+    "x-amz-id-2": "qbpR8FlQSNYzv2J8jBd4yXb/ro1cZ+joGSwhmoXljW+10BgDuUF+eUMfQifESV6zis9WDx8i/BE=",
+    "x-amz-request-id": "E9SK6ED3PGERCYGH",
+    "x-amz-server-side-encryption": "AES256",
+    "x-amz-version-id": "GMb5K__uo3Lhgzg0y84vcTN41gtIdwfS"
+   },
+   "resourceType": "image",
+   "passes": [
+    "desktop"
+   ],
+   "file": "site/cdn.prod.website-files.com/6aaaa33647246359b83375bf/6add4b8e043cf26c1389f62c_DISH Charcoal Wordmark Logo-p-2000.png",
+   "size": 160867,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://cdn.prod.website-files.com/6aaaa33647246359b83375bf/6aaaa33647246359b833767f_JPMorgan_Chase___Co-_Logo_0.svg",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/svg+xml",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "content-type": "image/svg+xml",
+    "priority": "u=3,i",
+    "x-amz-id-2": "clOb1iYWT0Vcq2f1lm7m4GFosEoxJH2tS/DRJdOE1qmE9b6T2PawPyb+myUWac0qBAZLO5sl4jY=",
+    "x-amz-request-id": "3QDKVR4Z6JVX5G0H",
+    "x-amz-server-side-encryption": "AES256",
+    "x-amz-version-id": "tHG.BxRPehY9_MQI5L4LtX2SioP8M7Zz"
+   },
+   "resourceType": "image",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "file": "site/cdn.prod.website-files.com/6aaaa33647246359b83375bf/6aaaa33647246359b833767f_JPMorgan_Chase___Co-_Logo_0.svg",
+   "size": 7665,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://cdn.prod.website-files.com/6aaaa33647246359b83375c4/6aaaa33647246359b83375e1_Recital-Italic-Variable.woff2",
+   "method": "GET",
+   "status": 200,
+   "contentType": "font/woff2",
+   "headers": {
+    "access-control-allow-methods": "GET, HEAD",
+    "access-control-allow-origin": "*",
+    "access-control-max-age": "3000",
+    "content-type": "font/woff2",
+    "priority": "u=0,i=?0",
+    "x-amz-id-2": "OIOlNKvn+pQxJ+8wnQg0jmqBATgkuXW/u7YVfva1zyurBiAVVppJnLT2DvKJwwlswcmilTjSwvM=",
+    "x-amz-request-id": "DGSKWXZEKASPCTK9",
+    "x-amz-server-side-encryption": "AES256",
+    "x-amz-version-id": "e0qjeLJPYbdK24HeH.ZS73Q1U4qeYNwV"
+   },
+   "resourceType": "font",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "file": "site/cdn.prod.website-files.com/6aaaa33647246359b83375c4/6aaaa33647246359b83375e1_Recital-Italic-Variable.woff2",
+   "size": 97852,
+   "modes": [
+    "cors"
+   ]
+  },
+  {
+   "url": "https://cdn.prod.website-files.com/6aaaa33647246359b83375bf/6add46a6e41361088a8df6de_Assurant%20Gray%20Logo%20Lockup-p-2000.png",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/png",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "content-type": "image/png",
+    "priority": "u=3,i",
+    "x-amz-id-2": "HsbCOFWwXJxAYxQGsRhIZwdG5u0xuS56gIjnZu3/PQ010raV8L88qzL1eB0Z5Ulemh4PJKMbAwA=",
+    "x-amz-request-id": "16XPCMWZBDN3F1G1",
+    "x-amz-server-side-encryption": "AES256",
+    "x-amz-version-id": "_03w..Ys76srcp5Hgz_k8PSKhXdRwjoH"
+   },
+   "resourceType": "image",
+   "passes": [
+    "desktop"
+   ],
+   "file": "site/cdn.prod.website-files.com/6aaaa33647246359b83375bf/6add46a6e41361088a8df6de_Assurant Gray Logo Lockup-p-2000.png",
+   "size": 139305,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://cdn.prod.website-files.com/6aaaa33647246359b83375bf/6abdb7a915e9c18463021651_Wyndham.svg",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/svg+xml",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "content-type": "image/svg+xml",
+    "priority": "u=3,i",
+    "x-amz-id-2": "NZatREmRRjBeuF5KyJgb4BbRbC72hpeGkIPetV9fatIm/B5lu5IjS08O5LSCg3HTOMDd+LH0zIp2PFD9lUOd/EVMKs8zxidN",
+    "x-amz-request-id": "6G1D20W272AP8K2G",
+    "x-amz-server-side-encryption": "AES256",
+    "x-amz-version-id": "Rc2.EwaFzcdtBj__kcs2HupUJRL_B5sU"
+   },
+   "resourceType": "image",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "file": "site/cdn.prod.website-files.com/6aaaa33647246359b83375bf/6abdb7a915e9c18463021651_Wyndham.svg",
+   "size": 19931,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://cdn.prod.website-files.com/6aaaa33647246359b83375bf/6abd57c6cd08cdf3acdf0076_Elevance%20Health.svg",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/svg+xml",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "content-type": "image/svg+xml",
+    "priority": "u=3,i",
+    "x-amz-id-2": "jpbriDGjNoMGcwlEpbBcS3PXthR28mV8xzrZup/NRXEw7UbGFtYDqflPRMQ5SV90pFdUy7AK6VvXmyj1mUjarfTdl75eiLp0",
+    "x-amz-request-id": "XYWDAYWHXJKKNVAS",
+    "x-amz-server-side-encryption": "AES256",
+    "x-amz-version-id": "v843PhuMa9KtClSzcf8U64FdV75UJBgg"
+   },
+   "resourceType": "image",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "file": "site/cdn.prod.website-files.com/6aaaa33647246359b83375bf/6abd57c6cd08cdf3acdf0076_Elevance Health.svg",
+   "size": 17659,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://cdn.prod.website-files.com/6aaaa33647246359b83375bf/6abd57a61e79f94a6c94a5cf_Marriott%20International.svg",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/svg+xml",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "content-type": "image/svg+xml",
+    "priority": "u=3,i",
+    "x-amz-id-2": "cmHT23SQlwRpXf+oLU64AHFHjmDOjb/KVub79T5V8y8ZEUppeN164OAoKBxFpTy9BBj4O4QnfozfXWSSJ+qNURGtToAnZJzD",
+    "x-amz-request-id": "1VW4DV8M4MFM6FJ5",
+    "x-amz-server-side-encryption": "AES256",
+    "x-amz-version-id": "oJ5YWU1XaHA.TaW3etBVXHQWI_5eyC7e"
+   },
+   "resourceType": "image",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "file": "site/cdn.prod.website-files.com/6aaaa33647246359b83375bf/6abd57a61e79f94a6c94a5cf_Marriott International.svg",
+   "size": 20620,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://cdn.prod.website-files.com/6aaaa33647246359b83375bf/6ac8017f5860efd4755e4ace_2026_Q4_Full_Circle_Toronto-p-3200.webp",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/webp",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "content-type": "image/webp",
+    "priority": "u=3,i",
+    "x-amz-id-2": "vgxiflFhiFdYTcAwQA4XqRGXS7k+drx5cLqm3chPcffwr9odGGBvXEdhAPFz3kp5t/eKLSfPLyQ=",
+    "x-amz-request-id": "07KZF8KH7BNV100Z",
+    "x-amz-server-side-encryption": "AES256",
+    "x-amz-version-id": "XRz4ZyO9t1Jgm6D2zURZMukCtkVRRNje"
+   },
+   "resourceType": "image",
+   "passes": [
+    "desktop"
+   ],
+   "file": "site/cdn.prod.website-files.com/6aaaa33647246359b83375bf/6ac8017f5860efd4755e4ace_2026_Q4_Full_Circle_Toronto-p-3200.webp",
+   "size": 29030,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://cdn.prod.website-files.com/6aaaa33647246359b83375bf/6abdb7e337fb1da1c60df8a4_IHG%20Hotels%20%26%20Resorts.svg",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/svg+xml",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "content-type": "image/svg+xml",
+    "priority": "u=3,i",
+    "x-amz-id-2": "wAxvDuW7qRvbGmCksJc5nVtM6IL6KMh6j475oIDvJM5Q8gPO/aQCdKnm5NA+8OPGPwFw9fVugbIcg05dYE0bqFLJ0uLUjPBb",
+    "x-amz-request-id": "5EN4F93BDHM1QD44",
+    "x-amz-server-side-encryption": "AES256",
+    "x-amz-version-id": "IypUAi1Em_bVM6a5YBic3oJ67JDw3U5Q"
+   },
+   "resourceType": "image",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "file": "site/cdn.prod.website-files.com/6aaaa33647246359b83375bf/6abdb7e337fb1da1c60df8a4_IHG Hotels & Resorts.svg",
+   "size": 14528,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://cdn.prod.website-files.com/6aaaa33647246359b83375bf/6abd5750290658b979816142_Verizon.svg",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/svg+xml",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "content-type": "image/svg+xml",
+    "priority": "u=3,i",
+    "x-amz-id-2": "fW0S+XS+rmkNjzH4ilK7tbSm4cAA5tMDS9VO34ttWB/Y3ts08fRM8B9eu7S6TOsvEl1ovjZIvYWUAFGCJhCUa3UjNIp4WWQD",
+    "x-amz-request-id": "4MJ0E5HS5MKYZRT0",
+    "x-amz-server-side-encryption": "AES256",
+    "x-amz-version-id": "g673xnrHO49ct_HyE6WsojZo.51xkHNx"
+   },
+   "resourceType": "image",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "file": "site/cdn.prod.website-files.com/6aaaa33647246359b83375bf/6abd5750290658b979816142_Verizon.svg",
+   "size": 39408,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://cdn.prod.website-files.com/6aaaa33647246359b83375bf/6aaaa33647246359b8337681_wellsFargo.svg",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/svg+xml",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "content-type": "image/svg+xml",
+    "priority": "u=3,i",
+    "x-amz-id-2": "7EkpWL05YqkfZdWD/utwhHsPJjiIXbp+CR0JD0BnnyKiBsHV04DI0LO/1TZ78ffrTgcToJsLNF8=",
+    "x-amz-request-id": "3QDK1QC5GQYWGDZA",
+    "x-amz-server-side-encryption": "AES256",
+    "x-amz-version-id": "5ono1t1lqBMdz8CF.PVyktzJSX04vRGo"
+   },
+   "resourceType": "image",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "file": "site/cdn.prod.website-files.com/6aaaa33647246359b83375bf/6aaaa33647246359b8337681_wellsFargo.svg",
+   "size": 3911,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://cdn.prod.website-files.com/6aaaa33647246359b83375bf/6abd5b8d4f4f478ca306c9a5_Visa.svg",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/svg+xml",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "content-type": "image/svg+xml",
+    "priority": "u=3,i",
+    "x-amz-id-2": "gR2tJQoE5mNyvfyvMAWnQMIXOYqP/aYGTrupZrM4SOk4XOdLklAOLGyhArsjruf5WZiS1ea3/nxpPFRsV7uquG56M7OoqtUJ",
+    "x-amz-request-id": "86YVDQB1DCRC22P2",
+    "x-amz-server-side-encryption": "AES256",
+    "x-amz-version-id": "30HgPtydlobI71XIH.xxf1EPkzyHMA5u"
+   },
+   "resourceType": "image",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "file": "site/cdn.prod.website-files.com/6aaaa33647246359b83375bf/6abd5b8d4f4f478ca306c9a5_Visa.svg",
+   "size": 15952,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://cdn.prod.website-files.com/6aaaa33647246359b83375bf/6abd57d7006df41880ed3bb8_Teleperformance.svg",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/svg+xml",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "content-type": "image/svg+xml",
+    "priority": "u=3,i",
+    "x-amz-id-2": "W8LVTol6zdU6yXhKAXfW1Fdgnv9jkOjd2Pj2oIew9mVk6lyPst/ksuz7xq8hFGyGVnWoIo15MNoIlZYpdqylKe/Sx7Ac52S5",
+    "x-amz-request-id": "BCD1HWCVE4FYKX2C",
+    "x-amz-server-side-encryption": "AES256",
+    "x-amz-version-id": "xNk8wnmodFbDYtbRIc5bF8X.0QQqzQFU"
+   },
+   "resourceType": "image",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "file": "site/cdn.prod.website-files.com/6aaaa33647246359b83375bf/6abd57d7006df41880ed3bb8_Teleperformance.svg",
+   "size": 9122,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://cdn.prod.website-files.com/6aaaa33647246359b83375bf/6abdb312f78d6d095b292f4c_Eastlink.svg",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/svg+xml",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "content-type": "image/svg+xml",
+    "priority": "u=3,i",
+    "x-amz-id-2": "kj0X/lA6d9BTi3TGcvX4h9SS9r9Bl5nfSfZ6H5e+VqFWR9NRpbGixteE1yJiPJRHf5U+L9CbBApkzoG//82V+2E5IxdaelhS",
+    "x-amz-request-id": "Q3Q72QZNQKZHHGY3",
+    "x-amz-server-side-encryption": "AES256",
+    "x-amz-version-id": "iLSgmNARdfTGO31qmG6LM.eQzr.6Y6S8"
+   },
+   "resourceType": "image",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "file": "site/cdn.prod.website-files.com/6aaaa33647246359b83375bf/6abdb312f78d6d095b292f4c_Eastlink.svg",
+   "size": 12063,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://cdn.prod.website-files.com/6aaaa33647246359b83375bf/6abd5837e5013ae3c073502b_Grand%20Pacific%20Resorts.svg",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/svg+xml",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "content-type": "image/svg+xml",
+    "priority": "u=3,i",
+    "x-amz-id-2": "VGf+g8a23SrGVjpvpHarp218SavcZ6LfgmYnYavUgKZopHqCc4sIWSTI+sdv2UEW3y8ihwWrysa8Bc/5JqGDKAZUBLFj5Is/",
+    "x-amz-request-id": "6F1JC33X96JG2A11",
+    "x-amz-server-side-encryption": "AES256",
+    "x-amz-version-id": "MycglRy65cOzENpr01K1V.ARSWJwOoFL"
+   },
+   "resourceType": "image",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "file": "site/cdn.prod.website-files.com/6aaaa33647246359b83375bf/6abd5837e5013ae3c073502b_Grand Pacific Resorts.svg",
+   "size": 77485,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://cdn.prod.website-files.com/6aaaa33647246359b83375bf/6abd5baac0cd5eacdfd8833f_PNC%20Bank.svg",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/svg+xml",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "content-type": "image/svg+xml",
+    "priority": "u=3,i",
+    "x-amz-id-2": "Va5DWH5hMsffbiQH//KFPvRBLf57v4z5CXvMkrbWOkWvniBcDIG+DZNN1L3/Rffb40e53XQvpiBYKLJJ1PFgwAGBIuMPfoju",
+    "x-amz-request-id": "0KJJZMX0T9X1Y66R",
+    "x-amz-server-side-encryption": "AES256",
+    "x-amz-version-id": "y2NvRYCXCHv979OSsdNQtfYHbCCQoTKT"
+   },
+   "resourceType": "image",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "file": "site/cdn.prod.website-files.com/6aaaa33647246359b83375bf/6abd5baac0cd5eacdfd8833f_PNC Bank.svg",
+   "size": 13510,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://cdn.prod.website-files.com/6aaaa33647246359b83375bf/6abd5bd3cd08cdf3ace133c5_HSBC.svg",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/svg+xml",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "content-type": "image/svg+xml",
+    "priority": "u=3,i",
+    "x-amz-id-2": "fGVe4Dv4kvpE9tcuVIcGOsmnR0VwLAB3H5M8xF+7MvGtLjk+IzGA9TyMiV0FFiIOkIwlgNFGC2zAhzAg7qivd6cedHANPM0B",
+    "x-amz-request-id": "XGQ6FPKTCZMCVBGF",
+    "x-amz-server-side-encryption": "AES256",
+    "x-amz-version-id": "k2uBnQslTi8LFD2HGiRv1gndCqyYlUqx"
+   },
+   "resourceType": "image",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "file": "site/cdn.prod.website-files.com/6aaaa33647246359b83375bf/6abd5bd3cd08cdf3ace133c5_HSBC.svg",
+   "size": 42620,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://cdn.prod.website-files.com/6aaaa33647246359b83375bf/6abdb7d1bb32190b91d4f1a1_JetBlue%20Airways.svg",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/svg+xml",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "content-type": "image/svg+xml",
+    "priority": "u=3,i",
+    "x-amz-id-2": "RZ8xQWfKRhlqvveL5Yw45g1r7mbQjpaKfEaFEPZoHIQ15o0TWB0f+RLLDbU0kjO/YDQ2MvZRvjPhbdAhEWC6Adhagd2OwcZr",
+    "x-amz-request-id": "DW020VTGE259VQSP",
+    "x-amz-server-side-encryption": "AES256",
+    "x-amz-version-id": "o_G0GSgauyIXUWlAxp7.b66wtUlfCfjV"
+   },
+   "resourceType": "image",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "file": "site/cdn.prod.website-files.com/6aaaa33647246359b83375bf/6abdb7d1bb32190b91d4f1a1_JetBlue Airways.svg",
+   "size": 24899,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://cdn.prod.website-files.com/6aaaa33647246359b83375bf/6abd568c9c8fb7a90ecf85be_Navy%20Federal%20Credit%20Union.svg",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/svg+xml",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "content-type": "image/svg+xml",
+    "priority": "u=3,i",
+    "x-amz-id-2": "4CCfOCEclkaB2xCjVvx9I4f9erCN+bW+L5kl6ooRwT1DxnmXbFJiGB41HzTuz5ow9OeVf6akM6Tnerxxly1D2xQR+YM5g5c8",
+    "x-amz-request-id": "QPSDF9AYMY5REYB9",
+    "x-amz-server-side-encryption": "AES256",
+    "x-amz-version-id": "pXlwXypRnQJFHWB9CxrruclAJIDhIV7K"
+   },
+   "resourceType": "image",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "file": "site/cdn.prod.website-files.com/6aaaa33647246359b83375bf/6abd568c9c8fb7a90ecf85be_Navy Federal Credit Union.svg",
+   "size": 19055,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://cdn.prod.website-files.com/6aaaa33647246359b83375bf/6abd56e884f62382463f4506_Centene%20Corporation.svg",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/svg+xml",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "content-type": "image/svg+xml",
+    "priority": "u=3,i",
+    "x-amz-id-2": "FkrjaA2KyvhsLnBq7pIpXgG30S7PXsMMyEDxEQteW6jyC0EF8KSwfbukxuDOk2xwB7AR/70+gBTI7dBLwZzb7v3yNJzWST6a",
+    "x-amz-request-id": "AW4TZ8J5BWGJ80A1",
+    "x-amz-server-side-encryption": "AES256",
+    "x-amz-version-id": "q_LO07Y2ZmlYDEJWjk.4Tc2seEBh.2_i"
+   },
+   "resourceType": "image",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "file": "site/cdn.prod.website-files.com/6aaaa33647246359b83375bf/6abd56e884f62382463f4506_Centene Corporation.svg",
+   "size": 14084,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://cdn.prod.website-files.com/6aaaa33647246359b83375bf/6abdb7b70723d054ba913ea6_MSC%20Cruises.svg",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/svg+xml",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "content-type": "image/svg+xml",
+    "priority": "u=3,i",
+    "x-amz-id-2": "B0zV7UzszeDtSax6BGd4Qf6TYyONoTB0+9wUFdc8TmZ9a4TzBm9PZTU7IjvK7pntNr+uNLUhRO5sKAw11ulED2K+hqX1Q2TA",
+    "x-amz-request-id": "G27GWQD27Q44MKVQ",
+    "x-amz-server-side-encryption": "AES256",
+    "x-amz-version-id": "iL5yoiZrAZqbet._zLLhVX6MjVzgNcv0"
+   },
+   "resourceType": "image",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "file": "site/cdn.prod.website-files.com/6aaaa33647246359b83375bf/6abdb7b70723d054ba913ea6_MSC Cruises.svg",
+   "size": 32310,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://cdn.prod.website-files.com/6aaaa33647246359b83375bf/6aaaa33647246359b83375e8_Capital_One_UK_idgsX9XxtV_1%201.svg",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/svg+xml",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "content-type": "image/svg+xml",
+    "priority": "u=3,i",
+    "x-amz-id-2": "Kaf1cLidCpINcxoux+24EE89gSKSXXhYB4F2yiljP7WVWQMdqn2mY6LIqCwVo/r2irWPyeg+0b0=",
+    "x-amz-request-id": "3QDSP2XH1M12HXV7",
+    "x-amz-server-side-encryption": "AES256",
+    "x-amz-version-id": "Y99K0DlYLah8mR7qasDzWIEXhJSKyfIb"
+   },
+   "resourceType": "image",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "file": "site/cdn.prod.website-files.com/6aaaa33647246359b83375bf/6aaaa33647246359b83375e8_Capital_One_UK_idgsX9XxtV_1 1.svg",
+   "size": 9257,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://cdn.prod.website-files.com/6aaaa33647246359b83375bf/6abd54d6e6fee938181552a2_TruGreen_156x57.svg",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/svg+xml",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "content-type": "image/svg+xml",
+    "priority": "u=3,i",
+    "x-amz-id-2": "hk4PuxiXOGh/ANjdmFqfMKyiRPV/SsOtc03Qpbj+4/Qy6I52IR1X95FPFJ9NEGYhVE4HNRGHApq9Q7+f84eaNiQfCIaDh4S0",
+    "x-amz-request-id": "A1D1FQ2GF69PAAQ2",
+    "x-amz-server-side-encryption": "AES256",
+    "x-amz-version-id": "rzDTbxetpfGqlhrVLzx6dpm.eKRay3Ad"
+   },
+   "resourceType": "image",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "file": "site/cdn.prod.website-files.com/6aaaa33647246359b83375bf/6abd54d6e6fee938181552a2_TruGreen_156x57.svg",
+   "size": 37387,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://cdn.prod.website-files.com/6aaaa33647246359b83375bf/6abd57668e73b0cc30381810_Nationwide%20Insurance.svg",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/svg+xml",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "content-type": "image/svg+xml",
+    "priority": "u=3,i",
+    "x-amz-id-2": "om5FzxuIOwZ1ye9Qc0xHNBUTin7MqceaLgkZPMKTd3zMNlcu84zKQch3QjRcxqd5eTBo3sCILzK/4QOUQd73nwC/xljg1hDD",
+    "x-amz-request-id": "1NA9Y91VYP3JAR4Z",
+    "x-amz-server-side-encryption": "AES256",
+    "x-amz-version-id": "S0bzmRNT1.pcSCNA.OGEhwwPxvuDPZGM"
+   },
+   "resourceType": "image",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "file": "site/cdn.prod.website-files.com/6aaaa33647246359b83375bf/6abd57668e73b0cc30381810_Nationwide Insurance.svg",
+   "size": 39205,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://cdn.prod.website-files.com/6aaaa33647246359b83375bf/6add4809f950f25096ed9b8b_NORDSTROM%20Minimal%20Wordmark-p-2000.png",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/png",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "content-type": "image/png",
+    "priority": "u=3,i",
+    "x-amz-id-2": "y+P0TPIFWRSOOAZIkzpB6RGPh8vLw+mDncf1MPN4LcD3wYJSrrW3xm8Q2sj/f/5YCm79x0Y7BLI=",
+    "x-amz-request-id": "4A0P6G1JT1NNQ543",
+    "x-amz-server-side-encryption": "AES256",
+    "x-amz-version-id": "g03hVzaRTkZEKRgxCaii5WwL1JBEnV3h"
+   },
+   "resourceType": "image",
+   "passes": [
+    "desktop"
+   ],
+   "file": "site/cdn.prod.website-files.com/6aaaa33647246359b83375bf/6add4809f950f25096ed9b8b_NORDSTROM Minimal Wordmark-p-2000.png",
+   "size": 94588,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://cdn.prod.website-files.com/6aaaa33647246359b83375c4/6ad6cf3f4ae5d85976003a79_16698e59533cf452b3ec7d4618fc57d7_Zenarate-Product-Images_Analyze%202-p-2000.png",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/png",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "content-type": "image/png",
+    "priority": "u=3,i",
+    "x-amz-id-2": "KddCov0M25PPOYvS9zfSZX+0F2J6G1+TQgh1q9ApQnChVtLgPDITEd71+5CB8d4Fke8QfNo7JCA=",
+    "x-amz-request-id": "QN7YTSQPWZ2DBTSZ",
+    "x-amz-server-side-encryption": "AES256",
+    "x-amz-version-id": "wUH4TqJZIzSMvneJjipjrWgjG_MhkDIB"
+   },
+   "resourceType": "image",
+   "passes": [
+    "desktop"
+   ],
+   "file": "site/cdn.prod.website-files.com/6aaaa33647246359b83375c4/6ad6cf3f4ae5d85976003a79_16698e59533cf452b3ec7d4618fc57d7_Zenarate-Product-Image_ff0a6fe8.png",
+   "size": 257443,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://cdn.prod.website-files.com/6aaaa33647246359b83375c4/6ad6cf3f9c3d665c57a6b108_48a5516c5213c7d80e4427b3880317f9_Zenarate-Product-Images_Perform%202-p-2000.png",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/png",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "content-type": "image/png",
+    "priority": "u=3,i",
+    "x-amz-id-2": "SiJEY5mQlHfnltKkwUrE4Iqbany16u+goy0Y4HQNqr6/6QIQ6Wa6mDd+k95A+FRdMzmOFDFKn/k=",
+    "x-amz-request-id": "QN7ZFXZPKVVK87Z7",
+    "x-amz-server-side-encryption": "AES256",
+    "x-amz-version-id": "UnM92rlIQ88bwqUHiExfXb2bd.MkEoQO"
+   },
+   "resourceType": "image",
+   "passes": [
+    "desktop"
+   ],
+   "file": "site/cdn.prod.website-files.com/6aaaa33647246359b83375c4/6ad6cf3f9c3d665c57a6b108_48a5516c5213c7d80e4427b3880317f9_Zenarate-Product-Image_ea09832e.png",
+   "size": 361492,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://cdn.prod.website-files.com/6aaaa33647246359b83375bf/6abd53f4e4475506ef084fe1_BCBS_Minnesota_156x57_logo100.svg",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/svg+xml",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "content-type": "image/svg+xml",
+    "priority": "u=3,i",
+    "x-amz-id-2": "kwfYtctp8a7ldTn5cHPBzT3CuRTHjBcV1eSQ+StiW+871VZirrxRL9AC7aorVBfdV4PLyJdhChXUJNLznGgvB3YDOJ5heU8/",
+    "x-amz-request-id": "WFP2PFKGC482YAC9",
+    "x-amz-server-side-encryption": "AES256",
+    "x-amz-version-id": "TqRtBRlUXcKi7dsOi55b3FomNW.yio5f"
+   },
+   "resourceType": "image",
+   "passes": [
+    "mobile",
+    "desktop"
+   ],
+   "file": "site/cdn.prod.website-files.com/6aaaa33647246359b83375bf/6abd53f4e4475506ef084fe1_BCBS_Minnesota_156x57_logo100.svg",
+   "size": 55029,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://cdn.prod.website-files.com/6aaaa33647246359b83375bf/6add4809f950f25096ed9b8b_NORDSTROM%20Minimal%20Wordmark-p-1600.png",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/png",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "content-type": "image/png",
+    "priority": "u=3,i",
+    "x-amz-id-2": "IusmEcZrLb0y2ttpwM/3U+t+1vf1viH4ndynw+qCc07VDHt605w3PV7Q3JpsuZnw+Q4ranagB18Kul/d4ul6jl2dxtkGu8FV",
+    "x-amz-request-id": "EFMMSJFWTAJAGZYS",
+    "x-amz-server-side-encryption": "AES256",
+    "x-amz-version-id": "86ZK86c8REcJRGAW7qGGaeHZB.lzOi66"
+   },
+   "resourceType": "image",
+   "passes": [
+    "mobile"
+   ],
+   "file": "site/cdn.prod.website-files.com/6aaaa33647246359b83375bf/6add4809f950f25096ed9b8b_NORDSTROM Minimal Wordmark-p-1600.png",
+   "size": 63972,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://cdn.prod.website-files.com/6aaaa33647246359b83375bf/6add438e86ce994badc41dbd_northwestern%20mutual-p-1600.png",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/png",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "content-type": "image/png",
+    "priority": "u=3,i",
+    "x-amz-id-2": "laKyZLdyeqI2/YpQTlHoBiGGa9wWg12LCM91Yyj89AFpFjAVom2CoZwFO1fM9KgpY/kU3OcFYgB+NxLNYgFaGrcGbH/hBjId",
+    "x-amz-request-id": "WE25Y4MGFD8YTTX8",
+    "x-amz-server-side-encryption": "AES256",
+    "x-amz-version-id": "Tciu_DQaqbkLWa6QCerJWh3V4V3ufYl1"
+   },
+   "resourceType": "image",
+   "passes": [
+    "mobile"
+   ],
+   "file": "site/cdn.prod.website-files.com/6aaaa33647246359b83375bf/6add438e86ce994badc41dbd_northwestern mutual-p-1600.png",
+   "size": 69613,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://cdn.prod.website-files.com/6aaaa33647246359b83375c4/6ad6cf3fe81d34267013a34c_ef1333febfc771d54b6a1f59c26b21d2_Zenarate-Product-Images_Evolve%202-p-1600.png",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/png",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "content-type": "image/png",
+    "priority": "u=3,i",
+    "x-amz-id-2": "lBZbsrvPmv2+yiWs6BmXXqjYy0jXogJKaBQR+br+lymPGcL2KQmu2qUzU9q4Z0RDOYLT10pT1bxG+d/1BeKqe369R4B9qI/I",
+    "x-amz-request-id": "GB0FGRDZKY9BZK06",
+    "x-amz-server-side-encryption": "AES256",
+    "x-amz-version-id": "1P19jZWXuN7gQ.4G76JRhV2wxUVubvjF"
+   },
+   "resourceType": "image",
+   "passes": [
+    "mobile"
+   ],
+   "file": "site/cdn.prod.website-files.com/6aaaa33647246359b83375c4/6ad6cf3fe81d34267013a34c_ef1333febfc771d54b6a1f59c26b21d2_Zenarate-Product-Image_e8f6c1f2.png",
+   "size": 106250,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://cdn.prod.website-files.com/6aaaa33647246359b83375c4/6ad6cf3f9c3d665c57a6b108_48a5516c5213c7d80e4427b3880317f9_Zenarate-Product-Images_Perform%202-p-1600.png",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/png",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "content-type": "image/png",
+    "priority": "u=3,i",
+    "x-amz-id-2": "fm4PonSaTmGfMiSLGaB5VM6cPfmaEKAVIH4cmbKiRJ5y1LjJFCHm5skaw990NL5uLrq9xE2lZMn3wMpS4DgHQ17q3EshV3Hh",
+    "x-amz-request-id": "GB0AGSV49811TQG4",
+    "x-amz-server-side-encryption": "AES256",
+    "x-amz-version-id": "tXgJzYTjXzUFMjqiAYbbmTdALvbrFi.6"
+   },
+   "resourceType": "image",
+   "passes": [
+    "mobile"
+   ],
+   "file": "site/cdn.prod.website-files.com/6aaaa33647246359b83375c4/6ad6cf3f9c3d665c57a6b108_48a5516c5213c7d80e4427b3880317f9_Zenarate-Product-Image_cf6daff3.png",
+   "size": 252541,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://cdn.prod.website-files.com/6aaaa33647246359b83375c4/6ad6cf3f4ae5d85976003a79_16698e59533cf452b3ec7d4618fc57d7_Zenarate-Product-Images_Analyze%202-p-1600.png",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/png",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "content-type": "image/png",
+    "priority": "u=3,i",
+    "x-amz-id-2": "ZNwXVbeh2XCNS763T5B360teLIhF5eUIaGA987hOsy15DZbQu+ymvbqAdKcgDrC/V6wt7J6XUgeH/zxSWFjefW4NDYj6ehE4",
+    "x-amz-request-id": "GB0EAK5FM95TG76N",
+    "x-amz-server-side-encryption": "AES256",
+    "x-amz-version-id": "MAPrqNWm.Xk2W9OdGjDh1Rb7bGUQozNh"
+   },
+   "resourceType": "image",
+   "passes": [
+    "mobile"
+   ],
+   "file": "site/cdn.prod.website-files.com/6aaaa33647246359b83375c4/6ad6cf3f4ae5d85976003a79_16698e59533cf452b3ec7d4618fc57d7_Zenarate-Product-Image_6e973df7.png",
+   "size": 195137,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://cdn.prod.website-files.com/6aaaa33647246359b83375c4/6ad6cf3fe81d34267013a34c_ef1333febfc771d54b6a1f59c26b21d2_Zenarate-Product-Images_Evolve%202-p-2000.png",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/png",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "content-type": "image/png",
+    "priority": "u=3,i",
+    "x-amz-id-2": "bNPITl0b9Ppj1oyLOA3tpkqymg/ZIIEuJ6lrQn5YRAKiTfNwtH70qR3urxzUBnjjliWfbkPnZ7I=",
+    "x-amz-request-id": "QN7VF1W0XXCKWHD0",
+    "x-amz-server-side-encryption": "AES256",
+    "x-amz-version-id": "xuZM3MArekO7.2ZxLxEr0hIpelVJiDgb"
+   },
+   "resourceType": "image",
+   "passes": [
+    "desktop"
+   ],
+   "file": "site/cdn.prod.website-files.com/6aaaa33647246359b83375c4/6ad6cf3fe81d34267013a34c_ef1333febfc771d54b6a1f59c26b21d2_Zenarate-Product-Image_58022208.png",
+   "size": 147643,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://cdn.prod.website-files.com/6aaaa33647246359b83375bf/6ac8017f5860efd4755e4ace_2026_Q4_Full_Circle_Toronto-p-1600.webp",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/webp",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "content-type": "image/webp",
+    "priority": "u=3,i",
+    "x-amz-id-2": "G2n1+ziQygTOpG2xoTbV23g+H1kraeLXzYdWZCdwKpdfBA8jp2SGu1zi4dqNutS8qdP2tfRqZis=",
+    "x-amz-request-id": "EGESZF4G8VTZ10VG",
+    "x-amz-server-side-encryption": "AES256",
+    "x-amz-version-id": "Fyb3Ckgyd5GUQttqypdDRU9Q651O_U2C"
+   },
+   "resourceType": "image",
+   "passes": [
+    "mobile"
+   ],
+   "file": "site/cdn.prod.website-files.com/6aaaa33647246359b83375bf/6ac8017f5860efd4755e4ace_2026_Q4_Full_Circle_Toronto-p-1600.webp",
+   "size": 11702,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://challenges.cloudflare.com/turnstile/v0/api.js",
+   "method": "GET",
+   "status": 302,
+   "contentType": "",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "location": "/turnstile/v0/b/d2d3316b729e/api.js",
+    "priority": "u=3,i=?0"
+   },
+   "resourceType": "script",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "size": 0,
+   "redirect": "https://challenges.cloudflare.com/turnstile/v0/b/d2d3316b729e/api.js",
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://challenges.cloudflare.com/turnstile/v0/b/d2d3316b729e/api.js",
+   "method": "GET",
+   "status": 200,
+   "contentType": "application/javascript; charset=UTF-8",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "content-type": "application/javascript; charset=UTF-8",
+    "priority": "u=3,i=?0"
+   },
+   "resourceType": "script",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "file": "site/challenges.cloudflare.com/turnstile/v0/b/d2d3316b729e/api.js",
+   "size": 86732,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://hubspotonwebflow.com/assets/js/blockedDomains.json",
+   "method": "GET",
+   "status": 200,
+   "contentType": "application/json; charset=UTF-8",
+   "headers": {
+    "access-control-allow-methods": "GET, OPTIONS",
+    "access-control-allow-origin": "*",
+    "content-type": "application/json; charset=UTF-8"
+   },
+   "resourceType": "fetch",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "file": "site/hubspotonwebflow.com/assets/js/blockedDomains.json",
+   "size": 100243,
+   "modes": [
+    "cors"
+   ]
+  },
+  {
+   "url": "https://cdn.prod.website-files.com/6aaaa33647246359b83375c4/6aaaa33647246359b83375f5_ZenarateIconMark.png",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/png",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "content-type": "image/png",
+    "priority": "u=1,i",
+    "x-amz-id-2": "HX8fuYg2uz+1tk2HubGoByW1mJFvg+yGhv2UEAbaVb5k/yWAbpabH6jn0Dd0aYv9Ta5/qg6iCjI=",
+    "x-amz-request-id": "7EYX2V1R4RT78HTQ",
+    "x-amz-server-side-encryption": "AES256",
+    "x-amz-version-id": "EoqFFSYo4rN17AGU6EUxAfZW09gmOerk"
+   },
+   "resourceType": "other",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "file": "site/cdn.prod.website-files.com/6aaaa33647246359b83375c4/6aaaa33647246359b83375f5_ZenarateIconMark.png",
+   "size": 1981,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://hubspotonwebflow.com/api/forms/blockList?id=793ad84c-5823-4365-b95e-8ed6a6e524ad",
+   "method": "GET",
+   "status": 200,
+   "contentType": "application/json",
+   "headers": {
+    "access-control-allow-headers": "Content-Type, Content-Type, Authorization",
+    "access-control-allow-methods": "GET, POST, PUT, DELETE, OPTIONS",
+    "access-control-allow-origin": "*",
+    "content-type": "application/json"
+   },
+   "resourceType": "fetch",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "file": "site/hubspotonwebflow.com/api/forms/blockList__q89d702aa.json",
+   "size": 47,
+   "modes": [
+    "cors"
+   ]
+  },
+  {
+   "url": "https://cdn.prod.website-files.com/6aaaa33647246359b83375bf/6add4f7d691581a39743c869_Chelsea%20Havens-Wolters-Kluwer.jpg",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/jpeg",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "content-type": "image/jpeg",
+    "priority": "u=3,i",
+    "x-amz-id-2": "ScAc4IrnKoI70EXJr73Q2L8986EwIZyAciAkEQGAi3ycufBXX7VNbW3r6vHs16DjiSUyL3HT/MQ=",
+    "x-amz-request-id": "YR448PMMCC3C17VX",
+    "x-amz-server-side-encryption": "AES256",
+    "x-amz-version-id": "rglOEGtClk8eMJzx7JWQmH3nPMop.Soo"
+   },
+   "resourceType": "image",
+   "passes": [
+    "mobile",
+    "desktop"
+   ],
+   "file": "site/cdn.prod.website-files.com/6aaaa33647246359b83375bf/6add4f7d691581a39743c869_Chelsea Havens-Wolters-Kluwer.jpg",
+   "size": 231803,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://cdn.prod.website-files.com/6aaaa33647246359b83375bf/6add4d2c2e459d1cb6224a0a_Elisha%20Wright-Hyatt.jpg",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/jpeg",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "content-type": "image/jpeg",
+    "priority": "u=3,i",
+    "x-amz-id-2": "UYLpdFw57Eepxdea4Wft/8g+AdMtNE5WEOPqMYYQaeX8YJFlca+8g2Po1GID5s6Plem5w3o7s4w=",
+    "x-amz-request-id": "66EPMBQ700QQN42X",
+    "x-amz-server-side-encryption": "AES256",
+    "x-amz-version-id": "58CqOOxXwd9UKhmT8nkVO_hMp5h4SRT8"
+   },
+   "resourceType": "image",
+   "passes": [
+    "mobile",
+    "desktop"
+   ],
+   "file": "site/cdn.prod.website-files.com/6aaaa33647246359b83375bf/6add4d2c2e459d1cb6224a0a_Elisha Wright-Hyatt.jpg",
+   "size": 179659,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://cdn.prod.website-files.com/6aaaa33647246359b83375bf/6add4b8e043cf26c1389f62c_DISH%20Charcoal%20Wordmark%20Logo-p-500.png",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/png",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "content-type": "image/png",
+    "priority": "u=3,i",
+    "x-amz-id-2": "7mfHmTrUcwvxlZTvhU9nvkTPiguNMs7BtxJK/N/+qz9Jlcsb+49fgNdT0OsexOnGpB4WMzHvGPskna/nNGjoKGM/yGH/BV2N",
+    "x-amz-request-id": "94RRDAR3JEJW34KG",
+    "x-amz-server-side-encryption": "AES256",
+    "x-amz-version-id": "JUC8Dl3yKHSjMfImWSml4.CvAbGpX9Bu"
+   },
+   "resourceType": "image",
+   "passes": [
+    "mobile"
+   ],
+   "file": "site/cdn.prod.website-files.com/6aaaa33647246359b83375bf/6add4b8e043cf26c1389f62c_DISH Charcoal Wordmark Logo-p-500.png",
+   "size": 15117,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://cdn.prod.website-files.com/6aaaa33647246359b83375bf/6add4d0f28b989f6d8f24f28_hyatt.png",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/png",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "content-type": "image/png",
+    "priority": "u=3,i",
+    "x-amz-id-2": "K583ydoFMWPvS6jlE6nQa+JzzwuCZIzSaprHeFeq1C3dfwC8bAZYNqAjGRNPTFX+oG0ynCK6FOt7C3VaZMECmD5pfXwJu3Rd",
+    "x-amz-request-id": "66EXPWNNNJTPXK6A",
+    "x-amz-server-side-encryption": "AES256",
+    "x-amz-version-id": "35kQCmKJyw_sfjumxE4OcxABnvw1YbU9"
+   },
+   "resourceType": "image",
+   "passes": [
+    "mobile",
+    "desktop"
+   ],
+   "file": "site/cdn.prod.website-files.com/6aaaa33647246359b83375bf/6add4d0f28b989f6d8f24f28_hyatt.png",
+   "size": 7057,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://cdn.prod.website-files.com/6aaaa33647246359b83375bf/6add4974864274d40b8f46f9_Tiffany%20Friend%20Citizens%20Bank-p-1600.jpg",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/jpg",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "content-type": "image/jpg",
+    "priority": "u=3,i",
+    "x-amz-id-2": "C2fInqvCuh8rzyn1BKyWH7rpN763x5cnnGByHUCjAeeeJAozDh9QwBLfeIKoXhmgLbdBzAu7cAfxHCSgSJD2uWdNC+woKl/O",
+    "x-amz-request-id": "V78JDY87HVR6AVCH",
+    "x-amz-server-side-encryption": "AES256",
+    "x-amz-version-id": "bMvacZi_PqgOg2zqM.XsWEIc.y6olkPe"
+   },
+   "resourceType": "image",
+   "passes": [
+    "mobile"
+   ],
+   "file": "site/cdn.prod.website-files.com/6aaaa33647246359b83375bf/6add4974864274d40b8f46f9_Tiffany Friend Citizens Bank-p-1600.jpg",
+   "size": 121500,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://cdn.prod.website-files.com/6aaaa33647246359b83375bf/6abd5c7593bac1e640c1b41b_Sallie%20Mae.svg",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/svg+xml",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "content-type": "image/svg+xml",
+    "priority": "u=3,i",
+    "x-amz-id-2": "1hHcAv8HTQZ595jx/LsB18mfPJW8jfNhHmaKYvxu3dvs/YtCHns4sWpj4HKy/F6eZ0waFtC7fsJCFVhQOYsQS3FztxvXbMv0",
+    "x-amz-request-id": "PH8NQ4P10FPHDAA2",
+    "x-amz-server-side-encryption": "AES256",
+    "x-amz-version-id": "M88ryFeNOskU1TtyTTXdO8R.lWw9.tcn"
+   },
+   "resourceType": "image",
+   "passes": [
+    "mobile",
+    "desktop"
+   ],
+   "file": "site/cdn.prod.website-files.com/6aaaa33647246359b83375bf/6abd5c7593bac1e640c1b41b_Sallie Mae.svg",
+   "size": 22006,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://cdn.prod.website-files.com/6aaaa33647246359b83375bf/6add4fd4f57b3356ec88ec70_wolters-kluwer-webflow-4x-p-500.png",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/png",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "content-type": "image/png",
+    "priority": "u=3,i",
+    "x-amz-id-2": "UpVu4dVHSBco+BjswNJULuLUg9uQmdxEUQTiUvgSUTe89cnivGG3mzbBWZMv9Dl81/Efcw8YdY4=",
+    "x-amz-request-id": "94RTDEHK31XJ62S3",
+    "x-amz-server-side-encryption": "AES256",
+    "x-amz-version-id": "T_acQ69W4.1a0N0k5VG1_J3lngTZwlee"
+   },
+   "resourceType": "image",
+   "passes": [
+    "mobile",
+    "desktop"
+   ],
+   "file": "site/cdn.prod.website-files.com/6aaaa33647246359b83375bf/6add4fd4f57b3356ec88ec70_wolters-kluwer-webflow-4x-p-500.png",
+   "size": 8609,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://cdn.prod.website-files.com/6aaaa33647246359b83375bf/6add4b815a9373586d0d465c_Robert%20Henry-Dish-Network.jpg",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/jpeg",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "content-type": "image/jpeg",
+    "priority": "u=3,i",
+    "x-amz-id-2": "lx0qK66tDVwDaazG4htVOwmqxbYq9zNgAWFOBMuhdHZLMQjmLIhkaOzp+zbHOEf36yg8VlBLuiE=",
+    "x-amz-request-id": "E9SKB0EC32M38WTM",
+    "x-amz-server-side-encryption": "AES256",
+    "x-amz-version-id": "BSbKI703ybvZY.3JIFciAkSoSo_nwsHf"
+   },
+   "resourceType": "image",
+   "passes": [
+    "mobile"
+   ],
+   "file": "site/cdn.prod.website-files.com/6aaaa33647246359b83375bf/6add4b815a9373586d0d465c_Robert Henry-Dish-Network.jpg",
+   "size": 234278,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://cdn.prod.website-files.com/6aaaa33647246359b83375bf/6abd59b86c304f51b8e56f6e_TruGreen.svg",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/svg+xml",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "content-type": "image/svg+xml",
+    "priority": "u=3,i",
+    "x-amz-id-2": "gmlBT949A9t4xy6sv9WZHzOYp4uMyRN720keksAGYJLt7SL+9GIueMGb04UX4qISnhcgsZjGJKkwajrjXF49aP9sPJdShn6D",
+    "x-amz-request-id": "TMK3E4CQCCA03F77",
+    "x-amz-server-side-encryption": "AES256",
+    "x-amz-version-id": "pO7ZoEvbvRJIa4.MNZhwtgIw8ZZzjgmn"
+   },
+   "resourceType": "image",
+   "passes": [
+    "mobile",
+    "desktop"
+   ],
+   "file": "site/cdn.prod.website-files.com/6aaaa33647246359b83375bf/6abd59b86c304f51b8e56f6e_TruGreen.svg",
+   "size": 18013,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://cdn.prod.website-files.com/6aaaa33647246359b83375c4/6aad0998a906a61017a00e78_16-p-1600.webp",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/webp",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "content-type": "image/webp",
+    "priority": "u=3,i",
+    "x-amz-id-2": "/uhSE4hF/sW8jHkWkK44AD3RCn+LFn6vz3/yxXBHcecioDNBNE3sMbHsG+LDIrrZ7FDUKxm5OBA=",
+    "x-amz-request-id": "QC7N9SY02YSM881R",
+    "x-amz-server-side-encryption": "AES256",
+    "x-amz-version-id": "sb64Gr1qnWBWHWBqizP3GUfPI_X69ZtD"
+   },
+   "resourceType": "image",
+   "passes": [
+    "mobile"
+   ],
+   "file": "site/cdn.prod.website-files.com/6aaaa33647246359b83375c4/6aad0998a906a61017a00e78_16-p-1600.webp",
+   "size": 62884,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://cdn.prod.website-files.com/6aaaa33647246359b83375bf/6abe4f1c112a665aa5c0b05b_Group%20427320229%20(1).webp",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/webp",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "content-type": "image/webp",
+    "priority": "u=3,i",
+    "x-amz-id-2": "xc7DZZ04P+kmEeNqTMNUg51ujBMwv1B4u2Bf9xlGrrZycCdzdlucKPk+FQX889XNTIpBVSqZD5/hfah04OwwGguK3qAgrTEp",
+    "x-amz-request-id": "0JM509J5HF36K27V",
+    "x-amz-server-side-encryption": "AES256",
+    "x-amz-version-id": "WIZtS0bXDh4R_9vRbgUCEWC2CrvuGD5q"
+   },
+   "resourceType": "image",
+   "passes": [
+    "mobile",
+    "desktop"
+   ],
+   "file": "site/cdn.prod.website-files.com/6aaaa33647246359b83375bf/6abe4f1c112a665aa5c0b05b_Group 427320229 (1).webp",
+   "size": 52536,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://cdn.prod.website-files.com/6aaaa33647246359b83375bf/6ad7f5e40a504f401e2716cf_Office-04-compressed-p-1600.webp",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/webp",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "content-type": "image/webp",
+    "priority": "u=3,i",
+    "x-amz-id-2": "UtvL/td4uvM8mS++Fpb87o8ejkwxi8TujkeMJAXgPfU3JNFfNf8a9MVszipMjFCSIN+9dCCLdOc=",
+    "x-amz-request-id": "S2PSMJ2NDTQ9KXFT",
+    "x-amz-server-side-encryption": "AES256",
+    "x-amz-version-id": "paOCQctBn6unHiu5rAJV4zYSg9DRvQwx"
+   },
+   "resourceType": "image",
+   "passes": [
+    "mobile"
+   ],
+   "file": "site/cdn.prod.website-files.com/6aaaa33647246359b83375bf/6ad7f5e40a504f401e2716cf_Office-04-compressed-p-1600.webp",
+   "size": 59108,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://cdn.prod.website-files.com/6aaaa33647246359b83375bf/6abe6160759d1d8500d1151c_Group%20427320236%20(1).webp",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/webp",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "content-type": "image/webp",
+    "priority": "u=3,i",
+    "x-amz-id-2": "0EaYeHhljWwpPWsOPKOWKMc+Z0rUfdtX1s0Fczdk8+1aV6B9Weju2x0JGtsovsDZF7MHcQVSmiQ+UQgB1+Oo/4+NcYL4I4S0",
+    "x-amz-request-id": "0JMC3YH22T94QDX4",
+    "x-amz-server-side-encryption": "AES256",
+    "x-amz-version-id": "j8_6j8GgdT7uVTJZHldkFkyO7o0LWQRw"
+   },
+   "resourceType": "image",
+   "passes": [
+    "mobile",
+    "desktop"
+   ],
+   "file": "site/cdn.prod.website-files.com/6aaaa33647246359b83375bf/6abe6160759d1d8500d1151c_Group 427320236 (1).webp",
+   "size": 44602,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://cdn.prod.website-files.com/6aaaa33647246359b83375bf/6ab992d4489fca412d03cc9f_20-p-1600.webp",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/webp",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "content-type": "image/webp",
+    "priority": "u=3,i",
+    "x-amz-id-2": "WelCPsVYXIwfo0TdVUnCKlG0L1Iv8xy2ccnZz4EfBksLhyvg5ZVAEy4phZeUjO0CWPBHwTjOXZVxHJgZ8eGnkWbOGCHeM4FI",
+    "x-amz-request-id": "KXX0BN11XNSVQX76",
+    "x-amz-server-side-encryption": "AES256",
+    "x-amz-version-id": "eu9lbFKymglwqPmqIGU2WVyDpWcrYzio"
+   },
+   "resourceType": "image",
+   "passes": [
+    "mobile"
+   ],
+   "file": "site/cdn.prod.website-files.com/6aaaa33647246359b83375bf/6ab992d4489fca412d03cc9f_20-p-1600.webp",
+   "size": 65440,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://cdn.prod.website-files.com/6aaaa33647246359b83375bf/6ab993e0bdf94165b19b8d74_P2.webp",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/webp",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "content-type": "image/webp",
+    "priority": "u=3,i",
+    "x-amz-id-2": "4dpYz+i5Ee6KVYQeRu7hOPY632AkC2KsiA2DRTr4EbeVs1ZGwfmG3ytd2HeQE3iBnjHBC6VhxjAvfjzjwzSoLvpj1YGM25HL",
+    "x-amz-request-id": "QHAVMNXJBDKSNE4E",
+    "x-amz-server-side-encryption": "AES256",
+    "x-amz-version-id": ".E3NBCc3aIiEVUW30Hy4kzNpG43Qpu6B"
+   },
+   "resourceType": "image",
+   "passes": [
+    "mobile",
+    "desktop"
+   ],
+   "file": "site/cdn.prod.website-files.com/6aaaa33647246359b83375bf/6ab993e0bdf94165b19b8d74_P2.webp",
+   "size": 101182,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://cdn.prod.website-files.com/6aaaa33647246359b83375c4/6aad0998a906a61017a00e78_16.webp",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/webp",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "content-type": "image/webp",
+    "priority": "u=3,i",
+    "x-amz-id-2": "LdmEcLBPrCRuzDt4opqg5eYf6tJb35Ek5MxiPRonrOcq6bhGz1eXGUfnEk5TFBPdoFnr7pln93bGz4dXvhiYd5nUYPlp86gU",
+    "x-amz-request-id": "1AGG1T1D1Q6SD77J",
+    "x-amz-server-side-encryption": "AES256",
+    "x-amz-version-id": "X72AT1K3krHqicwFGkm5ymr79s3Pxx_j"
+   },
+   "resourceType": "image",
+   "passes": [
+    "desktop"
+   ],
+   "file": "site/cdn.prod.website-files.com/6aaaa33647246359b83375c4/6aad0998a906a61017a00e78_16.webp",
+   "size": 144320,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://cdn.prod.website-files.com/6aaaa33647246359b83375c4/6aaaa33647246359b83375eb_TotallyPlaceholder-p-1600.webp",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/webp",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "content-type": "image/webp",
+    "priority": "u=3,i",
+    "x-amz-id-2": "/0ni69URbjFvdbfPy2mPi5Q72muFCVN687TpU/TICNZ66wxW9lwbNmhys4oWHn3U3rKRmAmCRXsRBTFdG+tLAjdItx3Jn8KN",
+    "x-amz-request-id": "1M5X8CTRMW3KHDRR",
+    "x-amz-server-side-encryption": "AES256",
+    "x-amz-version-id": "sXa4CTM3brc5CPHtQLP2Sj.nugUJnEAl"
+   },
+   "resourceType": "image",
+   "passes": [
+    "mobile"
+   ],
+   "file": "site/cdn.prod.website-files.com/6aaaa33647246359b83375c4/6aaaa33647246359b83375eb_TotallyPlaceholder-p-1600.webp",
+   "size": 33710,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://cdn.prod.website-files.com/6aaaa33647246359b83375c4/6aaaa33647246359b83375eb_TotallyPlaceholder.webp",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/webp",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "content-type": "image/webp",
+    "priority": "u=3,i",
+    "x-amz-id-2": "9k1vsP4/n8O4HcfFE8bsau6r/kmdvnyLZ5CwpiGuUgDSn2ugmCUXA6uAJTRnoIPNhZJkjJNsEvY=",
+    "x-amz-request-id": "HC9RNRESW0YJ45D1",
+    "x-amz-server-side-encryption": "AES256",
+    "x-amz-version-id": "xTusfovs9lab2gS.BUmddxPdCJXoKYBi"
+   },
+   "resourceType": "image",
+   "passes": [
+    "desktop"
+   ],
+   "file": "site/cdn.prod.website-files.com/6aaaa33647246359b83375c4/6aaaa33647246359b83375eb_TotallyPlaceholder.webp",
+   "size": 32398,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://cdn.prod.website-files.com/6aaaa33647246359b83375bf/6ab992d4489fca412d03cc9f_20.webp",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/webp",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "content-type": "image/webp",
+    "priority": "u=3,i",
+    "x-amz-id-2": "QuV+YQAypiWZ9t/np4SXnG479kSZaOvrkHwvF0Nig+b1yZaIp/S5Rb2tnUejrc++0l5qFV5t+jO7t2hGHZng3dZDy2ixehoh",
+    "x-amz-request-id": "8B173X62YTE1Y2ZZ",
+    "x-amz-server-side-encryption": "AES256",
+    "x-amz-version-id": "2D_fGGLFcHfkm6M3xchBlrhO3h6n2aPQ"
+   },
+   "resourceType": "image",
+   "passes": [
+    "desktop"
+   ],
+   "file": "site/cdn.prod.website-files.com/6aaaa33647246359b83375bf/6ab992d4489fca412d03cc9f_20.webp",
+   "size": 191822,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://cdn.prod.website-files.com/6aaaa33647246359b83375bf/6ad7f5e40a504f401e2716cf_Office-04-compressed-p-3200.webp",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/webp",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "content-type": "image/webp",
+    "priority": "u=3,i",
+    "x-amz-id-2": "LXlj6wv+X9yugOD/A6WauyeWv3VtC4ThmQyHNKROEyQaionE9uikL4+lW2UTcDYZSan8VqE7ESom2WEkDTwALk1PBb37df2k",
+    "x-amz-request-id": "PS7V9Y240BKZTYA9",
+    "x-amz-server-side-encryption": "AES256",
+    "x-amz-version-id": "05TB3wPW05ZKAHRBlvPG4t7jrjQMuD.R"
+   },
+   "resourceType": "image",
+   "passes": [
+    "desktop"
+   ],
+   "file": "site/cdn.prod.website-files.com/6aaaa33647246359b83375bf/6ad7f5e40a504f401e2716cf_Office-04-compressed-p-3200.webp",
+   "size": 508944,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://cdn.prod.website-files.com/6aaaa33647246359b83375bf/6ab992cb310af94e01bfabe7_16.webp",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/webp",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "content-type": "image/webp",
+    "priority": "u=3,i",
+    "x-amz-id-2": "YDMI0IaUPhRz6v0RG3BTUjoquKyKl7RCkVpyzkPBgL0w4RQ3zAcvu25iJmmIYQM4hu6EVDUcHLx/Qd96XSSSN5Oa4iyK/3t0",
+    "x-amz-request-id": "V30Q3F47SHPWTT85",
+    "x-amz-server-side-encryption": "AES256",
+    "x-amz-version-id": "eFJs.yp5h8pr.YD.bMb.pDpMopfDCI2P"
+   },
+   "resourceType": "image",
+   "passes": [
+    "desktop"
+   ],
+   "file": "site/cdn.prod.website-files.com/6aaaa33647246359b83375bf/6ab992cb310af94e01bfabe7_16.webp",
+   "size": 272350,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://cdn.prod.website-files.com/6aaaa33647246359b83375bf/6ab992c2d078f406ebdbf5b8_6.webp",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/webp",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "content-type": "image/webp",
+    "priority": "u=3,i",
+    "x-amz-id-2": "vgBcDsNOTAuuRwZsWUoOm53rHq30peCordq6JiI+FXNzsqJBZEQOBR2+0LzZ6/cuucP/Vbe9CNfV+ADbl9962h6/YLw/oviv",
+    "x-amz-request-id": "40R0WMT8P7RYHBDW",
+    "x-amz-server-side-encryption": "AES256",
+    "x-amz-version-id": "8uer9EIsjSTbFf_cS8HTj2ZjMMKfd2k9"
+   },
+   "resourceType": "image",
+   "passes": [
+    "desktop"
+   ],
+   "file": "site/cdn.prod.website-files.com/6aaaa33647246359b83375bf/6ab992c2d078f406ebdbf5b8_6.webp",
+   "size": 240408,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://cdn.prod.website-files.com/6a687993bfbcf57eea7b88da/6a7dc6698a615a4022b613b8_ZenarateIconMark.png",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/png",
+   "headers": {
+    "content-type": "image/png",
+    "x-amz-id-2": "djllUD3Gy4TVKb0T5n2w2ueF9Z6S1kgbxML32NAJB23V8vIPjrKZAlEl8IdxHEDYKv0yFfRCIKg=",
+    "x-amz-request-id": "YY8B4B70B1STF4N4",
+    "x-amz-server-side-encryption": "AES256",
+    "x-amz-version-id": "SOH41Qw2y7NwU5FSQPFw3Yo4sFC0Eoe4",
+    "access-control-allow-origin": "*"
+   },
+   "resourceType": "other",
+   "passes": [
+    "desktop"
+   ],
+   "file": "site/cdn.prod.website-files.com/6a687993bfbcf57eea7b88da/6a7dc6698a615a4022b613b8_ZenarateIconMark.png",
+   "size": 3543
+  },
+  {
+   "url": "https://cdn.prod.website-files.com/6a687993bfbcf57eea7b88da/6a7dc669ec5259b7027c4763_ZenarateIconMark.png",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/png",
+   "headers": {
+    "content-type": "image/png",
+    "x-amz-id-2": "tZPsQ4DSYGE9gPKB8bxb/BN4MqQCjetfTUUsnSU+nyA20L9c0zhhcAVdSSx3vLtKs+QgWqnkm3CQzAIZE57Al9yccwzcjAc+",
+    "x-amz-request-id": "YY8FM164ZJ84CN5X",
+    "x-amz-server-side-encryption": "AES256",
+    "x-amz-version-id": "EWNac6UoAk61HoZLu1vr7PGmwyJ_GFWs",
+    "access-control-allow-origin": "*"
+   },
+   "resourceType": "other",
+   "passes": [
+    "desktop"
+   ],
+   "file": "site/cdn.prod.website-files.com/6a687993bfbcf57eea7b88da/6a7dc669ec5259b7027c4763_ZenarateIconMark.png",
+   "size": 17141
+  },
+  {
+   "url": "https://cdn.prod.website-files.com/6aaaa33647246359b83375c4/6aaaa33647246359b83375f7_ZenarateIconMark.png",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/png",
+   "headers": {
+    "content-type": "image/png",
+    "x-amz-id-2": "qJzE0KxihGLHR53kFHQaGDsLoV08MDh2atZdzLSC54rAFwTNTEZgiq2eguPL7h8AYK1QF4Zqj8c=",
+    "x-amz-request-id": "7EYWD8Z8P21K4H1D",
+    "x-amz-server-side-encryption": "AES256",
+    "x-amz-version-id": "AYNewbtHDm1SYpoCJvmGO_aQzKRbvEoZ",
+    "access-control-allow-origin": "*"
+   },
+   "resourceType": "other",
+   "passes": [
+    "desktop"
+   ],
+   "file": "site/cdn.prod.website-files.com/6aaaa33647246359b83375c4/6aaaa33647246359b83375f7_ZenarateIconMark.png",
+   "size": 102474
+  },
+  {
+   "url": "https://cdn.prod.website-files.com/6a687993bfbcf57eea7b88da/6a7dc669a1c08f2e8e981289_ZenarateIconMark.png",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/png",
+   "headers": {
+    "content-type": "image/png",
+    "x-amz-id-2": "qvSh/CUOKGZTpkLvyMRA+FeB0chHXGY3x4KlH18P5RcfIIKaR6EYjxp7V1DWBnYE/sTvIop6hEiWyf+F9SJrU9aXy+3zbgIe",
+    "x-amz-request-id": "N3G3S5CFMBQ0TB1X",
+    "x-amz-server-side-encryption": "AES256",
+    "x-amz-version-id": "OfqcMeTSDc_z59p_kxj.PMSHhgG2Rd8t",
+    "access-control-allow-origin": "*"
+   },
+   "resourceType": "other",
+   "passes": [
+    "desktop"
+   ],
+   "file": "site/cdn.prod.website-files.com/6a687993bfbcf57eea7b88da/6a7dc669a1c08f2e8e981289_ZenarateIconMark.png",
+   "size": 15787
+  },
+  {
+   "url": "https://zenaratepull.b-cdn.net/Events%20Background%20Montage%20v2.mp4",
+   "method": "GET",
+   "status": 200,
+   "contentType": "video/mp4",
+   "headers": {
+    "content-type": "video/mp4",
+    "cdn-pullzone": "6625029",
+    "cdn-requestcountrycode": "US",
+    "access-control-allow-origin": "*",
+    "access-control-allow-headers": "Server, x-goog-meta-frames, Content-Length, Content-Type, Range, X-Requested-With, If-Modified-Since, If-None-Match",
+    "access-control-expose-headers": "Server, x-goog-meta-frames, Content-Length, Content-Type, Range, X-Requested-With, If-Modified-Since, If-None-Match",
+    "cdn-storageserver": "NY-1292",
+    "cdn-fileserver": "427",
+    "cdn-proxyver": "1.70",
+    "cdn-requestpullsuccess": "True",
+    "cdn-requestpullcode": "206",
+    "cdn-cachedat": "09/29/2026 18:18:47",
+    "cdn-edgestorageid": "1504",
+    "cdn-requestid": "437e5e1c169990f76ed51997d718a5f3",
+    "cdn-cache": "HIT",
+    "cdn-status": "200",
+    "cdn-requesttime": "0"
+   },
+   "resourceType": "media",
+   "passes": [
+    "desktop"
+   ],
+   "file": "site/zenaratepull.b-cdn.net/Events Background Montage v2.mp4",
+   "size": 21957438,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://zenaratepull.b-cdn.net/Home%20Page%20Hero%20v1.mp4",
+   "method": "GET",
+   "status": 200,
+   "contentType": "video/mp4",
+   "headers": {
+    "content-type": "video/mp4",
+    "cdn-pullzone": "6625029",
+    "cdn-requestcountrycode": "US",
+    "access-control-allow-origin": "*",
+    "access-control-allow-headers": "Server, x-goog-meta-frames, Content-Length, Content-Type, Range, X-Requested-With, If-Modified-Since, If-None-Match",
+    "access-control-expose-headers": "Server, x-goog-meta-frames, Content-Length, Content-Type, Range, X-Requested-With, If-Modified-Since, If-None-Match",
+    "cdn-storageserver": "NY-1309",
+    "cdn-fileserver": "1484",
+    "cdn-proxyver": "1.70",
+    "cdn-requestpullsuccess": "True",
+    "cdn-requestpullcode": "206",
+    "cdn-cachedat": "09/29/2026 19:11:49",
+    "cdn-edgestorageid": "1310",
+    "cdn-requestid": "bd10d47b511780e928ffec934c2b0887",
+    "cdn-cache": "HIT",
+    "cdn-status": "200",
+    "cdn-requesttime": "0"
+   },
+   "resourceType": "media",
+   "passes": [
+    "desktop"
+   ],
+   "file": "site/zenaratepull.b-cdn.net/Home Page Hero v1.mp4",
+   "size": 40105709,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://zenaratepull.b-cdn.net/Hero%20Mobile%20Crop.mp4",
+   "method": "GET",
+   "status": 200,
+   "contentType": "video/mp4",
+   "headers": {
+    "content-type": "video/mp4",
+    "cdn-pullzone": "6625029",
+    "cdn-requestcountrycode": "US",
+    "access-control-allow-origin": "*",
+    "access-control-allow-headers": "Server, x-goog-meta-frames, Content-Length, Content-Type, Range, X-Requested-With, If-Modified-Since, If-None-Match",
+    "access-control-expose-headers": "Server, x-goog-meta-frames, Content-Length, Content-Type, Range, X-Requested-With, If-Modified-Since, If-None-Match",
+    "cdn-storageserver": "NY-1311",
+    "cdn-fileserver": "1186",
+    "cdn-proxyver": "1.70",
+    "cdn-requestpullsuccess": "True",
+    "cdn-requestpullcode": "206",
+    "cdn-cachedat": "09/30/2026 18:34:23",
+    "cdn-edgestorageid": "1310",
+    "cdn-requestid": "2258b3be3d85a0c2016e1aa760e77d0d",
+    "cdn-cache": "HIT",
+    "cdn-status": "200",
+    "cdn-requesttime": "0"
+   },
+   "resourceType": "media",
+   "passes": [
+    "mobile"
+   ],
+   "file": "site/zenaratepull.b-cdn.net/Hero Mobile Crop.mp4",
+   "size": 40155268,
+   "modes": [
+    "no-cors"
+   ]
+  }
+ ],
+ "videos": {
+  "posters": {},
+  "onlineHosts": []
+ }
+}

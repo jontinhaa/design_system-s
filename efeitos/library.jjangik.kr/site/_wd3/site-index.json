@@ -1,0 +1,2241 @@
+{
+ "version": 1,
+ "tool": "wd3 0.1.0",
+ "captureId": "library.jjangik.kr-6d4398ff",
+ "capturedAt": "2026-11-04T18:22:15+00:00",
+ "entry": {
+  "url": "https://library.jjangik.kr/",
+  "path": "/",
+  "search": "",
+  "file": "site/library.jjangik.kr/index.html",
+  "contentType": "text/html; charset=utf-8"
+ },
+ "blocked": [
+  "^https?://([^/?#]+\\.)?(google\\-analytics\\.com|analytics\\.google\\.com|googletagmanager\\.com|googleadservices\\.com|doubleclick\\.net|googlesyndication\\.com|googleoptimize\\.com|connect\\.facebook\\.net|bat\\.bing\\.com|snap\\.licdn\\.com|px\\.ads\\.linkedin\\.com|analytics\\.tiktok\\.com|ct\\.pinterest\\.com|static\\.ads\\-twitter\\.com|analytics\\.twitter\\.com|tr\\.snapchat\\.com|sc\\-static\\.net|mc\\.yandex\\.ru|hotjar\\.com|hotjar\\.io|clarity\\.ms|cdn\\.segment\\.com|api\\.segment\\.io|cdn\\.mxpnl\\.com|api\\-js\\.mixpanel\\.com|api\\.mixpanel\\.com|api\\.amplitude\\.com|api2\\.amplitude\\.com|api\\-secure\\.amplitude\\.com|api\\-sr\\.amplitude\\.com|sr\\-client\\-cfg\\.amplitude\\.com|plausible\\.io|cloud\\.umami\\.is|analytics\\.umami\\.is|static\\.cloudflareinsights\\.com|cloudflareinsights\\.com|vitals\\.vercel\\-insights\\.com|browser\\-intake\\-datadoghq\\.com|browser\\-intake\\-datadoghq\\.eu|js\\-agent\\.newrelic\\.com|bam\\.nr\\-data\\.net|bam\\-cell\\.nr\\-data\\.net|fullstory\\.com|script\\.crazyegg\\.com|mouseflow\\.com|smartlook\\.com|heapanalytics\\.com|i\\.posthog\\.com|stats\\.wp\\.com|pixel\\.wp\\.com|promotekit\\.com|ingest\\.sentry\\.io|ingest\\.us\\.sentry\\.io|ingest\\.de\\.sentry\\.io|widget\\.intercom\\.io|js\\.intercomcdn\\.com|api\\-iam\\.intercom\\.io|js\\.hs\\-scripts\\.com|js\\.hs\\-analytics\\.net|js\\.hs\\-banner\\.com|js\\.hscollectedforms\\.net|js\\.usemessages\\.com|track\\.hubspot\\.com|client\\.crisp\\.chat|embed\\.tawk\\.to|js\\.driftt\\.com|static\\.zdassets\\.com|ekr\\.zdassets\\.com|cdn\\.cookielaw\\.org|geolocation\\.onetrust\\.com|consent\\.cookiebot\\.com|consentcdn\\.cookiebot\\.com|app\\.usercentrics\\.eu|api\\.usercentrics\\.eu|cdn\\.iubenda\\.com|cmp\\.osano\\.com|cdn\\.termly\\.io)(:\\d+)?([/?#]|$)",
+  "/rpc/increment_shared_code_views",
+  "^https?://(umami|analytics|stats|plausible)\\.[^/]+/(api/send|api/collect|api/event|script\\.js)",
+  "/g/c(ollect)?\\?v=2&",
+  "sentry\\.io/api/\\d+/(envelope|store)",
+  "/api/meta-capi",
+  "^https?://(leadtracker|tracking|track|events?|collect)\\.[^/]+/",
+  "^https?://a\\.vturb\\.com/",
+  "facebook\\.com/tr[/?]",
+  "/_vercel/(speed-)?insights/",
+  "/cdn-cgi/rum",
+  "/cdn-cgi/challenge-platform/",
+  "google\\.com/(pagead|ads)/"
+ ],
+ "volatileParams": [
+  "v",
+  "_rsc",
+  "dpl",
+  "_",
+  "t",
+  "ts",
+  "timestamp",
+  "cb",
+  "cachebust",
+  "cacheBust",
+  "nocache",
+  "rnd",
+  "rand",
+  "random",
+  "_t"
+ ],
+ "entries": [
+  {
+   "url": "https://library.jjangik.kr/",
+   "method": "GET",
+   "status": 200,
+   "contentType": "text/html; charset=utf-8",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "content-disposition": "inline",
+    "content-type": "text/html; charset=utf-8"
+   },
+   "resourceType": "document",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "file": "site/library.jjangik.kr/index.html",
+   "size": 6573,
+   "modes": [
+    "navigate"
+   ]
+  },
+  {
+   "url": "https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js",
+   "method": "GET",
+   "status": 200,
+   "contentType": "application/javascript; charset=utf-8",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "access-control-expose-headers": "*",
+    "content-type": "application/javascript; charset=utf-8",
+    "timing-allow-origin": "*",
+    "x-jsd-version": "3.12.5",
+    "x-jsd-version-type": "version"
+   },
+   "resourceType": "script",
+   "passes": [
+    "mobile",
+    "desktop"
+   ],
+   "file": "site/cdn.jsdelivr.net/npm/gsap@3.12.5/dist/gsap.min.js",
+   "size": 72214,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://cdn.jsdelivr.net/npm/gsap@3.12.5/dist/Observer.min.js",
+   "method": "GET",
+   "status": 200,
+   "contentType": "application/javascript; charset=utf-8",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "access-control-expose-headers": "*",
+    "content-type": "application/javascript; charset=utf-8",
+    "timing-allow-origin": "*",
+    "x-jsd-version": "3.12.5",
+    "x-jsd-version-type": "version"
+   },
+   "resourceType": "script",
+   "passes": [
+    "mobile",
+    "desktop"
+   ],
+   "file": "site/cdn.jsdelivr.net/npm/gsap@3.12.5/dist/Observer.min.js",
+   "size": 9828,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://library.jjangik.kr/fonts/pretendard/pretendard.css",
+   "method": "GET",
+   "status": 200,
+   "contentType": "text/css; charset=utf-8",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "content-disposition": "inline; filename=\"pretendard.css\"",
+    "content-type": "text/css; charset=utf-8"
+   },
+   "resourceType": "stylesheet",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "file": "site/library.jjangik.kr/fonts/pretendard/pretendard.css",
+   "size": 54923,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://library.jjangik.kr/shelf.css?v=177",
+   "method": "GET",
+   "status": 200,
+   "contentType": "text/css; charset=utf-8",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "content-disposition": "inline; filename=\"shelf.css\"",
+    "content-type": "text/css; charset=utf-8"
+   },
+   "resourceType": "stylesheet",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "file": "site/library.jjangik.kr/shelf__q450b341f.css",
+   "size": 16414,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://library.jjangik.kr/fonts/pretendard/woff2/PretendardVariable.subset.91.woff2",
+   "method": "GET",
+   "status": 200,
+   "contentType": "font/woff2",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "content-disposition": "inline; filename=\"PretendardVariable.subset.91.woff2\"",
+    "content-type": "font/woff2"
+   },
+   "resourceType": "font",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "file": "site/library.jjangik.kr/fonts/pretendard/woff2/PretendardVariable.subset.91.woff2",
+   "size": 37996,
+   "modes": [
+    "cors"
+   ]
+  },
+  {
+   "url": "https://library.jjangik.kr/shelf.js?v=312",
+   "method": "GET",
+   "status": 200,
+   "contentType": "application/javascript; charset=utf-8",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "content-disposition": "inline; filename=\"shelf.js\"",
+    "content-type": "application/javascript; charset=utf-8"
+   },
+   "resourceType": "script",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "file": "site/library.jjangik.kr/shelf__qa19ab716.js",
+   "size": 143126,
+   "modes": [
+    "cors"
+   ]
+  },
+  {
+   "url": "https://library.jjangik.kr/fonts/pretendard/woff2/PretendardVariable.subset.71.woff2",
+   "method": "GET",
+   "status": 200,
+   "contentType": "font/woff2",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "content-disposition": "inline; filename=\"PretendardVariable.subset.71.woff2\"",
+    "content-type": "font/woff2"
+   },
+   "resourceType": "font",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "file": "site/library.jjangik.kr/fonts/pretendard/woff2/PretendardVariable.subset.71.woff2",
+   "size": 28324,
+   "modes": [
+    "cors"
+   ]
+  },
+  {
+   "url": "https://library.jjangik.kr/interactions/registry.js?v=92",
+   "method": "GET",
+   "status": 200,
+   "contentType": "application/javascript; charset=utf-8",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "content-disposition": "inline; filename=\"registry.js\"",
+    "content-type": "application/javascript; charset=utf-8"
+   },
+   "resourceType": "script",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "file": "site/library.jjangik.kr/interactions/registry__qd618ddeb.js",
+   "size": 11468,
+   "modes": [
+    "cors"
+   ]
+  },
+  {
+   "url": "https://cdn.jsdelivr.net/npm/three@0.160.0/examples/jsm/geometries/RoundedBoxGeometry.js",
+   "method": "GET",
+   "status": 200,
+   "contentType": "application/javascript; charset=utf-8",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "access-control-expose-headers": "*",
+    "content-type": "application/javascript; charset=utf-8",
+    "priority": "u=1,i=?0",
+    "timing-allow-origin": "*",
+    "x-jsd-version": "0.160.0",
+    "x-jsd-version-type": "version"
+   },
+   "resourceType": "script",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "file": "site/cdn.jsdelivr.net/npm/three@0.160.0/examples/jsm/geometries/RoundedBoxGeometry.js",
+   "size": 4625,
+   "modes": [
+    "cors"
+   ]
+  },
+  {
+   "url": "https://cdn.jsdelivr.net/npm/three@0.160.0/examples/jsm/utils/BufferGeometryUtils.js",
+   "method": "GET",
+   "status": 200,
+   "contentType": "application/javascript; charset=utf-8",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "access-control-expose-headers": "*",
+    "content-type": "application/javascript; charset=utf-8",
+    "priority": "u=1,i=?0",
+    "timing-allow-origin": "*",
+    "x-jsd-version": "0.160.0",
+    "x-jsd-version-type": "version"
+   },
+   "resourceType": "script",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "file": "site/cdn.jsdelivr.net/npm/three@0.160.0/examples/jsm/utils/BufferGeometryUtils.js",
+   "size": 31906,
+   "modes": [
+    "cors"
+   ]
+  },
+  {
+   "url": "https://library.jjangik.kr/fonts/pretendard/woff2/PretendardVariable.subset.87.woff2",
+   "method": "GET",
+   "status": 200,
+   "contentType": "font/woff2",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "content-disposition": "inline; filename=\"PretendardVariable.subset.87.woff2\"",
+    "content-type": "font/woff2"
+   },
+   "resourceType": "font",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "file": "site/library.jjangik.kr/fonts/pretendard/woff2/PretendardVariable.subset.87.woff2",
+   "size": 24664,
+   "modes": [
+    "cors"
+   ]
+  },
+  {
+   "url": "https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.min.js",
+   "method": "GET",
+   "status": 200,
+   "contentType": "application/javascript; charset=utf-8",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "access-control-expose-headers": "*",
+    "content-type": "application/javascript; charset=utf-8",
+    "priority": "u=1,i=?0",
+    "timing-allow-origin": "*",
+    "x-jsd-version": "0.160.0",
+    "x-jsd-version-type": "version"
+   },
+   "resourceType": "script",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "file": "site/cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.min.js",
+   "size": 670681,
+   "modes": [
+    "cors"
+   ]
+  },
+  {
+   "url": "https://library.jjangik.kr/sound.js?v=4",
+   "method": "GET",
+   "status": 200,
+   "contentType": "application/javascript; charset=utf-8",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "content-disposition": "inline; filename=\"sound.js\"",
+    "content-type": "application/javascript; charset=utf-8"
+   },
+   "resourceType": "script",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "file": "site/library.jjangik.kr/sound__qe0565dbb.js",
+   "size": 1853,
+   "modes": [
+    "cors"
+   ]
+  },
+  {
+   "url": "https://library.jjangik.kr/marks.js?v=10",
+   "method": "GET",
+   "status": 200,
+   "contentType": "application/javascript; charset=utf-8",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "content-disposition": "inline; filename=\"marks.js\"",
+    "content-type": "application/javascript; charset=utf-8"
+   },
+   "resourceType": "script",
+   "passes": [
+    "mobile",
+    "desktop"
+   ],
+   "file": "site/library.jjangik.kr/marks__q8f5730ec.js",
+   "size": 4994,
+   "modes": [
+    "cors"
+   ]
+  },
+  {
+   "url": "https://library.jjangik.kr/fonts/pretendard/woff2/PretendardVariable.subset.88.woff2",
+   "method": "GET",
+   "status": 200,
+   "contentType": "font/woff2",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "content-disposition": "inline; filename=\"PretendardVariable.subset.88.woff2\"",
+    "content-type": "font/woff2"
+   },
+   "resourceType": "font",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "file": "site/library.jjangik.kr/fonts/pretendard/woff2/PretendardVariable.subset.88.woff2",
+   "size": 25640,
+   "modes": [
+    "cors"
+   ]
+  },
+  {
+   "url": "https://library.jjangik.kr/clock/words.png?t=1793816536724",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/png",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "content-disposition": "inline; filename=\"words.png\"",
+    "content-type": "image/png"
+   },
+   "resourceType": "image",
+   "passes": [
+    "mobile"
+   ],
+   "file": "site/library.jjangik.kr/clock/words__qad201479.png",
+   "size": 66025,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://library.jjangik.kr/rug/words.png?t=1793816536684",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/png",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "content-disposition": "inline; filename=\"words.png\"",
+    "content-type": "image/png"
+   },
+   "resourceType": "image",
+   "passes": [
+    "mobile"
+   ],
+   "file": "site/library.jjangik.kr/rug/words__qe9bf4159.png",
+   "size": 58885,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://library.jjangik.kr/fonts/pretendard/woff2/PretendardVariable.subset.79.woff2",
+   "method": "GET",
+   "status": 200,
+   "contentType": "font/woff2",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "content-disposition": "inline; filename=\"PretendardVariable.subset.79.woff2\"",
+    "content-type": "font/woff2"
+   },
+   "resourceType": "font",
+   "passes": [
+    "mobile",
+    "desktop"
+   ],
+   "file": "site/library.jjangik.kr/fonts/pretendard/woff2/PretendardVariable.subset.79.woff2",
+   "size": 26224,
+   "modes": [
+    "cors"
+   ]
+  },
+  {
+   "url": "https://library.jjangik.kr/print/window-seat.webp",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/webp",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "content-disposition": "inline; filename=\"window-seat.webp\"",
+    "content-type": "image/webp"
+   },
+   "resourceType": "image",
+   "passes": [
+    "mobile",
+    "desktop"
+   ],
+   "file": "site/library.jjangik.kr/print/window-seat.webp",
+   "size": 149522,
+   "modes": [
+    "cors"
+   ]
+  },
+  {
+   "url": "https://library.jjangik.kr/fonts/pretendard/woff2/PretendardVariable.subset.82.woff2",
+   "method": "GET",
+   "status": 200,
+   "contentType": "font/woff2",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "content-disposition": "inline; filename=\"PretendardVariable.subset.82.woff2\"",
+    "content-type": "font/woff2"
+   },
+   "resourceType": "font",
+   "passes": [
+    "mobile",
+    "desktop"
+   ],
+   "file": "site/library.jjangik.kr/fonts/pretendard/woff2/PretendardVariable.subset.82.woff2",
+   "size": 26500,
+   "modes": [
+    "cors"
+   ]
+  },
+  {
+   "url": "https://library.jjangik.kr/rug/words-tall.png?t=1793816536684",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/png",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "content-disposition": "inline; filename=\"words-tall.png\"",
+    "content-type": "image/png"
+   },
+   "resourceType": "image",
+   "passes": [
+    "mobile"
+   ],
+   "file": "site/library.jjangik.kr/rug/words-tall__qe9bf4159.png",
+   "size": 58539,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://library.jjangik.kr/interactions/infinite-2d-grid/photos/13-s.webp",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/webp",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "content-disposition": "inline; filename=\"13-s.webp\"",
+    "content-type": "image/webp"
+   },
+   "resourceType": "image",
+   "passes": [
+    "mobile",
+    "desktop"
+   ],
+   "file": "site/library.jjangik.kr/interactions/infinite-2d-grid/photos/13-s.webp",
+   "size": 51598,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://library.jjangik.kr/interactions/infinite-2d-grid/photos/20-s.webp",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/webp",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "content-disposition": "inline; filename=\"20-s.webp\"",
+    "content-type": "image/webp"
+   },
+   "resourceType": "image",
+   "passes": [
+    "mobile",
+    "desktop"
+   ],
+   "file": "site/library.jjangik.kr/interactions/infinite-2d-grid/photos/20-s.webp",
+   "size": 67540,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://library.jjangik.kr/interactions/infinite-2d-grid/photos/22-s.webp",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/webp",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "content-disposition": "inline; filename=\"22-s.webp\"",
+    "content-type": "image/webp"
+   },
+   "resourceType": "image",
+   "passes": [
+    "mobile",
+    "desktop"
+   ],
+   "file": "site/library.jjangik.kr/interactions/infinite-2d-grid/photos/22-s.webp",
+   "size": 218406,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://library.jjangik.kr/interactions/infinite-2d-grid/photos/09-s.webp",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/webp",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "content-disposition": "inline; filename=\"09-s.webp\"",
+    "content-type": "image/webp"
+   },
+   "resourceType": "image",
+   "passes": [
+    "mobile",
+    "desktop"
+   ],
+   "file": "site/library.jjangik.kr/interactions/infinite-2d-grid/photos/09-s.webp",
+   "size": 57124,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://library.jjangik.kr/interactions/infinite-2d-grid/photos/44-s.webp",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/webp",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "content-disposition": "inline; filename=\"44-s.webp\"",
+    "content-type": "image/webp"
+   },
+   "resourceType": "image",
+   "passes": [
+    "mobile",
+    "desktop"
+   ],
+   "file": "site/library.jjangik.kr/interactions/infinite-2d-grid/photos/44-s.webp",
+   "size": 30934,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://library.jjangik.kr/interactions/infinite-2d-grid/photos/07-s.webp",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/webp",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "content-disposition": "inline; filename=\"07-s.webp\"",
+    "content-type": "image/webp"
+   },
+   "resourceType": "image",
+   "passes": [
+    "mobile",
+    "desktop"
+   ],
+   "file": "site/library.jjangik.kr/interactions/infinite-2d-grid/photos/07-s.webp",
+   "size": 75836,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://library.jjangik.kr/interactions/infinite-2d-grid/photos/10-s.webp",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/webp",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "content-disposition": "inline; filename=\"10-s.webp\"",
+    "content-type": "image/webp"
+   },
+   "resourceType": "image",
+   "passes": [
+    "mobile",
+    "desktop"
+   ],
+   "file": "site/library.jjangik.kr/interactions/infinite-2d-grid/photos/10-s.webp",
+   "size": 76192,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://library.jjangik.kr/interactions/strung-type/still.webp",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/webp",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "content-disposition": "inline; filename=\"still.webp\"",
+    "content-type": "image/webp"
+   },
+   "resourceType": "image",
+   "passes": [
+    "mobile",
+    "desktop"
+   ],
+   "file": "site/library.jjangik.kr/interactions/strung-type/still.webp",
+   "size": 18108,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://library.jjangik.kr/interactions/light-table/still.webp",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/webp",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "content-disposition": "inline; filename=\"still.webp\"",
+    "content-type": "image/webp"
+   },
+   "resourceType": "image",
+   "passes": [
+    "mobile",
+    "desktop"
+   ],
+   "file": "site/library.jjangik.kr/interactions/light-table/still.webp",
+   "size": 81694,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://library.jjangik.kr/rug/words.png?t=1793816536685",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/png",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "content-disposition": "inline; filename=\"words.png\"",
+    "content-type": "image/png"
+   },
+   "resourceType": "image",
+   "passes": [
+    "desktop"
+   ],
+   "file": "site/library.jjangik.kr/rug/words__q6a12ce5c.png",
+   "size": 58885,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://library.jjangik.kr/rug/words-tall.png?t=1793816536685",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/png",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "content-disposition": "inline; filename=\"words-tall.png\"",
+    "content-type": "image/png"
+   },
+   "resourceType": "image",
+   "passes": [
+    "desktop"
+   ],
+   "file": "site/library.jjangik.kr/rug/words-tall__q6a12ce5c.png",
+   "size": 58539,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://library.jjangik.kr/clock/words.png?t=1793816536726",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/png",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "content-disposition": "inline; filename=\"words.png\"",
+    "content-type": "image/png"
+   },
+   "resourceType": "image",
+   "passes": [
+    "desktop"
+   ],
+   "file": "site/library.jjangik.kr/clock/words__q714e32af.png",
+   "size": 66025,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://library.jjangik.kr/interactions/depth-scroll/index.js?v=14",
+   "method": "GET",
+   "status": 200,
+   "contentType": "application/javascript; charset=utf-8",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "content-disposition": "inline; filename=\"index.js\"",
+    "content-type": "application/javascript; charset=utf-8"
+   },
+   "resourceType": "script",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "file": "site/library.jjangik.kr/interactions/depth-scroll/index__q7d8c1faf.js",
+   "size": 4416,
+   "modes": [
+    "cors"
+   ]
+  },
+  {
+   "url": "https://library.jjangik.kr/interactions/scroll-bend/index.js?v=13",
+   "method": "GET",
+   "status": 200,
+   "contentType": "application/javascript; charset=utf-8",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "content-disposition": "inline; filename=\"index.js\"",
+    "content-type": "application/javascript; charset=utf-8"
+   },
+   "resourceType": "script",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "file": "site/library.jjangik.kr/interactions/scroll-bend/index__q7252a747.js",
+   "size": 7456,
+   "modes": [
+    "cors"
+   ]
+  },
+  {
+   "url": "https://library.jjangik.kr/interactions/strung-type/index.js?v=4",
+   "method": "GET",
+   "status": 200,
+   "contentType": "application/javascript; charset=utf-8",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "content-disposition": "inline; filename=\"index.js\"",
+    "content-type": "application/javascript; charset=utf-8"
+   },
+   "resourceType": "script",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "file": "site/library.jjangik.kr/interactions/strung-type/index__qe0565dbb.js",
+   "size": 7385,
+   "modes": [
+    "cors"
+   ]
+  },
+  {
+   "url": "https://library.jjangik.kr/interactions/infinite-2d-grid/index.js?v=27",
+   "method": "GET",
+   "status": 200,
+   "contentType": "application/javascript; charset=utf-8",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "content-disposition": "inline; filename=\"index.js\"",
+    "content-type": "application/javascript; charset=utf-8"
+   },
+   "resourceType": "script",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "file": "site/library.jjangik.kr/interactions/infinite-2d-grid/index__qb4fdb885.js",
+   "size": 11166,
+   "modes": [
+    "cors"
+   ]
+  },
+  {
+   "url": "https://library.jjangik.kr/interactions/light-table/index.js?v=7",
+   "method": "GET",
+   "status": 200,
+   "contentType": "application/javascript; charset=utf-8",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "content-disposition": "inline; filename=\"index.js\"",
+    "content-type": "application/javascript; charset=utf-8"
+   },
+   "resourceType": "script",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "file": "site/library.jjangik.kr/interactions/light-table/index__qd97d7c12.js",
+   "size": 7367,
+   "modes": [
+    "cors"
+   ]
+  },
+  {
+   "url": "https://library.jjangik.kr/interactions/index-lens/index.js?v=12",
+   "method": "GET",
+   "status": 200,
+   "contentType": "application/javascript; charset=utf-8",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "content-disposition": "inline; filename=\"index.js\"",
+    "content-type": "application/javascript; charset=utf-8"
+   },
+   "resourceType": "script",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "file": "site/library.jjangik.kr/interactions/index-lens/index__q5d1f6220.js",
+   "size": 3640,
+   "modes": [
+    "cors"
+   ]
+  },
+  {
+   "url": "https://library.jjangik.kr/interactions/spiral-wind/index.js?v=16",
+   "method": "GET",
+   "status": 200,
+   "contentType": "application/javascript; charset=utf-8",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "content-disposition": "inline; filename=\"index.js\"",
+    "content-type": "application/javascript; charset=utf-8"
+   },
+   "resourceType": "script",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "file": "site/library.jjangik.kr/interactions/spiral-wind/index__q337f44a5.js",
+   "size": 8036,
+   "modes": [
+    "cors"
+   ]
+  },
+  {
+   "url": "https://library.jjangik.kr/interactions/zoom-mosaic/index.js?v=11",
+   "method": "GET",
+   "status": 200,
+   "contentType": "application/javascript; charset=utf-8",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "content-disposition": "inline; filename=\"index.js\"",
+    "content-type": "application/javascript; charset=utf-8"
+   },
+   "resourceType": "script",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "file": "site/library.jjangik.kr/interactions/zoom-mosaic/index__q78a60e6a.js",
+   "size": 6601,
+   "modes": [
+    "cors"
+   ]
+  },
+  {
+   "url": "https://library.jjangik.kr/interactions/photo-draw/index.js?v=14",
+   "method": "GET",
+   "status": 200,
+   "contentType": "application/javascript; charset=utf-8",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "content-disposition": "inline; filename=\"index.js\"",
+    "content-type": "application/javascript; charset=utf-8"
+   },
+   "resourceType": "script",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "file": "site/library.jjangik.kr/interactions/photo-draw/index__q7d8c1faf.js",
+   "size": 5339,
+   "modes": [
+    "cors"
+   ]
+  },
+  {
+   "url": "https://library.jjangik.kr/interactions/cursor-wake/index.js?v=15",
+   "method": "GET",
+   "status": 200,
+   "contentType": "application/javascript; charset=utf-8",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "content-disposition": "inline; filename=\"index.js\"",
+    "content-type": "application/javascript; charset=utf-8"
+   },
+   "resourceType": "script",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "file": "site/library.jjangik.kr/interactions/cursor-wake/index__q1d2cff12.js",
+   "size": 9106,
+   "modes": [
+    "cors"
+   ]
+  },
+  {
+   "url": "https://library.jjangik.kr/interactions/velocity-reel/index.js?v=25",
+   "method": "GET",
+   "status": 200,
+   "contentType": "application/javascript; charset=utf-8",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "content-disposition": "inline; filename=\"index.js\"",
+    "content-type": "application/javascript; charset=utf-8"
+   },
+   "resourceType": "script",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "file": "site/library.jjangik.kr/interactions/velocity-reel/index__q8c088d91.js",
+   "size": 14016,
+   "modes": [
+    "cors"
+   ]
+  },
+  {
+   "url": "https://library.jjangik.kr/favicon.svg?v=2",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/svg+xml",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "content-disposition": "inline; filename=\"favicon.svg\"",
+    "content-type": "image/svg+xml"
+   },
+   "resourceType": "other",
+   "passes": [
+    "mobile",
+    "desktop"
+   ],
+   "file": "site/library.jjangik.kr/favicon__qf67bbdbf.svg",
+   "size": 649,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://library.jjangik.kr/interactions/scroll-bend/art.js?v=5",
+   "method": "GET",
+   "status": 200,
+   "contentType": "application/javascript; charset=utf-8",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "content-disposition": "inline; filename=\"art.js\"",
+    "content-type": "application/javascript; charset=utf-8"
+   },
+   "resourceType": "script",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "file": "site/library.jjangik.kr/interactions/scroll-bend/art__qfe6040fc.js",
+   "size": 1645,
+   "modes": [
+    "cors"
+   ]
+  },
+  {
+   "url": "https://library.jjangik.kr/interactions/_shared/stage.js?v=7",
+   "method": "GET",
+   "status": 200,
+   "contentType": "application/javascript; charset=utf-8",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "content-disposition": "inline; filename=\"stage.js\"",
+    "content-type": "application/javascript; charset=utf-8"
+   },
+   "resourceType": "script",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "file": "site/library.jjangik.kr/interactions/_shared/stage__qd97d7c12.js",
+   "size": 4944,
+   "modes": [
+    "cors"
+   ]
+  },
+  {
+   "url": "https://library.jjangik.kr/interactions/_shared/captions.js?v=1",
+   "method": "GET",
+   "status": 200,
+   "contentType": "application/javascript; charset=utf-8",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "content-disposition": "inline; filename=\"captions.js\"",
+    "content-type": "application/javascript; charset=utf-8"
+   },
+   "resourceType": "script",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "file": "site/library.jjangik.kr/interactions/_shared/captions__q1d365e2d.js",
+   "size": 2745,
+   "modes": [
+    "cors"
+   ]
+  },
+  {
+   "url": "https://library.jjangik.kr/interactions/infinite-2d-grid/data.js",
+   "method": "GET",
+   "status": 200,
+   "contentType": "application/javascript; charset=utf-8",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "content-disposition": "inline; filename=\"data.js\"",
+    "content-type": "application/javascript; charset=utf-8"
+   },
+   "resourceType": "script",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "file": "site/library.jjangik.kr/interactions/infinite-2d-grid/data.js",
+   "size": 3295,
+   "modes": [
+    "cors"
+   ]
+  },
+  {
+   "url": "https://library.jjangik.kr/interactions/velocity-reel/art.js?v=6",
+   "method": "GET",
+   "status": 200,
+   "contentType": "application/javascript; charset=utf-8",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "content-disposition": "inline; filename=\"art.js\"",
+    "content-type": "application/javascript; charset=utf-8"
+   },
+   "resourceType": "script",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "file": "site/library.jjangik.kr/interactions/velocity-reel/art__q251c29cb.js",
+   "size": 3404,
+   "modes": [
+    "cors"
+   ]
+  },
+  {
+   "url": "https://library.jjangik.kr/interactions/_shared/hand.js?v=6",
+   "method": "GET",
+   "status": 200,
+   "contentType": "application/javascript; charset=utf-8",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "content-disposition": "inline; filename=\"hand.js\"",
+    "content-type": "application/javascript; charset=utf-8"
+   },
+   "resourceType": "script",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "file": "site/library.jjangik.kr/interactions/_shared/hand__q251c29cb.js",
+   "size": 4367,
+   "modes": [
+    "cors"
+   ]
+  },
+  {
+   "url": "https://library.jjangik.kr/interactions/infinite-2d-grid/data.js?v=4",
+   "method": "GET",
+   "status": 200,
+   "contentType": "application/javascript; charset=utf-8",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "content-disposition": "inline; filename=\"data.js\"",
+    "content-type": "application/javascript; charset=utf-8"
+   },
+   "resourceType": "script",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "file": "site/library.jjangik.kr/interactions/infinite-2d-grid/data__qe0565dbb.js",
+   "size": 3295,
+   "modes": [
+    "cors"
+   ]
+  },
+  {
+   "url": "https://library.jjangik.kr/interactions/velocity-reel/art.next.js?v=15",
+   "method": "GET",
+   "status": 200,
+   "contentType": "application/javascript; charset=utf-8",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "content-disposition": "inline; filename=\"art.next.js\"",
+    "content-type": "application/javascript; charset=utf-8"
+   },
+   "resourceType": "script",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "file": "site/library.jjangik.kr/interactions/velocity-reel/art.next__q1d2cff12.js",
+   "size": 19793,
+   "modes": [
+    "cors"
+   ]
+  },
+  {
+   "url": "https://library.jjangik.kr/interactions/_shared/stage2d.js?v=2",
+   "method": "GET",
+   "status": 200,
+   "contentType": "application/javascript; charset=utf-8",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "content-disposition": "inline; filename=\"stage2d.js\"",
+    "content-type": "application/javascript; charset=utf-8"
+   },
+   "resourceType": "script",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "file": "site/library.jjangik.kr/interactions/_shared/stage2d__qf67bbdbf.js",
+   "size": 3442,
+   "modes": [
+    "cors"
+   ]
+  },
+  {
+   "url": "https://library.jjangik.kr/interactions/velocity-reel/data.js",
+   "method": "GET",
+   "status": 200,
+   "contentType": "application/javascript; charset=utf-8",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "content-disposition": "inline; filename=\"data.js\"",
+    "content-type": "application/javascript; charset=utf-8"
+   },
+   "resourceType": "script",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "file": "site/library.jjangik.kr/interactions/velocity-reel/data.js",
+   "size": 1454,
+   "modes": [
+    "cors"
+   ]
+  },
+  {
+   "url": "https://library.jjangik.kr/interactions/infinite-2d-grid/photos/02-s.webp",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/webp",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "content-disposition": "inline; filename=\"02-s.webp\"",
+    "content-type": "image/webp"
+   },
+   "resourceType": "image",
+   "passes": [
+    "desktop"
+   ],
+   "file": "site/library.jjangik.kr/interactions/infinite-2d-grid/photos/02-s.webp",
+   "size": 67460,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://library.jjangik.kr/interactions/infinite-2d-grid/style.css?v=16",
+   "method": "GET",
+   "status": 200,
+   "contentType": "text/css; charset=utf-8",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "content-disposition": "inline; filename=\"style.css\"",
+    "content-type": "text/css; charset=utf-8"
+   },
+   "resourceType": "stylesheet",
+   "passes": [
+    "desktop"
+   ],
+   "file": "site/library.jjangik.kr/interactions/infinite-2d-grid/style__q337f44a5.css",
+   "size": 2353,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://library.jjangik.kr/interactions/infinite-2d-grid/photos/11-s.webp",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/webp",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "content-disposition": "inline; filename=\"11-s.webp\"",
+    "content-type": "image/webp"
+   },
+   "resourceType": "image",
+   "passes": [
+    "desktop"
+   ],
+   "file": "site/library.jjangik.kr/interactions/infinite-2d-grid/photos/11-s.webp",
+   "size": 68300,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://library.jjangik.kr/interactions/infinite-2d-grid/photos/03-s.webp",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/webp",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "content-disposition": "inline; filename=\"03-s.webp\"",
+    "content-type": "image/webp"
+   },
+   "resourceType": "image",
+   "passes": [
+    "desktop"
+   ],
+   "file": "site/library.jjangik.kr/interactions/infinite-2d-grid/photos/03-s.webp",
+   "size": 59584,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://library.jjangik.kr/interactions/infinite-2d-grid/photos/01-s.webp",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/webp",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "content-disposition": "inline; filename=\"01-s.webp\"",
+    "content-type": "image/webp"
+   },
+   "resourceType": "image",
+   "passes": [
+    "desktop"
+   ],
+   "file": "site/library.jjangik.kr/interactions/infinite-2d-grid/photos/01-s.webp",
+   "size": 126102,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://library.jjangik.kr/interactions/cursor-wake/style.css",
+   "method": "GET",
+   "status": 200,
+   "contentType": "text/css; charset=utf-8",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "content-disposition": "inline; filename=\"style.css\"",
+    "content-type": "text/css; charset=utf-8"
+   },
+   "resourceType": "stylesheet",
+   "passes": [
+    "desktop"
+   ],
+   "file": "site/library.jjangik.kr/interactions/cursor-wake/style.css",
+   "size": 685,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://library.jjangik.kr/interactions/velocity-reel/style.css",
+   "method": "GET",
+   "status": 200,
+   "contentType": "text/css; charset=utf-8",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "content-disposition": "inline; filename=\"style.css\"",
+    "content-type": "text/css; charset=utf-8"
+   },
+   "resourceType": "stylesheet",
+   "passes": [
+    "desktop"
+   ],
+   "file": "site/library.jjangik.kr/interactions/velocity-reel/style.css",
+   "size": 676,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://library.jjangik.kr/interactions/infinite-2d-grid/photos/05-s.webp",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/webp",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "content-disposition": "inline; filename=\"05-s.webp\"",
+    "content-type": "image/webp"
+   },
+   "resourceType": "image",
+   "passes": [
+    "desktop"
+   ],
+   "file": "site/library.jjangik.kr/interactions/infinite-2d-grid/photos/05-s.webp",
+   "size": 60026,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://library.jjangik.kr/interactions/infinite-2d-grid/photos/17-s.webp",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/webp",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "content-disposition": "inline; filename=\"17-s.webp\"",
+    "content-type": "image/webp"
+   },
+   "resourceType": "image",
+   "passes": [
+    "desktop"
+   ],
+   "file": "site/library.jjangik.kr/interactions/infinite-2d-grid/photos/17-s.webp",
+   "size": 60948,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://library.jjangik.kr/interactions/infinite-2d-grid/photos/48-s.webp",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/webp",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "content-disposition": "inline; filename=\"48-s.webp\"",
+    "content-type": "image/webp"
+   },
+   "resourceType": "image",
+   "passes": [
+    "desktop"
+   ],
+   "file": "site/library.jjangik.kr/interactions/infinite-2d-grid/photos/48-s.webp",
+   "size": 57268,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://library.jjangik.kr/interactions/infinite-2d-grid/photos/30-s.webp",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/webp",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "content-disposition": "inline; filename=\"30-s.webp\"",
+    "content-type": "image/webp"
+   },
+   "resourceType": "image",
+   "passes": [
+    "desktop"
+   ],
+   "file": "site/library.jjangik.kr/interactions/infinite-2d-grid/photos/30-s.webp",
+   "size": 31160,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://library.jjangik.kr/interactions/infinite-2d-grid/photos/33-s.webp",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/webp",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "content-disposition": "inline; filename=\"33-s.webp\"",
+    "content-type": "image/webp"
+   },
+   "resourceType": "image",
+   "passes": [
+    "desktop"
+   ],
+   "file": "site/library.jjangik.kr/interactions/infinite-2d-grid/photos/33-s.webp",
+   "size": 22000,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://library.jjangik.kr/interactions/infinite-2d-grid/photos/40-s.webp",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/webp",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "content-disposition": "inline; filename=\"40-s.webp\"",
+    "content-type": "image/webp"
+   },
+   "resourceType": "image",
+   "passes": [
+    "desktop"
+   ],
+   "file": "site/library.jjangik.kr/interactions/infinite-2d-grid/photos/40-s.webp",
+   "size": 35140,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://library.jjangik.kr/interactions/infinite-2d-grid/photos/28-s.webp",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/webp",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "content-disposition": "inline; filename=\"28-s.webp\"",
+    "content-type": "image/webp"
+   },
+   "resourceType": "image",
+   "passes": [
+    "desktop"
+   ],
+   "file": "site/library.jjangik.kr/interactions/infinite-2d-grid/photos/28-s.webp",
+   "size": 113942,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://library.jjangik.kr/interactions/infinite-2d-grid/photos/12-s.webp",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/webp",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "content-disposition": "inline; filename=\"12-s.webp\"",
+    "content-type": "image/webp"
+   },
+   "resourceType": "image",
+   "passes": [
+    "desktop"
+   ],
+   "file": "site/library.jjangik.kr/interactions/infinite-2d-grid/photos/12-s.webp",
+   "size": 45330,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://library.jjangik.kr/interactions/infinite-2d-grid/photos/31-s.webp",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/webp",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "content-disposition": "inline; filename=\"31-s.webp\"",
+    "content-type": "image/webp"
+   },
+   "resourceType": "image",
+   "passes": [
+    "desktop"
+   ],
+   "file": "site/library.jjangik.kr/interactions/infinite-2d-grid/photos/31-s.webp",
+   "size": 81604,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://library.jjangik.kr/interactions/_shared/stage.css",
+   "method": "GET",
+   "status": 200,
+   "contentType": "text/css; charset=utf-8",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "content-disposition": "inline; filename=\"stage.css\"",
+    "content-type": "text/css; charset=utf-8"
+   },
+   "resourceType": "stylesheet",
+   "passes": [
+    "desktop"
+   ],
+   "file": "site/library.jjangik.kr/interactions/_shared/stage.css",
+   "size": 668,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://library.jjangik.kr/interactions/infinite-2d-grid/photos/29-s.webp",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/webp",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "content-disposition": "inline; filename=\"29-s.webp\"",
+    "content-type": "image/webp"
+   },
+   "resourceType": "image",
+   "passes": [
+    "desktop"
+   ],
+   "file": "site/library.jjangik.kr/interactions/infinite-2d-grid/photos/29-s.webp",
+   "size": 133712,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://library.jjangik.kr/interactions/infinite-2d-grid/photos/41-s.webp",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/webp",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "content-disposition": "inline; filename=\"41-s.webp\"",
+    "content-type": "image/webp"
+   },
+   "resourceType": "image",
+   "passes": [
+    "desktop"
+   ],
+   "file": "site/library.jjangik.kr/interactions/infinite-2d-grid/photos/41-s.webp",
+   "size": 152780,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://library.jjangik.kr/interactions/infinite-2d-grid/photos/37-s.webp",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/webp",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "content-disposition": "inline; filename=\"37-s.webp\"",
+    "content-type": "image/webp"
+   },
+   "resourceType": "image",
+   "passes": [
+    "desktop"
+   ],
+   "file": "site/library.jjangik.kr/interactions/infinite-2d-grid/photos/37-s.webp",
+   "size": 121484,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://library.jjangik.kr/interactions/infinite-2d-grid/photos/43-s.webp",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/webp",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "content-disposition": "inline; filename=\"43-s.webp\"",
+    "content-type": "image/webp"
+   },
+   "resourceType": "image",
+   "passes": [
+    "desktop"
+   ],
+   "file": "site/library.jjangik.kr/interactions/infinite-2d-grid/photos/43-s.webp",
+   "size": 182912,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://library.jjangik.kr/interactions/infinite-2d-grid/photos/25-s.webp",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/webp",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "content-disposition": "inline; filename=\"25-s.webp\"",
+    "content-type": "image/webp"
+   },
+   "resourceType": "image",
+   "passes": [
+    "desktop"
+   ],
+   "file": "site/library.jjangik.kr/interactions/infinite-2d-grid/photos/25-s.webp",
+   "size": 59262,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://library.jjangik.kr/interactions/infinite-2d-grid/photos/47-s.webp",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/webp",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "content-disposition": "inline; filename=\"47-s.webp\"",
+    "content-type": "image/webp"
+   },
+   "resourceType": "image",
+   "passes": [
+    "desktop"
+   ],
+   "file": "site/library.jjangik.kr/interactions/infinite-2d-grid/photos/47-s.webp",
+   "size": 195754,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://library.jjangik.kr/interactions/infinite-2d-grid/photos/39-s.webp",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/webp",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "content-disposition": "inline; filename=\"39-s.webp\"",
+    "content-type": "image/webp"
+   },
+   "resourceType": "image",
+   "passes": [
+    "desktop"
+   ],
+   "file": "site/library.jjangik.kr/interactions/infinite-2d-grid/photos/39-s.webp",
+   "size": 85836,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://library.jjangik.kr/interactions/infinite-2d-grid/photos/42-s.webp",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/webp",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "content-disposition": "inline; filename=\"42-s.webp\"",
+    "content-type": "image/webp"
+   },
+   "resourceType": "image",
+   "passes": [
+    "desktop"
+   ],
+   "file": "site/library.jjangik.kr/interactions/infinite-2d-grid/photos/42-s.webp",
+   "size": 219446,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://library.jjangik.kr/interactions/infinite-2d-grid/photos/26-s.webp",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/webp",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "content-disposition": "inline; filename=\"26-s.webp\"",
+    "content-type": "image/webp"
+   },
+   "resourceType": "image",
+   "passes": [
+    "desktop"
+   ],
+   "file": "site/library.jjangik.kr/interactions/infinite-2d-grid/photos/26-s.webp",
+   "size": 115828,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://library.jjangik.kr/interactions/infinite-2d-grid/photos/23-s.webp",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/webp",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "content-disposition": "inline; filename=\"23-s.webp\"",
+    "content-type": "image/webp"
+   },
+   "resourceType": "image",
+   "passes": [
+    "desktop"
+   ],
+   "file": "site/library.jjangik.kr/interactions/infinite-2d-grid/photos/23-s.webp",
+   "size": 99192,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://library.jjangik.kr/interactions/infinite-2d-grid/photos/21-s.webp",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/webp",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "content-disposition": "inline; filename=\"21-s.webp\"",
+    "content-type": "image/webp"
+   },
+   "resourceType": "image",
+   "passes": [
+    "desktop"
+   ],
+   "file": "site/library.jjangik.kr/interactions/infinite-2d-grid/photos/21-s.webp",
+   "size": 111720,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://library.jjangik.kr/interactions/infinite-2d-grid/photos/18-s.webp",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/webp",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "content-disposition": "inline; filename=\"18-s.webp\"",
+    "content-type": "image/webp"
+   },
+   "resourceType": "image",
+   "passes": [
+    "desktop"
+   ],
+   "file": "site/library.jjangik.kr/interactions/infinite-2d-grid/photos/18-s.webp",
+   "size": 50990,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://library.jjangik.kr/interactions/infinite-2d-grid/photos/14-s.webp",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/webp",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "content-disposition": "inline; filename=\"14-s.webp\"",
+    "content-type": "image/webp"
+   },
+   "resourceType": "image",
+   "passes": [
+    "desktop"
+   ],
+   "file": "site/library.jjangik.kr/interactions/infinite-2d-grid/photos/14-s.webp",
+   "size": 70944,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://library.jjangik.kr/interactions/infinite-2d-grid/photos/34-s.webp",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/webp",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "content-disposition": "inline; filename=\"34-s.webp\"",
+    "content-type": "image/webp"
+   },
+   "resourceType": "image",
+   "passes": [
+    "desktop"
+   ],
+   "file": "site/library.jjangik.kr/interactions/infinite-2d-grid/photos/34-s.webp",
+   "size": 70686,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://library.jjangik.kr/interactions/infinite-2d-grid/photos/16-s.webp",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/webp",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "content-disposition": "inline; filename=\"16-s.webp\"",
+    "content-type": "image/webp"
+   },
+   "resourceType": "image",
+   "passes": [
+    "desktop"
+   ],
+   "file": "site/library.jjangik.kr/interactions/infinite-2d-grid/photos/16-s.webp",
+   "size": 143912,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://library.jjangik.kr/interactions/infinite-2d-grid/photos/04-s.webp",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/webp",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "content-disposition": "inline; filename=\"04-s.webp\"",
+    "content-type": "image/webp"
+   },
+   "resourceType": "image",
+   "passes": [
+    "desktop"
+   ],
+   "file": "site/library.jjangik.kr/interactions/infinite-2d-grid/photos/04-s.webp",
+   "size": 78458,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://library.jjangik.kr/interactions/infinite-2d-grid/photos/38-s.webp",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/webp",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "content-disposition": "inline; filename=\"38-s.webp\"",
+    "content-type": "image/webp"
+   },
+   "resourceType": "image",
+   "passes": [
+    "desktop"
+   ],
+   "file": "site/library.jjangik.kr/interactions/infinite-2d-grid/photos/38-s.webp",
+   "size": 89030,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://library.jjangik.kr/interactions/infinite-2d-grid/photos/32-s.webp",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/webp",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "content-disposition": "inline; filename=\"32-s.webp\"",
+    "content-type": "image/webp"
+   },
+   "resourceType": "image",
+   "passes": [
+    "desktop"
+   ],
+   "file": "site/library.jjangik.kr/interactions/infinite-2d-grid/photos/32-s.webp",
+   "size": 41594,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://library.jjangik.kr/interactions/infinite-2d-grid/photos/08-s.webp",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/webp",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "content-disposition": "inline; filename=\"08-s.webp\"",
+    "content-type": "image/webp"
+   },
+   "resourceType": "image",
+   "passes": [
+    "desktop"
+   ],
+   "file": "site/library.jjangik.kr/interactions/infinite-2d-grid/photos/08-s.webp",
+   "size": 74192,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://library.jjangik.kr/interactions/infinite-2d-grid/photos/06-s.webp",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/webp",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "content-disposition": "inline; filename=\"06-s.webp\"",
+    "content-type": "image/webp"
+   },
+   "resourceType": "image",
+   "passes": [
+    "desktop"
+   ],
+   "file": "site/library.jjangik.kr/interactions/infinite-2d-grid/photos/06-s.webp",
+   "size": 50958,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://library.jjangik.kr/interactions/infinite-2d-grid/photos/46-s.webp",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/webp",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "content-disposition": "inline; filename=\"46-s.webp\"",
+    "content-type": "image/webp"
+   },
+   "resourceType": "image",
+   "passes": [
+    "desktop"
+   ],
+   "file": "site/library.jjangik.kr/interactions/infinite-2d-grid/photos/46-s.webp",
+   "size": 67300,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://library.jjangik.kr/interactions/infinite-2d-grid/photos/45-s.webp",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/webp",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "content-disposition": "inline; filename=\"45-s.webp\"",
+    "content-type": "image/webp"
+   },
+   "resourceType": "image",
+   "passes": [
+    "desktop"
+   ],
+   "file": "site/library.jjangik.kr/interactions/infinite-2d-grid/photos/45-s.webp",
+   "size": 175640,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://library.jjangik.kr/interactions/infinite-2d-grid/photos/36-s.webp",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/webp",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "content-disposition": "inline; filename=\"36-s.webp\"",
+    "content-type": "image/webp"
+   },
+   "resourceType": "image",
+   "passes": [
+    "desktop"
+   ],
+   "file": "site/library.jjangik.kr/interactions/infinite-2d-grid/photos/36-s.webp",
+   "size": 61458,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://library.jjangik.kr/interactions/infinite-2d-grid/photos/24-s.webp",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/webp",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "content-disposition": "inline; filename=\"24-s.webp\"",
+    "content-type": "image/webp"
+   },
+   "resourceType": "image",
+   "passes": [
+    "desktop"
+   ],
+   "file": "site/library.jjangik.kr/interactions/infinite-2d-grid/photos/24-s.webp",
+   "size": 61394,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://library.jjangik.kr/interactions/infinite-2d-grid/photos/15-s.webp",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/webp",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "content-disposition": "inline; filename=\"15-s.webp\"",
+    "content-type": "image/webp"
+   },
+   "resourceType": "image",
+   "passes": [
+    "desktop"
+   ],
+   "file": "site/library.jjangik.kr/interactions/infinite-2d-grid/photos/15-s.webp",
+   "size": 118888,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://library.jjangik.kr/interactions/infinite-2d-grid/photos/35-s.webp",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/webp",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "content-disposition": "inline; filename=\"35-s.webp\"",
+    "content-type": "image/webp"
+   },
+   "resourceType": "image",
+   "passes": [
+    "desktop"
+   ],
+   "file": "site/library.jjangik.kr/interactions/infinite-2d-grid/photos/35-s.webp",
+   "size": 128160,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://library.jjangik.kr/interactions/infinite-2d-grid/photos/27-s.webp",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/webp",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "content-disposition": "inline; filename=\"27-s.webp\"",
+    "content-type": "image/webp"
+   },
+   "resourceType": "image",
+   "passes": [
+    "desktop"
+   ],
+   "file": "site/library.jjangik.kr/interactions/infinite-2d-grid/photos/27-s.webp",
+   "size": 96414,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://library.jjangik.kr/interactions/infinite-2d-grid/photos/19-s.webp",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/webp",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "content-disposition": "inline; filename=\"19-s.webp\"",
+    "content-type": "image/webp"
+   },
+   "resourceType": "image",
+   "passes": [
+    "desktop"
+   ],
+   "file": "site/library.jjangik.kr/interactions/infinite-2d-grid/photos/19-s.webp",
+   "size": 96670,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://library.jjangik.kr/apple-touch-icon.png?v=2",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/png",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "content-disposition": "inline; filename=\"apple-touch-icon.png\"",
+    "content-type": "image/png"
+   },
+   "resourceType": "other",
+   "passes": [
+    "mobile"
+   ],
+   "file": "site/library.jjangik.kr/apple-touch-icon__qf67bbdbf.png",
+   "size": 1492
+  },
+  {
+   "url": "https://library.jjangik.kr/favicon-192.png?v=2",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/png",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "content-disposition": "inline; filename=\"favicon-192.png\"",
+    "content-type": "image/png"
+   },
+   "resourceType": "other",
+   "passes": [
+    "mobile"
+   ],
+   "file": "site/library.jjangik.kr/favicon-192__qf67bbdbf.png",
+   "size": 2804
+  },
+  {
+   "url": "https://library.jjangik.kr/favicon-96.png?v=2",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/png",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "content-disposition": "inline; filename=\"favicon-96.png\"",
+    "content-type": "image/png"
+   },
+   "resourceType": "other",
+   "passes": [
+    "mobile"
+   ],
+   "file": "site/library.jjangik.kr/favicon-96__qf67bbdbf.png",
+   "size": 1401
+  },
+  {
+   "url": "https://library.jjangik.kr/favicon-48.png?v=2",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/png",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "content-disposition": "inline; filename=\"favicon-48.png\"",
+    "content-type": "image/png"
+   },
+   "resourceType": "other",
+   "passes": [
+    "mobile"
+   ],
+   "file": "site/library.jjangik.kr/favicon-48__qf67bbdbf.png",
+   "size": 710
+  },
+  {
+   "url": "https://library.jjangik.kr/favicon-32.png?v=2",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/png",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "content-disposition": "inline; filename=\"favicon-32.png\"",
+    "content-type": "image/png"
+   },
+   "resourceType": "other",
+   "passes": [
+    "mobile"
+   ],
+   "file": "site/library.jjangik.kr/favicon-32__qf67bbdbf.png",
+   "size": 490
+  },
+  {
+   "url": "https://library.jjangik.kr/favicon.ico",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/vnd.microsoft.icon",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "content-disposition": "inline; filename=\"favicon.ico\"",
+    "content-type": "image/vnd.microsoft.icon"
+   },
+   "resourceType": "other",
+   "passes": [
+    "mobile"
+   ],
+   "file": "site/library.jjangik.kr/favicon.ico",
+   "size": 1596
+  }
+ ],
+ "videos": {
+  "posters": {},
+  "onlineHosts": []
+ }
+}

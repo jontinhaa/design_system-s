@@ -1,0 +1,1737 @@
+{
+ "version": 1,
+ "tool": "wd3 0.1.0",
+ "captureId": "duduautoescolapatos.com.br-0bbea1de",
+ "capturedAt": "2026-11-16T22:05:54+00:00",
+ "entry": {
+  "url": "https://www.duduautoescolapatos.com.br/",
+  "path": "/",
+  "search": "",
+  "file": "site/www.duduautoescolapatos.com.br/index.html",
+  "contentType": "text/html; charset=utf-8"
+ },
+ "blocked": [
+  "^https?://([^/?#]+\\.)?(google\\-analytics\\.com|analytics\\.google\\.com|googletagmanager\\.com|googleadservices\\.com|doubleclick\\.net|googlesyndication\\.com|googleoptimize\\.com|connect\\.facebook\\.net|bat\\.bing\\.com|snap\\.licdn\\.com|px\\.ads\\.linkedin\\.com|analytics\\.tiktok\\.com|ct\\.pinterest\\.com|static\\.ads\\-twitter\\.com|analytics\\.twitter\\.com|tr\\.snapchat\\.com|sc\\-static\\.net|mc\\.yandex\\.ru|hotjar\\.com|hotjar\\.io|clarity\\.ms|cdn\\.segment\\.com|api\\.segment\\.io|cdn\\.mxpnl\\.com|api\\-js\\.mixpanel\\.com|api\\.mixpanel\\.com|api\\.amplitude\\.com|api2\\.amplitude\\.com|api\\-secure\\.amplitude\\.com|api\\-sr\\.amplitude\\.com|sr\\-client\\-cfg\\.amplitude\\.com|plausible\\.io|cloud\\.umami\\.is|analytics\\.umami\\.is|static\\.cloudflareinsights\\.com|cloudflareinsights\\.com|vitals\\.vercel\\-insights\\.com|browser\\-intake\\-datadoghq\\.com|browser\\-intake\\-datadoghq\\.eu|js\\-agent\\.newrelic\\.com|bam\\.nr\\-data\\.net|bam\\-cell\\.nr\\-data\\.net|fullstory\\.com|script\\.crazyegg\\.com|mouseflow\\.com|smartlook\\.com|heapanalytics\\.com|i\\.posthog\\.com|stats\\.wp\\.com|pixel\\.wp\\.com|promotekit\\.com|ingest\\.sentry\\.io|ingest\\.us\\.sentry\\.io|ingest\\.de\\.sentry\\.io|widget\\.intercom\\.io|js\\.intercomcdn\\.com|api\\-iam\\.intercom\\.io|js\\.hs\\-scripts\\.com|js\\.hs\\-analytics\\.net|js\\.hs\\-banner\\.com|js\\.hscollectedforms\\.net|js\\.usemessages\\.com|track\\.hubspot\\.com|client\\.crisp\\.chat|embed\\.tawk\\.to|js\\.driftt\\.com|static\\.zdassets\\.com|ekr\\.zdassets\\.com|cdn\\.cookielaw\\.org|geolocation\\.onetrust\\.com|consent\\.cookiebot\\.com|consentcdn\\.cookiebot\\.com|app\\.usercentrics\\.eu|api\\.usercentrics\\.eu|cdn\\.iubenda\\.com|cmp\\.osano\\.com|cdn\\.termly\\.io)(:\\d+)?([/?#]|$)",
+  "/rpc/increment_shared_code_views",
+  "^https?://(umami|analytics|stats|plausible)\\.[^/]+/(api/send|api/collect|api/event|script\\.js)",
+  "/g/c(ollect)?\\?v=2&",
+  "sentry\\.io/api/\\d+/(envelope|store)",
+  "/api/meta-capi",
+  "^https?://(leadtracker|tracking|track|events?|collect)\\.[^/]+/",
+  "^https?://a\\.vturb\\.com/",
+  "facebook\\.com/tr[/?]",
+  "/_vercel/(speed-)?insights/",
+  "/cdn-cgi/rum",
+  "/cdn-cgi/challenge-platform/",
+  "google\\.com/(pagead|ads)/"
+ ],
+ "volatileParams": [
+  "v",
+  "_rsc",
+  "dpl",
+  "_",
+  "t",
+  "ts",
+  "timestamp",
+  "cb",
+  "cachebust",
+  "cacheBust",
+  "nocache",
+  "rnd",
+  "rand",
+  "random",
+  "_t"
+ ],
+ "entries": [
+  {
+   "url": "https://www.duduautoescolapatos.com.br/",
+   "method": "GET",
+   "status": 200,
+   "contentType": "text/html; charset=utf-8",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "content-disposition": "inline",
+    "content-type": "text/html; charset=utf-8"
+   },
+   "resourceType": "document",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "file": "site/www.duduautoescolapatos.com.br/index.html",
+   "size": 84542,
+   "modes": [
+    "navigate"
+   ]
+  },
+  {
+   "url": "https://www.duduautoescolapatos.com.br/css/style.css",
+   "method": "GET",
+   "status": 200,
+   "contentType": "text/css; charset=utf-8",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "content-disposition": "inline; filename=\"style.css\"",
+    "content-type": "text/css; charset=utf-8"
+   },
+   "resourceType": "stylesheet",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "file": "site/www.duduautoescolapatos.com.br/css/style.css",
+   "size": 69411,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://www.duduautoescolapatos.com.br/fonts/barlow-condensed-800.woff2",
+   "method": "GET",
+   "status": 200,
+   "contentType": "font/woff2",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "content-disposition": "inline; filename=\"barlow-condensed-800.woff2\"",
+    "content-type": "font/woff2"
+   },
+   "resourceType": "font",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "file": "site/www.duduautoescolapatos.com.br/fonts/barlow-condensed-800.woff2",
+   "size": 22464,
+   "modes": [
+    "cors"
+   ]
+  },
+  {
+   "url": "https://www.duduautoescolapatos.com.br/img/carro-eletrico-800.webp",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/webp",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "content-disposition": "inline; filename=\"carro-eletrico-800.webp\"",
+    "content-type": "image/webp"
+   },
+   "resourceType": "image",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "file": "site/www.duduautoescolapatos.com.br/img/carro-eletrico-800.webp",
+   "size": 63814,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://www.duduautoescolapatos.com.br/img/logo-dudu-330.webp",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/webp",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "content-disposition": "inline; filename=\"logo-dudu-330.webp\"",
+    "content-type": "image/webp"
+   },
+   "resourceType": "image",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "file": "site/www.duduautoescolapatos.com.br/img/logo-dudu-330.webp",
+   "size": 10770,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://www.duduautoescolapatos.com.br/img/onibus-800.webp",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/webp",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "content-disposition": "inline; filename=\"onibus-800.webp\"",
+    "content-type": "image/webp"
+   },
+   "resourceType": "image",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "file": "site/www.duduautoescolapatos.com.br/img/onibus-800.webp",
+   "size": 82508,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://www.duduautoescolapatos.com.br/img/carreta-800.webp",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/webp",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "content-disposition": "inline; filename=\"carreta-800.webp\"",
+    "content-type": "image/webp"
+   },
+   "resourceType": "image",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "file": "site/www.duduautoescolapatos.com.br/img/carreta-800.webp",
+   "size": 78320,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://www.duduautoescolapatos.com.br/img/moto-semiautomatica-480.webp",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/webp",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "content-disposition": "inline; filename=\"moto-semiautomatica-480.webp\"",
+    "content-type": "image/webp"
+   },
+   "resourceType": "image",
+   "passes": [
+    "mobile",
+    "desktop"
+   ],
+   "file": "site/www.duduautoescolapatos.com.br/img/moto-semiautomatica-480.webp",
+   "size": 25892,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://www.duduautoescolapatos.com.br/img/favicon-96.webp",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/webp",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "content-disposition": "inline; filename=\"favicon-96.webp\"",
+    "content-type": "image/webp"
+   },
+   "resourceType": "image",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "file": "site/www.duduautoescolapatos.com.br/img/favicon-96.webp",
+   "size": 4438,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://www.duduautoescolapatos.com.br/img/carro-eletrico-480.webp",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/webp",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "content-disposition": "inline; filename=\"carro-eletrico-480.webp\"",
+    "content-type": "image/webp"
+   },
+   "resourceType": "image",
+   "passes": [
+    "mobile",
+    "desktop"
+   ],
+   "file": "site/www.duduautoescolapatos.com.br/img/carro-eletrico-480.webp",
+   "size": 31402,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://www.duduautoescolapatos.com.br/img/carro-manual-480.webp",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/webp",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "content-disposition": "inline; filename=\"carro-manual-480.webp\"",
+    "content-type": "image/webp"
+   },
+   "resourceType": "image",
+   "passes": [
+    "mobile",
+    "desktop"
+   ],
+   "file": "site/www.duduautoescolapatos.com.br/img/carro-manual-480.webp",
+   "size": 35770,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://www.duduautoescolapatos.com.br/img/logo-dudu-sem-fundo-160.webp",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/webp",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "content-disposition": "inline; filename=\"logo-dudu-sem-fundo-160.webp\"",
+    "content-type": "image/webp"
+   },
+   "resourceType": "image",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "file": "site/www.duduautoescolapatos.com.br/img/logo-dudu-sem-fundo-160.webp",
+   "size": 6876,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://www.duduautoescolapatos.com.br/img/carreta-480.webp",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/webp",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "content-disposition": "inline; filename=\"carreta-480.webp\"",
+    "content-type": "image/webp"
+   },
+   "resourceType": "image",
+   "passes": [
+    "mobile"
+   ],
+   "file": "site/www.duduautoescolapatos.com.br/img/carreta-480.webp",
+   "size": 37628,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://www.duduautoescolapatos.com.br/img/moto-480.webp",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/webp",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "content-disposition": "inline; filename=\"moto-480.webp\"",
+    "content-type": "image/webp"
+   },
+   "resourceType": "image",
+   "passes": [
+    "mobile",
+    "desktop"
+   ],
+   "file": "site/www.duduautoescolapatos.com.br/img/moto-480.webp",
+   "size": 40154,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://www.duduautoescolapatos.com.br/img/onibus-480.webp",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/webp",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "content-disposition": "inline; filename=\"onibus-480.webp\"",
+    "content-type": "image/webp"
+   },
+   "resourceType": "image",
+   "passes": [
+    "mobile"
+   ],
+   "file": "site/www.duduautoescolapatos.com.br/img/onibus-480.webp",
+   "size": 38690,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://www.duduautoescolapatos.com.br/img/carro-manual-800.webp",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/webp",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "content-disposition": "inline; filename=\"carro-manual-800.webp\"",
+    "content-type": "image/webp"
+   },
+   "resourceType": "image",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "file": "site/www.duduautoescolapatos.com.br/img/carro-manual-800.webp",
+   "size": 78304,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://www.duduautoescolapatos.com.br/img/aprovados/10.webp",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/webp",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "content-disposition": "inline; filename=\"10.webp\"",
+    "content-type": "image/webp"
+   },
+   "resourceType": "image",
+   "passes": [
+    "mobile",
+    "desktop"
+   ],
+   "file": "site/www.duduautoescolapatos.com.br/img/aprovados/10.webp",
+   "size": 111786,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://www.duduautoescolapatos.com.br/img/aprovados/06.webp",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/webp",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "content-disposition": "inline; filename=\"06.webp\"",
+    "content-type": "image/webp"
+   },
+   "resourceType": "image",
+   "passes": [
+    "mobile",
+    "desktop"
+   ],
+   "file": "site/www.duduautoescolapatos.com.br/img/aprovados/06.webp",
+   "size": 46448,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://www.duduautoescolapatos.com.br/img/aprovados/08.webp",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/webp",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "content-disposition": "inline; filename=\"08.webp\"",
+    "content-type": "image/webp"
+   },
+   "resourceType": "image",
+   "passes": [
+    "mobile",
+    "desktop"
+   ],
+   "file": "site/www.duduautoescolapatos.com.br/img/aprovados/08.webp",
+   "size": 92662,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://www.duduautoescolapatos.com.br/fonts/barlow-condensed-900i.woff2",
+   "method": "GET",
+   "status": 200,
+   "contentType": "font/woff2",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "content-disposition": "inline; filename=\"barlow-condensed-900i.woff2\"",
+    "content-type": "font/woff2"
+   },
+   "resourceType": "font",
+   "passes": [
+    "mobile",
+    "desktop"
+   ],
+   "file": "site/www.duduautoescolapatos.com.br/fonts/barlow-condensed-900i.woff2",
+   "size": 23212,
+   "modes": [
+    "cors"
+   ]
+  },
+  {
+   "url": "https://www.duduautoescolapatos.com.br/img/aprovados/02.webp",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/webp",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "content-disposition": "inline; filename=\"02.webp\"",
+    "content-type": "image/webp"
+   },
+   "resourceType": "image",
+   "passes": [
+    "mobile",
+    "desktop"
+   ],
+   "file": "site/www.duduautoescolapatos.com.br/img/aprovados/02.webp",
+   "size": 86668,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://www.duduautoescolapatos.com.br/img/aprovados/09.webp",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/webp",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "content-disposition": "inline; filename=\"09.webp\"",
+    "content-type": "image/webp"
+   },
+   "resourceType": "image",
+   "passes": [
+    "mobile",
+    "desktop"
+   ],
+   "file": "site/www.duduautoescolapatos.com.br/img/aprovados/09.webp",
+   "size": 117772,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://www.duduautoescolapatos.com.br/img/aprovados/05.webp",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/webp",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "content-disposition": "inline; filename=\"05.webp\"",
+    "content-type": "image/webp"
+   },
+   "resourceType": "image",
+   "passes": [
+    "mobile",
+    "desktop"
+   ],
+   "file": "site/www.duduautoescolapatos.com.br/img/aprovados/05.webp",
+   "size": 80892,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://www.duduautoescolapatos.com.br/img/aprovados/04.webp",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/webp",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "content-disposition": "inline; filename=\"04.webp\"",
+    "content-type": "image/webp"
+   },
+   "resourceType": "image",
+   "passes": [
+    "mobile",
+    "desktop"
+   ],
+   "file": "site/www.duduautoescolapatos.com.br/img/aprovados/04.webp",
+   "size": 83296,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://www.duduautoescolapatos.com.br/img/aprovados/07.webp",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/webp",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "content-disposition": "inline; filename=\"07.webp\"",
+    "content-type": "image/webp"
+   },
+   "resourceType": "image",
+   "passes": [
+    "mobile",
+    "desktop"
+   ],
+   "file": "site/www.duduautoescolapatos.com.br/img/aprovados/07.webp",
+   "size": 124202,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://www.duduautoescolapatos.com.br/img/aprovados/11.webp",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/webp",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "content-disposition": "inline; filename=\"11.webp\"",
+    "content-type": "image/webp"
+   },
+   "resourceType": "image",
+   "passes": [
+    "mobile",
+    "desktop"
+   ],
+   "file": "site/www.duduautoescolapatos.com.br/img/aprovados/11.webp",
+   "size": 113790,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://www.duduautoescolapatos.com.br/img/aprovados/03.webp",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/webp",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "content-disposition": "inline; filename=\"03.webp\"",
+    "content-type": "image/webp"
+   },
+   "resourceType": "image",
+   "passes": [
+    "mobile",
+    "desktop"
+   ],
+   "file": "site/www.duduautoescolapatos.com.br/img/aprovados/03.webp",
+   "size": 37030,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://www.duduautoescolapatos.com.br/img/aprovados/12.webp",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/webp",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "content-disposition": "inline; filename=\"12.webp\"",
+    "content-type": "image/webp"
+   },
+   "resourceType": "image",
+   "passes": [
+    "mobile",
+    "desktop"
+   ],
+   "file": "site/www.duduautoescolapatos.com.br/img/aprovados/12.webp",
+   "size": 100224,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://www.duduautoescolapatos.com.br/img/aprovados/01.webp",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/webp",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "content-disposition": "inline; filename=\"01.webp\"",
+    "content-type": "image/webp"
+   },
+   "resourceType": "image",
+   "passes": [
+    "mobile",
+    "desktop"
+   ],
+   "file": "site/www.duduautoescolapatos.com.br/img/aprovados/01.webp",
+   "size": 83162,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://www.duduautoescolapatos.com.br/js/main.js",
+   "method": "GET",
+   "status": 200,
+   "contentType": "application/javascript; charset=utf-8",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "content-disposition": "inline; filename=\"main.js\"",
+    "content-type": "application/javascript; charset=utf-8"
+   },
+   "resourceType": "script",
+   "passes": [
+    "mobile",
+    "desktop"
+   ],
+   "file": "site/www.duduautoescolapatos.com.br/js/main.js",
+   "size": 42289,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://www.duduautoescolapatos.com.br/fonts/barlow-400.woff2",
+   "method": "GET",
+   "status": 200,
+   "contentType": "font/woff2",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "content-disposition": "inline; filename=\"barlow-400.woff2\"",
+    "content-type": "font/woff2"
+   },
+   "resourceType": "font",
+   "passes": [
+    "mobile",
+    "desktop"
+   ],
+   "file": "site/www.duduautoescolapatos.com.br/fonts/barlow-400.woff2",
+   "size": 22196,
+   "modes": [
+    "cors"
+   ]
+  },
+  {
+   "url": "https://www.duduautoescolapatos.com.br/fonts/barlow-condensed-700.woff2",
+   "method": "GET",
+   "status": 200,
+   "contentType": "font/woff2",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "content-disposition": "inline; filename=\"barlow-condensed-700.woff2\"",
+    "content-type": "font/woff2"
+   },
+   "resourceType": "font",
+   "passes": [
+    "mobile",
+    "desktop"
+   ],
+   "file": "site/www.duduautoescolapatos.com.br/fonts/barlow-condensed-700.woff2",
+   "size": 22444,
+   "modes": [
+    "cors"
+   ]
+  },
+  {
+   "url": "https://www.duduautoescolapatos.com.br/fonts/barlow-condensed-800i.woff2",
+   "method": "GET",
+   "status": 200,
+   "contentType": "font/woff2",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "content-disposition": "inline; filename=\"barlow-condensed-800i.woff2\"",
+    "content-type": "font/woff2"
+   },
+   "resourceType": "font",
+   "passes": [
+    "mobile",
+    "desktop"
+   ],
+   "file": "site/www.duduautoescolapatos.com.br/fonts/barlow-condensed-800i.woff2",
+   "size": 23780,
+   "modes": [
+    "cors"
+   ]
+  },
+  {
+   "url": "https://www.duduautoescolapatos.com.br/fonts/barlow-700.woff2",
+   "method": "GET",
+   "status": 200,
+   "contentType": "font/woff2",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "content-disposition": "inline; filename=\"barlow-700.woff2\"",
+    "content-type": "font/woff2"
+   },
+   "resourceType": "font",
+   "passes": [
+    "mobile",
+    "desktop"
+   ],
+   "file": "site/www.duduautoescolapatos.com.br/fonts/barlow-700.woff2",
+   "size": 22788,
+   "modes": [
+    "cors"
+   ]
+  },
+  {
+   "url": "https://www.duduautoescolapatos.com.br/img/moto-800.webp",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/webp",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "content-disposition": "inline; filename=\"moto-800.webp\"",
+    "content-type": "image/webp"
+   },
+   "resourceType": "image",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "file": "site/www.duduautoescolapatos.com.br/img/moto-800.webp",
+   "size": 87142,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://www.duduautoescolapatos.com.br/img/moto-semiautomatica-800.webp",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/webp",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "content-disposition": "inline; filename=\"moto-semiautomatica-800.webp\"",
+    "content-type": "image/webp"
+   },
+   "resourceType": "image",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "file": "site/www.duduautoescolapatos.com.br/img/moto-semiautomatica-800.webp",
+   "size": 54262,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://www.duduautoescolapatos.com.br/img/frota/frota-carros-2.webp",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/webp",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "content-disposition": "inline; filename=\"frota-carros-2.webp\"",
+    "content-type": "image/webp"
+   },
+   "resourceType": "image",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "file": "site/www.duduautoescolapatos.com.br/img/frota/frota-carros-2.webp",
+   "size": 91968,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://www.duduautoescolapatos.com.br/img/frota/frota-carros-1-960.webp",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/webp",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "content-disposition": "inline; filename=\"frota-carros-1-960.webp\"",
+    "content-type": "image/webp"
+   },
+   "resourceType": "image",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "file": "site/www.duduautoescolapatos.com.br/img/frota/frota-carros-1-960.webp",
+   "size": 86036,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://www.duduautoescolapatos.com.br/fonts/barlow-600.woff2",
+   "method": "GET",
+   "status": 200,
+   "contentType": "font/woff2",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "content-disposition": "inline; filename=\"barlow-600.woff2\"",
+    "content-type": "font/woff2"
+   },
+   "resourceType": "font",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "file": "site/www.duduautoescolapatos.com.br/fonts/barlow-600.woff2",
+   "size": 22772,
+   "modes": [
+    "cors"
+   ]
+  },
+  {
+   "url": "https://www.duduautoescolapatos.com.br/img/favicon.png",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/png",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "content-disposition": "inline; filename=\"favicon.png\"",
+    "content-type": "image/png"
+   },
+   "resourceType": "other",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "file": "site/www.duduautoescolapatos.com.br/img/favicon.png",
+   "size": 35409,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://www.duduautoescolapatos.com.br/img/frota/frota-carros-3.webp",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/webp",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "content-disposition": "inline; filename=\"frota-carros-3.webp\"",
+    "content-type": "image/webp"
+   },
+   "resourceType": "image",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "file": "site/www.duduautoescolapatos.com.br/img/frota/frota-carros-3.webp",
+   "size": 72970,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://www.duduautoescolapatos.com.br/img/carro-eletrico-1200.webp",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/webp",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "content-disposition": "inline; filename=\"carro-eletrico-1200.webp\"",
+    "content-type": "image/webp"
+   },
+   "resourceType": "image",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "file": "site/www.duduautoescolapatos.com.br/img/carro-eletrico-1200.webp",
+   "size": 115414,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://www.duduautoescolapatos.com.br/img/frota/frota-carreta-720.webp",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/webp",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "content-disposition": "inline; filename=\"frota-carreta-720.webp\"",
+    "content-type": "image/webp"
+   },
+   "resourceType": "image",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "file": "site/www.duduautoescolapatos.com.br/img/frota/frota-carreta-720.webp",
+   "size": 96068,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://www.duduautoescolapatos.com.br/img/frota/frota-motos-2.webp",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/webp",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "content-disposition": "inline; filename=\"frota-motos-2.webp\"",
+    "content-type": "image/webp"
+   },
+   "resourceType": "image",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "file": "site/www.duduautoescolapatos.com.br/img/frota/frota-motos-2.webp",
+   "size": 178580,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://www.duduautoescolapatos.com.br/img/frota/frota-motos-3.webp",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/webp",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "content-disposition": "inline; filename=\"frota-motos-3.webp\"",
+    "content-type": "image/webp"
+   },
+   "resourceType": "image",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "file": "site/www.duduautoescolapatos.com.br/img/frota/frota-motos-3.webp",
+   "size": 201110,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://www.duduautoescolapatos.com.br/img/frota/frota-motos-1.webp",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/webp",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "content-disposition": "inline; filename=\"frota-motos-1.webp\"",
+    "content-type": "image/webp"
+   },
+   "resourceType": "image",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "file": "site/www.duduautoescolapatos.com.br/img/frota/frota-motos-1.webp",
+   "size": 170286,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://www.duduautoescolapatos.com.br/img/frota/frota-motos-4.webp",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/webp",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "content-disposition": "inline; filename=\"frota-motos-4.webp\"",
+    "content-type": "image/webp"
+   },
+   "resourceType": "image",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "file": "site/www.duduautoescolapatos.com.br/img/frota/frota-motos-4.webp",
+   "size": 199072,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://www.duduautoescolapatos.com.br/img/frota/frota-motos-5.webp",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/webp",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "content-disposition": "inline; filename=\"frota-motos-5.webp\"",
+    "content-type": "image/webp"
+   },
+   "resourceType": "image",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "file": "site/www.duduautoescolapatos.com.br/img/frota/frota-motos-5.webp",
+   "size": 82436,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://www.duduautoescolapatos.com.br/img/frota/frota-onibus-1-720.webp",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/webp",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "content-disposition": "inline; filename=\"frota-onibus-1-720.webp\"",
+    "content-type": "image/webp"
+   },
+   "resourceType": "image",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "file": "site/www.duduautoescolapatos.com.br/img/frota/frota-onibus-1-720.webp",
+   "size": 106832,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://www.duduautoescolapatos.com.br/img/faxada-autoescola.webp",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/webp",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "content-disposition": "inline; filename=\"faxada-autoescola.webp\"",
+    "content-type": "image/webp"
+   },
+   "resourceType": "image",
+   "passes": [
+    "desktop"
+   ],
+   "file": "site/www.duduautoescolapatos.com.br/img/faxada-autoescola.webp",
+   "size": 241834,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://www.duduautoescolapatos.com.br/img/logo-dudu-sem-fundo-880.webp",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/webp",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "content-disposition": "inline; filename=\"logo-dudu-sem-fundo-880.webp\"",
+    "content-type": "image/webp"
+   },
+   "resourceType": "image",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "file": "site/www.duduautoescolapatos.com.br/img/logo-dudu-sem-fundo-880.webp",
+   "size": 61748,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://www.duduautoescolapatos.com.br/img/carro-manual-1200.webp",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/webp",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "content-disposition": "inline; filename=\"carro-manual-1200.webp\"",
+    "content-type": "image/webp"
+   },
+   "resourceType": "image",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "file": "site/www.duduautoescolapatos.com.br/img/carro-manual-1200.webp",
+   "size": 144170,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://www.duduautoescolapatos.com.br/img/onibus-1200.webp",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/webp",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "content-disposition": "inline; filename=\"onibus-1200.webp\"",
+    "content-type": "image/webp"
+   },
+   "resourceType": "image",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "file": "site/www.duduautoescolapatos.com.br/img/onibus-1200.webp",
+   "size": 152920,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://www.duduautoescolapatos.com.br/img/carreta-1200.webp",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/webp",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "content-disposition": "inline; filename=\"carreta-1200.webp\"",
+    "content-type": "image/webp"
+   },
+   "resourceType": "image",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "file": "site/www.duduautoescolapatos.com.br/img/carreta-1200.webp",
+   "size": 144256,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://www.duduautoescolapatos.com.br/img/moto-1200.webp",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/webp",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "content-disposition": "inline; filename=\"moto-1200.webp\"",
+    "content-type": "image/webp"
+   },
+   "resourceType": "image",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "file": "site/www.duduautoescolapatos.com.br/img/moto-1200.webp",
+   "size": 167990,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://www.duduautoescolapatos.com.br/img/faxada-autoescola-1280.webp",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/webp",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "content-disposition": "inline; filename=\"faxada-autoescola-1280.webp\"",
+    "content-type": "image/webp"
+   },
+   "resourceType": "image",
+   "passes": [
+    "mobile"
+   ],
+   "file": "site/www.duduautoescolapatos.com.br/img/faxada-autoescola-1280.webp",
+   "size": 114572,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://www.duduautoescolapatos.com.br/img/frota/frota-mobi-7.webp",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/webp",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "content-disposition": "inline; filename=\"frota-mobi-7.webp\"",
+    "content-type": "image/webp"
+   },
+   "resourceType": "image",
+   "passes": [
+    "desktop"
+   ],
+   "file": "site/www.duduautoescolapatos.com.br/img/frota/frota-mobi-7.webp",
+   "size": 106716,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://www.duduautoescolapatos.com.br/img/frota/frota-mobi-3.webp",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/webp",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "content-disposition": "inline; filename=\"frota-mobi-3.webp\"",
+    "content-type": "image/webp"
+   },
+   "resourceType": "image",
+   "passes": [
+    "desktop"
+   ],
+   "file": "site/www.duduautoescolapatos.com.br/img/frota/frota-mobi-3.webp",
+   "size": 120066,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://www.duduautoescolapatos.com.br/img/frota/frota-mobi-4.webp",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/webp",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "content-disposition": "inline; filename=\"frota-mobi-4.webp\"",
+    "content-type": "image/webp"
+   },
+   "resourceType": "image",
+   "passes": [
+    "desktop"
+   ],
+   "file": "site/www.duduautoescolapatos.com.br/img/frota/frota-mobi-4.webp",
+   "size": 146298,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://www.duduautoescolapatos.com.br/img/frota/frota-mobi-1.webp",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/webp",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "content-disposition": "inline; filename=\"frota-mobi-1.webp\"",
+    "content-type": "image/webp"
+   },
+   "resourceType": "image",
+   "passes": [
+    "desktop"
+   ],
+   "file": "site/www.duduautoescolapatos.com.br/img/frota/frota-mobi-1.webp",
+   "size": 148618,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://www.duduautoescolapatos.com.br/img/frota/frota-mobi-2.webp",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/webp",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "content-disposition": "inline; filename=\"frota-mobi-2.webp\"",
+    "content-type": "image/webp"
+   },
+   "resourceType": "image",
+   "passes": [
+    "desktop"
+   ],
+   "file": "site/www.duduautoescolapatos.com.br/img/frota/frota-mobi-2.webp",
+   "size": 116606,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://www.duduautoescolapatos.com.br/img/frota/frota-mobi-5.webp",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/webp",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "content-disposition": "inline; filename=\"frota-mobi-5.webp\"",
+    "content-type": "image/webp"
+   },
+   "resourceType": "image",
+   "passes": [
+    "desktop"
+   ],
+   "file": "site/www.duduautoescolapatos.com.br/img/frota/frota-mobi-5.webp",
+   "size": 117818,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://www.duduautoescolapatos.com.br/img/frota/frota-mobi-6.webp",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/webp",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "content-disposition": "inline; filename=\"frota-mobi-6.webp\"",
+    "content-type": "image/webp"
+   },
+   "resourceType": "image",
+   "passes": [
+    "desktop"
+   ],
+   "file": "site/www.duduautoescolapatos.com.br/img/frota/frota-mobi-6.webp",
+   "size": 109640,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://www.duduautoescolapatos.com.br/img/frota/frota-byd-1.webp",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/webp",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "content-disposition": "inline; filename=\"frota-byd-1.webp\"",
+    "content-type": "image/webp"
+   },
+   "resourceType": "image",
+   "passes": [
+    "desktop"
+   ],
+   "file": "site/www.duduautoescolapatos.com.br/img/frota/frota-byd-1.webp",
+   "size": 98662,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://www.duduautoescolapatos.com.br/img/frota/frota-byd-3.webp",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/webp",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "content-disposition": "inline; filename=\"frota-byd-3.webp\"",
+    "content-type": "image/webp"
+   },
+   "resourceType": "image",
+   "passes": [
+    "desktop"
+   ],
+   "file": "site/www.duduautoescolapatos.com.br/img/frota/frota-byd-3.webp",
+   "size": 155188,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://www.duduautoescolapatos.com.br/img/frota/frota-byd-2.webp",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/webp",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "content-disposition": "inline; filename=\"frota-byd-2.webp\"",
+    "content-type": "image/webp"
+   },
+   "resourceType": "image",
+   "passes": [
+    "desktop"
+   ],
+   "file": "site/www.duduautoescolapatos.com.br/img/frota/frota-byd-2.webp",
+   "size": 122666,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://www.duduautoescolapatos.com.br/img/frota/frota-byd-4.webp",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/webp",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "content-disposition": "inline; filename=\"frota-byd-4.webp\"",
+    "content-type": "image/webp"
+   },
+   "resourceType": "image",
+   "passes": [
+    "desktop"
+   ],
+   "file": "site/www.duduautoescolapatos.com.br/img/frota/frota-byd-4.webp",
+   "size": 92674,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://www.duduautoescolapatos.com.br/img/frota/frota-byd-6.webp",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/webp",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "content-disposition": "inline; filename=\"frota-byd-6.webp\"",
+    "content-type": "image/webp"
+   },
+   "resourceType": "image",
+   "passes": [
+    "desktop"
+   ],
+   "file": "site/www.duduautoescolapatos.com.br/img/frota/frota-byd-6.webp",
+   "size": 71182,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://www.duduautoescolapatos.com.br/img/frota/frota-byd-5.webp",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/webp",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "content-disposition": "inline; filename=\"frota-byd-5.webp\"",
+    "content-type": "image/webp"
+   },
+   "resourceType": "image",
+   "passes": [
+    "desktop"
+   ],
+   "file": "site/www.duduautoescolapatos.com.br/img/frota/frota-byd-5.webp",
+   "size": 85238,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://www.duduautoescolapatos.com.br/img/frota/frota-byd-7.webp",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/webp",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "content-disposition": "inline; filename=\"frota-byd-7.webp\"",
+    "content-type": "image/webp"
+   },
+   "resourceType": "image",
+   "passes": [
+    "desktop"
+   ],
+   "file": "site/www.duduautoescolapatos.com.br/img/frota/frota-byd-7.webp",
+   "size": 104856,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://www.duduautoescolapatos.com.br/img/frota/frota-moto-manual-1.webp",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/webp",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "content-disposition": "inline; filename=\"frota-moto-manual-1.webp\"",
+    "content-type": "image/webp"
+   },
+   "resourceType": "image",
+   "passes": [
+    "desktop"
+   ],
+   "file": "site/www.duduautoescolapatos.com.br/img/frota/frota-moto-manual-1.webp",
+   "size": 263300,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://www.duduautoescolapatos.com.br/img/frota/frota-moto-manual-2.webp",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/webp",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "content-disposition": "inline; filename=\"frota-moto-manual-2.webp\"",
+    "content-type": "image/webp"
+   },
+   "resourceType": "image",
+   "passes": [
+    "desktop"
+   ],
+   "file": "site/www.duduautoescolapatos.com.br/img/frota/frota-moto-manual-2.webp",
+   "size": 159320,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://www.duduautoescolapatos.com.br/img/frota/frota-moto-manual-3.webp",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/webp",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "content-disposition": "inline; filename=\"frota-moto-manual-3.webp\"",
+    "content-type": "image/webp"
+   },
+   "resourceType": "image",
+   "passes": [
+    "desktop"
+   ],
+   "file": "site/www.duduautoescolapatos.com.br/img/frota/frota-moto-manual-3.webp",
+   "size": 285504,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://www.duduautoescolapatos.com.br/img/frota/frota-moto-semiautomatica-2.webp",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/webp",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "content-disposition": "inline; filename=\"frota-moto-semiautomatica-2.webp\"",
+    "content-type": "image/webp"
+   },
+   "resourceType": "image",
+   "passes": [
+    "desktop"
+   ],
+   "file": "site/www.duduautoescolapatos.com.br/img/frota/frota-moto-semiautomatica-2.webp",
+   "size": 222348,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://www.duduautoescolapatos.com.br/img/frota/frota-moto-semiautomatica-3.webp",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/webp",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "content-disposition": "inline; filename=\"frota-moto-semiautomatica-3.webp\"",
+    "content-type": "image/webp"
+   },
+   "resourceType": "image",
+   "passes": [
+    "desktop"
+   ],
+   "file": "site/www.duduautoescolapatos.com.br/img/frota/frota-moto-semiautomatica-3.webp",
+   "size": 307926,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://www.duduautoescolapatos.com.br/img/frota/frota-moto-semiautomatica-1.webp",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/webp",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "content-disposition": "inline; filename=\"frota-moto-semiautomatica-1.webp\"",
+    "content-type": "image/webp"
+   },
+   "resourceType": "image",
+   "passes": [
+    "desktop"
+   ],
+   "file": "site/www.duduautoescolapatos.com.br/img/frota/frota-moto-semiautomatica-1.webp",
+   "size": 178346,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://www.duduautoescolapatos.com.br/img/frota/frota-onibus-2.webp",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/webp",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "content-disposition": "inline; filename=\"frota-onibus-2.webp\"",
+    "content-type": "image/webp"
+   },
+   "resourceType": "image",
+   "passes": [
+    "desktop"
+   ],
+   "file": "site/www.duduautoescolapatos.com.br/img/frota/frota-onibus-2.webp",
+   "size": 192854,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://www.duduautoescolapatos.com.br/img/frota/frota-onibus-1.webp",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/webp",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "content-disposition": "inline; filename=\"frota-onibus-1.webp\"",
+    "content-type": "image/webp"
+   },
+   "resourceType": "image",
+   "passes": [
+    "desktop"
+   ],
+   "file": "site/www.duduautoescolapatos.com.br/img/frota/frota-onibus-1.webp",
+   "size": 187714,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://www.duduautoescolapatos.com.br/img/frota/frota-carreta.webp",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/webp",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "content-disposition": "inline; filename=\"frota-carreta.webp\"",
+    "content-type": "image/webp"
+   },
+   "resourceType": "image",
+   "passes": [
+    "desktop"
+   ],
+   "file": "site/www.duduautoescolapatos.com.br/img/frota/frota-carreta.webp",
+   "size": 164834,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://www.duduautoescolapatos.com.br/img/favicon.ico",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/vnd.microsoft.icon",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "content-disposition": "inline; filename=\"favicon.ico\"",
+    "content-type": "image/vnd.microsoft.icon"
+   },
+   "resourceType": "other",
+   "passes": [
+    "desktop"
+   ],
+   "file": "site/www.duduautoescolapatos.com.br/img/favicon.ico",
+   "size": 14059
+  },
+  {
+   "url": "https://www.duduautoescolapatos.com.br/img/apple-touch-icon.png",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/png",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "content-disposition": "inline; filename=\"apple-touch-icon.png\"",
+    "content-type": "image/png"
+   },
+   "resourceType": "other",
+   "passes": [
+    "desktop"
+   ],
+   "file": "site/www.duduautoescolapatos.com.br/img/apple-touch-icon.png",
+   "size": 23923
+  },
+  {
+   "url": "https://www.duduautoescolapatos.com.br/video/logo-preloader.mp4",
+   "method": "GET",
+   "status": 200,
+   "contentType": "video/mp4",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "content-disposition": "inline; filename=\"logo-preloader.mp4\"",
+    "content-type": "video/mp4"
+   },
+   "resourceType": "media",
+   "passes": [
+    "desktop"
+   ],
+   "file": "site/www.duduautoescolapatos.com.br/video/logo-preloader.mp4",
+   "size": 72324,
+   "modes": [
+    "no-cors"
+   ]
+  }
+ ],
+ "videos": {
+  "posters": {},
+  "onlineHosts": []
+ }
+}

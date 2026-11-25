@@ -1,0 +1,45 @@
+{
+ "builders": [
+  "aura (aura-html)"
+ ],
+ "libraries": [
+  {
+   "name": "tailwindcss (Play CDN)",
+   "version": "3.4.17",
+   "sources": [
+    "https://cdn.tailwindcss.com/3.4.17"
+   ]
+  },
+  {
+   "name": "three",
+   "version": "r180",
+   "sources": [
+    "página"
+   ]
+  }
+ ],
+ "runtime": {
+  "contexts": {
+   "webgl2": 1,
+   "2d": 13
+  },
+  "wasm": 0,
+  "workers": 0,
+  "webgpu": false,
+  "shadowRoots": 0,
+  "canvases": 3
+ },
+ "cssFeatures": [],
+ "fonts": {
+  "families": [
+   "Instrument Serif",
+   "Geist"
+  ],
+  "sources": []
+ },
+ "videos": [],
+ "files": {
+  "text": 2,
+  "image": 10
+ }
+}

@@ -1,0 +1,50 @@
+{
+ "builders": [
+  "sveltekit"
+ ],
+ "libraries": [
+  {
+   "name": "lenis",
+   "version": null,
+   "sources": [
+    "página"
+   ]
+  }
+ ],
+ "runtime": {
+  "contexts": {
+   "webgl2": 4,
+   "2d": 12
+  },
+  "wasm": 0,
+  "workers": 0,
+  "webgpu": false,
+  "shadowRoots": 0,
+  "canvases": 14
+ },
+ "cssFeatures": [
+  "scroll-driven animations",
+  "@property",
+  "view transitions",
+  "container queries",
+  "cascade layers"
+ ],
+ "fonts": {
+  "families": [
+   "SYBIOSME Numerals Copy",
+   "Overused Grotesk"
+  ],
+  "sources": [
+   "self-hosted"
+  ]
+ },
+ "videos": [],
+ "files": {
+  "text": 95,
+  "application": 78,
+  "font": 6,
+  "image": 34,
+  "audio": 1,
+  "outros": 1
+ }
+}

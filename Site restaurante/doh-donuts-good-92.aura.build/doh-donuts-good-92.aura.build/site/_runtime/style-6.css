@@ -1,0 +1,19 @@
+
+/* ===== Glaze button: pink glaze pours over the pill on hover, sprinkles land, a burst on click ===== */
+.button{position:relative;isolation:isolate;overflow:hidden;transition:transform .45s cubic-bezier(.2,.9,.25,1.25),box-shadow .35s,color .3s .08s}
+.button::before{content:"";position:absolute;left:-2px;right:-2px;top:0;height:calc(100% + 24px);z-index:-1;pointer-events:none;
+background:linear-gradient(180deg,#ff6fae,#ec4f8e);box-shadow:inset 0 2px 0 rgba(255,255,255,.45);
+-webkit-mask:linear-gradient(#000,#000) top/100% calc(100% - 23px) no-repeat,url("../hoirqrkdgbmvpwutwuwj.supabase.co/storage/v1/object/public/assets/assets/41b08e1d-3029-4d11-975a-a1b9b3eb0baa_original.svg") left bottom/120px 24px repeat-x;
+mask:linear-gradient(#000,#000) top/100% calc(100% - 23px) no-repeat,url("../hoirqrkdgbmvpwutwuwj.supabase.co/storage/v1/object/public/assets/assets/41b08e1d-3029-4d11-975a-a1b9b3eb0baa_original.svg") left bottom/120px 24px repeat-x;
+transform:translateY(calc(-100% - 2px));transition:transform .6s cubic-bezier(.65,0,.2,1)}
+.button::after{content:"";position:absolute;inset:0;z-index:-1;pointer-events:none;opacity:0;transform:translateY(-8px) scale(.9);
+background:url("../hoirqrkdgbmvpwutwuwj.supabase.co/storage/v1/object/public/assets/assets/b776d1c2-9dd1-4420-8a41-78df7a25d4ad_original.svg") 12px 2px/150px 14px repeat-x;
+transition:opacity .25s,transform .45s cubic-bezier(.2,.9,.25,1.4)}
+.button:hover,.button:focus-visible{color:#fff7ef;transform:translateY(-3px) rotate(-1.2deg);box-shadow:0 0 0 2px var(--ink),0 22px 34px -18px rgba(150,20,80,.75)}
+.button:hover::before,.button:focus-visible::before{transform:translateY(-17px)}
+.button:hover::after,.button:focus-visible::after{opacity:1;transform:none;transition-delay:.28s,.28s}
+.button:hover .arw,.button:focus-visible .arw{background:#fff7ef;color:#ec4f8e}
+.button:active{transform:translateY(0) scale(.95) rotate(0);transition-duration:.12s}
+.button:focus-visible{outline:3px solid var(--ink);outline-offset:4px}
+.glaze-pop{position:fixed;z-index:9999;width:9px;height:3.5px;border-radius:3px;pointer-events:none;will-change:transform,opacity}
+@media(prefers-reduced-motion:reduce){.button,.button::before,.button::after{transition:none}.button:hover{transform:none}}

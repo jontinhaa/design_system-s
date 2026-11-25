@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta name="robots" content="noindex, nofollow" />
+    <title>Vimeo</title>
+    <style type="text/css">
+      * {
+        margin: 0;
+        padding: 0;
+      }
+
+      body {
+        background: #000;
+        color: #fff;
+      }
+
+      @keyframes rotate {
+        100% {
+          transform: rotate(360deg);
+        }
+      }
+
+      @keyframes dash {
+        0% {
+          stroke-dasharray: 1, 200;
+          stroke-dashoffset: 0;
+        }
+        50% {
+          stroke-dasharray: 89, 200;
+          stroke-dashoffset: -35px;
+        }
+        100% {
+          stroke-dasharray: 89, 200;
+          stroke-dashoffset: -135px;
+        }
+      }
+
+      .spinner {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        background: transparent;
+        transform: translate(-50%, -50%);
+        transition: opacity 0.1s,
+          transform 0.25s cubic-bezier(0.17, 0.88, 0.32, 1.28);
+        max-width: 120px;
+        width: 18%;
+      }
+
+      .spinner circle {
+        stroke-width: 4px;
+        background: transparent;
+        stroke-width: 2px;
+      }
+
+      .spinner [data-spinner-trace="true"] {
+        stroke-opacity: 20%;
+      }
+
+      .spinner [data-spinner-circle="true"] {
+        transform-origin: 50% 50%;
+        stroke-linecap: round;
+        stroke-dasharray: 200;
+        stroke-dashoffset: 200;
+        animation: rotate 2s linear 0.25s infinite,
+          dash 1.5s ease-in-out 0.25s infinite;
+      }
+
+      .error {
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        width: 100%;
+      }
+
+      .error__header {
+        font-family: "Helvetica Neue";
+        font-size: 40px;
+        font-style: normal;
+        font-weight: 700;
+        line-height: 48px;
+        letter-spacing: -1.2px;
+        text-align: center;
+      }
+
+      .error_subheader {
+        font-family: "Helvetica Neue";
+        font-size: 18px;
+        font-style: normal;
+        font-weight: 400;
+        line-height: 28px;
+        text-align: center;
+        margin-top: 12px;
+      }
+
+      .hidden {
+        display: none;
+      }
+
+      @media screen and (max-width: 1280px) {
+        .error__header {
+          font-size: 32px;
+          line-height: 40px;
+          letter-spacing: -1px;
+        }
+
+        .error_subheader {
+          font-size: 16px;
+          line-height: 24px;
+        }
+      }
+
+      @media screen and (max-width: 960px) {
+        .error {
+          width: 800px;
+        }
+
+        .error__header {
+          font-size: 24px;
+          line-height: 32px;
+          line-height: -0.8px;
+        }
+
+        .error_subheader {
+          font-size: 14px;
+          margin-top: 9px;
+          line-height: 20px;
+        }
+      }
+
+      @media screen and (max-width: 600px) {
+        .error {
+          width: 80%;
+        }
+      }
+
+      @media screen and (max-width: 390px) {
+        .error__header {
+          font-size: 18px;
+          line-height: 24px;
+          line-height: -0.6px;
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="content">
+      <div id="turnstile-wrapper" class="hidden"></div>
+      <svg
+        id="spinner"
+        class="spinner"
+        viewBox="0 0 48 48"
+        xmlns="http://www.w3.org/2000/svg"
+        fill="none"
+      >
+        <circle
+          data-spinner-trace="true"
+          cx="24"
+          cy="24"
+          r="22"
+          stroke="white"
+        />
+        <circle
+          data-spinner-circle="true"
+          cx="24"
+          cy="24"
+          r="22"
+          stroke="white"
+        />
+      </svg>
+      <div id="error" class="error hidden">
+        <h1 class="error__header">
+          We couldn't verify the security of your connection.
+        </h1>
+        <h2 class="error_subheader">
+          Access to this content has been restricted. Contact your internet
+          service provider for help.
+        </h2>
+      </div>
+    </div>
+    <script>
+      function turnstileLoad() {
+        const spinner = document.getElementById("spinner");
+        const error = document.getElementById("error");
+
+        turnstile.render("#turnstile-wrapper", {
+          sitekey: "0x4AAAAAAAbaszMygKLnGbeo",
+          "error-callback": function (errorCode) {
+            spinner.classList.add("hidden");
+            error.classList.remove("hidden");
+            try {
+              const reportUrl = new URL(window.location.href);
+              reportUrl.searchParams.set(
+                "ts_client_error",
+                encodeURIComponent(errorCode || "unknown")
+              );
+              navigator.sendBeacon(reportUrl.toString());
+            } catch (e) {}
+          },
+          callback: function (token) {
+            if (token) {
+              const url = new URL(window.location.href);
+              url.searchParams.set("turnstile", encodeURIComponent(token));
+              url.searchParams.set(
+                "ref",
+                encodeURIComponent(document.referrer)
+              );
+              window.location.href = url.toString();
+            } else {
+              spinner.classList.add("hidden");
+              error.classList.remove("hidden");
+            }
+          },
+        });
+      }
+
+      window.addEventListener("load", turnstileLoad);
+    </script>
+    <script
+      src="https://challenges.cloudflare.com/turnstile/v0/api.js?onload=turnstileLoad"
+      async
+      defer
+    ></script>
+  <script>window.__CF$cv$params={r:'a50bedc1bf2fd0cc',t:'MTc5MzA0MzU4NA==',u:'01a179b9d596751aa68a6d3be081523b',ut:'OzkVKRgjeeoUXiM.f.tLc3Pfcf3pr6Xq2_p9hDWGW_M-1793043584-1.2.1.1-U.crCMUJR_DVpIMeKTLd_cnq7AuqvWsVukf4mkpM6BLNGmUGi.sWzoajRG9oki5iuj5BQw4c0tu5QkJbOt79AL.GxW7zDk3gHhoaDKgiSho',i:60};(function(){if(!document.body)return;var s=document.createElement('script');s.src='/cdn-cgi/challenge-platform/scripts/precursor/main.js';document.head.appendChild(s);})();</script></body>
+</html>

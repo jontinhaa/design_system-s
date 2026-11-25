@@ -1,0 +1,495 @@
+{
+ "version": 1,
+ "tool": "wd3 0.1.0",
+ "captureId": "nesilnoble.com-05f76ee0",
+ "capturedAt": "2026-10-23T19:53:42+00:00",
+ "entry": {
+  "url": "https://nesilnoble.com/",
+  "path": "/",
+  "search": "",
+  "file": "site/nesilnoble.com/index.html",
+  "contentType": "text/html"
+ },
+ "blocked": [
+  "^https?://([^/?#]+\\.)?(google\\-analytics\\.com|analytics\\.google\\.com|googletagmanager\\.com|googleadservices\\.com|doubleclick\\.net|googlesyndication\\.com|googleoptimize\\.com|connect\\.facebook\\.net|bat\\.bing\\.com|snap\\.licdn\\.com|px\\.ads\\.linkedin\\.com|analytics\\.tiktok\\.com|ct\\.pinterest\\.com|static\\.ads\\-twitter\\.com|analytics\\.twitter\\.com|tr\\.snapchat\\.com|sc\\-static\\.net|mc\\.yandex\\.ru|hotjar\\.com|hotjar\\.io|clarity\\.ms|cdn\\.segment\\.com|api\\.segment\\.io|cdn\\.mxpnl\\.com|api\\-js\\.mixpanel\\.com|api\\.mixpanel\\.com|api\\.amplitude\\.com|api2\\.amplitude\\.com|api\\-secure\\.amplitude\\.com|api\\-sr\\.amplitude\\.com|sr\\-client\\-cfg\\.amplitude\\.com|plausible\\.io|cloud\\.umami\\.is|analytics\\.umami\\.is|static\\.cloudflareinsights\\.com|cloudflareinsights\\.com|vitals\\.vercel\\-insights\\.com|browser\\-intake\\-datadoghq\\.com|browser\\-intake\\-datadoghq\\.eu|js\\-agent\\.newrelic\\.com|bam\\.nr\\-data\\.net|bam\\-cell\\.nr\\-data\\.net|fullstory\\.com|script\\.crazyegg\\.com|mouseflow\\.com|smartlook\\.com|heapanalytics\\.com|i\\.posthog\\.com|stats\\.wp\\.com|pixel\\.wp\\.com|promotekit\\.com|ingest\\.sentry\\.io|ingest\\.us\\.sentry\\.io|ingest\\.de\\.sentry\\.io|widget\\.intercom\\.io|js\\.intercomcdn\\.com|api\\-iam\\.intercom\\.io|js\\.hs\\-scripts\\.com|js\\.hs\\-analytics\\.net|js\\.hs\\-banner\\.com|js\\.hscollectedforms\\.net|js\\.usemessages\\.com|track\\.hubspot\\.com|client\\.crisp\\.chat|embed\\.tawk\\.to|js\\.driftt\\.com|static\\.zdassets\\.com|ekr\\.zdassets\\.com|cdn\\.cookielaw\\.org|geolocation\\.onetrust\\.com|consent\\.cookiebot\\.com|consentcdn\\.cookiebot\\.com|app\\.usercentrics\\.eu|api\\.usercentrics\\.eu|cdn\\.iubenda\\.com|cmp\\.osano\\.com|cdn\\.termly\\.io)(:\\d+)?([/?#]|$)",
+  "/rpc/increment_shared_code_views",
+  "^https?://(umami|analytics|stats|plausible)\\.[^/]+/(api/send|api/collect|api/event|script\\.js)",
+  "/g/c(ollect)?\\?v=2&",
+  "sentry\\.io/api/\\d+/(envelope|store)",
+  "/api/meta-capi",
+  "^https?://(leadtracker|tracking|track|events?|collect)\\.[^/]+/",
+  "^https?://a\\.vturb\\.com/",
+  "facebook\\.com/tr[/?]",
+  "/_vercel/(speed-)?insights/",
+  "/cdn-cgi/rum",
+  "/cdn-cgi/challenge-platform/",
+  "google\\.com/(pagead|ads)/"
+ ],
+ "volatileParams": [
+  "v",
+  "_rsc",
+  "dpl",
+  "_",
+  "t",
+  "ts",
+  "timestamp",
+  "cb",
+  "cachebust",
+  "cacheBust",
+  "nocache",
+  "rnd",
+  "rand",
+  "random",
+  "_t"
+ ],
+ "entries": [
+  {
+   "url": "https://nesilnoble.com/",
+   "method": "GET",
+   "status": 200,
+   "contentType": "text/html",
+   "headers": {
+    "content-type": "text/html",
+    "referrer-policy": "strict-origin-when-cross-origin"
+   },
+   "resourceType": "document",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "file": "site/nesilnoble.com/index.html",
+   "size": 291350,
+   "modes": [
+    "navigate"
+   ]
+  },
+  {
+   "url": "https://nesilnoble.com/vendor/ScrollTrigger.min.js",
+   "method": "GET",
+   "status": 200,
+   "contentType": "text/javascript",
+   "headers": {
+    "content-type": "text/javascript",
+    "referrer-policy": "strict-origin-when-cross-origin"
+   },
+   "resourceType": "script",
+   "passes": [
+    "mobile",
+    "desktop"
+   ],
+   "file": "site/nesilnoble.com/vendor/ScrollTrigger.min.js",
+   "size": 43380,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://nesilnoble.com/vendor/gsap.min.js",
+   "method": "GET",
+   "status": 200,
+   "contentType": "text/javascript",
+   "headers": {
+    "content-type": "text/javascript",
+    "referrer-policy": "strict-origin-when-cross-origin"
+   },
+   "resourceType": "script",
+   "passes": [
+    "mobile",
+    "desktop"
+   ],
+   "file": "site/nesilnoble.com/vendor/gsap.min.js",
+   "size": 72214,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://nesilnoble.com/work/upgrad-design-system-cover.jpg",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/jpeg",
+   "headers": {
+    "content-type": "image/jpeg",
+    "referrer-policy": "strict-origin-when-cross-origin"
+   },
+   "resourceType": "image",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "file": "site/nesilnoble.com/work/upgrad-design-system-cover.jpg",
+   "size": 84989,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://nesilnoble.com/work/corridor-tms-cover.jpg",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/jpeg",
+   "headers": {
+    "content-type": "image/jpeg",
+    "referrer-policy": "strict-origin-when-cross-origin"
+   },
+   "resourceType": "image",
+   "passes": [
+    "mobile",
+    "desktop"
+   ],
+   "file": "site/nesilnoble.com/work/corridor-tms-cover.jpg",
+   "size": 261641,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://nesilnoble.com/work/the-local-project-cover.jpg",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/jpeg",
+   "headers": {
+    "content-type": "image/jpeg",
+    "referrer-policy": "strict-origin-when-cross-origin"
+   },
+   "resourceType": "image",
+   "passes": [
+    "mobile",
+    "desktop"
+   ],
+   "file": "site/nesilnoble.com/work/the-local-project-cover.jpg",
+   "size": 400058,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://nesilnoble.com/favicon.svg",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/svg+xml",
+   "headers": {
+    "content-type": "image/svg+xml",
+    "priority": "u=1,i",
+    "referrer-policy": "strict-origin-when-cross-origin"
+   },
+   "resourceType": "other",
+   "passes": [
+    "mobile",
+    "desktop"
+   ],
+   "file": "site/nesilnoble.com/favicon.svg",
+   "size": 332,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://nesilnoble.com/audio/interactive-playground.mp3",
+   "method": "GET",
+   "status": 200,
+   "contentType": "audio/mpeg",
+   "headers": {
+    "content-type": "audio/mpeg",
+    "priority": "u=3,i",
+    "referrer-policy": "strict-origin-when-cross-origin"
+   },
+   "resourceType": "media",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "file": "site/nesilnoble.com/audio/interactive-playground.mp3",
+   "size": 3282372,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://nesilnoble.com/work/upgrad-three-doors-cover.jpg",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/jpeg",
+   "headers": {
+    "content-type": "image/jpeg",
+    "priority": "u=3,i",
+    "referrer-policy": "strict-origin-when-cross-origin"
+   },
+   "resourceType": "image",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "file": "site/nesilnoble.com/work/upgrad-three-doors-cover.jpg",
+   "size": 122378,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://nesilnoble.com/work/malayali-kada-cover.webp",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/webp",
+   "headers": {
+    "content-type": "image/webp",
+    "priority": "u=3,i",
+    "referrer-policy": "strict-origin-when-cross-origin"
+   },
+   "resourceType": "image",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "file": "site/nesilnoble.com/work/malayali-kada-cover.webp",
+   "size": 280862,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://nesilnoble.com/work/temple-cover.webp",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/webp",
+   "headers": {
+    "content-type": "image/webp",
+    "priority": "u=3,i",
+    "referrer-policy": "strict-origin-when-cross-origin"
+   },
+   "resourceType": "image",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "file": "site/nesilnoble.com/work/temple-cover.webp",
+   "size": 70928,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://nesilnoble.com/work/corridor-tms.html",
+   "method": "GET",
+   "status": 307,
+   "contentType": "",
+   "headers": {
+    "location": "/work/corridor-tms",
+    "priority": "u=4,i",
+    "referrer-policy": "strict-origin-when-cross-origin"
+   },
+   "resourceType": "other",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "size": 0,
+   "redirect": "https://nesilnoble.com/work/corridor-tms",
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://nesilnoble.com/work/the-local-project.html",
+   "method": "GET",
+   "status": 307,
+   "contentType": "",
+   "headers": {
+    "location": "/work/the-local-project",
+    "priority": "u=4,i",
+    "referrer-policy": "strict-origin-when-cross-origin"
+   },
+   "resourceType": "other",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "size": 0,
+   "redirect": "https://nesilnoble.com/work/the-local-project",
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://nesilnoble.com/work/upgrad-design-system.html",
+   "method": "GET",
+   "status": 307,
+   "contentType": "",
+   "headers": {
+    "location": "/work/upgrad-design-system",
+    "priority": "u=4,i",
+    "referrer-policy": "strict-origin-when-cross-origin"
+   },
+   "resourceType": "other",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "size": 0,
+   "redirect": "https://nesilnoble.com/work/upgrad-design-system",
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://nesilnoble.com/work/malayali-kada.html",
+   "method": "GET",
+   "status": 307,
+   "contentType": "",
+   "headers": {
+    "location": "/work/malayali-kada",
+    "priority": "u=4,i",
+    "referrer-policy": "strict-origin-when-cross-origin"
+   },
+   "resourceType": "other",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "size": 0,
+   "redirect": "https://nesilnoble.com/work/malayali-kada",
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://nesilnoble.com/work/temple.html",
+   "method": "GET",
+   "status": 307,
+   "contentType": "",
+   "headers": {
+    "location": "/work/temple",
+    "priority": "u=4,i",
+    "referrer-policy": "strict-origin-when-cross-origin"
+   },
+   "resourceType": "other",
+   "passes": [
+    "desktop"
+   ],
+   "size": 0,
+   "redirect": "https://nesilnoble.com/work/temple",
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://nesilnoble.com/work/upgrad-design-system",
+   "method": "GET",
+   "status": 200,
+   "contentType": "text/html",
+   "headers": {
+    "content-type": "text/html",
+    "referrer-policy": "strict-origin-when-cross-origin"
+   },
+   "resourceType": "other",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "file": "site/nesilnoble.com/work/upgrad-design-system.html",
+   "size": 42910,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://nesilnoble.com/work/corridor-tms",
+   "method": "GET",
+   "status": 200,
+   "contentType": "text/html",
+   "headers": {
+    "content-type": "text/html",
+    "referrer-policy": "strict-origin-when-cross-origin"
+   },
+   "resourceType": "other",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "file": "site/nesilnoble.com/work/corridor-tms.html",
+   "size": 109104,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://nesilnoble.com/work/malayali-kada",
+   "method": "GET",
+   "status": 200,
+   "contentType": "text/html",
+   "headers": {
+    "content-type": "text/html",
+    "referrer-policy": "strict-origin-when-cross-origin"
+   },
+   "resourceType": "other",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "file": "site/nesilnoble.com/work/malayali-kada.html",
+   "size": 556331,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://nesilnoble.com/work/the-local-project",
+   "method": "GET",
+   "status": 200,
+   "contentType": "text/html",
+   "headers": {
+    "content-type": "text/html",
+    "referrer-policy": "strict-origin-when-cross-origin"
+   },
+   "resourceType": "other",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "file": "site/nesilnoble.com/work/the-local-project.html",
+   "size": 32903,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://nesilnoble.com/apple-touch-icon.png",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/png",
+   "headers": {
+    "content-type": "image/png",
+    "referrer-policy": "strict-origin-when-cross-origin"
+   },
+   "resourceType": "other",
+   "passes": [
+    "desktop"
+   ],
+   "file": "site/nesilnoble.com/apple-touch-icon.png",
+   "size": 6359
+  },
+  {
+   "url": "https://nesilnoble.com/work/temple",
+   "method": "GET",
+   "status": 200,
+   "contentType": "text/html",
+   "headers": {
+    "content-type": "text/html",
+    "referrer-policy": "strict-origin-when-cross-origin"
+   },
+   "resourceType": "other",
+   "passes": [
+    "desktop"
+   ],
+   "file": "site/nesilnoble.com/work/temple.html",
+   "size": 49128,
+   "modes": [
+    "no-cors"
+   ]
+  }
+ ],
+ "videos": {
+  "posters": {},
+  "onlineHosts": []
+ }
+}

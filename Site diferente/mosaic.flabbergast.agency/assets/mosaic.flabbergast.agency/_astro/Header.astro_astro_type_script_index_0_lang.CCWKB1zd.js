@@ -1,0 +1,1 @@
+import{t as e}from"./platform.CZhSKWDg.js";var t=e();t&&document.querySelectorAll(`[data-store-link]`).forEach(e=>e.href=t);

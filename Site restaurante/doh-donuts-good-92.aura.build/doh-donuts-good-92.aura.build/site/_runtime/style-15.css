@@ -1,0 +1,51 @@
+
+/* ===== Flavour room: rounded card, pinned while the four flavours play out ===== */
+#collection.section{padding:0}
+.room-track{position:relative;height:calc(100svh + 4 * 85svh)}
+.room-pin{position:sticky;top:0;height:100svh;display:flex;flex-direction:column;justify-content:center;padding:96px 6% 28px;box-sizing:border-box}
+.room-pin .section-heading{margin-bottom:20px;align-items:flex-end}
+.room-pin .section-heading h2{font-size:clamp(44px,min(5vw,8svh),84px)}
+.room-pin .section-heading .eyebrow{margin-bottom:14px}
+.room-pin .menu-note{margin-top:16px}
+.flavour-room{border-radius:32px;min-height:0!important;height:min(680px,calc(100svh - 268px));isolation:isolate;transform:translateZ(0)}
+.room-photo{border-radius:0;height:100%}
+.room-editorial{padding:clamp(24px,3vw,44px)!important;overflow:hidden}
+.room-selector{margin-bottom:clamp(14px,2.4svh,30px)!important}
+.room-selector>button{min-height:clamp(40px,5.6svh,58px)!important;padding:6px 0!important}
+.room-selector>button>span:nth-child(2){font-size:clamp(19px,2.6svh,25px)!important}
+.room-label{margin-bottom:clamp(8px,1.4svh,18px)!important}
+.room-story .tiny-label{font-size:11px!important}
+.room-finish{margin:clamp(8px,1.6svh,20px) 0 clamp(6px,1.2svh,16px)!important}
+.room-watch{padding-top:clamp(10px,1.8svh,22px)!important}
+.room-selector>button[aria-pressed=true]{padding-left:14px!important;padding-right:10px!important}
+.room-story h3{font-size:clamp(30px,min(3vw,5.2svh),50px)!important;margin:10px 0!important}
+.room-story>p{min-height:0!important;font-size:clamp(13px,1.75svh,16px)!important;line-height:1.6!important;margin:0}
+.room-story.swap{animation:room-in .55s cubic-bezier(.22,.75,.18,1) both}
+@keyframes room-in{from{opacity:0;transform:translateY(14px)}to{opacity:1;transform:none}}
+.room-track .room-image.is-active{transform:translate(var(--photo-x),calc(var(--photo-y) + (.5 - var(--lp,.5)) * 18px)) scale(calc(1.01 + var(--lp,.5) * .06))!important;transition:opacity .7s cubic-bezier(.22,.75,.18,1),visibility .7s,transform .25s linear!important}
+.room-track .room-image:not(.is-active){transform:translate(var(--photo-x),var(--photo-y)) scale(1.1)!important}
+.room-steps{position:absolute;left:28px;right:28px;bottom:26px;display:flex;gap:8px;z-index:3;pointer-events:none}
+.room-steps i{flex:1;height:4px;border-radius:4px;background:rgba(23,60,49,.16);overflow:hidden;position:relative}
+.room-steps i::after{content:'';position:absolute;inset:0;background:var(--ink);transform:scaleX(var(--f,0));transform-origin:left}
+.room-photo .photo-invitation{bottom:48px}
+@media(max-width:800px){
+.room-track{height:calc(100svh + 4 * 75svh)}
+.room-pin{padding:86px 5% 16px;justify-content:flex-start}
+.room-pin .section-heading{margin-bottom:14px}
+.room-pin .section-heading>p,.room-pin .menu-note,.room-label,.room-watch,.room-photo .photo-invitation,.photo-edition{display:none!important}
+.room-pin .section-heading h2{font-size:clamp(34px,10vw,48px)}
+.flavour-room{height:auto;grid-template-columns:1fr!important;border-radius:24px}
+.room-photo{aspect-ratio:auto!important;height:34svh}
+.room-editorial{padding:18px!important}
+.room-selector{display:grid!important;grid-template-columns:repeat(4,1fr);gap:6px;margin-bottom:12px!important}
+.room-selector>button{grid-template-columns:1fr!important;justify-items:center;min-height:40px!important;padding:6px!important;border:1px solid #173c312c!important;border-radius:999px!important;font-size:0}
+.room-selector>button>span:nth-child(2),.room-selector>button b,.room-selector>button i{display:none!important}
+.room-selector>button .taste-number{font-size:12px}
+.room-story h3{font-size:30px!important}
+.room-story>p{font-size:14px!important;line-height:1.55!important}
+.room-finish{margin:12px 0 0!important}
+}
+@media(max-height:940px) and (min-width:801px){.room-watch{display:none!important}}
+@media(max-height:780px) and (min-width:801px){.room-label,.room-story .tiny-label,.room-pin .section-heading>p,.room-pin .menu-note,.recipe-editorial .room-label{display:none!important}.room-pin .section-heading h2,.recipe-pin .section-heading h2{font-size:min(4.6vw,7svh)}.flavour-room,.recipe-card{height:calc(100svh - 220px)}.room-pin,.recipe-pin{padding-top:84px}}
+@media(max-width:800px){.recipe-count{display:none!important}}
+@media(prefers-reduced-motion:reduce){.room-track .room-image.is-active,.recipe-img.is-on{transform:translate(-50%,-50%)!important}.room-track .room-image.is-active{transform:none!important}}

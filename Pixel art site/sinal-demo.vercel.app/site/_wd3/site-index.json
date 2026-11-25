@@ -1,0 +1,429 @@
+{
+ "version": 1,
+ "tool": "wd3 0.1.0",
+ "captureId": "sinal-demo.vercel.app-9fe1feb5",
+ "capturedAt": "2026-10-28T18:19:56+00:00",
+ "entry": {
+  "url": "https://sinal-demo.vercel.app/",
+  "path": "/",
+  "search": "",
+  "file": "site/sinal-demo.vercel.app/index.html",
+  "contentType": "text/html; charset=utf-8"
+ },
+ "blocked": [
+  "^https?://([^/?#]+\\.)?(google\\-analytics\\.com|analytics\\.google\\.com|googletagmanager\\.com|googleadservices\\.com|doubleclick\\.net|googlesyndication\\.com|googleoptimize\\.com|connect\\.facebook\\.net|bat\\.bing\\.com|snap\\.licdn\\.com|px\\.ads\\.linkedin\\.com|analytics\\.tiktok\\.com|ct\\.pinterest\\.com|static\\.ads\\-twitter\\.com|analytics\\.twitter\\.com|tr\\.snapchat\\.com|sc\\-static\\.net|mc\\.yandex\\.ru|hotjar\\.com|hotjar\\.io|clarity\\.ms|cdn\\.segment\\.com|api\\.segment\\.io|cdn\\.mxpnl\\.com|api\\-js\\.mixpanel\\.com|api\\.mixpanel\\.com|api\\.amplitude\\.com|api2\\.amplitude\\.com|api\\-secure\\.amplitude\\.com|api\\-sr\\.amplitude\\.com|sr\\-client\\-cfg\\.amplitude\\.com|plausible\\.io|cloud\\.umami\\.is|analytics\\.umami\\.is|static\\.cloudflareinsights\\.com|cloudflareinsights\\.com|vitals\\.vercel\\-insights\\.com|browser\\-intake\\-datadoghq\\.com|browser\\-intake\\-datadoghq\\.eu|js\\-agent\\.newrelic\\.com|bam\\.nr\\-data\\.net|bam\\-cell\\.nr\\-data\\.net|fullstory\\.com|script\\.crazyegg\\.com|mouseflow\\.com|smartlook\\.com|heapanalytics\\.com|i\\.posthog\\.com|stats\\.wp\\.com|pixel\\.wp\\.com|promotekit\\.com|ingest\\.sentry\\.io|ingest\\.us\\.sentry\\.io|ingest\\.de\\.sentry\\.io|widget\\.intercom\\.io|js\\.intercomcdn\\.com|api\\-iam\\.intercom\\.io|js\\.hs\\-scripts\\.com|js\\.hs\\-analytics\\.net|js\\.hs\\-banner\\.com|js\\.hscollectedforms\\.net|js\\.usemessages\\.com|track\\.hubspot\\.com|client\\.crisp\\.chat|embed\\.tawk\\.to|js\\.driftt\\.com|static\\.zdassets\\.com|ekr\\.zdassets\\.com|cdn\\.cookielaw\\.org|geolocation\\.onetrust\\.com|consent\\.cookiebot\\.com|consentcdn\\.cookiebot\\.com|app\\.usercentrics\\.eu|api\\.usercentrics\\.eu|cdn\\.iubenda\\.com|cmp\\.osano\\.com|cdn\\.termly\\.io)(:\\d+)?([/?#]|$)",
+  "/rpc/increment_shared_code_views",
+  "^https?://(umami|analytics|stats|plausible)\\.[^/]+/(api/send|api/collect|api/event|script\\.js)",
+  "/g/c(ollect)?\\?v=2&",
+  "sentry\\.io/api/\\d+/(envelope|store)",
+  "/api/meta-capi",
+  "^https?://(leadtracker|tracking|track|events?|collect)\\.[^/]+/",
+  "^https?://a\\.vturb\\.com/",
+  "facebook\\.com/tr[/?]",
+  "/_vercel/(speed-)?insights/",
+  "/cdn-cgi/rum",
+  "/cdn-cgi/challenge-platform/",
+  "google\\.com/(pagead|ads)/"
+ ],
+ "volatileParams": [
+  "v",
+  "_rsc",
+  "dpl",
+  "_",
+  "t",
+  "ts",
+  "timestamp",
+  "cb",
+  "cachebust",
+  "cacheBust",
+  "nocache",
+  "rnd",
+  "rand",
+  "random",
+  "_t"
+ ],
+ "entries": [
+  {
+   "url": "https://sinal-demo.vercel.app/",
+   "method": "GET",
+   "status": 200,
+   "contentType": "text/html; charset=utf-8",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "content-disposition": "inline",
+    "content-type": "text/html; charset=utf-8"
+   },
+   "resourceType": "document",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "file": "site/sinal-demo.vercel.app/index.html",
+   "size": 14482,
+   "modes": [
+    "navigate"
+   ]
+  },
+  {
+   "url": "https://sinal-demo.vercel.app/assets/index-DicWV1_n.css",
+   "method": "GET",
+   "status": 200,
+   "contentType": "text/css; charset=utf-8",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "content-disposition": "inline; filename=\"index-DicWV1_n.css\"",
+    "content-type": "text/css; charset=utf-8"
+   },
+   "resourceType": "stylesheet",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "file": "site/sinal-demo.vercel.app/assets/index-DicWV1_n.css",
+   "size": 15710,
+   "modes": [
+    "cors"
+   ]
+  },
+  {
+   "url": "https://sinal-demo.vercel.app/assets/index-BCTek5mE.js",
+   "method": "GET",
+   "status": 200,
+   "contentType": "application/javascript; charset=utf-8",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "content-disposition": "inline; filename=\"index-BCTek5mE.js\"",
+    "content-type": "application/javascript; charset=utf-8"
+   },
+   "resourceType": "script",
+   "passes": [
+    "mobile",
+    "desktop"
+   ],
+   "file": "site/sinal-demo.vercel.app/assets/index-BCTek5mE.js",
+   "size": 170834,
+   "modes": [
+    "cors"
+   ]
+  },
+  {
+   "url": "https://sinal-demo.vercel.app/fonts/satoshi-500.woff2",
+   "method": "GET",
+   "status": 200,
+   "contentType": "font/woff2",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "content-disposition": "inline; filename=\"satoshi-500.woff2\"",
+    "content-type": "font/woff2"
+   },
+   "resourceType": "fetch",
+   "passes": [
+    "mobile",
+    "desktop"
+   ],
+   "file": "site/sinal-demo.vercel.app/fonts/satoshi-500.woff2",
+   "size": 25596,
+   "modes": [
+    "cors"
+   ]
+  },
+  {
+   "url": "https://sinal-demo.vercel.app/fonts/instrument-serif-italic.woff2",
+   "method": "GET",
+   "status": 200,
+   "contentType": "font/woff2",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "content-disposition": "inline; filename=\"instrument-serif-italic.woff2\"",
+    "content-type": "font/woff2"
+   },
+   "resourceType": "fetch",
+   "passes": [
+    "mobile",
+    "desktop"
+   ],
+   "file": "site/sinal-demo.vercel.app/fonts/instrument-serif-italic.woff2",
+   "size": 15684,
+   "modes": [
+    "cors"
+   ]
+  },
+  {
+   "url": "https://sinal-demo.vercel.app/img/maos.webp",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/webp",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "content-disposition": "inline; filename=\"maos.webp\"",
+    "content-type": "image/webp"
+   },
+   "resourceType": "fetch",
+   "passes": [
+    "mobile",
+    "desktop"
+   ],
+   "file": "site/sinal-demo.vercel.app/img/maos.webp",
+   "size": 40556,
+   "modes": [
+    "cors"
+   ]
+  },
+  {
+   "url": "https://sinal-demo.vercel.app/fonts/satoshi-400.woff2",
+   "method": "GET",
+   "status": 200,
+   "contentType": "font/woff2",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "content-disposition": "inline; filename=\"satoshi-400.woff2\"",
+    "content-type": "font/woff2"
+   },
+   "resourceType": "fetch",
+   "passes": [
+    "mobile",
+    "desktop"
+   ],
+   "file": "site/sinal-demo.vercel.app/fonts/satoshi-400.woff2",
+   "size": 25516,
+   "modes": [
+    "cors"
+   ]
+  },
+  {
+   "url": "https://sinal-demo.vercel.app/img/baleia.webp",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/webp",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "content-disposition": "inline; filename=\"baleia.webp\"",
+    "content-type": "image/webp"
+   },
+   "resourceType": "image",
+   "passes": [
+    "mobile",
+    "desktop"
+   ],
+   "file": "site/sinal-demo.vercel.app/img/baleia.webp",
+   "size": 104852,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://sinal-demo.vercel.app/img/o-camera.webp",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/webp",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "content-disposition": "inline; filename=\"o-camera.webp\"",
+    "content-type": "image/webp"
+   },
+   "resourceType": "image",
+   "passes": [
+    "mobile",
+    "desktop"
+   ],
+   "file": "site/sinal-demo.vercel.app/img/o-camera.webp",
+   "size": 36790,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://sinal-demo.vercel.app/img/o-olho.webp",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/webp",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "content-disposition": "inline; filename=\"o-olho.webp\"",
+    "content-type": "image/webp"
+   },
+   "resourceType": "image",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "file": "site/sinal-demo.vercel.app/img/o-olho.webp",
+   "size": 44598,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://sinal-demo.vercel.app/img/t-cavalo.webp",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/webp",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "content-disposition": "inline; filename=\"t-cavalo.webp\"",
+    "content-type": "image/webp"
+   },
+   "resourceType": "image",
+   "passes": [
+    "mobile",
+    "desktop"
+   ],
+   "file": "site/sinal-demo.vercel.app/img/t-cavalo.webp",
+   "size": 24442,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://sinal-demo.vercel.app/img/t-agua-viva.webp",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/webp",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "content-disposition": "inline; filename=\"t-agua-viva.webp\"",
+    "content-type": "image/webp"
+   },
+   "resourceType": "image",
+   "passes": [
+    "mobile",
+    "desktop"
+   ],
+   "file": "site/sinal-demo.vercel.app/img/t-agua-viva.webp",
+   "size": 29384,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://sinal-demo.vercel.app/img/fechamento.webp",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/webp",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "content-disposition": "inline; filename=\"fechamento.webp\"",
+    "content-type": "image/webp"
+   },
+   "resourceType": "image",
+   "passes": [
+    "mobile",
+    "desktop"
+   ],
+   "file": "site/sinal-demo.vercel.app/img/fechamento.webp",
+   "size": 21874,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://sinal-demo.vercel.app/img/o-lua.webp",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/webp",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "content-disposition": "inline; filename=\"o-lua.webp\"",
+    "content-type": "image/webp"
+   },
+   "resourceType": "image",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "file": "site/sinal-demo.vercel.app/img/o-lua.webp",
+   "size": 42954,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://sinal-demo.vercel.app/img/t-perfume.webp",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/webp",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "content-disposition": "inline; filename=\"t-perfume.webp\"",
+    "content-type": "image/webp"
+   },
+   "resourceType": "image",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "file": "site/sinal-demo.vercel.app/img/t-perfume.webp",
+   "size": 23096,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://sinal-demo.vercel.app/img/t-perfil.webp",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/webp",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "content-disposition": "inline; filename=\"t-perfil.webp\"",
+    "content-type": "image/webp"
+   },
+   "resourceType": "image",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "file": "site/sinal-demo.vercel.app/img/t-perfil.webp",
+   "size": 18732,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://sinal-demo.vercel.app/img/t-casa.webp",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/webp",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "content-disposition": "inline; filename=\"t-casa.webp\"",
+    "content-type": "image/webp"
+   },
+   "resourceType": "image",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "file": "site/sinal-demo.vercel.app/img/t-casa.webp",
+   "size": 26108,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://sinal-demo.vercel.app/img/t-tenis.webp",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/webp",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "content-disposition": "inline; filename=\"t-tenis.webp\"",
+    "content-type": "image/webp"
+   },
+   "resourceType": "image",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "file": "site/sinal-demo.vercel.app/img/t-tenis.webp",
+   "size": 23822,
+   "modes": [
+    "no-cors"
+   ]
+  }
+ ],
+ "videos": {
+  "posters": {},
+  "onlineHosts": []
+ }
+}

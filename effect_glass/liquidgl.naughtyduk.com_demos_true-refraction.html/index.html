@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8">
+<!-- Website Downloader 3.0: este arquivo é o retrato estático do site (DOM renderizado). Aberto via servidor
+     local (serve.py, ver Como rodar.md), o bootstrap abaixo carrega o site vivo; via file://, mostra este retrato. -->
+<meta name="referrer" content="no-referrer">
+<script data-wd3>window.__WD3__ = {"entryUrl": "https://liquidgl.naughtyduk.com/demos/true-refraction", "replayHost": "liquidgl.naughtyduk.com.localhost", "entryPath": "/demos/true-refraction", "captureId": "liquidgl.naughtyduk.com_demos_true-refraction.html-af409ddd", "capturedAt": "2026-11-19T16:50:24+00:00", "snapshot": true, "fileFonts": null};</script>
+<script data-wd3>/* Website Downloader 3.0 — bootstrap do index.html.
+ * file://  → fica no retrato estático (e carrega as fontes embutidas, que o Chrome bloqueia em file://).
+ * http(s)  → para de carregar o retrato, registra o Service Worker de replay e abre o site vivo.
+ */
+(function () {
+  var cfg = window.__WD3__ || {};
+  var root = document.documentElement;
+  if (location.protocol === 'file:') {
+    root.setAttribute('data-wd3', 'file');
+    if (cfg.fileFonts) {
+      var link = document.createElement('link');
+      link.rel = 'stylesheet';
+      link.href = cfg.fileFonts;
+      (document.head || root).appendChild(link);
+    }
+    return;
+  }
+  root.setAttribute('data-wd3', 'loading');
+  if (cfg.snapshot) {
+    try { window.stop(); } catch (e) { /* o retrato não precisa carregar: o site vivo vem do SW */ }
+  }
+
+  function fail(msg) {
+    root.setAttribute('data-wd3', 'error');
+    var el = document.getElementById('wd3-error');
+    if (!el) {
+      var body = document.body || root.appendChild(document.createElement('body'));
+      body.innerHTML = '<p style="font:15px system-ui,sans-serif;padding:24px;color:#e8e8e8;background:#050505;margin:0">' +
+        'Não foi possível iniciar o replay: <span id="wd3-error"></span></p>';
+      el = document.getElementById('wd3-error');
+    }
+    el.textContent = msg;
+  }
+  if (!('serviceWorker' in navigator)) return fail('este navegador não suporta Service Workers.');
+
+  function go() { location.replace(cfg.entryPath); }
+  function start() {
+    navigator.serviceWorker.register('/site/_wd3/sw.js', { scope: '/' })
+      .then(function () { return navigator.serviceWorker.ready; })
+      .then(function () {
+        if (navigator.serviceWorker.controller) return go();
+        navigator.serviceWorker.addEventListener('controllerchange', go);
+      })
+      .catch(function (err) { fail(String(err && err.message || err)); });
+  }
+  // Aberto em localhost puro: tenta <domínio>.localhost (mesmo servidor), para sites que checam location.hostname.
+  var plain = location.hostname === 'localhost' || location.hostname === '127.0.0.1';
+  if (!plain || !cfg.replayHost || cfg.replayHost === 'localhost') return start();
+  var target = location.protocol + '//' + cfg.replayHost + (location.port ? ':' + location.port : '');
+  var decided = false;
+  function decide(fn) { if (!decided) { decided = true; fn(); } }
+  setTimeout(function () { decide(start); }, 1500);
+  fetch(target + '/site/_wd3/site-index.json', { mode: 'no-cors', cache: 'no-store' })
+    .then(function () { decide(function () { location.replace(target + cfg.entryPath); }); })
+    .catch(function () { decide(start); });
+})();
+</script>
+<style data-wd3>
+  [data-wd3-banner] { display: none; }
+  html[data-wd3="file"] [data-wd3-banner] { display: flex; }
+  html[data-wd3-unlock], html[data-wd3-unlock] body { overflow-y: auto !important; }
+</style>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>True Refraction - liquidGL – Liquid Glass - NaughtyDuk©</title>
+    <link rel="icon" href="site/liquidgl.naughtyduk.com/assets/images/favicon.ico">
+    <meta name="description" content="A Liquid Glass lens using physically-based refraction, with adjustable bevel depth and width shaping the pane.">
+    <meta name="keywords" content="liquidGL, webGL, webGPU, liquid glass, true refraction, bevel, optics, real-time, refraction, NaughtyDuk©">
+    <meta name="author" content="NaughtyDuk©">
+    <meta name="robots" content="index, follow">
+    <meta name="googlebot" content="index, follow">
+    <meta property="og:image" content="/assets/images/_0009_true-refraction.jpg">
+    <meta property="og:title" content="True Refraction - liquidGL – Liquid Glass - NaughtyDuk©">
+    <meta property="og:description" content="A Liquid Glass lens using physically-based refraction, with adjustable bevel depth and width shaping the pane.">
+    <meta property="og:url" content="https://liquidgl.naughtyduk.com/demos/true-refraction.html">
+    <meta property="og:type" content="website">
+    <meta property="og:locale" content="en_GB">
+    <meta property="og:site_name" content="liquidGL">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="True Refraction - liquidGL – Liquid Glass - NaughtyDuk©">
+    <meta name="twitter:description" content="A Liquid Glass lens using physically-based refraction, with adjustable bevel depth and width shaping the pane.">
+    <meta name="twitter:image" content="/assets/images/_0009_true-refraction.jpg">
+    <meta name="twitter:url" content="https://liquidgl.naughtyduk.com/demos/true-refraction.html">
+    <link rel="stylesheet" href="site/_runtime/style-0.css" data-wd3-runtime-style=""><link rel="stylesheet" href="site/_runtime/style-1.css" data-wd3-runtime-style="">
+  <link rel="stylesheet" href="site/_runtime/style-2.css" data-wd3-runtime-style=""><link rel="stylesheet" href="site/_runtime/style-3.css" data-wd3-runtime-style=""><link rel="stylesheet" href="site/_runtime/style-4.css" data-wd3-runtime-style=""></head>
+  <body>
+    <video class="bg-video" src="site/liquidgl.naughtyduk.com/assets/videos/lgl-true-refraction-opt.mp4" autoplay="" loop="" muted="" playsinline="" aria-hidden="true"></video>
+    <div class="bg-scrim"></div>
+
+    <!-- Global Navigation -->
+    <nav class="global-nav">
+      <div class="nav-container">
+        <button class="nav-toggle" aria-expanded="false" aria-label="Toggle navigation menu">
+          <span>Demos</span>
+          <svg viewBox="0 0 16 16">
+            <path d="M8 11L3 6h10l-5 5z"></path>
+          </svg>
+        </button>
+        <div data-lenis-prevent="" class="nav-menu">
+          <a href="https://liquidgl.naughtyduk.com/index.html" class="nav-item">Index</a>
+          <a href="https://liquidgl.naughtyduk.com/demos/audio-player.html" class="nav-item">Audio Player</a>
+          <a href="https://liquidgl.naughtyduk.com/demos/menu-bar.html" class="nav-item">Menu Bar</a>
+          <a href="https://liquidgl.naughtyduk.com/demos/ai-search.html" class="nav-item">AI Search</a>
+          <a href="https://liquidgl.naughtyduk.com/demos/multiple-lenses.html" class="nav-item">Multiple Lenses</a>
+          <a href="https://liquidgl.naughtyduk.com/demos/chromatic-aberration.html" class="nav-item">Chromatic Aberration</a>
+          <a href="https://liquidgl.naughtyduk.com/demos/fluid-interaction.html" class="nav-item">Fluid Interaction</a>
+          <a href="https://liquidgl.naughtyduk.com/demos/frost-specular.html" class="nav-item">Frost &amp; Specular</a>
+          <a href="https://liquidgl.naughtyduk.com/demos/tinted-glass.html" class="nav-item">Tinted Glass</a>
+          <a href="https://liquidgl.naughtyduk.com/demos/stacked-lenses.html" class="nav-item">Stacked Lenses</a>
+          <a href="https://liquidgl.naughtyduk.com/demos/true-refraction.html" class="nav-item active">True Refraction</a>
+        </div>
+      </div>
+    </nav>
+
+    <div class="stage">
+      <canvas data-liquid-ignore="" width="2880" height="1800" style="position: absolute; top: 0px; left: 0px; width: 1440px; height: 900px; pointer-events: none; z-index: -1; opacity: 1; visibility: visible;"></canvas><canvas data-liquid-ignore="" width="2880" height="1800" style="position: absolute; top: 0px; left: 0px; width: 1440px; height: 900px; pointer-events: none; z-index: -99; opacity: 1; visibility: visible;"></canvas><div class="player-card glass" id="player" data-liquidgl-content="0" style="transition: none; background: transparent; backdrop-filter: none; pointer-events: none; translate: none; rotate: none; scale: none; transform: translate(0px, 0px); opacity: 1;">
+        <div class="sleeve">
+          <img src="site/liquidgl.naughtyduk.com/assets/images/tentendo-give-it-up-artwork.webp" alt="Give It Up artwork" id="player-artwork">
+          <span class="sleeve-caption">Side B · NGT-012</span>
+        </div>
+
+        <div class="deck">
+          <div class="deck-eyebrow">
+            <span class="eyebrow-live">
+              <span class="live-dot"></span>
+              Now Playing
+            </span>
+            <span class="eyebrow-right">
+              <span class="deck-rpm">33⅓ RPM</span>
+              <a id="btn-share" class="btn-share" href="https://open.spotify.com/artist/3eUpxakSdjFZ5ROQKgfL2W?si=YeHsuDXOQ72ruMRDR6ED5w" target="_blank" rel="noopener noreferrer" aria-label="Listen on Spotify">
+                <svg viewBox="0 0 496 496" fill="currentColor">
+                  <path fill-rule="evenodd" clip-rule="evenodd" d="M248 0C384.9 0 496 111.1 496 248C496 384.9 384.9 496 248 496C111.1 496 0 384.9 0 248C0 111.1 111.1 0 248 0ZM354.199 333C282.799 290.3 199.099 288.701 117.199 306.801C109.699 308.401 103.6 313.301 103.6 323.601C103.6 331.7 109.7 339.4 119.399 339.4C122.299 339.4 127.4 337.801 131.3 336.801C203 322.101 275.6 323.701 338 361.301C341.9 363.601 344.5 364.9 348.699 364.9C356.799 364.9 363.899 358.6 363.899 349.5C363.899 340.4 360.299 336.9 354.199 333ZM206.699 214.601C165.099 214.601 136.699 220.4 108.899 228.2C98.5995 231.1 93.3994 238.2 93.3994 248.9C93.3994 259.6 102.1 268.301 112.8 268.301C117.3 268.301 119.899 267 124.699 265.7C207.599 243.2 300.8 258.101 363.3 295.101C366.9 297.001 370.4 299.301 375.6 299.301C386.499 299.301 394.9 290.601 395 279.801C395 271.101 391.799 264.901 383.699 260.101C334.299 230.701 271.599 214.601 206.699 214.601ZM211.5 129.4C168.6 129.4 129.2 134.301 94 144.601C85.0001 147.201 76.5998 154.9 76.5996 168.5C76.5996 181.8 86.6995 192.1 99.8994 192.101C104.699 192.101 109.2 190.5 112.8 189.5C195.2 166.5 322.499 176.7 393.699 219.2C398.199 221.8 401.4 223.101 406.6 223.101C418.799 223.101 429.8 213.401 429.8 199.801C429.8 187.901 424.699 181.7 416.899 177.2C361 144.6 284.5 129.4 211.5 129.4Z"></path>
+                </svg>
+              </a>
+            </span>
+          </div>
+
+          <div class="deck-track" id="deck-track">
+            <span class="track-title" id="player-title">Give It Up</span>
+            <span class="track-artist" id="player-artist">Tentendo &amp; Annalisa Fernandez</span>
+            <span class="track-index" id="track-index">TRK 1 / 2</span>
+          </div>
+
+          <div class="control-bar">
+            <div class="player-controls">
+              <button class="player-btn" id="btn-replay" aria-label="Replay">
+                <svg viewBox="0 0 100 114" fill="currentColor">
+                  <path d="M23.8433 85.8104C36.1385 100.403 57.8079 102.449 72.1545 90.3614C86.5011 78.2736 88.1612 56.5713 75.866 41.9785C70.8069 35.9741 63.8728 31.8558 56.1844 30.2891L56.1382 40.5439C56.1102 45.3178 50.4865 47.8342 46.907 44.6439L26.7515 26.7385C24.4732 24.6995 24.2424 21.1906 26.2895 18.9039C26.4729 18.6983 26.654 18.5202 26.8626 18.3445L47.1758 1.30613C50.781 -1.73146 56.3066 0.866176 56.2959 5.60007L56.2578 14.4434C68.5222 16.2412 79.7207 22.4879 87.7087 31.9996C105.629 53.2686 103.199 84.7903 82.2977 102.4C61.3968 120.011 29.9204 117.058 11.9995 95.7887C1.08164 82.9213 -2.68336 65.4827 1.93221 49.2838C3.501 43.799 10.3198 41.8848 14.5949 45.6894C16.8755 47.7009 17.8154 50.842 17.0011 53.7757C13.7672 64.903 16.3395 76.9355 23.8426 85.8097L23.8433 85.8104Z"></path>
+                </svg>
+              </button>
+              <button class="player-btn" id="btn-prev" aria-label="Previous track">
+                <svg viewBox="0 0 24 24">
+                  <path d="M6 5h2v14H6zM20 5v14L9.5 12z"></path>
+                </svg>
+              </button>
+              <button class="player-btn player-btn-play" id="btn-play" aria-label="Play">
+                <svg viewBox="0 0 24 24" fill="currentColor" id="icon-play">
+                  <path d="M7.5 5.2c0-1.3 1.4-2 2.5-1.4l9.3 5.4a1.7 1.7 0 0 1 0 2.9l-9.3 5.4c-1.1.6-2.5-.1-2.5-1.4z"></path>
+                </svg>
+                <svg viewBox="0 0 24 24" fill="currentColor" id="icon-pause" style="display: none">
+                  <rect x="6" y="4.5" width="4" height="15" rx="1.6"></rect>
+                  <rect x="14" y="4.5" width="4" height="15" rx="1.6"></rect>
+                </svg>
+              </button>
+              <button class="player-btn" id="btn-next" aria-label="Next track">
+                <svg viewBox="0 0 24 24">
+                  <path d="M16 5h2v14h-2zM4 5v14l10.5-7z"></path>
+                </svg>
+              </button>
+            </div>
+
+            <div class="bar-progress">
+              <div class="progress-track" id="progress-track" role="slider" aria-label="Seek">
+                <div class="progress-fill" id="progress-fill" style="width: 0%;"></div>
+                <div class="progress-knob" id="progress-knob" data-liquid-ignore="" style="translate: none; rotate: none; scale: none; transform: translate(-50%, -50%); transition: none; opacity: 1; background: transparent; backdrop-filter: none; pointer-events: none; box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 30px, rgba(0, 0, 0, 0.05) 0px 0px 0px 0.5px; left: 0%;"></div>
+              </div>
+              <div class="progress-times">
+                <span id="time-elapsed">0:00</span>
+                <span id="time-remaining">-3:36</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    <div style="position: absolute; pointer-events: none; z-index: -100; box-shadow: rgba(0, 0, 0, 0.1) 0px 10px 30px, rgba(0, 0, 0, 0.05) 0px 0px 0px 0.5px; will-change: transform, width, height; opacity: 1; left: 788px; top: 513.5px; width: 12px; height: 12px; border-radius: 6px;"></div></div>
+
+    <div class="demo-disclaimer">
+      <p class="disclaimer-feature">True refraction - real world physics</p>
+      <p class="disclaimer-note">
+        Music by Tentendo &amp; NATE08 is property of the rights holders and is
+        not affiliated with liquidGL. If you like the artists, support their
+        music.
+      </p>
+    </div>
+
+    <!-- Libraries -->
+    
+
+    <!-- Scripts -->
+    
+    
+    
+  
+
+
+<div class="lil-gui root allow-touch-styles autoPlace liquidgl-helper closed" style="top: 1rem;"><div class="title" role="button" aria-expanded="false" tabindex="0" style="cursor: default;">liquidGL Helper</div><div class="children"><div class="lil-gui closed"><div class="title" role="button" aria-expanded="false" tabindex="0">Refraction</div><div class="children"><div class="controller number hasSlider"><div class="name" id="lil-gui-name-1">Refraction</div><div class="widget"><div class="slider"><div class="fill" style="width: 74%;"></div></div><input type="text" aria-labelledby="lil-gui-name-1"></div></div><div class="controller number hasSlider"><div class="name" id="lil-gui-name-2">Aberration</div><div class="widget"><div class="slider"><div class="fill" style="width: 0%;"></div></div><input type="text" aria-labelledby="lil-gui-name-2"></div></div><div class="controller number hasSlider"><div class="name" id="lil-gui-name-3">Bevel Depth</div><div class="widget"><div class="slider"><div class="fill" style="width: 39%;"></div></div><input type="text" aria-labelledby="lil-gui-name-3"></div></div><div class="controller number hasSlider"><div class="name" id="lil-gui-name-4">Bevel Width</div><div class="widget"><div class="slider"><div class="fill" style="width: 64%;"></div></div><input type="text" aria-labelledby="lil-gui-name-4"></div></div><div class="controller number hasSlider"><div class="name" id="lil-gui-name-5">Magnify</div><div class="widget"><div class="slider"><div class="fill" style="width: 38.3128%;"></div></div><input type="text" aria-labelledby="lil-gui-name-5"></div></div></div></div><div class="lil-gui closed"><div class="title" role="button" aria-expanded="false" tabindex="0">Surface</div><div class="children"><div class="controller number hasSlider"><div class="name" id="lil-gui-name-6">Frost</div><div class="widget"><div class="slider"><div class="fill" style="width: 0%;"></div></div><input type="text" aria-labelledby="lil-gui-name-6"></div></div><label class="controller boolean"><div class="name" id="lil-gui-name-7">Specular</div><div class="widget"><input type="checkbox" aria-labelledby="lil-gui-name-7"></div></label><label class="controller boolean"><div class="name" id="lil-gui-name-8">Shadow</div><div class="widget"><input type="checkbox" aria-labelledby="lil-gui-name-8"></div></label><div class="controller color"><div class="name" id="lil-gui-name-9">Tint Colour</div><div class="widget"><div class="display" style="background-color: rgb(255, 120, 20);"><input type="color" tabindex="-1" aria-labelledby="lil-gui-name-9"></div><input type="text" spellcheck="false" aria-labelledby="lil-gui-name-9"></div></div><div class="controller number hasSlider"><div class="name" id="lil-gui-name-10">Tint Amount</div><div class="widget"><div class="slider"><div class="fill" style="width: 10%;"></div></div><input type="text" aria-labelledby="lil-gui-name-10"></div></div></div></div><div class="lil-gui closed"><div class="title" role="button" aria-expanded="false" tabindex="0">Interaction</div><div class="children"><div class="controller option"><div class="name" id="lil-gui-name-11">Mode</div><div class="widget"><select aria-labelledby="lil-gui-name-11"><option>none</option><option>fluid</option></select><div class="display">none</div></div></div><div class="controller number hasSlider"><div class="name" id="lil-gui-name-12">Fluid Strength</div><div class="widget"><div class="slider"><div class="fill" style="width: 10%;"></div></div><input type="text" aria-labelledby="lil-gui-name-12"></div></div><div class="controller number hasSlider"><div class="name" id="lil-gui-name-13">Fluid Radius</div><div class="widget"><div class="slider"><div class="fill" style="width: 7%;"></div></div><input type="text" aria-labelledby="lil-gui-name-13"></div></div><div class="controller number hasSlider"><div class="name" id="lil-gui-name-14">Fluid Viscosity</div><div class="widget"><div class="slider"><div class="fill" style="width: 65%;"></div></div><input type="text" aria-labelledby="lil-gui-name-14"></div></div><label class="controller boolean"><div class="name" id="lil-gui-name-15">Draggable</div><div class="widget"><input type="checkbox" aria-labelledby="lil-gui-name-15"></div></label><label class="controller boolean"><div class="name" id="lil-gui-name-16">Tilt</div><div class="widget"><input type="checkbox" aria-labelledby="lil-gui-name-16"></div></label><div class="controller number hasSlider"><div class="name" id="lil-gui-name-17">Tilt Factor</div><div class="widget"><div class="slider"><div class="fill" style="width: 24%;"></div></div><input type="text" aria-labelledby="lil-gui-name-17"></div></div><div class="controller number hasSlider"><div class="name" id="lil-gui-name-18">Tilt Ease</div><div class="widget"><div class="slider"><div class="fill" style="width: 40%;"></div></div><input type="text" aria-labelledby="lil-gui-name-18"></div></div></div></div><div class="lil-gui closed"><div class="title" role="button" aria-expanded="false" tabindex="0">Initialisation</div><div class="children"><div class="controller option"><div class="name" id="lil-gui-name-19">Reveal</div><div class="widget"><select aria-labelledby="lil-gui-name-19"><option>none</option><option>fade</option></select><div class="display">none</div></div></div><div class="controller number hasSlider"><div class="name" id="lil-gui-name-20">Resolution</div><div class="widget"><div class="slider"><div class="fill" style="width: 60%;"></div></div><input type="text" aria-labelledby="lil-gui-name-20"></div></div></div></div><div class="controller function"><div class="widget"><button><div class="name" id="lil-gui-name-21">Copy settings</div></button></div></div></div></div><div data-wd3-banner style="position:fixed;z-index:2147483647;left:16px;bottom:16px;max-width:min(560px,calc(100vw - 32px));align-items:center;gap:12px;padding:12px 14px;border-radius:12px;background:rgba(5,5,5,.92);color:#e8e8e8;border:1px solid #1d1d1d;box-shadow:0 8px 30px rgba(0,0,0,.35);font:13px/1.45 ui-sans-serif,system-ui,-apple-system,'Segoe UI',sans-serif;backdrop-filter:blur(8px)">
+  <span style="width:8px;height:8px;border-radius:50%;background:#00ffa3;flex:none"></span>
+  <span>Versão estática, sem animações. Para ver o site vivo, rode no terminal, nesta pasta: <b style="color:#00ffa3">python3 serve.py --open</b> (Windows: <b style="color:#00ffa3">py serve.py --open</b>). Passo a passo em <b style="color:#00ffa3">Como rodar.md</b>.</span>
+  <button type="button" onclick="this.parentNode.remove()" aria-label="Fechar" style="flex:none;background:none;border:0;color:#8a8a8a;font-size:18px;cursor:pointer;padding:0 2px">×</button>
+</div>
+</body></html>

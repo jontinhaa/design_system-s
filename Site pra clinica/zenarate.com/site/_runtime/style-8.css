@@ -1,0 +1,45 @@
+
+  @media screen and (max-width: 991px) {
+    .tags-list .tag-item:last-child {
+      padding-right: var(--_responsive---margin);
+    }
+  }
+  .c_tags-wrapper {
+    scrollbar-width: none;       /* Firefox */
+    -ms-overflow-style: none;    /* legacy Edge/IE */
+  }
+  .c_tags-wrapper::-webkit-scrollbar {
+    display: none;               /* Chrome, Safari, WebKit-based browsers */
+  }
+ .filter-tag {
+  cursor: pointer;
+  color: currentColor;
+  will-change: background-color, padding-left, padding-right, color;
+  transition: background-color 0.3s ease, padding-left 0.3s ease, padding-right 0.3s ease, color 0.3s ease;
+  user-select: none;
+  -webkit-user-select: none;
+  -webkit-touch-callout: none;
+}
+  .filter-tag.is--active {
+    background-color: var(--primary--beige);
+    padding-left: 20px;
+    padding-right: 12px;
+    color: var(--primary--beige-dark);
+  }
+  .filter-tag .system_icon {
+    display: flex;
+    opacity: 0;
+    width: 0;
+    margin-left: 0;
+    overflow: hidden;
+    transform: scale(0);
+    transform-origin: center;
+    transition: opacity 0.3s ease, transform 0.3s ease, width 0.3s ease, margin-left 0.3s ease;
+    pointer-events: none;
+  }
+  .filter-tag.is--active .system_icon {
+    opacity: 1;
+    transform: scale(1);
+    width: 20px;
+    margin-left: 8px;
+  }

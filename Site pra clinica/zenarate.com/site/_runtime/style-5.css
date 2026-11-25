@@ -1,0 +1,49 @@
+
+.txt-icon-feature {
+  position: relative;
+  width: 100%;
+  align-self: stretch;
+  transform: translateY(16px);
+}
+.feature-wrapper {
+  position: relative !important;
+  overflow: hidden !important;
+  width: 100% !important;
+  align-self: stretch !important;
+  min-height: 50px;
+ -webkit-mask-image: linear-gradient(to bottom, transparent 0%, black 8%, black 92%, transparent 100%);
+mask-image: linear-gradient(to bottom, transparent 0%, black 8%, black 92%, transparent 100%);
+}
+.feature-list {
+  position: relative !important;
+  width: 100% !important;
+  height: 100%;
+}
+.feature-txt-icon {
+  position: absolute !important;
+  bottom: 16px;
+  left: 50%;
+  width: max-content !important;
+  max-width: 90vw !important;
+  box-sizing: border-box;
+  opacity: 0;
+  transform: translate(-50%, 100%);
+  transition: transform 1.4s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.3s ease;
+  pointer-events: none;
+}
+.feature-txt-icon.is-active {
+  opacity: 1;
+  transform: translate(-50%, 0%);
+  pointer-events: auto;
+}
+.feature-txt-icon.is-exit {
+  opacity: 0;
+  transform: translate(-50%, -100%);
+}
+.feature-txt-icon.no-transition {
+  transition: none !important;
+}
+.feature-txt-icon .p-label {
+  white-space: normal;
+  word-break: break-word;
+}

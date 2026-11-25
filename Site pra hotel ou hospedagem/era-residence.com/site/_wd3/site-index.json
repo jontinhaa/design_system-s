@@ -1,0 +1,2331 @@
+{
+ "version": 1,
+ "tool": "wd3 0.1.0",
+ "captureId": "era-residence.com-14276b94",
+ "capturedAt": "2026-10-27T20:34:45+00:00",
+ "entry": {
+  "url": "https://www.era-residence.com/",
+  "path": "/",
+  "search": "",
+  "file": "site/www.era-residence.com/index.html",
+  "contentType": "text/html; charset=utf-8"
+ },
+ "blocked": [
+  "^https?://([^/?#]+\\.)?(google\\-analytics\\.com|analytics\\.google\\.com|googletagmanager\\.com|googleadservices\\.com|doubleclick\\.net|googlesyndication\\.com|googleoptimize\\.com|connect\\.facebook\\.net|bat\\.bing\\.com|snap\\.licdn\\.com|px\\.ads\\.linkedin\\.com|analytics\\.tiktok\\.com|ct\\.pinterest\\.com|static\\.ads\\-twitter\\.com|analytics\\.twitter\\.com|tr\\.snapchat\\.com|sc\\-static\\.net|mc\\.yandex\\.ru|hotjar\\.com|hotjar\\.io|clarity\\.ms|cdn\\.segment\\.com|api\\.segment\\.io|cdn\\.mxpnl\\.com|api\\-js\\.mixpanel\\.com|api\\.mixpanel\\.com|api\\.amplitude\\.com|api2\\.amplitude\\.com|api\\-secure\\.amplitude\\.com|api\\-sr\\.amplitude\\.com|sr\\-client\\-cfg\\.amplitude\\.com|plausible\\.io|cloud\\.umami\\.is|analytics\\.umami\\.is|static\\.cloudflareinsights\\.com|cloudflareinsights\\.com|vitals\\.vercel\\-insights\\.com|browser\\-intake\\-datadoghq\\.com|browser\\-intake\\-datadoghq\\.eu|js\\-agent\\.newrelic\\.com|bam\\.nr\\-data\\.net|bam\\-cell\\.nr\\-data\\.net|fullstory\\.com|script\\.crazyegg\\.com|mouseflow\\.com|smartlook\\.com|heapanalytics\\.com|i\\.posthog\\.com|stats\\.wp\\.com|pixel\\.wp\\.com|promotekit\\.com|ingest\\.sentry\\.io|ingest\\.us\\.sentry\\.io|ingest\\.de\\.sentry\\.io|widget\\.intercom\\.io|js\\.intercomcdn\\.com|api\\-iam\\.intercom\\.io|js\\.hs\\-scripts\\.com|js\\.hs\\-analytics\\.net|js\\.hs\\-banner\\.com|js\\.hscollectedforms\\.net|js\\.usemessages\\.com|track\\.hubspot\\.com|client\\.crisp\\.chat|embed\\.tawk\\.to|js\\.driftt\\.com|static\\.zdassets\\.com|ekr\\.zdassets\\.com|cdn\\.cookielaw\\.org|geolocation\\.onetrust\\.com|consent\\.cookiebot\\.com|consentcdn\\.cookiebot\\.com|app\\.usercentrics\\.eu|api\\.usercentrics\\.eu|cdn\\.iubenda\\.com|cmp\\.osano\\.com|cdn\\.termly\\.io)(:\\d+)?([/?#]|$)",
+  "/rpc/increment_shared_code_views",
+  "^https?://(umami|analytics|stats|plausible)\\.[^/]+/(api/send|api/collect|api/event|script\\.js)",
+  "/g/c(ollect)?\\?v=2&",
+  "sentry\\.io/api/\\d+/(envelope|store)",
+  "/api/meta-capi",
+  "^https?://(leadtracker|tracking|track|events?|collect)\\.[^/]+/",
+  "^https?://a\\.vturb\\.com/",
+  "facebook\\.com/tr[/?]",
+  "/_vercel/(speed-)?insights/",
+  "/cdn-cgi/rum",
+  "/cdn-cgi/challenge-platform/",
+  "google\\.com/(pagead|ads)/"
+ ],
+ "volatileParams": [
+  "v",
+  "_rsc",
+  "dpl",
+  "_",
+  "t",
+  "ts",
+  "timestamp",
+  "cb",
+  "cachebust",
+  "cacheBust",
+  "nocache",
+  "rnd",
+  "rand",
+  "random",
+  "_t"
+ ],
+ "entries": [
+  {
+   "url": "https://www.era-residence.com/",
+   "method": "GET",
+   "status": 200,
+   "contentType": "text/html; charset=utf-8",
+   "headers": {
+    "content-type": "text/html; charset=utf-8",
+    "link": "<https://cdn.prod.website-files.com>; rel=preconnect; crossorigin, <https://cdn.prod.website-files.com/6a068da7ad91b057365bf967/css/era-residence.webflow.shared.c9555a234.min.css>; rel=preload; as=style; crossorigin; integrity=\"sha384-yVVaI0ZlUPsynW7h2Oc9qYfw55fDpVOCGyiHkLtNg8Jd7qzXg1nwZmzx/1vIDS6s\"",
+    "surrogate-control": "max-age=432000",
+    "surrogate-key": "www.era-residence.com 6a068da7ad91b057365bf967 pageId:6a068da7ad91b057365bf968 6a0853d55ec7fa151b315313 6a0dcdd79d5ba1906517c6f2 6a08a982d68593a4c2da5b38 6a08f4d13307dd80577a66bc 6a09a98f68397729609279c6 6a0c3c6299736aa9e29441be 6a0b0ecbe80cd7e8004ded05 6a0b10aee1da2abf338f4dfe 6a0b129cfeb8f4de303fc9dd 6a0b83ea381ca59360ad2fa5 6a08c5375f296ff70ebfbb68",
+    "x-lambda-id": "68fa0fc9-4271-4220-95cd-8f65404ed502",
+    "x-wf-region": "us-east-1"
+   },
+   "resourceType": "document",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "file": "site/www.era-residence.com/index.html",
+   "size": 223581,
+   "modes": [
+    "cors",
+    "navigate"
+   ]
+  },
+  {
+   "url": "https://cdn.prod.website-files.com/6a068da7ad91b057365bf967/css/era-residence.webflow.shared.c9555a234.min.css",
+   "method": "GET",
+   "status": 200,
+   "contentType": "text/css",
+   "headers": {
+    "access-control-allow-methods": "GET, HEAD",
+    "access-control-allow-origin": "*",
+    "access-control-max-age": "3000",
+    "content-type": "text/css",
+    "priority": "u=0,i=?0",
+    "x-amz-id-2": "IZy921K55w2LjECCHvLJNVTil/+7p3vEdE1CRQoRNTl1NS388cw/zDMjo8DYd6HAEbe6Z0WCj1o=",
+    "x-amz-request-id": "VP06G50DQ0J3PACK",
+    "x-amz-server-side-encryption": "AES256",
+    "x-amz-version-id": "W9icB6jKAs_c9bFWZ2jQBI_SIdXblR95"
+   },
+   "resourceType": "stylesheet",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "file": "site/cdn.prod.website-files.com/6a068da7ad91b057365bf967/css/era-residence.webflow.shared.c9555a234.min.css",
+   "size": 127610,
+   "modes": [
+    "cors"
+   ]
+  },
+  {
+   "url": "https://cdn.prod.website-files.com/6a068da7ad91b057365bf967/6a068da7ad91b057365bf974_landscape.svg",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/svg+xml",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "content-type": "image/svg+xml",
+    "priority": "u=2,i",
+    "x-amz-id-2": "TTannvRJyNPmNvc6d2t+thqT7kOnrHuK5aAx1pOcrCLB3ro5vAUEsfctTDNcpaKNTRYlpyVxbUrLiWQOm3bZWTcWhj9Y8u6O",
+    "x-amz-request-id": "BPT2D997NM6X85KY",
+    "x-amz-server-side-encryption": "AES256",
+    "x-amz-version-id": "dEW_Yh54blSK03BdWrGs0ORbQj.wDQJs"
+   },
+   "resourceType": "image",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "file": "site/cdn.prod.website-files.com/6a068da7ad91b057365bf967/6a068da7ad91b057365bf974_landscape.svg",
+   "size": 23272,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://cdn.prod.website-files.com/6a068da7ad91b057365bf967/6a2311bd477167bbc41c9c03_e22485744735d6f17214f25b6157e9b5_preloader_bg.svg",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/svg+xml",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "content-type": "image/svg+xml",
+    "priority": "u=2,i",
+    "x-amz-id-2": "gw3K/Eo50srK408sln94X4bPqWSIJgd57ke28LjD9DFw3zPDDvxGNsA6pyUGxiyKtZVtKWrHYOAk2adBOQS0RJwNIICiAulW",
+    "x-amz-request-id": "1VK2FD13TNKKY5KA",
+    "x-amz-server-side-encryption": "AES256",
+    "x-amz-version-id": "LnNZRA6OTm6eff3X1dnmw9TAkpFeco.E"
+   },
+   "resourceType": "image",
+   "passes": [
+    "mobile",
+    "desktop"
+   ],
+   "file": "site/cdn.prod.website-files.com/6a068da7ad91b057365bf967/6a2311bd477167bbc41c9c03_e22485744735d6f17214f25b6157e9b5_preloader_bg.svg",
+   "size": 23763,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://cdn.prod.website-files.com/6a068da7ad91b057365bf967/6a25da81dce540a251389928_era-residence_gated-community_day-p-1600.webp",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/webp",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "content-type": "image/webp",
+    "priority": "u=2,i",
+    "x-amz-id-2": "QlUcZW4nTNhzmhUS8hwqc48CQND91VSxNw3zIKWRrpGye5otu8m/tl+pWOwXz4hUtlakZbZ9l7w=",
+    "x-amz-request-id": "TS93QM30NC42T1TY",
+    "x-amz-server-side-encryption": "AES256",
+    "x-amz-version-id": "oTLYKmJ3jBadqWJIbKrvTZXNCrqD0M_S"
+   },
+   "resourceType": "image",
+   "passes": [
+    "mobile"
+   ],
+   "file": "site/cdn.prod.website-files.com/6a068da7ad91b057365bf967/6a25da81dce540a251389928_era-residence_gated-community_day-p-1600.webp",
+   "size": 379342,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://cdn.prod.website-files.com/6a068da7ad91b057365bf967/6a25da802c253b9e5e3d44f5_era-residence_gated-community_night-p-1600.webp",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/webp",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "content-type": "image/webp",
+    "priority": "u=2,i",
+    "x-amz-id-2": "3Dq6xNChNgjkU1Px3ITOwToTrS/HANFNeRrtl4d2NdRkDJX6B4cxYihS75p5/QJcssWout9kN/8=",
+    "x-amz-request-id": "TS9018106EDQ7BN4",
+    "x-amz-server-side-encryption": "AES256",
+    "x-amz-version-id": "V1_Du06dPMUfDVkMEPWMQuybxBSIyiUo"
+   },
+   "resourceType": "image",
+   "passes": [
+    "mobile"
+   ],
+   "file": "site/cdn.prod.website-files.com/6a068da7ad91b057365bf967/6a25da802c253b9e5e3d44f5_era-residence_gated-community_night-p-1600.webp",
+   "size": 264474,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://use.typekit.net/pig8glj.js",
+   "method": "GET",
+   "status": 200,
+   "contentType": "text/javascript;charset=utf-8",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "akamai-grn": "0.19dbda17.1793133286.e227292",
+    "content-type": "text/javascript;charset=utf-8",
+    "timing-allow-origin": "*"
+   },
+   "resourceType": "script",
+   "passes": [
+    "mobile",
+    "desktop"
+   ],
+   "file": "site/use.typekit.net/pig8glj.js",
+   "size": 16976,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://d3e54v103j8qbb.cloudfront.net/js/jquery-3.5.1.min.dc5e7f18c8.js?site=6a068da7ad91b057365bf967",
+   "method": "GET",
+   "status": 200,
+   "contentType": "application/javascript",
+   "headers": {
+    "access-control-allow-methods": "GET",
+    "access-control-allow-origin": "*",
+    "access-control-max-age": "3000",
+    "content-type": "application/javascript"
+   },
+   "resourceType": "script",
+   "passes": [
+    "mobile",
+    "desktop"
+   ],
+   "file": "site/d3e54v103j8qbb.cloudfront.net/js/jquery-3.5.1.min.dc5e7f18c8__q1ab43ff5.js",
+   "size": 89476,
+   "modes": [
+    "cors"
+   ]
+  },
+  {
+   "url": "https://cdn.prod.website-files.com/6a068da7ad91b057365bf967/6a25da81dce540a251389928_era-residence_gated-community_day.webp",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/webp",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "content-type": "image/webp",
+    "priority": "u=2,i",
+    "x-amz-id-2": "546yF2Wf1ECPagmba6TINRZBLWVvRMEprG/s8nuqlqkouraYC0qWN/CRZJd8ZeEUa47zqE40vxs3aLP8j0VwTKXGjRrqH2ps",
+    "x-amz-request-id": "XVA87X1785YAZG84",
+    "x-amz-server-side-encryption": "AES256",
+    "x-amz-version-id": "NkwgINLlBp6gTlmKW6dvRO9NO3ctNk1p"
+   },
+   "resourceType": "image",
+   "passes": [
+    "desktop"
+   ],
+   "file": "site/cdn.prod.website-files.com/6a068da7ad91b057365bf967/6a25da81dce540a251389928_era-residence_gated-community_day.webp",
+   "size": 659382,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://cdn.prod.website-files.com/6a0853d5dab31b18f0677081/6a150affaf1d8cc969d57dd0_img_cam_02-p-1600.webp",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/webp",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "content-type": "image/webp",
+    "priority": "u=2,i",
+    "x-amz-id-2": "aK0kBwAeJ2Vqg99e50yJoumrR1zcBgCbg3KcvKTZI+/CsltlRAlFI7We1C18ygwNy+kMEWuyPqA=",
+    "x-amz-request-id": "6EYTX34Q7Y6BFKFP",
+    "x-amz-server-side-encryption": "AES256",
+    "x-amz-version-id": "2AI04zsClkYe5uNa3N2QjJKx6qkjU_UR"
+   },
+   "resourceType": "image",
+   "passes": [
+    "mobile"
+   ],
+   "file": "site/cdn.prod.website-files.com/6a0853d5dab31b18f0677081/6a150affaf1d8cc969d57dd0_img_cam_02-p-1600.webp",
+   "size": 418512,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://cdn.prod.website-files.com/6a068da7ad91b057365bf967/js/webflow.a0aa6ca1.b7683852b8a60d8e.js",
+   "method": "GET",
+   "status": 200,
+   "contentType": "text/javascript",
+   "headers": {
+    "access-control-allow-methods": "GET, HEAD",
+    "access-control-allow-origin": "*",
+    "access-control-max-age": "3000",
+    "content-type": "text/javascript",
+    "priority": "u=2,i=?0",
+    "x-amz-id-2": "u5E8dEKsVC02j8EpfYGtNPCe2murZujRDDxVYfSYBEW3yMAenbdyHItMjrDfASfukP6rfcvn9SQ=",
+    "x-amz-request-id": "0C3YK7YRVY5D0BG8",
+    "x-amz-server-side-encryption": "AES256",
+    "x-amz-version-id": "e2jayv6BmO2JCUrNr3TY.oPOREDqMAbR"
+   },
+   "resourceType": "script",
+   "passes": [
+    "mobile",
+    "desktop"
+   ],
+   "file": "site/cdn.prod.website-files.com/6a068da7ad91b057365bf967/js/webflow.a0aa6ca1.b7683852b8a60d8e.js",
+   "size": 45758,
+   "modes": [
+    "cors"
+   ]
+  },
+  {
+   "url": "https://cdn.jsdelivr.net/npm/gsap@3.15/dist/ScrollTrigger.min.js",
+   "method": "GET",
+   "status": 200,
+   "contentType": "application/javascript; charset=utf-8",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "access-control-expose-headers": "*",
+    "content-type": "application/javascript; charset=utf-8",
+    "timing-allow-origin": "*",
+    "x-jsd-version": "3.15.0",
+    "x-jsd-version-type": "version"
+   },
+   "resourceType": "script",
+   "passes": [
+    "mobile",
+    "desktop"
+   ],
+   "file": "site/cdn.jsdelivr.net/npm/gsap@3.15/dist/ScrollTrigger.min.js",
+   "size": 44575,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://cdn.jsdelivr.net/npm/gsap@3.15/dist/CustomEase.min.js",
+   "method": "GET",
+   "status": 200,
+   "contentType": "application/javascript; charset=utf-8",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "access-control-expose-headers": "*",
+    "content-type": "application/javascript; charset=utf-8",
+    "timing-allow-origin": "*",
+    "x-jsd-version": "3.15.0",
+    "x-jsd-version-type": "version"
+   },
+   "resourceType": "script",
+   "passes": [
+    "mobile",
+    "desktop"
+   ],
+   "file": "site/cdn.jsdelivr.net/npm/gsap@3.15/dist/CustomEase.min.js",
+   "size": 7143,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://cdn.jsdelivr.net/npm/gsap@3.15/dist/SplitText.min.js",
+   "method": "GET",
+   "status": 200,
+   "contentType": "application/javascript; charset=utf-8",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "access-control-expose-headers": "*",
+    "content-type": "application/javascript; charset=utf-8",
+    "timing-allow-origin": "*",
+    "x-jsd-version": "3.15.0",
+    "x-jsd-version-type": "version"
+   },
+   "resourceType": "script",
+   "passes": [
+    "mobile",
+    "desktop"
+   ],
+   "file": "site/cdn.jsdelivr.net/npm/gsap@3.15/dist/SplitText.min.js",
+   "size": 7732,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://cdn.prod.website-files.com/6a068da7ad91b057365bf967/6a06a6b22391d5d6ce159452_MaisonNeueExt-Bold.woff2",
+   "method": "GET",
+   "status": 200,
+   "contentType": "font/woff2",
+   "headers": {
+    "access-control-allow-methods": "GET, HEAD",
+    "access-control-allow-origin": "*",
+    "access-control-max-age": "3000",
+    "content-type": "font/woff2",
+    "priority": "u=0,i=?0",
+    "x-amz-id-2": "4EFsr1uHFmIeu+azsHQzYirrk0pkZtIFOfg0tPGzwckHN4gPKsrLNRvKSwnrAM+z43wuGqubnxOvmwd6t3r1fzladwVX02Kz",
+    "x-amz-request-id": "K3S9FBQJ5EYE1481",
+    "x-amz-server-side-encryption": "AES256",
+    "x-amz-version-id": "ih4yqL4aNUCQYKLYbRL1gic2Ye6_56gX"
+   },
+   "resourceType": "font",
+   "passes": [
+    "mobile",
+    "desktop"
+   ],
+   "file": "site/cdn.prod.website-files.com/6a068da7ad91b057365bf967/6a06a6b22391d5d6ce159452_MaisonNeueExt-Bold.woff2",
+   "size": 47092,
+   "modes": [
+    "cors"
+   ]
+  },
+  {
+   "url": "https://unpkg.com/@barba/core",
+   "method": "GET",
+   "status": 302,
+   "contentType": "text/plain;charset=UTF-8",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "content-type": "text/plain;charset=UTF-8",
+    "location": "/@barba/core@2.10.3/dist/barba.umd.js",
+    "priority": "u=2,i=?0"
+   },
+   "resourceType": "script",
+   "passes": [
+    "mobile",
+    "desktop"
+   ],
+   "size": 0,
+   "redirect": "https://unpkg.com/@barba/core@2.10.3/dist/barba.umd.js",
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://unpkg.com/lenis@1.3.21/dist/lenis.css",
+   "method": "GET",
+   "status": 200,
+   "contentType": "text/css; charset=utf-8",
+   "headers": {
+    "access-control-allow-headers": "*",
+    "access-control-allow-methods": "GET, HEAD, OPTIONS",
+    "access-control-allow-origin": "*",
+    "access-control-expose-headers": "*",
+    "content-digest": "sha256=:L2aK6EpmgyfyRvr4p3A4Oiv2kZbSFCkPvE1VSJEGBsU=:",
+    "content-type": "text/css; charset=utf-8",
+    "fly-request-id": "01KZ6B865FADCJFPKCAH197VAK-iad",
+    "priority": "u=2,i=?0",
+    "x-robots-tag": "noindex"
+   },
+   "resourceType": "stylesheet",
+   "passes": [
+    "mobile",
+    "desktop"
+   ],
+   "file": "site/unpkg.com/lenis@1.3.21/dist/lenis.css",
+   "size": 513,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://cdn.prod.website-files.com/6a068da7ad91b057365bf967/6a06a699270853940fed199c_MaisonNeueExt-Book.woff2",
+   "method": "GET",
+   "status": 200,
+   "contentType": "font/woff2",
+   "headers": {
+    "access-control-allow-methods": "GET, HEAD",
+    "access-control-allow-origin": "*",
+    "access-control-max-age": "3000",
+    "content-type": "font/woff2",
+    "priority": "u=0,i=?0",
+    "x-amz-id-2": "Z90z/gP0rjMFFTpmhJVxhurlL96KWgI0MsZFu+J9ocuDW4Ow5JGINVnXA3uYv3gWtJCOlhIzyJc=",
+    "x-amz-request-id": "K3S78243GQ1FEABN",
+    "x-amz-server-side-encryption": "AES256",
+    "x-amz-version-id": "o9n4dDlNStNQ7xyYlSXXmbrwTemcXTmT"
+   },
+   "resourceType": "font",
+   "passes": [
+    "mobile",
+    "desktop"
+   ],
+   "file": "site/cdn.prod.website-files.com/6a068da7ad91b057365bf967/6a06a699270853940fed199c_MaisonNeueExt-Book.woff2",
+   "size": 45824,
+   "modes": [
+    "cors"
+   ]
+  },
+  {
+   "url": "https://unpkg.com/lenis@1.3.21/dist/lenis.min.js",
+   "method": "GET",
+   "status": 200,
+   "contentType": "text/javascript; charset=utf-8",
+   "headers": {
+    "access-control-allow-headers": "*",
+    "access-control-allow-methods": "GET, HEAD, OPTIONS",
+    "access-control-allow-origin": "*",
+    "access-control-expose-headers": "*",
+    "content-digest": "sha256=:lh0isaoZx0jAQxQ1Q1TuKFv3NL8GRf09L/M3P4Tweb0=:",
+    "content-type": "text/javascript; charset=utf-8",
+    "fly-request-id": "01M3YD7VRFW7ZB0TY5KC2MVX5B-iad",
+    "priority": "u=2,i=?0",
+    "x-robots-tag": "noindex"
+   },
+   "resourceType": "script",
+   "passes": [
+    "mobile",
+    "desktop"
+   ],
+   "file": "site/unpkg.com/lenis@1.3.21/dist/lenis.min.js",
+   "size": 17709,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://use.typekit.net/af/ceca40/00000000000000007758dac7/31/l?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=n4&v=3",
+   "method": "GET",
+   "status": 200,
+   "contentType": "application/font-woff2",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "akamai-grn": "0.07dbda17.1793133286.14beaf0",
+    "content-type": "application/font-woff2",
+    "timing-allow-origin": "*"
+   },
+   "resourceType": "font",
+   "passes": [
+    "mobile",
+    "desktop"
+   ],
+   "file": "site/use.typekit.net/af/ceca40/00000000000000007758dac7/31/l__qe35c7ac2.woff2",
+   "size": 32652,
+   "modes": [
+    "cors"
+   ]
+  },
+  {
+   "url": "https://cdn.prod.website-files.com/6a068da7ad91b057365bf967/6a23fd3e3546e70bdf8420a0_preloader_arch-l.svg",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/svg+xml",
+   "headers": {
+    "access-control-allow-methods": "GET, HEAD",
+    "access-control-allow-origin": "*",
+    "access-control-max-age": "3000",
+    "content-type": "image/svg+xml",
+    "priority": "u=1,i",
+    "x-amz-id-2": "RpvteBhlRnptGle/NpNLlNUQ19xuRx7MCnOTedp8MipXLeB0++lSpKev+jFS+EAol2FPMbcAi+RVWnxkPpJL9GK7gO3HyOtf",
+    "x-amz-request-id": "JGYZ7GBXR687C8QX",
+    "x-amz-server-side-encryption": "AES256",
+    "x-amz-version-id": "WOzXlhQDPSnUGcWxPsZAlcRasVsNTjQP"
+   },
+   "resourceType": "image",
+   "passes": [
+    "mobile",
+    "desktop"
+   ],
+   "file": "site/cdn.prod.website-files.com/6a068da7ad91b057365bf967/6a23fd3e3546e70bdf8420a0_preloader_arch-l.svg",
+   "size": 230,
+   "modes": [
+    "cors"
+   ]
+  },
+  {
+   "url": "https://use.typekit.net/af/02a0c4/0000000000000000773598f9/31/l?primer=7cdcb44be4a7db8877ffa5c0007b8dd865b3bbc383831fe2ea177f62257a9191&fvd=n4&v=3",
+   "method": "GET",
+   "status": 200,
+   "contentType": "application/font-woff2",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "akamai-grn": "0.07dbda17.1793133286.14beaeb",
+    "content-type": "application/font-woff2",
+    "timing-allow-origin": "*"
+   },
+   "resourceType": "font",
+   "passes": [
+    "mobile",
+    "desktop"
+   ],
+   "file": "site/use.typekit.net/af/02a0c4/0000000000000000773598f9/31/l__qe35c7ac2.woff2",
+   "size": 20004,
+   "modes": [
+    "cors"
+   ]
+  },
+  {
+   "url": "https://cdn.jsdelivr.net/npm/gsap@3.15/dist/gsap.min.js",
+   "method": "GET",
+   "status": 200,
+   "contentType": "application/javascript; charset=utf-8",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "access-control-expose-headers": "*",
+    "content-type": "application/javascript; charset=utf-8",
+    "timing-allow-origin": "*",
+    "x-jsd-version": "3.15.0",
+    "x-jsd-version-type": "version"
+   },
+   "resourceType": "script",
+   "passes": [
+    "mobile",
+    "desktop"
+   ],
+   "file": "site/cdn.jsdelivr.net/npm/gsap@3.15/dist/gsap.min.js",
+   "size": 72927,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://cdn.jsdelivr.net/npm/lottie-web@5.12.2/build/player/lottie.min.js",
+   "method": "GET",
+   "status": 200,
+   "contentType": "application/javascript; charset=utf-8",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "access-control-expose-headers": "*",
+    "content-type": "application/javascript; charset=utf-8",
+    "timing-allow-origin": "*",
+    "x-jsd-version": "5.12.2",
+    "x-jsd-version-type": "version"
+   },
+   "resourceType": "script",
+   "passes": [
+    "mobile",
+    "desktop"
+   ],
+   "file": "site/cdn.jsdelivr.net/npm/lottie-web@5.12.2/build/player/lottie.min.js",
+   "size": 305543,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://cdn.prod.website-files.com/6a068da7ad91b057365bf967/6a0fa3c6685d7bb04792137a_img_clouds_47.avif",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/avif",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "content-type": "image/avif",
+    "priority": "u=3,i",
+    "x-amz-id-2": "/nbhOPhqjLkAD4QdrqSmdrb62AxFbTblmKHV9Pn4XCpcvmUrhVYbttodFkTtqI2DKXRIYapCd/rBIQw11RpGjVi9Tl67eniv",
+    "x-amz-request-id": "VBMNT2FYBAWWMRHT",
+    "x-amz-server-side-encryption": "AES256",
+    "x-amz-version-id": "_d4KYYS7oGdOqiCwiuh1Wlvoq5mam8zo"
+   },
+   "resourceType": "image",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "file": "site/cdn.prod.website-files.com/6a068da7ad91b057365bf967/6a0fa3c6685d7bb04792137a_img_clouds_47.avif",
+   "size": 21266,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://cdn.prod.website-files.com/6a068da7ad91b057365bf967/6a0fa3c6c9c3c584d9d78d85_img_clouds_02.avif",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/avif",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "content-type": "image/avif",
+    "priority": "u=3,i",
+    "x-amz-id-2": "/HhQ3hMLaZG2BPRr1exGvuJ0/w3rHoL2hYyR1mTceMc+SJSForNFDQUanWwN65A3KijSyupbgbAFMDcXLKkJTFwZXbFNBi84",
+    "x-amz-request-id": "YB7V3E26KMZ1CQ2D",
+    "x-amz-server-side-encryption": "AES256",
+    "x-amz-version-id": "oftdEeYiQisOKL3xWkMdtXAlX9lV97YN"
+   },
+   "resourceType": "image",
+   "passes": [
+    "mobile",
+    "desktop"
+   ],
+   "file": "site/cdn.prod.website-files.com/6a068da7ad91b057365bf967/6a0fa3c6c9c3c584d9d78d85_img_clouds_02.avif",
+   "size": 21991,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://unpkg.com/@barba/core@2.10.3/dist/barba.umd.js",
+   "method": "GET",
+   "status": 200,
+   "contentType": "text/javascript; charset=utf-8",
+   "headers": {
+    "access-control-allow-headers": "*",
+    "access-control-allow-methods": "GET, HEAD, OPTIONS",
+    "access-control-allow-origin": "*",
+    "access-control-expose-headers": "*",
+    "content-digest": "sha256=:1kEQNn60U3XcXyHLSRXSJKIudNfnPKioLN5xDD8ON3Q=:",
+    "content-type": "text/javascript; charset=utf-8",
+    "fly-request-id": "01KVRT0MNQHMVMMV2FRAHBFGEG-iad",
+    "priority": "u=1,i=?0",
+    "x-robots-tag": "noindex"
+   },
+   "resourceType": "script",
+   "passes": [
+    "mobile",
+    "desktop"
+   ],
+   "file": "site/unpkg.com/@barba/core@2.10.3/dist/barba.umd.js",
+   "size": 31817,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://cdn.prod.website-files.com/6a0853d5dab31b18f0677081/6a1577b00ac578734e61941e_Unreal%20logo.svg",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/svg+xml",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "content-type": "image/svg+xml",
+    "priority": "u=3,i",
+    "x-amz-id-2": "nnKi2rn38wRxuEQyj9SkHpOVJfDY+KVeFneLHxSo34ns26B4XhMzWO8hmctgJ96qAkBl2Y/iuNw=",
+    "x-amz-request-id": "1DCY7VBY72SJTE6W",
+    "x-amz-server-side-encryption": "AES256",
+    "x-amz-version-id": "6nFNWFpqpcrD4AgarCrRW97UtNZhZ1LE"
+   },
+   "resourceType": "image",
+   "passes": [
+    "mobile",
+    "desktop"
+   ],
+   "file": "site/cdn.prod.website-files.com/6a0853d5dab31b18f0677081/6a1577b00ac578734e61941e_Unreal logo.svg",
+   "size": 15164,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://p.typekit.net/p.gif?s=1&k=pig8glj&ht=tk&h=www.era-residence.com&f=14275.30178&a=262094886&js=1.21.0&app=typekit&e=js&_=1793133286925",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/gif",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "content-type": "image/gif"
+   },
+   "resourceType": "image",
+   "passes": [
+    "desktop"
+   ],
+   "file": "site/p.typekit.net/p__qccd0a255.gif",
+   "size": 35,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://p.typekit.net/p.gif?s=1&k=pig8glj&ht=tk&h=www.era-residence.com&f=14275.30178&a=262094886&js=1.21.0&app=typekit&e=js&_=1793133286914",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/gif",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "content-type": "image/gif"
+   },
+   "resourceType": "image",
+   "passes": [
+    "mobile"
+   ],
+   "file": "site/p.typekit.net/p__q5d9cc6ff.gif",
+   "size": 35,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://cdn.prod.website-files.com/6a068da7ad91b057365bf967/6a51975cc959ee1e44045b0e_loc_path_labels.svg",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/svg+xml",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "content-type": "image/svg+xml",
+    "priority": "u=3,i",
+    "x-amz-id-2": "vFrqO6YkRSEBtSzA6cs+6/NueJjpB/u9veenDGzzsqaYmp4MqZjVvXIT94/z+sBOJIETdo2OAM9jFc81ElfeA+hc7nUwnGEO",
+    "x-amz-request-id": "0CX6R4Z4XSN525M8",
+    "x-amz-server-side-encryption": "AES256",
+    "x-amz-version-id": "Ao_K8.kmPpcSc_dclghWCRMq9ZN0UoYv"
+   },
+   "resourceType": "image",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "file": "site/cdn.prod.website-files.com/6a068da7ad91b057365bf967/6a51975cc959ee1e44045b0e_loc_path_labels.svg",
+   "size": 25929,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://cdn.prod.website-files.com/6a068da7ad91b057365bf967/6a25da802c253b9e5e3d44f5_era-residence_gated-community_night.webp",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/webp",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "content-type": "image/webp",
+    "priority": "u=2,i",
+    "x-amz-id-2": "TF/Vv7j9SOEtZ2IbByia9Fxs9lOLNd6Cp75dysxWm/U8hIFIOD9FnPNPEJGbFfioU7qHkqFo+0I1WauEGZDJNJvrytMgwTVb",
+    "x-amz-request-id": "MATGGESD53PP70N0",
+    "x-amz-server-side-encryption": "AES256",
+    "x-amz-version-id": "XCZpCScu8z3LvIjtCHa2600feWuRo3_R"
+   },
+   "resourceType": "image",
+   "passes": [
+    "desktop"
+   ],
+   "file": "site/cdn.prod.website-files.com/6a068da7ad91b057365bf967/6a25da802c253b9e5e3d44f5_era-residence_gated-community_night.webp",
+   "size": 491200,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://cdn.prod.website-files.com/6a068da7ad91b057365bf967/6a51975c584436cfdd9e2406_loc_path.svg",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/svg+xml",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "content-type": "image/svg+xml",
+    "priority": "u=3,i",
+    "x-amz-id-2": "GqoVNqvdYgGh0LgUHVxrsyaj6pbtOgupqwMbtpMFEWMt+soGwgG/2xADa0NbRbvHBxpvE0DLD7gKvjR9ajGbXcC44BmAKMJn",
+    "x-amz-request-id": "SG3524TK5VT1CG25",
+    "x-amz-server-side-encryption": "AES256",
+    "x-amz-version-id": "XaDUa3ejO3vvFVnWGhZ.qLaLDmH2gplr"
+   },
+   "resourceType": "image",
+   "passes": [
+    "mobile",
+    "desktop"
+   ],
+   "file": "site/cdn.prod.website-files.com/6a068da7ad91b057365bf967/6a51975c584436cfdd9e2406_loc_path.svg",
+   "size": 72125,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://assets.slater.app/slater/20164.js?v=1.0",
+   "method": "GET",
+   "status": 200,
+   "contentType": "text/javascript",
+   "headers": {
+    "access-control-allow-methods": "GET",
+    "access-control-allow-origin": "*",
+    "content-disposition": "inline",
+    "content-type": "text/javascript"
+   },
+   "resourceType": "script",
+   "passes": [
+    "mobile",
+    "desktop"
+   ],
+   "file": "site/assets.slater.app/slater/20164__qd4d1a8fb.js",
+   "size": 113,
+   "modes": [
+    "cors"
+   ]
+  },
+  {
+   "url": "https://cdn.prod.website-files.com/6a068da7ad91b057365bf967/6a4afbe968be0cc0c1f5fef2_bougainvillea-flowers_06.avif",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/avif",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "content-type": "image/avif",
+    "priority": "u=3,i",
+    "x-amz-id-2": "dT4BC8LvroAJHKbB+3qsRKsreN2ccTLZ2nMBLMmD1edBTiATSHWuezvk4NYbuUMIsD62QdxhYSV3lcXDLctqK8Fkd2fRrVW4",
+    "x-amz-request-id": "29X0VRN6YTZ65B6K",
+    "x-amz-server-side-encryption": "AES256",
+    "x-amz-version-id": "NPnG716h9eX9j1toeLolSPbqB.psd2NX"
+   },
+   "resourceType": "image",
+   "passes": [
+    "mobile",
+    "desktop"
+   ],
+   "file": "site/cdn.prod.website-files.com/6a068da7ad91b057365bf967/6a4afbe968be0cc0c1f5fef2_bougainvillea-flowers_06.avif",
+   "size": 57869,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://cdn.prod.website-files.com/6a068da7ad91b057365bf967/6a0fa3c60405a99c8530535e_img_clouds_33.avif",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/avif",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "content-type": "image/avif",
+    "priority": "u=3,i",
+    "x-amz-id-2": "OLMsguJ491YHBz8K9ifqBiRt1TP3g+1LatuIcxTBh4lAy4o4uEcL4VfZfHQI6xmgIaE2/T7KtYTvoNp8YQK6fUWQpeQOmx0V",
+    "x-amz-request-id": "2BQFT8GX507ZNAXK",
+    "x-amz-server-side-encryption": "AES256",
+    "x-amz-version-id": ".7BYOiu_cBJrFJG0bACrSlRtqxmCP.ex"
+   },
+   "resourceType": "image",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "file": "site/cdn.prod.website-files.com/6a068da7ad91b057365bf967/6a0fa3c60405a99c8530535e_img_clouds_33.avif",
+   "size": 64323,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://cdn.prod.website-files.com/6a068da7ad91b057365bf967/6a4afbe98eb07b9ca5b07e84_bougainvillea-flowers_04.avif",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/avif",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "content-type": "image/avif",
+    "priority": "u=3,i",
+    "x-amz-id-2": "E0TShxzdviALgDjyi1IyXaxp/7B3+27caMKQdwHM6l1BL9FxgA8jzcZswy42K7tK8MalcHp5CGOZZhL34kvHlXdxd32OJ4SR",
+    "x-amz-request-id": "V91098FZHAMF1C1J",
+    "x-amz-server-side-encryption": "AES256",
+    "x-amz-version-id": "eUrLP.vPk3UGv17pPMTWAFfVz7cyTqM9"
+   },
+   "resourceType": "image",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "file": "site/cdn.prod.website-files.com/6a068da7ad91b057365bf967/6a4afbe98eb07b9ca5b07e84_bougainvillea-flowers_04.avif",
+   "size": 62045,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://assets.slater.app/slater/20164/60900.js?v=567206",
+   "method": "GET",
+   "status": 200,
+   "contentType": "text/javascript",
+   "headers": {
+    "access-control-allow-methods": "GET",
+    "access-control-allow-origin": "*",
+    "content-disposition": "inline",
+    "content-type": "text/javascript"
+   },
+   "resourceType": "script",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "file": "site/assets.slater.app/slater/20164/60900__qb347817d.js",
+   "size": 59234,
+   "modes": [
+    "cors"
+   ]
+  },
+  {
+   "url": "https://cdn.prod.website-files.com/6a068da7ad91b057365bf967/6a4afbe9a4873ec6185f295d_bougainvillea-flowers_05.avif",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/avif",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "content-type": "image/avif",
+    "priority": "u=3,i",
+    "x-amz-id-2": "1twMO6sev/ZE0rnYQuYvlTVQfoymMYm3YPIdXP/dtpBtWJUfJUteppyViuAP/BaVe00gehk/Dk43bRNIlpaNS/dfwysgisgp",
+    "x-amz-request-id": "MBYMV9N8WT7HY9TC",
+    "x-amz-server-side-encryption": "AES256",
+    "x-amz-version-id": "4S_SDo435nYETz92yfk8Y45wmY_f2Dxz"
+   },
+   "resourceType": "image",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "file": "site/cdn.prod.website-files.com/6a068da7ad91b057365bf967/6a4afbe9a4873ec6185f295d_bougainvillea-flowers_05.avif",
+   "size": 91150,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://cdn.prod.website-files.com/6a068da7ad91b057365bf967/6a4afbe9f3a19844a4b0caed_bougainvillea-flowers_01.avif",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/avif",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "content-type": "image/avif",
+    "priority": "u=3,i",
+    "x-amz-id-2": "CNfbE0huhYYb5miHlfWLn2o+9DnaaDwg5p0bGbfTysb3P0iCEQZQKUeMTeQP3AUTdTFRPetKSlI3Fx2DCafAKZEQs7qapGSz",
+    "x-amz-request-id": "54G96N2G8TRTXVV1",
+    "x-amz-server-side-encryption": "AES256",
+    "x-amz-version-id": "EvFO8WQ_UA18sWVTZxIDKqpN2qdpNDcN"
+   },
+   "resourceType": "image",
+   "passes": [
+    "mobile",
+    "desktop"
+   ],
+   "file": "site/cdn.prod.website-files.com/6a068da7ad91b057365bf967/6a4afbe9f3a19844a4b0caed_bougainvillea-flowers_01.avif",
+   "size": 97125,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://cdn.prod.website-files.com/6a068da7ad91b057365bf967/6a4afbe941e5e917a8f84c4a_bougainvillea-flowers_02.avif",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/avif",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "content-type": "image/avif",
+    "priority": "u=3,i",
+    "x-amz-id-2": "HytHi06pCpRq7Av5ql/eUShtnCNsMh87+JDTkMM6NnyK7zazzMS1EfDECw3cyOaReaE45nUe6p5p9XoWqp+OY9ZucijQnkzw",
+    "x-amz-request-id": "ZYHHXEY2VB04E5X0",
+    "x-amz-server-side-encryption": "AES256",
+    "x-amz-version-id": "qkLcwfqrww_psB63hv1yzCuRgBmuWnQZ"
+   },
+   "resourceType": "image",
+   "passes": [
+    "mobile",
+    "desktop"
+   ],
+   "file": "site/cdn.prod.website-files.com/6a068da7ad91b057365bf967/6a4afbe941e5e917a8f84c4a_bougainvillea-flowers_02.avif",
+   "size": 108596,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://cdn.prod.website-files.com/6a068da7ad91b057365bf967/6a4afbe988f8dc3c9bb1647a_bougainvillea-flowers_03.avif",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/avif",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "content-type": "image/avif",
+    "priority": "u=3,i",
+    "x-amz-id-2": "8D3PqwILiL/vRlg/OohF/DJSMNxAdtLn5+3WIfpEJ6U4nenl+KPo46NhL0bkVA9Bv9QwTld+2vv/LyuFs6ETKSzAMOk/KHNT",
+    "x-amz-request-id": "765XYX1C442FK1QC",
+    "x-amz-server-side-encryption": "AES256",
+    "x-amz-version-id": "O8SLL7_4fE.Auf.fsyWrqDYwGHl1QD6P"
+   },
+   "resourceType": "image",
+   "passes": [
+    "mobile",
+    "desktop"
+   ],
+   "file": "site/cdn.prod.website-files.com/6a068da7ad91b057365bf967/6a4afbe988f8dc3c9bb1647a_bougainvillea-flowers_03.avif",
+   "size": 111806,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://cdn.prod.website-files.com/6a068da7ad91b057365bf967/6a4afbe9f3a19844a4b0caf0_bougainvillea-flowers_07.avif",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/avif",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "content-type": "image/avif",
+    "priority": "u=3,i",
+    "x-amz-id-2": "cOBqq3n3TiwoYYpqKexzCBTskixPoVUAblibtyJJsa9uQEy5ISzXg8HNAxye6G/T09cKQ98UYBjEv8j4KrItFf+68gZwc2LR",
+    "x-amz-request-id": "60Q1ZJFSQZ9G69QP",
+    "x-amz-server-side-encryption": "AES256",
+    "x-amz-version-id": "o9jDbjBF3IORKdkLZsKI8JpTMS0iH2Gq"
+   },
+   "resourceType": "image",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "file": "site/cdn.prod.website-files.com/6a068da7ad91b057365bf967/6a4afbe9f3a19844a4b0caf0_bougainvillea-flowers_07.avif",
+   "size": 119758,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://cdn.prod.website-files.com/6a0853d5dab31b18f0677081/6a15132fe66907986a254201_era-residence-spa-%26-gym-p-1600.webp",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/webp",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "content-type": "image/webp",
+    "priority": "u=3,i",
+    "x-amz-id-2": "+hKh2vwsGSxneYIhlq7fwjtWZUSn6ywHX9bYdIQ8zsj2G/JSTxvjgAFsqSJy1rTaPzhBaryL7oc=",
+    "x-amz-request-id": "AQME096AADH2T0V7",
+    "x-amz-server-side-encryption": "AES256",
+    "x-amz-version-id": "vEUOsJVx6foXT812vY1it4Uj8m6Hps8C"
+   },
+   "resourceType": "image",
+   "passes": [
+    "mobile"
+   ],
+   "file": "site/cdn.prod.website-files.com/6a0853d5dab31b18f0677081/6a15132fe66907986a254201_era-residence-spa-&-gym-p-1600.webp",
+   "size": 175168,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://cdn.prod.website-files.com/6a0853d5dab31b18f0677081/6a1575180f248400b7124a46_era-residence-kitchen-p-1600.webp",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/webp",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "content-type": "image/webp",
+    "priority": "u=3,i",
+    "x-amz-id-2": "GG00KTJK7aZrcd4k6zIHT9yf98Y2RkWy7ytpotk+lQo/is3QIcXHT/QIi/UV8t0gsp4tC9elN2c=",
+    "x-amz-request-id": "2RTYHZPEJ832AAV2",
+    "x-amz-server-side-encryption": "AES256",
+    "x-amz-version-id": ".gIAjOpGj7TMwquWIENMNH8VmYtmIpq6"
+   },
+   "resourceType": "image",
+   "passes": [
+    "mobile"
+   ],
+   "file": "site/cdn.prod.website-files.com/6a0853d5dab31b18f0677081/6a1575180f248400b7124a46_era-residence-kitchen-p-1600.webp",
+   "size": 145296,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://cdn.prod.website-files.com/6a0853d5dab31b18f0677081/6a1507fddb26e71ff717c30c_img_cam_03-p-1600.webp",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/webp",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "content-type": "image/webp",
+    "priority": "u=3,i",
+    "x-amz-id-2": "s4FwYts61aZpFSGtRLRgZwTFJbQ+4n/ClR3kcDZ5Fy98uhgw4+WqNSyZx5I2k6L99/mcS2Ku11ZHiI/d6beoFiVbbX/DDS24",
+    "x-amz-request-id": "M2V05B9S87XRJAKF",
+    "x-amz-server-side-encryption": "AES256",
+    "x-amz-version-id": "jQDQszk.PhFGVqTHGh4wteP6947_56wC"
+   },
+   "resourceType": "image",
+   "passes": [
+    "mobile"
+   ],
+   "file": "site/cdn.prod.website-files.com/6a0853d5dab31b18f0677081/6a1507fddb26e71ff717c30c_img_cam_03-p-1600.webp",
+   "size": 230194,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://cdn.prod.website-files.com/6a0853d5dab31b18f0677081/6a15132fe66907986a254201_era-residence-spa-%26-gym.webp",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/webp",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "content-type": "image/webp",
+    "priority": "u=3,i",
+    "x-amz-id-2": "CCy5UPFAQo3lgXiTyMIf8N1/sVHo7xGH63CMOFJlPZrDhaTRde1kZiIPv/Xbtt78e9zumb/GpyhHK43kBNZRMP+R37iNjpkI",
+    "x-amz-request-id": "0H21QJ152B3D8WWT",
+    "x-amz-server-side-encryption": "AES256",
+    "x-amz-version-id": "2O1E.GUfcDhyZckM0gRJkW1V6zZzhGY1"
+   },
+   "resourceType": "image",
+   "passes": [
+    "desktop"
+   ],
+   "file": "site/cdn.prod.website-files.com/6a0853d5dab31b18f0677081/6a15132fe66907986a254201_era-residence-spa-&-gym.webp",
+   "size": 271752,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://cdn.prod.website-files.com/6a0853d5dab31b18f0677081/6a1512e5b24991c76981118b_era-residence-gated-community-p-1600.webp",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/webp",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "content-type": "image/webp",
+    "priority": "u=3,i",
+    "x-amz-id-2": "N2lljbW22pbQXYegLJTAyb1r/UCL/l1tXutW80SoNzHMetdbIW1M3MiM1gML1072prD3i7ITe4M=",
+    "x-amz-request-id": "J0DQJFKVQEVECPJ8",
+    "x-amz-server-side-encryption": "AES256",
+    "x-amz-version-id": "6hAn7578HNzWnwcSIVL6ZjFoONEGklBI"
+   },
+   "resourceType": "image",
+   "passes": [
+    "mobile"
+   ],
+   "file": "site/cdn.prod.website-files.com/6a0853d5dab31b18f0677081/6a1512e5b24991c76981118b_era-residence-gated-community-p-1600.webp",
+   "size": 269608,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://cdn.prod.website-files.com/6a0853d5dab31b18f0677081/6a1575180f248400b7124a46_era-residence-kitchen.webp",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/webp",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "content-type": "image/webp",
+    "priority": "u=3,i",
+    "x-amz-id-2": "oGWsZs4A4b8G46zpcMQ3aaYRQQa8oBdx3V3I+v3uVZYcH97AY82P0/jnwpmQC7es327UbX6dTzHUH45FwM5M9/Uj4gxzetXz",
+    "x-amz-request-id": "8RD2C646A4T2Y5RQ",
+    "x-amz-server-side-encryption": "AES256",
+    "x-amz-version-id": "B5a2e851pz7B7hdn8EEKonaTac5rwb3z"
+   },
+   "resourceType": "image",
+   "passes": [
+    "desktop"
+   ],
+   "file": "site/cdn.prod.website-files.com/6a0853d5dab31b18f0677081/6a1575180f248400b7124a46_era-residence-kitchen.webp",
+   "size": 317490,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://cdn.prod.website-files.com/6a0853d5dab31b18f0677081/6a151264dc1dcca76fda17d9_era-residence-pool-p-1600.webp",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/webp",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "content-type": "image/webp",
+    "priority": "u=3,i",
+    "x-amz-id-2": "2l9wR9p/Hl8w+51sPqHnAvmtpxfZHCZU//KizHv41QUXWvMAVxg4JCnHY/OeoIbpz+7XcXHJqBA=",
+    "x-amz-request-id": "AQMAG05F64MP9GGC",
+    "x-amz-server-side-encryption": "AES256",
+    "x-amz-version-id": "BRKF1EoFJaQB.7HiWkLlDChgBWNyv3xS"
+   },
+   "resourceType": "image",
+   "passes": [
+    "mobile"
+   ],
+   "file": "site/cdn.prod.website-files.com/6a0853d5dab31b18f0677081/6a151264dc1dcca76fda17d9_era-residence-pool-p-1600.webp",
+   "size": 442300,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://cdn.prod.website-files.com/6a0853d5dab31b18f0677081/6a15080748155bc8e151f5ff_img_cam_07-p-1600.webp",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/webp",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "content-type": "image/webp",
+    "priority": "u=3,i",
+    "x-amz-id-2": "3CpelTVtAc8fGNTTts8C0Adnbe+zlAjv3y86MFazNBHxFQWFPaAOOU/ir3xmTwop2gCzciqT8YHg4KOGF0WoxxgfKCFkDtuo",
+    "x-amz-request-id": "M2V6NBD076CPYGV8",
+    "x-amz-server-side-encryption": "AES256",
+    "x-amz-version-id": "sNbWIop6sCZ2P.nJJnudxOQMKUg6w6SD"
+   },
+   "resourceType": "image",
+   "passes": [
+    "mobile"
+   ],
+   "file": "site/cdn.prod.website-files.com/6a0853d5dab31b18f0677081/6a15080748155bc8e151f5ff_img_cam_07-p-1600.webp",
+   "size": 345684,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://cdn.prod.website-files.com/6a068da7ad91b057365bf967/6a15185e6803ae588479d12b_era-residence-master-plan.webp",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/webp",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "content-type": "image/webp",
+    "priority": "u=3,i",
+    "x-amz-id-2": "OEz9RLH2xvdi9LCM/vCSLWf5glvqB4g/WPaMS47LKrdBxrehw0h+hWg1jgghNuo/kshMrIya0cjwOjHQHqQlSBE+IZ6clIUo",
+    "x-amz-request-id": "MBYHHW7QBG1SXQV7",
+    "x-amz-server-side-encryption": "AES256",
+    "x-amz-storage-class": "INTELLIGENT_TIERING",
+    "x-amz-version-id": "H774_71xStkMvwjCBi_BUNAHXDFf0hME"
+   },
+   "resourceType": "image",
+   "passes": [
+    "mobile",
+    "desktop"
+   ],
+   "file": "site/cdn.prod.website-files.com/6a068da7ad91b057365bf967/6a15185e6803ae588479d12b_era-residence-master-plan.webp",
+   "size": 515072,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://cdn.prod.website-files.com/6a0853d5dab31b18f0677081/6a1507fddb26e71ff717c30c_img_cam_03.webp",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/webp",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "content-type": "image/webp",
+    "priority": "u=3,i",
+    "x-amz-id-2": "3/8qF9HjByVog2saZbNa4KfNievMquE5pRUKmlX7D2Lqx+ulO8bNfbXU2pQF0fDUyhjgGK+cp4oyF5FUFcImbWDyYUZHOraO",
+    "x-amz-request-id": "TY9392NJ299P1CCW",
+    "x-amz-server-side-encryption": "AES256",
+    "x-amz-version-id": "qUkB0kTljomDzd4YJarXobO7.cUDxImB"
+   },
+   "resourceType": "image",
+   "passes": [
+    "desktop"
+   ],
+   "file": "site/cdn.prod.website-files.com/6a0853d5dab31b18f0677081/6a1507fddb26e71ff717c30c_img_cam_03.webp",
+   "size": 425468,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://cdn.prod.website-files.com/6a0853d5dab31b18f0677081/6a150812aefa2e544369d4a6_img_cam_09-p-1600.webp",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/webp",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "content-type": "image/webp",
+    "priority": "u=3,i",
+    "x-amz-id-2": "Z74CcXAL6YlKqCV7f65fnQsEzZUNH/oOLyANdxGbROwO/UD/zp3nc44CVNcdMxneNBqvodnw1rJmWFEB36On89nXU36GfkuO",
+    "x-amz-request-id": "M2VC3QBPYR0DXXKT",
+    "x-amz-server-side-encryption": "AES256",
+    "x-amz-version-id": "kV8slWfx1DcEmJv5AFx0yaoz0c1ohbKE"
+   },
+   "resourceType": "image",
+   "passes": [
+    "mobile"
+   ],
+   "file": "site/cdn.prod.website-files.com/6a0853d5dab31b18f0677081/6a150812aefa2e544369d4a6_img_cam_09-p-1600.webp",
+   "size": 370014,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://cdn.prod.website-files.com/6a0853d5dab31b18f0677081/6a150cc2f810e37eec2ea963_era-residence-garden.webp",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/webp",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "content-type": "image/webp",
+    "priority": "u=3,i",
+    "x-amz-id-2": "thEaLgrr7V4iuzrOrNYWfRyx73fjwZBoIdWF7txUP7V0nCjJZrHKw/50APutcAuZkrj+LTR4QWIEb7R0BHWVje84XeVKT7Fy",
+    "x-amz-request-id": "MT8228MZTQ380G55",
+    "x-amz-server-side-encryption": "AES256",
+    "x-amz-version-id": "eoayZGwp4LsoHZ2k0B4.JLVt82cSiqHQ"
+   },
+   "resourceType": "image",
+   "passes": [
+    "mobile",
+    "desktop"
+   ],
+   "file": "site/cdn.prod.website-files.com/6a0853d5dab31b18f0677081/6a150cc2f810e37eec2ea963_era-residence-garden.webp",
+   "size": 506206,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://cdn.prod.website-files.com/6a0853d5dab31b18f0677081/6a1514d7c27920c70252da1f_era-residence-ground-floor-basement-p-1600.webp",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/webp",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "content-type": "image/webp",
+    "priority": "u=3,i",
+    "x-amz-id-2": "LQ6Yv341KNlcqHVsxzBgLW6UNE+J2S5tCIlEq30ENrEbnbAUPhyA50wf/yoZE3IGajkN1UTCvbk=",
+    "x-amz-request-id": "J0DSXAK1ASBJ8ZJ6",
+    "x-amz-server-side-encryption": "AES256",
+    "x-amz-version-id": "H.NzJVmEbfGu2eCYcDTTjp0fXwhUzP.Q"
+   },
+   "resourceType": "image",
+   "passes": [
+    "mobile"
+   ],
+   "file": "site/cdn.prod.website-files.com/6a0853d5dab31b18f0677081/6a1514d7c27920c70252da1f_era-residence-ground-floor-basement-p-1600.webp",
+   "size": 370014,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://cdn.prod.website-files.com/6a068da7ad91b057365bf967/6a0f8c07861fe831459ff0d9_img_cam_05_alpha.webp",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/webp",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "content-type": "image/webp",
+    "priority": "u=3,i",
+    "x-amz-id-2": "GaCF2PSoBRXZPFZNr2go374/A+ipGTM2tEWwUuN4CP/z5tZGyimRIyXsNCOhIiUBbWk/hQvWrEYcCw1WaOKFzKF6XLup7kX7lPMNw4W8VMw=",
+    "x-amz-request-id": "YNGR9FTYFQ4DE80H",
+    "x-amz-server-side-encryption": "AES256",
+    "x-amz-version-id": "nT9WpL8FOQTF4KcEOXqGbYYXP4br0pSy"
+   },
+   "resourceType": "image",
+   "passes": [
+    "mobile",
+    "desktop"
+   ],
+   "file": "site/cdn.prod.website-files.com/6a068da7ad91b057365bf967/6a0f8c07861fe831459ff0d9_img_cam_05_alpha.webp",
+   "size": 485856,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://cdn.prod.website-files.com/6a0853d5dab31b18f0677081/6a1573fc640c344ee0705819_era-residence-parking.webp",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/webp",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "content-type": "image/webp",
+    "priority": "u=3,i",
+    "x-amz-id-2": "LytO3XKdpo3SHlpQEQjTXRZR8+OGwXluZJct8A/AyJht13+nX97JSFukuQZv0JKORXN5L9N4HX+m7Me5Z41RwdameGyIIMqK",
+    "x-amz-request-id": "JJNDMEKKK3PY7Y08",
+    "x-amz-server-side-encryption": "AES256",
+    "x-amz-version-id": "by2pJh8TON.Qp7ZXclZFovCLjWv2RpI1"
+   },
+   "resourceType": "image",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "file": "site/cdn.prod.website-files.com/6a0853d5dab31b18f0677081/6a1573fc640c344ee0705819_era-residence-parking.webp",
+   "size": 510046,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://cdn.prod.website-files.com/6a0853d5dab31b18f0677081/6a150bbc2a39862be04f2cd5_era-residence-terrace-p-1600.webp",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/webp",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "content-type": "image/webp",
+    "priority": "u=3,i",
+    "x-amz-id-2": "2z+Mtm9MPRBraXkCyWVOT5UkI62pAJO8yIlnr97lokhgUaU4rhOoJPXCWgLGLG66FW2xT/8ByXs=",
+    "x-amz-request-id": "6EYNTGAW1RENQ2A5",
+    "x-amz-server-side-encryption": "AES256",
+    "x-amz-version-id": "Od8Ksc7gkVtKnJpRZMgVRqDNNyC1cffJ"
+   },
+   "resourceType": "image",
+   "passes": [
+    "mobile"
+   ],
+   "file": "site/cdn.prod.website-files.com/6a0853d5dab31b18f0677081/6a150bbc2a39862be04f2cd5_era-residence-terrace-p-1600.webp",
+   "size": 721096,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://cdn.prod.website-files.com/6a0853d5dab31b18f0677081/6a1512e5b24991c76981118b_era-residence-gated-community.webp",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/webp",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "content-type": "image/webp",
+    "priority": "u=3,i",
+    "x-amz-id-2": "VBGWVIN6fX+knNn5zdTya/VLSMPlYls3h6MskTP4QypLvq8DcRnjk49fhKMszwZJW5qZyEQKSM4=",
+    "x-amz-request-id": "0H2CM29ZJPXXVA6C",
+    "x-amz-server-side-encryption": "AES256",
+    "x-amz-version-id": "7KboKOpiDUoiu7AO_uWU3ADhPpAiEyb1"
+   },
+   "resourceType": "image",
+   "passes": [
+    "desktop"
+   ],
+   "file": "site/cdn.prod.website-files.com/6a0853d5dab31b18f0677081/6a1512e5b24991c76981118b_era-residence-gated-community.webp",
+   "size": 455052,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://cdn.prod.website-files.com/6a0853d5dab31b18f0677081/6a1575f46655e8c4e795ec64_era-residence-landscaping-p-1600.webp",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/webp",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "content-type": "image/webp",
+    "priority": "u=3,i",
+    "x-amz-id-2": "F0uXIF63HrqxOskJIKTPmk7dkAlG2c9HERtgeyTpio4GphvOb+Kv1LRc9J5fOOkBRhwSsn3VETY=",
+    "x-amz-request-id": "2RTXG6CEQR30MVPE",
+    "x-amz-server-side-encryption": "AES256",
+    "x-amz-version-id": "4pQ0lP4DPrDJ4lKTnAR5ChiQkHtliIfX"
+   },
+   "resourceType": "image",
+   "passes": [
+    "mobile"
+   ],
+   "file": "site/cdn.prod.website-files.com/6a0853d5dab31b18f0677081/6a1575f46655e8c4e795ec64_era-residence-landscaping-p-1600.webp",
+   "size": 714156,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://cdn.prod.website-files.com/6a068da7ad91b057365bf967/6a0f8994091fd12c24e79c8a_img_cam_02.webp",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/webp",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "content-type": "image/webp",
+    "priority": "u=3,i",
+    "x-amz-id-2": "SdarC4mNlU60HuPjDmtXs29QebJIPJvh/bZqfc4rJxAE+aAC3aBBl5h1921oj1GBsE1Wj7DwEcmGiHljl55H0iQ9D3H6U/ns",
+    "x-amz-request-id": "MBYWFDAZM69ZD8HF",
+    "x-amz-server-side-encryption": "AES256",
+    "x-amz-storage-class": "INTELLIGENT_TIERING",
+    "x-amz-version-id": "wgBi7qNOJig2bvw.2Y_OffbHjDZke0T6"
+   },
+   "resourceType": "image",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "file": "site/cdn.prod.website-files.com/6a068da7ad91b057365bf967/6a0f8994091fd12c24e79c8a_img_cam_02.webp",
+   "size": 676218,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://cdn.prod.website-files.com/6a068da7ad91b057365bf967/6a1571e51d50c8bcf5f4bb3d_era-residence-garden-2.webp",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/webp",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "content-type": "image/webp",
+    "priority": "u=3,i",
+    "x-amz-id-2": "WVIdsyRviu2dVna2fhd8qlc/Ny8eZtZHzCHi6X4zf93GNdDZEjit1fRV5LUQ3wgLMmQwYIDk9fjvZ+8onnVE55sX2ul9jot+",
+    "x-amz-request-id": "JVKSV7WXBVEXAQZR",
+    "x-amz-server-side-encryption": "AES256",
+    "x-amz-version-id": "jKnb9fz26LNe6InslM74.Jrnz__cZlBe"
+   },
+   "resourceType": "image",
+   "passes": [
+    "mobile",
+    "desktop"
+   ],
+   "file": "site/cdn.prod.website-files.com/6a068da7ad91b057365bf967/6a1571e51d50c8bcf5f4bb3d_era-residence-garden-2.webp",
+   "size": 778692,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://cdn.prod.website-files.com/6a0853d5dab31b18f0677081/6a150affaf1d8cc969d57dd0_img_cam_02.webp",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/webp",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "content-type": "image/webp",
+    "priority": "u=2,i",
+    "x-amz-id-2": "JA0TiPexypxF9vhiqztKEOG30OaPRl0KHmDto3yTKo5nZQgBIUgTtVJ1ybGdq+qZymTplmuaMDz55r5ijdP/ySwq0nx+w10n",
+    "x-amz-request-id": "MFNCW4N4K7NJR6KE",
+    "x-amz-server-side-encryption": "AES256",
+    "x-amz-version-id": "URBstHLB11HyOkRNVu2jobe.SKkH8N0p"
+   },
+   "resourceType": "image",
+   "passes": [
+    "desktop"
+   ],
+   "file": "site/cdn.prod.website-files.com/6a0853d5dab31b18f0677081/6a150affaf1d8cc969d57dd0_img_cam_02.webp",
+   "size": 676218,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://cdn.prod.website-files.com/6a0853d5dab31b18f0677081/6a150812aefa2e544369d4a6_img_cam_09.webp",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/webp",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "content-type": "image/webp",
+    "priority": "u=3,i",
+    "x-amz-id-2": "DwussL2VfK2ZuewZzcNXcaY26gfmW+X3gLYSDysrkb7w7EDq2838c7HrUlvEtTK48ce4aLHnCNrGCe0MPmBdAhceaVX2KCfj",
+    "x-amz-request-id": "TY93PD2VVDGK25E8",
+    "x-amz-server-side-encryption": "AES256",
+    "x-amz-version-id": "2yp7rsGE5pC_D1SAtVoIXvou7H.7V8SV"
+   },
+   "resourceType": "image",
+   "passes": [
+    "desktop"
+   ],
+   "file": "site/cdn.prod.website-files.com/6a0853d5dab31b18f0677081/6a150812aefa2e544369d4a6_img_cam_09.webp",
+   "size": 640876,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://cdn.prod.website-files.com/6a0853d5dab31b18f0677081/6a15080748155bc8e151f5ff_img_cam_07.webp",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/webp",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "content-type": "image/webp",
+    "priority": "u=3,i",
+    "x-amz-id-2": "mi09idH6fY2LcEVCKdloCBE6at5jrXHr2jp8CnpDqZx9RFcuZBxu8MoHvrSdptrOFo9gu5tGJ0XiD1LkbEaP8VJb+F1fdx2Y",
+    "x-amz-request-id": "TY9B9NG42HW3NN39",
+    "x-amz-server-side-encryption": "AES256",
+    "x-amz-version-id": "tGyWN6MJ8kx9laxeL5ZO9R6Mn18bNziv"
+   },
+   "resourceType": "image",
+   "passes": [
+    "desktop"
+   ],
+   "file": "site/cdn.prod.website-files.com/6a0853d5dab31b18f0677081/6a15080748155bc8e151f5ff_img_cam_07.webp",
+   "size": 625000,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://cdn.prod.website-files.com/6a0853d5dab31b18f0677081/6a1514d7c27920c70252da1f_era-residence-ground-floor-basement.webp",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/webp",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "content-type": "image/webp",
+    "priority": "u=3,i",
+    "x-amz-id-2": "Wz21+nWYHYxqL/FDxp3/biI/RhOFaIvjkO0fYk5QTScfXgZlW/8Bj7GslTNwRX6COguuzujlLo4=",
+    "x-amz-request-id": "EDCBFXJ9DWNYVRYA",
+    "x-amz-server-side-encryption": "AES256",
+    "x-amz-version-id": "laZG2Rn3GLQqMD4QQo3dPukya_6xEMKZ"
+   },
+   "resourceType": "image",
+   "passes": [
+    "desktop"
+   ],
+   "file": "site/cdn.prod.website-files.com/6a0853d5dab31b18f0677081/6a1514d7c27920c70252da1f_era-residence-ground-floor-basement.webp",
+   "size": 640876,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://cdn.prod.website-files.com/6a0853d5dab31b18f0677081/6a15153b797c328a9f2f5964_era-residence-terrace.webp",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/webp",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "content-type": "image/webp",
+    "priority": "u=3,i",
+    "x-amz-id-2": "HzesXcGsJSQuwZNm0kBBAy/KzO4nbCbGlnsaEvG2ic/JEyGbJnqg5zGjKG2w0lCTGpPbiuX1aOvMKkFOozrduIVKsVOwxP7O",
+    "x-amz-request-id": "EDC404CXQKSEK0K3",
+    "x-amz-server-side-encryption": "AES256",
+    "x-amz-version-id": "Nq7kDoJgVFenCTNO3XQy63AzzRJEdWjL"
+   },
+   "resourceType": "image",
+   "passes": [
+    "mobile",
+    "desktop"
+   ],
+   "file": "site/cdn.prod.website-files.com/6a0853d5dab31b18f0677081/6a15153b797c328a9f2f5964_era-residence-terrace.webp",
+   "size": 1119586,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://cdn.prod.website-files.com/6a068da7ad91b057365bf967/6a15723f346e4b3a6c0af26a_era-residence-terrace.webp",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/webp",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "content-type": "image/webp",
+    "priority": "u=3,i",
+    "x-amz-id-2": "NzN6bayPk6rmKu2qS5lfubfghxb8ZbAJoyIX7I5hDSt7iAY/sRGKUykNCva9C+3Ee3vD9qLqkn+FCB3/Xljp+UwwvnYw6nge",
+    "x-amz-request-id": "PW2SD27HWQQKBGAN",
+    "x-amz-server-side-encryption": "AES256",
+    "x-amz-version-id": "nM5HqBbf9.eUYbDpN2A3eIXbawBTVPH7"
+   },
+   "resourceType": "image",
+   "passes": [
+    "mobile",
+    "desktop"
+   ],
+   "file": "site/cdn.prod.website-files.com/6a068da7ad91b057365bf967/6a15723f346e4b3a6c0af26a_era-residence-terrace.webp",
+   "size": 1119586,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://cdn.prod.website-files.com/6a0853d5dab31b18f0677081/6a151382fb101ce2ca9db288_era-residence-landscaping.webp",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/webp",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "content-type": "image/webp",
+    "priority": "u=3,i",
+    "x-amz-id-2": "TNzbX4n3cDU1mh0oGAW4OZMfoEkeU25noRs4fddWOKPNx00Ik6XRQd1COVbWoPDcjCkMHc9zDJ4=",
+    "x-amz-request-id": "17674GRZNP4Z5283",
+    "x-amz-server-side-encryption": "AES256",
+    "x-amz-storage-class": "INTELLIGENT_TIERING",
+    "x-amz-version-id": "twwJVMOKhCBKqj9.6DJLM9rpRDwiZY_q"
+   },
+   "resourceType": "image",
+   "passes": [
+    "mobile",
+    "desktop"
+   ],
+   "file": "site/cdn.prod.website-files.com/6a0853d5dab31b18f0677081/6a151382fb101ce2ca9db288_era-residence-landscaping.webp",
+   "size": 1135520,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://cdn.prod.website-files.com/6a0853d5dab31b18f0677081/6a151264dc1dcca76fda17d9_era-residence-pool.webp",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/webp",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "content-type": "image/webp",
+    "priority": "u=3,i",
+    "x-amz-id-2": "yfSRf2Wi5zTD3BxT/KJyW97XBnkN1wWv4t10lWe/mlSsYSz+YAv+5g5UvagbSQKmrenERJWdlmKhYnPMERUcDWw/J5/c8/wc",
+    "x-amz-request-id": "0H21KCSV1RM6MNC8",
+    "x-amz-server-side-encryption": "AES256",
+    "x-amz-version-id": "H4tG7LuE.oI3lLC4tzeNdD2LI6Mevd3m"
+   },
+   "resourceType": "image",
+   "passes": [
+    "desktop"
+   ],
+   "file": "site/cdn.prod.website-files.com/6a0853d5dab31b18f0677081/6a151264dc1dcca76fda17d9_era-residence-pool.webp",
+   "size": 741318,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://cdn.prod.website-files.com/6a068da7ad91b057365bf967/6a15723f346e4b3a6c0af26a_era-residence-terrace-p-1600.png",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/png",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "content-type": "image/png",
+    "priority": "u=3,i",
+    "x-amz-id-2": "XgpuEmqVJLMvLyhy/Ao8EF0J1LdbYe72prxiqJaVFk4n4Z3aVOOi8tKRm85bbkqIJ5GNkEtzM3I=",
+    "x-amz-request-id": "4ZDV9QHPNCE7ECE7",
+    "x-amz-server-side-encryption": "AES256",
+    "x-amz-storage-class": "INTELLIGENT_TIERING",
+    "x-amz-version-id": "zpyDeXsNPs8nv8.aMTl.vACEE3CFQTQ6"
+   },
+   "resourceType": "image",
+   "passes": [
+    "mobile"
+   ],
+   "file": "site/cdn.prod.website-files.com/6a068da7ad91b057365bf967/6a15723f346e4b3a6c0af26a_era-residence-terrace-p-1600.png",
+   "size": 1934208,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://cdn.prod.website-files.com/6a068da7ad91b057365bf967/6a0f88f3b81e88aabf6874e7_img_cta_1920.webp",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/webp",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "content-type": "image/webp",
+    "priority": "u=3,i",
+    "x-amz-id-2": "RPmtuOErA0DLzm1xEatc2IR8N9ZmdAZWnCI3g3GewFoDxAYo9iEQeHiI9eFP8jVQKWJZYOjNpcs=",
+    "x-amz-request-id": "8Q7XHK4BTWV3J1KQ",
+    "x-amz-server-side-encryption": "AES256",
+    "x-amz-version-id": "NLFdjfm4PV38SMKDjVIKmm1wFPwoTLN4"
+   },
+   "resourceType": "image",
+   "passes": [
+    "desktop"
+   ],
+   "file": "site/cdn.prod.website-files.com/6a068da7ad91b057365bf967/6a0f88f3b81e88aabf6874e7_img_cta_1920.webp",
+   "size": 1191716,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://cdn.prod.website-files.com/6a068da7ad91b057365bf967/6a0f88f3b81e88aabf6874e7_img_cta_1920-p-1600.png",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/png",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "content-type": "image/png",
+    "priority": "u=3,i",
+    "x-amz-id-2": "ARlmfLk7q1g9gwXY/GHCxJ7pm7/fcBTtLSbI9NCmuaZxjazWXSI0ewmmn1gjE5fnhqQ2NMiYa2s=",
+    "x-amz-request-id": "X7M9SKRNBTCBK0AA",
+    "x-amz-server-side-encryption": "AES256",
+    "x-amz-storage-class": "INTELLIGENT_TIERING",
+    "x-amz-version-id": "dqPbRLXItbtUhkTLtHWpvgTSkBRtIdwh"
+   },
+   "resourceType": "image",
+   "passes": [
+    "mobile"
+   ],
+   "file": "site/cdn.prod.website-files.com/6a068da7ad91b057365bf967/6a0f88f3b81e88aabf6874e7_img_cta_1920-p-1600.png",
+   "size": 1992426,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://cdn.prod.website-files.com/6a0853d5dab31b18f0677081/6a150bbc2a39862be04f2cd5_era-residence-terrace.webp",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/webp",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "content-type": "image/webp",
+    "priority": "u=3,i",
+    "x-amz-id-2": "+PVx/BrdDXM+soRSHvgTJQTdKIG9oxD6/p7KRavwS3rcKJWe+/ueWr4Tzh3C5U4cMAPKA5Asd/v+fhmaJcVrl2O+rF0fxkpz",
+    "x-amz-request-id": "MFNB0ERNJKN65KR5",
+    "x-amz-server-side-encryption": "AES256",
+    "x-amz-version-id": "Bd.r3X3k9XWW3NiQ8u.KSeCPZSOK8V04"
+   },
+   "resourceType": "image",
+   "passes": [
+    "desktop"
+   ],
+   "file": "site/cdn.prod.website-files.com/6a0853d5dab31b18f0677081/6a150bbc2a39862be04f2cd5_era-residence-terrace.webp",
+   "size": 1119586,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://cdn.prod.website-files.com/6a0853d5dab31b18f0677081/6a1575f46655e8c4e795ec64_era-residence-landscaping.webp",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/webp",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "content-type": "image/webp",
+    "priority": "u=3,i",
+    "x-amz-id-2": "PL58wZXka6A1vsNfsuihtcUqUs1iQM6M1Lf/dKdNlcQY8pkCaNYiI7iFB/3g7N9LOHeX6av1nAvOwmFY3ceFwqJb/uE2nx8D",
+    "x-amz-request-id": "8RD0AWVW9SNY77QV",
+    "x-amz-server-side-encryption": "AES256",
+    "x-amz-version-id": "4b9INL6ovtgYa9MlrfhWy2X2K4ITodqO"
+   },
+   "resourceType": "image",
+   "passes": [
+    "desktop"
+   ],
+   "file": "site/cdn.prod.website-files.com/6a0853d5dab31b18f0677081/6a1575f46655e8c4e795ec64_era-residence-landscaping.webp",
+   "size": 1135520,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://cdn.prod.website-files.com/6a068da7ad91b057365bf967/6a068e9190b0417295a747e4_fav_512x512.png",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/png",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "content-type": "image/png",
+    "priority": "u=1,i",
+    "x-amz-id-2": "T18jR8PYbLsbRBCDo23c+pWZ9BCBYk3NmH+U8ImbDIvCLhICIvhB7bBe5uzfKLLcCfwNX5yZJiKceMSFziwEVYXTMgzAreH+",
+    "x-amz-request-id": "3ASTQ0181HBB4C2N",
+    "x-amz-server-side-encryption": "AES256",
+    "x-amz-version-id": "YvxkrYMneTqpdJPxVxI.YwDs1a1Nm85l"
+   },
+   "resourceType": "other",
+   "passes": [
+    "mobile",
+    "desktop"
+   ],
+   "file": "site/cdn.prod.website-files.com/6a068da7ad91b057365bf967/6a068e9190b0417295a747e4_fav_512x512.png",
+   "size": 1239,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://pub-157506367d4c4fa1825d7a6d26b687a2.r2.dev/tftl-logo_white.json",
+   "method": "GET",
+   "status": 200,
+   "contentType": "application/json",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "access-control-expose-headers": "Accept-Ranges,Content-Length,Content-Range",
+    "content-type": "application/json"
+   },
+   "resourceType": "xhr",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "file": "site/pub-157506367d4c4fa1825d7a6d26b687a2.r2.dev/tftl-logo_white.json",
+   "size": 772522,
+   "modes": [
+    "cors"
+   ]
+  },
+  {
+   "url": "https://www.era-residence.com/apartments",
+   "method": "GET",
+   "status": 200,
+   "contentType": "text/html; charset=utf-8",
+   "headers": {
+    "content-type": "text/html; charset=utf-8",
+    "link": "<https://cdn.prod.website-files.com>; rel=preconnect; crossorigin, <https://cdn.prod.website-files.com/6a068da7ad91b057365bf967/css/era-residence.webflow.shared.c9555a234.min.css>; rel=preload; as=style; crossorigin; integrity=\"sha384-yVVaI0ZlUPsynW7h2Oc9qYfw55fDpVOCGyiHkLtNg8Jd7qzXg1nwZmzx/1vIDS6s\"",
+    "surrogate-control": "max-age=432000",
+    "surrogate-key": "www.era-residence.com 6a068da7ad91b057365bf967 pageId:6a0b2da17a22b457ace65fa2 6a08a982d68593a4c2da5b38 6a1f855c07d9cee7ff1c665a 6a1e30c1b90c3b2bad493c52 6a38472a9c579127ee00c9c8 6a0b0ecbe80cd7e8004ded05 6a0b10aee1da2abf338f4dfe 6a0b129cfeb8f4de303fc9dd 6a0b83ea381ca59360ad2fa5",
+    "x-lambda-id": "a7db9526-a38d-4b17-9661-7c265564d12f",
+    "x-wf-region": "us-east-1"
+   },
+   "resourceType": "xhr",
+   "passes": [
+    "mobile",
+    "desktop"
+   ],
+   "file": "site/www.era-residence.com/apartments.html",
+   "size": 305379,
+   "modes": [
+    "cors"
+   ]
+  },
+  {
+   "url": "https://www.era-residence.com/apartments?type=ground-floor-basement",
+   "method": "GET",
+   "status": 200,
+   "contentType": "text/html; charset=utf-8",
+   "headers": {
+    "content-type": "text/html; charset=utf-8",
+    "link": "<https://cdn.prod.website-files.com>; rel=preconnect; crossorigin, <https://cdn.prod.website-files.com/6a068da7ad91b057365bf967/css/era-residence.webflow.shared.c9555a234.min.css>; rel=preload; as=style; crossorigin; integrity=\"sha384-yVVaI0ZlUPsynW7h2Oc9qYfw55fDpVOCGyiHkLtNg8Jd7qzXg1nwZmzx/1vIDS6s\"",
+    "priority": "u=1,i",
+    "surrogate-control": "max-age=432000",
+    "surrogate-key": "www.era-residence.com 6a068da7ad91b057365bf967 pageId:6a0b2da17a22b457ace65fa2 6a08a982d68593a4c2da5b38 6a1f855c07d9cee7ff1c665a 6a1e30c1b90c3b2bad493c52 6a38472a9c579127ee00c9c8 6a0b0ecbe80cd7e8004ded05 6a0b10aee1da2abf338f4dfe 6a0b129cfeb8f4de303fc9dd 6a0b83ea381ca59360ad2fa5",
+    "x-lambda-id": "25cd537f-9dd2-407b-9900-8919d26154cb",
+    "x-wf-region": "us-east-1"
+   },
+   "resourceType": "xhr",
+   "passes": [
+    "mobile"
+   ],
+   "file": "site/www.era-residence.com/apartments__qd7fee086.html",
+   "size": 305379,
+   "modes": [
+    "cors"
+   ]
+  },
+  {
+   "url": "https://assets.era-residence.com/flowers/bougainvillea-flowers_01.webm",
+   "method": "GET",
+   "status": 200,
+   "contentType": "video/webm",
+   "headers": {
+    "content-type": "video/webm"
+   },
+   "resourceType": "media",
+   "passes": [
+    "desktop"
+   ],
+   "file": "site/assets.era-residence.com/flowers/bougainvillea-flowers_01.webm",
+   "size": 3176725,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://assets.era-residence.com/flowers/bougainvillea-flowers_05.webm",
+   "method": "GET",
+   "status": 200,
+   "contentType": "video/webm",
+   "headers": {
+    "content-type": "video/webm"
+   },
+   "resourceType": "media",
+   "passes": [
+    "desktop"
+   ],
+   "file": "site/assets.era-residence.com/flowers/bougainvillea-flowers_05.webm",
+   "size": 2940826,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://assets.era-residence.com/flowers/bougainvillea-flowers_04.webm",
+   "method": "GET",
+   "status": 200,
+   "contentType": "video/webm",
+   "headers": {
+    "content-type": "video/webm"
+   },
+   "resourceType": "media",
+   "passes": [
+    "desktop"
+   ],
+   "file": "site/assets.era-residence.com/flowers/bougainvillea-flowers_04.webm",
+   "size": 2977193,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://assets.era-residence.com/flowers/bougainvillea-flowers_03.webm",
+   "method": "GET",
+   "status": 200,
+   "contentType": "video/webm",
+   "headers": {
+    "content-type": "video/webm"
+   },
+   "resourceType": "media",
+   "passes": [
+    "desktop"
+   ],
+   "file": "site/assets.era-residence.com/flowers/bougainvillea-flowers_03.webm",
+   "size": 3303133,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://assets.era-residence.com/flowers/bougainvillea-flowers_06.webm",
+   "method": "GET",
+   "status": 200,
+   "contentType": "video/webm",
+   "headers": {
+    "content-type": "video/webm"
+   },
+   "resourceType": "media",
+   "passes": [
+    "desktop"
+   ],
+   "file": "site/assets.era-residence.com/flowers/bougainvillea-flowers_06.webm",
+   "size": 3030154,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://assets.era-residence.com/flowers/bougainvillea-flowers_07.webm",
+   "method": "GET",
+   "status": 200,
+   "contentType": "video/webm",
+   "headers": {
+    "content-type": "video/webm"
+   },
+   "resourceType": "media",
+   "passes": [
+    "desktop"
+   ],
+   "file": "site/assets.era-residence.com/flowers/bougainvillea-flowers_07.webm",
+   "size": 3392908,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://assets.era-residence.com/flowers/bougainvillea-flowers_02.webm",
+   "method": "GET",
+   "status": 200,
+   "contentType": "video/webm",
+   "headers": {
+    "content-type": "video/webm"
+   },
+   "resourceType": "media",
+   "passes": [
+    "desktop"
+   ],
+   "file": "site/assets.era-residence.com/flowers/bougainvillea-flowers_02.webm",
+   "size": 3344874,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://cdn.prod.website-files.com/6a068da7ad91b057365bf967/6a068e91bb279e3f7fc5b425_fav_512x512.png",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/png",
+   "headers": {
+    "content-type": "image/png",
+    "x-amz-id-2": "6ipr1A+0WadZNxgnQATZE5lWgwwnBN+Az4vEgomiArSiEVnnyCmCzegKLJCPTyJ0UvBmEY9toMS9JCv4sPTUsJGYKrbXpEvi",
+    "x-amz-request-id": "5VAWKNTPSCYXNKWC",
+    "x-amz-server-side-encryption": "AES256",
+    "x-amz-version-id": "Jb8wGd.J8kei.8BJueuubCZCGLFr2APh",
+    "access-control-allow-origin": "*"
+   },
+   "resourceType": "other",
+   "passes": [
+    "desktop"
+   ],
+   "file": "site/cdn.prod.website-files.com/6a068da7ad91b057365bf967/6a068e91bb279e3f7fc5b425_fav_512x512.png",
+   "size": 2438
+  },
+  {
+   "url": "https://cdn.prod.website-files.com/6a068da7ad91b057365bf967/6a068e918b1760d249c9955e_fav_512x512.png",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/png",
+   "headers": {
+    "content-type": "image/png",
+    "x-amz-id-2": "47xZWmkSTl98OGn5NwTcclB/KFaXUVhZ438J4wIk/G4xEeSl6kxh5Twnnp94OiFvn+9ao/PjNu1saNRL7S7Ej0TOEcI4atZ9",
+    "x-amz-request-id": "J6PKMK077PVQS959",
+    "x-amz-server-side-encryption": "AES256",
+    "x-amz-version-id": "A1KZ9HIWGmTdo_l0vRwAIQJQXODwCtEB",
+    "access-control-allow-origin": "*"
+   },
+   "resourceType": "other",
+   "passes": [
+    "desktop"
+   ],
+   "file": "site/cdn.prod.website-files.com/6a068da7ad91b057365bf967/6a068e918b1760d249c9955e_fav_512x512.png",
+   "size": 13428
+  },
+  {
+   "url": "https://cdn.prod.website-files.com/6a068da7ad91b057365bf967/6a068e91270853940feb77b8_fav_512x512.png",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/png",
+   "headers": {
+    "content-type": "image/png",
+    "x-amz-id-2": "7UuOJ8wiIYO7xQfppOgjmLClMbrPVic9qr7GfPuV0J1bA1ZkEw/3IfzYofO2A8GXH8Zcauuztidg7Vb+3Rn7b2PjH6UaMlNN",
+    "x-amz-request-id": "G1CDRREQV7SP391S",
+    "x-amz-server-side-encryption": "AES256",
+    "x-amz-version-id": "GuL8u0_uT7sAn3_kfQFQlgTQgGXq3scD",
+    "access-control-allow-origin": "*"
+   },
+   "resourceType": "other",
+   "passes": [
+    "desktop"
+   ],
+   "file": "site/cdn.prod.website-files.com/6a068da7ad91b057365bf967/6a068e91270853940feb77b8_fav_512x512.png",
+   "size": 12352
+  },
+  {
+   "url": "https://cdn.prod.website-files.com/6a068da7ad91b057365bf967/6a068e912ba75edec03d31d4_fav_512x512.png",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/png",
+   "headers": {
+    "content-type": "image/png",
+    "x-amz-id-2": "7LRAvZpYgAruqOYztVTyChnA8CiXenlJ2hm3QF1SriLoJtBujEUHKi0H7XyPrtqWteIj7z1dewk=",
+    "x-amz-request-id": "9FY4Y8A8MS5TDH1G",
+    "x-amz-server-side-encryption": "AES256",
+    "x-amz-version-id": "AqgGC8Bh.Rwi_amvKLZ62xIAcD854DoM",
+    "access-control-allow-origin": "*"
+   },
+   "resourceType": "other",
+   "passes": [
+    "desktop"
+   ],
+   "file": "site/cdn.prod.website-files.com/6a068da7ad91b057365bf967/6a068e912ba75edec03d31d4_fav_512x512.png",
+   "size": 25012
+  },
+  {
+   "url": "https://assets.era-residence.com/flowers/bougainvillea-flowers_03.mov",
+   "method": "GET",
+   "status": 200,
+   "contentType": "video/quicktime",
+   "headers": {
+    "content-type": "video/quicktime"
+   },
+   "resourceType": "media",
+   "passes": [
+    "mobile"
+   ],
+   "file": "site/assets.era-residence.com/flowers/bougainvillea-flowers_03.mov",
+   "size": 9665209,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://assets.era-residence.com/flowers/bougainvillea-flowers_01.mov",
+   "method": "GET",
+   "status": 200,
+   "contentType": "video/quicktime",
+   "headers": {
+    "content-type": "video/quicktime"
+   },
+   "resourceType": "media",
+   "passes": [
+    "mobile"
+   ],
+   "file": "site/assets.era-residence.com/flowers/bougainvillea-flowers_01.mov",
+   "size": 9546048,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://assets.era-residence.com/flowers/bougainvillea-flowers_07.mov",
+   "method": "GET",
+   "status": 200,
+   "contentType": "video/quicktime",
+   "headers": {
+    "content-type": "video/quicktime"
+   },
+   "resourceType": "media",
+   "passes": [
+    "mobile"
+   ],
+   "file": "site/assets.era-residence.com/flowers/bougainvillea-flowers_07.mov",
+   "size": 10566899,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://assets.era-residence.com/flowers/bougainvillea-flowers_05.mov",
+   "method": "GET",
+   "status": 200,
+   "contentType": "video/quicktime",
+   "headers": {
+    "content-type": "video/quicktime"
+   },
+   "resourceType": "media",
+   "passes": [
+    "mobile"
+   ],
+   "file": "site/assets.era-residence.com/flowers/bougainvillea-flowers_05.mov",
+   "size": 7982763,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://assets.era-residence.com/flowers/bougainvillea-flowers_06.mov",
+   "method": "GET",
+   "status": 200,
+   "contentType": "video/quicktime",
+   "headers": {
+    "content-type": "video/quicktime"
+   },
+   "resourceType": "media",
+   "passes": [
+    "mobile"
+   ],
+   "file": "site/assets.era-residence.com/flowers/bougainvillea-flowers_06.mov",
+   "size": 9196830,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://assets.era-residence.com/flowers/bougainvillea-flowers_02.mov",
+   "method": "GET",
+   "status": 200,
+   "contentType": "video/quicktime",
+   "headers": {
+    "content-type": "video/quicktime"
+   },
+   "resourceType": "media",
+   "passes": [
+    "mobile"
+   ],
+   "file": "site/assets.era-residence.com/flowers/bougainvillea-flowers_02.mov",
+   "size": 10545352,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://assets.era-residence.com/flowers/bougainvillea-flowers_04.mov",
+   "method": "GET",
+   "status": 200,
+   "contentType": "video/quicktime",
+   "headers": {
+    "content-type": "video/quicktime"
+   },
+   "resourceType": "media",
+   "passes": [
+    "mobile"
+   ],
+   "file": "site/assets.era-residence.com/flowers/bougainvillea-flowers_04.mov",
+   "size": 9150391,
+   "modes": [
+    "no-cors"
+   ]
+  }
+ ],
+ "videos": {
+  "posters": {},
+  "onlineHosts": []
+ }
+}

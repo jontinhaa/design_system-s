@@ -1,0 +1,1691 @@
+{
+ "version": 1,
+ "tool": "wd3 0.1.0",
+ "captureId": "bar-topas.ch-9b1c3458",
+ "capturedAt": "2026-10-27T20:27:49+00:00",
+ "entry": {
+  "url": "https://bar-topas.ch/",
+  "path": "/",
+  "search": "",
+  "file": "site/bar-topas.ch/index.html",
+  "contentType": "text/html; charset=UTF-8"
+ },
+ "blocked": [
+  "^https?://([^/?#]+\\.)?(google\\-analytics\\.com|analytics\\.google\\.com|googletagmanager\\.com|googleadservices\\.com|doubleclick\\.net|googlesyndication\\.com|googleoptimize\\.com|connect\\.facebook\\.net|bat\\.bing\\.com|snap\\.licdn\\.com|px\\.ads\\.linkedin\\.com|analytics\\.tiktok\\.com|ct\\.pinterest\\.com|static\\.ads\\-twitter\\.com|analytics\\.twitter\\.com|tr\\.snapchat\\.com|sc\\-static\\.net|mc\\.yandex\\.ru|hotjar\\.com|hotjar\\.io|clarity\\.ms|cdn\\.segment\\.com|api\\.segment\\.io|cdn\\.mxpnl\\.com|api\\-js\\.mixpanel\\.com|api\\.mixpanel\\.com|api\\.amplitude\\.com|api2\\.amplitude\\.com|api\\-secure\\.amplitude\\.com|api\\-sr\\.amplitude\\.com|sr\\-client\\-cfg\\.amplitude\\.com|plausible\\.io|cloud\\.umami\\.is|analytics\\.umami\\.is|static\\.cloudflareinsights\\.com|cloudflareinsights\\.com|vitals\\.vercel\\-insights\\.com|browser\\-intake\\-datadoghq\\.com|browser\\-intake\\-datadoghq\\.eu|js\\-agent\\.newrelic\\.com|bam\\.nr\\-data\\.net|bam\\-cell\\.nr\\-data\\.net|fullstory\\.com|script\\.crazyegg\\.com|mouseflow\\.com|smartlook\\.com|heapanalytics\\.com|i\\.posthog\\.com|stats\\.wp\\.com|pixel\\.wp\\.com|promotekit\\.com|ingest\\.sentry\\.io|ingest\\.us\\.sentry\\.io|ingest\\.de\\.sentry\\.io|widget\\.intercom\\.io|js\\.intercomcdn\\.com|api\\-iam\\.intercom\\.io|js\\.hs\\-scripts\\.com|js\\.hs\\-analytics\\.net|js\\.hs\\-banner\\.com|js\\.hscollectedforms\\.net|js\\.usemessages\\.com|track\\.hubspot\\.com|client\\.crisp\\.chat|embed\\.tawk\\.to|js\\.driftt\\.com|static\\.zdassets\\.com|ekr\\.zdassets\\.com|cdn\\.cookielaw\\.org|geolocation\\.onetrust\\.com|consent\\.cookiebot\\.com|consentcdn\\.cookiebot\\.com|app\\.usercentrics\\.eu|api\\.usercentrics\\.eu|cdn\\.iubenda\\.com|cmp\\.osano\\.com|cdn\\.termly\\.io)(:\\d+)?([/?#]|$)",
+  "/rpc/increment_shared_code_views",
+  "^https?://(umami|analytics|stats|plausible)\\.[^/]+/(api/send|api/collect|api/event|script\\.js)",
+  "/g/c(ollect)?\\?v=2&",
+  "sentry\\.io/api/\\d+/(envelope|store)",
+  "/api/meta-capi",
+  "^https?://(leadtracker|tracking|track|events?|collect)\\.[^/]+/",
+  "^https?://a\\.vturb\\.com/",
+  "facebook\\.com/tr[/?]",
+  "/_vercel/(speed-)?insights/",
+  "/cdn-cgi/rum",
+  "/cdn-cgi/challenge-platform/",
+  "google\\.com/(pagead|ads)/"
+ ],
+ "volatileParams": [
+  "v",
+  "_rsc",
+  "dpl",
+  "_",
+  "t",
+  "ts",
+  "timestamp",
+  "cb",
+  "cachebust",
+  "cacheBust",
+  "nocache",
+  "rnd",
+  "rand",
+  "random",
+  "_t"
+ ],
+ "entries": [
+  {
+   "url": "https://bar-topas.ch/",
+   "method": "GET",
+   "status": 200,
+   "contentType": "text/html; charset=UTF-8",
+   "headers": {
+    "content-type": "text/html; charset=UTF-8",
+    "link": "<https://bar-topas.ch/>; rel=shortlink",
+    "panel": "hpanel",
+    "platform": "hostinger"
+   },
+   "resourceType": "document",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "file": "site/bar-topas.ch/index.html",
+   "size": 267673,
+   "modes": [
+    "navigate"
+   ]
+  },
+  {
+   "url": "https://bar-topas.ch/wp-content/themes/emg-topas/assets/fonts/archivo-var-latin.woff2",
+   "method": "GET",
+   "status": 200,
+   "contentType": "font/woff2",
+   "headers": {
+    "content-type": "font/woff2",
+    "panel": "hpanel",
+    "platform": "hostinger"
+   },
+   "resourceType": "font",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "file": "site/bar-topas.ch/wp-content/themes/emg-topas/assets/fonts/archivo-var-latin.woff2",
+   "size": 90104,
+   "modes": [
+    "cors"
+   ]
+  },
+  {
+   "url": "https://bar-topas.ch/wp-content/themes/emg-topas/assets/css/main.css?ver=1791912773",
+   "method": "GET",
+   "status": 200,
+   "contentType": "text/css",
+   "headers": {
+    "content-type": "text/css",
+    "panel": "hpanel",
+    "platform": "hostinger"
+   },
+   "resourceType": "stylesheet",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "file": "site/bar-topas.ch/wp-content/themes/emg-topas/assets/css/main__q5601df10.css",
+   "size": 56482,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://bar-topas.ch/wp-content/themes/emg-topas/assets/js/modules/cursor.js?ver=1791912773",
+   "method": "GET",
+   "status": 200,
+   "contentType": "application/x-javascript",
+   "headers": {
+    "content-type": "application/x-javascript",
+    "panel": "hpanel",
+    "platform": "hostinger"
+   },
+   "resourceType": "script",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "file": "site/bar-topas.ch/wp-content/themes/emg-topas/assets/js/modules/cursor__q5601df10.js",
+   "size": 1770,
+   "modes": [
+    "cors"
+   ]
+  },
+  {
+   "url": "https://bar-topas.ch/wp-content/themes/emg-topas/assets/js/modules/scroll.js?ver=1791912773",
+   "method": "GET",
+   "status": 200,
+   "contentType": "application/x-javascript",
+   "headers": {
+    "content-type": "application/x-javascript",
+    "panel": "hpanel",
+    "platform": "hostinger"
+   },
+   "resourceType": "script",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "file": "site/bar-topas.ch/wp-content/themes/emg-topas/assets/js/modules/scroll__q5601df10.js",
+   "size": 862,
+   "modes": [
+    "cors"
+   ]
+  },
+  {
+   "url": "https://bar-topas.ch/wp-content/themes/emg-topas/assets/js/modules/status.js?ver=1791912773",
+   "method": "GET",
+   "status": 200,
+   "contentType": "application/x-javascript",
+   "headers": {
+    "content-type": "application/x-javascript",
+    "panel": "hpanel",
+    "platform": "hostinger"
+   },
+   "resourceType": "script",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "file": "site/bar-topas.ch/wp-content/themes/emg-topas/assets/js/modules/status__q5601df10.js",
+   "size": 4306,
+   "modes": [
+    "cors"
+   ]
+  },
+  {
+   "url": "https://bar-topas.ch/wp-content/themes/emg-topas/assets/js/modules/credit.js?ver=1791912773",
+   "method": "GET",
+   "status": 200,
+   "contentType": "application/x-javascript",
+   "headers": {
+    "content-type": "application/x-javascript",
+    "panel": "hpanel",
+    "platform": "hostinger"
+   },
+   "resourceType": "script",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "file": "site/bar-topas.ch/wp-content/themes/emg-topas/assets/js/modules/credit__q5601df10.js",
+   "size": 1476,
+   "modes": [
+    "cors"
+   ]
+  },
+  {
+   "url": "https://bar-topas.ch/wp-content/themes/emg-topas/assets/js/app.js?ver=1791912773",
+   "method": "GET",
+   "status": 200,
+   "contentType": "application/x-javascript",
+   "headers": {
+    "content-type": "application/x-javascript",
+    "panel": "hpanel",
+    "platform": "hostinger"
+   },
+   "resourceType": "script",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "file": "site/bar-topas.ch/wp-content/themes/emg-topas/assets/js/app__q5601df10.js",
+   "size": 4417,
+   "modes": [
+    "cors"
+   ]
+  },
+  {
+   "url": "https://bar-topas.ch/wp-content/themes/emg-topas/assets/js/modules/intro.js?ver=1791912773",
+   "method": "GET",
+   "status": 200,
+   "contentType": "application/x-javascript",
+   "headers": {
+    "content-type": "application/x-javascript",
+    "panel": "hpanel",
+    "platform": "hostinger"
+   },
+   "resourceType": "script",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "file": "site/bar-topas.ch/wp-content/themes/emg-topas/assets/js/modules/intro__q5601df10.js",
+   "size": 4057,
+   "modes": [
+    "cors"
+   ]
+  },
+  {
+   "url": "https://bar-topas.ch/wp-content/themes/emg-topas/assets/js/modules/preload.js?ver=1791912773",
+   "method": "GET",
+   "status": 200,
+   "contentType": "application/x-javascript",
+   "headers": {
+    "content-type": "application/x-javascript",
+    "panel": "hpanel",
+    "platform": "hostinger"
+   },
+   "resourceType": "script",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "file": "site/bar-topas.ch/wp-content/themes/emg-topas/assets/js/modules/preload__q5601df10.js",
+   "size": 1287,
+   "modes": [
+    "cors"
+   ]
+  },
+  {
+   "url": "https://bar-topas.ch/wp-content/themes/emg-topas/assets/js/modules/vmap.js?ver=1791912773",
+   "method": "GET",
+   "status": 200,
+   "contentType": "application/x-javascript",
+   "headers": {
+    "content-type": "application/x-javascript",
+    "panel": "hpanel",
+    "platform": "hostinger"
+   },
+   "resourceType": "script",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "file": "site/bar-topas.ch/wp-content/themes/emg-topas/assets/js/modules/vmap__q5601df10.js",
+   "size": 4966,
+   "modes": [
+    "cors"
+   ]
+  },
+  {
+   "url": "https://bar-topas.ch/wp-content/themes/emg-topas/assets/js/modules/sections.js?ver=1791912773",
+   "method": "GET",
+   "status": 200,
+   "contentType": "application/x-javascript",
+   "headers": {
+    "content-type": "application/x-javascript",
+    "panel": "hpanel",
+    "platform": "hostinger"
+   },
+   "resourceType": "script",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "file": "site/bar-topas.ch/wp-content/themes/emg-topas/assets/js/modules/sections__q5601df10.js",
+   "size": 14629,
+   "modes": [
+    "cors"
+   ]
+  },
+  {
+   "url": "https://bar-topas.ch/wp-content/themes/emg-topas/assets/img/fonds/motif-typo-4x5-rouge.svg",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/svg+xml",
+   "headers": {
+    "content-type": "image/svg+xml",
+    "panel": "hpanel",
+    "platform": "hostinger"
+   },
+   "resourceType": "image",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "file": "site/bar-topas.ch/wp-content/themes/emg-topas/assets/img/fonds/motif-typo-4x5-rouge.svg",
+   "size": 47999,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://bar-topas.ch/wp-content/themes/emg-topas/assets/fonts/SourceSans3-Regular.woff2",
+   "method": "GET",
+   "status": 200,
+   "contentType": "font/woff2",
+   "headers": {
+    "content-type": "font/woff2",
+    "panel": "hpanel",
+    "platform": "hostinger"
+   },
+   "resourceType": "font",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "file": "site/bar-topas.ch/wp-content/themes/emg-topas/assets/fonts/SourceSans3-Regular.woff2",
+   "size": 154224,
+   "modes": [
+    "cors"
+   ]
+  },
+  {
+   "url": "https://bar-topas.ch/wp-content/themes/emg-topas/assets/img/illu/pinchos-2.webp",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/webp",
+   "headers": {
+    "content-type": "image/webp",
+    "panel": "hpanel",
+    "platform": "hostinger"
+   },
+   "resourceType": "image",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "file": "site/bar-topas.ch/wp-content/themes/emg-topas/assets/img/illu/pinchos-2.webp",
+   "size": 165052,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://bar-topas.ch/wp-content/themes/emg-topas/assets/img/titres/le-suisse.webp",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/webp",
+   "headers": {
+    "content-type": "image/webp",
+    "panel": "hpanel",
+    "platform": "hostinger"
+   },
+   "resourceType": "image",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "file": "site/bar-topas.ch/wp-content/themes/emg-topas/assets/img/titres/le-suisse.webp",
+   "size": 15952,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://bar-topas.ch/wp-content/themes/emg-topas/assets/img/titres/le-chef.webp",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/webp",
+   "headers": {
+    "content-type": "image/webp",
+    "panel": "hpanel",
+    "platform": "hostinger"
+   },
+   "resourceType": "image",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "file": "site/bar-topas.ch/wp-content/themes/emg-topas/assets/img/titres/le-chef.webp",
+   "size": 13052,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://bar-topas.ch/wp-content/themes/emg-topas/assets/img/titres/le-piqo.webp",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/webp",
+   "headers": {
+    "content-type": "image/webp",
+    "panel": "hpanel",
+    "platform": "hostinger"
+   },
+   "resourceType": "image",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "file": "site/bar-topas.ch/wp-content/themes/emg-topas/assets/img/titres/le-piqo.webp",
+   "size": 14566,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://bar-topas.ch/wp-content/themes/emg-topas/assets/img/titres/le-berger.webp",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/webp",
+   "headers": {
+    "content-type": "image/webp",
+    "panel": "hpanel",
+    "platform": "hostinger"
+   },
+   "resourceType": "image",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "file": "site/bar-topas.ch/wp-content/themes/emg-topas/assets/img/titres/le-berger.webp",
+   "size": 15274,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://bar-topas.ch/wp-content/themes/emg-topas/assets/vendor/gsap/SplitText.min.js?ver=3.15.0",
+   "method": "GET",
+   "status": 200,
+   "contentType": "application/x-javascript",
+   "headers": {
+    "content-type": "application/x-javascript",
+    "panel": "hpanel",
+    "platform": "hostinger"
+   },
+   "resourceType": "script",
+   "passes": [
+    "mobile",
+    "desktop"
+   ],
+   "file": "site/bar-topas.ch/wp-content/themes/emg-topas/assets/vendor/gsap/SplitText.min__q004f979a.js",
+   "size": 7732,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://bar-topas.ch/wp-content/themes/emg-topas/assets/vendor/gsap/CustomEase.min.js?ver=3.15.0",
+   "method": "GET",
+   "status": 200,
+   "contentType": "application/x-javascript",
+   "headers": {
+    "content-type": "application/x-javascript",
+    "panel": "hpanel",
+    "platform": "hostinger"
+   },
+   "resourceType": "script",
+   "passes": [
+    "mobile",
+    "desktop"
+   ],
+   "file": "site/bar-topas.ch/wp-content/themes/emg-topas/assets/vendor/gsap/CustomEase.min__q004f979a.js",
+   "size": 7143,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://bar-topas.ch/wp-content/themes/emg-topas/assets/vendor/gsap/gsap.min.js?ver=3.15.0",
+   "method": "GET",
+   "status": 200,
+   "contentType": "application/x-javascript",
+   "headers": {
+    "content-type": "application/x-javascript",
+    "panel": "hpanel",
+    "platform": "hostinger"
+   },
+   "resourceType": "script",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "file": "site/bar-topas.ch/wp-content/themes/emg-topas/assets/vendor/gsap/gsap.min__q004f979a.js",
+   "size": 72927,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://bar-topas.ch/wp-content/themes/emg-topas/assets/vendor/gsap/ScrollTrigger.min.js?ver=3.15.0",
+   "method": "GET",
+   "status": 200,
+   "contentType": "application/x-javascript",
+   "headers": {
+    "content-type": "application/x-javascript",
+    "panel": "hpanel",
+    "platform": "hostinger"
+   },
+   "resourceType": "script",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "file": "site/bar-topas.ch/wp-content/themes/emg-topas/assets/vendor/gsap/ScrollTrigger.min__q004f979a.js",
+   "size": 44575,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://bar-topas.ch/wp-content/themes/emg-topas/assets/vendor/lenis/lenis.min.js?ver=1.3.26",
+   "method": "GET",
+   "status": 200,
+   "contentType": "application/x-javascript",
+   "headers": {
+    "content-type": "application/x-javascript",
+    "panel": "hpanel",
+    "platform": "hostinger"
+   },
+   "resourceType": "script",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "file": "site/bar-topas.ch/wp-content/themes/emg-topas/assets/vendor/lenis/lenis.min__q8db7421a.js",
+   "size": 18685,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://bar-topas.ch/wp-content/themes/emg-topas/assets/img/titres/le-chalutier.webp",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/webp",
+   "headers": {
+    "content-type": "image/webp",
+    "panel": "hpanel",
+    "platform": "hostinger"
+   },
+   "resourceType": "image",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "file": "site/bar-topas.ch/wp-content/themes/emg-topas/assets/img/titres/le-chalutier.webp",
+   "size": 13940,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://bar-topas.ch/wp-content/themes/emg-topas/assets/img/titres/la-chalutiere.webp",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/webp",
+   "headers": {
+    "content-type": "image/webp",
+    "panel": "hpanel",
+    "platform": "hostinger"
+   },
+   "resourceType": "image",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "file": "site/bar-topas.ch/wp-content/themes/emg-topas/assets/img/titres/la-chalutiere.webp",
+   "size": 14880,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://bar-topas.ch/wp-content/themes/emg-topas/assets/img/titres/le-pecheur.webp",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/webp",
+   "headers": {
+    "content-type": "image/webp",
+    "panel": "hpanel",
+    "platform": "hostinger"
+   },
+   "resourceType": "image",
+   "passes": [
+    "mobile",
+    "desktop"
+   ],
+   "file": "site/bar-topas.ch/wp-content/themes/emg-topas/assets/img/titres/le-pecheur.webp",
+   "size": 14508,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://bar-topas.ch/wp-content/themes/emg-topas/assets/fonts/SourceSans3-Bold.woff2",
+   "method": "GET",
+   "status": 200,
+   "contentType": "font/woff2",
+   "headers": {
+    "content-type": "font/woff2",
+    "panel": "hpanel",
+    "platform": "hostinger"
+   },
+   "resourceType": "font",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "file": "site/bar-topas.ch/wp-content/themes/emg-topas/assets/fonts/SourceSans3-Bold.woff2",
+   "size": 156892,
+   "modes": [
+    "cors"
+   ]
+  },
+  {
+   "url": "https://bar-topas.ch/wp-content/themes/emg-topas/assets/fonts/barlowcondensed-800-latin.woff2",
+   "method": "GET",
+   "status": 200,
+   "contentType": "font/woff2",
+   "headers": {
+    "content-type": "font/woff2",
+    "panel": "hpanel",
+    "platform": "hostinger"
+   },
+   "resourceType": "font",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "file": "site/bar-topas.ch/wp-content/themes/emg-topas/assets/fonts/barlowcondensed-800-latin.woff2",
+   "size": 22464,
+   "modes": [
+    "cors"
+   ]
+  },
+  {
+   "url": "https://bar-topas.ch/wp-content/themes/emg-topas/assets/img/titres/la-cheffe.webp",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/webp",
+   "headers": {
+    "content-type": "image/webp",
+    "panel": "hpanel",
+    "platform": "hostinger"
+   },
+   "resourceType": "image",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "file": "site/bar-topas.ch/wp-content/themes/emg-topas/assets/img/titres/la-cheffe.webp",
+   "size": 13040,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://bar-topas.ch/wp-content/themes/emg-topas/assets/img/titres/la-forestiere.webp",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/webp",
+   "headers": {
+    "content-type": "image/webp",
+    "panel": "hpanel",
+    "platform": "hostinger"
+   },
+   "resourceType": "image",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "file": "site/bar-topas.ch/wp-content/themes/emg-topas/assets/img/titres/la-forestiere.webp",
+   "size": 16470,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://bar-topas.ch/wp-content/themes/emg-topas/assets/img/titres/la-bergere.webp",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/webp",
+   "headers": {
+    "content-type": "image/webp",
+    "panel": "hpanel",
+    "platform": "hostinger"
+   },
+   "resourceType": "image",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "file": "site/bar-topas.ch/wp-content/themes/emg-topas/assets/img/titres/la-bergere.webp",
+   "size": 15892,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://bar-topas.ch/wp-content/themes/emg-topas/assets/img/titres/la-douce.webp",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/webp",
+   "headers": {
+    "content-type": "image/webp",
+    "panel": "hpanel",
+    "platform": "hostinger"
+   },
+   "resourceType": "image",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "file": "site/bar-topas.ch/wp-content/themes/emg-topas/assets/img/titres/la-douce.webp",
+   "size": 13864,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://bar-topas.ch/wp-content/themes/emg-topas/assets/img/titres/la-pecheuse.webp",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/webp",
+   "headers": {
+    "content-type": "image/webp",
+    "panel": "hpanel",
+    "platform": "hostinger"
+   },
+   "resourceType": "image",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "file": "site/bar-topas.ch/wp-content/themes/emg-topas/assets/img/titres/la-pecheuse.webp",
+   "size": 15186,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://bar-topas.ch/wp-content/themes/emg-topas/assets/img/titres/le-suisse.svg",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/svg+xml",
+   "headers": {
+    "content-type": "image/svg+xml",
+    "panel": "hpanel",
+    "platform": "hostinger"
+   },
+   "resourceType": "image",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "file": "site/bar-topas.ch/wp-content/themes/emg-topas/assets/img/titres/le-suisse.svg",
+   "size": 2953,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://bar-topas.ch/wp-content/themes/emg-topas/assets/img/titres/la-sudiste.webp",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/webp",
+   "headers": {
+    "content-type": "image/webp",
+    "panel": "hpanel",
+    "platform": "hostinger"
+   },
+   "resourceType": "image",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "file": "site/bar-topas.ch/wp-content/themes/emg-topas/assets/img/titres/la-sudiste.webp",
+   "size": 15754,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://bar-topas.ch/wp-content/themes/emg-topas/assets/img/titres/la-suissesse.svg",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/svg+xml",
+   "headers": {
+    "content-type": "image/svg+xml",
+    "panel": "hpanel",
+    "platform": "hostinger"
+   },
+   "resourceType": "image",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "file": "site/bar-topas.ch/wp-content/themes/emg-topas/assets/img/titres/la-suissesse.svg",
+   "size": 4346,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://bar-topas.ch/wp-content/themes/emg-topas/assets/js/gl/stage.js?ver=1791912773",
+   "method": "GET",
+   "status": 200,
+   "contentType": "application/x-javascript",
+   "headers": {
+    "content-type": "application/x-javascript",
+    "panel": "hpanel",
+    "platform": "hostinger"
+   },
+   "resourceType": "script",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "file": "site/bar-topas.ch/wp-content/themes/emg-topas/assets/js/gl/stage__q5601df10.js",
+   "size": 7489,
+   "modes": [
+    "cors"
+   ]
+  },
+  {
+   "url": "https://bar-topas.ch/wp-content/themes/emg-topas/assets/img/illu/amigos-3.svg",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/svg+xml",
+   "headers": {
+    "content-type": "image/svg+xml",
+    "panel": "hpanel",
+    "platform": "hostinger"
+   },
+   "resourceType": "image",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "file": "site/bar-topas.ch/wp-content/themes/emg-topas/assets/img/illu/amigos-3.svg",
+   "size": 53922,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://bar-topas.ch/wp-content/themes/emg-topas/assets/img/titres/le-doux.webp",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/webp",
+   "headers": {
+    "content-type": "image/webp",
+    "panel": "hpanel",
+    "platform": "hostinger"
+   },
+   "resourceType": "image",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "file": "site/bar-topas.ch/wp-content/themes/emg-topas/assets/img/titres/le-doux.webp",
+   "size": 14326,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://bar-topas.ch/wp-content/themes/emg-topas/assets/img/titres/la-suissesse.webp",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/webp",
+   "headers": {
+    "content-type": "image/webp",
+    "panel": "hpanel",
+    "platform": "hostinger"
+   },
+   "resourceType": "image",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "file": "site/bar-topas.ch/wp-content/themes/emg-topas/assets/img/titres/la-suissesse.webp",
+   "size": 18066,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://bar-topas.ch/wp-content/themes/emg-topas/assets/fonts/SourceSans3-Semibold.woff2",
+   "method": "GET",
+   "status": 200,
+   "contentType": "font/woff2",
+   "headers": {
+    "content-type": "font/woff2",
+    "panel": "hpanel",
+    "platform": "hostinger"
+   },
+   "resourceType": "font",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "file": "site/bar-topas.ch/wp-content/themes/emg-topas/assets/fonts/SourceSans3-Semibold.woff2",
+   "size": 155468,
+   "modes": [
+    "cors"
+   ]
+  },
+  {
+   "url": "https://bar-topas.ch/wp-content/themes/emg-topas/assets/img/mains/biere-creme.svg",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/svg+xml",
+   "headers": {
+    "content-type": "image/svg+xml",
+    "panel": "hpanel",
+    "platform": "hostinger"
+   },
+   "resourceType": "image",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "file": "site/bar-topas.ch/wp-content/themes/emg-topas/assets/img/mains/biere-creme.svg",
+   "size": 5349,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://bar-topas.ch/wp-content/themes/emg-topas/assets/img/mains/vin-creme.svg",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/svg+xml",
+   "headers": {
+    "content-type": "image/svg+xml",
+    "panel": "hpanel",
+    "platform": "hostinger"
+   },
+   "resourceType": "image",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "file": "site/bar-topas.ch/wp-content/themes/emg-topas/assets/img/mains/vin-creme.svg",
+   "size": 6307,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://bar-topas.ch/wp-content/themes/emg-topas/assets/img/titres/le-sudiste.webp",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/webp",
+   "headers": {
+    "content-type": "image/webp",
+    "panel": "hpanel",
+    "platform": "hostinger"
+   },
+   "resourceType": "image",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "file": "site/bar-topas.ch/wp-content/themes/emg-topas/assets/img/titres/le-sudiste.webp",
+   "size": 15692,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://bar-topas.ch/wp-content/themes/emg-topas/assets/img/lettrages/una-mas.webp",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/webp",
+   "headers": {
+    "content-type": "image/webp",
+    "panel": "hpanel",
+    "platform": "hostinger"
+   },
+   "resourceType": "image",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "file": "site/bar-topas.ch/wp-content/themes/emg-topas/assets/img/lettrages/una-mas.webp",
+   "size": 105838,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://bar-topas.ch/wp-content/themes/emg-topas/assets/img/photos/pinchos-raclette-1-1280.webp",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/webp",
+   "headers": {
+    "content-type": "image/webp",
+    "panel": "hpanel",
+    "platform": "hostinger"
+   },
+   "resourceType": "image",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "file": "site/bar-topas.ch/wp-content/themes/emg-topas/assets/img/photos/pinchos-raclette-1-1280.webp",
+   "size": 45030,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://bar-topas.ch/wp-content/themes/emg-topas/assets/img/photos/cazuela-thon-1280.webp",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/webp",
+   "headers": {
+    "content-type": "image/webp",
+    "panel": "hpanel",
+    "platform": "hostinger"
+   },
+   "resourceType": "image",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "file": "site/bar-topas.ch/wp-content/themes/emg-topas/assets/img/photos/cazuela-thon-1280.webp",
+   "size": 62924,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://bar-topas.ch/wp-content/themes/emg-topas/assets/img/photos/pinchos-poulet-3-1280.webp",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/webp",
+   "headers": {
+    "content-type": "image/webp",
+    "panel": "hpanel",
+    "platform": "hostinger"
+   },
+   "resourceType": "image",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "file": "site/bar-topas.ch/wp-content/themes/emg-topas/assets/img/photos/pinchos-poulet-3-1280.webp",
+   "size": 42466,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://bar-topas.ch/wp-content/themes/emg-topas/assets/img/photos/pinchos-crevettes-2-1280.webp",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/webp",
+   "headers": {
+    "content-type": "image/webp",
+    "panel": "hpanel",
+    "platform": "hostinger"
+   },
+   "resourceType": "image",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "file": "site/bar-topas.ch/wp-content/themes/emg-topas/assets/img/photos/pinchos-crevettes-2-1280.webp",
+   "size": 58894,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://bar-topas.ch/wp-content/themes/emg-topas/assets/vendor/three/addons/RoomEnvironment.js?ver=0.186.1",
+   "method": "GET",
+   "status": 200,
+   "contentType": "application/x-javascript",
+   "headers": {
+    "content-type": "application/x-javascript",
+    "panel": "hpanel",
+    "platform": "hostinger"
+   },
+   "resourceType": "script",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "file": "site/bar-topas.ch/wp-content/themes/emg-topas/assets/vendor/three/addons/RoomEnvironment__q60844289.js",
+   "size": 4960,
+   "modes": [
+    "cors"
+   ]
+  },
+  {
+   "url": "https://bar-topas.ch/wp-content/themes/emg-topas/assets/vendor/three/three.module.min.js?ver=0.186.1",
+   "method": "GET",
+   "status": 200,
+   "contentType": "application/x-javascript",
+   "headers": {
+    "content-type": "application/x-javascript",
+    "panel": "hpanel",
+    "platform": "hostinger"
+   },
+   "resourceType": "script",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "file": "site/bar-topas.ch/wp-content/themes/emg-topas/assets/vendor/three/three.module.min__q60844289.js",
+   "size": 392738,
+   "modes": [
+    "cors"
+   ]
+  },
+  {
+   "url": "https://bar-topas.ch/wp-content/themes/emg-topas/assets/js/gl/food.js?ver=1791912773",
+   "method": "GET",
+   "status": 200,
+   "contentType": "application/x-javascript",
+   "headers": {
+    "content-type": "application/x-javascript",
+    "panel": "hpanel",
+    "platform": "hostinger"
+   },
+   "resourceType": "script",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "file": "site/bar-topas.ch/wp-content/themes/emg-topas/assets/js/gl/food__q5601df10.js",
+   "size": 57639,
+   "modes": [
+    "cors"
+   ]
+  },
+  {
+   "url": "https://bar-topas.ch/wp-content/themes/emg-topas/assets/js/gl/scenes.js?ver=1791912773",
+   "method": "GET",
+   "status": 200,
+   "contentType": "application/x-javascript",
+   "headers": {
+    "content-type": "application/x-javascript",
+    "panel": "hpanel",
+    "platform": "hostinger"
+   },
+   "resourceType": "script",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "file": "site/bar-topas.ch/wp-content/themes/emg-topas/assets/js/gl/scenes__q5601df10.js",
+   "size": 21950,
+   "modes": [
+    "cors"
+   ]
+  },
+  {
+   "url": "https://bar-topas.ch/wp-content/themes/emg-topas/assets/img/photos/pincho-closeup-1080.webp",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/webp",
+   "headers": {
+    "content-type": "image/webp",
+    "panel": "hpanel",
+    "platform": "hostinger"
+   },
+   "resourceType": "image",
+   "passes": [
+    "desktop"
+   ],
+   "file": "site/bar-topas.ch/wp-content/themes/emg-topas/assets/img/photos/pincho-closeup-1080.webp",
+   "size": 183272,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://bar-topas.ch/wp-content/themes/emg-topas/assets/img/photos/pinchos-raclette-2-1280.webp",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/webp",
+   "headers": {
+    "content-type": "image/webp",
+    "panel": "hpanel",
+    "platform": "hostinger"
+   },
+   "resourceType": "image",
+   "passes": [
+    "desktop"
+   ],
+   "file": "site/bar-topas.ch/wp-content/themes/emg-topas/assets/img/photos/pinchos-raclette-2-1280.webp",
+   "size": 61232,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://bar-topas.ch/wp-content/themes/emg-topas/assets/img/lettrages/un-poco.webp",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/webp",
+   "headers": {
+    "content-type": "image/webp",
+    "panel": "hpanel",
+    "platform": "hostinger"
+   },
+   "resourceType": "image",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "file": "site/bar-topas.ch/wp-content/themes/emg-topas/assets/img/lettrages/un-poco.webp",
+   "size": 118978,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://bar-topas.ch/wp-content/themes/emg-topas/assets/img/photos/pinchos-raclette-2-720.webp",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/webp",
+   "headers": {
+    "content-type": "image/webp",
+    "panel": "hpanel",
+    "platform": "hostinger"
+   },
+   "resourceType": "image",
+   "passes": [
+    "mobile"
+   ],
+   "file": "site/bar-topas.ch/wp-content/themes/emg-topas/assets/img/photos/pinchos-raclette-2-720.webp",
+   "size": 27214,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://bar-topas.ch/wp-content/themes/emg-topas/assets/img/illu/amigos-2.webp",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/webp",
+   "headers": {
+    "content-type": "image/webp",
+    "panel": "hpanel",
+    "platform": "hostinger"
+   },
+   "resourceType": "image",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "file": "site/bar-topas.ch/wp-content/themes/emg-topas/assets/img/illu/amigos-2.webp",
+   "size": 147974,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://bar-topas.ch/wp-content/themes/emg-topas/assets/img/illu/cazuela.svg",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/svg+xml",
+   "headers": {
+    "content-type": "image/svg+xml",
+    "panel": "hpanel",
+    "platform": "hostinger"
+   },
+   "resourceType": "image",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "file": "site/bar-topas.ch/wp-content/themes/emg-topas/assets/img/illu/cazuela.svg",
+   "size": 43962,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://bar-topas.ch/wp-content/themes/emg-topas/assets/img/photos/pinchos-poulet-2-1280.webp",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/webp",
+   "headers": {
+    "content-type": "image/webp",
+    "panel": "hpanel",
+    "platform": "hostinger"
+   },
+   "resourceType": "image",
+   "passes": [
+    "mobile",
+    "desktop"
+   ],
+   "file": "site/bar-topas.ch/wp-content/themes/emg-topas/assets/img/photos/pinchos-poulet-2-1280.webp",
+   "size": 50708,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://bar-topas.ch/wp-content/themes/emg-topas/assets/img/photos/cazuela-crevettes-1280.webp",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/webp",
+   "headers": {
+    "content-type": "image/webp",
+    "panel": "hpanel",
+    "platform": "hostinger"
+   },
+   "resourceType": "image",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "file": "site/bar-topas.ch/wp-content/themes/emg-topas/assets/img/photos/cazuela-crevettes-1280.webp",
+   "size": 63798,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://bar-topas.ch/wp-content/themes/emg-topas/assets/img/photos/cazuela-chorizo-1280.webp",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/webp",
+   "headers": {
+    "content-type": "image/webp",
+    "panel": "hpanel",
+    "platform": "hostinger"
+   },
+   "resourceType": "image",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "file": "site/bar-topas.ch/wp-content/themes/emg-topas/assets/img/photos/cazuela-chorizo-1280.webp",
+   "size": 126100,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://bar-topas.ch/wp-content/themes/emg-topas/assets/img/photos/amigos-1-1280.webp",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/webp",
+   "headers": {
+    "content-type": "image/webp",
+    "panel": "hpanel",
+    "platform": "hostinger"
+   },
+   "resourceType": "image",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "file": "site/bar-topas.ch/wp-content/themes/emg-topas/assets/img/photos/amigos-1-1280.webp",
+   "size": 86604,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://bar-topas.ch/wp-content/themes/emg-topas/assets/img/photos/amigos-2-1280.webp",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/webp",
+   "headers": {
+    "content-type": "image/webp",
+    "panel": "hpanel",
+    "platform": "hostinger"
+   },
+   "resourceType": "image",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "file": "site/bar-topas.ch/wp-content/themes/emg-topas/assets/img/photos/amigos-2-1280.webp",
+   "size": 58620,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://bar-topas.ch/wp-content/themes/emg-topas/assets/img/map/vicques-sat.webp",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/webp",
+   "headers": {
+    "content-type": "image/webp",
+    "panel": "hpanel",
+    "platform": "hostinger"
+   },
+   "resourceType": "image",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "file": "site/bar-topas.ch/wp-content/themes/emg-topas/assets/img/map/vicques-sat.webp",
+   "size": 293848,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://bar-topas.ch/wp-content/themes/emg-topas/assets/img/photos/pincho-closeup-720.webp",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/webp",
+   "headers": {
+    "content-type": "image/webp",
+    "panel": "hpanel",
+    "platform": "hostinger"
+   },
+   "resourceType": "image",
+   "passes": [
+    "mobile"
+   ],
+   "file": "site/bar-topas.ch/wp-content/themes/emg-topas/assets/img/photos/pincho-closeup-720.webp",
+   "size": 82564,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://bar-topas.ch/wp-content/themes/emg-topas/assets/vendor/three/addons/RoundedBoxGeometry.js?ver=0.186.1",
+   "method": "GET",
+   "status": 200,
+   "contentType": "application/x-javascript",
+   "headers": {
+    "content-type": "application/x-javascript",
+    "panel": "hpanel",
+    "platform": "hostinger"
+   },
+   "resourceType": "script",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "file": "site/bar-topas.ch/wp-content/themes/emg-topas/assets/vendor/three/addons/RoundedBoxGeometry__q60844289.js",
+   "size": 6470,
+   "modes": [
+    "cors"
+   ]
+  },
+  {
+   "url": "https://bar-topas.ch/wp-content/themes/emg-topas/assets/js/gl/noise.js?ver=1791912773",
+   "method": "GET",
+   "status": 200,
+   "contentType": "application/x-javascript",
+   "headers": {
+    "content-type": "application/x-javascript",
+    "panel": "hpanel",
+    "platform": "hostinger"
+   },
+   "resourceType": "script",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "file": "site/bar-topas.ch/wp-content/themes/emg-topas/assets/js/gl/noise__q5601df10.js",
+   "size": 3660,
+   "modes": [
+    "cors"
+   ]
+  },
+  {
+   "url": "https://bar-topas.ch/wp-content/themes/emg-topas/assets/js/gl/dishes.js?ver=1791912773",
+   "method": "GET",
+   "status": 200,
+   "contentType": "application/x-javascript",
+   "headers": {
+    "content-type": "application/x-javascript",
+    "panel": "hpanel",
+    "platform": "hostinger"
+   },
+   "resourceType": "script",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "file": "site/bar-topas.ch/wp-content/themes/emg-topas/assets/js/gl/dishes__q5601df10.js",
+   "size": 9605,
+   "modes": [
+    "cors"
+   ]
+  },
+  {
+   "url": "https://bar-topas.ch/wp-content/themes/emg-topas/assets/vendor/three/addons/BufferGeometryUtils.js?ver=0.186.1",
+   "method": "GET",
+   "status": 200,
+   "contentType": "application/x-javascript",
+   "headers": {
+    "content-type": "application/x-javascript",
+    "panel": "hpanel",
+    "platform": "hostinger"
+   },
+   "resourceType": "script",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "file": "site/bar-topas.ch/wp-content/themes/emg-topas/assets/vendor/three/addons/BufferGeometryUtils__q60844289.js",
+   "size": 37712,
+   "modes": [
+    "cors"
+   ]
+  },
+  {
+   "url": "https://bar-topas.ch/wp-content/themes/emg-topas/assets/js/gl/textures.js?ver=1791912773",
+   "method": "GET",
+   "status": 200,
+   "contentType": "application/x-javascript",
+   "headers": {
+    "content-type": "application/x-javascript",
+    "panel": "hpanel",
+    "platform": "hostinger"
+   },
+   "resourceType": "script",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "file": "site/bar-topas.ch/wp-content/themes/emg-topas/assets/js/gl/textures__q5601df10.js",
+   "size": 17002,
+   "modes": [
+    "cors"
+   ]
+  },
+  {
+   "url": "https://bar-topas.ch/wp-content/themes/emg-topas/assets/vendor/three/three.core.js",
+   "method": "GET",
+   "status": 200,
+   "contentType": "application/x-javascript",
+   "headers": {
+    "content-type": "application/x-javascript",
+    "panel": "hpanel",
+    "platform": "hostinger"
+   },
+   "resourceType": "script",
+   "passes": [
+    "mobile",
+    "desktop"
+   ],
+   "file": "site/bar-topas.ch/wp-content/themes/emg-topas/assets/vendor/three/three.core.js",
+   "size": 415723,
+   "modes": [
+    "cors"
+   ]
+  },
+  {
+   "url": "https://bar-topas.ch/wp-content/themes/emg-topas/assets/img/favicon/favicon-32.png",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/png",
+   "headers": {
+    "content-type": "image/png",
+    "panel": "hpanel",
+    "platform": "hostinger"
+   },
+   "resourceType": "other",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "file": "site/bar-topas.ch/wp-content/themes/emg-topas/assets/img/favicon/favicon-32.png",
+   "size": 924,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://bar-topas.ch/wp-content/themes/emg-topas/assets/img/logo/seul-creme.svg",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/svg+xml",
+   "headers": {
+    "content-type": "image/svg+xml",
+    "panel": "hpanel",
+    "platform": "hostinger"
+   },
+   "resourceType": "image",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "file": "site/bar-topas.ch/wp-content/themes/emg-topas/assets/img/logo/seul-creme.svg",
+   "size": 3059,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://bar-topas.ch/wp-content/themes/emg-topas/assets/img/illu/pinchos-1.webp",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/webp",
+   "headers": {
+    "content-type": "image/webp",
+    "panel": "hpanel",
+    "platform": "hostinger"
+   },
+   "resourceType": "image",
+   "passes": [
+    "desktop"
+   ],
+   "file": "site/bar-topas.ch/wp-content/themes/emg-topas/assets/img/illu/pinchos-1.webp",
+   "size": 174184
+  },
+  {
+   "url": "https://bar-topas.ch/wp-content/themes/emg-topas/assets/img/favicon/favicon.ico",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/x-icon",
+   "headers": {
+    "content-type": "image/x-icon",
+    "platform": "hostinger",
+    "panel": "hpanel"
+   },
+   "resourceType": "other",
+   "passes": [
+    "mobile"
+   ],
+   "file": "site/bar-topas.ch/wp-content/themes/emg-topas/assets/img/favicon/favicon.ico",
+   "size": 5046
+  },
+  {
+   "url": "https://bar-topas.ch/wp-content/themes/emg-topas/assets/img/favicon/favicon-180.png",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/png",
+   "headers": {
+    "content-type": "image/png",
+    "platform": "hostinger",
+    "panel": "hpanel"
+   },
+   "resourceType": "other",
+   "passes": [
+    "mobile"
+   ],
+   "file": "site/bar-topas.ch/wp-content/themes/emg-topas/assets/img/favicon/favicon-180.png",
+   "size": 6273
+  },
+  {
+   "url": "https://bar-topas.ch/wp-content/themes/emg-topas/assets/img/favicon/favicon-192.png",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/png",
+   "headers": {
+    "content-type": "image/png",
+    "platform": "hostinger",
+    "panel": "hpanel"
+   },
+   "resourceType": "other",
+   "passes": [
+    "mobile"
+   ],
+   "file": "site/bar-topas.ch/wp-content/themes/emg-topas/assets/img/favicon/favicon-192.png",
+   "size": 6611
+  }
+ ],
+ "videos": {
+  "posters": {},
+  "onlineHosts": []
+ }
+}

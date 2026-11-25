@@ -1,0 +1,209 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Torra® Café — café especial torrado aqui</title>
+  <meta name="description" content="Cafeteria com torra própria. Espresso, coado, pão de fermentação natural e café em grão torrado toda terça." />
+  <meta name="theme-color" content="#0d0b0a" />
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+  <script>
+    // failsafe: se o JS não subir em 8 s, tira o loader
+    setTimeout(() => { if (!window.__booted) document.documentElement.classList.add('no-js-boot'); }, 8000);
+  </script>
+  <script type="module" crossorigin src="/assets/index-DowEM1fW.js"></script>
+  <link rel="stylesheet" crossorigin href="/assets/index-B84jf4lP.css">
+</head>
+<body class="is-loading" data-theme="dark">
+  <!-- Loader: um grão que torra enquanto os quadros baixam -->
+  <div class="loader" aria-hidden="true">
+    <div class="loader__bean">
+      <svg viewBox="0 0 120 160">
+        <defs>
+          <clipPath id="bean-clip"><path d="M60 6C29 6 10 40 10 82s19 72 50 72 50-30 50-72S91 6 60 6Z" /></clipPath>
+        </defs>
+        <g clip-path="url(#bean-clip)">
+          <rect class="loader__fill" x="0" y="0" width="120" height="160" />
+        </g>
+        <path class="loader__outline" d="M60 6C29 6 10 40 10 82s19 72 50 72 50-30 50-72S91 6 60 6Z" />
+        <path class="loader__crease" d="M62 12c-16 22 10 46-4 70s-8 46 4 66" />
+      </svg>
+    </div>
+    <p class="loader__temp tnum"><span class="loader__deg">20</span> °C</p>
+    <p class="loader__label label">Torrando</p>
+  </div>
+
+  <header class="nav">
+    <div class="nav__pill">
+      <div class="nav__bar">
+        <a class="nav__logo" href="#inicio" data-scroll aria-label="Torra, início">
+          <svg viewBox="0 0 32 32" aria-hidden="true"><rect width="32" height="32" rx="2" /><path d="M6.5 7h19v6.2h-1.3c-.5-2.6-1.6-3.6-4.2-3.6h-1.6v13.1c0 1.5.4 1.9 2.4 2.1V26h-9.6v-1.2c2-.2 2.4-.6 2.4-2.1V9.6H12c-2.6 0-3.7 1-4.2 3.6H6.5z" /></svg>
+        </a>
+        <span class="nav__status label"><i></i><span class="nav__status-text">Aberto até 19h</span></span>
+        <button class="nav__burger" type="button" aria-expanded="false" aria-controls="menu" aria-label="Abrir menu"><i></i><i></i><i></i></button>
+      </div>
+      <nav class="menu" id="menu" aria-label="Seções">
+        <ol class="menu__list">
+          <li><a href="#cardapio" data-scroll><span class="tnum">01</span><b class="serif">Cardápio</b></a></li>
+          <li><a href="#graos" data-scroll><span class="tnum">02</span><b class="serif">Origens</b></a></li>
+          <li><a href="#torra" data-scroll><span class="tnum">03</span><b class="serif">A torra</b></a></li>
+          <li><a href="#loja" data-scroll><span class="tnum">04</span><b class="serif">A loja</b></a></li>
+          <li><a href="#comprar" data-scroll><span class="tnum">05</span><b class="serif">Café em grão</b></a></li>
+        </ol>
+        <div class="menu__foot">
+          <p>Rua das Acácias, 214<br />Todo dia a partir das 7h</p>
+          <a href="#comprar" data-scroll class="menu__cta ulink">Comprar café →</a>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <!-- 1 + 2. Hero e o filme: uma seção só, presa ao scroll -->
+    <section class="filme" id="inicio" data-theme="dark" aria-label="Torra Café">
+      <div class="filme__stage">
+        <canvas class="filme__canvas" aria-hidden="true"></canvas>
+        <div class="filme__shade" aria-hidden="true"></div>
+
+        <h1 class="hero__line">
+          <span class="hero__word hero__word--a" data-edge="left">Torra<sup>®</sup></span>
+          <span class="hero__thumb" aria-hidden="true"></span>
+          <span class="hero__word hero__word--b serif" data-edge="right">Café</span>
+        </h1>
+        <button class="hero__pause" type="button" aria-label="Pausar vídeo" aria-pressed="false" data-cursor="Pausar"><i></i><i></i></button>
+
+        <div class="hero__foot">
+          <p class="hero__lede">Café especial torrado aqui, toda terça.<br />Grão, espresso, coado e pão de fermentação natural.</p>
+          <div class="hero__links">
+            <a href="#cardapio" data-scroll class="ulink">(Cardápio)</a>
+            <a href="#loja" data-scroll class="ulink">(Horários)</a>
+          </div>
+        </div>
+
+        <div class="caps">
+          <article class="cap" data-cap="0">
+            <p class="cap__label label tnum">01 — Espresso</p>
+            <h2 class="cap__title serif">Vinte e oito<br />segundos.</h2>
+            <p class="cap__text">Dose dupla, 18 g moídos na hora. A primeira xícara sai às 7h.</p>
+          </article>
+          <article class="cap" data-cap="1">
+            <p class="cap__label label tnum">02 — Torra</p>
+            <h2 class="cap__title serif">Doze minutos<br />a 210&#8239;°C.</h2>
+            <p class="cap__text">Torramos em lotes de 15 kg. O café que você toma saiu do tambor esta semana.</p>
+          </article>
+          <article class="cap" data-cap="2">
+            <p class="cap__label label tnum">03 — Balcão</p>
+            <h2 class="cap__title serif">Coado na hora,<br />pão do forno.</h2>
+            <p class="cap__text">V60 com o grão da semana e pão de fermentação natural assado aqui antes de abrir.</p>
+          </article>
+        </div>
+
+        <div class="filme__hud label tnum" aria-hidden="true">
+          <span class="filme__count"><b>01</b> / 03</span>
+          <span class="filme__bar"><i></i></span>
+        </div>
+      </div>
+    </section>
+
+    <!-- 3. Cardápio -->
+    <section class="cardapio" id="cardapio" data-theme="light">
+      <div class="cardapio__inner">
+        <div class="cardapio__head">
+          <p class="label">(Cardápio)</p>
+          <h2 class="cardapio__group serif" aria-live="polite"><span class="cardapio__group-word">Espresso</span></h2>
+          <ol class="cardapio__index tnum"></ol>
+        </div>
+        <figure class="cardapio__photo">
+          <svg class="cardapio__ring" viewBox="-110 -110 220 220" aria-hidden="true"></svg>
+          <div class="cardapio__disc"></div>
+        </figure>
+        <div class="cardapio__list"></div>
+        <p class="cardapio__note label">Leite de aveia sem custo extra.</p>
+        <p class="cardapio__count label tnum"><b>01</b> / 03</p>
+      </div>
+    </section>
+
+    <!-- 4. Origens: galeria espalhada, um bloco por lote (montado de src/data/lotes.js) -->
+    <section class="origens" id="graos" data-theme="dark" aria-label="Origens">
+      <h2 class="sr-only">Origens</h2>
+    </section>
+
+    <!-- 5. A torra: o mostrador de doze minutos -->
+    <section class="torra" id="torra" data-theme="light">
+      <div class="torra__inner">
+        <div class="torra__head">
+          <h2 class="torra__title serif">Toda terça,<br />doze minutos.</h2>
+          <p class="torra__lede">Lotes de 15 kg num torrador a gás.<br />Cada torra tem a curva anotada.</p>
+        </div>
+        <div class="dial" aria-hidden="true">
+          <svg class="dial__svg"><path class="dial__arc" /><g class="dial__marks"></g><line class="dial__needle" /><circle class="dial__tip" r="5" /><circle class="dial__pivot" r="4" /></svg>
+          <span class="dial__end dial__end--a tnum">0:00</span>
+          <span class="dial__end dial__end--b tnum">12:00</span>
+        </div>
+        <ol class="notes"></ol>
+        <p class="torra__read" aria-live="off"><b class="serif tnum">152&#8239;°C</b><span class="tnum">0:00</span></p>
+      </div>
+    </section>
+
+    <!-- 6. A loja -->
+    <section class="loja" id="loja" data-theme="light">
+      <div class="loja__inner">
+        <figure class="loja__photo"><img src="/img/loja.webp" alt="O salão da Torra de manhã: balcão de madeira, máquina de espresso e janelas grandes" loading="lazy" width="1600" height="900" /></figure>
+        <div class="loja__copy">
+          <h2 class="loja__title serif">Aberto todo dia<br />a partir das 7h.</h2>
+          <p class="loja__now"><i></i><span>Aberto agora · fecha às 19h</span></p>
+          <table class="loja__hours tnum">
+            <caption class="sr-only">Horário de funcionamento</caption>
+            <tbody></tbody>
+          </table>
+        </div>
+        <dl class="loja__info">
+          <div><dt>(Endereço)</dt><dd>Rua das Acácias, 214</dd></div>
+          <div><dt>(Torra)</dt><dd>Toda terça, das 6h às 10h</dd></div>
+          <div><dt>(Contato)</dt><dd><a href="mailto:ola@torra.cafe" class="ulink">ola@torra.cafe</a></dd></div>
+        </dl>
+      </div>
+    </section>
+
+    <!-- 7. Comprar -->
+    <section class="comprar" id="comprar" data-theme="dark">
+      <div class="comprar__inner">
+        <figure class="comprar__bag">
+          <img src="/img/pacote.webp" alt="Pacote de papel kraft da Torra com a etiqueta do T" loading="lazy" width="1200" height="1500" />
+        </figure>
+        <form class="comprar__form" onsubmit="return false">
+          <p class="label">(Café em grão)</p>
+          <h2 class="comprar__title serif">Leve a torra<br />para casa.</h2>
+          <fieldset class="opt" data-opt="lote"><legend class="label">Lote</legend><div class="opt__pills"></div></fieldset>
+          <fieldset class="opt" data-opt="moagem"><legend class="label">Moagem</legend><div class="opt__pills"></div></fieldset>
+          <fieldset class="opt" data-opt="peso"><legend class="label">Peso</legend><div class="opt__pills"></div></fieldset>
+          <p class="comprar__notes serif"></p>
+          <label class="comprar__sub"><input type="checkbox" /><span class="comprar__check" aria-hidden="true"></span>Receber a cada 15 dias · 10% off</label>
+          <button class="comprar__buy" type="submit"><span class="comprar__buy-in"><span>Comprar</span><span class="comprar__price tnum">R$ 52</span></span><span class="comprar__arrow" aria-hidden="true">→</span></button>
+          <p class="comprar__foot label">Torrado na terça, enviado na quarta.</p>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <!-- 8. Rodapé: a linha do hero volta -->
+  <footer class="rodape" data-theme="light">
+    <p class="rodape__line" aria-label="Torra Café">
+      <span class="rodape__word">Torra<sup>®</sup></span>
+      <span class="rodape__thumb"><img src="/img/rodape.webp" alt="" loading="lazy" width="640" height="360" /></span>
+      <span class="rodape__word serif">Café</span>
+    </p>
+    <div class="rodape__cols">
+      <div><p class="rodape__k">(Visite)</p><p>Rua das Acácias, 214<br />Térreo, perto da praça</p></div>
+      <div><p class="rodape__k">(Horário)</p><p>Todo dia a partir das 7h<br />Seg a qui até 19h · sex até 20h<br />Sáb até 18h · dom até 14h</p></div>
+      <div><p class="rodape__k">(Contato)</p><p><a href="mailto:ola@torra.cafe" class="ulink">ola@torra.cafe</a><br /><a href="#" class="ulink" aria-label="Instagram">@torra.cafe</a></p></div>
+      <div><p class="rodape__k">(Café em grão)</p><p>Enviamos para todo o país<br /><a href="#comprar" data-scroll class="ulink">Comprar →</a></p></div>
+    </div>
+    <div class="rodape__base label">
+      <span>© 2026 Torra Café Ltda. · CNPJ 00.000.000/0001-00</span>
+      <a href="#inicio" data-scroll class="ulink">Voltar ao topo ↑</a>
+    </div>
+  </footer>
+
+</body>
+</html>

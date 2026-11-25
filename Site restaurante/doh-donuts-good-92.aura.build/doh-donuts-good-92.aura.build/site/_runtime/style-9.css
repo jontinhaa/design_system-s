@@ -1,0 +1,8 @@
+
+/* ===== Stacked sheets: from the flavour room to the footer, each section pins once fully read
+and the next one slides up over it. --stick-top is set per section (0, or negative for tall ones). ===== */
+.content>section,.content>footer{position:sticky;top:var(--stick-top,0px)}
+.content>section.faq-section{border-radius:44px 44px 0 0;margin-top:-44px;box-shadow:0 -18px 40px -24px rgba(23,60,49,.35)}
+@media(max-width:800px){.content>section.faq-section{border-radius:28px 28px 0 0;margin-top:-28px}}
+.stack-shade{position:absolute;inset:0;border-radius:inherit;background:#0f241d;opacity:0;pointer-events:none;z-index:50}
+.content>.is-stacking{will-change:transform}

@@ -1,0 +1,76 @@
+{
+ "builders": [
+  "nuxt"
+ ],
+ "libraries": [
+  {
+   "name": "gsap",
+   "version": "3.11.5",
+   "sources": [
+    "embutido em https://casadisolare.com/webgl.js"
+   ]
+  },
+  {
+   "name": "rive",
+   "version": "2.9.3",
+   "sources": [
+    "https://unpkg.com/@rive-app/canvas@2.9.3/rive.wasm"
+   ]
+  },
+  {
+   "name": "three",
+   "version": "r148",
+   "sources": [
+    "página"
+   ]
+  }
+ ],
+ "runtime": {
+  "contexts": {
+   "webgl2": 2,
+   "2d": 2
+  },
+  "wasm": 1,
+  "workers": 0,
+  "webgpu": false,
+  "shadowRoots": 0,
+  "canvases": 3
+ },
+ "cssFeatures": [
+  "view transitions"
+ ],
+ "fonts": {
+  "families": [
+   "solare-variable",
+   "solare",
+   "solare-intense",
+   "solare-italic"
+  ],
+  "sources": [
+   "self-hosted"
+  ]
+ },
+ "videos": [
+  {
+   "src": "https://casadisolare.com/book.mp4",
+   "kind": "decorativo",
+   "reason": "curto, sem controles e sem som",
+   "hosting": "próprio site",
+   "action": "baixado"
+  },
+  {
+   "src": "https://casadisolare.com/foot.mp4",
+   "kind": "decorativo",
+   "reason": "curto, sem controles e sem som",
+   "hosting": "próprio site",
+   "action": "baixado"
+  }
+ ],
+ "files": {
+  "text": 3,
+  "application": 24,
+  "font": 14,
+  "image": 436,
+  "video": 2
+ }
+}

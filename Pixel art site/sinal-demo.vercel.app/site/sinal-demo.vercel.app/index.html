@@ -1,0 +1,242 @@
+<!doctype html>
+<html lang="pt-BR" class="is-loading">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <title>Sinal — estúdio criativo de IA</title>
+  <meta name="description" content="A Sinal transforma uma frase em imagens, vídeo e marca. Estúdio criativo de IA com diretores de arte de verdade." />
+  <meta name="theme-color" content="#000000" />
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' fill='%23000'/%3E%3Crect x='7' y='7' width='9' height='9' fill='%23fff'/%3E%3Crect x='16' y='16' width='9' height='9' fill='%23fff'/%3E%3C/svg%3E" />
+  <script type="module" crossorigin src="/assets/index-BCTek5mE.js"></script>
+  <link rel="stylesheet" crossorigin href="/assets/index-DicWV1_n.css">
+</head>
+<body>
+  <!-- o mundo: um canvas WebGL fixo atrás do conteúdo (dither 1-bit, partículas, o fluxo do sinal) -->
+  <canvas class="world" aria-hidden="true"></canvas>
+
+  <!-- loader: o mostrador em volta da esfera é desenhado no canvas; aqui só o contador (motion/loader.js) -->
+  <div class="loader" data-loader role="progressbar" aria-label="Carregando a página" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0">
+    <svg class="loader__boot" viewBox="0 0 20 20" aria-hidden="true"><rect x="2" y="2" width="8" height="8" fill="currentColor"/><rect x="10" y="10" width="8" height="8" fill="currentColor"/></svg>
+    <p class="loader__tag">
+      <svg class="loader__mark" viewBox="0 0 20 20" aria-hidden="true"><rect x="2" y="2" width="8" height="8" fill="currentColor"/><rect x="10" y="10" width="8" height="8" fill="currentColor"/></svg>
+      <span data-loader-what>sintonizando</span>
+      <span class="loader__n"><span data-loader-n>0</span>%</span>
+    </p>
+  </div>
+
+  <header class="nav" data-nav>
+    <a class="nav__brand" href="#topo" aria-label="Sinal, início">
+      <svg class="nav__mark" viewBox="0 0 20 20" aria-hidden="true"><rect x="2" y="2" width="8" height="8" fill="currentColor"/><rect x="10" y="10" width="8" height="8" fill="currentColor"/></svg>
+      <span>sinal</span>
+    </a>
+    <nav class="nav__links" aria-label="Principal">
+      <a href="#estudio">Estúdio</a>
+      <a href="#trabalhos">Trabalhos</a>
+      <a href="#planos">Preços</a>
+    </nav>
+    <a class="btn btn--primary btn--sm nav__cta" href="#comecar">Começar</a>
+  </header>
+
+  <main id="topo">
+    <!-- HERO -->
+    <section class="hero" data-scene="hero">
+      <div class="hero__maos" data-obj="maos" aria-hidden="true"></div>
+      <h1 class="hero__title" data-title>
+        <span class="w w1">Faça</span>
+        <span class="w w2">existir</span>
+      </h1>
+      <div class="hero__foot">
+        <p class="hero__lead">Imagens, vídeo e marca a partir de uma <em>frase</em>.</p>
+        <div class="hero__ctas">
+          <a class="btn btn--primary" href="#como">
+            <svg class="btn__ico" viewBox="0 0 16 16" aria-hidden="true"><rect x="2" y="2" width="5" height="5" fill="currentColor"/><rect x="7" y="7" width="5" height="5" fill="currentColor"/><rect x="12" y="12" width="2" height="2" fill="currentColor"/></svg>
+            Criar a primeira imagem
+          </a>
+          <a class="btn btn--secondary" href="#trabalhos">
+            <svg class="btn__ico" viewBox="0 0 16 16" aria-hidden="true"><path d="M4.5 2.8v10.4L13 8z" fill="currentColor"/></svg>
+            Ver em ação
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- COMO FUNCIONA: a frase vira imagem -->
+    <section class="como" id="como" data-scene="como">
+      <div class="como__txt">
+        <p class="eyebrow" data-reveal>Como funciona</p>
+        <h2 class="h2" data-lines>Da frase<br />à imagem<br />em 38 segundos.</h2>
+        <div class="prompt" data-prompt data-reveal>
+          <span class="prompt__label">Sua frase</span>
+          <p class="prompt__field"><span data-prompt-text></span><i class="prompt__caret" aria-hidden="true"></i></p>
+          <div class="prompt__bar">
+            <span class="prompt__status" data-prompt-status>4 variações · 2048 px</span>
+            <span class="prompt__go" data-prompt-go>
+              <svg viewBox="0 0 16 16" aria-hidden="true"><path d="M3 8h9M8.5 4.5 12 8l-3.5 3.5" fill="none" stroke="currentColor" stroke-width="1.6"/></svg>
+              Gerar
+            </span>
+          </div>
+        </div>
+        <ol class="steps">
+          <li class="step" data-reveal><span class="step__n">01</span><div><h3>Escreva</h3><p>Uma frase basta. Se quiser, mande referências, cores e o tom da sua marca.</p></div></li>
+          <li class="step" data-reveal><span class="step__n">02</span><div><h3>A Sinal cria</h3><p>A IA gera dezenas de caminhos; diretores de arte escolhem e refinam os melhores.</p></div></li>
+          <li class="step" data-reveal><span class="step__n">03</span><div><h3>Você publica</h3><p>Arquivos em alta, prontos para rede social, site, impresso e telão.</p></div></li>
+        </ol>
+      </div>
+      <figure class="como__img">
+        <div class="obj obj--baleia" data-obj="baleia" data-way data-anchor data-w="0.09" role="img" aria-label="Uma baleia atravessando as nuvens, em pontilhado branco"></div>
+        <figcaption class="cap" data-reveal>“Uma baleia atravessando as nuvens ao entardecer” · gerada em 38 s</figcaption>
+      </figure>
+    </section>
+
+    <!-- ESTÚDIO: imagem, vídeo, marca -->
+    <section class="estudio" id="estudio" data-scene="estudio">
+      <header class="sec-head">
+        <p class="eyebrow" data-reveal>O estúdio</p>
+        <h2 class="h2" data-lines>Uma frase vira<br />três coisas.</h2>
+        <p class="lead" data-reveal>Imagem, vídeo e marca saem do mesmo pedido, com a mesma luz e a mesma voz.</p>
+      </header>
+      <div class="servicos">
+        <article class="servico">
+          <div class="obj obj--servico" data-obj="olho" data-way data-w="0.12" role="img" aria-label="Um olho em pontilhado"></div>
+          <div class="servico__txt" data-reveal>
+            <span class="tag">01 · Imagem</span>
+            <h3>Campanhas, produtos e editoriais</h3>
+            <p>Até 40 variações por frase, em 4K, com a sua paleta e a sua luz.</p>
+            <span class="meta">a partir de 4 min</span>
+          </div>
+        </article>
+        <article class="servico">
+          <div class="obj obj--servico" data-obj="camera" data-way data-anchor data-w="0.12" role="img" aria-label="Uma câmera de cinema em pontilhado"></div>
+          <div class="servico__txt" data-reveal data-delay="0.08">
+            <span class="tag">02 · Vídeo</span>
+            <h3>Filmes de 6 a 30 segundos</h3>
+            <p>Movimento de câmera, trilha e corte para anúncio, vitrine e lançamento.</p>
+            <span class="meta">a partir de 2 h</span>
+          </div>
+        </article>
+        <article class="servico">
+          <div class="obj obj--servico" data-obj="marca" data-way data-w="0.12" role="img" aria-label="Um símbolo de marca se montando em pontilhado"></div>
+          <div class="servico__txt" data-reveal data-delay="0.16">
+            <span class="tag">03 · Marca</span>
+            <h3>Nome, símbolo e manual</h3>
+            <p>Um sistema que a IA respeita em tudo o que gera depois, do post ao outdoor.</p>
+            <span class="meta">a partir de 5 dias</span>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <!-- TRABALHOS -->
+    <section class="trabalhos" id="trabalhos" data-scene="trabalhos">
+      <header class="sec-head sec-head--split">
+        <div>
+          <p class="eyebrow" data-reveal>Trabalhos</p>
+          <h2 class="h2" data-lines>Feito a partir<br />de uma frase.</h2>
+        </div>
+        <p class="lead" data-reveal>Seis pedidos de clientes deste ano. A frase original vai junto, do jeito que chegou.</p>
+      </header>
+      <div class="obras" data-way data-anchor data-w="0.035">
+        <figure class="obra">
+          <div class="obra__img" data-obj="perfume" role="img" aria-label="Frasco de perfume facetado"></div>
+          <figcaption data-reveal><b>Casa Lume · Âmbar Nº 4</b><q>um frasco que guarda a primeira luz do dia</q><span>Campanha · 12 imagens</span></figcaption>
+        </figure>
+        <figure class="obra">
+          <div class="obra__img" data-obj="perfil" role="img" aria-label="Rosto de perfil com o cabelo flutuando"></div>
+          <figcaption data-reveal><b>Revista Maré · edição 31</b><q>um rosto em silêncio, cabelo flutuando como debaixo d’água</q><span>Capa e abertura</span></figcaption>
+        </figure>
+        <figure class="obra">
+          <div class="obra__img" data-obj="casa" role="img" aria-label="Casa de concreto sobre um penhasco à noite"></div>
+          <figcaption data-reveal><b>Vão Arquitetura</b><q>uma casa que encosta no penhasco e não cai</q><span>Lançamento imobiliário</span></figcaption>
+        </figure>
+        <figure class="obra">
+          <div class="obra__img" data-obj="tenis" role="img" aria-label="Tênis de corrida flutuando"></div>
+          <figcaption data-reveal><b>Passada · linha Nuvem</b><q>um tênis que parece não tocar o chão</q><span>Filme de 15 s</span></figcaption>
+        </figure>
+        <figure class="obra">
+          <div class="obra__img" data-obj="agua-viva" role="img" aria-label="Água-viva com tentáculos longos"></div>
+          <figcaption data-reveal><b>Aquário Fundo</b><q>a água-viva que ilumina o caminho</q><span>Identidade e sinalização</span></figcaption>
+        </figure>
+        <figure class="obra">
+          <div class="obra__img" data-obj="cavalo" role="img" aria-label="Cavalo galopando com a crina ao vento"></div>
+          <figcaption data-reveal><b>Haras Ventania</b><q>um cavalo feito de vento</q><span>Filme de 30 s</span></figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <!-- NÚMEROS -->
+    <section class="numeros" id="numeros" data-scene="numeros">
+      <div class="obj obj--lua" data-obj="lua" data-way data-anchor data-w="0.1" role="img" aria-label="A lua cheia em pontilhado"></div>
+      <div class="numeros__txt">
+        <p class="eyebrow" data-reveal>Desde 2023</p>
+        <h2 class="h2" data-lines>O sinal<br />em números.</h2>
+        <dl class="stats">
+          <div class="stat" data-reveal><dt>1,8 mi</dt><dd>imagens entregues a clientes</dd></div>
+          <div class="stat" data-reveal data-delay="0.08"><dt>4.200</dt><dd>marcas criadas do zero</dd></div>
+          <div class="stat" data-reveal><dt>38 s</dt><dd>até a primeira imagem, na média</dd></div>
+          <div class="stat" data-reveal data-delay="0.08"><dt>96%</dt><dd>dos clientes voltam no mês seguinte</dd></div>
+        </dl>
+      </div>
+    </section>
+
+    <!-- PLANOS -->
+    <section class="planos" id="planos" data-scene="planos">
+      <header class="sec-head sec-head--center">
+        <p class="eyebrow" data-reveal>Preços</p>
+        <h2 class="h2" data-lines>Escolha<br />a intensidade.</h2>
+        <p class="lead" data-reveal>Sem fidelidade. Uso comercial liberado em todos os planos pagos.</p>
+      </header>
+      <div class="plans" data-way data-anchor data-w="0.035">
+        <article class="plan" data-reveal>
+          <h3>Faísca</h3>
+          <p class="plan__price"><b>R$ 0</b><span>para testar</span></p>
+          <ul><li>20 imagens por mês</li><li>1 marca salva</li><li>Download em 1024 px</li></ul>
+          <a class="btn btn--secondary btn--block" href="#comecar">Começar grátis</a>
+        </article>
+        <article class="plan plan--pro" data-reveal data-delay="0.08">
+          <h3>Estúdio <em>mais escolhido</em></h3>
+          <p class="plan__price"><b>R$ 89</b><span>por mês</span></p>
+          <ul><li>Imagens ilimitadas em 4K</li><li>10 vídeos de até 15 s por mês</li><li>Kit de marca completo</li><li>Uso comercial</li></ul>
+          <a class="btn btn--primary btn--block" href="#comecar">Assinar o Estúdio</a>
+        </article>
+        <article class="plan" data-reveal data-delay="0.16">
+          <h3>Agência</h3>
+          <p class="plan__price"><b>R$ 690</b><span>por mês</span></p>
+          <ul><li>Tudo do Estúdio, para 5 pessoas</li><li>Diretor de arte dedicado</li><li>Entregas em 24 h</li></ul>
+          <a class="btn btn--secondary btn--block" href="#comecar">Falar com a gente</a>
+        </article>
+      </div>
+    </section>
+
+    <!-- CTA FINAL -->
+    <section class="final" id="comecar" data-scene="final">
+      <div class="final__txt">
+        <h2 class="final__title" data-lines>Escreva a frase.<br />A gente faz existir.</h2>
+        <div class="hero__ctas final__ctas" data-reveal>
+          <a class="btn btn--primary" href="#topo">
+            <svg class="btn__ico" viewBox="0 0 16 16" aria-hidden="true"><rect x="2" y="2" width="5" height="5" fill="currentColor"/><rect x="7" y="7" width="5" height="5" fill="currentColor"/><rect x="12" y="12" width="2" height="2" fill="currentColor"/></svg>
+            Criar a primeira imagem
+          </a>
+          <a class="btn btn--secondary" href="#trabalhos">
+            <svg class="btn__ico" viewBox="0 0 16 16" aria-hidden="true"><path d="M4.5 2.8v10.4L13 8z" fill="currentColor"/></svg>
+            Ver em ação
+          </a>
+        </div>
+      </div>
+      <div class="obj obj--fechamento" data-obj="fechamento" aria-hidden="true"></div>
+    </section>
+  </main>
+
+  <footer class="foot" data-scene="foot">
+    <div class="foot__cols">
+      <div><b>Estúdio</b><a href="#estudio">Imagem</a><a href="#estudio">Vídeo</a><a href="#estudio">Marca</a></div>
+      <div><b>Sinal</b><a href="#trabalhos">Trabalhos</a><a href="#planos">Preços</a><a href="#como">Como funciona</a></div>
+      <div><b>Fale com a gente</b><a href="#comecar">oi@sinal.art</a><a href="#comecar">(11) 3090-4120</a><span>Rua Fradique Coutinho, 1200 · São Paulo</span></div>
+      <div><b>Siga</b><a href="#topo">Instagram</a><a href="#topo">YouTube</a><a href="#topo">Behance</a></div>
+    </div>
+    <p class="foot__legal"><span>© 2026 Sinal · marca fictícia de demonstração</span><a href="#topo">Voltar ao topo ↑</a></p>
+    <!-- o wordmark monumental: os pontos do fluxo assentam formando o nome (WebGL); o texto fica no HTML -->
+    <p class="foot__word" data-foot-word><span class="fw-mark" aria-hidden="true"><i></i><i></i></span><span class="fw-txt">sinal</span></p>
+  </footer>
+
+</body>
+</html>

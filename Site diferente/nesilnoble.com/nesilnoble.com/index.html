@@ -1,0 +1,453 @@
+<!DOCTYPE html>
+<html lang="en" class="lenis"><head><meta charset="utf-8">
+<!-- Website Downloader 3.0: este arquivo é o retrato estático do site (DOM renderizado). Aberto via servidor
+     local (serve.py, ver Como rodar.md), o bootstrap abaixo carrega o site vivo; via file://, mostra este retrato. -->
+<meta name="referrer" content="no-referrer">
+<script data-wd3>window.__WD3__ = {"entryUrl": "https://nesilnoble.com/", "replayHost": "nesilnoble.com.localhost", "entryPath": "/", "captureId": "nesilnoble.com-05f76ee0", "capturedAt": "2026-10-23T19:53:42+00:00", "snapshot": true, "fileFonts": null};</script>
+<script data-wd3>/* Website Downloader 3.0 — bootstrap do index.html.
+ * file://  → fica no retrato estático (e carrega as fontes embutidas, que o Chrome bloqueia em file://).
+ * http(s)  → para de carregar o retrato, registra o Service Worker de replay e abre o site vivo.
+ */
+(function () {
+  var cfg = window.__WD3__ || {};
+  var root = document.documentElement;
+  if (location.protocol === 'file:') {
+    root.setAttribute('data-wd3', 'file');
+    if (cfg.fileFonts) {
+      var link = document.createElement('link');
+      link.rel = 'stylesheet';
+      link.href = cfg.fileFonts;
+      (document.head || root).appendChild(link);
+    }
+    return;
+  }
+  root.setAttribute('data-wd3', 'loading');
+  if (cfg.snapshot) {
+    try { window.stop(); } catch (e) { /* o retrato não precisa carregar: o site vivo vem do SW */ }
+  }
+
+  function fail(msg) {
+    root.setAttribute('data-wd3', 'error');
+    var el = document.getElementById('wd3-error');
+    if (!el) {
+      var body = document.body || root.appendChild(document.createElement('body'));
+      body.innerHTML = '<p style="font:15px system-ui,sans-serif;padding:24px;color:#e8e8e8;background:#050505;margin:0">' +
+        'Não foi possível iniciar o replay: <span id="wd3-error"></span></p>';
+      el = document.getElementById('wd3-error');
+    }
+    el.textContent = msg;
+  }
+  if (!('serviceWorker' in navigator)) return fail('este navegador não suporta Service Workers.');
+
+  function go() { location.replace(cfg.entryPath); }
+  function start() {
+    navigator.serviceWorker.register('/site/_wd3/sw.js', { scope: '/' })
+      .then(function () { return navigator.serviceWorker.ready; })
+      .then(function () {
+        if (navigator.serviceWorker.controller) return go();
+        navigator.serviceWorker.addEventListener('controllerchange', go);
+      })
+      .catch(function (err) { fail(String(err && err.message || err)); });
+  }
+  // Aberto em localhost puro: tenta <domínio>.localhost (mesmo servidor), para sites que checam location.hostname.
+  var plain = location.hostname === 'localhost' || location.hostname === '127.0.0.1';
+  if (!plain || !cfg.replayHost || cfg.replayHost === 'localhost') return start();
+  var target = location.protocol + '//' + cfg.replayHost + (location.port ? ':' + location.port : '');
+  var decided = false;
+  function decide(fn) { if (!decided) { decided = true; fn(); } }
+  setTimeout(function () { decide(start); }, 1500);
+  fetch(target + '/site/_wd3/site-index.json', { mode: 'no-cors', cache: 'no-store' })
+    .then(function () { decide(function () { location.replace(target + cfg.entryPath); }); })
+    .catch(function () { decide(start); });
+})();
+</script>
+<style data-wd3>
+  [data-wd3-banner] { display: none; }
+  html[data-wd3="file"] [data-wd3-banner] { display: flex; }
+  html[data-wd3-unlock], html[data-wd3-unlock] body { overflow-y: auto !important; }
+</style>
+
+<meta charset="utf-8">
+<!-- Google tag (gtag.js) -->
+
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Nesil’s Lucid Dreams · Nesil Noble, Product Designer &amp; Art Director</title>
+<meta name="description" content="Nesil Noble is a product designer and art director who designs and builds products, design systems and brands. Open to new roles and freelance work.">
+<link rel="canonical" href="site/nesilnoble.com/index.html">
+<meta name="theme-color" content="#545388">
+<link rel="icon" href="site/nesilnoble.com/favicon.svg" type="image/svg+xml">
+<link rel="apple-touch-icon" href="site/nesilnoble.com/apple-touch-icon.png">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Nesil’s Lucid Dreams">
+<meta property="og:title" content="Nesil’s Lucid Dreams · Nesil Noble">
+<meta property="og:description" content="Nesil Noble is a product designer and art director who designs and builds products, design systems and brands. Open to new roles and freelance work.">
+<meta property="og:url" content="https://nesilnoble.com/">
+<meta property="og:image" content="https://nesilnoble.com/og-image.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="stylesheet" href="site/_runtime/style-0.css" data-wd3-runtime-style="">
+</head>
+<body style="">
+
+<div class="frame">
+  <div class="stage" id="stage">
+    <canvas class="dust" id="dust" aria-hidden="true" width="2832" height="1752"></canvas>
+    <div class="grain" aria-hidden="true"><i class="g1"></i><i class="g2"></i><i class="g3"></i></div>
+
+    <header class="top" style="opacity: 1;">
+      <div class="brand"><span class="who">Nesil Noble</span><span class="status"><i aria-hidden="true"></i>Open to roles and freelance</span></div>
+      <nav class="nav" aria-label="Sections">
+        <button class="sound on" id="sound" aria-pressed="true" aria-label="Turn background music off"><span class="bars" aria-hidden="true"><i></i><i></i><i></i><i></i></span><span class="sound-label">Sound on</span><span class="sound-hint" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M9 17.5V5.5l10-2v12" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"></path><circle cx="6.5" cy="17.5" r="2.6" fill="currentColor"></circle><circle cx="16.5" cy="15.5" r="2.6" fill="currentColor"></circle></svg><span class="hint-click">Click for sound</span><span class="hint-tap">Tap for sound</span></span></button>
+        <button data-go="work">Work</button>
+        <button data-go="about">About</button>
+        <button data-go="contact">Contact</button>
+      </nav>
+    </header>
+
+    <!-- nested frames used for the dive in and the dive out -->
+    <div class="tunnel" id="tunnel" aria-hidden="true" style="translate: none; rotate: none; scale: none; opacity: 0; visibility: hidden; transform: scale(0.3, 0.08);"><div style="height: 1665.06px; width: 1665.06px; left: -124.531px; top: -394.531px; border-radius: 50%;"></div><div style="height: 1332.05px; width: 1332.05px; left: 41.9751px; top: -228.025px; border-radius: 50%;"></div><div style="height: 1065.64px; width: 1065.64px; left: 175.18px; top: -94.8199px; border-radius: 50%;"></div><div style="height: 852.512px; width: 852.512px; left: 281.744px; top: 11.7441px; border-radius: 50%;"></div><div style="height: 682.009px; width: 682.009px; left: 366.995px; top: 96.9953px; border-radius: 50%;"></div><div style="height: 545.608px; width: 545.608px; left: 435.196px; top: 165.196px; border-radius: 50%;"></div><div style="height: 436.486px; width: 436.486px; left: 489.757px; top: 219.757px; border-radius: 50%;"></div><div style="height: 349.189px; width: 349.189px; left: 533.406px; top: 263.406px; border-radius: 50%;"></div><div style="height: 279.351px; width: 279.351px; left: 568.324px; top: 298.324px; border-radius: 50%;"></div><div style="height: 223.481px; width: 223.481px; left: 596.26px; top: 326.26px; border-radius: 50%;"></div><div style="height: 178.785px; width: 178.785px; left: 618.608px; top: 348.608px; border-radius: 50%;"></div></div>
+
+    <!-- 0. Hero, and later the contact ending -->
+    <section class="layer is-first" id="hero" data-bg="turmeric" aria-label="Introduction">
+      <div class="hero-inner" id="heroInner" style="translate: none; rotate: none; scale: none;">
+        
+        <svg class="birds" id="birds" viewBox="0 0 220 90" aria-hidden="true" style="translate: none; rotate: none; scale: none; transform: translate3d(4.4796px, -1.9909px, 0px);">
+          <path class="bird" d="M10 60 Q20 48 30 58 Q40 48 50 60" data-svg-origin="30 57.38181762695312" transform="matrix(1,0,0,1,0,0)" style="translate: none; rotate: none; scale: none; transform-origin: 0px 0px;"></path>
+          <path class="bird" d="M62 40 Q70 31 78 39 Q86 31 94 40" data-svg-origin="78 38.09411773681641" transform="matrix(1,0,0,1,0,0)" style="translate: none; rotate: none; scale: none; transform-origin: 0px 0px;"></path>
+          <path class="bird" d="M104 58 Q111 50 118 57 Q125 50 132 58" data-svg-origin="118 56.29333343505859" transform="matrix(1,0,0,0.9882,0,0.66426)" style="translate: none; rotate: none; scale: none; transform-origin: 0px 0px;"></path>
+          <path class="bird" d="M150 26 Q160 15 170 25 Q180 15 190 26" data-svg-origin="170 23.695237731933595" transform="matrix(1,0,0,1,0,0)" style="translate: none; rotate: none; scale: none; transform-origin: 0px 0px;"></path>
+        </svg><div class="hero-top">
+          <p class="kicker amp" data-amp="7" aria-label="Inside the mind of" style="translate: none; rotate: none; scale: none; opacity: 1; transform: translate(0px, 0px);"><span aria-hidden="true" style="display: inline-block; white-space: nowrap;"><span>I</span><span class="u">n</span><span class="s">s</span><span>i</span><span>d</span><span>e</span></span> <span aria-hidden="true" style="display: inline-block; white-space: nowrap;"><span>t</span><span>h</span><span>e</span></span> <span aria-hidden="true" style="display: inline-block; white-space: nowrap;"><span>m</span><span>i</span><span>n</span><span>d</span></span> <span aria-hidden="true" style="display: inline-block; white-space: nowrap;"><span class="s">o</span><span>f</span></span></p>
+          <div class="name-wrap" id="nameWrap">
+            <h1 class="name" id="name" style="opacity: 1; letter-spacing: -0.01em;"><span>Nesil</span> <span>Noble</span></h1>
+            <div class="sel done" id="sel" aria-hidden="true" style="opacity: 1;"><span></span><span></span><span></span><span></span></div>
+            <em class="dim" id="dim" aria-hidden="true" style="opacity: 1;">878 × 194</em>
+          </div>
+          <p class="phrase" id="phrase" aria-label="Designing experiences"><span aria-hidden="true" style="translate: none; rotate: none; scale: none; opacity: 1; transform: translate(0px, 0px);">Designing</span><span aria-hidden="true" style="translate: none; rotate: none; scale: none; opacity: 1; transform: translate(0px, 0px);">Experiences</span></p>
+        </div>
+        <div class="me" id="me">
+          
+
+          <svg class="me-svg" id="meSvg" viewBox="0 0 640 600" aria-hidden="true" style="translate: none; rotate: none; scale: none; transform: translate(0px, 0px);">
+  <!-- waving arm, behind the body -->
+  <g id="arm">
+    <path d="M168 470 Q84 430 92 316" fill="none" stroke="#000" stroke-width="62" stroke-linecap="round"></path>
+    <g id="hand" data-svg-origin="112 338" transform="matrix(0.97928,0.20251,-0.20251,0.97928,70.76902,-15.67776)" style="translate: none; rotate: none; scale: none; transform-origin: 0px 0px;">
+      <path class="skin" d="M66 318 Q58 282 66 250 Q70 238 80 242 Q84 246 84 262 L86 226 Q88 214 98 214 Q108 214 108 226 L108 258 L112 222 Q114 212 124 213 Q133 215 132 227 L128 264 L136 238 Q140 228 149 231 Q156 235 153 247 L142 300 Q156 290 166 294 Q174 300 166 312 Q146 336 124 344 Q88 352 66 318 Z" stroke="#000" stroke-width="3" stroke-linejoin="round"></path>
+    </g>
+  </g>
+  <!-- body -->
+  <path d="M20 600 C24 492 110 440 226 430 L414 430 C530 440 616 492 620 600 Z" fill="#000"></path>
+  <!-- neck -->
+  <path class="skin" d="M284 360 L356 360 L358 430 Q320 478 282 430 Z" stroke="#000" stroke-width="3" stroke-linejoin="round"></path>
+  <!-- ears -->
+  <ellipse class="skin" cx="203" cy="296" rx="15" ry="24" stroke="#000" stroke-width="3"></ellipse>
+  <ellipse class="skin" cx="437" cy="296" rx="15" ry="24" stroke="#000" stroke-width="3"></ellipse>
+  <!-- lower head -->
+  <path class="skin" d="M204 232 L436 232 L436 326 Q436 398 368 398 L272 398 Q204 398 204 326 Z" stroke="#000" stroke-width="3" stroke-linejoin="round"></path>
+  <!-- the open mind -->
+  <ellipse id="cavity" class="deep" cx="320" cy="232" rx="116" ry="13" stroke="#000" stroke-width="3"></ellipse>
+  <g id="rings" style="opacity: 0; translate: none; rotate: none; scale: none; transform-origin: 0px 0px;" data-svg-origin="320 232" transform="matrix(0.3,0,0,0.3,224,162.4)">
+    <ellipse cx="320" cy="232" rx="92" ry="15" fill="rgba(0,0,0,.18)" stroke="rgba(0,0,0,.75)" stroke-width="2"></ellipse>
+    <ellipse cx="320" cy="232" rx="68" ry="11" fill="rgba(0,0,0,.2)" stroke="rgba(0,0,0,.75)" stroke-width="2"></ellipse>
+    <ellipse cx="320" cy="232" rx="46" ry="7.5" fill="rgba(0,0,0,.22)" stroke="rgba(0,0,0,.75)" stroke-width="2"></ellipse>
+    <ellipse cx="320" cy="232" rx="26" ry="4.4" fill="rgba(0,0,0,.25)" stroke="rgba(0,0,0,.75)" stroke-width="1.6"></ellipse>
+    <ellipse cx="320" cy="232" rx="10" ry="1.8" fill="rgba(0,0,0,.4)" stroke="rgba(0,0,0,.75)" stroke-width="1.2"></ellipse>
+  </g>
+  <!-- face -->
+  <path d="M252 270 Q274 256 296 266 M344 266 Q366 256 388 270" fill="none" stroke="#000" stroke-width="5" stroke-linecap="round"></path>
+  <ellipse class="eye" cx="276" cy="290" rx="17" ry="21" fill="#fff" stroke="#000" stroke-width="3"></ellipse>
+  <ellipse class="eye" cx="364" cy="290" rx="17" ry="21" fill="#fff" stroke="#000" stroke-width="3"></ellipse>
+  <circle class="pupil" cx="282" cy="280" r="7.5" fill="#000"></circle>
+  <circle class="pupil" cx="370" cy="280" r="7.5" fill="#000"></circle>
+  <path d="M322 298 Q310 322 328 324" fill="none" stroke="#000" stroke-width="3.5" stroke-linecap="round"></path>
+  <path d="M288 340 Q320 388 352 340 Q320 350 288 340 Z" fill="#000" stroke="#000" stroke-width="3" stroke-linejoin="round"></path>
+  <path class="skin" d="M306 362 Q320 354 334 362 Q320 374 306 362 Z"></path>
+  <!-- thoughts escaping -->
+  <g id="thoughts">
+    <g class="th" data-svg-origin="385 171" transform="matrix(0,0,0,0,385,214.0477)" style="translate: none; rotate: none; scale: none; transform-origin: 0px 0px; opacity: 0;"><circle cx="400" cy="186" r="15" fill="#E2527F" stroke="#000" stroke-width="3"></circle></g>
+    <g class="th" data-svg-origin="433 127" transform="matrix(0,0,0,0,433,181.332)" style="translate: none; rotate: none; scale: none; transform-origin: 0px 0px; opacity: 0;"><circle cx="452" cy="146" r="19" fill="#6477DB" stroke="#000" stroke-width="3"></circle></g>
+    <g class="th" data-svg-origin="408 88" transform="matrix(0,0,0,0,408,121.285)" style="translate: none; rotate: none; scale: none; transform-origin: 0px 0px; opacity: 0;"><circle cx="420" cy="100" r="12" fill="#fff" stroke="#000" stroke-width="3"></circle></g>
+    <g class="th" data-svg-origin="482 88" transform="matrix(0,0,0,0,482,169.205)" style="translate: none; rotate: none; scale: none; transform-origin: 0px 0px; opacity: 0;"><path d="M500 88 L518 116 L512 132 L488 132 L482 116 Z" fill="#fff" stroke="#000" stroke-width="3" stroke-linejoin="round"></path><path d="M500 88 L500 112" stroke="#000" stroke-width="2.5"></path><circle cx="500" cy="115" r="4" fill="#000"></circle><rect x="486" y="132" width="28" height="8" rx="2" fill="#000"></rect></g>
+    <g class="th" data-svg-origin="470 38.55555725097656" transform="matrix(0,0,0,0,470,69.14439)" style="translate: none; rotate: none; scale: none; transform-origin: 0px 0px; opacity: 0;"><path d="M470 52 Q500 30 532 44 Q504 70 470 52 Z" fill="#5AA84F" stroke="#000" stroke-width="3" stroke-linejoin="round"></path><path d="M474 52 Q502 46 528 45" fill="none" stroke="#000" stroke-width="2"></path></g>
+    <g class="th" data-svg-origin="526 118" transform="matrix(0,0,0,0,526,159.4322)" style="translate: none; rotate: none; scale: none; transform-origin: 0px 0px; opacity: 0;"><path d="M540 118 Q542 130 554 132 Q542 134 540 146 Q538 134 526 132 Q538 130 540 118 Z" fill="#000"></path></g>
+  </g>
+  <!-- the lid, hinged at the left -->
+  <g id="lid" data-svg-origin="206 232" transform="matrix(0.99255,-0.12187,0.12187,0.99255,-26.73914,26.83362)" style="translate: none; rotate: none; scale: none; transform-origin: 0px 0px;">
+    <path class="skin" d="M204 232 L204 200 Q204 142 266 142 L374 142 Q436 142 436 200 L436 232 Z" stroke="#000" stroke-width="3" stroke-linejoin="round"></path>
+    <path d="M204 212 Q204 142 266 142 L374 142 Q436 142 436 206 Q424 190 408 200 Q396 180 376 194 Q360 174 340 190 Q322 172 304 188 Q286 174 270 192 Q250 180 238 200 Q220 192 204 212 Z" fill="#000"></path>
+  </g>
+</svg><div class="dream" id="dream" aria-label="You've been dreaming in Nesil's Lucid Dreams"><svg class="moon" viewBox="0 0 24 24" aria-hidden="true"><path d="M15.5 3.2A9 9 0 1 0 20.8 16 7 7 0 0 1 15.5 3.2Z" fill="#F2C230" stroke="#000" stroke-width="1.8" stroke-linejoin="round"></path></svg><span aria-hidden="true"><small>You’ve been dreaming in</small><b>Nesil’s Lucid Dreams</b></span></div>
+          <div class="shirt">
+            <p class="role" id="role" style="translate: none; rotate: none; scale: none; opacity: 1; transform: translate(0px, 0px);"><span class="role-title">Product Designer &amp; Art Director</span> I design &amp; build experiences that you wish existed</p>
+            <p class="hint-m" id="hintM" aria-hidden="true"><span style="opacity: 1;">Scroll to step inside</span></p>
+            <div class="contact" id="contact">
+              <h2 data-amp="5" aria-label="Get in touch" class="amp"><span aria-hidden="true" style="display: inline-block; white-space: nowrap;"><span>G</span><span>e</span><span>t</span></span> <span aria-hidden="true" style="display: inline-block; white-space: nowrap;"><span class="s">i</span><span>n</span></span> <span aria-hidden="true" style="display: inline-block; white-space: nowrap;"><span class="s">t</span><span>o</span><span>u</span><span>c</span><span>h</span></span></h2>
+              <div class="links">
+                <span class="mail-wrap"><a class="primary" id="mail" href="mailto:nesilkunnappally@gmail.com">nesilkunnappally@gmail.com</a><button class="copy" id="copyMail" type="button" data-copy="nesilkunnappally@gmail.com" aria-label="Copy email address"><svg class="i-copy" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="8.5" y="8.5" width="12" height="12" rx="2.5"></rect><path d="M15.5 8.5V6A2.5 2.5 0 0 0 13 3.5H6A2.5 2.5 0 0 0 3.5 6v7A2.5 2.5 0 0 0 6 15.5h2.5"></path></svg><svg class="i-done" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4.5 12.5l5 5 10-11"></path></svg><span class="copy-tip" aria-hidden="true">Copied</span></button><span class="sr-only" id="copyStatus" aria-live="polite"></span></span>
+                <a href="https://www.linkedin.com/in/nesil-noble-763732151/" target="_blank" rel="noopener">LinkedIn</a>
+                <a href="https://www.behance.net/nesilnoble" target="_blank" rel="noopener">Behance</a>
+                <a href="https://nesilnoble.com/resume/Nesil-Noble-Resume.pdf?v=2" target="_blank" rel="noopener" data-case="resume" data-hash="#resume" data-title="Resume" data-back="Back" data-download="Nesil-Noble-Resume.pdf">Resume</a>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="cursor" id="cursor" aria-hidden="true" style="translate: none; rotate: none; scale: none; opacity: 1; transform: translate3d(1128.1px, 326.869px, 0px);">
+              <svg viewBox="0 0 22 24"><path d="M2 2 L2 20 L7 15.5 L10.5 22.5 L13.5 21 L10 14 L17 14 Z" fill="#0A6FC2" stroke="#fff" stroke-width="1.6" stroke-linejoin="round"></path></svg>
+              <b id="cursorLabel">Nesil</b>
+            </div>
+      </div>
+      <div class="hint" id="hint" aria-hidden="true"><span style="opacity: 1;">Scroll to step inside</span><span class="line" style="opacity: 1;"></span></div>
+    </section>
+
+    <!-- 1. Hello -->
+    <section class="layer" id="hello" data-bg="hibiscus" aria-label="Hello">
+      <div class="doodles" aria-hidden="true">
+        
+        <svg class="spark" viewBox="0 0 24 24" style="left: 11%; top: 22%; width: 46px; translate: none; rotate: none; scale: none; transform-origin: 50% 50%; transform: rotate(-120deg) scale(0, 0);"><path d="M12 0 Q13.4 10.6 24 12 Q13.4 13.4 12 24 Q10.6 13.4 0 12 Q10.6 10.6 12 0 Z"></path></svg>
+        <svg class="spark" viewBox="0 0 24 24" style="left: 20%; top: 70%; width: 26px; translate: none; rotate: none; scale: none; transform-origin: 50% 50%; transform: rotate(-120deg) scale(0, 0);"><path d="M12 0 Q13.4 10.6 24 12 Q13.4 13.4 12 24 Q10.6 13.4 0 12 Q10.6 10.6 12 0 Z"></path></svg>
+        <svg class="spark" viewBox="0 0 24 24" style="left: 84%; top: 20%; width: 34px; translate: none; rotate: none; scale: none; transform-origin: 50% 50%; transform: rotate(-120deg) scale(0, 0);"><path d="M12 0 Q13.4 10.6 24 12 Q13.4 13.4 12 24 Q10.6 13.4 0 12 Q10.6 10.6 12 0 Z"></path></svg>
+        <svg class="spark" viewBox="0 0 24 24" style="left: 76%; top: 66%; width: 54px; translate: none; rotate: none; scale: none; transform-origin: 50% 50%; transform: rotate(-120deg) scale(0, 0);"><path d="M12 0 Q13.4 10.6 24 12 Q13.4 13.4 12 24 Q10.6 13.4 0 12 Q10.6 10.6 12 0 Z"></path></svg>
+        <svg class="spark" viewBox="0 0 24 24" style="left: 50%; top: 16%; width: 22px; translate: none; rotate: none; scale: none; transform-origin: 50% 50%; transform: rotate(-120deg) scale(0, 0);"><path d="M12 0 Q13.4 10.6 24 12 Q13.4 13.4 12 24 Q10.6 13.4 0 12 Q10.6 10.6 12 0 Z"></path></svg><svg class="squig" viewBox="0 0 320 34"><path id="squigPath" d="M4 18 Q24 2 44 18 T84 18 T124 18 T164 18 T204 18 T244 18 T284 18 T316 14" fill="none" stroke="currentColor" stroke-width="7" stroke-linecap="round" style="stroke-dashoffset: 420px; stroke-dasharray: 420;"></path></svg>
+      </div>
+      <h2 class="hi-line amp" id="hiLine" aria-label="Hi, I'm Nesil."><span class="wd" aria-hidden="true"><span class="ch" style="translate: none; rotate: none; scale: none; opacity: 0; visibility: hidden; transform: translate(0%, 150%) rotate(-24.5738deg);">H</span><span class="ch sm" style="translate: none; rotate: none; scale: none; opacity: 0; visibility: hidden; transform: translate(0%, 150%) rotate(-35.4168deg);">i</span><span class="ch" style="translate: none; rotate: none; scale: none; opacity: 0; visibility: hidden; transform: translate(0%, 150%) rotate(13.1986deg);">,</span></span> <span class="wd" aria-hidden="true"><span class="ch" style="translate: none; rotate: none; scale: none; opacity: 0; visibility: hidden; transform: translate(0%, 150%) rotate(12.2544deg);">I</span><span class="ch" style="translate: none; rotate: none; scale: none; opacity: 0; visibility: hidden; transform: translate(0%, 150%) rotate(38.7199deg);">'</span><span class="ch" style="translate: none; rotate: none; scale: none; opacity: 0; visibility: hidden; transform: translate(0%, 150%) rotate(-15.0592deg);">m</span></span> <span class="wd" aria-hidden="true"><span class="ch" style="translate: none; rotate: none; scale: none; opacity: 0; visibility: hidden; transform: translate(0%, 150%) rotate(-17.0851deg);">N</span><span class="ch sm" style="translate: none; rotate: none; scale: none; opacity: 0; visibility: hidden; transform: translate(0%, 150%) rotate(-20.2524deg);">e</span><span class="ch" style="translate: none; rotate: none; scale: none; opacity: 0; visibility: hidden; transform: translate(0%, 150%) rotate(7.4952deg);">s</span><span class="ch" style="translate: none; rotate: none; scale: none; opacity: 0; visibility: hidden; transform: translate(0%, 150%) rotate(0.29819deg);">i</span><span class="ch" style="translate: none; rotate: none; scale: none; opacity: 0; visibility: hidden; transform: translate(0%, 150%) rotate(6.03927deg);">l</span><span class="ch" style="translate: none; rotate: none; scale: none; opacity: 0; visibility: hidden; transform: translate(0%, 150%) rotate(30.014deg);">.</span></span></h2>
+      <p class="cap" id="hiCap" style="translate: none; rotate: none; scale: none; opacity: 0; visibility: hidden; transform: translate(0px, 20px);">7+ years designing digital experiences, products and interfaces. Currently leading Product Design at upGrad, where I work across product, strategy, systems, AI and design culture.</p>
+    </section>
+
+    <!-- 2. Systems -->
+    <section class="layer" id="systems" data-bg="monsoon" aria-label="What I do">
+      <div class="sys">
+        <p class="sys-small amp" id="sysSmall" data-amp="3" aria-label="I build" style="translate: none; rotate: none; scale: none; opacity: 0; visibility: hidden; transform: translate(0px, 20px);"><span aria-hidden="true" style="display: inline-block; white-space: nowrap;"><span>I</span></span> <span aria-hidden="true" style="display: inline-block; white-space: nowrap;"><span>b</span><span class="s">u</span><span>i</span><span>l</span><span>d</span></span></p>
+        <h2 class="sys-word" id="sysWord" style="translate: none; rotate: none; scale: none; --wg: 100; transform: scale(0.16, 0.16);">systems.</h2>
+        <div class="kit" id="kit" aria-hidden="true">
+          <div class="card" id="card" style="translate: none; rotate: none; scale: none; opacity: 0; visibility: hidden; transform: rotate(4deg) scale(0.6, 0.6);">
+            <em class="tag">Card / Default</em>
+            <span class="bar a"></span><span class="bar b"></span>
+            <span class="btn">Continue learning</span>
+          </div>
+          <span class="sw" style="background: var(--turmeric); translate: none; rotate: none; scale: none; opacity: 0; visibility: hidden; transform: translate(534.817px, 228.68px) scale(0.4, 0.4);"></span>
+          <span class="sw" style="background: var(--hibiscus); translate: none; rotate: none; scale: none; opacity: 0; visibility: hidden; transform: translate(-182.713px, 388.567px) scale(0.4, 0.4);"></span>
+          <span class="sw" style="background: rgb(255, 255, 255); translate: none; rotate: none; scale: none; opacity: 0; visibility: hidden; transform: translate(-647.74px, 11.4675px) scale(0.4, 0.4);"></span>
+          <span class="sw" style="background: var(--backwater); translate: none; rotate: none; scale: none; opacity: 0; visibility: hidden; transform: translate(-217.613px, -381.48px) scale(0.4, 0.4);"></span>
+          <span class="sw" style="background: var(--leaf); translate: none; rotate: none; scale: none; opacity: 0; visibility: hidden; transform: translate(513.248px, -247.235px) scale(0.4, 0.4);"></span>
+        </div>
+        <p class="cap" id="sysCap" style="translate: none; rotate: none; scale: none; opacity: 0; visibility: hidden; transform: translate(0px, 20px);">Tokens become components. Components become products. Products become something a team can keep building on.</p>
+      </div>
+    </section>
+
+    <!-- 2b. Beliefs -->
+    <section class="layer" id="beliefs" data-bg="deep" aria-label="What I believe">
+      <div class="bl-scene bl-a" id="blA">
+        <h2 class="bl-years" style="translate: none; rotate: none; scale: none; opacity: 0; transform: translate(0%, 50%);">7+ years.</h2>
+        <svg class="bl-under" viewBox="0 0 400 30" aria-hidden="true"><path id="blUnder" d="M6 18 Q60 4 120 16 T240 14 T394 12" fill="none" stroke="currentColor" stroke-width="6" stroke-linecap="round" style="stroke-dashoffset: 440px; stroke-dasharray: 440;"></path></svg>
+        <p class="bl-hands amp" data-amp="13" aria-label="Still curious. Still making." style="translate: none; rotate: none; scale: none; opacity: 0; transform: translate(0px, 24px);"><span aria-hidden="true" style="display: inline-block; white-space: nowrap;"><span>S</span><span>t</span><span>i</span><span class="u">l</span><span class="u">l</span></span> <span aria-hidden="true" style="display: inline-block; white-space: nowrap;"><span>c</span><span>u</span><span>r</span><span>i</span><span class="s">o</span><span class="u">u</span><span>s</span><span>.</span></span> <span aria-hidden="true" style="display: inline-block; white-space: nowrap;"><span>S</span><span>t</span><span class="u">i</span><span>l</span><span class="s">l</span></span> <span aria-hidden="true" style="display: inline-block; white-space: nowrap;"><span class="u">m</span><span>a</span><span>k</span><span class="u">i</span><span>n</span><span class="s">g</span><span>.</span></span></p>
+      </div>
+      <div class="bl-scene bl-b" id="blB1">
+        <div class="bl-inner">
+        <h3 aria-label="I build products and the teams that build products."><span class="w" aria-hidden="true" style="translate: none; rotate: none; scale: none; opacity: 0; transform: translate(0px, 36px);">I</span>​<span class="w" aria-hidden="true" style="translate: none; rotate: none; scale: none; opacity: 0; transform: translate(0px, 36px);">build</span>​<span class="w" aria-hidden="true" style="translate: none; rotate: none; scale: none; opacity: 0; transform: translate(0px, 36px);">products</span>​<span class="w" aria-hidden="true" style="translate: none; rotate: none; scale: none; opacity: 0; transform: translate(0px, 36px);">and</span>​<span class="w" aria-hidden="true" style="translate: none; rotate: none; scale: none; opacity: 0; transform: translate(0px, 36px);">the</span>​<span class="w" aria-hidden="true" style="translate: none; rotate: none; scale: none; opacity: 0; transform: translate(0px, 36px);">teams</span>​<span class="w" aria-hidden="true" style="translate: none; rotate: none; scale: none; opacity: 0; transform: translate(0px, 36px);">that</span>​<span class="w" aria-hidden="true" style="translate: none; rotate: none; scale: none; opacity: 0; transform: translate(0px, 36px);">build</span>​<span class="w" aria-hidden="true" style="translate: none; rotate: none; scale: none; opacity: 0; transform: translate(0px, 36px);">products.</span></h3>
+        <p style="translate: none; rotate: none; scale: none; opacity: 0; transform: translate(0px, 20px);">From the first blank Figma frame to a product people actually use. I’ve built products from scratch, shaped design systems, and built teams that make good ideas happen.</p>
+  </div>
+      </div>
+      <div class="bl-scene bl-b" id="blB2">
+        <div class="bl-inner">
+        <h3 aria-label="My obsession lives in the gap between usable and unforgettable."><span class="w" aria-hidden="true" style="translate: none; rotate: none; scale: none; opacity: 0; transform: translate(0px, 36px);">My</span>​<span class="w" aria-hidden="true" style="translate: none; rotate: none; scale: none; opacity: 0; transform: translate(0px, 36px);">obsession</span>​<span class="w" aria-hidden="true" style="translate: none; rotate: none; scale: none; opacity: 0; transform: translate(0px, 36px);">lives</span>​<span class="w" aria-hidden="true" style="translate: none; rotate: none; scale: none; opacity: 0; transform: translate(0px, 36px);">in</span>​<span class="w" aria-hidden="true" style="translate: none; rotate: none; scale: none; opacity: 0; transform: translate(0px, 36px);">the</span>​<span class="w" aria-hidden="true" style="translate: none; rotate: none; scale: none; opacity: 0; transform: translate(0px, 36px);">gap</span>​<span class="w" aria-hidden="true" style="translate: none; rotate: none; scale: none; opacity: 0; transform: translate(0px, 36px);">between</span>​<span class="w" aria-hidden="true" style="translate: none; rotate: none; scale: none; opacity: 0; transform: translate(0px, 36px);">usable</span>​<span class="w" aria-hidden="true" style="translate: none; rotate: none; scale: none; opacity: 0; transform: translate(0px, 36px);">and</span>​<span class="w" aria-hidden="true" style="translate: none; rotate: none; scale: none; opacity: 0; transform: translate(0px, 36px);">unforgettable.</span></h3>
+        <p style="translate: none; rotate: none; scale: none; opacity: 0; transform: translate(0px, 20px);">I believe great design should solve the problem first, then make people feel something. I bring together product thinking, art direction and a little bit of the unexpected to create experiences that work beautifully and stay with you.</p>
+  </div>
+      </div>
+      <div class="bl-scene bl-b" id="blB3">
+        <div class="bl-inner">
+        <h3 aria-label="I design for inclusion."><span class="w" aria-hidden="true" style="translate: none; rotate: none; scale: none; opacity: 0; transform: translate(0px, 36px);">I</span>​<span class="w" aria-hidden="true" style="translate: none; rotate: none; scale: none; opacity: 0; transform: translate(0px, 36px);">design</span>​<span class="w" aria-hidden="true" style="translate: none; rotate: none; scale: none; opacity: 0; transform: translate(0px, 36px);">for</span>​<span class="w" aria-hidden="true" style="translate: none; rotate: none; scale: none; opacity: 0; transform: translate(0px, 36px);">inclusion.</span></h3>
+        <p style="translate: none; rotate: none; scale: none; opacity: 0; transform: translate(0px, 20px);">Not because it's on a checklist, but because the most interesting design problems live at the edges, not the centre.</p>
+  </div>
+      </div>
+      <div class="bl-scene bl-b" id="blB4">
+        <div class="bl-inner">
+        <h3 aria-label="These days I'm also in the code."><span class="w" aria-hidden="true" style="translate: none; rotate: none; scale: none; opacity: 0; transform: translate(0px, 36px);">These</span>​<span class="w" aria-hidden="true" style="translate: none; rotate: none; scale: none; opacity: 0; transform: translate(0px, 36px);">days</span>​<span class="w" aria-hidden="true" style="translate: none; rotate: none; scale: none; opacity: 0; transform: translate(0px, 36px);">I'm</span>​<span class="w" aria-hidden="true" style="translate: none; rotate: none; scale: none; opacity: 0; transform: translate(0px, 36px);">also</span>​<span class="w" aria-hidden="true" style="translate: none; rotate: none; scale: none; opacity: 0; transform: translate(0px, 36px);">in</span>​<span class="w" aria-hidden="true" style="translate: none; rotate: none; scale: none; opacity: 0; transform: translate(0px, 36px);">the</span>​<span class="w" aria-hidden="true" style="translate: none; rotate: none; scale: none; opacity: 0; transform: translate(0px, 36px);">code.</span></h3>
+        <p style="translate: none; rotate: none; scale: none; opacity: 0; transform: translate(0px, 20px);">Prototyping faster, helping designers push PRs, shipping alongside engineers. Not because it's trendy, but because the seam between design and engineering is where the craft either holds or falls apart.</p>
+        <p class="bl-kick amp" data-amp="17" aria-label="I'd rather be standing there when it decides." style="translate: none; rotate: none; scale: none; opacity: 0; transform: translate(0px, 20px);"><span aria-hidden="true" style="display: inline-block; white-space: nowrap;"><span>I</span><span>'</span><span>d</span></span> <span aria-hidden="true" style="display: inline-block; white-space: nowrap;"><span>r</span><span class="s">a</span><span>t</span><span>h</span><span>e</span><span>r</span></span> <span aria-hidden="true" style="display: inline-block; white-space: nowrap;"><span class="u">b</span><span>e</span></span> <span aria-hidden="true" style="display: inline-block; white-space: nowrap;"><span>s</span><span class="s">t</span><span>a</span><span class="u">n</span><span class="s">d</span><span>i</span><span class="s">n</span><span>g</span></span> <span aria-hidden="true" style="display: inline-block; white-space: nowrap;"><span class="s">t</span><span>h</span><span>e</span><span class="s">r</span><span>e</span></span> <span aria-hidden="true" style="display: inline-block; white-space: nowrap;"><span>w</span><span class="u">h</span><span>e</span><span class="s">n</span></span> <span aria-hidden="true" style="display: inline-block; white-space: nowrap;"><span>i</span><span class="u">t</span></span> <span aria-hidden="true" style="display: inline-block; white-space: nowrap;"><span>d</span><span class="u">e</span><span>c</span><span>i</span><span>d</span><span>e</span><span>s</span><span>.</span></span></p>
+  </div>
+      </div>
+      <div class="bl-scene bl-c" id="blC">
+        <p class="c1" style="translate: none; rotate: none; scale: none; opacity: 0; transform: translate(0px, 24px);">I don't believe in polite decks that protect average ideas.</p>
+        <p class="c2 amp" data-amp="4" aria-label="I don't believe in vanilla." style="translate: none; rotate: none; scale: none; opacity: 0; transform: scale(0.7, 0.7);"><span aria-hidden="true" style="display: inline-block; white-space: nowrap;"><span>I</span></span> <span aria-hidden="true" style="display: inline-block; white-space: nowrap;"><span>d</span><span class="s">o</span><span>n</span><span>'</span><span>t</span></span> <span aria-hidden="true" style="display: inline-block; white-space: nowrap;"><span class="s">b</span><span>e</span><span>l</span><span>i</span><span>e</span><span class="s">v</span><span>e</span></span> <span aria-hidden="true" style="display: inline-block; white-space: nowrap;"><span class="s">i</span><span>n</span></span> <span class="vanilla"><span aria-hidden="true" style="display: inline-block; white-space: nowrap;"><span>v</span><span>a</span><span class="s">n</span><span>i</span><span class="s">l</span><span>l</span><span>a</span></span><svg class="strike" viewBox="0 0 300 40" preserveAspectRatio="none" aria-hidden="true"><path id="strikePath" d="M4 26 Q70 8 140 22 T296 14" fill="none" stroke="#E2527F" stroke-width="9" stroke-linecap="round" style="stroke-dashoffset: 340px; stroke-dasharray: 340;"></path></svg></span><span aria-hidden="true" style="display: inline-block; white-space: nowrap;"><span>.</span></span></p>
+        <p class="c3" style="translate: none; rotate: none; scale: none; opacity: 0; transform: translate(0px, 24px);">I believe in things with a spine: products that are unmistakably themselves, built by people who give a damn about the details no one asked them to care about.</p>
+      </div>
+      <div class="bl-scene bl-d" id="blD">
+        <div class="bl-doodles" aria-hidden="true"><span class="dd dd-pen" data-depth="18" style="--x:9%;--y:21%;--w:4.2vw;--t:5.2s;--dl:0s;--mx:12%;--my:17%;--mw:11vw"><span class="ddp" style="translate: none; rotate: none; scale: none; transform: rotate(-27.6369deg) scale(0, 0);"><span class="ddf"><svg viewBox="0 0 60 70"><path d="M30 6 L48 34 L40 54 L20 54 L12 34 Z" fill="#fff" stroke="#000" stroke-width="3" stroke-linejoin="round"></path><path d="M30 6 L30 30" stroke="#000" stroke-width="2.5"></path><circle cx="30" cy="34" r="5" fill="#000"></circle><rect x="18" y="54" width="24" height="10" rx="2" fill="#F2C230" stroke="#000" stroke-width="3" stroke-linejoin="round"></rect></svg></span></span></span><span class="dd dd-bez" data-depth="10" style="--x:14%;--y:44%;--w:9vw;--t:6.4s;--dl:0.6s;--mx:38%;--my:14%;--mw:22vw"><span class="ddp" style="translate: none; rotate: none; scale: none; transform: rotate(29.9315deg) scale(0, 0);"><span class="ddf"><svg viewBox="0 0 120 70"><path d="M10 58 L30 12 M110 58 L90 12" stroke="#0D99FF" stroke-width="2"></path><path d="M10 58 C30 12 90 12 110 58" fill="none" stroke="#fff" stroke-width="3.5" stroke-linecap="round"></path><rect x="5.5" y="53.5" width="9" height="9" fill="#fff" stroke="#0D99FF" stroke-width="2.5"></rect><rect x="105.5" y="53.5" width="9" height="9" fill="#fff" stroke="#0D99FF" stroke-width="2.5"></rect><circle cx="30" cy="12" r="4.5" fill="#0D99FF"></circle><circle cx="90" cy="12" r="4.5" fill="#0D99FF"></circle></svg></span></span></span><span class="dd dd-sw" data-depth="14" style="--x:8%;--y:68%;--w:5.6vw;--t:5.8s;--dl:1.1s;--mx:14%;--my:83%;--mw:15vw"><span class="ddp" style="translate: none; rotate: none; scale: none; transform: rotate(-27.0393deg) scale(0, 0);"><span class="ddf"><svg viewBox="0 0 90 90"><rect x="32" y="18" width="26" height="62" rx="8" fill="#E2527F" stroke="#000" stroke-width="3" stroke-linejoin="round" transform="rotate(-24 45 80)"></rect><rect x="32" y="18" width="26" height="62" rx="8" fill="#F2C230" stroke="#000" stroke-width="3" stroke-linejoin="round"></rect><rect x="32" y="18" width="26" height="62" rx="8" fill="#5AA84F" stroke="#000" stroke-width="3" stroke-linejoin="round" transform="rotate(24 45 80)"></rect><circle cx="45" cy="72" r="3.5" fill="#000"></circle></svg></span></span></span><span class="dd dd-card dd-hide-m" data-depth="8" style="--x:17%;--y:85%;--w:7.2vw;--t:6.8s;--dl:0.3s;--mw:0"><span class="ddp" style="translate: none; rotate: none; scale: none; transform: rotate(-27.7247deg) scale(0, 0);"><span class="ddf"><svg viewBox="0 0 110 80"><rect x="4" y="4" width="102" height="72" rx="12" fill="#fff" stroke="#000" stroke-width="3" stroke-linejoin="round"></rect><circle cx="24" cy="26" r="9" fill="#6477DB" stroke="#000" stroke-width="2.5"></circle><rect x="40" y="19" width="50" height="6" rx="3" fill="#000"></rect><rect x="40" y="31" width="34" height="5" rx="2.5" fill="#BDBDBD"></rect><rect x="16" y="50" width="44" height="14" rx="7" fill="#000"></rect></svg></span></span></span><span class="dd dd-team" data-depth="16" style="--x:89%;--y:22%;--w:8.6vw;--t:5.6s;--dl:0.4s;--mx:74%;--my:17%;--mw:24vw"><span class="ddp" style="translate: none; rotate: none; scale: none; transform: rotate(-16.4777deg) scale(0, 0);"><span class="ddf"><svg viewBox="0 0 130 70"><path d="M22 46 L65 28 L108 46" fill="none" stroke="#fff" stroke-width="2.5" stroke-dasharray="4 6" stroke-linecap="round"></path><circle cx="22" cy="46" r="15" fill="#E2527F" stroke="#000" stroke-width="3"></circle><circle cx="17" cy="44" r="2.2" fill="#000"></circle><circle cx="27" cy="44" r="2.2" fill="#000"></circle><path d="M17 51 Q22 55 27 51" fill="none" stroke="#000" stroke-width="2.2" stroke-linecap="round"></path><circle cx="108" cy="46" r="15" fill="#6477DB" stroke="#000" stroke-width="3"></circle><circle cx="103" cy="44" r="2.2" fill="#000"></circle><circle cx="113" cy="44" r="2.2" fill="#000"></circle><path d="M103 51 Q108 55 113 51" fill="none" stroke="#000" stroke-width="2.2" stroke-linecap="round"></path><circle cx="65" cy="28" r="17" fill="#fff" stroke="#000" stroke-width="3"></circle><circle cx="60" cy="26" r="2.2" fill="#000"></circle><circle cx="70" cy="26" r="2.2" fill="#000"></circle><path d="M60 33 Q65 37 70 33" fill="none" stroke="#000" stroke-width="2.2" stroke-linecap="round"></path></svg></span></span></span><span class="dd dd-talk" data-depth="12" style="--x:86%;--y:48%;--w:8vw;--t:6.2s;--dl:1.3s;--mx:50%;--my:85%;--mw:21vw"><span class="ddp" style="translate: none; rotate: none; scale: none; transform: rotate(27.1151deg) scale(0, 0);"><span class="ddf"><svg viewBox="0 0 120 92"><rect x="46" y="42" width="68" height="40" rx="16" fill="#F2C230" stroke="#000" stroke-width="3" stroke-linejoin="round"></rect><path d="M96 80 L104 90 L86 81" fill="#F2C230" stroke="#000" stroke-width="3" stroke-linejoin="round"></path><rect x="60" y="58" width="40" height="6" rx="3" fill="#000"></rect><rect x="6" y="8" width="72" height="44" rx="18" fill="#fff" stroke="#000" stroke-width="3" stroke-linejoin="round"></rect><path d="M22 50 L16 64 L36 51" fill="#fff" stroke="#000" stroke-width="3" stroke-linejoin="round"></path><g class="dots"><circle cx="27" cy="30" r="4.5" fill="#000"></circle><circle cx="42" cy="30" r="4.5" fill="#000"></circle><circle cx="57" cy="30" r="4.5" fill="#000"></circle></g></svg></span></span></span><span class="dd dd-flag" data-depth="18" style="--x:91%;--y:73%;--w:5.4vw;--t:5s;--dl:0.8s;--mx:86%;--my:81%;--mw:15vw"><span class="ddp" style="translate: none; rotate: none; scale: none; transform: rotate(2.47183deg) scale(0, 0);"><span class="ddf"><svg viewBox="0 0 80 100"><path d="M4 96 Q40 68 76 96 Z" fill="#5AA84F" stroke="#000" stroke-width="3" stroke-linejoin="round"></path><path d="M30 84 L30 12" stroke="#fff" stroke-width="4" stroke-linecap="round"></path><path class="cloth" d="M31 14 Q46 8 60 16 Q52 24 62 32 Q46 28 31 34 Z" fill="#E2527F" stroke="#000" stroke-width="3" stroke-linejoin="round"></path></svg></span></span></span><span class="dd dd-s1" data-depth="22" style="--x:22%;--y:14%;--w:1.4vw;--t:4.2s;--dl:0.2s;--mx:88%;--my:29%;--mw:4vw"><span class="ddp" style="translate: none; rotate: none; scale: none; transform: rotate(-8.85692deg) scale(0, 0);"><span class="ddf"><svg viewBox="0 0 24 24"><path d="M12 0 Q13 10 24 12 Q13 14 12 24 Q11 14 0 12 Q11 10 12 0 Z" fill="#fff"></path></svg></span></span></span><span class="dd dd-s2 dd-hide-m" data-depth="20" style="--x:79%;--y:86%;--w:1.8vw;--t:4.8s;--dl:1.6s;--mw:0"><span class="ddp" style="translate: none; rotate: none; scale: none; transform: rotate(-6.76399deg) scale(0, 0);"><span class="ddf"><svg viewBox="0 0 24 24"><path d="M12 0 Q13 10 24 12 Q13 14 12 24 Q11 14 0 12 Q11 10 12 0 Z" fill="#fff"></path></svg></span></span></span><span class="dd dd-s3" data-depth="24" style="--x:95%;--y:36%;--w:1.1vw;--t:3.8s;--dl:0.9s;--mx:6%;--my:72%;--mw:4vw"><span class="ddp" style="translate: none; rotate: none; scale: none; transform: rotate(-6.13269deg) scale(0, 0);"><span class="ddf"><svg viewBox="0 0 24 24"><path d="M12 0 Q13 10 24 12 Q13 14 12 24 Q11 14 0 12 Q11 10 12 0 Z" fill="#fff"></path></svg></span></span></span></div>
+        <h2 style="translate: none; rotate: none; scale: none; opacity: 0; transform: translate(0px, 40px);">That's what I make.<br>That's what I lead.</h2>
+        <p style="translate: none; rotate: none; scale: none; opacity: 0; transform: translate(0px, 20px);">If you're building something that deserves to be remembered, let's talk.</p>
+        <p class="bl-open" style="translate: none; rotate: none; scale: none; opacity: 0; transform: translate(0px, 20px);">I'm open to building brands, designing experiences and good conversations over a cup of <span class="nowrap">coffee.<svg class="coffee" viewBox="0 0 44 48" aria-hidden="true"><g class="wisps" fill="none" stroke="#fff" stroke-width="2.4" stroke-linecap="round"><path d="M15 19 q-3.5 -4 0 -7.5 q3.5 -3.5 0 -7.5"></path><path d="M21.5 19 q-3.5 -4 0 -7.5 q3.5 -3.5 0 -7.5"></path><path d="M28 19 q-3.5 -4 0 -7.5 q3.5 -3.5 0 -7.5"></path></g><path d="M34 26 Q41 26 41 31.5 Q41 37 33 37" fill="none" stroke="#fff" stroke-width="3" stroke-linecap="round"></path><path d="M8 23 H35 V32 Q35 42 25 42 H18 Q8 42 8 32 Z" fill="#fff" stroke="#000" stroke-width="2.5" stroke-linejoin="round"></path><ellipse cx="21.5" cy="23" rx="13.5" ry="2.6" fill="#6B4430" stroke="#000" stroke-width="2.5"></ellipse><path d="M4 45.5 H39" stroke="#fff" stroke-width="3" stroke-linecap="round"></path></svg></span></p>
+      </div>
+    </section>
+
+    <!-- 3. Based -->
+    <section class="layer" id="based" data-bg="backwater" aria-label="Where I am">
+      <div class="based">
+        <div class="based-copy"><h2 class="based-text amp" id="basedText" data-amp="11" aria-label="Based inBengaluru."><span style="translate: none; rotate: none; scale: none; opacity: 0; visibility: hidden; transform: translate(70%, 0%);"><span aria-hidden="true" style="display: inline-block; white-space: nowrap;"><span>B</span><span>a</span><span>s</span><span class="s">e</span><span>d</span></span> <span aria-hidden="true" style="display: inline-block; white-space: nowrap;"><span>i</span><span>n</span></span></span><span style="translate: none; rotate: none; scale: none; opacity: 0; visibility: hidden; transform: translate(70%, 0%);"><span aria-hidden="true" style="display: inline-block; white-space: nowrap;"><span>B</span><span>e</span><span class="s">n</span><span>g</span><span>a</span><span class="s">l</span><span>u</span><span>r</span><span>u</span><span>.</span></span></span></h2>
+        <div class="doodles" aria-hidden="true"><svg class="hills" viewBox="0 0 1000 120" preserveAspectRatio="none" style="translate: none; rotate: none; scale: none; opacity: 0; visibility: hidden; transform: translate(43.2px, 0px);"><path d="M0 120 L0 84 Q90 40 180 70 Q260 96 330 58 Q420 8 520 56 Q600 92 680 50 Q770 6 860 48 Q930 78 1000 60 L1000 120 Z" fill="rgba(255,255,255,.05)" stroke="currentColor" stroke-opacity=".4" stroke-width="2" vector-effect="non-scaling-stroke"></path><path d="M0 120 L0 100 Q140 70 260 92 Q400 116 520 86 Q680 52 820 90 Q920 112 1000 96 L1000 120 Z" fill="rgba(255,255,255,.05)" stroke="currentColor" stroke-opacity=".28" stroke-width="2" vector-effect="non-scaling-stroke"></path></svg><svg class="palm far" viewBox="0 0 120 220" style="left: 5%; width: clamp(60px, 6.5vw, 96px); translate: none; rotate: none; scale: none; transform: translate(0%, 40%) translate(172.8px, 0px); opacity: 0; visibility: hidden;"><path d="M60 220 Q50 150 66 72" fill="none" stroke="currentColor" stroke-width="9" stroke-linecap="round"></path><path d="M66 70 Q30 48 2 82 Q34 62 64 78 Z M66 70 Q40 26 8 34 Q42 44 64 76 Z M66 70 Q82 24 116 28 Q84 44 68 76 Z M66 70 Q106 56 120 96 Q98 70 68 78 Z M66 70 Q58 30 70 4 Q76 40 70 74 Z" fill="currentColor"></path><circle cx="60" cy="82" r="7" fill="currentColor"></circle><circle cx="72" cy="84" r="7" fill="currentColor"></circle></svg><svg class="palm " viewBox="0 0 120 220" style="left: 76%; width: clamp(70px, 7.5vw, 112px); translate: none; rotate: none; scale: none; transform: translate(0%, 40%) translate(172.8px, 0px); opacity: 0; visibility: hidden;"><path d="M60 220 Q50 150 66 72" fill="none" stroke="currentColor" stroke-width="9" stroke-linecap="round"></path><path d="M66 70 Q30 48 2 82 Q34 62 64 78 Z M66 70 Q40 26 8 34 Q42 44 64 76 Z M66 70 Q82 24 116 28 Q84 44 68 76 Z M66 70 Q106 56 120 96 Q98 70 68 78 Z M66 70 Q58 30 70 4 Q76 40 70 74 Z" fill="currentColor"></path><circle cx="60" cy="82" r="7" fill="currentColor"></circle><circle cx="72" cy="84" r="7" fill="currentColor"></circle></svg><svg class="palm far" viewBox="0 0 120 220" style="left: 89%; width: clamp(50px, 5vw, 80px); translate: none; rotate: none; scale: none; transform: translate(0%, 40%) translate(172.8px, 0px); opacity: 0; visibility: hidden;"><path d="M60 220 Q50 150 66 72" fill="none" stroke="currentColor" stroke-width="9" stroke-linecap="round"></path><path d="M66 70 Q30 48 2 82 Q34 62 64 78 Z M66 70 Q40 26 8 34 Q42 44 64 76 Z M66 70 Q82 24 116 28 Q84 44 68 76 Z M66 70 Q106 56 120 96 Q98 70 68 78 Z M66 70 Q58 30 70 4 Q76 40 70 74 Z" fill="currentColor"></path><circle cx="60" cy="82" r="7" fill="currentColor"></circle><circle cx="72" cy="84" r="7" fill="currentColor"></circle></svg><svg class="cup" id="cup" viewBox="0 0 110 140" style="left: 12%; width: clamp(48px, 5vw, 76px); translate: none; rotate: none; scale: none; opacity: 0; visibility: hidden; transform: translate(0%, 60%);"><g id="steam" data-svg-origin="38 -16" transform="matrix(1,0,0,1,0,8)" style="translate: none; rotate: none; scale: none; transform-origin: 0px 0px; opacity: 0.2;"><path d="M42 36 Q34 24 42 12 Q50 0 42 -12 M58 34 Q50 20 58 8 Q66 -4 58 -16" fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round"></path></g><path class="skin" d="M4 104 L106 104 L96 138 L14 138 Z" stroke="currentColor" stroke-width="3.5" stroke-linejoin="round"></path><path class="skin" d="M28 44 L82 44 L74 120 L36 120 Z" stroke="currentColor" stroke-width="3.5" stroke-linejoin="round"></path><ellipse class="deep" cx="55" cy="44" rx="27" ry="6" stroke="currentColor" stroke-width="3.5"></ellipse></svg></div>
+        <div class="road" aria-hidden="true"></div>
+        <div class="auto" id="auto" aria-hidden="true" style="translate: none; rotate: none; scale: none; transform: translate(-504px, 0px);">
+          <svg viewBox="0 0 340 232">
+            <!-- open cabin, you can see through it -->
+            <path d="M136 46 L272 46 L272 150 L136 150 Z" class="thru"></path>
+            <!-- driver -->
+            <path d="M156 132 Q156 98 172 96 Q188 98 190 132 Z" fill="#E9E1CF" stroke="#000" stroke-width="2.5" stroke-linejoin="round"></path>
+            <circle class="skin" cx="172" cy="82" r="12" stroke="#000" stroke-width="2.5"></circle>
+            <path d="M160 80 Q160 68 172 68 Q184 68 184 78 Q176 73 160 80 Z" fill="#000"></path>
+            <path d="M160 112 L134 110" stroke="#000" stroke-width="4" stroke-linecap="round"></path>
+            <rect x="150" y="130" width="44" height="12" rx="3" fill="#2B2B2B" stroke="#000" stroke-width="2"></rect>
+            <!-- passenger -->
+            <rect x="222" y="104" width="44" height="40" rx="6" fill="#3A3A3A" stroke="#000" stroke-width="2"></rect>
+            <path d="M228 140 Q228 106 244 104 Q260 106 262 140 Z" fill="#C8455A" stroke="#000" stroke-width="2.5" stroke-linejoin="round"></path>
+            <circle class="skin" cx="244" cy="89" r="13" stroke="#000" stroke-width="2.5"></circle>
+            <path d="M231 88 Q230 74 244 74 Q258 74 258 88 Q258 100 262 104 L254 100 Q256 84 244 82 Q234 82 234 96 Z" fill="#000"></path>
+            <!-- pillar -->
+            <path d="M206 46 L206 150" stroke="#000" stroke-width="3"></path>
+            <!-- yellow canopy with the side cut open -->
+            <path d="M100 44 Q104 24 128 24 L290 24 Q328 24 328 66 L328 150 L272 150 L272 46 L136 46 L136 116 L100 116 Z" fill="#F2C230" stroke="#000" stroke-width="3" stroke-linejoin="round"></path>
+            <path d="M102 36 Q108 22 128 22 L290 22 Q330 22 330 64" fill="none" stroke="#000" stroke-width="8" stroke-linecap="round"></path>
+            <rect x="272" y="130" width="56" height="9" fill="#000"></rect>
+            <!-- windscreen -->
+            <path d="M108 46 L132 46 L132 110 L102 110 Z" fill="rgba(255,255,255,.6)" stroke="#000" stroke-width="3" stroke-linejoin="round"></path>
+            <path d="M112 54 L118 54 L110 96" stroke="#fff" stroke-width="3" stroke-linecap="round" opacity=".8"></path>
+            <!-- green front face and fender -->
+            <path d="M100 110 L136 110 L136 196 L84 196 Q80 150 100 110 Z" fill="#3E9B5C" stroke="#000" stroke-width="3" stroke-linejoin="round"></path>
+            <path d="M102 116 L134 116" stroke="#F2C230" stroke-width="5"></path>
+            <circle cx="112" cy="134" r="7" fill="#FFF3B0" stroke="#000" stroke-width="2.5"></circle>
+            <rect x="96" y="146" width="12" height="6" rx="2" fill="#F08A24" stroke="#000" stroke-width="1.5"></rect>
+            <path d="M42 206 Q46 174 72 172 Q100 172 106 206 Z" fill="#3E9B5C" stroke="#000" stroke-width="3" stroke-linejoin="round"></path>
+            <!-- floor board -->
+            <rect x="104" y="184" width="150" height="12" rx="3" fill="#2F7A48" stroke="#000" stroke-width="2.5"></rect>
+            <!-- green rear body -->
+            <path d="M150 150 L312 150 Q336 152 337 178 L337 198 Q337 206 328 206 L302 206 Q300 178 272 178 Q244 178 242 206 L150 206 Z" fill="#3E9B5C" stroke="#000" stroke-width="3" stroke-linejoin="round"></path>
+            <path d="M156 168 L236 168" stroke="#2F7A48" stroke-width="3" stroke-linecap="round"></path>
+            <rect x="298" y="160" width="28" height="15" rx="2" fill="#F2C230" stroke="#000" stroke-width="2"></rect>
+            <text x="312" y="171" transform="translate(624 0) scale(-1 1)" text-anchor="middle" font-size="8" font-weight="700" fill="#000" font-family="Big Shoulders, sans-serif">KA 01</text>
+            <rect x="331" y="158" width="6" height="12" rx="2" fill="#D63A3A" stroke="#000" stroke-width="1.5"></rect>
+            <!-- wheels -->
+            <g class="wheel" id="wf" data-svg-origin="48 182" transform="matrix(1,0,0,1,0,0)" style="translate: none; rotate: none; scale: none; transform-origin: 0px 0px;"><circle cx="72" cy="206" r="24" fill="#111" stroke="#000" stroke-width="2"></circle><circle cx="72" cy="206" r="10" fill="#BDBDBD" stroke="#000" stroke-width="2"></circle><path d="M72 196 L72 216 M62 206 L82 206" stroke="#555" stroke-width="2.5"></path></g>
+            <g class="wheel" id="wr" data-svg-origin="248 182" transform="matrix(1,0,0,1,0,0)" style="translate: none; rotate: none; scale: none; transform-origin: 0px 0px;"><circle cx="272" cy="206" r="24" fill="#111" stroke="#000" stroke-width="2"></circle><circle cx="272" cy="206" r="10" fill="#BDBDBD" stroke="#000" stroke-width="2"></circle><path d="M272 196 L272 216 M262 206 L282 206" stroke="#555" stroke-width="2.5"></path></g>
+          </svg>
+        </div>
+        <p class="cap" id="basedCap" style="translate: none; rotate: none; scale: none; opacity: 0; visibility: hidden; transform: translate(0px, 20px);">Kerala at heart, Bengaluru by address. When I’m not designing, you’ll probably find me chasing good food, art, music, books and conversations, or somewhere in the hills, enjoying rain, hugging trees...</p></div>
+      </div>
+    </section>
+
+    <!-- 4. Work -->
+    <section class="layer work" id="work" data-bg="leaf" aria-label="Selected work">
+      <div class="track" id="track">
+        <div class="work-head" style="translate: none; rotate: none; scale: none; opacity: 0; visibility: hidden; transform: translate(0px, 60px);">
+          <h2 data-amp="9" aria-label="Selected work" class="amp"><svg class="peek" id="peek" viewBox="0 0 130 70" aria-hidden="true" style="translate: none; rotate: none; scale: none; opacity: 0; visibility: hidden; transform: translate(0%, 70%);"><path class="skin" d="M18 70 L18 44 Q18 8 58 8 L72 8 Q112 8 112 44 L112 70 Z" stroke="#000" stroke-width="3"></path><path d="M18 50 Q18 8 58 8 L72 8 Q112 8 112 48 Q104 38 94 44 Q86 32 74 40 Q64 28 52 38 Q42 30 34 42 Q24 38 18 50 Z" fill="#000"></path><ellipse cx="50" cy="58" rx="9" ry="11" fill="#fff" stroke="#000" stroke-width="2.5"></ellipse><ellipse cx="82" cy="58" rx="9" ry="11" fill="#fff" stroke="#000" stroke-width="2.5"></ellipse><circle id="pl" cx="54" cy="60" r="4" fill="#000" data-svg-origin="50 56" transform="matrix(1,0,0,1,0,0)" style="translate: none; rotate: none; scale: none; transform-origin: 0px 0px;"></circle><circle id="pr" cx="86" cy="60" r="4" fill="#000" data-svg-origin="82 56" transform="matrix(1,0,0,1,0,0)" style="translate: none; rotate: none; scale: none; transform-origin: 0px 0px;"></circle><path class="skin" d="M4 70 Q4 58 14 58 Q24 58 24 70 Z M106 70 Q106 58 116 58 Q126 58 126 70 Z" stroke="#000" stroke-width="3"></path></svg><span aria-hidden="true" style="display: inline-block; white-space: nowrap;"><span>S</span><span class="s">e</span><span>l</span><span class="s">e</span><span>c</span><span class="u">t</span><span>e</span><span class="s">d</span></span> <span aria-hidden="true" style="display: inline-block; white-space: nowrap;"><span>w</span><span>o</span><span>r</span><span>k</span></span></h2>
+          <p>A few things I’ve designed, shaped and shipped, from complex products to brands built from scratch.</p>
+          <p class="work-more">There’s more where that came from. Explore the rest of my work on <a href="https://www.behance.net/nesilnoble" target="_blank" rel="noopener">Behance</a>.</p>
+        </div>
+
+        <a class="proj" href="https://nesilnoble.com/work/corridor-tms.html" data-case="corridor-tms" style="translate: none; rotate: none; scale: none; opacity: 0; visibility: hidden; transform: translate(0px, 80px) rotate(2deg);">
+          <div class="label"><span>Corridor TMS</span><em>Logistics dashboard</em></div>
+          <div class="cover"><img src="site/nesilnoble.com/work/corridor-tms-cover.jpg" alt="Corridor TMS live tracking: a 3D city map with shipments en route, one running 22 minutes late, and an automation that texted the customer a new arrival time" loading="lazy" style="object-position:left top"></div>
+          <h3>Every shipment, live, in one place</h3>
+          <p>Drivers, routes and delays were scattered across tools. One TMS now shows live tracking, ETA insight and automations that act on delays.</p>
+        </a>
+
+        <a class="proj" href="https://nesilnoble.com/work/the-local-project.html" data-case="the-local-project" style="translate: none; rotate: none; scale: none; opacity: 0; visibility: hidden; transform: translate(0px, 80px) rotate(2deg);">
+          <div class="label"><span>The Local Project</span><em>Website design</em></div>
+          <div class="cover"><img src="site/nesilnoble.com/work/the-local-project-cover.jpg" alt="The Local Project homepage: a timber house in tall grass under a grey sky, with the headline Architecture that belongs to its place" loading="lazy" style="object-position:left center"></div>
+          <h3>A website that lets the buildings speak</h3>
+          <p>A quiet, image led site for an architecture studio, with scroll led motion, a project index and a journal.</p>
+        </a>
+
+        <a class="proj" href="https://nesilnoble.com/work/upgrad-design-system.html" data-case="upgrad-design-system" style="translate: none; rotate: none; scale: none; opacity: 0; visibility: hidden; transform: translate(0px, 80px) rotate(2deg);">
+          <div class="label"><span>upGrad Design System</span><em>Design system</em></div>
+          <div class="cover"><img src="site/nesilnoble.com/work/upgrad-design-system-cover.jpg" alt="The new upGrad homepage hero, built on the rebuilt design system" loading="lazy"></div>
+          <h3>A system named after its own history</h3>
+          <p>Seven year old foundations rebuilt around what things do, and the new homepage shipped on top, in one month.</p>
+        </a>
+
+        <a class="proj" href="https://nesilnoble.com/work/malayali-kada.html" data-case="malayali-kada" style="translate: none; rotate: none; scale: none; opacity: 0; visibility: hidden; transform: translate(0px, 80px) rotate(2deg);">
+          <div class="label"><span>Malayali Kada</span><em>Brand, product and build</em></div>
+          <div class="cover"><img src="site/nesilnoble.com/work/malayali-kada-cover.webp" alt="Freshly Baked by Homechef stickers, the program leaflet, a call for home cooks poster, and a packed Malayali Kada order with a thank you note" loading="lazy"></div>
+          <h3>Honest food for 300+ families</h3>
+          <p>A Kerala food store that names the maker on every product, grown from a society stall to 49 communities.</p>
+        </a>
+
+        <a class="proj" href="https://nesilnoble.com/work/temple.html" data-case="temple" style="translate: none; rotate: none; scale: none; opacity: 0; visibility: hidden; transform: translate(0px, 80px) rotate(2deg);">
+          <div class="label"><span>Temple Dashboard</span><em>Dashboard</em></div>
+          <div class="cover"><img src="site/nesilnoble.com/work/temple-cover.webp" alt="Temple Delivery home: 22 orders to fulfil, an Order Health comparison, and orders split across Ecity, Begur and others" loading="lazy" style="object-position:left top"></div>
+          <h3>Weekly delivery, off pen and paper</h3>
+          <p>The internal tool I designed and built with Claude Code to replace hand grouped orders, handwritten slips and paper routes.</p>
+        </a>
+
+        <a class="proj" href="https://nesilnoble.com/work/upgrad-three-doors.html" data-case="upgrad-three-doors" style="translate: none; rotate: none; scale: none; opacity: 0; visibility: hidden; transform: translate(0px, 80px) rotate(2deg);">
+          <div class="label"><span>upGrad, Three Doors In</span><em>Interactive concepts</em></div>
+          <div class="cover"><img src="site/nesilnoble.com/work/upgrad-three-doors-cover.jpg" alt="The After Hours concept: a night blue upGrad homepage with the headline Learn after hours. Arrive somewhere new." loading="lazy" style="object-position:left top"></div>
+          <h3>Three different doors into upGrad</h3>
+          <p>One catalogue walked into three ways: a fourteen year story, a night sky world and a gallery you drag. All live, in code.</p>
+        </a>
+      </div>
+    </section>
+
+    <!-- 5. About -->
+    <section class="layer" id="about" data-bg="kokum" aria-label="About">
+      <div class="about-inner" style="position:relative">
+        <svg class="plane" id="plane" style="color:var(--fg)" viewBox="0 0 260 110" aria-hidden="true"><path id="trail" d="M4 100 Q50 30 96 76 Q128 106 150 70 Q164 46 188 40" fill="none" stroke="currentColor" stroke-width="3.5" stroke-dasharray="7 9" stroke-linecap="round" style="opacity: 0; stroke-dashoffset: 320px;"></path><g id="planeBody" data-svg-origin="226 36" transform="matrix(0.93969,-0.34202,0.34202,0.93969,-188.68266,139.46768)" style="translate: none; rotate: none; scale: none; transform-origin: 0px 0px;"><path d="M196 36 L256 6 L226 66 L214 48 Z" fill="#fff" stroke="#000" stroke-width="3.5" stroke-linejoin="round"></path><path d="M214 48 L256 6 L206 56 Z" fill="#000"></path></g></svg>
+        <h2 class="st" id="aboutSt">
+          <span><i style="translate: none; rotate: none; scale: none; transform: translate(0%, 110%);">I care about the details</i></span>
+          <span><i style="translate: none; rotate: none; scale: none; transform: translate(0%, 110%);">that make a product</i></span>
+          <span><i style="translate: none; rotate: none; scale: none; transform: translate(0%, 110%);">feel like itself.</i></span>
+        </h2>
+        <p class="about-sub" id="aboutSub" style="translate: none; rotate: none; scale: none; opacity: 0; visibility: hidden; transform: translate(0px, 24px);">The flows, the edge cases, the tiny interactions, the pixels, the moments nobody thought to design. I like getting into the weeds, because that’s often where the experience comes alive.</p>
+        <dl class="facts" id="facts" style="translate: none; rotate: none; scale: none; opacity: 0; visibility: hidden; transform: translate(0px, 24px);">
+          <div><dt>Now</dt><dd>Lead Product Designer, upGrad</dd></div>
+          <div><dt>Also</dt><dd>Co founder and designer, Malayali Kada</dd></div>
+          <div><dt>Experience</dt><dd>7+ years across product, UX, visual design, systems &amp; strategy</dd></div>
+        </dl>
+        <div class="tools" id="tools" aria-label="Tools" style="translate: none; rotate: none; scale: none; opacity: 0; visibility: hidden; transform: translate(0px, 24px);">
+          <span>Figma</span><span>Illustrator</span><span>Claude</span><span>ChatGPT</span><span>VS Code</span><span>GitHub</span><span>Shopify</span><span>Framer</span><span>Photoshop</span><span>After Effects</span><span>Premiere Pro</span>
+        </div>
+        <div class="more" id="more" style="translate: none; rotate: none; scale: none; opacity: 0; visibility: hidden; transform: translate(0px, 24px);"><a href="https://medium.com/@nesilnoble" target="_blank" rel="noopener">Read Medium Articles</a><a href="https://www.linkedin.com/build-relation/newsletter-follow?entityUrn=7165706039168888833" target="_blank" rel="noopener">Read LinkedIn Newsletter</a></div>
+      </div>
+    </section>
+
+    <div class="ruler" id="ruler" aria-hidden="true" style="opacity: 1;">
+      <div class="ticks"></div>
+      <div class="head" id="head"></div>
+    <button data-go="hello" tabindex="-1" style="left: 12.867%;">Hello</button><button data-go="systems" tabindex="-1" style="left: 25.0742%;">Systems</button><button data-go="beliefs" tabindex="-1" style="left: 34.4771%;">Beliefs</button><button data-go="based" tabindex="-1" style="left: 64.6651%;">Bengaluru</button><button data-go="work" tabindex="-1" style="left: 71.9235%;">Work</button><button data-go="about" tabindex="-1" style="left: 89.7394%;">About</button><button data-go="contact" tabindex="-1" style="left: 98%;">Contact</button></div>
+  </div>
+</div>
+
+<div class="scroll-space" id="space"></div>
+
+
+
+
+
+<div class="notice" id="notice" role="dialog" aria-labelledby="noticeTitle" aria-describedby="noticeText" hidden="">
+  <svg class="notice-moon" viewBox="0 0 24 24" aria-hidden="true"><path d="M15.5 3.2A9 9 0 1 0 20.8 16 7 7 0 0 1 15.5 3.2Z" fill="#F2C230" stroke="#000" stroke-width="1.8" stroke-linejoin="round"></path></svg>
+  <div class="notice-body">
+    <p class="notice-title" id="noticeTitle">Dreams look better on a bigger screen</p>
+    <p class="notice-text" id="noticeText">To experience Nesil’s Lucid Dreams in its full potential, open it on a desktop browser.</p>
+    <div class="notice-actions"><button type="button" id="noticeCopy">Copy link</button><button type="button" id="noticeOk" class="solid">Continue here</button></div>
+  </div>
+</div>
+<div class="cs" id="cs" role="dialog" aria-modal="true" aria-labelledby="csTitle">
+  <div class="cs-bar">
+    <button class="cs-back" id="csBack" type="button"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M19 12H5M11 6l-6 6 6 6"></path></svg>Back to work</button>
+    <span class="cs-title" id="csTitle">Case study</span>
+    <a class="cs-back cs-dl" id="csDl" href="#" download="" hidden=""><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 4v11M7 10.5l5 5 5-5M5 20h14"></path></svg>Download</a>
+  </div>
+  <div class="cs-body"><div class="cs-load" aria-hidden="true"><i></i></div><iframe id="csFrame" title="Case study"></iframe></div>
+</div>
+
+<!-- Awwwards nominee badge. z-index sits under the case study viewer (100) and phone notice (95) so it never covers them. -->
+<div id="awwwards" style="position: fixed; z-index: 90; transform: translateY(-50%); top: 50%;  right: 0"><a href="https://www.awwwards.com/sites/nesils-lucid-dreams" target="_blank" rel="noopener" aria-label="Nesil's Lucid Dreams, Nominee on Awwwards"><svg width="53.08" height="171.358" aria-hidden="true"><path class="js-color-bg" fill="white" d="M0 0h53.08v171.358H0z"></path><g class="js-color-text" fill="black"><path d="M20.048 153.585v-2.002l6.752-3.757h-6.752v-1.9h10.23v2.002l-6.752 3.757h6.752v1.9zM29.899 142.382a3.317 3.317 0 0 1-1.359 1.293c-.575.297-1.223.446-1.944.446-.721 0-1.369-.149-1.944-.446a3.317 3.317 0 0 1-1.359-1.293c-.331-.564-.497-1.232-.497-2.003 0-.769.166-1.437.497-2.002a3.332 3.332 0 0 1 1.359-1.294c.575-.297 1.224-.445 1.944-.445.722 0 1.369.148 1.944.445a3.326 3.326 0 0 1 1.359 1.294c.33.565.496 1.233.496 2.002.001.77-.166 1.438-.496 2.003m-1.703-3.348c-.435-.331-.967-.497-1.601-.497s-1.167.166-1.601.497c-.434.332-.65.78-.65 1.345s.217 1.014.65 1.346c.434.33.967.496 1.601.496s1.166-.166 1.601-.496c.434-.332.649-.78.649-1.346.001-.565-.215-1.013-.649-1.345M22.912 134.996v-1.812h1.185c-.43-.283-.752-.593-.973-.929-.219-.336-.329-.732-.329-1.19 0-.479.127-.902.38-1.272.254-.37.635-.633 1.141-.79-.478-.262-.851-.591-1.118-.985a2.221 2.221 0 0 1-.402-1.265c0-.682.2-1.218.599-1.607.4-.391.957-.585 1.668-.585h5.218v1.812H25.37c-.682 0-1.023.303-1.023.907 0 .467.264.85.789 1.146.527.299 1.286.446 2.28.446h2.865v1.813H25.37c-.682 0-1.023.303-1.023.906 0 .468.275.851.826 1.147.551.298 1.352.446 2.404.446h2.704v1.812h-7.369zM21.626 122.457c-.225.224-.502.336-.833.336s-.608-.112-.833-.336a1.128 1.128 0 0 1-.336-.833c0-.331.111-.609.336-.833.225-.225.502-.336.833-.336s.608.111.833.336c.225.224.337.502.337.833 0 .332-.112.608-.337.833m1.286-1.739h7.366v1.813h-7.366v-1.813zM22.912 118.668v-1.812h1.185a3.348 3.348 0 0 1-.951-1.009 2.434 2.434 0 0 1-.351-1.272c0-.681.19-1.229.57-1.644.38-.414.931-.621 1.651-.621h5.263v1.812h-4.722c-.418 0-.727.096-.92.285-.195.19-.293.447-.293.769 0 .302.116.58.351.833.233.254.577.458 1.03.613.453.156.992.234 1.615.234h2.938v1.812h-7.366zM29.833 109.129a3.33 3.33 0 0 1-1.432 1.169 4.535 4.535 0 0 1-1.805.373 4.537 4.537 0 0 1-1.807-.373c-.579-.248-1.057-.638-1.432-1.169s-.563-1.196-.563-1.995c0-.771.183-1.413.549-1.93a3.28 3.28 0 0 1 1.382-1.141 4.221 4.221 0 0 1 1.709-.364h.746v5.071c.447-.02.838-.183 1.168-.49.332-.307.498-.724.498-1.248 0-.41-.093-.754-.277-1.031-.186-.278-.473-.529-.863-.753l.542-1.462c.69.303 1.224.724 1.592 1.265.371.541.556 1.235.556 2.083 0 .799-.188 1.464-.563 1.995m-4.085-3.574c-.41.088-.746.261-1.009.52-.262.258-.395.61-.395 1.06 0 .428.137.784.409 1.067.272.282.604.458.994.525v-3.172zM29.833 100.878c-.375.531-.852.921-1.432 1.169a4.552 4.552 0 0 1-3.612 0c-.579-.248-1.057-.638-1.432-1.169s-.563-1.196-.563-1.995c0-.77.183-1.412.549-1.93a3.278 3.278 0 0 1 1.382-1.14 4.222 4.222 0 0 1 1.709-.365h.746v5.072a1.794 1.794 0 0 0 1.168-.49c.332-.307.498-.724.498-1.249 0-.41-.093-.753-.277-1.031-.186-.277-.473-.528-.863-.753l.542-1.462c.69.302 1.224.724 1.592 1.265.371.541.556 1.234.556 2.083 0 .799-.188 1.464-.563 1.995m-4.085-3.573c-.41.088-.746.261-1.009.519-.262.258-.395.611-.395 1.06 0 .429.137.784.409 1.067.272.282.604.458.994.526v-3.172zM35.481 16.926l-4.782 14.969h-3.266l-2.584-9.682-2.584 9.682h-3.268l-4.781-14.969h3.713l2.673 10.276 2.524-10.276h3.445l2.524 10.276 2.674-10.276zM37.979 27.083c1.426 0 2.495 1.068 2.495 2.495 0 1.425-1.069 2.495-2.495 2.495-1.425 0-2.495-1.07-2.495-2.495-.001-1.427 1.07-2.495 2.495-2.495"></path></g></svg></a></div>
+
+
+
+<div data-wd3-banner style="position:fixed;z-index:2147483647;left:16px;bottom:16px;max-width:min(560px,calc(100vw - 32px));align-items:center;gap:12px;padding:12px 14px;border-radius:12px;background:rgba(5,5,5,.92);color:#e8e8e8;border:1px solid #1d1d1d;box-shadow:0 8px 30px rgba(0,0,0,.35);font:13px/1.45 ui-sans-serif,system-ui,-apple-system,'Segoe UI',sans-serif;backdrop-filter:blur(8px)">
+  <span style="width:8px;height:8px;border-radius:50%;background:#00ffa3;flex:none"></span>
+  <span>Versão estática, sem animações. Para ver o site vivo, rode no terminal, nesta pasta: <b style="color:#00ffa3">python3 serve.py --open</b> (Windows: <b style="color:#00ffa3">py serve.py --open</b>). Passo a passo em <b style="color:#00ffa3">Como rodar.md</b>.</span>
+  <button type="button" onclick="this.parentNode.remove()" aria-label="Fechar" style="flex:none;background:none;border:0;color:#8a8a8a;font-size:18px;cursor:pointer;padding:0 2px">×</button>
+</div>
+</body></html>

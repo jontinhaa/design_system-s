@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 11 11" shape-rendering="crispEdges">
+  <style>
+    /* White on clear by default: on a dark tab bar it reads on its own, and
+       Safari, which ignores media queries here, backs it with a plate where
+       it would not. Light tab bars elsewhere get the ink tile under it. */
+    .tile { display: none; }
+    @media (prefers-color-scheme: light) { .tile { display: inline; } }
+  </style>
+  <rect class="tile" width="11" height="11" fill="#121212"/>
+  <path fill="#fff" d="M2 1h1v9H2zM8 1h1v9H8zM3 3h1v1H3zM7 3h1v1H7zM4 4h1v1H4zM6 4h1v1H6zM5 5h1v1H5z"/>
+</svg>

@@ -1,0 +1,970 @@
+{
+ "version": 1,
+ "tool": "wd3 0.1.0",
+ "captureId": "thisisgazzar.com_en-5c126495",
+ "capturedAt": "2026-10-23T20:03:09+00:00",
+ "entry": {
+  "url": "https://www.thisisgazzar.com/en",
+  "path": "/en",
+  "search": "",
+  "file": "site/www.thisisgazzar.com/en.html",
+  "contentType": "text/html; charset=utf-8"
+ },
+ "blocked": [
+  "^https?://([^/?#]+\\.)?(google\\-analytics\\.com|analytics\\.google\\.com|googletagmanager\\.com|googleadservices\\.com|doubleclick\\.net|googlesyndication\\.com|googleoptimize\\.com|connect\\.facebook\\.net|bat\\.bing\\.com|snap\\.licdn\\.com|px\\.ads\\.linkedin\\.com|analytics\\.tiktok\\.com|ct\\.pinterest\\.com|static\\.ads\\-twitter\\.com|analytics\\.twitter\\.com|tr\\.snapchat\\.com|sc\\-static\\.net|mc\\.yandex\\.ru|hotjar\\.com|hotjar\\.io|clarity\\.ms|cdn\\.segment\\.com|api\\.segment\\.io|cdn\\.mxpnl\\.com|api\\-js\\.mixpanel\\.com|api\\.mixpanel\\.com|api\\.amplitude\\.com|api2\\.amplitude\\.com|api\\-secure\\.amplitude\\.com|api\\-sr\\.amplitude\\.com|sr\\-client\\-cfg\\.amplitude\\.com|plausible\\.io|cloud\\.umami\\.is|analytics\\.umami\\.is|static\\.cloudflareinsights\\.com|cloudflareinsights\\.com|vitals\\.vercel\\-insights\\.com|browser\\-intake\\-datadoghq\\.com|browser\\-intake\\-datadoghq\\.eu|js\\-agent\\.newrelic\\.com|bam\\.nr\\-data\\.net|bam\\-cell\\.nr\\-data\\.net|fullstory\\.com|script\\.crazyegg\\.com|mouseflow\\.com|smartlook\\.com|heapanalytics\\.com|i\\.posthog\\.com|stats\\.wp\\.com|pixel\\.wp\\.com|promotekit\\.com|ingest\\.sentry\\.io|ingest\\.us\\.sentry\\.io|ingest\\.de\\.sentry\\.io|widget\\.intercom\\.io|js\\.intercomcdn\\.com|api\\-iam\\.intercom\\.io|js\\.hs\\-scripts\\.com|js\\.hs\\-analytics\\.net|js\\.hs\\-banner\\.com|js\\.hscollectedforms\\.net|js\\.usemessages\\.com|track\\.hubspot\\.com|client\\.crisp\\.chat|embed\\.tawk\\.to|js\\.driftt\\.com|static\\.zdassets\\.com|ekr\\.zdassets\\.com|cdn\\.cookielaw\\.org|geolocation\\.onetrust\\.com|consent\\.cookiebot\\.com|consentcdn\\.cookiebot\\.com|app\\.usercentrics\\.eu|api\\.usercentrics\\.eu|cdn\\.iubenda\\.com|cmp\\.osano\\.com|cdn\\.termly\\.io)(:\\d+)?([/?#]|$)",
+  "/rpc/increment_shared_code_views",
+  "^https?://(umami|analytics|stats|plausible)\\.[^/]+/(api/send|api/collect|api/event|script\\.js)",
+  "/g/c(ollect)?\\?v=2&",
+  "sentry\\.io/api/\\d+/(envelope|store)",
+  "/api/meta-capi",
+  "^https?://(leadtracker|tracking|track|events?|collect)\\.[^/]+/",
+  "^https?://a\\.vturb\\.com/",
+  "facebook\\.com/tr[/?]",
+  "/_vercel/(speed-)?insights/",
+  "/cdn-cgi/rum",
+  "/cdn-cgi/challenge-platform/",
+  "google\\.com/(pagead|ads)/"
+ ],
+ "volatileParams": [
+  "v",
+  "_rsc",
+  "dpl",
+  "_",
+  "t",
+  "ts",
+  "timestamp",
+  "cb",
+  "cachebust",
+  "cacheBust",
+  "nocache",
+  "rnd",
+  "rand",
+  "random",
+  "_t"
+ ],
+ "entries": [
+  {
+   "url": "https://www.thisisgazzar.com/en",
+   "method": "GET",
+   "status": 200,
+   "contentType": "text/html; charset=utf-8",
+   "headers": {
+    "content-type": "text/html; charset=utf-8",
+    "link": "</_next/static/immutable/media/Cairo_Variable-s.p.2nkn5kw540dey.woff2>; rel=preload; as=\"font\"; crossorigin=\"\"; type=\"font/woff2\", </_next/static/immutable/media/Questrial_Regular-s.p.3x3y0nhc6wbcr.woff2>; rel=preload; as=\"font\"; crossorigin=\"\"; type=\"font/woff2\", </images/hero-portrait.webp>; rel=preload; as=\"image\"; fetchpriority=\"high\"",
+    "x-matched-path": "/[locale]"
+   },
+   "resourceType": "document",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "file": "site/www.thisisgazzar.com/en.html",
+   "size": 70311,
+   "modes": [
+    "navigate"
+   ]
+  },
+  {
+   "url": "https://www.thisisgazzar.com/_next/static/immutable/chunks/42bzdiooykzkh.css",
+   "method": "GET",
+   "status": 200,
+   "contentType": "text/css; charset=utf-8",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "content-disposition": "inline; filename=\"42bzdiooykzkh.css\"",
+    "content-type": "text/css; charset=utf-8",
+    "x-matched-path": "/_next/static/immutable/chunks/42bzdiooykzkh.css"
+   },
+   "resourceType": "stylesheet",
+   "passes": [
+    "mobile",
+    "desktop"
+   ],
+   "file": "site/www.thisisgazzar.com/_next/static/immutable/chunks/42bzdiooykzkh.css",
+   "size": 3498,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://www.thisisgazzar.com/_next/static/immutable/chunks/28gn-kou--5st.css",
+   "method": "GET",
+   "status": 200,
+   "contentType": "text/css; charset=utf-8",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "content-disposition": "inline; filename=\"28gn-kou--5st.css\"",
+    "content-type": "text/css; charset=utf-8",
+    "x-matched-path": "/_next/static/immutable/chunks/28gn-kou--5st.css"
+   },
+   "resourceType": "stylesheet",
+   "passes": [
+    "mobile",
+    "desktop"
+   ],
+   "file": "site/www.thisisgazzar.com/_next/static/immutable/chunks/28gn-kou--5st.css",
+   "size": 29100,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://www.thisisgazzar.com/_next/static/immutable/chunks/0izu8lmynqq8-.css",
+   "method": "GET",
+   "status": 200,
+   "contentType": "text/css; charset=utf-8",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "content-disposition": "inline; filename=\"0izu8lmynqq8-.css\"",
+    "content-type": "text/css; charset=utf-8",
+    "x-matched-path": "/_next/static/immutable/chunks/0izu8lmynqq8-.css"
+   },
+   "resourceType": "stylesheet",
+   "passes": [
+    "mobile",
+    "desktop"
+   ],
+   "file": "site/www.thisisgazzar.com/_next/static/immutable/chunks/0izu8lmynqq8-.css",
+   "size": 14545,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://www.thisisgazzar.com/_next/static/immutable/media/Questrial_Regular-s.p.3x3y0nhc6wbcr.woff2",
+   "method": "GET",
+   "status": 200,
+   "contentType": "font/woff2",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "content-disposition": "inline; filename=\"Questrial_Regular-s.p.3x3y0nhc6wbcr.woff2\"",
+    "content-type": "font/woff2",
+    "x-matched-path": "/_next/static/immutable/media/Questrial_Regular-s.p.3x3y0nhc6wbcr.woff2"
+   },
+   "resourceType": "font",
+   "passes": [
+    "mobile",
+    "desktop"
+   ],
+   "file": "site/www.thisisgazzar.com/_next/static/immutable/media/Questrial_Regular-s.p.3x3y0nhc6wbcr.woff2",
+   "size": 37444,
+   "modes": [
+    "cors"
+   ]
+  },
+  {
+   "url": "https://www.thisisgazzar.com/_next/static/immutable/chunks/1_uuzw7oefj4o.css",
+   "method": "GET",
+   "status": 200,
+   "contentType": "text/css; charset=utf-8",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "content-disposition": "inline; filename=\"1_uuzw7oefj4o.css\"",
+    "content-type": "text/css; charset=utf-8",
+    "x-matched-path": "/_next/static/immutable/chunks/1_uuzw7oefj4o.css"
+   },
+   "resourceType": "stylesheet",
+   "passes": [
+    "mobile",
+    "desktop"
+   ],
+   "file": "site/www.thisisgazzar.com/_next/static/immutable/chunks/1_uuzw7oefj4o.css",
+   "size": 13712,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://www.thisisgazzar.com/_next/static/immutable/media/Cairo_Variable-s.p.2nkn5kw540dey.woff2",
+   "method": "GET",
+   "status": 200,
+   "contentType": "font/woff2",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "content-disposition": "inline; filename=\"Cairo_Variable-s.p.2nkn5kw540dey.woff2\"",
+    "content-type": "font/woff2",
+    "x-matched-path": "/_next/static/immutable/media/Cairo_Variable-s.p.2nkn5kw540dey.woff2"
+   },
+   "resourceType": "font",
+   "passes": [
+    "mobile",
+    "desktop"
+   ],
+   "file": "site/www.thisisgazzar.com/_next/static/immutable/media/Cairo_Variable-s.p.2nkn5kw540dey.woff2",
+   "size": 44624,
+   "modes": [
+    "cors"
+   ]
+  },
+  {
+   "url": "https://www.thisisgazzar.com/images/hero-portrait.webp",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/webp",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "content-disposition": "inline; filename=\"hero-portrait.webp\"",
+    "content-type": "image/webp",
+    "x-matched-path": "/images/hero-portrait.webp"
+   },
+   "resourceType": "image",
+   "passes": [
+    "mobile",
+    "desktop"
+   ],
+   "file": "site/www.thisisgazzar.com/images/hero-portrait.webp",
+   "size": 317194,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://www.thisisgazzar.com/_next/static/immutable/chunks/0ht1z612ephb8.css",
+   "method": "GET",
+   "status": 200,
+   "contentType": "text/css; charset=utf-8",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "content-disposition": "inline; filename=\"0ht1z612ephb8.css\"",
+    "content-type": "text/css; charset=utf-8",
+    "x-matched-path": "/_next/static/immutable/chunks/0ht1z612ephb8.css"
+   },
+   "resourceType": "stylesheet",
+   "passes": [
+    "mobile",
+    "desktop"
+   ],
+   "file": "site/www.thisisgazzar.com/_next/static/immutable/chunks/0ht1z612ephb8.css",
+   "size": 123463,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://www.thisisgazzar.com/_next/static/immutable/chunks/31hlqhkj0ge0h.js",
+   "method": "GET",
+   "status": 200,
+   "contentType": "application/javascript; charset=utf-8",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "content-disposition": "inline; filename=\"31hlqhkj0ge0h.js\"",
+    "content-type": "application/javascript; charset=utf-8",
+    "x-matched-path": "/_next/static/immutable/chunks/31hlqhkj0ge0h.js"
+   },
+   "resourceType": "script",
+   "passes": [
+    "mobile",
+    "desktop"
+   ],
+   "file": "site/www.thisisgazzar.com/_next/static/immutable/chunks/31hlqhkj0ge0h.js",
+   "size": 28589,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://www.thisisgazzar.com/_next/static/immutable/chunks/08ly5s8r63ocr.js",
+   "method": "GET",
+   "status": 200,
+   "contentType": "application/javascript; charset=utf-8",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "content-disposition": "inline; filename=\"08ly5s8r63ocr.js\"",
+    "content-type": "application/javascript; charset=utf-8",
+    "x-matched-path": "/_next/static/immutable/chunks/08ly5s8r63ocr.js"
+   },
+   "resourceType": "script",
+   "passes": [
+    "mobile",
+    "desktop"
+   ],
+   "file": "site/www.thisisgazzar.com/_next/static/immutable/chunks/08ly5s8r63ocr.js",
+   "size": 171340,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://www.thisisgazzar.com/_next/static/immutable/chunks/15ud0rwi-a_3n.js",
+   "method": "GET",
+   "status": 200,
+   "contentType": "application/javascript; charset=utf-8",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "content-disposition": "inline; filename=\"15ud0rwi-a_3n.js\"",
+    "content-type": "application/javascript; charset=utf-8",
+    "x-matched-path": "/_next/static/immutable/chunks/15ud0rwi-a_3n.js"
+   },
+   "resourceType": "script",
+   "passes": [
+    "mobile",
+    "desktop"
+   ],
+   "file": "site/www.thisisgazzar.com/_next/static/immutable/chunks/15ud0rwi-a_3n.js",
+   "size": 33010,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://www.thisisgazzar.com/_next/static/immutable/chunks/0or6--g23od4n.js",
+   "method": "GET",
+   "status": 200,
+   "contentType": "application/javascript; charset=utf-8",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "content-disposition": "inline; filename=\"0or6--g23od4n.js\"",
+    "content-type": "application/javascript; charset=utf-8",
+    "x-matched-path": "/_next/static/immutable/chunks/0or6--g23od4n.js"
+   },
+   "resourceType": "script",
+   "passes": [
+    "mobile",
+    "desktop"
+   ],
+   "file": "site/www.thisisgazzar.com/_next/static/immutable/chunks/0or6--g23od4n.js",
+   "size": 40472,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://www.thisisgazzar.com/_next/static/immutable/chunks/45adsxrqjjj5i.js",
+   "method": "GET",
+   "status": 200,
+   "contentType": "application/javascript; charset=utf-8",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "content-disposition": "inline; filename=\"45adsxrqjjj5i.js\"",
+    "content-type": "application/javascript; charset=utf-8",
+    "x-matched-path": "/_next/static/immutable/chunks/45adsxrqjjj5i.js"
+   },
+   "resourceType": "script",
+   "passes": [
+    "mobile",
+    "desktop"
+   ],
+   "file": "site/www.thisisgazzar.com/_next/static/immutable/chunks/45adsxrqjjj5i.js",
+   "size": 32901,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://www.thisisgazzar.com/_next/static/immutable/chunks/turbopack-0zp329ynn20nr.js",
+   "method": "GET",
+   "status": 200,
+   "contentType": "application/javascript; charset=utf-8",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "content-disposition": "inline; filename=\"turbopack-0zp329ynn20nr.js\"",
+    "content-type": "application/javascript; charset=utf-8",
+    "x-matched-path": "/_next/static/immutable/chunks/turbopack-0zp329ynn20nr.js"
+   },
+   "resourceType": "script",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "file": "site/www.thisisgazzar.com/_next/static/immutable/chunks/turbopack-0zp329ynn20nr.js",
+   "size": 10943,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://www.thisisgazzar.com/_next/static/immutable/chunks/2mptg809nyngd.js",
+   "method": "GET",
+   "status": 200,
+   "contentType": "application/javascript; charset=utf-8",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "content-disposition": "inline; filename=\"2mptg809nyngd.js\"",
+    "content-type": "application/javascript; charset=utf-8",
+    "x-matched-path": "/_next/static/immutable/chunks/2mptg809nyngd.js"
+   },
+   "resourceType": "script",
+   "passes": [
+    "mobile",
+    "desktop"
+   ],
+   "file": "site/www.thisisgazzar.com/_next/static/immutable/chunks/2mptg809nyngd.js",
+   "size": 43871,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://www.thisisgazzar.com/_next/static/immutable/chunks/244pluf-w83n0.js",
+   "method": "GET",
+   "status": 200,
+   "contentType": "application/javascript; charset=utf-8",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "content-disposition": "inline; filename=\"244pluf-w83n0.js\"",
+    "content-type": "application/javascript; charset=utf-8",
+    "x-matched-path": "/_next/static/immutable/chunks/244pluf-w83n0.js"
+   },
+   "resourceType": "script",
+   "passes": [
+    "mobile",
+    "desktop"
+   ],
+   "file": "site/www.thisisgazzar.com/_next/static/immutable/chunks/244pluf-w83n0.js",
+   "size": 70167,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://www.thisisgazzar.com/_next/static/immutable/chunks/1-ivkee8wr-ko.js",
+   "method": "GET",
+   "status": 200,
+   "contentType": "application/javascript; charset=utf-8",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "content-disposition": "inline; filename=\"1-ivkee8wr-ko.js\"",
+    "content-type": "application/javascript; charset=utf-8",
+    "x-matched-path": "/_next/static/immutable/chunks/1-ivkee8wr-ko.js"
+   },
+   "resourceType": "script",
+   "passes": [
+    "mobile",
+    "desktop"
+   ],
+   "file": "site/www.thisisgazzar.com/_next/static/immutable/chunks/1-ivkee8wr-ko.js",
+   "size": 15075,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://www.thisisgazzar.com/_next/static/immutable/chunks/43lmv5ifi-j2f.js",
+   "method": "GET",
+   "status": 200,
+   "contentType": "application/javascript; charset=utf-8",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "content-disposition": "inline; filename=\"43lmv5ifi-j2f.js\"",
+    "content-type": "application/javascript; charset=utf-8",
+    "x-matched-path": "/_next/static/immutable/chunks/43lmv5ifi-j2f.js"
+   },
+   "resourceType": "script",
+   "passes": [
+    "mobile",
+    "desktop"
+   ],
+   "file": "site/www.thisisgazzar.com/_next/static/immutable/chunks/43lmv5ifi-j2f.js",
+   "size": 229591,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://www.thisisgazzar.com/_next/static/immutable/chunks/2gz902oulp4x8.js",
+   "method": "GET",
+   "status": 200,
+   "contentType": "application/javascript; charset=utf-8",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "content-disposition": "inline; filename=\"2gz902oulp4x8.js\"",
+    "content-type": "application/javascript; charset=utf-8",
+    "x-matched-path": "/_next/static/immutable/chunks/2gz902oulp4x8.js"
+   },
+   "resourceType": "script",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "file": "site/www.thisisgazzar.com/_next/static/immutable/chunks/2gz902oulp4x8.js",
+   "size": 149860,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://www.thisisgazzar.com/_next/static/immutable/chunks/2x2rw0_nxkptw.js",
+   "method": "GET",
+   "status": 200,
+   "contentType": "application/javascript; charset=utf-8",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "content-disposition": "inline; filename=\"2x2rw0_nxkptw.js\"",
+    "content-type": "application/javascript; charset=utf-8",
+    "x-matched-path": "/_next/static/immutable/chunks/2x2rw0_nxkptw.js"
+   },
+   "resourceType": "script",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "file": "site/www.thisisgazzar.com/_next/static/immutable/chunks/2x2rw0_nxkptw.js",
+   "size": 328571,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://www.thisisgazzar.com/_next/static/immutable/chunks/1rms9oh9fvps6.js",
+   "method": "GET",
+   "status": 200,
+   "contentType": "application/javascript; charset=utf-8",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "content-disposition": "inline; filename=\"1rms9oh9fvps6.js\"",
+    "content-type": "application/javascript; charset=utf-8",
+    "x-matched-path": "/_next/static/immutable/chunks/1rms9oh9fvps6.js"
+   },
+   "resourceType": "script",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "file": "site/www.thisisgazzar.com/_next/static/immutable/chunks/1rms9oh9fvps6.js",
+   "size": 375456,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://www.thisisgazzar.com/_next/static/immutable/chunks/11dg_viff64mz.js",
+   "method": "GET",
+   "status": 200,
+   "contentType": "application/javascript; charset=utf-8",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "content-disposition": "inline; filename=\"11dg_viff64mz.js\"",
+    "content-type": "application/javascript; charset=utf-8",
+    "x-matched-path": "/_next/static/immutable/chunks/11dg_viff64mz.js"
+   },
+   "resourceType": "script",
+   "passes": [
+    "mobile",
+    "desktop"
+   ],
+   "file": "site/www.thisisgazzar.com/_next/static/immutable/chunks/11dg_viff64mz.js",
+   "size": 38683,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://www.thisisgazzar.com/favicon.svg?v=g-balanced",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/svg+xml",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "content-disposition": "inline; filename=\"favicon.svg\"",
+    "content-type": "image/svg+xml",
+    "x-matched-path": "/favicon.svg"
+   },
+   "resourceType": "other",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "file": "site/www.thisisgazzar.com/favicon__qb93f35d8.svg",
+   "size": 985,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://www.thisisgazzar.com/_next/static/immutable/chunks/1nvdbh89vm0tk.js",
+   "method": "GET",
+   "status": 200,
+   "contentType": "application/javascript; charset=utf-8",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "content-disposition": "inline; filename=\"1nvdbh89vm0tk.js\"",
+    "content-type": "application/javascript; charset=utf-8",
+    "x-matched-path": "/_next/static/immutable/chunks/1nvdbh89vm0tk.js"
+   },
+   "resourceType": "script",
+   "passes": [
+    "mobile",
+    "desktop"
+   ],
+   "file": "site/www.thisisgazzar.com/_next/static/immutable/chunks/1nvdbh89vm0tk.js",
+   "size": 38559,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://www.thisisgazzar.com/_next/static/immutable/chunks/1lbueqoir1wno.js",
+   "method": "GET",
+   "status": 200,
+   "contentType": "application/javascript; charset=utf-8",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "content-disposition": "inline; filename=\"1lbueqoir1wno.js\"",
+    "content-type": "application/javascript; charset=utf-8",
+    "x-matched-path": "/_next/static/immutable/chunks/1lbueqoir1wno.js"
+   },
+   "resourceType": "script",
+   "passes": [
+    "mobile",
+    "desktop"
+   ],
+   "file": "site/www.thisisgazzar.com/_next/static/immutable/chunks/1lbueqoir1wno.js",
+   "size": 254455,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://www.thisisgazzar.com/_next/static/immutable/chunks/2izgditc2sz_q.js",
+   "method": "GET",
+   "status": 200,
+   "contentType": "application/javascript; charset=utf-8",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "content-disposition": "inline; filename=\"2izgditc2sz_q.js\"",
+    "content-type": "application/javascript; charset=utf-8",
+    "x-matched-path": "/_next/static/immutable/chunks/2izgditc2sz_q.js"
+   },
+   "resourceType": "script",
+   "passes": [
+    "mobile",
+    "desktop"
+   ],
+   "file": "site/www.thisisgazzar.com/_next/static/immutable/chunks/2izgditc2sz_q.js",
+   "size": 156795,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://www.thisisgazzar.com/_next/static/immutable/chunks/3pg_vu5r372gq.js",
+   "method": "GET",
+   "status": 200,
+   "contentType": "application/javascript; charset=utf-8",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "content-disposition": "inline; filename=\"3pg_vu5r372gq.js\"",
+    "content-type": "application/javascript; charset=utf-8",
+    "x-matched-path": "/_next/static/immutable/chunks/3pg_vu5r372gq.js"
+   },
+   "resourceType": "script",
+   "passes": [
+    "mobile",
+    "desktop"
+   ],
+   "file": "site/www.thisisgazzar.com/_next/static/immutable/chunks/3pg_vu5r372gq.js",
+   "size": 335,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://www.thisisgazzar.com/_next/static/immutable/chunks/2kidhwora8ehx.js",
+   "method": "GET",
+   "status": 200,
+   "contentType": "application/javascript; charset=utf-8",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "content-disposition": "inline; filename=\"2kidhwora8ehx.js\"",
+    "content-type": "application/javascript; charset=utf-8",
+    "x-matched-path": "/_next/static/immutable/chunks/2kidhwora8ehx.js"
+   },
+   "resourceType": "script",
+   "passes": [
+    "mobile",
+    "desktop"
+   ],
+   "file": "site/www.thisisgazzar.com/_next/static/immutable/chunks/2kidhwora8ehx.js",
+   "size": 39329,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://www.thisisgazzar.com/_next/static/immutable/chunks/3dhbl8o-gnhax.js",
+   "method": "GET",
+   "status": 200,
+   "contentType": "application/javascript; charset=utf-8",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "content-disposition": "inline; filename=\"3dhbl8o-gnhax.js\"",
+    "content-type": "application/javascript; charset=utf-8",
+    "x-matched-path": "/_next/static/immutable/chunks/3dhbl8o-gnhax.js"
+   },
+   "resourceType": "script",
+   "passes": [
+    "mobile",
+    "desktop"
+   ],
+   "file": "site/www.thisisgazzar.com/_next/static/immutable/chunks/3dhbl8o-gnhax.js",
+   "size": 149166,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://www.thisisgazzar.com/models/glasses-folded.glb",
+   "method": "GET",
+   "status": 200,
+   "contentType": "model/gltf-binary",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "content-disposition": "inline; filename=\"glasses-folded.glb\"",
+    "content-type": "model/gltf-binary",
+    "x-matched-path": "/models/glasses-folded.glb"
+   },
+   "resourceType": "fetch",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "file": "site/www.thisisgazzar.com/models/glasses-folded.glb",
+   "size": 431196,
+   "modes": [
+    "cors"
+   ]
+  },
+  {
+   "url": "https://www.thisisgazzar.com/59528b09fb90c206/script.js",
+   "method": "GET",
+   "status": 200,
+   "contentType": "application/javascript; charset=utf-8",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "content-disposition": "inline; filename=\"script.js\"",
+    "content-type": "application/javascript; charset=utf-8"
+   },
+   "resourceType": "script",
+   "passes": [
+    "mobile",
+    "desktop"
+   ],
+   "file": "site/www.thisisgazzar.com/59528b09fb90c206/script.js",
+   "size": 12567,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://www.thisisgazzar.com/49a3e7ae491c329c/script.js",
+   "method": "GET",
+   "status": 200,
+   "contentType": "application/javascript; charset=utf-8",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "content-disposition": "inline; filename=\"script.js\"",
+    "content-type": "application/javascript; charset=utf-8"
+   },
+   "resourceType": "script",
+   "passes": [
+    "mobile",
+    "desktop"
+   ],
+   "file": "site/www.thisisgazzar.com/49a3e7ae491c329c/script.js",
+   "size": 4522,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://www.thisisgazzar.com/models/logo-lighting-r180.bin",
+   "method": "GET",
+   "status": 200,
+   "contentType": "application/octet-stream",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "content-disposition": "inline; filename=\"logo-lighting-r180.bin\"",
+    "content-type": "application/octet-stream",
+    "x-matched-path": "/models/logo-lighting-r180.bin"
+   },
+   "resourceType": "fetch",
+   "passes": [
+    "mobile",
+    "desktop"
+   ],
+   "file": "site/www.thisisgazzar.com/models/logo-lighting-r180.bin",
+   "size": 196608,
+   "modes": [
+    "cors"
+   ]
+  },
+  {
+   "url": "https://www.thisisgazzar.com/_next/static/immutable/chunks/369vzr25ag57n.js",
+   "method": "GET",
+   "status": 200,
+   "contentType": "application/javascript; charset=utf-8",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "content-disposition": "inline; filename=\"369vzr25ag57n.js\"",
+    "content-type": "application/javascript; charset=utf-8",
+    "x-matched-path": "/_next/static/immutable/chunks/369vzr25ag57n.js"
+   },
+   "resourceType": "script",
+   "passes": [
+    "mobile",
+    "desktop"
+   ],
+   "file": "site/www.thisisgazzar.com/_next/static/immutable/chunks/369vzr25ag57n.js",
+   "size": 134350,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://www.thisisgazzar.com/models/logo-finished-components.glb",
+   "method": "GET",
+   "status": 200,
+   "contentType": "model/gltf-binary",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "content-disposition": "inline; filename=\"logo-finished-components.glb\"",
+    "content-type": "model/gltf-binary",
+    "x-matched-path": "/models/logo-finished-components.glb"
+   },
+   "resourceType": "fetch",
+   "passes": [
+    "mobile",
+    "desktop"
+   ],
+   "file": "site/www.thisisgazzar.com/models/logo-finished-components.glb",
+   "size": 573944,
+   "modes": [
+    "cors"
+   ]
+  },
+  {
+   "url": "https://www.thisisgazzar.com/fonts/Questrial-studio.woff",
+   "method": "GET",
+   "status": 200,
+   "contentType": "font/woff",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "content-disposition": "inline; filename=\"Questrial-studio.woff\"",
+    "content-type": "font/woff",
+    "x-matched-path": "/fonts/Questrial-studio.woff"
+   },
+   "resourceType": "xhr",
+   "passes": [
+    "mobile",
+    "desktop"
+   ],
+   "file": "site/www.thisisgazzar.com/fonts/Questrial-studio.woff",
+   "size": 52240
+  },
+  {
+   "url": "https://www.thisisgazzar.com/icons/g-48.png?v=balanced",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/png",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "content-disposition": "inline; filename=\"g-48.png\"",
+    "content-type": "image/png",
+    "x-matched-path": "/icons/g-48.png"
+   },
+   "resourceType": "other",
+   "passes": [
+    "mobile"
+   ],
+   "file": "site/www.thisisgazzar.com/icons/g-48__q376ef3ba.png",
+   "size": 1212
+  },
+  {
+   "url": "https://www.thisisgazzar.com/icons/g-16.png?v=balanced",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/png",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "content-disposition": "inline; filename=\"g-16.png\"",
+    "content-type": "image/png",
+    "x-matched-path": "/icons/g-16.png"
+   },
+   "resourceType": "other",
+   "passes": [
+    "mobile"
+   ],
+   "file": "site/www.thisisgazzar.com/icons/g-16__q376ef3ba.png",
+   "size": 460
+  },
+  {
+   "url": "https://www.thisisgazzar.com/sounds/ambient-loop.mp3",
+   "method": "GET",
+   "status": 200,
+   "contentType": "audio/mpeg",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "content-disposition": "inline; filename=\"ambient-loop.mp3\"",
+    "content-type": "audio/mpeg",
+    "x-matched-path": "/sounds/ambient-loop.mp3"
+   },
+   "resourceType": "media",
+   "passes": [
+    "mobile"
+   ],
+   "file": "site/www.thisisgazzar.com/sounds/ambient-loop.mp3",
+   "size": 3193627,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://www.thisisgazzar.com/favicon.ico?favicon.2-rsjubvp9_4x.ico",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/vnd.microsoft.icon",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "content-disposition": "inline; filename=\"favicon.ico\"",
+    "content-type": "image/vnd.microsoft.icon",
+    "x-matched-path": "/favicon.ico"
+   },
+   "resourceType": "other",
+   "passes": [
+    "mobile"
+   ],
+   "file": "site/www.thisisgazzar.com/favicon__q07b8e597.ico",
+   "size": 2533
+  },
+  {
+   "url": "https://www.thisisgazzar.com/favicon.ico",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/vnd.microsoft.icon",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "content-disposition": "inline; filename=\"favicon.ico\"",
+    "content-type": "image/vnd.microsoft.icon",
+    "x-matched-path": "/favicon.ico"
+   },
+   "resourceType": "other",
+   "passes": [
+    "mobile"
+   ],
+   "file": "site/www.thisisgazzar.com/favicon.ico",
+   "size": 2533
+  },
+  {
+   "url": "https://www.thisisgazzar.com/icons/g-32.png?v=balanced",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/png",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "content-disposition": "inline; filename=\"g-32.png\"",
+    "content-type": "image/png",
+    "x-matched-path": "/icons/g-32.png"
+   },
+   "resourceType": "other",
+   "passes": [
+    "mobile"
+   ],
+   "file": "site/www.thisisgazzar.com/icons/g-32__q376ef3ba.png",
+   "size": 807
+  }
+ ],
+ "videos": {
+  "posters": {},
+  "onlineHosts": []
+ }
+}

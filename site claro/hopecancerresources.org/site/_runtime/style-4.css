@@ -1,0 +1,38 @@
+
+/* ==== FOOTER MENU HORIZONTAL LAYOUT ==== */
+
+/* Make top-level footer menu horizontal */
+.site-footer .footer-section-nav .holder > ul,
+.site-footer .footer-section-nav .holder ul.menu {
+  display: flex !important;
+  flex-direction: row !important;
+  justify-content: center; /* change to space-between if you prefer */
+  align-items: center;
+  gap: 30px;
+  flex-wrap: wrap;
+  width: 100%;
+}
+
+/* Top-level items */
+.site-footer .footer-section-nav .holder > ul > li {
+  display: inline-block !important;
+  width: auto !important;
+  margin: 0 !important;
+}
+
+/* Hide dropdown behavior in footer */
+.site-footer .footer-section-nav .holder ul ul,
+.site-footer .footer-section-nav .holder .submenu,
+.site-footer .footer-section-nav .holder .sub-menu,
+.site-footer .footer-section-nav .holder .tab {
+  display: none !important;
+  position: static !important;
+}
+
+/* Remove mega/bucket layout styling */
+.site-footer .footer-section-nav .holder li.bucket-group,
+.site-footer .footer-section-nav .holder li.big-dropdown {
+  display: inline-block !important;
+  width: auto !important;
+}
+

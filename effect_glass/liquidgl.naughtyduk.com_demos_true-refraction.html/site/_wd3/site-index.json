@@ -1,0 +1,325 @@
+{
+ "version": 1,
+ "tool": "wd3 0.1.0",
+ "captureId": "liquidgl.naughtyduk.com_demos_true-refraction.html-af409ddd",
+ "capturedAt": "2026-11-19T16:50:24+00:00",
+ "entry": {
+  "url": "https://liquidgl.naughtyduk.com/demos/true-refraction",
+  "path": "/demos/true-refraction",
+  "search": "",
+  "file": "site/liquidgl.naughtyduk.com/demos/true-refraction.html",
+  "contentType": "text/html; charset=utf-8"
+ },
+ "blocked": [
+  "^https?://([^/?#]+\\.)?(google\\-analytics\\.com|analytics\\.google\\.com|googletagmanager\\.com|googleadservices\\.com|doubleclick\\.net|googlesyndication\\.com|googleoptimize\\.com|connect\\.facebook\\.net|bat\\.bing\\.com|snap\\.licdn\\.com|px\\.ads\\.linkedin\\.com|analytics\\.tiktok\\.com|ct\\.pinterest\\.com|static\\.ads\\-twitter\\.com|analytics\\.twitter\\.com|tr\\.snapchat\\.com|sc\\-static\\.net|mc\\.yandex\\.ru|hotjar\\.com|hotjar\\.io|clarity\\.ms|cdn\\.segment\\.com|api\\.segment\\.io|cdn\\.mxpnl\\.com|api\\-js\\.mixpanel\\.com|api\\.mixpanel\\.com|api\\.amplitude\\.com|api2\\.amplitude\\.com|api\\-secure\\.amplitude\\.com|api\\-sr\\.amplitude\\.com|sr\\-client\\-cfg\\.amplitude\\.com|plausible\\.io|cloud\\.umami\\.is|analytics\\.umami\\.is|static\\.cloudflareinsights\\.com|cloudflareinsights\\.com|vitals\\.vercel\\-insights\\.com|browser\\-intake\\-datadoghq\\.com|browser\\-intake\\-datadoghq\\.eu|js\\-agent\\.newrelic\\.com|bam\\.nr\\-data\\.net|bam\\-cell\\.nr\\-data\\.net|fullstory\\.com|script\\.crazyegg\\.com|mouseflow\\.com|smartlook\\.com|heapanalytics\\.com|i\\.posthog\\.com|stats\\.wp\\.com|pixel\\.wp\\.com|promotekit\\.com|ingest\\.sentry\\.io|ingest\\.us\\.sentry\\.io|ingest\\.de\\.sentry\\.io|widget\\.intercom\\.io|js\\.intercomcdn\\.com|api\\-iam\\.intercom\\.io|js\\.hs\\-scripts\\.com|js\\.hs\\-analytics\\.net|js\\.hs\\-banner\\.com|js\\.hscollectedforms\\.net|js\\.usemessages\\.com|track\\.hubspot\\.com|client\\.crisp\\.chat|embed\\.tawk\\.to|js\\.driftt\\.com|static\\.zdassets\\.com|ekr\\.zdassets\\.com|cdn\\.cookielaw\\.org|geolocation\\.onetrust\\.com|consent\\.cookiebot\\.com|consentcdn\\.cookiebot\\.com|app\\.usercentrics\\.eu|api\\.usercentrics\\.eu|cdn\\.iubenda\\.com|cmp\\.osano\\.com|cdn\\.termly\\.io)(:\\d+)?([/?#]|$)",
+  "/rpc/increment_shared_code_views",
+  "^https?://(umami|analytics|stats|plausible)\\.[^/]+/(api/send|api/collect|api/event|script\\.js)",
+  "/g/c(ollect)?\\?v=2&",
+  "sentry\\.io/api/\\d+/(envelope|store)",
+  "/api/meta-capi",
+  "^https?://(leadtracker|tracking|track|events?|collect)\\.[^/]+/",
+  "^https?://a\\.vturb\\.com/",
+  "facebook\\.com/tr[/?]",
+  "/_vercel/(speed-)?insights/",
+  "/cdn-cgi/rum",
+  "/cdn-cgi/challenge-platform/",
+  "google\\.com/(pagead|ads)/"
+ ],
+ "volatileParams": [
+  "v",
+  "_rsc",
+  "dpl",
+  "_",
+  "t",
+  "ts",
+  "timestamp",
+  "cb",
+  "cachebust",
+  "cacheBust",
+  "nocache",
+  "rnd",
+  "rand",
+  "random",
+  "_t"
+ ],
+ "entries": [
+  {
+   "url": "https://liquidgl.naughtyduk.com/demos/true-refraction.html",
+   "method": "GET",
+   "status": 308,
+   "contentType": "",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "location": "/demos/true-refraction",
+    "priority": "u=0,i",
+    "referrer-policy": "strict-origin-when-cross-origin"
+   },
+   "resourceType": "document",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "size": 0,
+   "redirect": "https://liquidgl.naughtyduk.com/demos/true-refraction",
+   "modes": [
+    "navigate"
+   ]
+  },
+  {
+   "url": "https://liquidgl.naughtyduk.com/demos/true-refraction",
+   "method": "GET",
+   "status": 200,
+   "contentType": "text/html; charset=utf-8",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "content-type": "text/html; charset=utf-8",
+    "priority": "u=0,i",
+    "referrer-policy": "strict-origin-when-cross-origin"
+   },
+   "resourceType": "document",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "file": "site/liquidgl.naughtyduk.com/demos/true-refraction.html",
+   "size": 37730,
+   "modes": [
+    "navigate"
+   ]
+  },
+  {
+   "url": "https://cdn.jsdelivr.net/npm/gsap@3.13.0/dist/gsap.min.js",
+   "method": "GET",
+   "status": 200,
+   "contentType": "application/javascript; charset=utf-8",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "access-control-expose-headers": "*",
+    "content-type": "application/javascript; charset=utf-8",
+    "timing-allow-origin": "*",
+    "x-jsd-version": "3.13.0",
+    "x-jsd-version-type": "version"
+   },
+   "resourceType": "script",
+   "passes": [
+    "mobile",
+    "desktop"
+   ],
+   "file": "site/cdn.jsdelivr.net/npm/gsap@3.13.0/dist/gsap.min.js",
+   "size": 72435,
+   "modes": [
+    "cors"
+   ]
+  },
+  {
+   "url": "https://liquidgl.naughtyduk.com/assets/images/tentendo-give-it-up-artwork.webp",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/webp",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "content-type": "image/webp",
+    "priority": "u=3,i",
+    "referrer-policy": "strict-origin-when-cross-origin"
+   },
+   "resourceType": "image",
+   "passes": [
+    "mobile",
+    "desktop"
+   ],
+   "file": "site/liquidgl.naughtyduk.com/assets/images/tentendo-give-it-up-artwork.webp",
+   "size": 8302,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://liquidgl.naughtyduk.com/scripts/liquidGL-helper.js",
+   "method": "GET",
+   "status": 200,
+   "contentType": "application/javascript",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "content-type": "application/javascript",
+    "priority": "u=2,i=?0",
+    "referrer-policy": "strict-origin-when-cross-origin"
+   },
+   "resourceType": "script",
+   "passes": [
+    "mobile",
+    "desktop"
+   ],
+   "file": "site/liquidgl.naughtyduk.com/scripts/liquidGL-helper.js",
+   "size": 13320,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://liquidgl.naughtyduk.com/scripts/liquidGL.js",
+   "method": "GET",
+   "status": 200,
+   "contentType": "application/javascript",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "content-type": "application/javascript",
+    "priority": "u=2,i=?0",
+    "referrer-policy": "strict-origin-when-cross-origin"
+   },
+   "resourceType": "script",
+   "passes": [
+    "mobile",
+    "desktop"
+   ],
+   "file": "site/liquidgl.naughtyduk.com/scripts/liquidGL.js",
+   "size": 297029,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://liquidgl.naughtyduk.com/assets/images/NATE08-Primrose-artwork.webp",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/webp",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "content-type": "image/webp",
+    "priority": "u=3,i",
+    "referrer-policy": "strict-origin-when-cross-origin"
+   },
+   "resourceType": "image",
+   "passes": [
+    "mobile",
+    "desktop"
+   ],
+   "file": "site/liquidgl.naughtyduk.com/assets/images/NATE08-Primrose-artwork.webp",
+   "size": 123168,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://cdn.jsdelivr.net/npm/lil-gui@0.19.1/dist/lil-gui.umd.min.js",
+   "method": "GET",
+   "status": 200,
+   "contentType": "application/javascript; charset=utf-8",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "access-control-expose-headers": "*",
+    "content-type": "application/javascript; charset=utf-8",
+    "timing-allow-origin": "*",
+    "x-jsd-version": "0.19.1",
+    "x-jsd-version-type": "version"
+   },
+   "resourceType": "script",
+   "passes": [
+    "mobile",
+    "desktop"
+   ],
+   "file": "site/cdn.jsdelivr.net/npm/lil-gui@0.19.1/dist/lil-gui.umd.min.js",
+   "size": 30015,
+   "modes": [
+    "cors"
+   ]
+  },
+  {
+   "url": "https://liquidgl.naughtyduk.com/assets/audio/NATE08%20-%20Primrose%20%28feat.%20Naisha%29.mp3",
+   "method": "GET",
+   "status": 200,
+   "contentType": "audio/mpeg",
+   "headers": {
+    "content-type": "audio/mpeg",
+    "access-control-allow-origin": "*",
+    "referrer-policy": "strict-origin-when-cross-origin"
+   },
+   "resourceType": "media",
+   "passes": [
+    "mobile"
+   ],
+   "file": "site/liquidgl.naughtyduk.com/assets/audio/NATE08 - Primrose (feat. Naisha).mp3",
+   "size": 10389910,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://liquidgl.naughtyduk.com/assets/videos/lgl-true-refraction-opt.mp4",
+   "method": "GET",
+   "status": 200,
+   "contentType": "video/mp4",
+   "headers": {
+    "content-type": "video/mp4",
+    "access-control-allow-origin": "*",
+    "referrer-policy": "strict-origin-when-cross-origin"
+   },
+   "resourceType": "media",
+   "passes": [
+    "mobile"
+   ],
+   "file": "site/liquidgl.naughtyduk.com/assets/videos/lgl-true-refraction-opt.mp4",
+   "size": 2319442,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://liquidgl.naughtyduk.com/assets/audio/Tentendo%20%26%20Annalisa%20Fernandez%20-%20Give%20It%20Up.mp3",
+   "method": "GET",
+   "status": 200,
+   "contentType": "audio/mpeg",
+   "headers": {
+    "content-type": "audio/mpeg",
+    "access-control-allow-origin": "*",
+    "referrer-policy": "strict-origin-when-cross-origin"
+   },
+   "resourceType": "media",
+   "passes": [
+    "mobile"
+   ],
+   "file": "site/liquidgl.naughtyduk.com/assets/audio/Tentendo & Annalisa Fernandez - Give It Up.mp3",
+   "size": 8876892,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://liquidgl.naughtyduk.com/assets/images/favicon.ico",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/vnd.microsoft.icon",
+   "headers": {
+    "content-type": "image/vnd.microsoft.icon",
+    "access-control-allow-origin": "*",
+    "referrer-policy": "strict-origin-when-cross-origin"
+   },
+   "resourceType": "other",
+   "passes": [
+    "desktop"
+   ],
+   "file": "site/liquidgl.naughtyduk.com/assets/images/favicon.ico",
+   "size": 4286
+  },
+  {
+   "url": "https://liquidgl.naughtyduk.com/favicon.ico",
+   "method": "GET",
+   "status": 200,
+   "contentType": "text/html; charset=utf-8",
+   "headers": {
+    "content-type": "text/html; charset=utf-8",
+    "access-control-allow-origin": "*",
+    "referrer-policy": "strict-origin-when-cross-origin"
+   },
+   "resourceType": "other",
+   "passes": [
+    "desktop"
+   ],
+   "file": "site/liquidgl.naughtyduk.com/favicon.ico",
+   "size": 152087
+  }
+ ],
+ "videos": {
+  "posters": {},
+  "onlineHosts": []
+ }
+}

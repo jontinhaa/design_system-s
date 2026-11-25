@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="pt-BR" class="has-cursor lenis"><head><meta charset="utf-8">
+<!-- Website Downloader 3.0: este arquivo é o retrato estático do site (DOM renderizado). Aberto via servidor
+     local (serve.py, ver Como rodar.md), o bootstrap abaixo carrega o site vivo; via file://, mostra este retrato. -->
+<meta name="referrer" content="no-referrer">
+<script data-wd3>window.__WD3__ = {"entryUrl": "https://torra-demo.vercel.app/", "replayHost": "torra-demo.vercel.app.localhost", "entryPath": "/", "captureId": "torra-demo.vercel.app-e5ca758e", "capturedAt": "2026-10-22T15:29:39+00:00", "snapshot": true, "fileFonts": "site/_runtime/file-fonts.css"};</script>
+<script data-wd3>/* Website Downloader 3.0 — bootstrap do index.html.
+ * file://  → fica no retrato estático (e carrega as fontes embutidas, que o Chrome bloqueia em file://).
+ * http(s)  → para de carregar o retrato, registra o Service Worker de replay e abre o site vivo.
+ */
+(function () {
+  var cfg = window.__WD3__ || {};
+  var root = document.documentElement;
+  if (location.protocol === 'file:') {
+    root.setAttribute('data-wd3', 'file');
+    if (cfg.fileFonts) {
+      var link = document.createElement('link');
+      link.rel = 'stylesheet';
+      link.href = cfg.fileFonts;
+      (document.head || root).appendChild(link);
+    }
+    return;
+  }
+  root.setAttribute('data-wd3', 'loading');
+  if (cfg.snapshot) {
+    try { window.stop(); } catch (e) { /* o retrato não precisa carregar: o site vivo vem do SW */ }
+  }
+
+  function fail(msg) {
+    root.setAttribute('data-wd3', 'error');
+    var el = document.getElementById('wd3-error');
+    if (!el) {
+      var body = document.body || root.appendChild(document.createElement('body'));
+      body.innerHTML = '<p style="font:15px system-ui,sans-serif;padding:24px;color:#e8e8e8;background:#050505;margin:0">' +
+        'Não foi possível iniciar o replay: <span id="wd3-error"></span></p>';
+      el = document.getElementById('wd3-error');
+    }
+    el.textContent = msg;
+  }
+  if (!('serviceWorker' in navigator)) return fail('este navegador não suporta Service Workers.');
+
+  function go() { location.replace(cfg.entryPath); }
+  function start() {
+    navigator.serviceWorker.register('/site/_wd3/sw.js', { scope: '/' })
+      .then(function () { return navigator.serviceWorker.ready; })
+      .then(function () {
+        if (navigator.serviceWorker.controller) return go();
+        navigator.serviceWorker.addEventListener('controllerchange', go);
+      })
+      .catch(function (err) { fail(String(err && err.message || err)); });
+  }
+  // Aberto em localhost puro: tenta <domínio>.localhost (mesmo servidor), para sites que checam location.hostname.
+  var plain = location.hostname === 'localhost' || location.hostname === '127.0.0.1';
+  if (!plain || !cfg.replayHost || cfg.replayHost === 'localhost') return start();
+  var target = location.protocol + '//' + cfg.replayHost + (location.port ? ':' + location.port : '');
+  var decided = false;
+  function decide(fn) { if (!decided) { decided = true; fn(); } }
+  setTimeout(function () { decide(start); }, 1500);
+  fetch(target + '/site/_wd3/site-index.json', { mode: 'no-cors', cache: 'no-store' })
+    .then(function () { decide(function () { location.replace(target + cfg.entryPath); }); })
+    .catch(function () { decide(start); });
+})();
+</script>
+<style data-wd3>
+  [data-wd3-banner] { display: none; }
+  html[data-wd3="file"] [data-wd3-banner] { display: flex; }
+  html[data-wd3-unlock], html[data-wd3-unlock] body { overflow-y: auto !important; }
+</style>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Torra® Café — café especial torrado aqui</title>
+  <meta name="description" content="Cafeteria com torra própria. Espresso, coado, pão de fermentação natural e café em grão torrado toda terça.">
+  <meta name="theme-color" content="#0d0b0a">
+  <link rel="icon" href="site/torra-demo.vercel.app/favicon.svg" type="image/svg+xml">
+  
+  
+  <link rel="stylesheet" href="site/torra-demo.vercel.app/assets/index-B84jf4lP.css">
+</head>
+<body class="" data-theme="dark">
+  <!-- Loader: um grão que torra enquanto os quadros baixam -->
+  
+
+  <header class="nav">
+    <div class="nav__pill">
+      <div class="nav__bar">
+        <a class="nav__logo" href="#inicio" data-scroll="" aria-label="Torra, início">
+          <svg viewBox="0 0 32 32" aria-hidden="true"><rect width="32" height="32" rx="2"></rect><path d="M6.5 7h19v6.2h-1.3c-.5-2.6-1.6-3.6-4.2-3.6h-1.6v13.1c0 1.5.4 1.9 2.4 2.1V26h-9.6v-1.2c2-.2 2.4-.6 2.4-2.1V9.6H12c-2.6 0-3.7 1-4.2 3.6H6.5z"></path></svg>
+        </a>
+        <span class="nav__status label is-on"><i></i><span class="nav__status-text">Aberto até 19h</span></span>
+        <button class="nav__burger" type="button" aria-expanded="false" aria-controls="menu" aria-label="Abrir menu"><i></i><i></i><i></i></button>
+      </div>
+      <nav class="menu" id="menu" aria-label="Seções">
+        <ol class="menu__list">
+          <li><a href="#cardapio" data-scroll=""><span class="tnum">01</span><b class="serif">Cardápio</b></a></li>
+          <li><a href="#graos" data-scroll=""><span class="tnum">02</span><b class="serif">Origens</b></a></li>
+          <li><a href="#torra" data-scroll=""><span class="tnum">03</span><b class="serif">A torra</b></a></li>
+          <li><a href="#loja" data-scroll=""><span class="tnum">04</span><b class="serif">A loja</b></a></li>
+          <li><a href="#comprar" data-scroll=""><span class="tnum">05</span><b class="serif">Café em grão</b></a></li>
+        </ol>
+        <div class="menu__foot">
+          <p>Rua das Acácias, 214<br>Todo dia a partir das 7h</p>
+          <a href="#comprar" data-scroll="" class="menu__cta ulink">Comprar café →</a>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <!-- 1 + 2. Hero e o filme: uma seção só, presa ao scroll -->
+    <div class="pin-spacer" style="order: 0; place-self: auto; grid-area: auto; z-index: 1; float: none; flex-shrink: 1; display: block; margin: 0px; inset: 0px; position: relative; flex-basis: auto; overflow: visible; box-sizing: border-box; width: 1440px; height: 7380px; padding: 0px 0px 6480px;"><section class="filme" id="inicio" data-theme="dark" aria-label="Torra Café" style="translate: none; rotate: none; scale: none; left: 0px; top: 0.001px; margin: 0px; max-width: 1440px; width: 1440px; max-height: 900px; height: 900px; padding: 0px; box-sizing: border-box; position: fixed; transform: translate(0px, 0px);">
+      <div class="filme__stage">
+        <canvas class="filme__canvas" aria-hidden="true" width="2880" height="1800" style="clip-path: inset(363.8px 529.6px 363.8px 603.5px round 3px);"></canvas>
+        <div class="filme__shade" aria-hidden="true" style="opacity: 0;"></div>
+
+        <h1 class="hero__line">
+          <span class="hero__word hero__word--a" data-edge="left" style="transform: translate3d(0px, 0px, 0px); opacity: 1; visibility: inherit;">Torra<sup>®</sup></span>
+          <span class="hero__thumb" aria-hidden="true"></span>
+          <span class="hero__word hero__word--b serif" data-edge="right" style="transform: translate3d(0px, 0px, 0px); opacity: 1; visibility: inherit;">Café</span>
+        </h1>
+        <button class="hero__pause" type="button" aria-label="Pausar vídeo" aria-pressed="false" data-cursor="Pausar" style="transform: translate3d(874.4px, 500.2px, 0px); opacity: 1; visibility: inherit;"><i></i><i></i></button>
+
+        <div class="hero__foot">
+          <p class="hero__lede" style="translate: none; rotate: none; scale: none; transform: translate(0px, 0px); opacity: 1; visibility: inherit;">Café especial torrado aqui, toda terça.<br>Grão, espresso, coado e pão de fermentação natural.</p>
+          <div class="hero__links" style="translate: none; rotate: none; scale: none; transform: translate(0px, 0px); opacity: 1; visibility: inherit;">
+            <a href="#cardapio" data-scroll="" class="ulink">(Cardápio)</a>
+            <a href="#loja" data-scroll="" class="ulink">(Horários)</a>
+          </div>
+        </div>
+
+        <div class="caps">
+          <article class="cap" data-cap="0" style="opacity: 0; visibility: hidden;">
+            <p class="cap__label label tnum" data-split="1"><span class="line"><span>01 — Espresso</span></span></p>
+            <h2 class="cap__title serif" data-split="1"><span class="line"><span>Vinte e oito</span></span><span class="line"><span>segundos.</span></span></h2>
+            <p class="cap__text">Dose dupla, 18 g moídos na hora. A primeira xícara sai às 7h.</p>
+          </article>
+          <article class="cap" data-cap="1" style="opacity: 0; visibility: hidden;">
+            <p class="cap__label label tnum" data-split="1"><span class="line"><span>02 — Torra</span></span></p>
+            <h2 class="cap__title serif" data-split="1"><span class="line"><span>Doze minutos</span></span><span class="line"><span>a 210 °C.</span></span></h2>
+            <p class="cap__text">Torramos em lotes de 15 kg. O café que você toma saiu do tambor esta semana.</p>
+          </article>
+          <article class="cap" data-cap="2" style="opacity: 0; visibility: hidden;">
+            <p class="cap__label label tnum" data-split="1"><span class="line"><span>03 — Balcão</span></span></p>
+            <h2 class="cap__title serif" data-split="1"><span class="line"><span>Coado na hora,</span></span><span class="line"><span>pão do forno.</span></span></h2>
+            <p class="cap__text">V60 com o grão da semana e pão de fermentação natural assado aqui antes de abrir.</p>
+          </article>
+        </div>
+
+        <div class="filme__hud label tnum" aria-hidden="true">
+          <span class="filme__count"><b>01</b> / 03</span>
+          <span class="filme__bar"><i style="transform: scaleX(0);"></i></span>
+        </div>
+      </div>
+    </section></div>
+
+    <!-- 3. Cardápio -->
+    <div class="pin-spacer" style="order: 0; place-self: auto; grid-area: auto; z-index: 2; float: none; flex-shrink: 1; display: block; margin: -900px 0px 0px; inset: 0px; position: relative; flex-basis: auto; overflow: visible; box-sizing: border-box; width: 1440px; height: 3690px; padding: 0px 0px 2790px;"><section class="cardapio" id="cardapio" data-theme="light" style="translate: none; rotate: none; scale: none; clip-path: inset(0% round 50% 50% 0% 0% / 30vh 30vh 0vh 0vh); inset: 0px auto auto 0px; margin: 0px; max-width: 1440px; width: 1440px; max-height: 900px; height: 900px; padding: 0px;">
+      <div class="cardapio__inner">
+        <div class="cardapio__head">
+          <p class="label">(Cardápio)</p>
+          <h2 class="cardapio__group serif" aria-live="polite"><span class="cardapio__group-word" style="translate: none; rotate: none; scale: none; transform: translate(0%, 105%);">Espresso</span><span class="cardapio__group-size" aria-hidden="true">Espresso</span><span class="cardapio__group-size" aria-hidden="true">Coados</span><span class="cardapio__group-size" aria-hidden="true">Forno</span></h2>
+          <ol class="cardapio__index tnum"><li class="is-on"><span>01</span> Espresso</li><li><span>02</span> Coados</li><li><span>03</span> Forno</li></ol>
+        </div>
+        <figure class="cardapio__photo">
+          <svg class="cardapio__ring" viewBox="-110 -110 220 220" aria-hidden="true"><circle r="100"></circle><line x1="0.00" y1="-101.00" x2="0.00" y2="-108.00"></line><line x1="50.50" y1="-87.47" x2="52.75" y2="-91.37"></line><line x1="87.47" y1="-50.50" x2="91.37" y2="-52.75"></line><line x1="101.00" y1="-0.00" x2="108.00" y2="-0.00"></line><line x1="87.47" y1="50.50" x2="91.37" y2="52.75"></line><line x1="50.50" y1="87.47" x2="52.75" y2="91.37"></line><line x1="0.00" y1="101.00" x2="0.00" y2="108.00"></line><line x1="-50.50" y1="87.47" x2="-52.75" y2="91.37"></line><line x1="-87.47" y1="50.50" x2="-91.37" y2="52.75"></line><line x1="-101.00" y1="0.00" x2="-108.00" y2="0.00"></line><line x1="-87.47" y1="-50.50" x2="-91.37" y2="-52.75"></line><line x1="-50.50" y1="-87.47" x2="-52.75" y2="-91.37"></line></svg>
+          <div class="cardapio__disc" style="translate: none; rotate: none; scale: none; transform: rotate(-40deg) scale(0.6, 0.6);"><img src="site/torra-demo.vercel.app/img/cardapio-espresso.webp" alt="Cappuccino visto de cima, com um coração no leite" loading="lazy" decoding="async" style="z-index: 2;"><img src="site/torra-demo.vercel.app/img/cardapio-coado.webp" alt="Coado no filtro de vidro visto de cima" loading="lazy" decoding="async" style="z-index: 0; visibility: hidden;"><img src="site/torra-demo.vercel.app/img/cardapio-forno.webp" alt="Torrada de pão de fermentação natural e croissant numa tábua" loading="lazy" decoding="async" style="z-index: 0; visibility: hidden;"></div>
+        </figure>
+        <div class="cardapio__list"><div class="cardapio__row"><div class="cardapio__row-in" style="translate: none; rotate: none; scale: none; transform: translate(0%, 105%);"><span class="cardapio__name">Espresso</span><span class="cardapio__dots"></span><span class="cardapio__price tnum">R$ 7</span><span class="cardapio__desc">Dose dupla, 18 g</span></div></div><div class="cardapio__row"><div class="cardapio__row-in" style="translate: none; rotate: none; scale: none; transform: translate(0%, 105%);"><span class="cardapio__name">Cortado</span><span class="cardapio__dots"></span><span class="cardapio__price tnum">R$ 9</span><span class="cardapio__desc">Espresso e um dedo de leite vaporizado</span></div></div><div class="cardapio__row"><div class="cardapio__row-in" style="translate: none; rotate: none; scale: none; transform: translate(0%, 105%);"><span class="cardapio__name">Cappuccino</span><span class="cardapio__dots"></span><span class="cardapio__price tnum">R$ 13</span><span class="cardapio__desc">Leite integral ou de aveia</span></div></div><div class="cardapio__row"><div class="cardapio__row-in" style="translate: none; rotate: none; scale: none; transform: translate(0%, 105%);"><span class="cardapio__name">Latte</span><span class="cardapio__dots"></span><span class="cardapio__price tnum">R$ 14</span><span class="cardapio__desc">Copo de 300 ml</span></div></div><div class="cardapio__row"><div class="cardapio__row-in" style="translate: none; rotate: none; scale: none; transform: translate(0%, 105%);"><span class="cardapio__name">Mocha</span><span class="cardapio__dots"></span><span class="cardapio__price tnum">R$ 16</span><span class="cardapio__desc">Com chocolate 70%</span></div></div></div>
+        <p class="cardapio__note label">Leite de aveia sem custo extra.</p>
+        <p class="cardapio__count label tnum"><b>01</b> / 03</p>
+      </div>
+    </section></div>
+
+    <!-- 4. Origens: galeria espalhada, um bloco por lote (montado de src/data/lotes.js) -->
+    <section class="origens" id="graos" data-theme="dark" aria-label="Origens" style="clip-path: inset(0% round 50% 50% 0% 0% / 30vh 30vh 0vh 0vh);">
+      <h2 class="sr-only">Origens</h2>
+    
+    <article class="lote">
+      <div class="lote__text">
+        <p class="lote__label mask"><span style="translate: none; rotate: none; scale: none; transform: translate(0%, 120%);">Lote 01 — Brasil</span></p>
+        <h3 class="lote__farm serif" data-split="1"><span class="line"><span style="translate: none; rotate: none; scale: none; transform: translate(0%, 120%);">Sítio</span></span><span class="line"><span style="translate: none; rotate: none; scale: none; transform: translate(0%, 120%);">Pedra Alta</span></span></h3>
+        <p class="lote__spec mask"><span style="translate: none; rotate: none; scale: none; transform: translate(0%, 120%);">Catuaí Amarelo · natural · 1.150 m</span></p>
+        <p class="lote__notes serif mask"><span style="translate: none; rotate: none; scale: none; transform: translate(0%, 120%);">Chocolate ao leite, castanha, caramelo.</span></p>
+      </div>
+      <div class="lote__field">
+        <figure class="ph ph--a" data-depth="1">
+          <div class="ph__move" style="translate: none; rotate: none; scale: none; transform: translate(0px, 0px);">
+            <figcaption class="mask"><span style="translate: none; rotate: none; scale: none; transform: translate(0%, 120%);">Catuaí Amarelo no pé — 1.150 m</span></figcaption>
+            <div class="ph__frame" style="clip-path: inset(100% 0% 0%);"><img src="site/torra-demo.vercel.app/img/origens/b-catuai.webp" alt="Cerejas amarelas de Catuaí maduras no galho, com os morros de café atrás" loading="lazy" decoding="async"></div>
+          </div>
+        </figure>
+        <figure class="ph ph--b" data-depth="0.78">
+          <div class="ph__move" style="translate: none; rotate: none; scale: none; transform: translate(0px, -59.4px);">
+            <figcaption class="mask"><span style="translate: none; rotate: none; scale: none; transform: translate(0%, 120%);">Os talhões do sítio, na curva de nível</span></figcaption>
+            <div class="ph__frame" style="clip-path: inset(100% 0% 0%);"><img src="site/torra-demo.vercel.app/img/origens/b-morros.webp" alt="Morros com fileiras curvas de café e terra vermelha entre elas" loading="lazy" decoding="async"></div>
+          </div>
+        </figure>
+        <figure class="ph ph--c" data-depth="1.28">
+          <div class="ph__move" style="translate: none; rotate: none; scale: none; transform: translate(0px, 75.6px);">
+            <figcaption class="mask"><span style="translate: none; rotate: none; scale: none; transform: translate(0%, 120%);">Natural: a cereja seca inteira</span></figcaption>
+            <div class="ph__frame" style="clip-path: inset(100% 0% 0%);"><img src="site/torra-demo.vercel.app/img/origens/origem-brasil.webp" alt="Cerejas de café secando ao sol num terreiro suspenso" loading="lazy" decoding="async"></div>
+          </div>
+        </figure>
+        <figure class="ph ph--d" data-depth="1.16">
+          <div class="ph__move" style="translate: none; rotate: none; scale: none; transform: translate(0px, 43.2px);">
+            <figcaption class="mask"><span style="translate: none; rotate: none; scale: none; transform: translate(0%, 120%);">Terreiro, revirado de hora em hora</span></figcaption>
+            <div class="ph__frame" style="clip-path: inset(100% 0% 0%);"><img src="site/torra-demo.vercel.app/img/origens/b-rodo.webp" alt="Rodo de madeira espalhando cerejas no terreiro ao sol" loading="lazy" decoding="async"></div>
+          </div>
+        </figure>
+      </div>
+    </article>
+    <article class="lote lote--r">
+      <div class="lote__text">
+        <p class="lote__label mask"><span style="translate: none; rotate: none; scale: none; transform: translate(0%, 120%);">Lote 02 — Colômbia</span></p>
+        <h3 class="lote__farm serif" data-split="1"><span class="line"><span style="translate: none; rotate: none; scale: none; transform: translate(0%, 120%);">Finca</span></span><span class="line"><span style="translate: none; rotate: none; scale: none; transform: translate(0%, 120%);">Los Naranjos</span></span></h3>
+        <p class="lote__spec mask"><span style="translate: none; rotate: none; scale: none; transform: translate(0%, 120%);">Castillo · lavado · 1.700 m</span></p>
+        <p class="lote__notes serif mask"><span style="translate: none; rotate: none; scale: none; transform: translate(0%, 120%);">Laranja, rapadura, cacau.</span></p>
+      </div>
+      <div class="lote__field">
+        <figure class="ph ph--a" data-depth="1">
+          <div class="ph__move" style="translate: none; rotate: none; scale: none; transform: translate(0px, 0px);">
+            <figcaption class="mask"><span style="translate: none; rotate: none; scale: none; transform: translate(0%, 120%);">Castillo maduro — 1.700 m</span></figcaption>
+            <div class="ph__frame" style="clip-path: inset(100% 0% 0%);"><img src="site/torra-demo.vercel.app/img/origens/origem-colombia.webp" alt="Cerejas de café maduras no galho, com a serra na neblina atrás" loading="lazy" decoding="async"></div>
+          </div>
+        </figure>
+        <figure class="ph ph--b" data-depth="0.78">
+          <div class="ph__move" style="translate: none; rotate: none; scale: none; transform: translate(0px, -59.4px);">
+            <figcaption class="mask"><span style="translate: none; rotate: none; scale: none; transform: translate(0%, 120%);">A encosta, colhida à mão</span></figcaption>
+            <div class="ph__frame" style="clip-path: inset(100% 0% 0%);"><img src="site/torra-demo.vercel.app/img/origens/c-encosta.webp" alt="Encosta íngreme coberta de café e bananeiras, com nuvens no vale" loading="lazy" decoding="async"></div>
+          </div>
+        </figure>
+        <figure class="ph ph--c" data-depth="1.28">
+          <div class="ph__move" style="translate: none; rotate: none; scale: none; transform: translate(0px, 75.6px);">
+            <figcaption class="mask"><span style="translate: none; rotate: none; scale: none; transform: translate(0%, 120%);">Só a cereja vermelha vai para o cesto</span></figcaption>
+            <div class="ph__frame" style="clip-path: inset(100% 0% 0%);"><img src="site/torra-demo.vercel.app/img/origens/c-canasto.webp" alt="Cesto amarrado na cintura cheio de cerejas vermelhas recém-colhidas" loading="lazy" decoding="async"></div>
+          </div>
+        </figure>
+        <figure class="ph ph--d" data-depth="1.16">
+          <div class="ph__move" style="translate: none; rotate: none; scale: none; transform: translate(0px, 43.2px);">
+            <figcaption class="mask"><span style="translate: none; rotate: none; scale: none; transform: translate(0%, 120%);">Lavado: o canal tira a mucilagem</span></figcaption>
+            <div class="ph__frame" style="clip-path: inset(100% 0% 0%);"><img src="site/torra-demo.vercel.app/img/origens/c-lavagem.webp" alt="Café em pergaminho correndo no canal de lavagem com água limpa" loading="lazy" decoding="async"></div>
+          </div>
+        </figure>
+      </div>
+    </article>
+    <article class="lote">
+      <div class="lote__text">
+        <p class="lote__label mask"><span style="translate: none; rotate: none; scale: none; transform: translate(0%, 120%);">Lote 03 — Etiópia</span></p>
+        <h3 class="lote__farm serif" data-split="1"><span class="line"><span style="translate: none; rotate: none; scale: none; transform: translate(0%, 120%);">Cooperativa</span></span><span class="line"><span style="translate: none; rotate: none; scale: none; transform: translate(0%, 120%);">Abebe</span></span></h3>
+        <p class="lote__spec mask"><span style="translate: none; rotate: none; scale: none; transform: translate(0%, 120%);">Heirloom · lavado · 2.000 m</span></p>
+        <p class="lote__notes serif mask"><span style="translate: none; rotate: none; scale: none; transform: translate(0%, 120%);">Jasmim, limão-siciliano, chá preto.</span></p>
+      </div>
+      <div class="lote__field">
+        <figure class="ph ph--a" data-depth="1">
+          <div class="ph__move" style="translate: none; rotate: none; scale: none; transform: translate(0px, 0px);">
+            <figcaption class="mask"><span style="translate: none; rotate: none; scale: none; transform: translate(0%, 120%);">Pergaminho na tela — 2.000 m</span></figcaption>
+            <div class="ph__frame" style="clip-path: inset(100% 0% 0%);"><img src="site/torra-demo.vercel.app/img/origens/origem-etiopia.webp" alt="Café lavado em pergaminho secando numa tela suspensa, no alto da serra" loading="lazy" decoding="async"></div>
+          </div>
+        </figure>
+        <figure class="ph ph--b" data-depth="0.78">
+          <div class="ph__move" style="translate: none; rotate: none; scale: none; transform: translate(0px, -59.4px);">
+            <figcaption class="mask"><span style="translate: none; rotate: none; scale: none; transform: translate(0%, 120%);">As camas suspensas da cooperativa</span></figcaption>
+            <div class="ph__frame" style="clip-path: inset(100% 0% 0%);"><img src="site/torra-demo.vercel.app/img/origens/e-camas.webp" alt="Fileiras de camas suspensas com café em pergaminho no alto de uma serra" loading="lazy" decoding="async"></div>
+          </div>
+        </figure>
+        <figure class="ph ph--c" data-depth="1.28">
+          <div class="ph__move" style="translate: none; rotate: none; scale: none; transform: translate(0px, 75.6px);">
+            <figcaption class="mask"><span style="translate: none; rotate: none; scale: none; transform: translate(0%, 120%);">A florada que dá o jasmim</span></figcaption>
+            <div class="ph__frame" style="clip-path: inset(100% 0% 0%);"><img src="site/torra-demo.vercel.app/img/origens/e-flor.webp" alt="Flores brancas de café num galho, de manhã" loading="lazy" decoding="async"></div>
+          </div>
+        </figure>
+        <figure class="ph ph--d" data-depth="1.16">
+          <div class="ph__move" style="translate: none; rotate: none; scale: none; transform: translate(0px, 43.2px);">
+            <figcaption class="mask"><span style="translate: none; rotate: none; scale: none; transform: translate(0%, 120%);">Catação, grão a grão</span></figcaption>
+            <div class="ph__frame" style="clip-path: inset(100% 0% 0%);"><img src="site/torra-demo.vercel.app/img/origens/e-maos.webp" alt="Mãos separando grãos defeituosos do café em pergaminho na tela" loading="lazy" decoding="async"></div>
+          </div>
+        </figure>
+      </div>
+    </article></section>
+
+    <!-- 5. A torra: o mostrador de doze minutos -->
+    <div class="pin-spacer" style="order: 0; place-self: auto; grid-area: auto; z-index: 4; float: none; flex-shrink: 1; display: block; margin: 0px; inset: 0px; position: relative; flex-basis: auto; overflow: visible; box-sizing: border-box; width: 1440px; height: 4320px; padding: 0px 0px 3420px;"><section class="torra" id="torra" data-theme="light" style="translate: none; rotate: none; scale: none; clip-path: inset(0% round 50% 50% 0% 0% / 30vh 30vh 0vh 0vh); inset: 0px auto auto 0px; margin: 0px; max-width: 1440px; width: 1440px; max-height: 900px; height: 900px; padding: 0px;">
+      <div class="torra__inner">
+        <div class="torra__head">
+          <h2 class="torra__title serif" data-split="1"><span class="line"><span style="translate: none; rotate: none; scale: none; transform: translate(0%, 120%);">Toda terça,</span></span><span class="line"><span style="translate: none; rotate: none; scale: none; transform: translate(0%, 120%);">doze minutos.</span></span></h2>
+          <p class="torra__lede" style="translate: none; rotate: none; scale: none; transform: translate(0px, 18px); opacity: 0; visibility: hidden;">Lotes de 15 kg num torrador a gás.<br>Cada torra tem a curva anotada.</p>
+        </div>
+        <div class="dial" aria-hidden="true">
+          <svg class="dial__svg" viewBox="0 0 1440 900"><path class="dial__arc" d="M244.79999999999995 738 A475.20000000000005 475.20000000000005 0 0 1 1195.2 738" style="opacity: 0;"></path><g class="dial__marks"><line x1="244.79999999999995" y1="737.9999999999999" x2="256.79999999999995" y2="738"></line><line x1="482.39999999999986" y1="326.4647281216348" x2="488.39999999999986" y2="336.85703296704804"></line><line x1="1097.001507306395" y1="448.7165689350559" x2="1087.4812672229" y2="456.0217060831605"></line><line x1="1195.2" y1="738" x2="1183.2" y2="738"></line></g><line class="dial__needle" x1="720" y1="738" x2="247.8" y2="738.0"></line><circle class="dial__tip" r="5" cx="247.8" cy="738.0"></circle><circle class="dial__pivot" r="4" cx="720" cy="738"></circle></svg>
+          <span class="dial__end dial__end--a tnum" style="left: 244.8px; top: 752px;">0:00</span>
+          <span class="dial__end dial__end--b tnum" style="left: 1195.2px; top: 752px;">12:00</span>
+        </div>
+        <ol class="notes"><li class="note" style="opacity: 0; visibility: hidden; width: 237.6px; left: 56.16px; top: 436px;">
+      <p class="note__n mask tnum"><span>01</span></p>
+      <p class="note__t mask"><span><b>Secagem, até 4 min.</b> O grão verde perde a água e amarela.</span></p>
+      <figure class="note__ph"><img src="site/torra-demo.vercel.app/img/torra/t-cru.webp" alt="Grãos de café verdes, crus" loading="lazy" decoding="async"></figure>
+    </li><li class="note" style="opacity: 0; visibility: hidden; width: 237.6px; left: 506.16px; top: 359.729px;">
+      <p class="note__n mask tnum"><span>02</span></p>
+      <p class="note__t mask"><span><b>Maillard, até 9 min.</b> Açúcar vira cor e cheiro de pão.</span></p>
+      <figure class="note__ph"><img src="site/torra-demo.vercel.app/img/torra/t-amarelo.webp" alt="Grãos de café amarelados no fim da secagem" loading="lazy" decoding="async"></figure>
+    </li><li class="note" style="opacity: 0; visibility: hidden; width: 237.6px; left: 1116.01px; top: 136.453px;">
+      <p class="note__n mask tnum"><span>03</span></p>
+      <p class="note__t mask"><span><b>Primeiro crack, 9:30.</b> O grão estala e abre no meio.</span></p>
+      <figure class="note__ph"><img src="site/torra-demo.vercel.app/img/torra/t-crack.webp" alt="Grãos de café cor de canela, abertos no primeiro crack, com película solta" loading="lazy" decoding="async"></figure>
+    </li><li class="note" style="opacity: 0; visibility: hidden; width: 237.6px; left: 1146.24px; top: 436px;">
+      <p class="note__n mask tnum"><span>04</span></p>
+      <p class="note__t mask"><span><b>Fim, 12:00 a 210 °C.</b> Cai na bandeja e esfria em quatro minutos.</span></p>
+      <figure class="note__ph"><img src="site/torra-demo.vercel.app/img/torra/t-fim.webp" alt="Grãos de café marrons recém-torrados, com um fio de fumaça" loading="lazy" decoding="async"></figure>
+    </li></ol>
+        <p class="torra__read" aria-live="off" style="top: 756px; translate: none; rotate: none; scale: none; transform: translate(0px, 18px); opacity: 0; visibility: hidden;"><b class="serif tnum">152 °C</b><span class="tnum">0:00</span></p>
+      </div>
+    </section></div>
+
+    <!-- 6. A loja -->
+    <section class="loja" id="loja" data-theme="light" style="clip-path: inset(0% round 50% 50% 0% 0% / 30vh 30vh 0vh 0vh);">
+      <div class="loja__inner">
+        <figure class="loja__photo" style="clip-path: inset(0% 100% 0% 0%);"><img src="site/torra-demo.vercel.app/img/loja.webp" alt="O salão da Torra de manhã: balcão de madeira, máquina de espresso e janelas grandes" loading="lazy" width="1600" height="900" style="translate: none; rotate: none; scale: none; transform: translate(0%, -12%);"></figure>
+        <div class="loja__copy">
+          <h2 class="loja__title serif" data-split="1"><span class="line"><span style="translate: none; rotate: none; scale: none; transform: translate(0%, 120%);">Aberto todo dia</span></span><span class="line"><span style="translate: none; rotate: none; scale: none; transform: translate(0%, 120%);">a partir das 7h.</span></span></h2>
+          <p class="loja__now" style="translate: none; rotate: none; scale: none; opacity: 0; visibility: hidden; transform: translate(0px, 22px);"><i></i><span>Aberto agora · fecha às 19h</span></p>
+          <table class="loja__hours tnum">
+            <caption class="sr-only">Horário de funcionamento</caption>
+            <tbody><tr class="" style="translate: none; rotate: none; scale: none; opacity: 0; visibility: hidden; transform: translate(0px, 22px);"><td>Segunda</td><td class="tnum">7h–19h</td></tr><tr class="" style="translate: none; rotate: none; scale: none; opacity: 0; visibility: hidden; transform: translate(0px, 22px);"><td>Terça</td><td class="tnum">7h–19h</td></tr><tr class="" style="translate: none; rotate: none; scale: none; opacity: 0; visibility: hidden; transform: translate(0px, 22px);"><td>Quarta</td><td class="tnum">7h–19h</td></tr><tr class="is-today" style="translate: none; rotate: none; scale: none; opacity: 0; visibility: hidden; transform: translate(0px, 22px);"><td>Quinta</td><td class="tnum">7h–19h</td></tr><tr class="" style="translate: none; rotate: none; scale: none; opacity: 0; visibility: hidden; transform: translate(0px, 22px);"><td>Sexta</td><td class="tnum">7h–20h</td></tr><tr class="" style="translate: none; rotate: none; scale: none; opacity: 0; visibility: hidden; transform: translate(0px, 22px);"><td>Sábado</td><td class="tnum">7h–18h</td></tr><tr class="" style="translate: none; rotate: none; scale: none; opacity: 0; visibility: hidden; transform: translate(0px, 22px);"><td>Domingo</td><td class="tnum">7h–14h</td></tr></tbody>
+          </table>
+        </div>
+        <dl class="loja__info">
+          <div style="translate: none; rotate: none; scale: none; opacity: 0; visibility: hidden; transform: translate(0px, 18px);"><dt>(Endereço)</dt><dd>Rua das Acácias, 214</dd></div>
+          <div style="translate: none; rotate: none; scale: none; opacity: 0; visibility: hidden; transform: translate(0px, 18px);"><dt>(Torra)</dt><dd>Toda terça, das 6h às 10h</dd></div>
+          <div style="translate: none; rotate: none; scale: none; opacity: 0; visibility: hidden; transform: translate(0px, 18px);"><dt>(Contato)</dt><dd><a href="mailto:ola@torra.cafe" class="ulink">ola@torra.cafe</a></dd></div>
+        </dl>
+      </div>
+    </section>
+
+    <!-- 7. Comprar -->
+    <section class="comprar" id="comprar" data-theme="dark" style="clip-path: inset(0% round 50% 50% 0% 0% / 30vh 30vh 0vh 0vh);">
+      <div class="comprar__inner">
+        <figure class="comprar__bag" style="clip-path: inset(100% 0% 0%);">
+          <img src="site/torra-demo.vercel.app/img/pacote.webp" alt="Pacote de papel kraft da Torra com a etiqueta do T" loading="lazy" width="1200" height="1500">
+        </figure>
+        <form class="comprar__form">
+          <p class="label" style="translate: none; rotate: none; scale: none; opacity: 0; visibility: hidden; transform: translate(0px, 24px);">(Café em grão)</p>
+          <h2 class="comprar__title serif" data-split="1"><span class="line"><span style="translate: none; rotate: none; scale: none; transform: translate(0%, 120%);">Leve a torra</span></span><span class="line"><span style="translate: none; rotate: none; scale: none; transform: translate(0%, 120%);">para casa.</span></span></h2>
+          <fieldset class="opt" data-opt="lote" style="translate: none; rotate: none; scale: none; opacity: 0; visibility: hidden; transform: translate(0px, 24px);"><legend class="label">Lote</legend><div class="opt__pills"><label class="pill"><input type="radio" name="lote" value="0" checked=""><span>01 Brasil</span></label><label class="pill"><input type="radio" name="lote" value="1"><span>02 Colômbia</span></label><label class="pill"><input type="radio" name="lote" value="2"><span>03 Etiópia</span></label></div></fieldset>
+          <fieldset class="opt" data-opt="moagem" style="translate: none; rotate: none; scale: none; opacity: 0; visibility: hidden; transform: translate(0px, 24px);"><legend class="label">Moagem</legend><div class="opt__pills"><label class="pill"><input type="radio" name="moagem" value="0" checked=""><span>Em grão</span></label><label class="pill"><input type="radio" name="moagem" value="1"><span>Coado</span></label><label class="pill"><input type="radio" name="moagem" value="2"><span>Espresso</span></label></div></fieldset>
+          <fieldset class="opt" data-opt="peso" style="translate: none; rotate: none; scale: none; opacity: 0; visibility: hidden; transform: translate(0px, 24px);"><legend class="label">Peso</legend><div class="opt__pills"><label class="pill"><input type="radio" name="peso" value="0" checked=""><span>250 g</span></label><label class="pill"><input type="radio" name="peso" value="1"><span>500 g</span></label><label class="pill"><input type="radio" name="peso" value="2"><span>1 kg</span></label></div></fieldset>
+          <p class="comprar__notes serif" style="translate: none; rotate: none; scale: none; opacity: 0; visibility: hidden; transform: translate(0px, 24px);"><span>Chocolate ao leite, castanha, caramelo.</span></p>
+          <label class="comprar__sub" style="translate: none; rotate: none; scale: none; opacity: 0; visibility: hidden; transform: translate(0px, 24px);"><input type="checkbox"><span class="comprar__check" aria-hidden="true"></span>Receber a cada 15 dias · 10% off</label>
+          <button class="comprar__buy" type="submit" style="translate: none; rotate: none; scale: none; opacity: 0; visibility: hidden; transform: translate(0px, 24px);"><span class="comprar__buy-in"><span>Comprar</span><span class="comprar__price tnum">R$ 52</span></span><span class="comprar__arrow" aria-hidden="true">→</span></button>
+          <p class="comprar__foot label" style="translate: none; rotate: none; scale: none; opacity: 0; visibility: hidden; transform: translate(0px, 24px);">Torrado na terça, enviado na quarta.</p>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <!-- 8. Rodapé: a linha do hero volta -->
+  <footer class="rodape" data-theme="light" style="clip-path: inset(0% round 50% 50% 0% 0% / 30vh 30vh 0vh 0vh);">
+    <p class="rodape__line" aria-label="Torra Café">
+      <span class="rodape__word" style="translate: none; rotate: none; scale: none; opacity: 0; visibility: hidden; transform: translate(45%, 0%);">Torra<sup>®</sup></span>
+      <span class="rodape__thumb" style="clip-path: inset(0% 50%);"><img src="site/torra-demo.vercel.app/img/rodape.webp" alt="" loading="lazy" width="640" height="360"></span>
+      <span class="rodape__word serif" style="translate: none; rotate: none; scale: none; opacity: 0; visibility: hidden; transform: translate(-45%, 0%);">Café</span>
+    </p>
+    <div class="rodape__cols">
+      <div style="translate: none; rotate: none; scale: none; opacity: 0; visibility: hidden; transform: translate(0px, 20px);"><p class="rodape__k">(Visite)</p><p>Rua das Acácias, 214<br>Térreo, perto da praça</p></div>
+      <div style="translate: none; rotate: none; scale: none; opacity: 0; visibility: hidden; transform: translate(0px, 20px);"><p class="rodape__k">(Horário)</p><p>Todo dia a partir das 7h<br>Seg a qui até 19h · sex até 20h<br>Sáb até 18h · dom até 14h</p></div>
+      <div style="translate: none; rotate: none; scale: none; opacity: 0; visibility: hidden; transform: translate(0px, 20px);"><p class="rodape__k">(Contato)</p><p><a href="mailto:ola@torra.cafe" class="ulink">ola@torra.cafe</a><br><a href="#" class="ulink" aria-label="Instagram">@torra.cafe</a></p></div>
+      <div style="translate: none; rotate: none; scale: none; opacity: 0; visibility: hidden; transform: translate(0px, 20px);"><p class="rodape__k">(Café em grão)</p><p>Enviamos para todo o país<br><a href="#comprar" data-scroll="" class="ulink">Comprar →</a></p></div>
+    </div>
+    <div class="rodape__base label" style="translate: none; rotate: none; scale: none; opacity: 0; visibility: hidden; transform: translate(0px, 20px);">
+      <span>© 2026 Torra Café Ltda. · CNPJ 00.000.000/0001-00</span>
+      <a href="#inicio" data-scroll="" class="ulink">Voltar ao topo ↑</a>
+    </div>
+  </footer>
+
+
+
+<div class="sbar" aria-hidden="true"><div class="sbar__thumb" style="height: 42.6695px; transform: translateY(0px);"></div></div><div class="cursor" aria-hidden="true"><i></i><span></span></div><div data-wd3-banner style="position:fixed;z-index:2147483647;left:16px;bottom:16px;max-width:min(560px,calc(100vw - 32px));align-items:center;gap:12px;padding:12px 14px;border-radius:12px;background:rgba(5,5,5,.92);color:#e8e8e8;border:1px solid #1d1d1d;box-shadow:0 8px 30px rgba(0,0,0,.35);font:13px/1.45 ui-sans-serif,system-ui,-apple-system,'Segoe UI',sans-serif;backdrop-filter:blur(8px)">
+  <span style="width:8px;height:8px;border-radius:50%;background:#00ffa3;flex:none"></span>
+  <span>Versão estática, sem animações. Para ver o site vivo, rode no terminal, nesta pasta: <b style="color:#00ffa3">python3 serve.py --open</b> (Windows: <b style="color:#00ffa3">py serve.py --open</b>). Passo a passo em <b style="color:#00ffa3">Como rodar.md</b>.</span>
+  <button type="button" onclick="this.parentNode.remove()" aria-label="Fechar" style="flex:none;background:none;border:0;color:#8a8a8a;font-size:18px;cursor:pointer;padding:0 2px">×</button>
+</div>
+</body></html>

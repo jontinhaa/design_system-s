@@ -1,0 +1,139 @@
+
+/* https://fluidbuilder.webflow.io/?design=120&max=120&min=20&g=--padding-horizontal--main,3,1_--size--2rem,2,1.75_--size--2-5rem,2.5,2_--size--3rem,3,2.25_--size--3-5rem,3.5,2.375_--size--4rem,4,2.5_--size--4-5rem,4.5,2.75_--size--5rem,5,3_--size--5-5rem,5.5,3.25_--size--6rem,6,3.5_--size--6-5rem,6.5,3.75_--size--7rem,7,4_--size--7-5rem,7.5,4.25_--size--8rem,8,4.5_--size--8-5rem,8.5,4.75_--size--9rem,9,5_--size--9-5rem,9.5,5.25_--size--10rem,10,5.5_--size--11rem,11,5.75_--size--12rem,12,6_--size--13rem,13,6.5_--size--14rem,14,7_--size--15rem,15,7.5_--size--16rem,16,8_--size--20rem,20,10_--size--24rem,24,12_--size--28rem,28,14_--size--32rem,32,16,t&g=:1.46,1.24:--display--font-size,16,4,t_--h1--font-size,10.96,3.23_,7.51,2.6_--h2--font-size,5.14,2.1_--h3--font-size,3.52,1.69_--h4--font-size,2.41,1.36_--h5--font-size,1.65,1.1_--h6--font-size,1.13,0.89&g=:1.32,1.18:--text-xlarge--font-size,4,2,t_,3.03,1.69_--variable-name,2.3,1.44_--text-large--font-size,1.74,1.22_--text-main--font-size,1.32,1.03_--text-small--font-size,1,0.87_--text-xsmall--font-size,0.76,0.74 */
+
+/* fallback for older browsers */
+:root {
+	--padding-horizontal--main: 3rem;
+	--size--2rem: 2rem;
+	--size--2-5rem: 2.5rem;
+	--size--3rem: 3rem;
+	--size--3-5rem: 3.5rem;
+	--size--4rem: 4rem;
+	--size--4-5rem: 4.5rem;
+	--size--5rem: 5rem;
+	--size--5-5rem: 5.5rem;
+	--size--6rem: 6rem;
+	--size--6-5rem: 6.5rem;
+	--size--7rem: 7rem;
+	--size--7-5rem: 7.5rem;
+	--size--8rem: 8rem;
+	--size--8-5rem: 8.5rem;
+	--size--9rem: 9rem;
+	--size--9-5rem: 9.5rem;
+	--size--10rem: 10rem;
+	--size--11rem: 11rem;
+	--size--12rem: 12rem;
+	--size--13rem: 13rem;
+	--size--14rem: 14rem;
+	--size--15rem: 15rem;
+	--size--16rem: 16rem;
+	--size--20rem: 20rem;
+	--size--24rem: 24rem;
+	--size--28rem: 28rem;
+	--size--32rem: 32rem;
+	--display--font-size: 16rem;
+	--h1--font-size: 10.96rem;
+	--h2--font-size: 5.14rem;
+	--h3--font-size: 3.52rem;
+	--h4--font-size: 2.41rem;
+	--h5--font-size: 1.65rem;
+	--h6--font-size: 1.13rem;
+	--text-xlarge--font-size: 4rem;
+	--variable-name: 2.3rem;
+	--text-large--font-size: 1.74rem;
+	--text-main--font-size: 1.32rem;
+	--text-small--font-size: 1rem;
+	--text-xsmall--font-size: 0.76rem;
+}
+@media screen and (max-width: 767px) {
+	:root {
+		--padding-horizontal--main: 1rem;
+		--size--2rem: 1.75rem;
+		--size--2-5rem: 2rem;
+		--size--3rem: 2.25rem;
+		--size--3-5rem: 2.375rem;
+		--size--4rem: 2.5rem;
+		--size--4-5rem: 2.75rem;
+		--size--5rem: 3rem;
+		--size--5-5rem: 3.25rem;
+		--size--6rem: 3.5rem;
+		--size--6-5rem: 3.75rem;
+		--size--7rem: 4rem;
+		--size--7-5rem: 4.25rem;
+		--size--8rem: 4.5rem;
+		--size--8-5rem: 4.75rem;
+		--size--9rem: 5rem;
+		--size--9-5rem: 5.25rem;
+		--size--10rem: 5.5rem;
+		--size--11rem: 5.75rem;
+		--size--12rem: 6rem;
+		--size--13rem: 6.5rem;
+		--size--14rem: 7rem;
+		--size--15rem: 7.5rem;
+		--size--16rem: 8rem;
+		--size--20rem: 10rem;
+		--size--24rem: 12rem;
+		--size--28rem: 14rem;
+		--size--32rem: 16rem;
+		--display--font-size: 4rem;
+		--h1--font-size: 3.23rem;
+		--h2--font-size: 2.1rem;
+		--h3--font-size: 1.69rem;
+		--h4--font-size: 1.36rem;
+		--h5--font-size: 1.1rem;
+		--h6--font-size: 0.89rem;
+		--text-xlarge--font-size: 2rem;
+		--variable-name: 1.44rem;
+		--text-large--font-size: 1.22rem;
+		--text-main--font-size: 1.03rem;
+		--text-small--font-size: 0.87rem;
+		--text-xsmall--font-size: 0.74rem;
+	}
+}
+
+/* fluid sizes */
+@supports (font-size: clamp(1rem, 0.5rem + 3vw, 3rem)) {
+	:root {
+		--padding-horizontal--main: clamp(1rem, 0.6rem + 2vw, 3rem);
+		--size--2rem: clamp(1.75rem, 1.7rem + 0.25vw, 2rem);
+		--size--2-5rem: clamp(2rem, 1.9rem + 0.5vw, 2.5rem);
+		--size--3rem: clamp(2.25rem, 2.1rem + 0.75vw, 3rem);
+		--size--3-5rem: clamp(2.375rem, 2.151rem + 1.12vw, 3.5rem);
+		--size--4rem: clamp(2.5rem, 2.2rem + 1.5vw, 4rem);
+		--size--4-5rem: clamp(2.75rem, 2.4rem + 1.75vw, 4.5rem);
+		--size--5rem: clamp(3rem, 2.6rem + 2vw, 5rem);
+		--size--5-5rem: clamp(3.25rem, 2.8rem + 2.25vw, 5.5rem);
+		--size--6rem: clamp(3.5rem, 3rem + 2.5vw, 6rem);
+		--size--6-5rem: clamp(3.75rem, 3.2rem + 2.75vw, 6.5rem);
+		--size--7rem: clamp(4rem, 3.4rem + 3vw, 7rem);
+		--size--7-5rem: clamp(4.25rem, 3.6rem + 3.25vw, 7.5rem);
+		--size--8rem: clamp(4.5rem, 3.8rem + 3.5vw, 8rem);
+		--size--8-5rem: clamp(4.75rem, 4rem + 3.75vw, 8.5rem);
+		--size--9rem: clamp(5rem, 4.2rem + 4vw, 9rem);
+		--size--9-5rem: clamp(5.25rem, 4.4rem + 4.25vw, 9.5rem);
+		--size--10rem: clamp(5.5rem, 4.6rem + 4.5vw, 10rem);
+		--size--11rem: clamp(5.75rem, 4.7rem + 5.25vw, 11rem);
+		--size--12rem: clamp(6rem, 4.8rem + 6vw, 12rem);
+		--size--13rem: clamp(6.5rem, 5.2rem + 6.5vw, 13rem);
+		--size--14rem: clamp(7rem, 5.6rem + 7vw, 14rem);
+		--size--15rem: clamp(7.5rem, 6rem + 7.5vw, 15rem);
+		--size--16rem: clamp(8rem, 6.4rem + 8vw, 16rem);
+		--size--20rem: clamp(10rem, 8rem + 10vw, 20rem);
+		--size--24rem: clamp(12rem, 9.6rem + 12vw, 24rem);
+		--size--28rem: clamp(14rem, 11.2rem + 14vw, 28rem);
+		--size--32rem: clamp(16rem, 12.8rem + 16vw, 32rem);
+		--display--font-size: clamp(4rem, 1.6rem + 12vw, 16rem);
+		--h1--font-size: clamp(3.23rem, 1.684rem + 7.73vw, 10.96rem);
+		--h2--font-size: clamp(2.1rem, 1.492rem + 3.04vw, 5.14rem);
+		--h3--font-size: clamp(1.69rem, 1.324rem + 1.83vw, 3.52rem);
+		--h4--font-size: clamp(1.36rem, 1.15rem + 1.05vw, 2.41rem);
+		--h5--font-size: clamp(1.1rem, 0.99rem + 0.55vw, 1.65rem);
+		--h6--font-size: clamp(0.89rem, 0.842rem + 0.24vw, 1.13rem);
+		--text-xlarge--font-size: clamp(2rem, 1.6rem + 2vw, 4rem);
+		--variable-name: clamp(1.44rem, 1.268rem + 0.86vw, 2.3rem);
+		--text-large--font-size: clamp(1.22rem, 1.116rem + 0.52vw, 1.74rem);
+		--text-main--font-size: clamp(1.03rem, 0.972rem + 0.29vw, 1rem);
+		--text-small--font-size: clamp(0.87rem, 0.844rem + 0.13vw, 1rem);
+		--text-xsmall--font-size: clamp(0.74rem, 0.736rem + 0.02vw, 0.76rem);
+	}
+}

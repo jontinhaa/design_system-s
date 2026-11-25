@@ -1,0 +1,566 @@
+{
+ "version": 1,
+ "tool": "wd3 0.1.0",
+ "captureId": "adrienquechon.com-e5c267a7",
+ "capturedAt": "2026-11-24T14:14:30+00:00",
+ "entry": {
+  "url": "https://www.adrienquechon.com/",
+  "path": "/",
+  "search": "",
+  "file": "site/www.adrienquechon.com/index.html",
+  "contentType": "text/html;charset=utf-8"
+ },
+ "blocked": [
+  "^https?://([^/?#]+\\.)?(google\\-analytics\\.com|analytics\\.google\\.com|googletagmanager\\.com|googleadservices\\.com|doubleclick\\.net|googlesyndication\\.com|googleoptimize\\.com|connect\\.facebook\\.net|bat\\.bing\\.com|snap\\.licdn\\.com|px\\.ads\\.linkedin\\.com|analytics\\.tiktok\\.com|ct\\.pinterest\\.com|static\\.ads\\-twitter\\.com|analytics\\.twitter\\.com|tr\\.snapchat\\.com|sc\\-static\\.net|mc\\.yandex\\.ru|hotjar\\.com|hotjar\\.io|clarity\\.ms|cdn\\.segment\\.com|api\\.segment\\.io|cdn\\.mxpnl\\.com|api\\-js\\.mixpanel\\.com|api\\.mixpanel\\.com|api\\.amplitude\\.com|api2\\.amplitude\\.com|api\\-secure\\.amplitude\\.com|api\\-sr\\.amplitude\\.com|sr\\-client\\-cfg\\.amplitude\\.com|plausible\\.io|cloud\\.umami\\.is|analytics\\.umami\\.is|static\\.cloudflareinsights\\.com|cloudflareinsights\\.com|vitals\\.vercel\\-insights\\.com|browser\\-intake\\-datadoghq\\.com|browser\\-intake\\-datadoghq\\.eu|js\\-agent\\.newrelic\\.com|bam\\.nr\\-data\\.net|bam\\-cell\\.nr\\-data\\.net|fullstory\\.com|script\\.crazyegg\\.com|mouseflow\\.com|smartlook\\.com|heapanalytics\\.com|i\\.posthog\\.com|stats\\.wp\\.com|pixel\\.wp\\.com|promotekit\\.com|ingest\\.sentry\\.io|ingest\\.us\\.sentry\\.io|ingest\\.de\\.sentry\\.io|widget\\.intercom\\.io|js\\.intercomcdn\\.com|api\\-iam\\.intercom\\.io|js\\.hs\\-scripts\\.com|js\\.hs\\-analytics\\.net|js\\.hs\\-banner\\.com|js\\.hscollectedforms\\.net|js\\.usemessages\\.com|track\\.hubspot\\.com|client\\.crisp\\.chat|embed\\.tawk\\.to|js\\.driftt\\.com|static\\.zdassets\\.com|ekr\\.zdassets\\.com|cdn\\.cookielaw\\.org|geolocation\\.onetrust\\.com|consent\\.cookiebot\\.com|consentcdn\\.cookiebot\\.com|app\\.usercentrics\\.eu|api\\.usercentrics\\.eu|cdn\\.iubenda\\.com|cmp\\.osano\\.com|cdn\\.termly\\.io)(:\\d+)?([/?#]|$)",
+  "/rpc/increment_shared_code_views",
+  "^https?://(umami|analytics|stats|plausible)\\.[^/]+/(api/send|api/collect|api/event|script\\.js)",
+  "/g/c(ollect)?\\?v=2&",
+  "sentry\\.io/api/\\d+/(envelope|store)",
+  "/api/meta-capi",
+  "^https?://(leadtracker|tracking|track|events?|collect)\\.[^/]+/",
+  "^https?://a\\.vturb\\.com/",
+  "facebook\\.com/tr[/?]",
+  "/_vercel/(speed-)?insights/",
+  "/cdn-cgi/rum",
+  "/cdn-cgi/challenge-platform/",
+  "google\\.com/(pagead|ads)/"
+ ],
+ "volatileParams": [
+  "v",
+  "_rsc",
+  "dpl",
+  "_",
+  "t",
+  "ts",
+  "timestamp",
+  "cb",
+  "cachebust",
+  "cacheBust",
+  "nocache",
+  "rnd",
+  "rand",
+  "random",
+  "_t"
+ ],
+ "entries": [
+  {
+   "url": "https://www.adrienquechon.com/",
+   "method": "GET",
+   "status": 200,
+   "contentType": "text/html;charset=utf-8",
+   "headers": {
+    "content-type": "text/html;charset=utf-8"
+   },
+   "resourceType": "document",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "file": "site/www.adrienquechon.com/index.html",
+   "size": 82504,
+   "modes": [
+    "navigate"
+   ]
+  },
+  {
+   "url": "https://www.adrienquechon.com/_nuxt/entry.COVD8VFh.css",
+   "method": "GET",
+   "status": 200,
+   "contentType": "text/css; charset=utf-8",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "content-disposition": "inline; filename=\"entry.COVD8VFh.css\"",
+    "content-type": "text/css; charset=utf-8"
+   },
+   "resourceType": "stylesheet",
+   "passes": [
+    "mobile",
+    "desktop"
+   ],
+   "file": "site/www.adrienquechon.com/_nuxt/entry.COVD8VFh.css",
+   "size": 29286,
+   "modes": [
+    "cors"
+   ]
+  },
+  {
+   "url": "https://www.adrienquechon.com/_nuxt/Cai-ql3V.js",
+   "method": "GET",
+   "status": 200,
+   "contentType": "application/javascript; charset=utf-8",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "content-disposition": "inline; filename=\"Cai-ql3V.js\"",
+    "content-type": "application/javascript; charset=utf-8"
+   },
+   "resourceType": "script",
+   "passes": [
+    "mobile",
+    "desktop"
+   ],
+   "file": "site/www.adrienquechon.com/_nuxt/Cai-ql3V.js",
+   "size": 9901,
+   "modes": [
+    "cors"
+   ]
+  },
+  {
+   "url": "https://www.adrienquechon.com/_nuxt/ByEDe0N9.js",
+   "method": "GET",
+   "status": 200,
+   "contentType": "application/javascript; charset=utf-8",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "content-disposition": "inline; filename=\"ByEDe0N9.js\"",
+    "content-type": "application/javascript; charset=utf-8"
+   },
+   "resourceType": "script",
+   "passes": [
+    "mobile",
+    "desktop"
+   ],
+   "file": "site/www.adrienquechon.com/_nuxt/ByEDe0N9.js",
+   "size": 22320,
+   "modes": [
+    "cors"
+   ]
+  },
+  {
+   "url": "https://www.adrienquechon.com/_nuxt/BG422gLi.js",
+   "method": "GET",
+   "status": 200,
+   "contentType": "application/javascript; charset=utf-8",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "content-disposition": "inline; filename=\"BG422gLi.js\"",
+    "content-type": "application/javascript; charset=utf-8"
+   },
+   "resourceType": "script",
+   "passes": [
+    "mobile",
+    "desktop"
+   ],
+   "file": "site/www.adrienquechon.com/_nuxt/BG422gLi.js",
+   "size": 18415,
+   "modes": [
+    "cors"
+   ]
+  },
+  {
+   "url": "https://www.adrienquechon.com/_nuxt/BEpUzCTA.js",
+   "method": "GET",
+   "status": 200,
+   "contentType": "application/javascript; charset=utf-8",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "content-disposition": "inline; filename=\"BEpUzCTA.js\"",
+    "content-type": "application/javascript; charset=utf-8"
+   },
+   "resourceType": "script",
+   "passes": [
+    "mobile",
+    "desktop"
+   ],
+   "file": "site/www.adrienquechon.com/_nuxt/BEpUzCTA.js",
+   "size": 76817,
+   "modes": [
+    "cors"
+   ]
+  },
+  {
+   "url": "https://www.adrienquechon.com/_nuxt/PONvBhuW.js",
+   "method": "GET",
+   "status": 200,
+   "contentType": "application/javascript; charset=utf-8",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "content-disposition": "inline; filename=\"PONvBhuW.js\"",
+    "content-type": "application/javascript; charset=utf-8"
+   },
+   "resourceType": "script",
+   "passes": [
+    "mobile",
+    "desktop"
+   ],
+   "file": "site/www.adrienquechon.com/_nuxt/PONvBhuW.js",
+   "size": 115890,
+   "modes": [
+    "cors"
+   ]
+  },
+  {
+   "url": "https://www.adrienquechon.com/_nuxt/B6VQAif6.js",
+   "method": "GET",
+   "status": 200,
+   "contentType": "application/javascript; charset=utf-8",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "content-disposition": "inline; filename=\"B6VQAif6.js\"",
+    "content-type": "application/javascript; charset=utf-8"
+   },
+   "resourceType": "script",
+   "passes": [
+    "mobile",
+    "desktop"
+   ],
+   "file": "site/www.adrienquechon.com/_nuxt/B6VQAif6.js",
+   "size": 797813,
+   "modes": [
+    "cors"
+   ]
+  },
+  {
+   "url": "https://www.adrienquechon.com/arrow.svg",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/svg+xml",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "content-disposition": "inline; filename=\"arrow.svg\"",
+    "content-type": "image/svg+xml"
+   },
+   "resourceType": "image",
+   "passes": [
+    "mobile",
+    "desktop"
+   ],
+   "file": "site/www.adrienquechon.com/arrow.svg",
+   "size": 266,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://www.adrienquechon.com/fonts/SometypeMono-SemiBold.woff2",
+   "method": "GET",
+   "status": 200,
+   "contentType": "font/woff2",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "content-disposition": "inline; filename=\"SometypeMono-SemiBold.woff2\"",
+    "content-type": "font/woff2"
+   },
+   "resourceType": "font",
+   "passes": [
+    "mobile",
+    "desktop"
+   ],
+   "file": "site/www.adrienquechon.com/fonts/SometypeMono-SemiBold.woff2",
+   "size": 17464,
+   "modes": [
+    "cors"
+   ]
+  },
+  {
+   "url": "https://www.adrienquechon.com/fonts/SometypeMono-Regular.woff2",
+   "method": "GET",
+   "status": 200,
+   "contentType": "font/woff2",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "content-disposition": "inline; filename=\"SometypeMono-Regular.woff2\"",
+    "content-type": "font/woff2"
+   },
+   "resourceType": "font",
+   "passes": [
+    "mobile",
+    "desktop"
+   ],
+   "file": "site/www.adrienquechon.com/fonts/SometypeMono-Regular.woff2",
+   "size": 17188,
+   "modes": [
+    "cors"
+   ]
+  },
+  {
+   "url": "https://www.adrienquechon.com/fonts/SometypeMono-Bold.woff2",
+   "method": "GET",
+   "status": 200,
+   "contentType": "font/woff2",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "content-disposition": "inline; filename=\"SometypeMono-Bold.woff2\"",
+    "content-type": "font/woff2"
+   },
+   "resourceType": "font",
+   "passes": [
+    "mobile",
+    "desktop"
+   ],
+   "file": "site/www.adrienquechon.com/fonts/SometypeMono-Bold.woff2",
+   "size": 17052,
+   "modes": [
+    "cors"
+   ]
+  },
+  {
+   "url": "https://www.adrienquechon.com/fonts/PPEditorialOld-Ultralight.woff2",
+   "method": "GET",
+   "status": 200,
+   "contentType": "font/woff2",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "content-disposition": "inline; filename=\"PPEditorialOld-Ultralight.woff2\"",
+    "content-type": "font/woff2"
+   },
+   "resourceType": "font",
+   "passes": [
+    "mobile",
+    "desktop"
+   ],
+   "file": "site/www.adrienquechon.com/fonts/PPEditorialOld-Ultralight.woff2",
+   "size": 52452,
+   "modes": [
+    "cors"
+   ]
+  },
+  {
+   "url": "https://www.adrienquechon.com/fonts/PPPlayground-Light.woff2",
+   "method": "GET",
+   "status": 200,
+   "contentType": "font/woff2",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "content-disposition": "inline; filename=\"PPPlayground-Light.woff2\"",
+    "content-type": "font/woff2"
+   },
+   "resourceType": "font",
+   "passes": [
+    "mobile",
+    "desktop"
+   ],
+   "file": "site/www.adrienquechon.com/fonts/PPPlayground-Light.woff2",
+   "size": 63268,
+   "modes": [
+    "cors"
+   ]
+  },
+  {
+   "url": "https://www.adrienquechon.com/logo.png",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/png",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "content-disposition": "inline; filename=\"logo.png\"",
+    "content-type": "image/png"
+   },
+   "resourceType": "image",
+   "passes": [
+    "mobile",
+    "desktop"
+   ],
+   "file": "site/www.adrienquechon.com/logo.png",
+   "size": 2508,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://www.adrienquechon.com/textures/test-noise-6.jpg",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/jpeg",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "content-disposition": "inline; filename=\"test-noise-6.jpg\"",
+    "content-type": "image/jpeg"
+   },
+   "resourceType": "image",
+   "passes": [
+    "mobile",
+    "desktop"
+   ],
+   "file": "site/www.adrienquechon.com/textures/test-noise-6.jpg",
+   "size": 136964,
+   "modes": [
+    "cors"
+   ]
+  },
+  {
+   "url": "https://www.adrienquechon.com/smile.png",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/png",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "content-disposition": "inline; filename=\"smile.png\"",
+    "content-type": "image/png"
+   },
+   "resourceType": "image",
+   "passes": [
+    "mobile",
+    "desktop"
+   ],
+   "file": "site/www.adrienquechon.com/smile.png",
+   "size": 16475,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://www.adrienquechon.com/textures/test-noise-5.png",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/png",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "content-disposition": "inline; filename=\"test-noise-5.png\"",
+    "content-type": "image/png"
+   },
+   "resourceType": "image",
+   "passes": [
+    "mobile",
+    "desktop"
+   ],
+   "file": "site/www.adrienquechon.com/textures/test-noise-5.png",
+   "size": 255267,
+   "modes": [
+    "cors"
+   ]
+  },
+  {
+   "url": "https://www.adrienquechon.com/0fe25507089aaad3/script.js",
+   "method": "GET",
+   "status": 200,
+   "contentType": "application/javascript; charset=utf-8",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "content-disposition": "inline; filename=\"script.js\"",
+    "content-type": "application/javascript; charset=utf-8"
+   },
+   "resourceType": "script",
+   "passes": [
+    "mobile",
+    "desktop"
+   ],
+   "file": "site/www.adrienquechon.com/0fe25507089aaad3/script.js",
+   "size": 20277,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://www.adrienquechon.com/favicon.png",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/png",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "content-disposition": "inline; filename=\"favicon.png\"",
+    "content-type": "image/png"
+   },
+   "resourceType": "other",
+   "passes": [
+    "mobile",
+    "desktop"
+   ],
+   "file": "site/www.adrienquechon.com/favicon.png",
+   "size": 1648,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://www.adrienquechon.com/_nuxt/ClG2rXkQ.js",
+   "method": "GET",
+   "status": 200,
+   "contentType": "application/javascript; charset=utf-8",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "content-disposition": "inline; filename=\"ClG2rXkQ.js\"",
+    "content-type": "application/javascript; charset=utf-8"
+   },
+   "resourceType": "other",
+   "passes": [
+    "mobile"
+   ],
+   "file": "site/www.adrienquechon.com/_nuxt/ClG2rXkQ.js",
+   "size": 4069,
+   "modes": [
+    "cors"
+   ]
+  },
+  {
+   "url": "https://www.adrienquechon.com/_nuxt/error-404.DpKY_dMl.css",
+   "method": "GET",
+   "status": 200,
+   "contentType": "text/css; charset=utf-8",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "content-disposition": "inline; filename=\"error-404.DpKY_dMl.css\"",
+    "content-type": "text/css; charset=utf-8"
+   },
+   "resourceType": "other",
+   "passes": [
+    "mobile"
+   ],
+   "file": "site/www.adrienquechon.com/_nuxt/error-404.DpKY_dMl.css",
+   "size": 2701,
+   "modes": [
+    "cors"
+   ]
+  },
+  {
+   "url": "https://www.adrienquechon.com/favicon.ico",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/vnd.microsoft.icon",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "content-disposition": "inline; filename=\"favicon.ico\"",
+    "content-type": "image/vnd.microsoft.icon"
+   },
+   "resourceType": "other",
+   "passes": [
+    "mobile"
+   ],
+   "file": "site/www.adrienquechon.com/favicon.ico",
+   "size": 4286
+  },
+  {
+   "url": "https://www.adrienquechon.com/_nuxt/error-500.CmR4p1fc.css",
+   "method": "GET",
+   "status": 200,
+   "contentType": "text/css; charset=utf-8",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "content-disposition": "inline; filename=\"error-500.CmR4p1fc.css\"",
+    "content-type": "text/css; charset=utf-8"
+   },
+   "resourceType": "other",
+   "passes": [
+    "mobile"
+   ],
+   "file": "site/www.adrienquechon.com/_nuxt/error-500.CmR4p1fc.css",
+   "size": 1951,
+   "modes": [
+    "cors"
+   ]
+  },
+  {
+   "url": "https://www.adrienquechon.com/_nuxt/DrizkciM.js",
+   "method": "GET",
+   "status": 200,
+   "contentType": "application/javascript; charset=utf-8",
+   "headers": {
+    "access-control-allow-origin": "*",
+    "content-disposition": "inline; filename=\"DrizkciM.js\"",
+    "content-type": "application/javascript; charset=utf-8"
+   },
+   "resourceType": "other",
+   "passes": [
+    "mobile"
+   ],
+   "file": "site/www.adrienquechon.com/_nuxt/DrizkciM.js",
+   "size": 2721,
+   "modes": [
+    "cors"
+   ]
+  }
+ ],
+ "videos": {
+  "posters": {},
+  "onlineHosts": []
+ }
+}

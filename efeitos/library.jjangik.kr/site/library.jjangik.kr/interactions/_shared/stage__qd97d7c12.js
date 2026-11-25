@@ -1,0 +1,24 @@
+import*as o from"three";const A=(t,n,r)=>Math.max(n,Math.min(r,t)),E=(t,n,r)=>{const a=A((r-t)/(n-t),0,1);return a*a*(3-2*a)};function C(t){return()=>{t|=0,t=t+1831565813|0;let n=Math.imul(t^t>>>15,1|t);return n=n+Math.imul(n^n>>>7,61|n)^n,((n^n>>>14)>>>0)/4294967296}}let f=null;function z(t,{cls:n,bg:r="#0d0d0f",hint:a="",cursor:v="default"}){f||(f=document.createElement("link"),f.rel="stylesheet",f.href=new URL("./stage.css",import.meta.url).href,document.head.appendChild(f)),t.classList.add("ixs",n),t.style.background=r,t.style.cursor=v,t.innerHTML='<div class="ixs-mount"></div><div class="ixs-hint"></div>',t.querySelector(".ixs-hint").textContent=a;const c=[],e={W:innerWidth,H:innerHeight,active:!1,previewing:!1,frame:0,container:t,scene:new o.Scene,on(i,d,m,p){i.addEventListener(d,m,p),c.push(()=>i.removeEventListener(d,m,p))},track(i){c.push(i)},touched(){t.classList.add("has-moved")},onResize:null};e.scene.background=new o.Color(r);const u=new o.OrthographicCamera(0,e.W,0,-e.H,-100,100),s=new o.WebGLRenderer({antialias:!0});s.setSize(e.W,e.H),s.setPixelRatio(Math.min(devicePixelRatio,2)),t.querySelector(".ixs-mount").appendChild(s.domElement);let h=1;function x(i){i!==h&&(h=i,s.setPixelRatio(Math.min(devicePixelRatio,2)*i))}return e.on(window,"resize",()=>{e.W=innerWidth,e.H=innerHeight,u.right=e.W,u.bottom=-e.H,u.updateProjectionMatrix(),s.setSize(e.W,e.H),e.onResize&&e.onResize()}),e.handle=i=>{let d=0;const m=()=>{e.frame++,i.step(),s.render(e.scene,u)};function p(){d=requestAnimationFrame(p),m()}return{setActive(l){return e.active=l,t.classList.toggle("is-active",l),l?e.previewing=!1:t.classList.remove("has-moved"),i.onActive&&i.onActive(l),l||!i.idle?Promise.resolve():new Promise(S=>{const R=performance.now();(function L(){i.idle()||performance.now()-R>1400?S():requestAnimationFrame(L)})()})},setRunning(l){cancelAnimationFrame(d),l&&(x(1),p())},setPreview(l){e.previewing=l,i.onPreview&&i.onPreview(l)},rest(){e.previewing=!1,i.onRest&&i.onRest()},capture(l=1){return x(l),m(),s.domElement},get ground(){return e.scene.background},get tips(){return e.previewing&&i.tips?i.tips():null},unmount(){for(cancelAnimationFrame(d);c.length;)try{c.pop()()}catch(l){console.warn(l)}i.dispose&&i.dispose(),s.dispose(),s.forceContextLoss(),t.innerHTML="",t.classList.remove("ixs",n,"is-active","has-moved"),t.style.background="",t.style.cursor=""},get settled(){return i.settled()},get moving(){return i.moving()}}},e}const g=()=>{let t=0;for(const n of document.fonts)n.status==="loaded"&&t++;return t};function P(t,n){const r={textures:[],ready:!1},a=[],v=g();for(let e=0;e<t;e++){const u=document.createElement("canvas");n(u,e);const s=new o.CanvasTexture(u);s.minFilter=o.LinearFilter,s.magFilter=o.LinearFilter,s.generateMipmaps=!1,a.push(u),r.textures.push(s)}const c=()=>{a.forEach((e,u)=>{n(e,u),r.textures[u].needsUpdate=!0}),r.ready=!0};return document.fonts.ready.then(()=>{g()!==v?c():r.ready=!0}),document.addEventListener("faces",c),r.dispose=()=>{document.removeEventListener("faces",c),r.textures.forEach(e=>e.dispose())},r}const w=`
+  varying vec2 vUv;
+  void main() { vUv = uv; gl_Position = projectionMatrix * modelViewMatrix * vec4(position, 1.0); }
+`,y=`
+  uniform sampler2D uMap;
+  uniform vec2  uSize;     // drawn size in px
+  uniform float uRadius;   // corner radius in px
+  uniform vec2  uSplit;    // colour split, in uv
+  uniform float uAlpha;
+  uniform float uDim;
+  varying vec2 vUv;
+  void main() {
+    vec2 p = (vUv - 0.5) * uSize;
+    vec2 q = abs(p) - uSize * 0.5 + uRadius;
+    float d = length(max(q, 0.0)) + min(max(q.x, q.y), 0.0) - uRadius;
+    float aa = fwidth(d);
+    float mask = 1.0 - smoothstep(-aa, aa, d);
+    vec3 col = vec3(texture2D(uMap, vUv + uSplit).r, texture2D(uMap, vUv).g, texture2D(uMap, vUv - uSplit).b);
+    gl_FragColor = vec4(col * (1.0 - uDim), mask * uAlpha);
+  }
+`,M=new o.PlaneGeometry(1,1);function D(t,n){const r=new o.Mesh(M,new o.ShaderMaterial({transparent:!0,depthTest:!1,extensions:{derivatives:!0},uniforms:{uMap:{value:n},uSize:{value:new o.Vector2(1,1)},uRadius:{value:0},uSplit:{value:new o.Vector2},uAlpha:{value:1},uDim:{value:0}},vertexShader:w,fragmentShader:y}));t.add(r);const a=r.material.uniforms;return r.place=(v,c,e,u,s=0,h=Math.min(e,u)*.06)=>{r.position.set(v,-c,0),r.scale.set(e,u,1),r.rotation.z=s,a.uSize.value.set(e,u),a.uRadius.value=h},r.u=a,r}function F(t,n,r="#f0eee8"){const a=new o.Mesh(M,new o.ShaderMaterial({transparent:!0,depthTest:!1,uniforms:{uMap:{value:n},uColor:{value:new o.Color(r).convertLinearToSRGB()},uAlpha:{value:1}},vertexShader:w,fragmentShader:`
+      uniform sampler2D uMap; uniform vec3 uColor; uniform float uAlpha; varying vec2 vUv;
+      void main() { gl_FragColor = vec4(uColor, texture2D(uMap, vUv).a * uAlpha); }
+    `}));return t.add(a),a.u=a.material.uniforms,a}export{o as THREE,P as artSet,D as card,A as clamp,z as createStage,g as facesIn,F as lettering,C as rng,E as smooth};

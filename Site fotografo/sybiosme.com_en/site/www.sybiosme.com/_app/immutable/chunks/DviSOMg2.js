@@ -1,0 +1,1 @@
+import"./q4rag5QO.js";import{w as o,x as r,A as c}from"./BtPcHT3g.js";import{b as m}from"./CNg8u8nT.js";import{p as s}from"./CobEjAHQ.js";var p=c('<img src="/icons/ui/icon-checkmark.svg" width="17" height="16" alt="" aria-hidden="true" class="check-icon svelte-oxbvp4"/>');function g(a,i){let e=s(i,"align",3,"text");var t=p();o(()=>m(t,"data-align",e())),r(a,t)}export{g as C};

@@ -1,0 +1,19 @@
+
+/* ===== Header: three clean zones (brand, centred nav pill, call to action), compact when scrolled ===== */
+#header{display:grid;grid-template-columns:1fr auto 1fr;align-items:center;height:88px;padding:0 4.5%;gap:24px;transition:height .35s cubic-bezier(.22,.75,.18,1),background .3s,box-shadow .3s,border-color .3s}
+#header.solid{height:72px}
+#header .brand{flex-direction:row;align-items:center;gap:14px;justify-self:start}
+#header .brand strong{font-size:46px;line-height:.9;transform:rotate(-5deg);transition:transform .4s cubic-bezier(.34,1.56,.64,1)}
+#header .brand:hover strong{transform:rotate(3deg) scale(1.04)}
+#header .brand span{margin:0;max-width:none;white-space:nowrap;font-size:10px;line-height:1.35;letter-spacing:.14em;padding-left:14px;border-left:1.5px solid rgba(23,60,49,.28)}
+#header nav{display:flex;gap:2px;padding:5px;border-radius:999px;background:rgba(255,250,240,.55);border:1px solid rgba(23,60,49,.1);backdrop-filter:blur(14px);-webkit-backdrop-filter:blur(14px);box-shadow:0 10px 30px -18px rgba(23,60,49,.45);font-size:14px}
+#header.solid nav{background:rgba(23,60,49,.06);box-shadow:none}
+#header nav a{padding:10px 18px;border-radius:999px;line-height:1;transition:background .25s,color .25s}
+#header nav a:after{display:none}
+#header nav a:hover{background:rgba(255,250,240,.95)}
+#header nav a[aria-current=true]{background:var(--ink);color:var(--cream)}
+#header .header-button{justify-self:end}
+@media(max-width:1100px){#header nav a{padding:10px 13px}#header .brand span{display:none}}
+@media(max-width:800px){#header nav{display:none}#header{grid-template-columns:1fr auto;height:76px}#header.solid{height:66px}#header .brand strong{font-size:40px}#header .brand span{display:block;max-width:none;font-size:8.5px;padding-left:10px}}
+/* the 100% stamp sits further out on the donut's right shoulder */
+@media(min-width:801px){.happy-stamp{left:calc(var(--hero-x) + var(--hero-d) * .43 - 66px);top:calc(var(--hero-y) - var(--hero-d) * .4 - 40px)}}

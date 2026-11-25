@@ -1,0 +1,70 @@
+/* ===== Hero polish: cleaner composition, same identity ===== */
+:root{--hero-x:70.5%;--hero-y:45%;--hero-d:min(45vw,67svh)}
+/* header: no hairline over the hero, only once it turns solid */
+#header{border-bottom-color:transparent;transition:background .3s,box-shadow .3s,border-color .3s}
+#header.solid{border-bottom-color:#173c311f}
+/* the big background "DOH!" becomes a soft halo and one fine ring around the donut */
+.stage-word{left:var(--hero-x);top:var(--hero-y);width:calc(var(--hero-d) * 1.14);height:calc(var(--hero-d) * 1.14);font-size:0;line-height:0;letter-spacing:0;color:transparent;transform:translate(-50%,-50%);pointer-events:none}
+.stage-word .halo{position:absolute;inset:-26%;border-radius:50%;background:radial-gradient(closest-side,rgba(255,242,248,1),rgba(255,222,238,.75) 46%,rgba(255,214,234,0) 74%)}
+/* copy: aligned to the logo, vertically centred under the header */
+.copy{left:4.5%}
+.flavor-heading{left:4.5%}
+.hero .copy{top:calc(50% + 34px);transform:translateY(-50%);width:min(46%,640px)}
+.hero .eyebrow{font-size:12px;letter-spacing:.16em;font-weight:700;margin:0 0 26px}
+.hero .eyebrow i{background:var(--ink);box-shadow:0 0 0 5px rgba(23,60,49,.12)}
+.hero h1{font-size:clamp(60px,min(8vw,13.6svh),140px);line-height:.86;letter-spacing:-.065em;margin:0 0 28px}
+.hero h1 em{color:var(--cream);text-shadow:.03em .036em 0 var(--ink)}
+.hero .description{font-size:clamp(16px,1.25vw,19px);line-height:1.6;max-width:410px;margin:0 0 34px;opacity:.88}
+/* the same legible cream + ink treatment for the story's emphasis words */
+.flavor-heading em,.process-chapter h2 em{color:var(--cream);text-shadow:.03em .04em 0 var(--ink)}
+/* stamp: text runs on a circle, fully contained, slowly turning */
+.happy-stamp{right:auto;left:calc(var(--hero-x) + var(--hero-d) * .34 - 66px);top:max(calc(var(--hero-y) - var(--hero-d) * .38 - 66px),112px);width:132px;height:132px;padding:0;gap:0;border:0;background:none;box-shadow:none;border-radius:50%;transform:rotate(-8deg);display:grid;place-items:center;filter:drop-shadow(0 14px 18px rgba(23,60,49,.18))}
+.happy-stamp svg{position:absolute;inset:0;width:100%;height:100%;overflow:visible}
+.happy-stamp circle{fill:var(--yellow);stroke:var(--ink);stroke-width:1.5}
+.happy-stamp .ring-text{transform-origin:70px 70px;animation:hero-stamp 26s linear infinite}
+.happy-stamp text{font:700 11px var(--font);fill:var(--ink)}
+.happy-stamp b{position:relative;font-family:var(--display);font-weight:400;font-size:34px;line-height:1;letter-spacing:-.02em}
+@keyframes hero-stamp{to{transform:rotate(360deg)}}
+/* caption sits centred under the donut, clear of the bottom bar */
+.hero-caption{left:var(--hero-x);bottom:auto;top:calc(var(--hero-y) + var(--hero-d) * .5 + 8px);transform:translateX(-50%);gap:6px;text-align:center;white-space:nowrap}
+.hero-caption .tiny-label{font-size:11px;letter-spacing:.18em;opacity:.75}
+.hero-caption b{font-size:30px;line-height:1}
+.hero-caption>span:last-child{font-size:14px;opacity:.8}
+/* buttons: one consistent pill with an arrow chip that swaps on hover */
+.button{gap:16px;padding:7px 7px 7px 24px;min-height:56px;border:0;border-radius:999px;font-size:15px;font-weight:700;letter-spacing:-.01em;box-shadow:0 14px 30px -18px rgba(23,60,49,.7)}
+.button:hover{transform:translateY(-2px);box-shadow:0 20px 34px -18px rgba(23,60,49,.75)}
+.button:active{transform:translateY(0) scale(.98)}
+.button .arw,.bx-btn .arw{position:relative;display:inline-grid;place-items:center;flex-shrink:0;width:42px;height:42px;border-radius:50%;background:var(--cream);color:var(--ink);overflow:hidden;font-size:0;line-height:0;transform:none!important;transition:background .3s}
+.button .arw svg,.bx-btn .arw svg{grid-area:1/1;width:18px;height:18px;fill:none;stroke:currentColor;stroke-width:2.2;stroke-linecap:round;stroke-linejoin:round;transition:transform .5s cubic-bezier(.22,.75,.18,1)}
+.button .arw svg+svg,.bx-btn .arw svg+svg{transform:translate(-160%,160%)}
+.button:hover .arw svg:first-child,.bx-btn:hover .arw svg:first-child{transform:translate(160%,-160%)}
+.button:hover .arw svg+svg,.bx-btn:hover .arw svg+svg{transform:none}
+.header-button{padding:6px 6px 6px 20px;min-height:48px;gap:14px;font-size:14px}
+.header-button .arw{width:36px;height:36px}
+.closing .button .arw{background:var(--ink);color:var(--yellow)}
+.bx-btn{padding:6px 6px 6px 20px}
+.bx-btn:not(:has(.arw)){padding:6px 22px}
+.bx-btn .arw{width:38px;height:38px}
+.bx-btn-ink .arw{background:var(--cream);color:var(--ink)}
+@media(max-width:1100px) and (min-width:801px){.hero .copy{width:min(48%,560px)}.hero h1{font-size:clamp(60px,8.6vw,120px)}}
+@media(max-width:800px){
+:root{--hero-x:65%;--hero-y:68%;--hero-d:min(68vw,34svh)}
+.copy{left:5%}
+.header-button{white-space:nowrap;font-size:13px;padding:5px 5px 5px 14px;min-height:42px;gap:10px}
+.header-button .arw{width:32px;height:32px}
+.hero .copy{top:100px;transform:none;width:90%;right:5%}
+.hero .eyebrow{font-size:10.5px;letter-spacing:.12em;margin-bottom:16px}
+.hero h1{font-size:clamp(56px,18vw,96px);line-height:.86;margin:0 0 16px;width:auto}
+.hero h1 br:first-of-type{display:inline}
+.hero h1 em{display:inline;margin-top:0}
+.hero .description{position:static;top:auto;font-size:15px;max-width:min(300px,62vw);margin:0}
+.hero .button{left:5%;right:5%;padding:7px 7px 7px 22px;justify-content:space-between;font-size:15px}
+.happy-stamp{left:auto;right:5%;top:112px;width:92px;height:92px}
+.happy-stamp b{font-size:24px}
+.happy-stamp text{font-size:12px}
+.hero-caption{display:none}
+.stage-word .halo{inset:-30%}
+}
+@media(max-height:680px) and (min-width:801px){.hero-caption{display:none}}
+@media(max-height:720px) and (min-width:801px){.hero .eyebrow{margin-bottom:16px}.hero h1{margin-bottom:20px}.hero .description{margin-bottom:22px}.happy-stamp{width:112px;height:112px}}
+@media(prefers-reduced-motion:reduce){.happy-stamp .ring-text{animation:none}}

@@ -1,0 +1,68 @@
+{
+ "builders": [
+  "nuxt",
+  "vue"
+ ],
+ "libraries": [
+  {
+   "name": "gsap",
+   "version": "3.11.0",
+   "sources": [
+    "embutido em https://laboiteaslides.fr/_nuxt/DQYW-EDS.js"
+   ]
+  },
+  {
+   "name": "lenis",
+   "version": null,
+   "sources": [
+    "página"
+   ]
+  },
+  {
+   "name": "three",
+   "version": "r181",
+   "sources": [
+    "página"
+   ]
+  }
+ ],
+ "runtime": {
+  "contexts": {
+   "webgl2": 1
+  },
+  "wasm": 0,
+  "workers": 0,
+  "webgpu": false,
+  "shadowRoots": 0,
+  "canvases": 1
+ },
+ "cssFeatures": [
+  "@property"
+ ],
+ "fonts": {
+  "families": [
+   "vInter",
+   "FKScreamer"
+  ],
+  "sources": [
+   "self-hosted"
+  ]
+ },
+ "videos": [
+  {
+   "src": "https://laboiteaslides.fr/sk/uploads/home_video_SD_79c96be094.mp4",
+   "kind": "decorativo",
+   "reason": "curto, sem controles e sem som",
+   "hosting": "próprio site",
+   "action": "baixado"
+  }
+ ],
+ "files": {
+  "text": 64,
+  "font": 2,
+  "image": 105,
+  "application": 4,
+  "model": 1,
+  "video": 1
+ }
+}

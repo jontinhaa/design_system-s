@@ -1,0 +1,55 @@
+{
+ "builders": [
+  "next.js",
+  "react"
+ ],
+ "libraries": [
+  {
+   "name": "gsap",
+   "version": "3.11.0",
+   "sources": [
+    "embutido em https://www.thisisgazzar.com/_next/static/immutable/chunks/2mptg809nyngd.js"
+   ]
+  },
+  {
+   "name": "three",
+   "version": "r180",
+   "sources": [
+    "página"
+   ]
+  }
+ ],
+ "runtime": {
+  "contexts": {
+   "2d": 8,
+   "webgl2": 3,
+   "webgl": 2
+  },
+  "wasm": 1,
+  "workers": 2,
+  "webgpu": false,
+  "shadowRoots": 1,
+  "canvases": 4
+ },
+ "cssFeatures": [
+  "scroll-driven animations"
+ ],
+ "fonts": {
+  "families": [
+   "latin",
+   "arabic"
+  ],
+  "sources": [
+   "self-hosted"
+  ]
+ },
+ "videos": [],
+ "files": {
+  "text": 6,
+  "font": 3,
+  "image": 7,
+  "application": 24,
+  "model": 2,
+  "audio": 1
+ }
+}

@@ -1,0 +1,38 @@
+
+  #home-hero-video {
+    display: block;
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    object-fit: cover;
+    opacity: 1;
+    pointer-events: none;
+  }
+
+  #home-hero-video[data-video-failed] {
+    opacity: 0;
+  }
+
+  #home-hero-video::-webkit-media-controls-start-playback-button {
+    display: none !important;
+    -webkit-appearance: none;
+  }
+
+  [data-home-hero-controls][hidden] {
+    display: none !important;
+  }
+
+  [data-home-hero-controls] [class~="cc_namewrap" i],
+  [data-home-hero-controls] [class~="cc_volumecontrols" i] {
+    display: none !important;
+  }
+
+  [data-home-hero-play] {
+    cursor: pointer;
+  }
+
+  [data-home-hero-play]:focus-visible {
+    outline: 3px solid #fde173;
+    outline-offset: 3px;
+  }

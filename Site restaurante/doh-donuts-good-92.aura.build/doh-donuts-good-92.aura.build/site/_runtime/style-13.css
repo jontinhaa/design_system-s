@@ -1,0 +1,4 @@
+
+/* no static donut picture while the 3D one loads (kept only as the no-WebGL fallback) */
+body:not(.no-webgl) .stage-fallback{display:none!important}
+#webgl{transition:opacity .6s ease}

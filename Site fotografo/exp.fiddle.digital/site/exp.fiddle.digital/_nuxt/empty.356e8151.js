@@ -1,0 +1,1 @@
+import{d as n,o,b as s,A as a,u as _,k as c,bT as p}from"./entry.a59f3271.js";const r=n({__name:"empty",setup(u){return _().$globalClass,o(()=>{const e=document.documentElement;e.classList.add("-loaded"),e.classList.add("-ready")}),s(()=>{}),(e,d)=>{const t=p;return c(),a(t)}}});export{r as default};

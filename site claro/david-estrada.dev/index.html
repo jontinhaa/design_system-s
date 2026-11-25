@@ -1,0 +1,482 @@
+<!DOCTYPE html>
+<html lang="en" class="js js-menu"><head><meta charset="utf-8">
+<!-- Website Downloader 3.0: este arquivo é o retrato estático do site (DOM renderizado). Aberto via servidor
+     local (serve.py, ver Como rodar.md), o bootstrap abaixo carrega o site vivo; via file://, mostra este retrato. -->
+<meta name="referrer" content="no-referrer">
+<script data-wd3>window.__WD3__ = {"entryUrl": "https://david-estrada.dev/", "replayHost": "david-estrada.dev.localhost", "entryPath": "/", "captureId": "david-estrada.dev-778c4663", "capturedAt": "2026-10-28T18:25:05+00:00", "snapshot": true, "fileFonts": "site/_runtime/file-fonts.css"};</script>
+<script data-wd3>/* Website Downloader 3.0 — bootstrap do index.html.
+ * file://  → fica no retrato estático (e carrega as fontes embutidas, que o Chrome bloqueia em file://).
+ * http(s)  → para de carregar o retrato, registra o Service Worker de replay e abre o site vivo.
+ */
+(function () {
+  var cfg = window.__WD3__ || {};
+  var root = document.documentElement;
+  if (location.protocol === 'file:') {
+    root.setAttribute('data-wd3', 'file');
+    if (cfg.fileFonts) {
+      var link = document.createElement('link');
+      link.rel = 'stylesheet';
+      link.href = cfg.fileFonts;
+      (document.head || root).appendChild(link);
+    }
+    return;
+  }
+  root.setAttribute('data-wd3', 'loading');
+  if (cfg.snapshot) {
+    try { window.stop(); } catch (e) { /* o retrato não precisa carregar: o site vivo vem do SW */ }
+  }
+
+  function fail(msg) {
+    root.setAttribute('data-wd3', 'error');
+    var el = document.getElementById('wd3-error');
+    if (!el) {
+      var body = document.body || root.appendChild(document.createElement('body'));
+      body.innerHTML = '<p style="font:15px system-ui,sans-serif;padding:24px;color:#e8e8e8;background:#050505;margin:0">' +
+        'Não foi possível iniciar o replay: <span id="wd3-error"></span></p>';
+      el = document.getElementById('wd3-error');
+    }
+    el.textContent = msg;
+  }
+  if (!('serviceWorker' in navigator)) return fail('este navegador não suporta Service Workers.');
+
+  function go() { location.replace(cfg.entryPath); }
+  function start() {
+    navigator.serviceWorker.register('/site/_wd3/sw.js', { scope: '/' })
+      .then(function () { return navigator.serviceWorker.ready; })
+      .then(function () {
+        if (navigator.serviceWorker.controller) return go();
+        navigator.serviceWorker.addEventListener('controllerchange', go);
+      })
+      .catch(function (err) { fail(String(err && err.message || err)); });
+  }
+  // Aberto em localhost puro: tenta <domínio>.localhost (mesmo servidor), para sites que checam location.hostname.
+  var plain = location.hostname === 'localhost' || location.hostname === '127.0.0.1';
+  if (!plain || !cfg.replayHost || cfg.replayHost === 'localhost') return start();
+  var target = location.protocol + '//' + cfg.replayHost + (location.port ? ':' + location.port : '');
+  var decided = false;
+  function decide(fn) { if (!decided) { decided = true; fn(); } }
+  setTimeout(function () { decide(start); }, 1500);
+  fetch(target + '/site/_wd3/site-index.json', { mode: 'no-cors', cache: 'no-store' })
+    .then(function () { decide(function () { location.replace(target + cfg.entryPath); }); })
+    .catch(function () { decide(start); });
+})();
+</script>
+<style data-wd3>
+  [data-wd3-banner] { display: none; }
+  html[data-wd3="file"] [data-wd3-banner] { display: flex; }
+  html[data-wd3-unlock], html[data-wd3-unlock] body { overflow-y: auto !important; }
+</style>
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="icon" href="site/david-estrada.dev/wp-content/themes/davidestrada/assets/brand/favicon.svg" type="image/svg+xml">
+  <link rel="icon" href="site/david-estrada.dev/wp-content/themes/davidestrada/assets/brand/favicon-48.png" sizes="48x48" type="image/png">
+  <link rel="apple-touch-icon" href="site/david-estrada.dev/wp-content/themes/davidestrada/assets/brand/apple-touch-icon.png">
+  
+  
+  
+  
+  
+    <link rel="stylesheet" as="style" href="site/use.typekit.net/vae5kee.css">
+  <noscript><link rel="stylesheet" href="https://use.typekit.net/vae5kee.css"></noscript>
+  
+  
+  
+  <title>David Estrada | Web Designer &amp; WordPress Developer</title>
+<meta name="robots" content="max-image-preview:large">
+
+
+<meta name="description" content="David Estrada designs websites with personality in Figma and builds them in WordPress and Elementor, then hands over a site you can edit yourself. 100% Job Success on Upwork.">
+<link rel="canonical" href="site/david-estrada.dev/index.html">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="David Estrada">
+<meta property="og:locale" content="en_US">
+<meta property="og:title" content="David Estrada | Web Designer &amp; WordPress Developer">
+<meta property="og:description" content="David Estrada designs websites with personality in Figma and builds them in WordPress and Elementor, then hands over a site you can edit yourself. 100% Job Success on Upwork.">
+<meta property="og:url" content="https://david-estrada.dev/">
+<meta name="twitter:title" content="David Estrada | Web Designer &amp; WordPress Developer">
+<meta name="twitter:description" content="David Estrada designs websites with personality in Figma and builds them in WordPress and Elementor, then hands over a site you can edit yourself. 100% Job Success on Upwork.">
+<meta property="og:image" content="https://david-estrada.dev/wp-content/themes/davidestrada/assets/og/home.jpg?v=1793091077">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="David Estrada | Web Designer &amp; WordPress Developer">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:image" content="https://david-estrada.dev/wp-content/themes/davidestrada/assets/og/home.jpg?v=1793091077">
+
+<link rel="stylesheet" href="site/_runtime/style-0.css" data-wd3-runtime-style="">
+ 
+
+<link rel="stylesheet" href="site/_runtime/style-1.css" data-wd3-runtime-style="">
+
+<link rel="stylesheet" id="de-main-css" href="site/david-estrada.dev/wp-content/themes/davidestrada/css/main__q8a180c6d.css" media="all">
+<link rel="stylesheet" href="site/_runtime/style-2.css" data-wd3-runtime-style="">
+<link rel="https://api.w.org/" href="https://david-estrada.dev/wp-json/"><meta name="generator" content="Site Kit by Google 1.190.0"><link rel="describedby" href="https://david-estrada.dev/llms.txt">
+</head>
+<body id="top" class="home blog wp-theme-davidestrada">
+  <!-- Cover: hides the page until the hero is ready. Its bar only shows if that takes more than a moment -->
+  
+
+  <svg width="0" height="0" style="position:absolute" aria-hidden="true">
+    <symbol id="mark-upwork" viewBox="0 0 24 24"><path d="M18.561 13.158c-1.102 0-2.135-.467-3.074-1.227l.228-1.076.008-.042c.207-1.143.849-3.06 2.839-3.06 1.492 0 2.703 1.212 2.703 2.703-.001 1.489-1.212 2.702-2.704 2.702zm0-8.14c-2.539 0-4.51 1.649-5.31 4.366-1.22-1.834-2.148-4.036-2.687-5.892H7.828v7.112c-.002 1.406-1.141 2.546-2.547 2.548-1.405-.002-2.543-1.143-2.545-2.548V3.492H0v7.112c0 2.914 2.37 5.303 5.281 5.303 2.913 0 5.283-2.389 5.283-5.303v-1.19c.529 1.107 1.182 2.229 1.974 3.221l-1.673 7.873h2.797l1.213-5.71c1.063.679 2.285 1.109 3.686 1.109 3 0 5.439-2.452 5.439-5.45 0-3-2.439-5.439-5.439-5.439z"></path></symbol>
+    <symbol id="mark-figma" viewBox="0 0 24 24">
+      <path fill="#f24e1e" d="M8 0h3.7v7.7H8A3.85 3.85 0 0 1 8 0z"></path>
+      <path fill="#ff7262" d="M12.3 0H16a3.85 3.85 0 0 1 0 7.7h-3.7z"></path>
+      <path fill="#a259ff" d="M8 8.15h3.7v7.7H8a3.85 3.85 0 0 1 0-7.7z"></path>
+      <circle fill="#1abcfe" cx="16.15" cy="12" r="3.85"></circle>
+      <path fill="#0acf83" d="M8 16.3h3.7v3.85A3.85 3.85 0 1 1 8 16.3z"></path>
+    </symbol>
+    <symbol id="mark-wordpress" viewBox="0 0 24 24"><path d="M21.469 6.825c.84 1.537 1.318 3.3 1.318 5.175 0 3.979-2.156 7.456-5.363 9.325l3.295-9.527c.615-1.54.82-2.771.82-3.864 0-.405-.026-.78-.07-1.11m-7.981.105c.647-.03 1.232-.105 1.232-.105.582-.075.514-.93-.067-.899 0 0-1.755.135-2.88.135-1.064 0-2.85-.15-2.85-.15-.585-.03-.661.855-.075.885 0 0 .54.061 1.125.09l1.68 4.605-2.37 7.08L5.354 6.9c.649-.03 1.234-.1 1.234-.1.585-.075.516-.93-.065-.896 0 0-1.746.138-2.874.138-.2 0-.438-.008-.69-.015C4.911 3.15 8.235 1.215 12 1.215c2.809 0 5.365 1.072 7.286 2.833-.046-.003-.091-.009-.141-.009-1.06 0-1.812.923-1.812 1.914 0 .89.513 1.643 1.06 2.531.411.72.89 1.643.89 2.977 0 .915-.354 1.994-.821 3.479l-1.075 3.585-3.9-11.61.001.014zM12 22.784c-1.059 0-2.081-.153-3.048-.437l3.237-9.406 3.315 9.087c.024.053.05.101.078.149-1.12.393-2.325.609-3.582.609M1.211 12c0-1.564.336-3.05.935-4.39L7.29 21.709C3.694 19.96 1.212 16.271 1.211 12M12 0C5.385 0 0 5.385 0 12s5.385 12 12 12 12-5.385 12-12S18.615 0 12 0"></path></symbol>
+    <symbol id="mark-approach" viewBox="0 0 24 24"><path d="M5.5 3.5h13a3.5 3.5 0 0 1 3.5 3.5v7.5a3.5 3.5 0 0 1-3.5 3.5h-6.2l-5.3 4.2V18H5.5A3.5 3.5 0 0 1 2 14.500V7a3.5 3.5 0 0 1 3.5-3.5z"></path></symbol>
+    <symbol id="mark-spark" viewBox="0 0 24 24"><path d="M12 1.5Q13.2 10.8 22.5 12Q13.2 13.2 12 22.5Q10.8 13.2 1.5 12Q10.800 10.8 12 1.5Z"></path></symbol>
+    <symbol id="mark-one" viewBox="0 0 24 24"><path d="M12 3.200a4.300 4.300 0 1 1 0 8.600a4.300 4.300 0 1 1 0-8.600Z"></path><path d="M3.800 21a8.200 7.400 0 0 1 16.400 0Z"></path></symbol>
+    <symbol id="mark-edit" viewBox="0 0 24 24"><path d="M15.600 3.400L20.600 8.400L8.800 20.200L3 21L3.800 15.200Z"></path></symbol>
+    <symbol id="mark-quick" viewBox="0 0 24 24"><path d="M13.600 2L4.500 13.800H10.600L9.400 22L19.500 9.600H13.200Z"></path></symbol>
+    <symbol id="mark-reviews" viewBox="0 0 24 24"><path d="M12 2.2l3 6.3 6.9.9-5.05 4.8 1.3 6.85L12 17.7l-6.15 3.35 1.3-6.85L2.1 9.4l6.9-.9z"></path></symbol>
+    <symbol id="mark-price" viewBox="0 0 24 24"><path fill-rule="evenodd" d="M3 4.6C3 3.7 3.7 3 4.6 3h6.6c.4 0 .8.2 1.1.5l8.3 8.3c.6.6.6 1.6 0 2.2L14 20.6c-.6.6-1.6.6-2.2 0l-8.3-8.3c-.3-.3-.5-.7-.5-1.1zM7.6 5.8a1.8 1.8 0 1 0 0 3.6 1.8 1.8 0 1 0 0-3.6z"></path></symbol>
+    <symbol id="mark-elementor" viewBox="0 0 24 24"><path d="M12 0C5.372 0 0 5.372 0 12c0 6.626 5.372 12 12 12s12-5.372 12-12c0-6.626-5.372-12-12-12ZM9 17H7V7H9Zm8 0H11V15h6Zm0-4H11V11h6Zm0-4H11V7h6Z"></path></symbol>
+  </svg>
+
+  <header class="site-header" data-theme="dark">
+    <a class="site-header__brand" href="https://david-estrada.dev/" aria-label="David Estrada, home">©DavidEstrada</a>
+    <nav class="site-header__nav" aria-label="Main">
+      <a href="#work">Work<sup>(7)</sup></a>
+      <a href="https://david-estrada.dev/services/">Services</a>
+      <a href="#reviews">Reviews</a>
+      <a href="#about">About</a>
+    </nav>
+    <a class="site-header__cta is-twin" href="https://www.upwork.com/freelancers/~014831123217f75a25" target="_blank" rel="noopener">
+      <span class="site-header__chip" aria-hidden="true"><svg viewBox="0 0 24 24" focusable="false"><use href="#mark-upwork"></use></svg></span><span class="site-header__cta-text">Hire me<span class="site-header__cta-more"> on Upwork</span></span><svg class="site-header__arrow" viewBox="0 0 16 16" aria-hidden="true" focusable="false"><path d="M4.5 11.5l7-7M5.5 4.5h6v6" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+    </a>
+  <button type="button" class="site-header__menu" aria-expanded="false" aria-controls="menu">Menu</button></header>
+
+  <main>
+    <div class="hero-scene" data-theme="dark">
+    <section class="hero is-go" aria-labelledby="hero-title" data-badges="">
+      <h1 class="hero__name" id="hero-title" aria-label="David Estrada" style="--fit: 202.87px;">
+        <span class="hero__word" aria-hidden="true">
+          <span class="hero__ink" style="transform: translateY(0px);">David</span>
+          <span class="hero__ink hero__ink--tint" data-text="David" data-ink="0" style="--s0: 0.0px; --s1: 0.0px; --s2: 0.0px; transform: translateY(0px);"></span>
+        </span>
+        <span class="slot slot--work" aria-hidden="true" style="clip-path: inset(0px 0% round 22.3157px);">
+          <span class="slot__frame" data-slideshow="">
+            <img alt="" width="800" height="600" sizes="(max-width: 700px) 28vw, 15vw" class="" fetchpriority="high" src="https://david-estrada.dev/wp-content/themes/davidestrada/assets/hero/vacations-costa-del-sol.webp" srcset="site/david-estrada.dev/wp-content/themes/davidestrada/assets/hero/vacations-costa-del-sol-480.webp 480w, https://david-estrada.dev/wp-content/themes/davidestrada/assets/hero/vacations-costa-del-sol.webp 800w"><img alt="" decoding="async" width="800" height="600" sizes="(max-width: 700px) 28vw, 15vw" src="https://david-estrada.dev/wp-content/themes/davidestrada/assets/hero/performance-lab.webp" srcset="site/david-estrada.dev/wp-content/themes/davidestrada/assets/hero/performance-lab-480.webp 480w, https://david-estrada.dev/wp-content/themes/davidestrada/assets/hero/performance-lab.webp 800w" class="is-prev"><img alt="" decoding="async" width="800" height="600" sizes="(max-width: 700px) 28vw, 15vw" src="https://david-estrada.dev/wp-content/themes/davidestrada/assets/hero/winwin-partners.webp" srcset="site/david-estrada.dev/wp-content/themes/davidestrada/assets/hero/winwin-partners-480.webp 480w, https://david-estrada.dev/wp-content/themes/davidestrada/assets/hero/winwin-partners.webp 800w" class="is-active is-entering" style="clip-path: inset(0% 0px 0px); transform: scale(1);"><img alt="" decoding="async" width="800" height="600" sizes="(max-width: 700px) 28vw, 15vw" src="https://david-estrada.dev/wp-content/themes/davidestrada/assets/hero/visibroad.webp" srcset="site/david-estrada.dev/wp-content/themes/davidestrada/assets/hero/visibroad-480.webp 480w, https://david-estrada.dev/wp-content/themes/davidestrada/assets/hero/visibroad.webp 800w"><img alt="" decoding="async" width="800" height="600" sizes="(max-width: 700px) 28vw, 15vw" src="https://david-estrada.dev/wp-content/themes/davidestrada/assets/hero/marketing-voor-coaches.webp" srcset="site/david-estrada.dev/wp-content/themes/davidestrada/assets/hero/marketing-voor-coaches-480.webp 480w, https://david-estrada.dev/wp-content/themes/davidestrada/assets/hero/marketing-voor-coaches.webp 800w"><img alt="" decoding="async" width="800" height="600" sizes="(max-width: 700px) 28vw, 15vw" src="https://david-estrada.dev/wp-content/themes/davidestrada/assets/hero/gran-teatro-pavon.webp" srcset="site/david-estrada.dev/wp-content/themes/davidestrada/assets/hero/gran-teatro-pavon-480.webp 480w, https://david-estrada.dev/wp-content/themes/davidestrada/assets/hero/gran-teatro-pavon.webp 800w"><img alt="" decoding="async" width="800" height="600" sizes="(max-width: 700px) 28vw, 15vw" src="https://david-estrada.dev/wp-content/themes/davidestrada/assets/hero/the-guru.webp" srcset="site/david-estrada.dev/wp-content/themes/davidestrada/assets/hero/the-guru-480.webp 480w, https://david-estrada.dev/wp-content/themes/davidestrada/assets/hero/the-guru.webp 800w">          </span>
+        </span>
+        <span class="hero__word" aria-hidden="true">
+          <span class="hero__ink" style="transform: translateY(0px);">Estrada</span>
+          <span class="hero__ink hero__ink--tint" data-text="Estrada" data-ink="3" style="--s0: 0.0px; --s1: 0.0px; --s2: 0.0px; transform: translateY(0px);"></span>
+        </span>
+      </h1>
+
+      <!-- The large Upwork object: js/main.js builds the 3D cushion inside and turns it with the scroll -->
+      <div class="hero__feature is-3d is-ready" data-feature="" aria-hidden="true"><a href="https://www.upwork.com/freelancers/~014831123217f75a25" target="_blank" rel="noopener" tabindex="-1" draggable="false"><span class="coin"><span class="coin__edge" style="--i:0"></span><span class="coin__edge" style="--i:1"></span><span class="coin__edge" style="--i:2"></span><span class="coin__edge" style="--i:3"></span><span class="coin__edge" style="--i:4"></span><span class="coin__edge" style="--i:5"></span><span class="coin__edge" style="--i:6"></span><span class="coin__edge" style="--i:7"></span><span class="coin__edge" style="--i:8"></span><span class="coin__edge" style="--i:9"></span><span class="coin__edge" style="--i:10"></span><span class="coin__edge" style="--i:11"></span><span class="coin__edge" style="--i:12"></span><span class="coin__edge" style="--i:13"></span><span class="coin__edge" style="--i:14"></span><span class="coin__edge" style="--i:15"></span><span class="coin__edge" style="--i:16"></span><span class="coin__edge" style="--i:17"></span><span class="coin__edge" style="--i:18"></span><span class="coin__edge" style="--i:19"></span><span class="coin__edge" style="--i:20"></span><span class="coin__face coin__face--front"><svg class="coin__logo" style="--l:0" viewBox="0 0 24 24" focusable="false"><use href="#mark-upwork"></use></svg><svg class="coin__logo" style="--l:1" viewBox="0 0 24 24" focusable="false"><use href="#mark-upwork"></use></svg><svg class="coin__logo" style="--l:2" viewBox="0 0 24 24" focusable="false"><use href="#mark-upwork"></use></svg><svg class="coin__logo" style="--l:3" viewBox="0 0 24 24" focusable="false"><use href="#mark-upwork"></use></svg><svg class="coin__logo" style="--l:4" viewBox="0 0 24 24" focusable="false"><use href="#mark-upwork"></use></svg><svg class="coin__logo" style="--l:5" viewBox="0 0 24 24" focusable="false"><use href="#mark-upwork"></use></svg></span><span class="coin__face coin__face--back"><svg class="coin__logo" style="--l:0" viewBox="0 0 24 24" focusable="false"><use href="#mark-upwork"></use></svg><svg class="coin__logo" style="--l:1" viewBox="0 0 24 24" focusable="false"><use href="#mark-upwork"></use></svg><svg class="coin__logo" style="--l:2" viewBox="0 0 24 24" focusable="false"><use href="#mark-upwork"></use></svg><svg class="coin__logo" style="--l:3" viewBox="0 0 24 24" focusable="false"><use href="#mark-upwork"></use></svg><svg class="coin__logo" style="--l:4" viewBox="0 0 24 24" focusable="false"><use href="#mark-upwork"></use></svg><svg class="coin__logo" style="--l:5" viewBox="0 0 24 24" focusable="false"><use href="#mark-upwork"></use></svg></span></span><canvas class="badge-canvas" width="1370" height="1370"></canvas></a><span class="cursor-tag">Visit my profile <svg viewBox="0 0 16 16" focusable="false"><path d="M4.5 11.5l7-7M5.5 4.5h6v6" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"></path></svg></span></div>
+
+      <div class="hero__intro">
+        <p class="hero__role">
+          <span style="opacity: 1; transform: translateY(0px);">Web designer and developer</span>
+          <span style="opacity: 1; transform: translateY(0px);">for sites with personality.</span>
+        </p>
+
+        <div class="hero__actions" style="opacity: 1; transform: translateY(0px);">
+          <a class="button" href="https://www.upwork.com/freelancers/~014831123217f75a25" target="_blank" rel="noopener">
+            <img class="button__avatar" src="site/david-estrada.dev/wp-content/themes/davidestrada/assets/hero/david-160.webp" alt="" width="160" height="213">
+            <span>Hire me on Upwork</span>
+            <svg viewBox="0 0 16 16" aria-hidden="true" focusable="false"><path d="M4.5 11.5l7-7M5.5 4.5h6v6" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"></path></svg>          </a>
+          <a class="text-link" href="#work">
+            <span>See my work</span>
+            <svg viewBox="0 0 16 16" aria-hidden="true" focusable="false"><path d="M8 3v10M3.5 8.5L8 13l4.5-4.5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"></path></svg>          </a>
+          <p class="hero__proof">WordPress + Elementor specialist. 100% Job Success on Upwork.</p>
+        </div>
+      </div>
+    <div class="badge badge--wordpress is-3d is-front" aria-hidden="true" style="--n: 0; font-size: 202.87px; transform: translate3d(519.819px, 617.734px, 0px) scale(1.10152);"><span class="badge__pop" style="transform: scale(1);"><span class="coin"><span class="coin__edge" style="--i:0"></span><span class="coin__edge" style="--i:1"></span><span class="coin__edge" style="--i:2"></span><span class="coin__edge" style="--i:3"></span><span class="coin__edge" style="--i:4"></span><span class="coin__edge" style="--i:5"></span><span class="coin__edge" style="--i:6"></span><span class="coin__edge" style="--i:7"></span><span class="coin__edge" style="--i:8"></span><span class="coin__edge" style="--i:9"></span><span class="coin__edge" style="--i:10"></span><span class="coin__edge" style="--i:11"></span><span class="coin__edge" style="--i:12"></span><span class="coin__edge" style="--i:13"></span><span class="coin__edge" style="--i:14"></span><span class="coin__edge" style="--i:15"></span><span class="coin__edge" style="--i:16"></span><span class="coin__edge" style="--i:17"></span><span class="coin__edge" style="--i:18"></span><span class="coin__edge" style="--i:19"></span><span class="coin__edge" style="--i:20"></span><span class="coin__face coin__face--front"><svg class="coin__logo" style="--l:0" viewBox="0 0 24 24" focusable="false"><use href="#mark-wordpress"></use></svg><svg class="coin__logo" style="--l:1" viewBox="0 0 24 24" focusable="false"><use href="#mark-wordpress"></use></svg><svg class="coin__logo" style="--l:2" viewBox="0 0 24 24" focusable="false"><use href="#mark-wordpress"></use></svg><svg class="coin__logo" style="--l:3" viewBox="0 0 24 24" focusable="false"><use href="#mark-wordpress"></use></svg><svg class="coin__logo" style="--l:4" viewBox="0 0 24 24" focusable="false"><use href="#mark-wordpress"></use></svg><svg class="coin__logo" style="--l:5" viewBox="0 0 24 24" focusable="false"><use href="#mark-wordpress"></use></svg></span><span class="coin__face coin__face--back"><svg class="coin__logo" style="--l:0" viewBox="0 0 24 24" focusable="false"><use href="#mark-wordpress"></use></svg><svg class="coin__logo" style="--l:1" viewBox="0 0 24 24" focusable="false"><use href="#mark-wordpress"></use></svg><svg class="coin__logo" style="--l:2" viewBox="0 0 24 24" focusable="false"><use href="#mark-wordpress"></use></svg><svg class="coin__logo" style="--l:3" viewBox="0 0 24 24" focusable="false"><use href="#mark-wordpress"></use></svg><svg class="coin__logo" style="--l:4" viewBox="0 0 24 24" focusable="false"><use href="#mark-wordpress"></use></svg><svg class="coin__logo" style="--l:5" viewBox="0 0 24 24" focusable="false"><use href="#mark-wordpress"></use></svg></span></span><canvas class="badge-canvas" width="248" height="248"></canvas></span></div><div class="badge badge--elementor is-3d is-front" aria-hidden="true" style="--n: 1; font-size: 202.87px; transform: translate3d(1343.79px, 631.249px, 0px) scale(1.013);"><span class="badge__pop" style="transform: scale(1);"><span class="coin"><span class="coin__edge" style="--i:0"></span><span class="coin__edge" style="--i:1"></span><span class="coin__edge" style="--i:2"></span><span class="coin__edge" style="--i:3"></span><span class="coin__edge" style="--i:4"></span><span class="coin__edge" style="--i:5"></span><span class="coin__edge" style="--i:6"></span><span class="coin__edge" style="--i:7"></span><span class="coin__edge" style="--i:8"></span><span class="coin__edge" style="--i:9"></span><span class="coin__edge" style="--i:10"></span><span class="coin__edge" style="--i:11"></span><span class="coin__edge" style="--i:12"></span><span class="coin__edge" style="--i:13"></span><span class="coin__edge" style="--i:14"></span><span class="coin__edge" style="--i:15"></span><span class="coin__edge" style="--i:16"></span><span class="coin__edge" style="--i:17"></span><span class="coin__edge" style="--i:18"></span><span class="coin__edge" style="--i:19"></span><span class="coin__edge" style="--i:20"></span><span class="coin__face coin__face--front"><svg class="coin__logo" style="--l:0" viewBox="0 0 24 24" focusable="false"><use href="#mark-elementor"></use></svg><svg class="coin__logo" style="--l:1" viewBox="0 0 24 24" focusable="false"><use href="#mark-elementor"></use></svg><svg class="coin__logo" style="--l:2" viewBox="0 0 24 24" focusable="false"><use href="#mark-elementor"></use></svg><svg class="coin__logo" style="--l:3" viewBox="0 0 24 24" focusable="false"><use href="#mark-elementor"></use></svg><svg class="coin__logo" style="--l:4" viewBox="0 0 24 24" focusable="false"><use href="#mark-elementor"></use></svg><svg class="coin__logo" style="--l:5" viewBox="0 0 24 24" focusable="false"><use href="#mark-elementor"></use></svg></span><span class="coin__face coin__face--back"><svg class="coin__logo" style="--l:0" viewBox="0 0 24 24" focusable="false"><use href="#mark-elementor"></use></svg><svg class="coin__logo" style="--l:1" viewBox="0 0 24 24" focusable="false"><use href="#mark-elementor"></use></svg><svg class="coin__logo" style="--l:2" viewBox="0 0 24 24" focusable="false"><use href="#mark-elementor"></use></svg><svg class="coin__logo" style="--l:3" viewBox="0 0 24 24" focusable="false"><use href="#mark-elementor"></use></svg><svg class="coin__logo" style="--l:4" viewBox="0 0 24 24" focusable="false"><use href="#mark-elementor"></use></svg><svg class="coin__logo" style="--l:5" viewBox="0 0 24 24" focusable="false"><use href="#mark-elementor"></use></svg></span></span><canvas class="badge-canvas" width="248" height="248"></canvas></span></div><div class="badge badge--figma is-3d is-front" aria-hidden="true" style="--n: 2; font-size: 202.87px; transform: translate3d(49.1154px, 602.318px, 0px) scale(1.00373);"><span class="badge__pop" style="transform: scale(1);"><span class="coin"><span class="coin__edge" style="--i:0"></span><span class="coin__edge" style="--i:1"></span><span class="coin__edge" style="--i:2"></span><span class="coin__edge" style="--i:3"></span><span class="coin__edge" style="--i:4"></span><span class="coin__edge" style="--i:5"></span><span class="coin__edge" style="--i:6"></span><span class="coin__edge" style="--i:7"></span><span class="coin__edge" style="--i:8"></span><span class="coin__edge" style="--i:9"></span><span class="coin__edge" style="--i:10"></span><span class="coin__edge" style="--i:11"></span><span class="coin__edge" style="--i:12"></span><span class="coin__edge" style="--i:13"></span><span class="coin__edge" style="--i:14"></span><span class="coin__edge" style="--i:15"></span><span class="coin__edge" style="--i:16"></span><span class="coin__edge" style="--i:17"></span><span class="coin__edge" style="--i:18"></span><span class="coin__edge" style="--i:19"></span><span class="coin__edge" style="--i:20"></span><span class="coin__face coin__face--front"><svg class="coin__logo" style="--l:0" viewBox="0 0 24 24" focusable="false"><use href="#mark-figma"></use></svg><svg class="coin__logo" style="--l:1" viewBox="0 0 24 24" focusable="false"><use href="#mark-figma"></use></svg><svg class="coin__logo" style="--l:2" viewBox="0 0 24 24" focusable="false"><use href="#mark-figma"></use></svg><svg class="coin__logo" style="--l:3" viewBox="0 0 24 24" focusable="false"><use href="#mark-figma"></use></svg><svg class="coin__logo" style="--l:4" viewBox="0 0 24 24" focusable="false"><use href="#mark-figma"></use></svg><svg class="coin__logo" style="--l:5" viewBox="0 0 24 24" focusable="false"><use href="#mark-figma"></use></svg></span><span class="coin__face coin__face--back"><svg class="coin__logo" style="--l:0" viewBox="0 0 24 24" focusable="false"><use href="#mark-figma"></use></svg><svg class="coin__logo" style="--l:1" viewBox="0 0 24 24" focusable="false"><use href="#mark-figma"></use></svg><svg class="coin__logo" style="--l:2" viewBox="0 0 24 24" focusable="false"><use href="#mark-figma"></use></svg><svg class="coin__logo" style="--l:3" viewBox="0 0 24 24" focusable="false"><use href="#mark-figma"></use></svg><svg class="coin__logo" style="--l:4" viewBox="0 0 24 24" focusable="false"><use href="#mark-figma"></use></svg><svg class="coin__logo" style="--l:5" viewBox="0 0 24 24" focusable="false"><use href="#mark-figma"></use></svg></span></span><canvas class="badge-canvas" width="248" height="248"></canvas></span></div></section>
+    </div>
+
+    <!-- Work: the title stays pinned in the middle of the screen while the projects scroll over it -->
+    <section class="work" id="work" data-theme="light" aria-labelledby="work-title" data-work="">
+      <div class="work__stage">
+        <h2 class="line will-rise" id="work-title" aria-label="Selected work" data-fit="" style="--fit: 200.21px;"><span class="line__word" aria-hidden="true"><span>Selected</span></span> <span class="cushion cushion--upwork is-3d" data-cushion="work" aria-hidden="true"><svg viewBox="0 0 24 24" focusable="false"><use href="#mark-upwork"></use></svg><canvas class="badge-canvas" width="476" height="476"></canvas></span> <span class="line__word" aria-hidden="true"><span>work</span></span></h2>      </div>
+
+      <ol class="work__list" style="--a-x: -4.0px; --a-w: 780.4px; --b-x: 940.5px; --b-w: 457.4px; --v: 0.0000;">
+                <li class="work-card">
+          <a class="work-card__media" href="https://david-estrada.dev/work/vacations-costa-del-sol/" aria-label="Vacations Costa del Sol: read the case study">
+            <img alt="" loading="eager" decoding="async" width="3200" height="2400" sizes="(max-width: 700px) 92vw, 56vw" src="site/david-estrada.dev/wp-content/themes/davidestrada/assets/work/vacations-costa-del-sol/poster-01.webp" srcset="site/david-estrada.dev/wp-content/themes/davidestrada/assets/work/vacations-costa-del-sol/poster-01-1600.webp 1600w, site/david-estrada.dev/wp-content/themes/davidestrada/assets/work/vacations-costa-del-sol/poster-01.webp 3200w">          </a>
+          <div class="work-card__caption">
+            <h3>Vacations Costa del Sol</h3>
+            <p>A direct-booking website for holiday homes in Marbella: my own WordPress theme, booking plugin and owner back office, in six languages.</p>
+            <p class="work-card__tags">Design / WordPress / Booking system</p>
+          </div>
+          <span class="cursor-tag" aria-hidden="true">View case <svg viewBox="0 0 16 16" aria-hidden="true" focusable="false"><path d="M4.5 11.5l7-7M5.5 4.5h6v6" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"></path></svg></span>
+        </li>
+                <li class="work-card">
+          <a class="work-card__media" href="https://david-estrada.dev/work/performance-lab/" aria-label="Performance Lab of California: read the case study">
+            <img alt="" loading="eager" decoding="async" width="3200" height="2400" sizes="(max-width: 700px) 92vw, 56vw" src="site/david-estrada.dev/wp-content/themes/davidestrada/assets/work/performance-lab/poster-01.webp" srcset="https://david-estrada.dev/wp-content/themes/davidestrada/assets/work/performance-lab/poster-01-800.webp 800w, site/david-estrada.dev/wp-content/themes/davidestrada/assets/work/performance-lab/poster-01-1600.webp 1600w, site/david-estrada.dev/wp-content/themes/davidestrada/assets/work/performance-lab/poster-01.webp 3200w">          </a>
+          <div class="work-card__caption">
+            <h3>Performance Lab of California</h3>
+            <p>A full redesign of a 15-page training site, built in native Elementor. Conversions have been going up since.</p>
+            <p class="work-card__tags">Design / WordPress / Elementor</p>
+          </div>
+          <span class="cursor-tag" aria-hidden="true">View case <svg viewBox="0 0 16 16" aria-hidden="true" focusable="false"><path d="M4.5 11.5l7-7M5.5 4.5h6v6" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"></path></svg></span>
+        </li>
+                <li class="work-card">
+          <a class="work-card__media" href="https://david-estrada.dev/work/winwin-partners/" aria-label="WinWin Partners: read the case study">
+            <img alt="" loading="eager" decoding="async" width="3200" height="2400" sizes="(max-width: 700px) 92vw, 56vw" src="site/david-estrada.dev/wp-content/themes/davidestrada/assets/work/winwin-partners/poster-01.webp" srcset="https://david-estrada.dev/wp-content/themes/davidestrada/assets/work/winwin-partners/poster-01-800.webp 800w, site/david-estrada.dev/wp-content/themes/davidestrada/assets/work/winwin-partners/poster-01-1600.webp 1600w, site/david-estrada.dev/wp-content/themes/davidestrada/assets/work/winwin-partners/poster-01.webp 3200w">          </a>
+          <div class="work-card__caption">
+            <h3>WinWin Partners</h3>
+            <p>A SaaS landing page designed in Figma and delivered in two colour directions, so the team could choose.</p>
+            <p class="work-card__tags">Figma / Landing page</p>
+          </div>
+          <span class="cursor-tag" aria-hidden="true">View case <svg viewBox="0 0 16 16" aria-hidden="true" focusable="false"><path d="M4.5 11.5l7-7M5.5 4.5h6v6" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"></path></svg></span>
+        </li>
+                <li class="work-card">
+          <a class="work-card__media" href="https://david-estrada.dev/work/visibroad/" aria-label="VisiBroad: read the case study">
+            <img alt="" loading="eager" decoding="async" width="3200" height="2400" sizes="(max-width: 700px) 92vw, 56vw" src="site/david-estrada.dev/wp-content/themes/davidestrada/assets/work/visibroad/poster-01.webp" srcset="https://david-estrada.dev/wp-content/themes/davidestrada/assets/work/visibroad/poster-01-800.webp 800w, site/david-estrada.dev/wp-content/themes/davidestrada/assets/work/visibroad/poster-01-1600.webp 1600w, site/david-estrada.dev/wp-content/themes/davidestrada/assets/work/visibroad/poster-01.webp 3200w">          </a>
+          <div class="work-card__caption">
+            <h3>VisiBroad</h3>
+            <p>A redesign and a responsive rework in Elementor Pro, so the page reads as well on a phone as it does on a desktop.</p>
+            <p class="work-card__tags">Redesign / Elementor Pro</p>
+          </div>
+          <span class="cursor-tag" aria-hidden="true">View case <svg viewBox="0 0 16 16" aria-hidden="true" focusable="false"><path d="M4.5 11.5l7-7M5.5 4.5h6v6" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"></path></svg></span>
+        </li>
+                <li class="work-card">
+          <a class="work-card__media" href="https://david-estrada.dev/work/marketing-voor-coaches/" aria-label="Marketing voor Coaches: read the case study">
+            <img alt="" loading="eager" decoding="async" width="3200" height="2400" sizes="(max-width: 700px) 92vw, 56vw" src="site/david-estrada.dev/wp-content/themes/davidestrada/assets/work/marketing-voor-coaches/poster-01.webp" srcset="https://david-estrada.dev/wp-content/themes/davidestrada/assets/work/marketing-voor-coaches/poster-01-800.webp 800w, site/david-estrada.dev/wp-content/themes/davidestrada/assets/work/marketing-voor-coaches/poster-01-1600.webp 1600w, site/david-estrada.dev/wp-content/themes/davidestrada/assets/work/marketing-voor-coaches/poster-01.webp 3200w">          </a>
+          <div class="work-card__caption">
+            <h3>Marketing voor Coaches</h3>
+            <p>The winning entry of an Elementor design challenge, built without a single line of custom CSS.</p>
+            <p class="work-card__tags">Design / Elementor</p>
+          </div>
+          <span class="cursor-tag" aria-hidden="true">View case <svg viewBox="0 0 16 16" aria-hidden="true" focusable="false"><path d="M4.5 11.5l7-7M5.5 4.5h6v6" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"></path></svg></span>
+        </li>
+                <li class="work-card">
+          <a class="work-card__media" href="https://david-estrada.dev/work/gran-teatro-pavon/" aria-label="Gran Teatro Pavón: read the case study">
+            <img alt="" loading="eager" decoding="async" width="3200" height="2400" sizes="(max-width: 700px) 92vw, 56vw" src="site/david-estrada.dev/wp-content/themes/davidestrada/assets/work/gran-teatro-pavon/poster-01.webp" srcset="https://david-estrada.dev/wp-content/themes/davidestrada/assets/work/gran-teatro-pavon/poster-01-800.webp 800w, site/david-estrada.dev/wp-content/themes/davidestrada/assets/work/gran-teatro-pavon/poster-01-1600.webp 1600w, site/david-estrada.dev/wp-content/themes/davidestrada/assets/work/gran-teatro-pavon/poster-01.webp 3200w">          </a>
+          <div class="work-card__caption">
+            <h3>Gran Teatro Pavón</h3>
+            <p>Listings, tickets, a hundred years of history and private events for a historic theatre in Madrid.</p>
+            <p class="work-card__tags">WordPress / Ticketing</p>
+          </div>
+          <span class="cursor-tag" aria-hidden="true">View case <svg viewBox="0 0 16 16" aria-hidden="true" focusable="false"><path d="M4.5 11.5l7-7M5.5 4.5h6v6" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"></path></svg></span>
+        </li>
+                <li class="work-card">
+          <a class="work-card__media" href="https://david-estrada.dev/work/the-guru/" aria-label="The Guru: read the case study">
+            <img alt="" loading="eager" decoding="async" width="3200" height="2400" sizes="(max-width: 700px) 92vw, 56vw" src="site/david-estrada.dev/wp-content/themes/davidestrada/assets/work/the-guru/poster-01.webp" srcset="https://david-estrada.dev/wp-content/themes/davidestrada/assets/work/the-guru/poster-01-800.webp 800w, site/david-estrada.dev/wp-content/themes/davidestrada/assets/work/the-guru/poster-01-1600.webp 1600w, site/david-estrada.dev/wp-content/themes/davidestrada/assets/work/the-guru/poster-01.webp 3200w">          </a>
+          <div class="work-card__caption">
+            <h3>The Guru</h3>
+            <p>A personal-brand site that gathers talks, books and videos, with a live agenda and ticket links.</p>
+            <p class="work-card__tags">WordPress / Personal brand</p>
+          </div>
+          <span class="cursor-tag" aria-hidden="true">View case <svg viewBox="0 0 16 16" aria-hidden="true" focusable="false"><path d="M4.5 11.5l7-7M5.5 4.5h6v6" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"></path></svg></span>
+        </li>
+              </ol>
+
+      <!-- The text of the project that is passing, pinned to the bottom of the screen (filled by js/main.js) -->
+      <div class="work__caption" aria-hidden="true">
+        <div class="work__caption-text">
+          <p class="work__caption-name"></p>
+          <p class="work__caption-desc"></p>
+        </div>
+        <div class="work__caption-side">
+          <p class="work__caption-tags"></p>
+          <a class="text-link" href="#work" tabindex="-1">Read the case study <svg viewBox="0 0 16 16" aria-hidden="true" focusable="false"><path d="M4.5 11.5l7-7M5.5 4.5h6v6" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"></path></svg></a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Reviews: word for word from the Upwork profile. js/main.js lights the words as they are read -->
+    <section class="reviews is-reading" id="reviews" data-theme="dark" aria-labelledby="reviews-title" data-reviews="">
+      <header class="section-head">
+        <h2 class="line will-rise" id="reviews-title" aria-label="Kind words" data-fit="" style="--fit: 247.04px;"><span class="line__word" aria-hidden="true"><span>Kind</span></span> <span class="cushion cushion--reviews is-3d" data-cushion="reviews" aria-hidden="true"><svg viewBox="0 0 24 24" focusable="false"><use href="#mark-reviews"></use></svg><canvas class="badge-canvas" width="588" height="588"></canvas></span> <span class="line__word" aria-hidden="true"><span>words</span></span></h2>        <p class="statement"><span>What it’s like to work with me,</span> <span>in my clients’ words.</span></p>        <div class="reviews__meta">
+          <p>Top Rated on Upwork, with 100% Job Success and five stars on every review.</p>
+          <a class="text-link" href="https://www.upwork.com/freelancers/~014831123217f75a25" target="_blank" rel="noopener">
+            <span>Read them on Upwork</span>
+            <svg viewBox="0 0 16 16" aria-hidden="true" focusable="false"><path d="M4.5 11.5l7-7M5.5 4.5h6v6" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"></path></svg>          </a>
+        </div>
+      </header>
+
+      <ol class="reviews__list">
+                <li>
+          <img alt="Performance Lab of California" loading="eager" decoding="async" class="review__poster" width="1400" height="1050" sizes="(max-width: 700px) 92vw, 40vw" src="site/david-estrada.dev/wp-content/themes/davidestrada/assets/work/performance-lab.webp" srcset="https://david-estrada.dev/wp-content/themes/davidestrada/assets/work/performance-lab-800.webp 800w, site/david-estrada.dev/wp-content/themes/davidestrada/assets/work/performance-lab.webp 1400w">          <figure class="review">
+            <blockquote>
+              <p class="review__quote" data-reveal=""><span class="word">“David</span> <span class="word">is</span> <span class="word">amazing</span> <span class="word">and</span> <span class="word">I</span> <span class="word">highly</span> <span class="word">recommend</span> <span class="word">working</span> <span class="word">with</span> <span class="word">him.</span> <span class="word">He</span> <span class="word">did</span> <span class="word">everything</span> <span class="word">timely,</span> <span class="word">communicated</span> <span class="word">amazingly</span> <span class="word">and</span> <span class="word">was</span> <span class="word">very</span> <span class="word">focused</span> <span class="word">on</span> <span class="word">getting</span> <span class="word">the</span> <span class="word">best</span> <span class="word">result</span> <span class="word">for</span> <span class="word">me.”</span></p>
+                          </blockquote>
+            <figcaption>
+              <span class="review__stars" role="img" aria-label="5 out of 5 on Upwork"><svg viewBox="0 0 16 16" focusable="false"><path d="M8 1.2l2.06 4.3 4.69.62-3.44 3.27.87 4.67L8 11.78l-4.18 2.28.87-4.67L1.25 6.12l4.69-.62z"></path></svg><svg viewBox="0 0 16 16" focusable="false"><path d="M8 1.2l2.06 4.3 4.69.62-3.44 3.27.87 4.67L8 11.78l-4.18 2.28.87-4.67L1.25 6.12l4.69-.62z"></path></svg><svg viewBox="0 0 16 16" focusable="false"><path d="M8 1.2l2.06 4.3 4.69.62-3.44 3.27.87 4.67L8 11.78l-4.18 2.28.87-4.67L1.25 6.12l4.69-.62z"></path></svg><svg viewBox="0 0 16 16" focusable="false"><path d="M8 1.2l2.06 4.3 4.69.62-3.44 3.27.87 4.67L8 11.78l-4.18 2.28.87-4.67L1.25 6.12l4.69-.62z"></path></svg><svg viewBox="0 0 16 16" focusable="false"><path d="M8 1.2l2.06 4.3 4.69.62-3.44 3.27.87 4.67L8 11.78l-4.18 2.28.87-4.67L1.25 6.12l4.69-.62z"></path></svg></span>
+              <span class="review__name">Morey C.</span>
+              <span class="review__role">Performance Lab of California</span>
+              <span class="review__job">WordPress homepage edits, September 2026</span>
+            </figcaption>
+          </figure>
+        </li>
+                <li>
+          <img alt="WinWin Partners" loading="eager" decoding="async" class="review__poster" width="1400" height="1050" sizes="(max-width: 700px) 92vw, 40vw" src="site/david-estrada.dev/wp-content/themes/davidestrada/assets/work/winwin-partners.webp" srcset="https://david-estrada.dev/wp-content/themes/davidestrada/assets/work/winwin-partners-800.webp 800w, site/david-estrada.dev/wp-content/themes/davidestrada/assets/work/winwin-partners.webp 1400w">          <figure class="review">
+            <blockquote>
+              <p class="review__quote" data-reveal=""><span class="word">“Excellent</span> <span class="word">design</span> <span class="word">and</span> <span class="word">multiple</span> <span class="word">colour</span> <span class="word">options</span> <span class="word">to</span> <span class="word">choose</span> <span class="word">from</span> <span class="word">and</span> <span class="word">compare.”</span></p>
+                          </blockquote>
+            <figcaption>
+              <span class="review__stars" role="img" aria-label="5 out of 5 on Upwork"><svg viewBox="0 0 16 16" focusable="false"><path d="M8 1.2l2.06 4.3 4.69.62-3.44 3.27.87 4.67L8 11.78l-4.18 2.28.87-4.67L1.25 6.12l4.69-.62z"></path></svg><svg viewBox="0 0 16 16" focusable="false"><path d="M8 1.2l2.06 4.3 4.69.62-3.44 3.27.87 4.67L8 11.78l-4.18 2.28.87-4.67L1.25 6.12l4.69-.62z"></path></svg><svg viewBox="0 0 16 16" focusable="false"><path d="M8 1.2l2.06 4.3 4.69.62-3.44 3.27.87 4.67L8 11.78l-4.18 2.28.87-4.67L1.25 6.12l4.69-.62z"></path></svg><svg viewBox="0 0 16 16" focusable="false"><path d="M8 1.2l2.06 4.3 4.69.62-3.44 3.27.87 4.67L8 11.78l-4.18 2.28.87-4.67L1.25 6.12l4.69-.62z"></path></svg><svg viewBox="0 0 16 16" focusable="false"><path d="M8 1.2l2.06 4.3 4.69.62-3.44 3.27.87 4.67L8 11.78l-4.18 2.28.87-4.67L1.25 6.12l4.69-.62z"></path></svg></span>
+              <span class="review__name">Daniel M.</span>
+              <span class="review__role">WinWin Partners</span>
+              <span class="review__job">Web page design for a new SaaS, August 2026</span>
+            </figcaption>
+          </figure>
+        </li>
+                <li>
+          <img alt="VisiBroad" loading="eager" decoding="async" class="review__poster" width="1400" height="1050" sizes="(max-width: 700px) 92vw, 40vw" src="site/david-estrada.dev/wp-content/themes/davidestrada/assets/work/visibroad.webp" srcset="https://david-estrada.dev/wp-content/themes/davidestrada/assets/work/visibroad-800.webp 800w, site/david-estrada.dev/wp-content/themes/davidestrada/assets/work/visibroad.webp 1400w">          <figure class="review">
+            <blockquote>
+              <p class="review__quote" data-reveal=""><span class="word">“David</span> <span class="word">greatly</span> <span class="word">help</span> <span class="word">with</span> <span class="word">design</span> <span class="word">improvement</span> <span class="word">for</span> <span class="word">our</span> <span class="word">project,</span> <span class="word">he</span> <span class="word">was</span> <span class="word">a</span> <span class="word">great</span> <span class="word">communicator</span> <span class="word">and</span> <span class="word">very</span> <span class="word">easy</span> <span class="word">to</span> <span class="word">work</span> <span class="word">with.</span> <span class="word">Designs</span> <span class="word">were</span> <span class="word">well-put-together</span> <span class="word">and</span> <span class="word">responsiveness</span> <span class="word">across</span> <span class="word">devices</span> <span class="word">was</span> <span class="word">spectacular.</span> <span class="word">I</span> <span class="word">highly</span> <span class="word">recommend</span> <span class="word">David.”</span></p>
+                          </blockquote>
+            <figcaption>
+              <span class="review__stars" role="img" aria-label="5 out of 5 on Upwork"><svg viewBox="0 0 16 16" focusable="false"><path d="M8 1.2l2.06 4.3 4.69.62-3.44 3.27.87 4.67L8 11.78l-4.18 2.28.87-4.67L1.25 6.12l4.69-.62z"></path></svg><svg viewBox="0 0 16 16" focusable="false"><path d="M8 1.2l2.06 4.3 4.69.62-3.44 3.27.87 4.67L8 11.78l-4.18 2.28.87-4.67L1.25 6.12l4.69-.62z"></path></svg><svg viewBox="0 0 16 16" focusable="false"><path d="M8 1.2l2.06 4.3 4.69.62-3.44 3.27.87 4.67L8 11.78l-4.18 2.28.87-4.67L1.25 6.12l4.69-.62z"></path></svg><svg viewBox="0 0 16 16" focusable="false"><path d="M8 1.2l2.06 4.3 4.69.62-3.44 3.27.87 4.67L8 11.78l-4.18 2.28.87-4.67L1.25 6.12l4.69-.62z"></path></svg><svg viewBox="0 0 16 16" focusable="false"><path d="M8 1.2l2.06 4.3 4.69.62-3.44 3.27.87 4.67L8 11.78l-4.18 2.28.87-4.67L1.25 6.12l4.69-.62z"></path></svg></span>
+              <span class="review__name">Filip L.</span>
+              <span class="review__role">VisiBroad</span>
+              <span class="review__job">Elementor landing page, August 2026</span>
+            </figcaption>
+          </figure>
+        </li>
+                <li>
+          <img alt="Marketing voor Coaches" loading="eager" decoding="async" class="review__poster" width="1400" height="1050" sizes="(max-width: 700px) 92vw, 40vw" src="site/david-estrada.dev/wp-content/themes/davidestrada/assets/work/marketing-voor-coaches.webp" srcset="https://david-estrada.dev/wp-content/themes/davidestrada/assets/work/marketing-voor-coaches-800.webp 800w, site/david-estrada.dev/wp-content/themes/davidestrada/assets/work/marketing-voor-coaches.webp 1400w">          <figure class="review">
+            <blockquote>
+              <p class="review__quote" data-reveal=""><span class="word">“David</span> <span class="word">participated</span> <span class="word">in</span> <span class="word">my</span> <span class="word">Elementor</span> <span class="word">Design</span> <span class="word">Challenge</span> <span class="word">and</span> <span class="word">created</span> <span class="word">a</span> <span class="word">design</span> <span class="word">with</span> <span class="word">a</span> <span class="word">strong</span> <span class="word">visual</span> <span class="word">personality.</span> <span class="word">I</span> <span class="word">particularly</span> <span class="word">liked</span> <span class="word">his</span> <span class="word">use</span> <span class="word">of</span> <span class="word">typography,</span> <span class="word">contrast</span> <span class="word">and</span> <span class="word">out</span> <span class="word">of</span> <span class="word">the</span> <span class="word">box</span> <span class="word">ideas.</span></p>
+                            <p class="review__rest" data-reveal=""><span class="word">He</span> <span class="word">showed</span> <span class="word">me</span> <span class="word">how</span> <span class="word">some</span> <span class="word">of</span> <span class="word">the</span> <span class="word">most</span> <span class="word">important</span> <span class="word">messages</span> <span class="word">on</span> <span class="word">the</span> <span class="word">page</span> <span class="word">could</span> <span class="word">be</span> <span class="word">given</span> <span class="word">much</span> <span class="word">more</span> <span class="word">visual</span> <span class="word">emphasis,</span> <span class="word">and</span> <span class="word">that</span> <span class="word">is</span> <span class="word">definitely</span> <span class="word">something</span> <span class="word">I</span> <span class="word">can</span> <span class="word">use</span> <span class="word">in</span> <span class="word">the</span> <span class="word">final</span> <span class="word">design.</span> <span class="word">His</span> <span class="word">submission</span> <span class="word">brought</span> <span class="word">a</span> <span class="word">different</span> <span class="word">perspective</span> <span class="word">from</span> <span class="word">my</span> <span class="word">original</span> <span class="word">version,</span> <span class="word">which</span> <span class="word">was</span> <span class="word">exactly</span> <span class="word">what</span> <span class="word">I</span> <span class="word">hoped</span> <span class="word">to</span> <span class="word">get</span> <span class="word">from</span> <span class="word">this</span> <span class="word">challenge.</span> <span class="word">Several</span> <span class="word">of</span> <span class="word">his</span> <span class="word">design</span> <span class="word">decisions</span> <span class="word">gave</span> <span class="word">me</span> <span class="word">new</span> <span class="word">ideas</span> <span class="word">about</span> <span class="word">hierarchy,</span> <span class="word">highlighting</span> <span class="word">results</span> <span class="word">and</span> <span class="word">creating</span> <span class="word">more</span> <span class="word">variation</span> <span class="word">while</span> <span class="word">someone</span> <span class="word">scrolls</span> <span class="word">through</span> <span class="word">the</span> <span class="word">page.</span> <span class="word">I</span> <span class="word">really</span> <span class="word">enjoyed</span> <span class="word">seeing</span> <span class="word">his</span> <span class="word">interpretation</span> <span class="word">of</span> <span class="word">the</span> <span class="word">brief.</span> <span class="word">Thank</span> <span class="word">you,</span> <span class="word">David,</span> <span class="word">for</span> <span class="word">the</span> <span class="word">creativity,</span> <span class="word">effort</span> <span class="word">and</span> <span class="word">valuable</span> <span class="word">ideas!”</span></p>
+                          </blockquote>
+            <figcaption>
+              <span class="review__stars" role="img" aria-label="5 out of 5 on Upwork"><svg viewBox="0 0 16 16" focusable="false"><path d="M8 1.2l2.06 4.3 4.69.62-3.44 3.27.87 4.67L8 11.78l-4.18 2.28.87-4.67L1.25 6.12l4.69-.62z"></path></svg><svg viewBox="0 0 16 16" focusable="false"><path d="M8 1.2l2.06 4.3 4.69.62-3.44 3.27.87 4.67L8 11.78l-4.18 2.28.87-4.67L1.25 6.12l4.69-.62z"></path></svg><svg viewBox="0 0 16 16" focusable="false"><path d="M8 1.2l2.06 4.3 4.69.62-3.44 3.27.87 4.67L8 11.78l-4.18 2.28.87-4.67L1.25 6.12l4.69-.62z"></path></svg><svg viewBox="0 0 16 16" focusable="false"><path d="M8 1.2l2.06 4.3 4.69.62-3.44 3.27.87 4.67L8 11.78l-4.18 2.28.87-4.67L1.25 6.12l4.69-.62z"></path></svg><svg viewBox="0 0 16 16" focusable="false"><path d="M8 1.2l2.06 4.3 4.69.62-3.44 3.27.87 4.67L8 11.78l-4.18 2.28.87-4.67L1.25 6.12l4.69-.62z"></path></svg></span>
+              <span class="review__name">Monique O.</span>
+              <span class="review__role">Marketing voor Coaches</span>
+              <span class="review__job">Elementor Design Challenge, August 2026</span>
+            </figcaption>
+          </figure>
+        </li>
+              </ol>
+    </section>
+
+    <!-- About -->
+    <section class="about" id="about" data-theme="light" aria-labelledby="about-title">
+      <header class="section-head">
+        <h2 class="line will-rise" id="about-title" aria-label="About David" data-fit="" style="--fit: 229.93px;"><span class="line__word" aria-hidden="true"><span>About</span></span> <span class="cushion cushion--portrait is-3d" data-cushion="portrait" aria-hidden="true"><img src="site/david-estrada.dev/wp-content/themes/davidestrada/assets/hero/david.webp" alt="" width="928" height="1238" loading="eager" decoding="async"><canvas class="badge-canvas" width="547" height="547"></canvas></span> <span class="line__word" aria-hidden="true"><span>David</span></span></h2><p class="statement"><span>I design sites in Figma and build them in WordPress,</span> <span>so you only ever deal with one person.</span></p>      </header>
+
+      <div class="about__body">
+        <div class="about__text">
+          <p>I’m David, a web designer and developer based in Mijas, in the south of Spain. I’ve worked with established companies to strengthen their digital presence, and with personal brands, agencies and startups that want a site with real character, one they can look after themselves once it’s live.</p>
+          <p>Most projects start in Figma and end in WordPress and Elementor. When a design asks for more than the builder can do, I code it as custom Elementor widgets, so it stays as easy to edit as the rest of the site. And if you already have a site, I’d rather keep what works and fix what doesn’t than rebuild it for the sake of it.</p>
+        </div>
+        <dl class="about__facts">
+                    <div><dt>Based in</dt><dd>Mijas, Spain</dd></div>
+                    <div><dt>Languages</dt><dd>English and Spanish</dd></div>
+                    <div><dt>Tools</dt><dd>Figma, WordPress, Elementor Pro, Framer, WooCommerce, HTML, CSS and JavaScript</dd></div>
+                    <div><dt>On Upwork</dt><dd>Top Rated, 100% Job Success</dd></div>
+                  </dl>
+      </div>
+    </section>
+
+    <!-- Approach: what working with David is like -->
+    <section class="approach" id="approach" data-theme="dark" aria-labelledby="approach-title">
+      <header class="section-head">
+        <h2 class="line will-rise" id="approach-title" aria-label="Working together" data-fit="" style="--fit: 170.09px;"><span class="line__word" aria-hidden="true"><span>Working</span></span> <span class="cushion cushion--approach is-3d" data-cushion="approach" aria-hidden="true"><svg viewBox="0 0 24 24" focusable="false"><use href="#mark-approach"></use></svg><canvas class="badge-canvas" width="405" height="405"></canvas></span> <span class="line__word" aria-hidden="true"><span>together</span></span></h2><p class="statement"><span>Four things you can count on,</span> <span>whatever the size of the project.</span></p>      </header>
+
+      <ul class="approach__list">
+                <li>
+          <h3 class="line will-rise" aria-label="Design with personality" data-fit="" style="--fit: 131.72px;"><span class="line__word" aria-hidden="true"><span>Design with</span></span> <span class="cushion is-3d" data-cushion="spark" aria-hidden="true"><svg viewBox="0 0 24 24" focusable="false"><use href="#mark-spark"></use></svg><canvas class="badge-canvas" width="313" height="313"></canvas></span> <span class="line__word" aria-hidden="true"><span>personality</span></span></h3>          <p>Editorial, with character. Your site should look like you, not like the template everyone else bought.</p>
+        </li>
+                <li>
+          <h3 class="line will-rise" aria-label="One person, start to finish" data-fit="" style="--fit: 122.71px;"><span class="line__word" aria-hidden="true"><span>One person,</span></span> <span class="cushion is-3d" data-cushion="one" aria-hidden="true"><svg viewBox="0 0 24 24" focusable="false"><use href="#mark-one"></use></svg><canvas class="badge-canvas" width="292" height="292"></canvas></span> <span class="line__word" aria-hidden="true"><span>start to finish</span></span></h3>          <p>I design it and I build it, so nothing gets lost between a designer and a developer, and you always know who to ask.</p>
+        </li>
+                <li>
+          <h3 class="line will-rise" aria-label="Yours to edit" data-fit="" style="--fit: 231.57px;"><span class="line__word" aria-hidden="true"><span>Yours</span></span> <span class="cushion is-3d" data-cushion="edit" aria-hidden="true"><svg viewBox="0 0 24 24" focusable="false"><use href="#mark-edit"></use></svg><canvas class="badge-canvas" width="551" height="551"></canvas></span> <span class="line__word" aria-hidden="true"><span>to edit</span></span></h3>          <p>When a design is too complex for Elementor’s own widgets, I build custom ones for it, so you can change the text, images and links safely, without any risk of breaking the layout. And you’re never locked into my widgets: add a native Elementor section right below one of mine whenever you like.</p>
+        </li>
+                <li>
+          <h3 class="line will-rise" aria-label="Quick, clear replies" data-fit="" style="--fit: 159.6px;"><span class="line__word" aria-hidden="true"><span>Quick, clear</span></span> <span class="cushion is-3d" data-cushion="quick" aria-hidden="true"><svg viewBox="0 0 24 24" focusable="false"><use href="#mark-quick"></use></svg><canvas class="badge-canvas" width="381" height="381"></canvas></span> <span class="line__word" aria-hidden="true"><span>replies</span></span></h3>          <p>Fast answers, deadlines kept, and options to compare before you decide.</p>
+        </li>
+              </ul>
+    </section>
+
+        <section class="offer" id="services" data-theme="light" aria-labelledby="offer-title">
+      <header class="section-head">
+        <h2 class="line will-rise" id="offer-title" aria-label="Fixed price" data-fit="" style="--fit: 252.23px;">
+          <span class="line__word" aria-hidden="true"><span>Fixed</span></span>
+          <span class="cushion cushion--price is-3d" data-cushion="price" aria-hidden="true"><svg viewBox="0 0 24 24" focusable="false"><use href="#mark-price"></use></svg><canvas class="badge-canvas" width="602" height="602"></canvas></span>          <span class="line__word" aria-hidden="true"><span>price</span></span>
+        </h2>
+        <p class="statement">
+          <span>Know what you’ll get and what it costs,</span>
+          <span>before we start.</span>
+        </p>
+      </header>
+      <ol class="offer__list">
+                        <li>
+          <a class="offer__item" href="https://david-estrada.dev/services/#figma-to-elementor">
+            <span class="offer__name">Your Figma design, built in Elementor</span>
+            <span class="offer__line">Pixel-perfect, and easy for you to edit.</span>
+            <span class="offer__meta">From $200 · 3 days</span>
+            <svg viewBox="0 0 16 16" aria-hidden="true" focusable="false"><path d="M4.5 11.5l7-7M5.5 4.5h6v6" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"></path></svg>          </a>
+        </li>
+                        <li>
+          <a class="offer__item" href="https://david-estrada.dev/services/#landing-page">
+            <span class="offer__name">A landing page, designed and built</span>
+            <span class="offer__line">Designed in Figma for your brand, built in Elementor.</span>
+            <span class="offer__meta">From $350 · 5 days</span>
+            <svg viewBox="0 0 16 16" aria-hidden="true" focusable="false"><path d="M4.5 11.5l7-7M5.5 4.5h6v6" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"></path></svg>          </a>
+        </li>
+                        <li>
+          <a class="offer__item" href="https://david-estrada.dev/services/#redesign">
+            <span class="offer__name">A redesign that keeps what works</span>
+            <span class="offer__line">A new look for your site, without starting from zero.</span>
+            <span class="offer__meta">From $500 · 6 days</span>
+            <svg viewBox="0 0 16 16" aria-hidden="true" focusable="false"><path d="M4.5 11.5l7-7M5.5 4.5h6v6" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"></path></svg>          </a>
+        </li>
+              </ol>
+      <p class="offer__more"><a class="text-link" href="https://david-estrada.dev/services/">See all three in detail <svg viewBox="0 0 16 16" aria-hidden="true" focusable="false"><path d="M4.5 11.5l7-7M5.5 4.5h6v6" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"></path></svg></a></p>
+    </section>
+
+        <section class="cta" id="contact" data-theme="orange" aria-labelledby="cta-title">
+      <header class="section-head">
+        <h2 class="line will-rise" id="cta-title" aria-label="Let’s talk" data-fit="" style="--fit: 303.04px;"><span class="line__word" aria-hidden="true"><span>Let’s</span></span> <span class="cushion cushion--upwork is-3d" data-cushion="cta" aria-hidden="true"><svg viewBox="0 0 24 24" focusable="false"><use href="#mark-upwork"></use></svg><canvas class="badge-canvas" width="721" height="721"></canvas></span> <span class="line__word" aria-hidden="true"><span>talk</span></span></h2>        <p class="statement"><span>Tell me what you need the site to do.</span> <span>I’ll show you how I’d approach it.</span></p>        <div class="cta__actions">
+          <a class="button" href="https://www.upwork.com/freelancers/~014831123217f75a25" target="_blank" rel="noopener">
+            <img class="button__avatar" src="site/david-estrada.dev/wp-content/themes/davidestrada/assets/hero/david-160.webp" alt="" width="160" height="213" loading="eager" decoding="async">
+            <span>Hire me on Upwork</span>
+            <svg viewBox="0 0 16 16" aria-hidden="true" focusable="false"><path d="M4.5 11.5l7-7M5.5 4.5h6v6" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"></path></svg>          </a>
+          <p>Top Rated, 100% Job Success. I usually reply the same day.</p>
+          <p class="cta__mail"><span>Not on Upwork? Write to me at</span> <a class="text-link" href="mailto:davidestrada.work@gmail.com">davidestrada.work@gmail.com</a></p>
+        </div>
+      </header>
+    </section>
+  </main>
+
+  <footer class="site-footer" data-theme="orange">
+    <p>©DavidEstrada <span>Mijas, Spain</span></p>
+    <nav aria-label="Footer">
+      <a href="#work">Work</a>
+      <a href="https://david-estrada.dev/services/">Services</a>
+      <a href="#reviews">Reviews</a>
+      <a href="#about">About</a>
+    </nav>
+    <a class="site-footer__top" href="#top">Back to top <svg viewBox="0 0 16 16" aria-hidden="true" focusable="false"><path d="M8 13V3M3.5 7.5L8 3l4.5 4.5" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"></path></svg></a>
+    <div class="site-footer__legal">
+      <a href="https://david-estrada.dev/legal-notice/">Legal notice</a><a href="https://david-estrada.dev/privacy-policy/">Privacy policy</a><a href="https://david-estrada.dev/cookie-policy/">Cookie policy</a>      <button type="button" data-cookie-settings="">Cookie settings</button>
+    </div>
+  </footer>
+
+
+
+
+
+
+
+
+
+
+<section class="consent" aria-label="Cookies" style="opacity: 1; transform: translateY(0px);">
+      <p>I use Google Analytics cookies only if you accept them, to see which pages get visited. Nothing else. I count visits to this site only if you accept: no cookies and nothing personal. <a href="https://david-estrada.dev/cookie-policy/">Cookie policy</a></p>
+      <div class="consent__actions">
+        <button type="button" data-consent="reject">Reject</button>
+        <button type="button" data-consent="accept">Accept</button>
+      </div></section><div class="menu" id="menu" role="dialog" aria-modal="true" aria-label="Menu" inert="">
+    <div class="menu__top"><span>©DavidEstrada</span><button type="button" class="menu__close">Close</button></div>
+    <nav class="menu__links" aria-label="Main"><a href="#work">Work</a><a href="https://david-estrada.dev/services/">Services</a><a href="#reviews">Reviews</a><a href="#about">About</a><a href="#contact">Let’s talk</a></nav>
+    <div class="menu__foot">
+      <a class="button" href="https://www.upwork.com/freelancers/~014831123217f75a25" target="_blank" rel="noopener">Hire me on Upwork <svg viewBox="0 0 16 16" aria-hidden="true" focusable="false"><path d="M4.5 11.5l7-7M5.5 4.5h6v6" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"></path></svg></a>
+      <p>Top Rated, 100% Job Success on Upwork.</p>
+    </div></div><div data-wd3-banner style="position:fixed;z-index:2147483647;left:16px;bottom:16px;max-width:min(560px,calc(100vw - 32px));align-items:center;gap:12px;padding:12px 14px;border-radius:12px;background:rgba(5,5,5,.92);color:#e8e8e8;border:1px solid #1d1d1d;box-shadow:0 8px 30px rgba(0,0,0,.35);font:13px/1.45 ui-sans-serif,system-ui,-apple-system,'Segoe UI',sans-serif;backdrop-filter:blur(8px)">
+  <span style="width:8px;height:8px;border-radius:50%;background:#00ffa3;flex:none"></span>
+  <span>Versão estática, sem animações. Para ver o site vivo, rode no terminal, nesta pasta: <b style="color:#00ffa3">python3 serve.py --open</b> (Windows: <b style="color:#00ffa3">py serve.py --open</b>). Passo a passo em <b style="color:#00ffa3">Como rodar.md</b>.</span>
+  <button type="button" onclick="this.parentNode.remove()" aria-label="Fechar" style="flex:none;background:none;border:0;color:#8a8a8a;font-size:18px;cursor:pointer;padding:0 2px">×</button>
+</div>
+</body></html>

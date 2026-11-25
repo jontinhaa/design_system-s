@@ -1,0 +1,60 @@
+{
+ "builders": [
+  "react",
+  "vite"
+ ],
+ "libraries": [
+  {
+   "name": "draco",
+   "version": null,
+   "sources": [
+    "https://mosaik-iota.vercel.app/draco/draco_wasm_wrapper.js",
+    "https://mosaik-iota.vercel.app/draco/draco_decoder.wasm"
+   ]
+  },
+  {
+   "name": "lenis",
+   "version": null,
+   "sources": [
+    "página"
+   ]
+  },
+  {
+   "name": "three",
+   "version": "r169",
+   "sources": [
+    "página"
+   ]
+  }
+ ],
+ "runtime": {
+  "contexts": {
+   "webgl2": 2
+  },
+  "wasm": 1,
+  "workers": 1,
+  "webgpu": false,
+  "shadowRoots": 0,
+  "canvases": 1
+ },
+ "cssFeatures": [
+  "@property"
+ ],
+ "fonts": {
+  "families": [
+   "JetBrains Mono",
+   "Sora"
+  ],
+  "sources": [
+   "google fonts"
+  ]
+ },
+ "videos": [],
+ "files": {
+  "text": 3,
+  "application": 5,
+  "image": 9,
+  "font": 2,
+  "model": 1
+ }
+}

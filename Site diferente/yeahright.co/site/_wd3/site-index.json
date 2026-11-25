@@ -1,0 +1,552 @@
+{
+ "version": 1,
+ "tool": "wd3 0.1.0",
+ "captureId": "yeahright.co-5d6f01c6",
+ "capturedAt": "2026-10-28T18:18:52+00:00",
+ "entry": {
+  "url": "https://yeahright.co/",
+  "path": "/",
+  "search": "",
+  "file": "site/yeahright.co/index.html",
+  "contentType": "text/html; charset=UTF-8"
+ },
+ "blocked": [
+  "^https?://([^/?#]+\\.)?(google\\-analytics\\.com|analytics\\.google\\.com|googletagmanager\\.com|googleadservices\\.com|doubleclick\\.net|googlesyndication\\.com|googleoptimize\\.com|connect\\.facebook\\.net|bat\\.bing\\.com|snap\\.licdn\\.com|px\\.ads\\.linkedin\\.com|analytics\\.tiktok\\.com|ct\\.pinterest\\.com|static\\.ads\\-twitter\\.com|analytics\\.twitter\\.com|tr\\.snapchat\\.com|sc\\-static\\.net|mc\\.yandex\\.ru|hotjar\\.com|hotjar\\.io|clarity\\.ms|cdn\\.segment\\.com|api\\.segment\\.io|cdn\\.mxpnl\\.com|api\\-js\\.mixpanel\\.com|api\\.mixpanel\\.com|api\\.amplitude\\.com|api2\\.amplitude\\.com|api\\-secure\\.amplitude\\.com|api\\-sr\\.amplitude\\.com|sr\\-client\\-cfg\\.amplitude\\.com|plausible\\.io|cloud\\.umami\\.is|analytics\\.umami\\.is|static\\.cloudflareinsights\\.com|cloudflareinsights\\.com|vitals\\.vercel\\-insights\\.com|browser\\-intake\\-datadoghq\\.com|browser\\-intake\\-datadoghq\\.eu|js\\-agent\\.newrelic\\.com|bam\\.nr\\-data\\.net|bam\\-cell\\.nr\\-data\\.net|fullstory\\.com|script\\.crazyegg\\.com|mouseflow\\.com|smartlook\\.com|heapanalytics\\.com|i\\.posthog\\.com|stats\\.wp\\.com|pixel\\.wp\\.com|promotekit\\.com|ingest\\.sentry\\.io|ingest\\.us\\.sentry\\.io|ingest\\.de\\.sentry\\.io|widget\\.intercom\\.io|js\\.intercomcdn\\.com|api\\-iam\\.intercom\\.io|js\\.hs\\-scripts\\.com|js\\.hs\\-analytics\\.net|js\\.hs\\-banner\\.com|js\\.hscollectedforms\\.net|js\\.usemessages\\.com|track\\.hubspot\\.com|client\\.crisp\\.chat|embed\\.tawk\\.to|js\\.driftt\\.com|static\\.zdassets\\.com|ekr\\.zdassets\\.com|cdn\\.cookielaw\\.org|geolocation\\.onetrust\\.com|consent\\.cookiebot\\.com|consentcdn\\.cookiebot\\.com|app\\.usercentrics\\.eu|api\\.usercentrics\\.eu|cdn\\.iubenda\\.com|cmp\\.osano\\.com|cdn\\.termly\\.io)(:\\d+)?([/?#]|$)",
+  "/rpc/increment_shared_code_views",
+  "^https?://(umami|analytics|stats|plausible)\\.[^/]+/(api/send|api/collect|api/event|script\\.js)",
+  "/g/c(ollect)?\\?v=2&",
+  "sentry\\.io/api/\\d+/(envelope|store)",
+  "/api/meta-capi",
+  "^https?://(leadtracker|tracking|track|events?|collect)\\.[^/]+/",
+  "^https?://a\\.vturb\\.com/",
+  "facebook\\.com/tr[/?]",
+  "/_vercel/(speed-)?insights/",
+  "/cdn-cgi/rum",
+  "/cdn-cgi/challenge-platform/",
+  "google\\.com/(pagead|ads)/"
+ ],
+ "volatileParams": [
+  "v",
+  "_rsc",
+  "dpl",
+  "_",
+  "t",
+  "ts",
+  "timestamp",
+  "cb",
+  "cachebust",
+  "cacheBust",
+  "nocache",
+  "rnd",
+  "rand",
+  "random",
+  "_t"
+ ],
+ "entries": [
+  {
+   "url": "https://yeahright.co/",
+   "method": "GET",
+   "status": 200,
+   "contentType": "text/html; charset=UTF-8",
+   "headers": {
+    "cache-status": "\"Netlify Edge\"; hit; ttl=31508821",
+    "content-type": "text/html; charset=UTF-8",
+    "x-nf-request-id": "01M61VS25112QSCTB1YF7B5R5F"
+   },
+   "resourceType": "document",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "file": "site/yeahright.co/index.html",
+   "size": 127804,
+   "modes": [
+    "navigate"
+   ]
+  },
+  {
+   "url": "https://yeahright.co/fonts/druk-condensed-super.woff2",
+   "method": "GET",
+   "status": 200,
+   "contentType": "font/woff2",
+   "headers": {
+    "cache-status": "\"Netlify Edge\"; hit; ttl=31529811",
+    "content-type": "font/woff2",
+    "x-nf-request-id": "01M61VS27Z8A2NY8T3ZXWWZD0S"
+   },
+   "resourceType": "font",
+   "passes": [
+    "mobile",
+    "desktop"
+   ],
+   "file": "site/yeahright.co/fonts/druk-condensed-super.woff2",
+   "size": 40992,
+   "modes": [
+    "cors"
+   ]
+  },
+  {
+   "url": "https://yeahright.co/_astro/index.DYZnG6DF.css",
+   "method": "GET",
+   "status": 200,
+   "contentType": "text/css; charset=UTF-8",
+   "headers": {
+    "cache-status": "\"Netlify Edge\"; hit; ttl=31529812",
+    "content-type": "text/css; charset=UTF-8",
+    "x-nf-request-id": "01M61VS282N3GD4C6CEF3VKFJE"
+   },
+   "resourceType": "stylesheet",
+   "passes": [
+    "mobile",
+    "desktop"
+   ],
+   "file": "site/yeahright.co/_astro/index.DYZnG6DF.css",
+   "size": 97166,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://yeahright.co/fonts/share-tech-mono.woff2",
+   "method": "GET",
+   "status": 200,
+   "contentType": "font/woff2",
+   "headers": {
+    "cache-status": "\"Netlify Edge\"; hit; ttl=31529811",
+    "content-type": "font/woff2",
+    "x-nf-request-id": "01M61VS27ZR10T379B3HWRJXNT"
+   },
+   "resourceType": "font",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "file": "site/yeahright.co/fonts/share-tech-mono.woff2",
+   "size": 13428,
+   "modes": [
+    "cors"
+   ]
+  },
+  {
+   "url": "https://yeahright.co/cursor.png",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/png",
+   "headers": {
+    "cache-status": "\"Netlify Edge\"; hit; ttl=31529812",
+    "content-type": "image/png",
+    "x-nf-request-id": "01M61VS2814CW4CREGMCWKF40N"
+   },
+   "resourceType": "image",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "file": "site/yeahright.co/cursor.png",
+   "size": 1273,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://yeahright.co/work/video/srut.jpg",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/jpeg",
+   "headers": {
+    "cache-status": "\"Netlify Edge\"; hit; ttl=31529812",
+    "content-type": "image/jpeg",
+    "x-nf-request-id": "01M61VS28ZZBP9VE6WE8722MCN"
+   },
+   "resourceType": "image",
+   "passes": [
+    "mobile",
+    "desktop"
+   ],
+   "file": "site/yeahright.co/work/video/srut.jpg",
+   "size": 37438,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://yeahright.co/_astro/Base.astro_astro_type_script_index_0_lang.x2228EQI.js",
+   "method": "GET",
+   "status": 200,
+   "contentType": "application/javascript; charset=UTF-8",
+   "headers": {
+    "cache-status": "\"Netlify Edge\"; hit; ttl=31529812",
+    "content-type": "application/javascript; charset=UTF-8",
+    "x-nf-request-id": "01M61VS2949AKMF3C4DJT2R47B"
+   },
+   "resourceType": "script",
+   "passes": [
+    "mobile",
+    "desktop"
+   ],
+   "file": "site/yeahright.co/_astro/Base.astro_astro_type_script_index_0_lang.x2228EQI.js",
+   "size": 196589,
+   "modes": [
+    "cors"
+   ]
+  },
+  {
+   "url": "https://yeahright.co/fonts/arrows.woff2",
+   "method": "GET",
+   "status": 200,
+   "contentType": "font/woff2",
+   "headers": {
+    "cache-status": "\"Netlify Edge\"; hit; ttl=31529812",
+    "content-type": "font/woff2",
+    "x-nf-request-id": "01M61VS2DXD2EG9QM2B0F0HT27"
+   },
+   "resourceType": "font",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "file": "site/yeahright.co/fonts/arrows.woff2",
+   "size": 2032,
+   "modes": [
+    "cors"
+   ]
+  },
+  {
+   "url": "https://yeahright.co/pizza.jpg",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/jpeg",
+   "headers": {
+    "cache-status": "\"Netlify Edge\"; hit; ttl=31508822",
+    "content-type": "image/jpeg",
+    "x-nf-request-id": "01M61VS29CTVZVQ7S6J9RATG7E"
+   },
+   "resourceType": "image",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "file": "site/yeahright.co/pizza.jpg",
+   "size": 691239,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://yeahright.co/_astro/index.BzC_51kD.js",
+   "method": "GET",
+   "status": 200,
+   "contentType": "application/javascript; charset=UTF-8",
+   "headers": {
+    "cache-status": "\"Netlify Edge\"; hit; ttl=31529812",
+    "content-type": "application/javascript; charset=UTF-8",
+    "x-nf-request-id": "01M61VS2JMP8H1GGEXDEZK0H7Z"
+   },
+   "resourceType": "script",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "file": "site/yeahright.co/_astro/index.BzC_51kD.js",
+   "size": 605307
+  },
+  {
+   "url": "https://yeahright.co/badge-3d.gltf",
+   "method": "GET",
+   "status": 200,
+   "contentType": "application/octet-stream",
+   "headers": {
+    "cache-status": "\"Netlify Edge\"; hit; ttl=31529812",
+    "content-type": "application/octet-stream",
+    "x-nf-request-id": "01M61VS2QSR5QVDV19CTMP0QA4"
+   },
+   "resourceType": "fetch",
+   "passes": [
+    "mobile",
+    "desktop"
+   ],
+   "file": "site/yeahright.co/badge-3d.gltf",
+   "size": 373778,
+   "modes": [
+    "cors"
+   ]
+  },
+  {
+   "url": "https://yeahright.co/pig.glb",
+   "method": "GET",
+   "status": 200,
+   "contentType": "application/octet-stream",
+   "headers": {
+    "cache-status": "\"Netlify Edge\"; hit; ttl=31529812",
+    "content-type": "application/octet-stream",
+    "x-nf-request-id": "01M61VS2QZ0SQFXGBBPC3J1ANS"
+   },
+   "resourceType": "fetch",
+   "passes": [
+    "desktop",
+    "mobile"
+   ],
+   "file": "site/yeahright.co/pig.glb",
+   "size": 847264,
+   "modes": [
+    "cors"
+   ]
+  },
+  {
+   "url": "https://yeahright.co/favicon.svg",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/svg+xml",
+   "headers": {
+    "cache-status": "\"Netlify Edge\"; hit; ttl=31509317",
+    "content-type": "image/svg+xml",
+    "x-nf-request-id": "01M61VS3T1N6YNN81EXZ4P1KST"
+   },
+   "resourceType": "other",
+   "passes": [
+    "mobile",
+    "desktop"
+   ],
+   "file": "site/yeahright.co/favicon.svg",
+   "size": 571,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://yeahright.co/anger.webm",
+   "method": "GET",
+   "status": 200,
+   "contentType": "video/webm",
+   "headers": {
+    "cache-status": "\"Netlify Edge\"; hit; ttl=31515879",
+    "content-type": "video/webm",
+    "x-nf-request-id": "01M61VSZV5KGZW3VDNNVHSV7WG"
+   },
+   "resourceType": "media",
+   "passes": [
+    "desktop"
+   ],
+   "file": "site/yeahright.co/anger.webm",
+   "size": 95722,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://yeahright.co/chime.mp3",
+   "method": "GET",
+   "status": 200,
+   "contentType": "audio/mpeg",
+   "headers": {
+    "cache-status": "\"Netlify Edge\"; fwd=miss; fwd-status=200; stored",
+    "content-type": "audio/mpeg",
+    "x-nf-request-id": "01M61VSZV2XK92FTQQ3XZGP0KA"
+   },
+   "resourceType": "media",
+   "passes": [
+    "desktop"
+   ],
+   "file": "site/yeahright.co/chime.mp3",
+   "size": 33184,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://yeahright.co/static.mp3",
+   "method": "GET",
+   "status": 200,
+   "contentType": "audio/mpeg",
+   "headers": {
+    "cache-status": "\"Netlify Edge\"; fwd=miss; fwd-status=200; stored",
+    "content-type": "audio/mpeg",
+    "x-nf-request-id": "01M61VSZV8QEEQFT8JYCH8AEBX"
+   },
+   "resourceType": "media",
+   "passes": [
+    "desktop"
+   ],
+   "file": "site/yeahright.co/static.mp3",
+   "size": 15616,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://yeahright.co/tv-static.mp3",
+   "method": "GET",
+   "status": 200,
+   "contentType": "audio/mpeg",
+   "headers": {
+    "cache-status": "\"Netlify Edge\"; fwd=miss; fwd-status=200; stored",
+    "content-type": "audio/mpeg",
+    "x-nf-request-id": "01M61VSZVHAMP9D99048QJRPTS"
+   },
+   "resourceType": "media",
+   "passes": [
+    "desktop"
+   ],
+   "file": "site/yeahright.co/tv-static.mp3",
+   "size": 6314,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://yeahright.co/site.webmanifest",
+   "method": "GET",
+   "status": 200,
+   "contentType": "application/octet-stream",
+   "headers": {
+    "cache-status": "\"Netlify Edge\"; hit; ttl=31529780",
+    "content-type": "application/octet-stream",
+    "x-nf-request-id": "01M61VT07294WK3P5QTYCBQC3Y"
+   },
+   "resourceType": "other",
+   "passes": [
+    "desktop"
+   ],
+   "file": "site/yeahright.co/site.webmanifest",
+   "size": 325
+  },
+  {
+   "url": "https://yeahright.co/lift-alarm.mp3",
+   "method": "GET",
+   "status": 200,
+   "contentType": "audio/mpeg",
+   "headers": {
+    "cache-status": "\"Netlify Edge\"; fwd=miss; fwd-status=200; stored",
+    "content-type": "audio/mpeg",
+    "x-nf-request-id": "01M61VT030A5QVJP920HP5SP9K"
+   },
+   "resourceType": "media",
+   "passes": [
+    "desktop"
+   ],
+   "file": "site/yeahright.co/lift-alarm.mp3",
+   "size": 20107,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://yeahright.co/favicon.ico",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/vnd.microsoft.icon",
+   "headers": {
+    "cache-status": "\"Netlify Edge\"; hit; ttl=31509296",
+    "content-type": "image/vnd.microsoft.icon",
+    "x-nf-request-id": "01M61VT09CEAMZ68BZW2SWY413"
+   },
+   "resourceType": "other",
+   "passes": [
+    "desktop"
+   ],
+   "file": "site/yeahright.co/favicon.ico",
+   "size": 15086
+  },
+  {
+   "url": "https://yeahright.co/apple-touch-icon.png",
+   "method": "GET",
+   "status": 200,
+   "contentType": "image/png",
+   "headers": {
+    "cache-status": "\"Netlify Edge\"; hit; ttl=31510226",
+    "content-type": "image/png",
+    "x-nf-request-id": "01M61VT0A4XEX9GVBE9Z1C0XG4"
+   },
+   "resourceType": "other",
+   "passes": [
+    "desktop"
+   ],
+   "file": "site/yeahright.co/apple-touch-icon.png",
+   "size": 1689
+  },
+  {
+   "url": "https://yeahright.co/amore.mp3",
+   "method": "GET",
+   "status": 200,
+   "contentType": "audio/mpeg",
+   "headers": {
+    "cache-status": "\"Netlify Edge\"; fwd=miss; fwd-status=200; stored",
+    "content-type": "audio/mpeg",
+    "x-nf-request-id": "01M61VSZVATE8V8YBX56CPCBCV"
+   },
+   "resourceType": "media",
+   "passes": [
+    "desktop"
+   ],
+   "file": "site/yeahright.co/amore.mp3",
+   "size": 236224,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://yeahright.co/music.mp3",
+   "method": "GET",
+   "status": 200,
+   "contentType": "audio/mpeg",
+   "headers": {
+    "cache-status": "\"Netlify Edge\"; fwd=miss; fwd-status=200; stored",
+    "content-type": "audio/mpeg",
+    "x-nf-request-id": "01M61VSZVEJS8QVR9VCW1NCQ5M"
+   },
+   "resourceType": "media",
+   "passes": [
+    "desktop"
+   ],
+   "file": "site/yeahright.co/music.mp3",
+   "size": 886816,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://yeahright.co/work/video/new-century.mp4",
+   "method": "GET",
+   "status": 200,
+   "contentType": "video/mp4",
+   "headers": {
+    "cache-status": "\"Netlify Edge\"; hit; ttl=31515878",
+    "content-type": "video/mp4",
+    "x-nf-request-id": "01M61VT04NMBWEPJCQT7H1WPN5"
+   },
+   "resourceType": "media",
+   "passes": [
+    "desktop"
+   ],
+   "file": "site/yeahright.co/work/video/new-century.mp4",
+   "size": 4307748,
+   "modes": [
+    "no-cors"
+   ]
+  },
+  {
+   "url": "https://yeahright.co/work/video/srut.mp4",
+   "method": "GET",
+   "status": 200,
+   "contentType": "video/mp4",
+   "headers": {
+    "cache-status": "\"Netlify Edge\"; hit; ttl=31515878",
+    "content-type": "video/mp4",
+    "x-nf-request-id": "01M61VT04MYFZYBEEPABARVA9D"
+   },
+   "resourceType": "media",
+   "passes": [
+    "desktop"
+   ],
+   "file": "site/yeahright.co/work/video/srut.mp4",
+   "size": 4163464,
+   "modes": [
+    "no-cors"
+   ]
+  }
+ ],
+ "videos": {
+  "posters": {},
+  "onlineHosts": []
+ }
+}

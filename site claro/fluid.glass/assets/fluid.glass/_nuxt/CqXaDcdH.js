@@ -1,0 +1,1 @@
+import{a as e}from"./B18RwsUZ.js";var t=()=>e().$device;export{t};

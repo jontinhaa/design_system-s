@@ -1,0 +1,48 @@
+{
+ "builders": [
+  "framer",
+  "react"
+ ],
+ "libraries": [
+  {
+   "name": "lenis",
+   "version": "1.2.4",
+   "sources": [
+    "página",
+    "https://unpkg.com/lenis@1.2.4-dev.1/dist/lenis.css"
+   ]
+  }
+ ],
+ "runtime": {
+  "contexts": {},
+  "wasm": 0,
+  "workers": 0,
+  "webgpu": false,
+  "shadowRoots": 0,
+  "canvases": 0
+ },
+ "cssFeatures": [
+  "view transitions"
+ ],
+ "fonts": {
+  "families": [
+   "Instrument Serif",
+   "Inter",
+   "Inter Display",
+   "Instrument Serif Placeholder",
+   "Inter Placeholder",
+   "Inter Display Placeholder"
+  ],
+  "sources": [
+   "framer",
+   "google fonts"
+  ]
+ },
+ "videos": [],
+ "files": {
+  "text": 72,
+  "image": 30,
+  "font": 8,
+  "application": 2
+ }
+}

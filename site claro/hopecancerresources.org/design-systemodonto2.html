@@ -1,0 +1,2577 @@
+<!DOCTYPE html>
+<html class="no-js no-svg" lang="en-US">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Hope Cancer Resources — Design System</title>
+<meta name="description" content="Living design system and pattern library for Hope Cancer Resources, built from the original theme classes.">
+<link rel="icon" href="site/hopecancerresources.org/wp-content/uploads/2025/05/cropped-favicon-32x32.png" sizes="32x32">
+<link rel="icon" href="site/hopecancerresources.org/wp-content/uploads/2025/05/cropped-favicon-192x192.png" sizes="192x192">
+<link rel="apple-touch-icon" href="site/hopecancerresources.org/wp-content/uploads/2025/05/cropped-favicon-180x180.png">
+<!-- Same assets as the reference page -->
+<link rel="stylesheet" href="site/hopecancerresources.org/wp-content/themes/hope-cancer-resources/style__q2af5e4b5.css" type="text/css" media="screen">
+<link rel="stylesheet" href="site/_runtime/file-fonts.css">
+<link rel="stylesheet" href="site/_runtime/style-0.css">
+<link rel="stylesheet" href="site/_runtime/style-1.css">
+<link rel="stylesheet" href="site/_runtime/style-2.css">
+<link rel="stylesheet" href="site/_runtime/style-3.css">
+<link rel="stylesheet" href="site/_runtime/style-4.css">
+<style>
+/* ===== Design-system documentation shell (ds-*) =====
+   Only scaffolding for the docs page. Every component, type style, color and
+   motion shown below uses the ORIGINAL theme classes from style__q2af5e4b5.css. */
+
+html{scroll-behavior:smooth}
+
+/* top nav (fixed) + offsets so the cloned hero header/logo sit below it */
+.ds-topnav{position:fixed;top:0;left:0;right:0;height:44px;z-index:100;background:var(--color-brand-black);display:flex;align-items:center;gap:4px;padding:0 14px;overflow-x:auto;scrollbar-width:none}
+.ds-topnav::-webkit-scrollbar{display:none}
+.ds-topnav .ds-brand{flex:0 0 auto;color:#fff;font-family:var(--font-primary);font-weight:800;font-size:13px;letter-spacing:.14em;text-transform:uppercase;padding:0 14px 0 0;margin-right:6px;border-right:1px solid rgba(255,255,255,.22)}
+.ds-topnav a{flex:0 0 auto;color:#fff;text-decoration:none;font-family:var(--font-primary);font-weight:600;font-size:12px;letter-spacing:.12em;text-transform:uppercase;padding:7px 14px;border-radius:100px;white-space:nowrap}
+.ds-topnav a:hover,.ds-topnav a.is-active{background:var(--color-brand-blue)}
+.site-header{top:44px}
+.logo-holder-main.show{top:49px}
+
+/* sections */
+.ds-section{position:relative;padding:90px 0;background:#fff;scroll-margin-top:44px}
+.ds-section--tint{background:var(--color-lightest-gray)}
+.ds-head{margin-bottom:44px}
+.ds-eyebrow{font-family:var(--font-primary);font-weight:800;font-size:12px;letter-spacing:.2em;text-transform:uppercase;color:var(--color-brand-blue);margin-bottom:14px}
+.ds-lede{font-family:var(--font-base);font-size:18px;line-height:1.5;color:var(--color-brand-darkblue);max-width:760px;margin:18px 0 0}
+.ds-sub{font-family:var(--font-primary);font-weight:800;font-size:12px;letter-spacing:.2em;text-transform:uppercase;color:var(--color-brand-darkblue);margin:56px 0 16px;padding-bottom:10px;border-bottom:2px solid var(--color-lightest-gray)}
+.ds-section--tint .ds-sub{border-bottom-color:#fff}
+.ds-sub:first-of-type{margin-top:0}
+.ds-code{font-family:Consolas,"Courier New",monospace;font-size:12px;line-height:1.4;background:var(--color-lightest-gray);color:var(--color-brand-black);padding:2px 6px;border-radius:4px;word-break:break-word}
+.ds-section--tint .ds-code{background:#fff}
+.ds-note{font-family:var(--font-base);font-size:14px;line-height:1.5;color:var(--color-brand-darkblue);margin:14px 0 0}
+.ds-muted{color:var(--color-brand-gray-500)}
+
+/* typography spec table */
+.ds-spec-row{display:grid;grid-template-columns:200px minmax(0,1fr) 190px;gap:24px;align-items:center;padding:26px 0;border-bottom:1px solid var(--color-lightest-gray)}
+.ds-spec-name{font-family:var(--font-primary);font-weight:800;font-size:15px;color:var(--color-brand-black)}
+.ds-spec-name .ds-code{display:inline-block;margin-top:8px;font-weight:400}
+.ds-spec-preview{min-width:0}
+.ds-spec-preview .engagement_section:after{display:none}
+.ds-spec-size{text-align:right;font-family:var(--font-primary);font-weight:800;font-size:15px;color:var(--color-brand-darkblue);white-space:nowrap}
+.ds-spec-meta{display:block;font-weight:500;font-size:11px;letter-spacing:.04em;color:var(--color-brand-gray-500);margin-top:4px}
+@media(max-width:800px){.ds-spec-row{grid-template-columns:1fr;gap:10px}.ds-spec-size{text-align:left}}
+
+/* swatches */
+.ds-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:16px}
+.ds-grid--wide{grid-template-columns:repeat(auto-fill,minmax(320px,1fr))}
+.ds-swatch{border:1px solid var(--color-lightest-gray);border-radius:12px;overflow:hidden;background:#fff}
+.ds-section--tint .ds-swatch{border-color:#fff}
+.ds-chip{height:110px;display:block}
+.ds-swatch__body{padding:14px 16px 16px}
+.ds-swatch__name{font-family:var(--font-primary);font-weight:800;font-size:15px;color:var(--color-brand-black);margin-bottom:6px}
+.ds-swatch__hex{font-family:Consolas,"Courier New",monospace;font-size:12px;color:var(--color-brand-darkblue);margin-top:6px}
+.ds-swatch__use{font-family:var(--font-base);font-size:13px;line-height:1.4;color:var(--color-brand-darkblue);margin-top:8px}
+.ds-bg-black{background:var(--color-brand-black)}
+.ds-bg-blue{background:var(--color-brand-blue)}
+.ds-bg-lightblue{background:var(--color-brand-lightblue)}
+.ds-bg-darkblue{background:var(--color-brand-darkblue)}
+.ds-bg-gray500{background:var(--color-brand-gray-500)}
+.ds-bg-lightest{background:var(--color-lightest-gray)}
+.ds-bg-warning{background:var(--color-notice-warning)}
+.ds-bg-success{background:var(--color-notice-success)}
+.ds-bg-white{background:#fff;border-bottom:1px solid var(--color-lightest-gray)}
+.ds-bg-chip{background:#f0f4f5}
+.ds-bg-rule{background:#b0c5dc}
+.ds-bg-error{background:#900}
+.ds-bg-star{background:#aa0000}
+.ds-bg-label{background:#404040}
+.ds-grad-card{background:linear-gradient(0deg,rgba(16,36,61,.3) 39%,rgba(16,36,61,0) 78%)}
+.ds-grad-fade{background:linear-gradient(0deg,rgb(237,241,244) 9%,rgba(237,241,244,0) 94%)}
+.ds-grad-h{background:linear-gradient(to top,#1b7aaf,rgba(27,122,175,.7))}
+.ds-photo{background:url("site/hopecancerresources.org/wp-content/uploads/2025/05/bg-stories.jpg") center/cover no-repeat}
+.ds-photo--donate{background:url("site/hopecancerresources.org/wp-content/uploads/2025/05/bg-donate-tall-600x0-c-default.jpg") center/cover no-repeat}
+.ds-glass-a{background:hsla(0,0%,100%,.2);border:1px solid hsla(0,0%,100%,.22);backdrop-filter:blur(10px)}
+.ds-glass-b{background:rgba(221,228,231,.58);border:1px solid hsla(0,0%,100%,.22);backdrop-filter:blur(5px)}
+.ds-glass-c{background:hsla(0,0%,100%,.85);backdrop-filter:blur(10px)}
+.ds-overlay-stage{position:relative;height:110px;display:flex;align-items:flex-end}
+.ds-overlay-stage .ds-chip-inner{position:absolute;left:0;right:0;bottom:0;height:60%}
+.ds-glass-stage{height:110px;display:flex;align-items:center;justify-content:center}
+.ds-glass-stage span{display:block;width:70%;height:34px;border-radius:100px}
+.ds-surface-demo{display:flex;flex-wrap:wrap;gap:20px;align-items:stretch}
+.ds-surface-demo > div{flex:1 1 220px;min-height:120px;display:flex;flex-direction:column;justify-content:flex-end;font-family:var(--font-primary);font-weight:800;font-size:13px;color:var(--color-brand-black);padding:16px}
+.ds-surface-demo .ds-code{align-self:flex-start;margin-top:6px;font-weight:400}
+
+/* stages */
+.ds-stage{border:1px solid var(--color-lightest-gray);border-radius:12px;padding:28px;background:#fff;position:relative}
+.ds-section--tint .ds-stage{border-color:#fff}
+.ds-stage--dark{background:var(--color-brand-black);border-color:var(--color-brand-black)}
+.ds-stage--blue{background:var(--color-brand-blue);border-color:var(--color-brand-blue)}
+.ds-stage--gray{background:var(--color-lightest-gray);border-color:var(--color-lightest-gray)}
+.ds-stage--flush{padding:0;overflow:hidden}
+.ds-stage--clip{height:56px;overflow:hidden;padding:0}
+.ds-stage--photo{padding:34px 0 20px}
+.ds-stage-label{font-family:var(--font-primary);font-weight:800;font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--color-brand-gray-500);margin:0 0 12px}
+.ds-stage--dark .ds-stage-label,.ds-stage--blue .ds-stage-label{color:rgba(255,255,255,.7)}
+
+/* components table */
+.ds-comp{display:grid;grid-template-columns:200px minmax(0,1fr) minmax(0,1fr);gap:24px;padding:26px 0;border-bottom:1px solid var(--color-lightest-gray);align-items:start}
+.ds-comp:first-of-type{padding-top:0}
+.ds-comp-name{font-family:var(--font-primary);font-weight:800;font-size:15px;color:var(--color-brand-black)}
+.ds-comp-name .ds-code{display:inline-block;margin-top:8px;font-weight:400}
+.ds-comp-head{display:grid;grid-template-columns:200px minmax(0,1fr) minmax(0,1fr);gap:24px;font-family:var(--font-primary);font-weight:800;font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--color-brand-gray-500);padding-bottom:12px;border-bottom:2px solid var(--color-lightest-gray)}
+.ds-comp-state{min-width:0}
+.ds-comp-state .ds-stage-label{margin-bottom:10px}
+.ds-na{font-family:var(--font-base);font-size:13px;color:var(--color-brand-gray-500);font-style:italic}
+@media(max-width:900px){.ds-comp,.ds-comp-head{grid-template-columns:1fr;gap:12px}.ds-comp-head{display:none}}
+
+/* state mirrors: same declarations as the real :hover / :focus rules, so a state can be shown side by side */
+.btn.ds-state-hover{background-color:var(--color-brand-black);border:none}
+.site-footer .footer-section-nav .btn-group .btn-footer.ds-state-hover{background-color:var(--color-brand-black)}
+.skip-link.ds-state-focus{top:0}
+.ds-inline-header.site-header{position:relative;top:auto;left:auto;right:auto;z-index:1}
+.ds-inline-header .header-base{height:auto;padding:0 20px}
+.ds-inline-header .content-wrapper{justify-content:flex-start}
+
+/* layout docs */
+.ds-pattern{margin-top:56px}
+.ds-pattern-bar{display:flex;flex-wrap:wrap;gap:8px 16px;align-items:baseline;padding:12px 0;border-top:2px solid var(--color-lightest-gray)}
+.ds-pattern-bar b{font-family:var(--font-primary);font-weight:800;font-size:14px;color:var(--color-brand-black)}
+.ds-table{width:100%;border-collapse:collapse;font-family:var(--font-base);font-size:14px;color:var(--color-brand-black)}
+.ds-table th{text-align:left;font-family:var(--font-primary);font-weight:800;font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--color-brand-gray-500);padding:0 16px 10px 0;border-bottom:2px solid var(--color-lightest-gray)}
+.ds-table td{padding:12px 16px 12px 0;border-bottom:1px solid var(--color-lightest-gray);vertical-align:top;line-height:1.4}
+.ds-section--tint .ds-table th{border-bottom-color:#fff}
+.ds-section--tint .ds-table td{border-bottom-color:#fff}
+.ds-table td:first-child{font-weight:700;white-space:nowrap}
+.ds-table-wrap{overflow-x:auto}
+.ds-bar{display:block;height:10px;border-radius:100px;background:var(--color-brand-blue)}
+.ds-w10{width:10px}.ds-w20{width:20px}.ds-w30{width:30px}.ds-w40{width:40px}.ds-w50{width:50px}.ds-w60{width:60px}.ds-w90{width:90px}.ds-w100{width:100px}
+.ds-bp{display:flex;flex-wrap:wrap;gap:8px}
+
+/* motion gallery */
+.ds-motion-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:20px}
+.ds-tile{border:1px solid var(--color-lightest-gray);border-radius:12px;background:#fff;padding:22px;display:flex;flex-direction:column;gap:14px;min-width:0}
+.ds-section--tint .ds-tile{border-color:#fff}
+.ds-tile h3{font-family:var(--font-primary);font-weight:800;font-size:16px;line-height:1.2;color:var(--color-brand-black);margin:0}
+.ds-tile-meta{font-family:var(--font-base);font-size:13px;line-height:1.5;color:var(--color-brand-darkblue)}
+.ds-tile-demo{border-radius:8px;background:var(--color-lightest-gray);padding:20px;display:flex;align-items:center;justify-content:center;min-height:150px;overflow:hidden}
+.ds-tile-demo--flush{padding:0;align-items:stretch}
+.ds-tile-demo .three_block_set{width:100%}
+.ds-tile-demo .three_block_set .section-wrapper .list .item{min-height:300px;width:100%;max-width:100%;flex:1 1 100%;margin:0}
+.ds-readout{font-family:Consolas,"Courier New",monospace;font-size:13px;color:var(--color-brand-black);background:#fff;border-radius:6px;padding:8px 12px}
+.ds-readout b{color:var(--color-brand-blue)}
+.ds-full{margin-top:56px}
+.ds-full .ds-pattern-bar{border-top:none;padding-top:0}
+
+/* icons */
+.ds-icon-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:16px}
+.ds-icon-card{border:1px solid var(--color-lightest-gray);border-radius:12px;background:#fff;padding:20px;display:flex;flex-direction:column;gap:14px}
+.ds-section--tint .ds-icon-card{border-color:#fff}
+.ds-icon-card h3{font-family:var(--font-primary);font-weight:800;font-size:15px;color:var(--color-brand-black);margin:0}
+.ds-icon-row{display:flex;flex-wrap:wrap;gap:24px;align-items:flex-end;padding:18px;border-radius:8px;background:var(--color-lightest-gray)}
+.ds-icon-row--dark{background:var(--color-brand-black)}
+.ds-icon-row figure{margin:0;display:flex;flex-direction:column;align-items:center;gap:8px}
+.ds-icon-row figcaption{font-family:Consolas,"Courier New",monospace;font-size:11px;color:var(--color-brand-darkblue)}
+.ds-icon-row--dark figcaption{color:rgba(255,255,255,.7)}
+.ds-icon-row .full_service_list{width:100%}
+.ds-icon-row .full_service_list .section-wrapper .list{padding:0}
+
+.ds-on-blue{color:#fff}
+.ds-icon-row .site-footer{background:none;padding:0}
+.ds-icon-row .site-footer .footer-contact-blocks{border:none;padding:0;margin:0;width:auto}
+.ds-icon-row .site-footer .footer-contact-blocks .contact-block.social-block{padding:0;width:auto;min-width:0;max-width:none;flex:0 0 auto}
+
+/* footer */
+.ds-end{padding:40px 0 60px;background:var(--color-brand-black);color:rgba(255,255,255,.7);font-family:var(--font-base);font-size:13px;text-align:center}
+
+</style>
+</head>
+<body class="home wp-singular page-template-default page page-id-8 page-parent wp-theme-hope-cancer-resources template-home" data-template="base.twig">
+
+<nav class="ds-topnav" aria-label="Design system sections">
+  <span class="ds-brand">Hope DS</span>
+  <a href="#content">Hero</a>
+  <a href="#typography">Typography</a>
+  <a href="#colors">Colors &amp; Surfaces</a>
+  <a href="#components">UI Components</a>
+  <a href="#layout">Layout &amp; Spacing</a>
+  <a href="#motion">Motion</a>
+  <a href="#icons">Icons</a>
+</nav>
+<nav id="nav-mobile" class="mobile-nav" role="navigation" aria-hidden="true" tabindex="-1">
+    <div class="holder">
+      
+        <button class="mobile-nav-close" aria-label="Close mobile menu">
+        <img src="site/hopecancerresources.org/wp-content/themes/hope-cancer-resources/img/ico-close.svg" alt="" width="30" height="30">
+        </button> 
+        <svg version="1.1" class="logo-h" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 798.8 247.8" style="enable-background:new 0 0 798.8 247.8;" xml:space="preserve">
+    <path style="fill: white;" d="M115.6,82.8c-8.2,0-13.7,1-17.7,2.2-1.1.4-1.9-1.2-.9-1.9l4-2.9c21.1-16.1,33.6-34.7,33.6-54S126.8,0,108,0c-35.4,0-51.6,32.9-63.6,66.2-2.3,6.3-3.3,9.2-3.8,10.7-.1.4.2.8.6.7,11.3-3.1,22.9-8.9,30.6-14.6,1-.8,1.8-1.8,2.3-3,2.8-7.5,14.3-36.4,28-36.4s6.7,3.9,6.7,7.1c0,7.9-8.7,19.9-26.6,32.4-11.9,8.8-26.5,15.9-40.3,19.6h0s-1.7.6-1.7.6c-10.2,3.2-21.2,5.5-32.8,7-.5,0-.8.7-.4,1.1l9,9.9L.2,115.5c-.5.4-.1,1.2.5,1.2,9.7-.8,19.1-2.3,28.1-4.2,0,0,.6-.1,1.6-.3l4.1-.9c.4,0,.7.3.7.6l-16.6,82.7c0,.5.3.9.7.9h27.6c.5,0,.9-.3,1-.8l9.3-46.2c1.1-5.7,3-11,5.4-15.9,2.4-4.8,5.4-9.2,8.8-13.2,3.3-3.8,7-7.1,11-9.9,4-2.6,8.4-4.2,13.2-4.5h.2s.2,0,.2,0c5.7.3,10,2.2,12.8,5.6,2.9,3.5,4.3,7.9,4.3,13.2s-.2,5.6-.6,8.2c-.4,2.5-.8,5-1.4,7.4l-11,55c0,.5.3.9.7.9h27.5c.5,0,.9-.3,1-.8l12.3-61.2c.7-3.4,1-6.6,1.6-9.5,6.1-28.3-14.7-41.2-27.8-41.2Z"></path>  
+</svg>        <div class="mobile-menu-items">
+            	<ul class="nav-group header__mobile-menu__linklist" role="list">
+					<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-1341">
+			<a target="_self" href="https://www.bonfire.com/store/hope-cancer-resources/" class="level-one link-item" tabindex="0" aria-expanded="false">
+			Shop for Hope
+			</a>
+								</li>
+					<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-667">
+						<span class="level-one nav-link" tabindex="0" role="button" aria-expanded="false">
+			About
+			</span>						<div class="submenu-slide">
+				<div class="back-link" tabindex="0" role="button">Back to About</div>
+				<ul>
+														<li class="menu-item menu-item-type-custom menu-item-object-custom menu-item-1294">
+						<a target="_self" href="https://www.hopeunscriptedpodcast.com/" class="level-one link-item" tabindex="0">
+							Hope Unscripted Podcast
+						</a>
+						<ul class="sub-level-three">
+												</ul>
+					</li>
+														<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1028">
+						<a target="_self" href="https://hopecancerresources.org/about/" class="level-one link-item" tabindex="0">
+							About Hope
+						</a>
+						<ul class="sub-level-three">
+												</ul>
+					</li>
+														<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-672">
+						<a target="_self" href="https://hopecancerresources.org/about/our-story/" class="level-one link-item" tabindex="0">
+							Our Story
+						</a>
+						<ul class="sub-level-three">
+												</ul>
+					</li>
+														<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-669">
+						<a target="_self" href="https://hopecancerresources.org/about/our-foundation/" class="level-one link-item" tabindex="0">
+							Our Foundation
+						</a>
+						<ul class="sub-level-three">
+												</ul>
+					</li>
+														<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-671">
+						<a target="_self" href="https://hopecancerresources.org/about/staff/" class="level-one link-item" tabindex="0">
+							Staff
+						</a>
+						<ul class="sub-level-three">
+												</ul>
+					</li>
+														<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-670">
+						<a target="_self" href="https://hopecancerresources.org/about/board-of-directors/" class="level-one link-item" tabindex="0">
+							Board of Directors
+						</a>
+						<ul class="sub-level-three">
+												</ul>
+					</li>
+														<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-668">
+						<a target="_self" href="https://hopecancerresources.org/about/careers/" class="level-one link-item" tabindex="0">
+							Careers
+						</a>
+						<ul class="sub-level-three">
+												</ul>
+					</li>
+								</ul>
+			</div>
+					</li>
+					<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-673">
+						<span class="level-one nav-link" tabindex="0" role="button" aria-expanded="false">
+			Programs
+			</span>						<div class="submenu-slide">
+				<div class="back-link" tabindex="0" role="button">Back to Programs</div>
+				<ul>
+														<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1029">
+						<a target="_self" href="https://hopecancerresources.org/services/" class="level-one link-item" tabindex="0">
+							All Services
+						</a>
+						<ul class="sub-level-three">
+												</ul>
+					</li>
+														<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-684">
+						<a target="_self" href="https://hopecancerresources.org/services/transportation/" class="level-one link-item" tabindex="0">
+							Transportation
+						</a>
+						<ul class="sub-level-three">
+												</ul>
+					</li>
+														<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-675">
+						<a target="_self" href="https://hopecancerresources.org/services/patient-support/counseling/" class="level-one link-item" tabindex="0">
+							Counseling
+						</a>
+						<ul class="sub-level-three">
+												</ul>
+					</li>
+														<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-676">
+						<a target="_self" href="https://hopecancerresources.org/services/patient-support/support-groups/" class="level-one link-item" tabindex="0">
+							Support Groups
+						</a>
+						<ul class="sub-level-three">
+												</ul>
+					</li>
+														<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-677">
+						<a target="_self" href="https://hopecancerresources.org/services/patient-support/workshops/" class="level-one link-item" tabindex="0">
+							Workshops
+						</a>
+						<ul class="sub-level-three">
+												</ul>
+					</li>
+														<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-678">
+						<a target="_self" href="https://hopecancerresources.org/services/patient-support/financial-assistance/" class="level-one link-item" tabindex="0">
+							Financial Assistance
+						</a>
+						<ul class="sub-level-three">
+												</ul>
+					</li>
+														<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-681">
+						<a target="_self" href="https://hopecancerresources.org/services/wellness-center-for-hope/tobacco-treatment/" class="level-one link-item" tabindex="0">
+							Tobacco Treatment
+						</a>
+						<ul class="sub-level-three">
+												</ul>
+					</li>
+														<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-682">
+						<a target="_self" href="https://hopecancerresources.org/services/wellness-center-for-hope/yoga/" class="level-one link-item" tabindex="0">
+							Yoga
+						</a>
+						<ul class="sub-level-three">
+												</ul>
+					</li>
+														<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-683">
+						<a target="_self" href="https://hopecancerresources.org/services/wellness-center-for-hope/cancer-prevention-education/" class="level-one link-item" tabindex="0">
+							Cancer Prevention Education
+						</a>
+						<ul class="sub-level-three">
+												</ul>
+					</li>
+														<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-958">
+						<a target="_self" href="https://hopecancerresources.org/services/wellness-center-for-hope/personal-training/" class="level-one link-item" tabindex="0">
+							Personal Training
+						</a>
+						<ul class="sub-level-three">
+												</ul>
+					</li>
+														<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-959">
+						<a target="_self" href="https://hopecancerresources.org/services/wellness-center-for-hope/nutrition-education/" class="level-one link-item" tabindex="0">
+							Nutrition Education
+						</a>
+						<ul class="sub-level-three">
+												</ul>
+					</li>
+														<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-972">
+						<a target="_self" href="https://hopecancerresources.org/services/patient-support/the-care-closet/" class="level-one link-item" tabindex="0">
+							The Care Closet
+						</a>
+						<ul class="sub-level-three">
+												</ul>
+					</li>
+														<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-679">
+						<a target="_self" href="https://hopecancerresources.org/services/patient-support/addition-resources/" class="level-one link-item" tabindex="0">
+							Additional Resources
+						</a>
+						<ul class="sub-level-three">
+												</ul>
+					</li>
+								</ul>
+			</div>
+					</li>
+					<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-685">
+						<span class="level-one nav-link" tabindex="0" role="button" aria-expanded="false">
+			Get Involved
+			</span>						<div class="submenu-slide">
+				<div class="back-link" tabindex="0" role="button">Back to Get Involved</div>
+				<ul>
+														<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-689">
+						<a target="_self" href="https://hopecancerresources.org/get-involved/" class="level-one link-item" tabindex="0">
+							Ways To Help
+						</a>
+						<ul class="sub-level-three">
+												</ul>
+					</li>
+														<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-686">
+						<a target="_self" href="https://hopecancerresources.org/get-involved/volunteer/" class="level-one link-item" tabindex="0">
+							Volunteer
+						</a>
+						<ul class="sub-level-three">
+												</ul>
+					</li>
+														<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-688">
+						<a target="_self" href="https://hopecancerresources.org/get-involved/grant-support/" class="level-one link-item" tabindex="0">
+							Grant Support
+						</a>
+						<ul class="sub-level-three">
+												</ul>
+					</li>
+														<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-687">
+						<a target="_self" href="https://hopecancerresources.org/get-involved/donate/" class="level-one link-item" tabindex="0">
+							Donate
+						</a>
+						<ul class="sub-level-three">
+												</ul>
+					</li>
+								</ul>
+			</div>
+					</li>
+					<li class="menu-item menu-item-type-post_type menu-item-object-page menu-item-690">
+			<a target="_self" href="https://hopecancerresources.org/calendar/" class="level-one link-item" tabindex="0" aria-expanded="false">
+			Events
+			</a>
+								</li>
+		</ul>
+            <div class="action-menu">
+                                <div class="btn-set">
+                                            <a class="btn-filled" href="https://hopecancerresources.org/apply-for-assistance">
+                            <span class="text">Apply for Assistance</span>
+                            <svg version="1.1" class="ico-arrow" width="15" height="15" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 17.2 17.2" style="enable-background:new 0 0 17.2 17.2;" xml:space="preserve">
+<g>
+	<line style="fill:none;stroke:#191A1C;stroke-width:3;stroke-miterlimit:10;" x1="1.1" y1="16.2" x2="14.9" y2="2.3"></line>
+	<polyline style="fill:none;stroke:#191A1C;stroke-width:3;stroke-miterlimit:10;" points="0.5,1.5 15.7,1.5 15.7,16.7 	"></polyline>
+</g>
+</svg>
+                        </a>
+                                            <a class="btn-filled" href="https://hopecancerresources.org/get-involved/donate">
+                            <span class="text">Donate</span>
+                            <svg version="1.1" class="ico-arrow" width="15" height="15" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 17.2 17.2" style="enable-background:new 0 0 17.2 17.2;" xml:space="preserve">
+<g>
+	<line style="fill:none;stroke:#191A1C;stroke-width:3;stroke-miterlimit:10;" x1="1.1" y1="16.2" x2="14.9" y2="2.3"></line>
+	<polyline style="fill:none;stroke:#191A1C;stroke-width:3;stroke-miterlimit:10;" points="0.5,1.5 15.7,1.5 15.7,16.7 	"></polyline>
+</g>
+</svg>
+                        </a>
+                                    </div>
+                                <ul class="social-links">
+                                                                <li>
+                            <a href="https://www.instagram.com/hopecancerresources/" aria-label="Instagram" rel="noreferrer" target="_blank">
+                                <div class="icon instagram"></div>
+                            </a>
+                        </li>
+                                                                <li>
+                            <a href="https://www.facebook.com/HopeCancerResources/" aria-label="Facebook" rel="noreferrer" target="_blank">
+                                <div class="icon facebook"></div>
+                            </a>
+                        </li>
+                                                                                    <li>
+                            <a href="https://www.youtube.com/user/HopeCancerResources" aria-label="Youtube" rel="noreferrer" target="_blank">
+                                <div class="icon youtube"></div>
+                            </a>
+                        </li>
+                                                                <li>
+                            <a href="https://x.com/hopenwa" aria-label="Twitter" rel="noreferrer" target="_blank">
+                                <div class="icon twitter"></div>
+                            </a>
+                        </li>
+                                                                <li>
+                            <a href="https://www.linkedin.com/company/hope-cancer-resources" aria-label="LinkedIn" rel="noreferrer" target="_blank">
+                                <div class="icon linkedin"></div>
+                            </a>
+                        </li>
+                                    </ul>
+            </div>
+        </div>
+    
+    </div>
+</nav>
+<!-- #nav-mobile -->
+<header class="site-header template-home header-unscrolled">
+            <div class="header-base">
+            <div class="content-wrapper">
+
+
+                <div class="logo-holder">
+                    <a class="primary-logo" href="https://hopecancerresources.org/" rel="home">
+                        <svg version="1.1" class="logo-svg" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 798.8 247.8" style="enable-background:new 0 0 798.8 247.8;" xml:space="preserve">
+
+ <path class="h char" style="fill:white" d="M116.4,82.6c-7.4,0-14.5,1.2-18.5,2.4-1.1.4-1.9-1.2-.9-1.9l4-2.9c21.1-16.1,33.6-34.7,33.6-54S126.8,0,108,0C72.6,0,56.4,32.9,44.4,66.2c-2.3,6.3-3.3,9.2-3.8,10.7,0,.4.2.8.6.7,11.3-3.1,22.9-8.9,30.6-14.6,1-.8,1.8-1.8,2.3-3,2.8-7.5,14.3-36.4,28-36.4s6.7,3.9,6.7,7.1c0,7.9-8.7,19.9-26.6,32.4-11.9,8.8-26.5,15.9-40.3,19.6l-1.7.6c-10.2,3.2-21.2,5.5-32.8,7-.5,0-.8.7-.4,1.1l9,9.9L.2,115.5c-.5.4-.1,1.2.5,1.2,9.7-.8,19.1-2.3,28.1-4.2,0,0,.6-.1,1.6-.3l4.1-.9c.4,0,.7.3.7.6l-16.6,82.7c0,.5.3.9.7.9h27.6c.5,0,.9-.3,1-.8l9.3-46.2c1.1-5.7,3-11,5.4-15.9,2.4-4.8,5.4-9.2,8.8-13.2,3.3-3.8,7-7.1,11-9.9,4-2.6,8.4-4.2,13.2-4.5h.4c5.7.3,10,2.2,12.8,5.6,2.9,3.5,4.3,7.9,4.3,13.2s-.2,5.6-.6,8.2c-.4,2.5-.8,5-1.4,7.4l-11,55c0,.5.3.9.7.9h27.5c.5,0,.9-.3,1-.8l12.3-61.2c.7-3.4,1-6.6,1.6-9.5,6.1-28.3-12.7-41.2-26.8-41.2Z"></path>
+  <path class="char" style="fill:white" d="M343,84.1h0c-19.7,0-33.8,7.9-42.5,17.6l2.7-14.7c0-.4-.2-.7-.6-.7h-27.9c-.5,0-1,.4-1.1.9l-32.3,159.9c0,.4.2.7.6.7h27.9c.5,0,1-.4,1.1-.9l12.8-62.8c1,1.8,2.9,4.4,6,7.1,4.8,4.2,13.7,9.1,28.5,9.1h.2c22,0,38-15.4,43.4-23.5,10.6-16,14.4-36.8,14.4-51,0-32.1-20.4-41.7-33.2-41.7ZM345.4,135.2c-.3,2.9-.7,5.2-1,7l-.5,3.6v.3c-4.3,20.4-14.6,30.8-30.9,30.8s-25.8-3.7-22.7-24.3l1-6.3c1-4.9,2.6-9.8,4.7-14.5,2.1-4.7,4.7-8.8,7.6-12.3,2.8-3.5,6.1-6.5,10-8.9,4-2.6,8.5-3.8,13.4-3.8s10.5,1.9,13.8,5.8c3.3,3.7,4.9,8.9,4.9,15.2s-.2,4.6-.5,7.5h.2Z"></path>
+  <path class="char" style="fill:white" d="M206.9,83.2h0c-17.6,0-32.8,7.4-43.9,21.2-10.5,13.1-16.3,30.7-16.3,49.6s8.2,46.4,47.5,46.4,61.9-38.1,61.9-65.6-17.5-51.6-49.1-51.6ZM223.7,147.2c-4,20.2-13.6,30.4-28.4,30.4s-23.5-1.8-21-22.9,1.1-7.7,2.9-17.9c2-9.9,5.3-17.4,9.9-22.5,4.8-5.2,11-7.9,18.4-7.9s12.1,2.2,15.7,6.4c3.5,4.2,5.3,9.7,5.3,16.5s-1.8,12.5-2.8,17.9Z"></path>
+  <path class="char" style="fill:white" d="M473.4,89.7c-3.9-2.3-8.3-4-13.1-4.9-4.9-1-9.5-1.5-13.9-1.5-23.1,0-40.9,8.7-52.9,25.8-10.1,14.4-13.6,31.9-13.6,43.5,0,31.7,16.6,47.8,50.5,47.8s42.2-14.7,48.8-22.6c0,0,.5-.7,0-1.1-.3-.3-14.2-11-14.6-11.2-.6-.5-1.1,0-1.1,0-4.8,5.5-9.3,9.2-13.5,11.2-4.8,2.3-10,3.5-15.6,3.5-8.7,0-14.7-1.9-18.4-5.9-3.5-3.9-5.3-9-5.3-15.2v-2c0-.9.2-2.1.5-3.7h-.1l.4-1.9h1.9c13.2-.5,24.7-1.7,34.1-3.7,9.3-1.9,17-4.6,22.8-8,5.7-3.3,9.9-7.2,12.6-11.6,2.6-4.4,4-9.5,4-15.1s-1.3-10.7-3.8-14.4c-2.6-3.8-5.9-6.9-9.7-9.1ZM458.8,124.1c-1.3,2.4-3.7,4.4-7.2,6.2-3.3,1.7-7.7,3-13.3,4.1-5.5,1.1-12.6,1.8-21.2,2.3l-3.1.2,1.5-8.2h0c1.5-8.1,4.8-14.6,10-19.3,5.2-4.8,11.7-7.2,19.1-7.2s3.2.2,4.9.5c1.9.3,3.7,1,5.3,2,1.7,1,3.2,2.5,4.3,4.4,1.1,1.9,1.7,4.4,1.7,7.4s-.6,5.4-1.9,7.6Z"></path>
+  <path class="char" style="fill:white" d="M528.3,106.4c1.6,0,3.2.4,4.3,1.2,1.1.8,1.8,2,2.2,3.5h5.8c-.5-3-1.9-5.4-4-7.1s-4.9-2.5-8.3-2.5-5.2.6-7.2,1.8-3.5,2.9-4.6,5.1c-1.1,2.2-1.6,4.7-1.6,7.5s.5,5.3,1.6,7.5c1.1,2.2,2.6,3.8,4.6,5,2,1.2,4.4,1.8,7.2,1.8s6.1-.8,8.3-2.5c2.1-1.6,3.5-3.9,4-6.8h-5.9c-.3,1.4-1.1,2.5-2.1,3.3-1.1.8-2.5,1.2-4.3,1.2s-3-.4-4.2-1.2-2.1-1.9-2.7-3.3c-.6-1.4-1-3.1-1-5.1s.3-3.7,1-5.1c.6-1.4,1.5-2.5,2.7-3.3v.2c1.2-.8,2.6-1.2,4.2-1.2Z"></path>
+  <path class="char" style="fill:white" d="M560.3,102h0l-10.2,27.8h5.6l2.2-6.3h10.7l2.2,6.3h5.7l-10.1-27.8h-6.1ZM559.4,119.3h0l3.9-11.2,3.9,11.2h-7.8Z"></path>
+  <polygon class="char" style="fill:white" points="610.7 102 605.4 102 605.4 121.2 592.6 102 587.3 102 587.3 129.8 592.6 129.8 592.6 110.7 605.4 129.8 610.7 129.8 610.7 102"></polygon>
+  <path class="char" style="fill:white" d="M642.2,120.8v.2c-.3,1.4-1.1,2.5-2.1,3.3-1.1.8-2.5,1.2-4.3,1.2s-3-.4-4.2-1.2-2.1-1.9-2.7-3.3c-.6-1.4-1-3.1-1-5.1s.3-3.7,1-5.1c.6-1.4,1.5-2.5,2.7-3.3s2.6-1.2,4.2-1.2,3.2.4,4.3,1.2,1.8,2,2.2,3.5h5.8c-.5-3-1.9-5.4-4-7.1-2.1-1.7-4.9-2.5-8.3-2.5s-5.2.6-7.2,1.8-3.5,2.9-4.6,5.1-1.6,4.7-1.6,7.5.5,5.3,1.6,7.5,2.6,3.8,4.6,5,4.4,1.8,7.2,1.8,6.1-.8,8.3-2.5c2.1-1.6,3.5-3.9,4-6.8h-5.9Z"></path>
+  <polygon class="char" style="fill:white" points="659.7 129.8 678 129.8 678 125.5 665.1 125.5 665.1 117.8 676.8 117.8 676.8 113.6 665.1 113.6 665.1 106.4 678 106.4 678 102 659.7 102 659.7 129.8"></polygon>
+  <path class="char" style="fill:white" d="M705.9,117.8h.1c1.5-.8,2.5-1.8,3.2-3.1s1-2.7,1-4.1-.4-3-1.1-4.3c-.7-1.3-1.8-2.3-3.3-3.1s-3.3-1.2-5.6-1.2h-10.4v27.8h5.4v-10.9h4l5.1,10.9h6.1l-5.7-11.5c.4-.1.8-.3,1.2-.5ZM703.6,113.8c-.8.8-2,1.2-3.6,1.2h-4.7v-8.5h4.8c1.6,0,2.8.4,3.6,1.1.8.7,1.1,1.8,1.1,3.1s-.4,2.3-1.2,3.1Z"></path>
+  <path class="char" style="fill:white" d="M531.7,169.6h0c1.5-.8,2.5-1.8,3.2-3.1s1-2.7,1-4.1-.4-3-1.1-4.3c-.7-1.3-1.8-2.3-3.3-3.1s-3.3-1.2-5.6-1.2h-10.4v27.8h5.4v-10.9h4l5.1,10.9h6.1l-5.7-11.5c.4-.1.8-.3,1.2-.5ZM529.4,165.7c-.8.8-2,1.2-3.6,1.2h-4.7v-8.5h4.8c1.6,0,2.8.4,3.6,1.1.8.8,1.1,1.8,1.1,3.1s-.4,2.3-1.2,3.1Z"></path>
+  <polygon class="char" style="fill:white" points="548 181.7 566.3 181.7 566.3 177.4 553.4 177.4 553.4 169.7 565.1 169.7 565.1 165.5 553.4 165.5 553.4 158.2 566.3 158.2 566.3 153.9 548 153.9 548 181.7"></polygon>
+  <path class="char" style="fill:white" d="M593.9,167.1v.2c-1.2-.6-2.4-1.2-3.8-1.7-.9-.3-1.8-.6-2.6-.9s-1.5-.6-2.1-.9-1-.7-1.4-1.2c-.3-.4-.5-1-.5-1.7s.2-1.3.5-1.7c.3-.5.8-.8,1.4-1.1.6-.2,1.2-.3,1.9-.3s1.5.2,2.1.5,1,.8,1.4,1.3c.3.5.5,1.1.5,1.7h5.7c0-1.6-.5-3.1-1.3-4.3s-2-2.1-3.4-2.8c-1.4-.6-3.1-1-4.9-1s-3.5.3-4.9,1c-1.4.6-2.5,1.5-3.4,2.7-.8,1.2-1.2,2.6-1.2,4.3s.6,3.5,1.7,4.7c1.1,1.2,2.8,2.1,5,2.9,1,.3,1.9.7,2.8,1,.9.3,1.7.6,2.3,1,.7.4,1.2.8,1.6,1.3s.6,1.2.6,2-.2,1.3-.5,1.8-.8.9-1.4,1.2c-.6.3-1.4.4-2.2.4s-1.8-.2-2.5-.6c-.7-.4-1.2-.9-1.6-1.6-.4-.7-.6-1.4-.6-2.2h-5.7c0,1.9.5,3.5,1.4,4.8.9,1.3,2.2,2.3,3.7,3,1.6.7,3.4,1,5.4,1s3.9-.4,5.4-1.2c1.4-.8,2.5-1.8,3.3-3s1.1-2.6,1.1-4-.3-3.1-1-4.1-1.6-1.9-2.8-2.5Z"></path>
+  <path class="char" style="fill:white" d="M629.4,155.3c-2.1-1.2-4.5-1.8-7.2-1.8s-5.1.6-7.1,1.8c-2.1,1.2-3.7,2.9-4.8,5.1-1.2,2.2-1.7,4.6-1.7,7.5s.6,5.3,1.7,7.5c1.2,2.2,2.8,3.8,4.8,5.1,2.1,1.2,4.4,1.8,7.1,1.8s5.1-.6,7.2-1.8c2.1-1.2,3.7-2.9,4.8-5.1,1.1-2.2,1.7-4.6,1.7-7.5s-.6-5.3-1.7-7.5c-1.2-2.2-2.8-3.8-4.8-5.1ZM629.5,172.9c-.7,1.4-1.6,2.5-2.9,3.3-1.2.8-2.7,1.2-4.4,1.2s-3.1-.4-4.4-1.2c-1.2-.8-2.2-1.9-2.9-3.3-.7-1.4-1-3.1-1-5.1s.3-3.7,1-5.1,1.7-2.5,2.9-3.3c1.2-.8,2.7-1.2,4.4-1.2s3.2.4,4.4,1.2c1.2.8,2.2,1.9,2.9,3.3.7,1.4,1,3.1,1,5.1s-.3,3.6-1,5.1Z"></path>
+  <path class="char" style="fill:white" d="M664.1,171h.1c0,1.4-.2,2.5-.7,3.5-.4.9-1.1,1.6-2,2.1-.9.4-1.9.7-3.1.7s-2.2-.2-3.1-.7c-.9-.4-1.5-1.1-2-2.1-.4-.9-.7-2.1-.7-3.5v-17.1h-5.4v17.1c0,2.5.5,4.6,1.5,6.3,1,1.6,2.3,2.9,4,3.7s3.5,1.2,5.6,1.2,3.9-.4,5.6-1.2,3.1-2,4.1-3.7c1-1.6,1.5-3.7,1.5-6.3v-17.1h-5.4v17.1Z"></path>
+  <path class="char" style="fill:white" d="M697.8,169.6h0c1.5-.8,2.5-1.8,3.2-3.1s1-2.7,1-4.1-.4-3-1.1-4.3c-.7-1.3-1.8-2.3-3.3-3.1s-3.3-1.2-5.6-1.2h-10.4v27.8h5.4v-10.9h4l5.1,10.9h6.1l-5.7-11.5c.4-.1.8-.3,1.2-.5ZM695.5,165.7c-.8.8-2,1.2-3.6,1.2h-4.7v-8.5h4.8c1.6,0,2.8.4,3.6,1.1.8.8,1.1,1.8,1.1,3.1s-.4,2.3-1.2,3.1Z"></path>
+  <path class="char" style="fill:white" d="M726.5,158.2c1.6,0,3.2.4,4.3,1.2,1.1.8,1.8,2,2.2,3.5h5.8c-.5-3-1.9-5.4-4-7.1-2.1-1.7-4.9-2.5-8.3-2.5s-5.2.6-7.2,1.8c-2,1.2-3.5,2.9-4.6,5.1-1.1,2.2-1.6,4.7-1.6,7.5s.5,5.3,1.6,7.5c1.1,2.2,2.6,3.8,4.6,5s4.4,1.8,7.2,1.8,6.1-.8,8.3-2.5c2.1-1.6,3.5-3.9,4-6.8h-5.9c-.3,1.4-1.1,2.5-2.1,3.3-1.1.8-2.5,1.2-4.3,1.2s-3-.4-4.2-1.2c-1.2-.8-2.1-1.9-2.7-3.3-.6-1.4-1-3.1-1-5.1s.3-3.7,1-5.1c.6-1.4,1.5-2.5,2.7-3.3v.2c1.2-.8,2.6-1.2,4.2-1.2Z"></path>
+  <polygon class="char" style="fill:white" points="750.5 181.7 768.8 181.7 768.8 177.4 755.9 177.4 755.9 169.7 767.6 169.7 767.6 165.5 755.9 165.5 755.9 158.2 768.8 158.2 768.8 153.9 750.5 153.9 750.5 181.7"></polygon>
+  <path class="char" style="fill:white" d="M799.3,169.7v.2c-.8-1-1.7-1.9-2.9-2.5-1.2-.6-2.4-1.2-3.8-1.7-.9-.3-1.8-.6-2.6-.9s-1.5-.6-2.1-.9c-.6-.3-1-.7-1.4-1.2-.3-.4-.5-1-.5-1.7s.2-1.3.5-1.7c.3-.5.8-.8,1.4-1.1.6-.2,1.2-.3,1.9-.3s1.5.2,2.1.5c.6.3,1,.8,1.4,1.3.3.5.5,1.1.5,1.7h5.7c0-1.6-.5-3.1-1.3-4.3-.8-1.2-2-2.1-3.4-2.8-1.4-.6-3.1-1-4.9-1s-3.5.3-4.9,1c-1.4.6-2.5,1.5-3.4,2.7-.8,1.2-1.2,2.6-1.2,4.3s.6,3.5,1.7,4.7,2.8,2.1,5,2.9c1,.3,1.9.7,2.8,1,.9.3,1.7.6,2.3,1,.7.4,1.2.8,1.6,1.3s.6,1.2.6,2-.2,1.3-.5,1.8-.8.9-1.4,1.2-1.4.4-2.2.4-1.8-.2-2.5-.6c-.7-.4-1.2-.9-1.6-1.6-.4-.7-.6-1.4-.6-2.2h-5.7c0,1.9.5,3.5,1.4,4.8s2.2,2.3,3.7,3c1.6.7,3.4,1,5.4,1s3.9-.4,5.4-1.2c1.4-.8,2.5-1.8,3.3-3s1.2-2.6,1.2-4-.3-3.1-1-4.1Z"></path>
+
+</svg>
+                        <span class="visually-hidden">Hope Cancer Resources</span>
+                    </a>
+                </div>
+
+                <button class="mobile-nav-toggle" aria-controls="nav-mobile" aria-expanded="false" aria-label="Toggle mobile menu">
+                    <svg version="1.1" class="ico-mobile" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="30" height="30" viewBox="0 0 24.6 23.9" style="enable-background:new 0 0 24.6 23.9;" xml:space="preserve">
+<g>
+	<g>
+		<line style="fill:none;stroke:#000000;stroke-width:3;stroke-miterlimit:10;" x1="0" y1="22.4" x2="24.6" y2="22.4"></line>
+	</g>
+	<g>
+		<line style="fill:none;stroke:#000000;stroke-width:3;stroke-miterlimit:10;" x1="0" y1="12" x2="24.6" y2="12"></line>
+	</g>
+	<g>
+		<line style="fill:none;stroke:#000000;stroke-width:3;stroke-miterlimit:10;" x1="0" y1="1.5" x2="24.6" y2="1.5"></line>
+	</g>
+</g>
+</svg>
+                </button>
+
+                <nav id="nav-desktop" class="desktop-nav" role="navigation">
+                
+
+        <ul>
+                                <li class=" style-megadropmenu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-1348 item-shop">
+                        <a class="level-one-link" target="_self" href="https://hopecancerresources.org/home/shop/">
+                                            <div class="tab">
+                                    Shop for Hope
+                                        <svg class="tick" xmlns="http://www.w3.org/2000/svg" version="1.1" viewBox="0 0 13.9 14.9">
+                    <path style="fill: white;" d="M6.2,3.5L1.8,11.1c-.2.3,0,.7.4.7h8.8c.4,0,.6-.4.4-.7L7,3.5c-.2-.3-.6-.3-.8,0Z"></path>
+                    </svg>
+                                                    </div>
+                                
+                        </a>
+                                    <div class="submenu submenu-slide" style="transform: translateX(-407.5px);">
+            
+
+        <ul>
+                                <li class=" style-simple menu-item menu-item-type-post_type menu-item-object-page menu-item-1349 item-shop">
+                        <a class=" level-two-link" target="_self" href="https://hopecancerresources.org/home/shop/">
+                                                Shop for Hope
+                                                    
+                        </a>
+                                </li>
+                </ul>
+
+
+
+
+
+
+
+
+
+
+
+            </div>
+                    </li>
+                                    <li class=" style-megadropmenu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-230 item-services">
+                        <a class="level-one-link" target="_self" href="https://hopecancerresources.org/services/">
+                                            <div class="tab">
+                                    Programs
+                                        <svg class="tick" xmlns="http://www.w3.org/2000/svg" version="1.1" viewBox="0 0 13.9 14.9">
+                    <path style="fill: white;" d="M6.2,3.5L1.8,11.1c-.2.3,0,.7.4.7h8.8c.4,0,.6-.4.4-.7L7,3.5c-.2-.3-.6-.3-.8,0Z"></path>
+                    </svg>
+                                                    </div>
+                                
+                        </a>
+                                    <div class="submenu submenu-slide" style="transform: translateX(-407.5px);">
+            
+
+        <ul>
+                                <li class=" style-simple menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-231 item-patient-support">
+                        <a class=" level-two-link" target="_self" href="https://hopecancerresources.org/services/patient-support/">
+                                                Patient Support
+                                                    
+                        </a>
+                                    <div class="secondary-submenu submenu-slide">
+            
+
+        <ul>
+                                <li class=" style-simple menu-item menu-item-type-post_type menu-item-object-page menu-item-232 item-counseling">
+                        <a class=" level-three-link" target="_self" href="https://hopecancerresources.org/services/patient-support/counseling/">
+                                                Counseling
+                                                    
+                        </a>
+                                </li>
+                                    <li class=" style-simple menu-item menu-item-type-post_type menu-item-object-page menu-item-233 item-support-groups">
+                        <a class=" level-three-link" target="_self" href="https://hopecancerresources.org/services/patient-support/support-groups/">
+                                                Support Groups
+                                                    
+                        </a>
+                                </li>
+                                    <li class=" style-simple menu-item menu-item-type-post_type menu-item-object-page menu-item-234 item-workshops">
+                        <a class=" level-three-link" target="_self" href="https://hopecancerresources.org/services/patient-support/workshops/">
+                                                Workshops
+                                                    
+                        </a>
+                                </li>
+                                    <li class=" style-simple menu-item menu-item-type-post_type menu-item-object-page menu-item-235 item-financial-assistance">
+                        <a class=" level-three-link" target="_self" href="https://hopecancerresources.org/services/patient-support/financial-assistance/">
+                                                Financial Assistance
+                                                    
+                        </a>
+                                </li>
+                                    <li class=" style-simple menu-item menu-item-type-post_type menu-item-object-page menu-item-971 item-the-care-closet">
+                        <a class=" level-three-link" target="_self" href="https://hopecancerresources.org/services/patient-support/the-care-closet/">
+                                                The Care Closet
+                                                    
+                        </a>
+                                </li>
+                </ul>
+
+
+
+
+
+
+
+
+
+
+
+            </div>
+                    </li>
+                                    <li class=" style-simple menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-237 item-wellness-center-for-hope">
+                        <a class=" level-two-link" target="_self" href="https://hopecancerresources.org/services/wellness-center-for-hope/">
+                                                Wellness Center for Hope
+                                                    
+                        </a>
+                                    <div class="secondary-submenu submenu-slide">
+            
+
+        <ul>
+                                <li class=" style-simple menu-item menu-item-type-post_type menu-item-object-page menu-item-238 item-tobacco-treatment">
+                        <a class=" level-three-link" target="_self" href="https://hopecancerresources.org/services/wellness-center-for-hope/tobacco-treatment/">
+                                                Tobacco Treatment
+                                                    
+                        </a>
+                                </li>
+                                    <li class=" style-simple menu-item menu-item-type-post_type menu-item-object-page menu-item-239 item-yoga">
+                        <a class=" level-three-link" target="_self" href="https://hopecancerresources.org/services/wellness-center-for-hope/yoga/">
+                                                Yoga
+                                                    
+                        </a>
+                                </li>
+                                    <li class=" style-simple menu-item menu-item-type-post_type menu-item-object-page menu-item-240 item-cancer-prevention-education">
+                        <a class=" level-three-link" target="_self" href="https://hopecancerresources.org/services/wellness-center-for-hope/cancer-prevention-education/">
+                                                Cancer Prevention Education
+                                                    
+                        </a>
+                                </li>
+                                    <li class=" style-simple menu-item menu-item-type-post_type menu-item-object-page menu-item-942 item-personal-training">
+                        <a class=" level-three-link" target="_self" href="https://hopecancerresources.org/services/wellness-center-for-hope/personal-training/">
+                                                Personal Training
+                                                    
+                        </a>
+                                </li>
+                                    <li class=" style-simple menu-item menu-item-type-post_type menu-item-object-page menu-item-943 item-nutrition-education">
+                        <a class=" level-three-link" target="_self" href="https://hopecancerresources.org/services/wellness-center-for-hope/nutrition-education/">
+                                                Nutrition Education
+                                                    
+                        </a>
+                                </li>
+                </ul>
+
+
+
+
+
+
+
+
+
+
+
+            </div>
+                    </li>
+                                    <li class=" style-simple menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-241 item-transportation">
+                        <a class=" level-two-link" target="_self" href="https://hopecancerresources.org/services/transportation/">
+                                                Transportation
+                                                    
+                        </a>
+                                    <div class="secondary-submenu submenu-slide">
+            
+
+        <ul>
+                                <li class=" style-simple level-two menu-item menu-item-type-post_type menu-item-object-page menu-item-236 item-addition-resources">
+                        <a class=" level-three-link" target="_self" href="https://hopecancerresources.org/services/patient-support/addition-resources/">
+                                                Additional Resources
+                                                    
+                        </a>
+                                </li>
+                </ul>
+
+
+
+
+
+
+
+
+
+
+
+            </div>
+                    </li>
+                </ul>
+
+
+
+
+
+
+
+
+
+
+
+            </div>
+                    </li>
+                                    <li class=" style-megadropmenu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-242 item-get-involved">
+                        <a class="level-one-link" target="_self" href="https://hopecancerresources.org/get-involved/">
+                                            <div class="tab">
+                                    Get Involved
+                                        <svg class="tick" xmlns="http://www.w3.org/2000/svg" version="1.1" viewBox="0 0 13.9 14.9">
+                    <path style="fill: white;" d="M6.2,3.5L1.8,11.1c-.2.3,0,.7.4.7h8.8c.4,0,.6-.4.4-.7L7,3.5c-.2-.3-.6-.3-.8,0Z"></path>
+                    </svg>
+                                                    </div>
+                                
+                        </a>
+                                    <div class="submenu submenu-slide" style="transform: translateX(-407.5px);">
+            
+
+        <ul>
+                                <li class=" style-simple menu-item menu-item-type-post_type menu-item-object-page menu-item-691 item-get-involved">
+                        <a class=" level-two-link" target="_self" href="https://hopecancerresources.org/get-involved/">
+                                                Ways To Help
+                                                                    
+                                <div class="featured-image-holder">
+                    <img src="site/hopecancerresources.org/wp-content/uploads/2025/07/sharing-get-involved.jpg" alt="Ways To Help featured image">
+                </div>
+                
+                <div class="megadrop-description">
+                    Find the right way to give to Hope's mission, from Volunteer work to direct donation.
+                </div>
+                
+                        </a>
+                                </li>
+                                    <li class=" style-simple menu-item menu-item-type-post_type menu-item-object-page menu-item-243 item-volunteer">
+                        <a class=" level-two-link" target="_self" href="https://hopecancerresources.org/get-involved/volunteer/">
+                                                Volunteer
+                                                                    
+                                <div class="featured-image-holder">
+                    <img src="site/hopecancerresources.org/wp-content/uploads/2025/07/volunteer-shot.jpg" alt="Volunteer featured image">
+                </div>
+                
+                <div class="megadrop-description">
+                    Make a difference as a Hope Cancer Resources volunteer through clinic support, office help, and community events.
+                </div>
+                
+                        </a>
+                                </li>
+                                    <li class=" style-simple menu-item menu-item-type-post_type menu-item-object-page menu-item-244 item-donate">
+                        <a class=" level-two-link" target="_self" href="https://hopecancerresources.org/get-involved/donate/">
+                                                Donate
+                                                                    
+                                <div class="featured-image-holder">
+                    <img src="site/hopecancerresources.org/wp-content/uploads/2025/06/bg-donate-featured.jpg" alt="Donate featured image">
+                </div>
+                
+                <div class="megadrop-description">
+                    Support local cancer patients by donating to Hope Cancer Resources—your gift funds free services like counseling, transportation, and wellness care.
+                </div>
+                
+                        </a>
+                                </li>
+                </ul>
+
+
+
+
+
+
+
+
+
+
+
+            </div>
+                    </li>
+                                    <li class=" style-simple menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-246 item-calendar">
+                        <a class="level-one-link" target="_self" href="https://hopecancerresources.org/calendar/">
+                                            <div class="tab">
+                                    Events
+                                        <svg class="tick" xmlns="http://www.w3.org/2000/svg" version="1.1" viewBox="0 0 13.9 14.9">
+                    <path style="fill: white;" d="M6.2,3.5L1.8,11.1c-.2.3,0,.7.4.7h8.8c.4,0,.6-.4.4-.7L7,3.5c-.2-.3-.6-.3-.8,0Z"></path>
+                    </svg>
+                                                    </div>
+                                
+                        </a>
+                                    <div class="submenu submenu-slide">
+            
+
+        <ul>
+                                <li class=" style-simple menu-item menu-item-type-custom menu-item-object-custom menu-item-976 item-fundraisers">
+                        <a class=" level-two-link" target="_self" href="https://hopecancerresources.org/calendar/?filter=Fundraisers">
+                                                Fundraisers
+                                                    
+                        </a>
+                                </li>
+                                    <li class=" style-simple menu-item menu-item-type-custom menu-item-object-custom menu-item-1117 item-support-groups">
+                        <a class=" level-two-link" target="_self" href="https://hopecancerresources.org/calendar/?filter=Support+Groups">
+                                                Support Groups
+                                                    
+                        </a>
+                                </li>
+                                    <li class=" style-simple menu-item menu-item-type-custom menu-item-object-custom menu-item-1136 item-workouts">
+                        <a class=" level-two-link" target="_self" href="https://hopecancerresources.org/calendar/?filter=Workouts">
+                                                Workouts
+                                                    
+                        </a>
+                                </li>
+                                    <li class=" style-simple menu-item menu-item-type-custom menu-item-object-custom menu-item-1116 item-workshops">
+                        <a class=" level-two-link" target="_self" href="https://hopecancerresources.org/calendar/?filter=Workshops">
+                                                Workshops
+                                                    
+                        </a>
+                                </li>
+                                    <li class=" style-simple menu-item menu-item-type-custom menu-item-object-custom menu-item-975 item-yoga">
+                        <a class=" level-two-link" target="_self" href="https://hopecancerresources.org/calendar/?filter=Yoga">
+                                                Yoga
+                                                    
+                        </a>
+                                </li>
+                </ul>
+
+
+
+
+
+
+
+
+
+
+
+            </div>
+                    </li>
+                                    <li class=" style-simple menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-580 item-about">
+                        <a class="level-one-link" target="_self" href="https://hopecancerresources.org/about/">
+                                            <div class="tab">
+                                    About
+                                        <svg class="tick" xmlns="http://www.w3.org/2000/svg" version="1.1" viewBox="0 0 13.9 14.9">
+                    <path style="fill: white;" d="M6.2,3.5L1.8,11.1c-.2.3,0,.7.4.7h8.8c.4,0,.6-.4.4-.7L7,3.5c-.2-.3-.6-.3-.8,0Z"></path>
+                    </svg>
+                                                    </div>
+                                
+                        </a>
+                                    <div class="submenu submenu-slide">
+            
+
+        <ul>
+                                <li class=" style-simple menu-item menu-item-type-custom menu-item-object-custom menu-item-1298 item-hope-unscripted-podcast-3">
+                        <a class=" level-two-link" target="_self" href="https://www.hopeunscriptedpodcast.com/">
+                                                Hope Unscripted Podcast
+                                                    
+                        </a>
+                                </li>
+                                    <li class=" style-simple menu-item menu-item-type-post_type menu-item-object-page menu-item-585 item-our-story">
+                        <a class=" level-two-link" target="_self" href="https://hopecancerresources.org/about/our-story/">
+                                                Our Story
+                                                    
+                        </a>
+                                </li>
+                                    <li class=" style-simple menu-item menu-item-type-post_type menu-item-object-page menu-item-582 item-our-foundation">
+                        <a class=" level-two-link" target="_self" href="https://hopecancerresources.org/about/our-foundation/">
+                                                Our Foundation
+                                                    
+                        </a>
+                                </li>
+                                    <li class=" style-simple menu-item menu-item-type-post_type menu-item-object-page menu-item-583 item-board-of-directors">
+                        <a class=" level-two-link" target="_self" href="https://hopecancerresources.org/about/board-of-directors/">
+                                                Board of Directors
+                                                    
+                        </a>
+                                </li>
+                                    <li class=" style-simple menu-item menu-item-type-post_type menu-item-object-page menu-item-584 item-staff">
+                        <a class=" level-two-link" target="_self" href="https://hopecancerresources.org/about/staff/">
+                                                Staff
+                                                    
+                        </a>
+                                </li>
+                                    <li class=" style-simple menu-item menu-item-type-post_type menu-item-object-page menu-item-581 item-careers">
+                        <a class=" level-two-link" target="_self" href="https://hopecancerresources.org/about/careers/">
+                                                Careers
+                                                    
+                        </a>
+                                </li>
+                </ul>
+
+
+
+
+
+
+
+
+
+
+
+            </div>
+                    </li>
+                </ul>
+
+
+
+
+
+
+
+
+
+
+
+                </nav>
+
+
+          
+
+                                <div class="footer-nav-col header-cta-group">
+                                                                    
+                        <a href="https://hopecancerresources.org/apply-for-assistance" class="link">
+                            Apply for Assistance
+                        </a>
+
+                                                                    
+                        <a href="https://hopecancerresources.org/get-involved/donate" class="link btn">
+                            Donate
+                        </a>
+
+                                        </div>
+                </div>
+                             
+            </div>
+        
+    
+</header>
+<main id="content" role="main" class="site-content style-">
+    <div class="logo-holder-main">
+        <a class="primary-logo" href="https://hopecancerresources.org/" rel="home">
+            <svg version="1.1" class="logo-svg" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 798.8 247.8" style="enable-background:new 0 0 798.8 247.8;" xml:space="preserve">
+
+ <path class="h char" style="fill:white" d="M116.4,82.6c-7.4,0-14.5,1.2-18.5,2.4-1.1.4-1.9-1.2-.9-1.9l4-2.9c21.1-16.1,33.6-34.7,33.6-54S126.8,0,108,0C72.6,0,56.4,32.9,44.4,66.2c-2.3,6.3-3.3,9.2-3.8,10.7,0,.4.2.8.6.7,11.3-3.1,22.9-8.9,30.6-14.6,1-.8,1.8-1.8,2.3-3,2.8-7.5,14.3-36.4,28-36.4s6.7,3.9,6.7,7.1c0,7.9-8.7,19.9-26.6,32.4-11.9,8.8-26.5,15.9-40.3,19.6l-1.7.6c-10.2,3.2-21.2,5.5-32.8,7-.5,0-.8.7-.4,1.1l9,9.9L.2,115.5c-.5.4-.1,1.2.5,1.2,9.7-.8,19.1-2.3,28.1-4.2,0,0,.6-.1,1.6-.3l4.1-.9c.4,0,.7.3.7.6l-16.6,82.7c0,.5.3.9.7.9h27.6c.5,0,.9-.3,1-.8l9.3-46.2c1.1-5.7,3-11,5.4-15.9,2.4-4.8,5.4-9.2,8.8-13.2,3.3-3.8,7-7.1,11-9.9,4-2.6,8.4-4.2,13.2-4.5h.4c5.7.3,10,2.2,12.8,5.6,2.9,3.5,4.3,7.9,4.3,13.2s-.2,5.6-.6,8.2c-.4,2.5-.8,5-1.4,7.4l-11,55c0,.5.3.9.7.9h27.5c.5,0,.9-.3,1-.8l12.3-61.2c.7-3.4,1-6.6,1.6-9.5,6.1-28.3-12.7-41.2-26.8-41.2Z"></path>
+  <path class="char" style="fill:white" d="M343,84.1h0c-19.7,0-33.8,7.9-42.5,17.6l2.7-14.7c0-.4-.2-.7-.6-.7h-27.9c-.5,0-1,.4-1.1.9l-32.3,159.9c0,.4.2.7.6.7h27.9c.5,0,1-.4,1.1-.9l12.8-62.8c1,1.8,2.9,4.4,6,7.1,4.8,4.2,13.7,9.1,28.5,9.1h.2c22,0,38-15.4,43.4-23.5,10.6-16,14.4-36.8,14.4-51,0-32.1-20.4-41.7-33.2-41.7ZM345.4,135.2c-.3,2.9-.7,5.2-1,7l-.5,3.6v.3c-4.3,20.4-14.6,30.8-30.9,30.8s-25.8-3.7-22.7-24.3l1-6.3c1-4.9,2.6-9.8,4.7-14.5,2.1-4.7,4.7-8.8,7.6-12.3,2.8-3.5,6.1-6.5,10-8.9,4-2.6,8.5-3.8,13.4-3.8s10.5,1.9,13.8,5.8c3.3,3.7,4.9,8.9,4.9,15.2s-.2,4.6-.5,7.5h.2Z"></path>
+  <path class="char" style="fill:white" d="M206.9,83.2h0c-17.6,0-32.8,7.4-43.9,21.2-10.5,13.1-16.3,30.7-16.3,49.6s8.2,46.4,47.5,46.4,61.9-38.1,61.9-65.6-17.5-51.6-49.1-51.6ZM223.7,147.2c-4,20.2-13.6,30.4-28.4,30.4s-23.5-1.8-21-22.9,1.1-7.7,2.9-17.9c2-9.9,5.3-17.4,9.9-22.5,4.8-5.2,11-7.9,18.4-7.9s12.1,2.2,15.7,6.4c3.5,4.2,5.3,9.7,5.3,16.5s-1.8,12.5-2.8,17.9Z"></path>
+  <path class="char" style="fill:white" d="M473.4,89.7c-3.9-2.3-8.3-4-13.1-4.9-4.9-1-9.5-1.5-13.9-1.5-23.1,0-40.9,8.7-52.9,25.8-10.1,14.4-13.6,31.9-13.6,43.5,0,31.7,16.6,47.8,50.5,47.8s42.2-14.7,48.8-22.6c0,0,.5-.7,0-1.1-.3-.3-14.2-11-14.6-11.2-.6-.5-1.1,0-1.1,0-4.8,5.5-9.3,9.2-13.5,11.2-4.8,2.3-10,3.5-15.6,3.5-8.7,0-14.7-1.9-18.4-5.9-3.5-3.9-5.3-9-5.3-15.2v-2c0-.9.2-2.1.5-3.7h-.1l.4-1.9h1.9c13.2-.5,24.7-1.7,34.1-3.7,9.3-1.9,17-4.6,22.8-8,5.7-3.3,9.9-7.2,12.6-11.6,2.6-4.4,4-9.5,4-15.1s-1.3-10.7-3.8-14.4c-2.6-3.8-5.9-6.9-9.7-9.1ZM458.8,124.1c-1.3,2.4-3.7,4.4-7.2,6.2-3.3,1.7-7.7,3-13.3,4.1-5.5,1.1-12.6,1.8-21.2,2.3l-3.1.2,1.5-8.2h0c1.5-8.1,4.8-14.6,10-19.3,5.2-4.8,11.7-7.2,19.1-7.2s3.2.2,4.9.5c1.9.3,3.7,1,5.3,2,1.7,1,3.2,2.5,4.3,4.4,1.1,1.9,1.7,4.4,1.7,7.4s-.6,5.4-1.9,7.6Z"></path>
+  <path class="char" style="fill:white" d="M528.3,106.4c1.6,0,3.2.4,4.3,1.2,1.1.8,1.8,2,2.2,3.5h5.8c-.5-3-1.9-5.4-4-7.1s-4.9-2.5-8.3-2.5-5.2.6-7.2,1.8-3.5,2.9-4.6,5.1c-1.1,2.2-1.6,4.7-1.6,7.5s.5,5.3,1.6,7.5c1.1,2.2,2.6,3.8,4.6,5,2,1.2,4.4,1.8,7.2,1.8s6.1-.8,8.3-2.5c2.1-1.6,3.5-3.9,4-6.8h-5.9c-.3,1.4-1.1,2.5-2.1,3.3-1.1.8-2.5,1.2-4.3,1.2s-3-.4-4.2-1.2-2.1-1.9-2.7-3.3c-.6-1.4-1-3.1-1-5.1s.3-3.7,1-5.1c.6-1.4,1.5-2.5,2.7-3.3v.2c1.2-.8,2.6-1.2,4.2-1.2Z"></path>
+  <path class="char" style="fill:white" d="M560.3,102h0l-10.2,27.8h5.6l2.2-6.3h10.7l2.2,6.3h5.7l-10.1-27.8h-6.1ZM559.4,119.3h0l3.9-11.2,3.9,11.2h-7.8Z"></path>
+  <polygon class="char" style="fill:white" points="610.7 102 605.4 102 605.4 121.2 592.6 102 587.3 102 587.3 129.8 592.6 129.8 592.6 110.7 605.4 129.8 610.7 129.8 610.7 102"></polygon>
+  <path class="char" style="fill:white" d="M642.2,120.8v.2c-.3,1.4-1.1,2.5-2.1,3.3-1.1.8-2.5,1.2-4.3,1.2s-3-.4-4.2-1.2-2.1-1.9-2.7-3.3c-.6-1.4-1-3.1-1-5.1s.3-3.7,1-5.1c.6-1.4,1.5-2.5,2.7-3.3s2.6-1.2,4.2-1.2,3.2.4,4.3,1.2,1.8,2,2.2,3.5h5.8c-.5-3-1.9-5.4-4-7.1-2.1-1.7-4.9-2.5-8.3-2.5s-5.2.6-7.2,1.8-3.5,2.9-4.6,5.1-1.6,4.7-1.6,7.5.5,5.3,1.6,7.5,2.6,3.8,4.6,5,4.4,1.8,7.2,1.8,6.1-.8,8.3-2.5c2.1-1.6,3.5-3.9,4-6.8h-5.9Z"></path>
+  <polygon class="char" style="fill:white" points="659.7 129.8 678 129.8 678 125.5 665.1 125.5 665.1 117.8 676.8 117.8 676.8 113.6 665.1 113.6 665.1 106.4 678 106.4 678 102 659.7 102 659.7 129.8"></polygon>
+  <path class="char" style="fill:white" d="M705.9,117.8h.1c1.5-.8,2.5-1.8,3.2-3.1s1-2.7,1-4.1-.4-3-1.1-4.3c-.7-1.3-1.8-2.3-3.3-3.1s-3.3-1.2-5.6-1.2h-10.4v27.8h5.4v-10.9h4l5.1,10.9h6.1l-5.7-11.5c.4-.1.8-.3,1.2-.5ZM703.6,113.8c-.8.8-2,1.2-3.6,1.2h-4.7v-8.5h4.8c1.6,0,2.8.4,3.6,1.1.8.7,1.1,1.8,1.1,3.1s-.4,2.3-1.2,3.1Z"></path>
+  <path class="char" style="fill:white" d="M531.7,169.6h0c1.5-.8,2.5-1.8,3.2-3.1s1-2.7,1-4.1-.4-3-1.1-4.3c-.7-1.3-1.8-2.3-3.3-3.1s-3.3-1.2-5.6-1.2h-10.4v27.8h5.4v-10.9h4l5.1,10.9h6.1l-5.7-11.5c.4-.1.8-.3,1.2-.5ZM529.4,165.7c-.8.8-2,1.2-3.6,1.2h-4.7v-8.5h4.8c1.6,0,2.8.4,3.6,1.1.8.8,1.1,1.8,1.1,3.1s-.4,2.3-1.2,3.1Z"></path>
+  <polygon class="char" style="fill:white" points="548 181.7 566.3 181.7 566.3 177.4 553.4 177.4 553.4 169.7 565.1 169.7 565.1 165.5 553.4 165.5 553.4 158.2 566.3 158.2 566.3 153.9 548 153.9 548 181.7"></polygon>
+  <path class="char" style="fill:white" d="M593.9,167.1v.2c-1.2-.6-2.4-1.2-3.8-1.7-.9-.3-1.8-.6-2.6-.9s-1.5-.6-2.1-.9-1-.7-1.4-1.2c-.3-.4-.5-1-.5-1.7s.2-1.3.5-1.7c.3-.5.8-.8,1.4-1.1.6-.2,1.2-.3,1.9-.3s1.5.2,2.1.5,1,.8,1.4,1.3c.3.5.5,1.1.5,1.7h5.7c0-1.6-.5-3.1-1.3-4.3s-2-2.1-3.4-2.8c-1.4-.6-3.1-1-4.9-1s-3.5.3-4.9,1c-1.4.6-2.5,1.5-3.4,2.7-.8,1.2-1.2,2.6-1.2,4.3s.6,3.5,1.7,4.7c1.1,1.2,2.8,2.1,5,2.9,1,.3,1.9.7,2.8,1,.9.3,1.7.6,2.3,1,.7.4,1.2.8,1.6,1.3s.6,1.2.6,2-.2,1.3-.5,1.8-.8.9-1.4,1.2c-.6.3-1.4.4-2.2.4s-1.8-.2-2.5-.6c-.7-.4-1.2-.9-1.6-1.6-.4-.7-.6-1.4-.6-2.2h-5.7c0,1.9.5,3.5,1.4,4.8.9,1.3,2.2,2.3,3.7,3,1.6.7,3.4,1,5.4,1s3.9-.4,5.4-1.2c1.4-.8,2.5-1.8,3.3-3s1.1-2.6,1.1-4-.3-3.1-1-4.1-1.6-1.9-2.8-2.5Z"></path>
+  <path class="char" style="fill:white" d="M629.4,155.3c-2.1-1.2-4.5-1.8-7.2-1.8s-5.1.6-7.1,1.8c-2.1,1.2-3.7,2.9-4.8,5.1-1.2,2.2-1.7,4.6-1.7,7.5s.6,5.3,1.7,7.5c1.2,2.2,2.8,3.8,4.8,5.1,2.1,1.2,4.4,1.8,7.1,1.8s5.1-.6,7.2-1.8c2.1-1.2,3.7-2.9,4.8-5.1,1.1-2.2,1.7-4.6,1.7-7.5s-.6-5.3-1.7-7.5c-1.2-2.2-2.8-3.8-4.8-5.1ZM629.5,172.9c-.7,1.4-1.6,2.5-2.9,3.3-1.2.8-2.7,1.2-4.4,1.2s-3.1-.4-4.4-1.2c-1.2-.8-2.2-1.9-2.9-3.3-.7-1.4-1-3.1-1-5.1s.3-3.7,1-5.1,1.7-2.5,2.9-3.3c1.2-.8,2.7-1.2,4.4-1.2s3.2.4,4.4,1.2c1.2.8,2.2,1.9,2.9,3.3.7,1.4,1,3.1,1,5.1s-.3,3.6-1,5.1Z"></path>
+  <path class="char" style="fill:white" d="M664.1,171h.1c0,1.4-.2,2.5-.7,3.5-.4.9-1.1,1.6-2,2.1-.9.4-1.9.7-3.1.7s-2.2-.2-3.1-.7c-.9-.4-1.5-1.1-2-2.1-.4-.9-.7-2.1-.7-3.5v-17.1h-5.4v17.1c0,2.5.5,4.6,1.5,6.3,1,1.6,2.3,2.9,4,3.7s3.5,1.2,5.6,1.2,3.9-.4,5.6-1.2,3.1-2,4.1-3.7c1-1.6,1.5-3.7,1.5-6.3v-17.1h-5.4v17.1Z"></path>
+  <path class="char" style="fill:white" d="M697.8,169.6h0c1.5-.8,2.5-1.8,3.2-3.1s1-2.7,1-4.1-.4-3-1.1-4.3c-.7-1.3-1.8-2.3-3.3-3.1s-3.3-1.2-5.6-1.2h-10.4v27.8h5.4v-10.9h4l5.1,10.9h6.1l-5.7-11.5c.4-.1.8-.3,1.2-.5ZM695.5,165.7c-.8.8-2,1.2-3.6,1.2h-4.7v-8.5h4.8c1.6,0,2.8.4,3.6,1.1.8.8,1.1,1.8,1.1,3.1s-.4,2.3-1.2,3.1Z"></path>
+  <path class="char" style="fill:white" d="M726.5,158.2c1.6,0,3.2.4,4.3,1.2,1.1.8,1.8,2,2.2,3.5h5.8c-.5-3-1.9-5.4-4-7.1-2.1-1.7-4.9-2.5-8.3-2.5s-5.2.6-7.2,1.8c-2,1.2-3.5,2.9-4.6,5.1-1.1,2.2-1.6,4.7-1.6,7.5s.5,5.3,1.6,7.5c1.1,2.2,2.6,3.8,4.6,5s4.4,1.8,7.2,1.8,6.1-.8,8.3-2.5c2.1-1.6,3.5-3.9,4-6.8h-5.9c-.3,1.4-1.1,2.5-2.1,3.3-1.1.8-2.5,1.2-4.3,1.2s-3-.4-4.2-1.2c-1.2-.8-2.1-1.9-2.7-3.3-.6-1.4-1-3.1-1-5.1s.3-3.7,1-5.1c.6-1.4,1.5-2.5,2.7-3.3v.2c1.2-.8,2.6-1.2,4.2-1.2Z"></path>
+  <polygon class="char" style="fill:white" points="750.5 181.7 768.8 181.7 768.8 177.4 755.9 177.4 755.9 169.7 767.6 169.7 767.6 165.5 755.9 165.5 755.9 158.2 768.8 158.2 768.8 153.9 750.5 153.9 750.5 181.7"></polygon>
+  <path class="char" style="fill:white" d="M799.3,169.7v.2c-.8-1-1.7-1.9-2.9-2.5-1.2-.6-2.4-1.2-3.8-1.7-.9-.3-1.8-.6-2.6-.9s-1.5-.6-2.1-.9c-.6-.3-1-.7-1.4-1.2-.3-.4-.5-1-.5-1.7s.2-1.3.5-1.7c.3-.5.8-.8,1.4-1.1.6-.2,1.2-.3,1.9-.3s1.5.2,2.1.5c.6.3,1,.8,1.4,1.3.3.5.5,1.1.5,1.7h5.7c0-1.6-.5-3.1-1.3-4.3-.8-1.2-2-2.1-3.4-2.8-1.4-.6-3.1-1-4.9-1s-3.5.3-4.9,1c-1.4.6-2.5,1.5-3.4,2.7-.8,1.2-1.2,2.6-1.2,4.3s.6,3.5,1.7,4.7,2.8,2.1,5,2.9c1,.3,1.9.7,2.8,1,.9.3,1.7.6,2.3,1,.7.4,1.2.8,1.6,1.3s.6,1.2.6,2-.2,1.3-.5,1.8-.8.9-1.4,1.2-1.4.4-2.2.4-1.8-.2-2.5-.6c-.7-.4-1.2-.9-1.6-1.6-.4-.7-.6-1.4-.6-2.2h-5.7c0,1.9.5,3.5,1.4,4.8s2.2,2.3,3.7,3c1.6.7,3.4,1,5.4,1s3.9-.4,5.4-1.2c1.4-.8,2.5-1.8,3.3-3s1.2-2.6,1.2-4-.3-3.1-1-4.1Z"></path>
+
+</svg>
+            <span class="visually-hidden">Hope Cancer Resources</span>
+        </a>
+    </div>
+    <div class="logo-holder-main shade">
+       
+    </div>
+    
+    <div class="wrapper  type-page">
+        	<article class="post-type-page" id="post-8">
+		
+<section id="section-1" class="page_heading section-block text-color-white align-left" style="min-height:900px;">
+        <div class="content contained">
+        <div class="half-container">
+            <div class="content-container">
+            <h1 class="heading-level-one">Hope Design System</h1>            <p class="subheading">Type, color, components and motion from the Hope Cancer Resources site, documented with the original classes.</p>            </div>
+            <div class="button-holder">
+                                <a class="btn" href="#typography">
+                    <span class="text">Typography</span>
+                </a>
+                                <a class="btn" href="#components">
+                    <span class="text">Components</span>
+                </a>
+                            </div>
+        </div>
+    </div>
+            <svg class="special-h" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" version="1.1" viewBox="0 0 509.4 689.3">
+        <linearGradient id="special-h-linear-gradient" x1="254.7" y1="689.3" x2="254.7" y2="0" gradientUnits="userSpaceOnUse">
+        <stop offset="0" stop-color="#1b7aaf"></stop>
+        <stop offset="1" stop-color="#1b7aaf" stop-opacity=".7"></stop>
+        </linearGradient>
+    
+    <path style="fill: url(#special-h-linear-gradient);" d="M354.6,688.8c-1.3,0-2.4-1.3-2.1-2.6,0,0,38.8-193,38.8-193,3.9-18.3,6.9-35.9,6.8-55.1,0-37.8-21.5-65.2-61.5-66.6-67.9,3.2-125.4,90.5-136.3,152.7,0,0-32.6,162.2-32.6,162.2-.3,1.4-1.5,2.3-2.9,2.3,0,0-96.7,0-96.7,0-1.3,0-2.4-1.3-2.1-2.6-.5-2,60.1-290.7,57.8-292.3-.6-.7-1.5-1-2.4-.8,0,0-14.4,3.1-14.4,3.1-34.1,7.5-67.9,12.9-104.1,16-.9.1-1.7-.6-1.9-1.2-.2-.6-.2-1.4.5-2.1l55.5-50.1c.2-.2.2-.5,0-.7,0,0-31.5-34.7-31.5-34.7-.5-.5-.6-1.2-.4-1.9.2-.7.8-1.1,1.5-1.2,43.1-5.5,83.3-14,121.4-26.5,78.5-19.2,237.2-112.4,235-184,0-11.9-9.9-24.7-24.6-24.7-47,0-87,98-98.2,128-1.5,4.1-4.2,7.7-7.9,10.4-28.8,21.2-69.9,40.8-107.3,51.1-.5.2-1.1,0-1.4-.5-.3-.4-.3-.8-.2-1.2,1.7-5,5.1-14.7,13.3-37.4,34.2-95.5,61-135.6,80.6-159.9C276.2,26.9,322.7,3.3,379.2,3.3c63.3,0,92.8,54.7,92.8,91.7,0,65.2-40.7,130.6-117.7,189.2l-14,10.1c-1.5,1.1-2.1,2.9-1.6,4.7.6,1.8,2.2,3,3.9,3,17.4-4.9,37.8-8,63.2-7.9,62,2.8,116.1,58.4,97.1,144.1-2.1,17-44.6,225.9-49.1,248.2-.3,1.4-1.5,2.3-2.9,2.3h-96.5Z"></path>
+    </svg>
+           
+      
+        
+            <div class="motion-holder">
+                                                                                                                                                                                    <iframe src="https://player.vimeo.com/video/1162686214?badge=0?autoplay=1&amp;background=1&amp;badge=0&amp;player_id=0&amp;app_id=58479" frameborder="0" allow="autoplay; fullscreen; picture-in-picture" title="Header Video | 1"></iframe>
+                                        
+                            </div>
+        
+
+    
+  
+     
+</section>
+
+<section class="ds-section" id="typography">
+  <div class="contained">
+    <header class="ds-head">
+      <div class="ds-eyebrow">01 — Typography</div>
+      <div><h2 class="heading-level-two">Typography</h2></div>
+      <p class="ds-lede">Two families do all the work: <b>BrandonText</b> for headings, buttons and UI (weights 300–800) and <b>SourceSans</b> for body copy in rich-text blocks. Sizes come from <code class="ds-code">clamp()</code> on a 10px root, so the labels on the right are read live from the browser at the current viewport.</p>
+    </header>
+
+    <div class="ds-spec">
+      <div class="ds-spec-row" data-target="h1">
+        <div class="ds-spec-name">Heading 1<br><code class="ds-code">.heading-level-one</code></div>
+        <div class="ds-spec-preview"><h1 class="heading-level-one">Support. Educate. Prevent.</h1></div>
+        <div class="ds-spec-size"><span data-spec-size>—</span><span class="ds-spec-meta" data-spec-meta></span></div>
+      </div>
+      <div class="ds-spec-row" data-target="h2">
+        <div class="ds-spec-name">Heading 2<br><code class="ds-code">.heading-level-two</code></div>
+        <div class="ds-spec-preview"><h2 class="heading-level-two">Ways We Help</h2></div>
+        <div class="ds-spec-size"><span data-spec-size>—</span><span class="ds-spec-meta" data-spec-meta></span></div>
+      </div>
+      <div class="ds-spec-row" data-target="h2">
+        <div class="ds-spec-name">Heading 3<br><code class="ds-code">.heading-level-three</code></div>
+        <div class="ds-spec-preview"><h2 class="heading-level-three">Upcoming Events</h2></div>
+        <div class="ds-spec-size"><span data-spec-size>—</span><span class="ds-spec-meta" data-spec-meta></span></div>
+      </div>
+      <div class="ds-spec-row" data-target="h2">
+        <div class="ds-spec-name">Heading 4<br><code class="ds-code">.heading-level-four</code></div>
+        <div class="ds-spec-preview"><h2 class="heading-level-four">Driving real Change in Northwest Arkansas</h2></div>
+        <div class="ds-spec-size"><span data-spec-size>—</span><span class="ds-spec-meta" data-spec-meta></span></div>
+      </div>
+      <div class="ds-spec-row" data-target=".title">
+        <div class="ds-spec-name">Bold L<br><code class="ds-code">.full_service_list .title</code></div>
+        <div class="ds-spec-preview"><div class="full_service_list"><div class="section-wrapper"><div class="list"><div class="title">Patient Support</div></div></div></div></div>
+        <div class="ds-spec-size"><span data-spec-size>—</span><span class="ds-spec-meta" data-spec-meta></span></div>
+      </div>
+      <div class="ds-spec-row" data-target=".link">
+        <div class="ds-spec-name">Bold M<br><code class="ds-code">a.link</code></div>
+        <div class="ds-spec-preview"><a class="link" href="#typography">Go To Calendar</a></div>
+        <div class="ds-spec-size"><span data-spec-size>—</span><span class="ds-spec-meta" data-spec-meta></span></div>
+      </div>
+      <div class="ds-spec-row" data-target=".btn">
+        <div class="ds-spec-name">Bold S<br><code class="ds-code">a.btn</code></div>
+        <div class="ds-spec-preview"><a class="btn" href="#typography"><span class="text">Donate</span></a></div>
+        <div class="ds-spec-size"><span data-spec-size>—</span><span class="ds-spec-meta" data-spec-meta></span></div>
+      </div>
+      <div class="ds-spec-row" data-target="p">
+        <div class="ds-spec-name">Paragraph<br><code class="ds-code">.rte p</code></div>
+        <div class="ds-spec-preview"><div class="rte"><p>We exist to soften the weight of a diagnosis—with every ride given, every bill relieved, and every tear heard. Because no one should have to face cancer alone, and every life touched deserves dignity, peace, and love.</p></div></div>
+        <div class="ds-spec-size"><span data-spec-size>—</span><span class="ds-spec-meta" data-spec-meta></span></div>
+      </div>
+      <div class="ds-spec-row" data-target=".body-copy">
+        <div class="ds-spec-name">Regular L<br><code class="ds-code">.engagement_section .body-copy</code></div>
+        <div class="ds-spec-preview"><div class="engagement_section"><div class="body-copy">Learn more about what we’re doing every month to fight cancer in NWA.</div></div></div>
+        <div class="ds-spec-size"><span data-spec-size>—</span><span class="ds-spec-meta" data-spec-meta></span></div>
+      </div>
+      <div class="ds-spec-row" data-target=".label">
+        <div class="ds-spec-name">Regular M<br><code class="ds-code">.stats-list .label</code></div>
+        <div class="ds-spec-preview"><div class="stats_block_one"><div class="contained"><div class="stats-list"><div class="stat"><div class="label">Patients + Caregivers Supported</div></div></div></div></div></div>
+        <div class="ds-spec-size"><span data-spec-size>—</span><span class="ds-spec-meta" data-spec-meta></span></div>
+      </div>
+      <div class="ds-spec-row" data-target="p">
+        <div class="ds-spec-name">Regular S<br><code class="ds-code">.site-footer .copyright p</code></div>
+        <div class="ds-spec-preview"><div class="site-footer"><div class="copyright"><p>Copyright © 2026 Hope Cancer Resources. All Rights Reserved</p></div></div></div>
+        <div class="ds-spec-size"><span data-spec-size>—</span><span class="ds-spec-meta" data-spec-meta></span></div>
+      </div>
+    </div>
+
+    <h3 class="ds-sub">Rich-text headings (inside <span class="ds-code">.rte</span>)</h3>
+    <div class="ds-spec">
+      <div class="ds-spec-row" data-target="h2">
+        <div class="ds-spec-name">Big header<br><code class="ds-code">.rte h2.big-header</code></div>
+        <div class="ds-spec-preview"><div class="rte"><h2 class="big-header">Get Involved</h2></div></div>
+        <div class="ds-spec-size"><span data-spec-size>—</span><span class="ds-spec-meta" data-spec-meta></span></div>
+      </div>
+      <div class="ds-spec-row" data-target="h2">
+        <div class="ds-spec-name">Rich-text H2<br><code class="ds-code">.rte h2</code></div>
+        <div class="ds-spec-preview"><div class="rte"><h2>At Hope Cancer Resources, we walk beside those facing cancer with open hearts, steady hands, and unwavering support.</h2></div></div>
+        <div class="ds-spec-size"><span data-spec-size>—</span><span class="ds-spec-meta" data-spec-meta></span></div>
+      </div>
+    </div>
+    <p class="ds-note">Heading 1 inside the hero is white with <code class="ds-code">line-height:1</code> and, from 1400px up, <code class="ds-code">font-size:10rem; white-space:nowrap</code> (<code class="ds-code">body.home .page_heading</code>). The big-hero display heading (<code class="ds-code">.big_hero .content .heading</code>) uses <code class="ds-code">clamp(6rem,5vw,8rem)</code> / <code class="ds-code">line-height:.9</code> — see Motion.</p>
+  </div>
+</section>
+<section class="ds-section ds-section--tint" id="colors">
+  <div class="contained">
+    <header class="ds-head">
+      <div class="ds-eyebrow">02 — Colors &amp; Surfaces</div>
+      <div><h2 class="heading-level-two">Colors &amp; Surfaces</h2></div>
+      <p class="ds-lede">Nine brand tokens live on <code class="ds-code">:root</code>. Everything else in the site is white, a single pale-blue surface, glass over photography, and two soft gradients.</p>
+    </header>
+
+    <h3 class="ds-sub">Brand tokens</h3>
+    <div class="ds-grid">
+        <div class="ds-swatch">
+          <span class="ds-chip ds-bg-black"></span>
+          <div class="ds-swatch__body">
+            <div class="ds-swatch__name">Brand black</div><div><code class="ds-code">--color-brand-black</code></div>
+            <div class="ds-swatch__hex">#0e1829</div>
+            <div class="ds-swatch__use">Body text, page_heading and big_hero base, hover for .btn, mobile-nav background.</div>
+          </div>
+        </div>
+        <div class="ds-swatch">
+          <span class="ds-chip ds-bg-blue"></span>
+          <div class="ds-swatch__body">
+            <div class="ds-swatch__name">Brand blue</div><div><code class="ds-code">--color-brand-blue</code></div>
+            <div class="ds-swatch__hex">#1b7aaf</div>
+            <div class="ds-swatch__use">Primary action: .btn, .link, stats band, footer headings, special-h mark.</div>
+          </div>
+        </div>
+        <div class="ds-swatch">
+          <span class="ds-chip ds-bg-lightblue"></span>
+          <div class="ds-swatch__body">
+            <div class="ds-swatch__name">Brand light blue</div><div><code class="ds-code">--color-brand-lightblue</code></div>
+            <div class="ds-swatch__hex">#1fa0e5</div>
+            <div class="ds-swatch__use">Declared on :root; not applied in the home page markup.</div>
+          </div>
+        </div>
+        <div class="ds-swatch">
+          <span class="ds-chip ds-bg-darkblue"></span>
+          <div class="ds-swatch__body">
+            <div class="ds-swatch__name">Brand dark blue</div><div><code class="ds-code">--color-brand-darkblue</code></div>
+            <div class="ds-swatch__hex">#476577</div>
+            <div class="ds-swatch__use">Headings (.heading-level-*, .rte h*) and event type text.</div>
+          </div>
+        </div>
+        <div class="ds-swatch">
+          <span class="ds-chip ds-bg-gray500"></span>
+          <div class="ds-swatch__body">
+            <div class="ds-swatch__name">Brand gray 500</div><div><code class="ds-code">--color-brand-gray-500</code></div>
+            <div class="ds-swatch__hex">#90a3bf</div>
+            <div class="ds-swatch__use">Declared on :root; not applied in the home page markup.</div>
+          </div>
+        </div>
+        <div class="ds-swatch">
+          <span class="ds-chip ds-bg-lightest"></span>
+          <div class="ds-swatch__body">
+            <div class="ds-swatch__name">Lightest gray</div><div><code class="ds-code">--color-lightest-gray</code></div>
+            <div class="ds-swatch__hex">#edf1f4</div>
+            <div class="ds-swatch__use">Footer surface, dividers, event placeholder, bottom fade of engagement_section.</div>
+          </div>
+        </div>
+        <div class="ds-swatch">
+          <span class="ds-chip ds-bg-darkblue"></span>
+          <div class="ds-swatch__body">
+            <div class="ds-swatch__name">Light gray</div><div><code class="ds-code">--color-light-gray</code></div>
+            <div class="ds-swatch__hex">#476577</div>
+            <div class="ds-swatch__use">Alias — same value as brand dark blue.</div>
+          </div>
+        </div>
+        <div class="ds-swatch">
+          <span class="ds-chip ds-bg-warning"></span>
+          <div class="ds-swatch__body">
+            <div class="ds-swatch__name">Notice warning</div><div><code class="ds-code">--color-notice-warning</code></div>
+            <div class="ds-swatch__hex">#dc4b4b</div>
+            <div class="ds-swatch__use">Declared on :root; not applied in the home page markup.</div>
+          </div>
+        </div>
+        <div class="ds-swatch">
+          <span class="ds-chip ds-bg-success"></span>
+          <div class="ds-swatch__body">
+            <div class="ds-swatch__name">Notice success</div><div><code class="ds-code">--color-notice-success</code></div>
+            <div class="ds-swatch__hex">#2DB292</div>
+            <div class="ds-swatch__use">Declared on :root; not applied in the home page markup.</div>
+          </div>
+        </div>
+    </div>
+    <p class="ds-note">Semantic aliases: <code class="ds-code">--color-primary / --color-secondary / --color-brand-text-base / --color-link / --color-link-hover / --color-bg-dark</code> → brand black; <code class="ds-code">--color-bg-light</code> → white. Referenced by the CSS but never defined: <code class="ds-code">--color-tan</code>, <code class="ds-code">--color-gray</code>, <code class="ds-code">--color-brand-red</code>.</p>
+
+    <h3 class="ds-sub">Backgrounds &amp; surfaces</h3>
+    <div class="ds-surface-demo">
+      <div class="ds-bg-white">Page<span class="ds-code">#content · #fff</span></div>
+      <div class="ds-bg-lightest">Section light<span class="ds-code">#edf1f4 · .site-footer ≥960px</span></div>
+      <div class="box">Card<span class="ds-code">.box · radius 6px · shadow 5px 5px 30px rgba(14,24,41,.1)</span></div>
+      <div class="rounded ds-bg-blue ds-on-blue">Rounded panel<span class="ds-code">.rounded · radius 12px</span></div>
+    </div>
+
+    <h3 class="ds-sub">Borders, dividers &amp; supporting colors</h3>
+    <div class="ds-grid">
+        <div class="ds-swatch">
+          <span class="ds-chip ds-bg-rule"></span>
+          <div class="ds-swatch__body">
+            <div class="ds-swatch__name">Divider (hr)</div>
+            <div class="ds-swatch__hex">#b0c5dc</div>
+            <div class="ds-swatch__use"><code class="ds-code">hr</code> — 1px solid, 90% width, max 1100px, 40px auto margin.</div>
+          </div>
+        </div>
+        <div class="ds-swatch">
+          <span class="ds-chip ds-bg-lightest"></span>
+          <div class="ds-swatch__body">
+            <div class="ds-swatch__name">Section rule</div>
+            <div class="ds-swatch__hex">2px #edf1f4</div>
+            <div class="ds-swatch__use">Footer contact blocks top border and mini_page_heading bottom border.</div>
+          </div>
+        </div>
+        <div class="ds-swatch">
+          <span class="ds-chip ds-bg-chip"></span>
+          <div class="ds-swatch__body">
+            <div class="ds-swatch__name">Type chip</div>
+            <div class="ds-swatch__hex">#f0f4f5</div>
+            <div class="ds-swatch__use"><code class="ds-code">.type-item</code> background in event cards.</div>
+          </div>
+        </div>
+        <div class="ds-swatch">
+          <span class="ds-chip ds-bg-label"></span>
+          <div class="ds-swatch__body">
+            <div class="ds-swatch__name">Form label</div>
+            <div class="ds-swatch__hex">#404040</div>
+            <div class="ds-swatch__use"><code class="ds-code">.email-registration-form label</code>.</div>
+          </div>
+        </div>
+        <div class="ds-swatch">
+          <span class="ds-chip ds-bg-error"></span>
+          <div class="ds-swatch__body">
+            <div class="ds-swatch__name">Form error</div>
+            <div class="ds-swatch__hex">#900</div>
+            <div class="ds-swatch__use"><code class="ds-code">label.error</code>, <code class="ds-code">.errors</code> border and text.</div>
+          </div>
+        </div>
+        <div class="ds-swatch">
+          <span class="ds-chip ds-bg-star"></span>
+          <div class="ds-swatch__body">
+            <div class="ds-swatch__name">Required star</div>
+            <div class="ds-swatch__hex">#aa0000</div>
+            <div class="ds-swatch__use"><code class="ds-code">.required-star</code>.</div>
+          </div>
+        </div>
+    </div>
+
+    <h3 class="ds-sub">Glass &amp; overlays</h3>
+    <div class="ds-grid ds-grid--wide">
+      <div class="ds-swatch">
+        <div class="ds-chip ds-photo ds-glass-stage"><span class="ds-glass-a"></span></div>
+        <div class="ds-swatch__body"><div class="ds-swatch__name">Header CTA glass</div>
+          <div class="ds-swatch__hex">hsla(0,0%,100%,.2) · 1px hsla(0,0%,100%,.22) · blur(10px)</div>
+          <div class="ds-swatch__use"><code class="ds-code">.site-header .header-cta-group</code> (≥960px). Live version below.</div></div>
+      </div>
+      <div class="ds-swatch">
+        <div class="ds-chip ds-photo ds-glass-stage"><span class="ds-glass-b"></span></div>
+        <div class="ds-swatch__body"><div class="ds-swatch__name">Desktop nav glass</div>
+          <div class="ds-swatch__hex">rgba(221,228,231,.58) · 1px hsla(0,0%,100%,.22) · blur(5px)</div>
+          <div class="ds-swatch__use"><code class="ds-code">.site-header .desktop-nav</code> (&lt;900px / over-hero base).</div></div>
+      </div>
+      <div class="ds-swatch">
+        <div class="ds-chip ds-photo ds-glass-stage"><span class="ds-glass-c"></span></div>
+        <div class="ds-swatch__body"><div class="ds-swatch__name">Scrolled header</div>
+          <div class="ds-swatch__hex">hsla(0,0%,100%,.85) · blur(10px)</div>
+          <div class="ds-swatch__use"><code class="ds-code">.site-header.header-scrolled</code> (&lt;960px).</div></div>
+      </div>
+    </div>
+
+    <h3 class="ds-sub">Gradients</h3>
+    <div class="ds-grid ds-grid--wide">
+      <div class="ds-swatch">
+        <div class="ds-chip ds-photo--donate ds-overlay-stage"><span class="ds-chip-inner ds-grad-card"></span></div>
+        <div class="ds-swatch__body"><div class="ds-swatch__name">Image-card scrim</div>
+          <div class="ds-swatch__hex">linear-gradient(0deg, rgba(16,36,61,.3) 39%, rgba(16,36,61,0) 78%)</div>
+          <div class="ds-swatch__use"><code class="ds-code">.three_block_set .item:after</code> — keeps white copy legible over photos.</div></div>
+      </div>
+      <div class="ds-swatch">
+        <div class="ds-chip ds-bg-white ds-overlay-stage"><span class="ds-chip-inner ds-grad-fade"></span></div>
+        <div class="ds-swatch__body"><div class="ds-swatch__name">Section fade</div>
+          <div class="ds-swatch__hex">linear-gradient(0deg, #edf1f4 9%, rgba(237,241,244,0) 94%)</div>
+          <div class="ds-swatch__use"><code class="ds-code">.engagement_section:after</code> — 5vw tall blend into the footer surface.</div></div>
+      </div>
+      <div class="ds-swatch">
+        <span class="ds-chip ds-grad-h"></span>
+        <div class="ds-swatch__body"><div class="ds-swatch__name">Brand mark fill</div>
+          <div class="ds-swatch__hex">#1b7aaf → #1b7aaf @ .7 opacity (bottom → top)</div>
+          <div class="ds-swatch__use"><code class="ds-code">svg.special-h</code> <code class="ds-code">#special-h-linear-gradient</code> in the hero.</div></div>
+      </div>
+    </div>
+
+    <h3 class="ds-sub">Glass, live (real header markup)</h3>
+    <div class="ds-stage ds-stage--flush ds-photo ds-stage--photo">
+      <div class="site-header ds-inline-header"><div class="header-base"><div class="content-wrapper">
+        <div class="footer-nav-col header-cta-group">
+          <a href="#components" class="link">Apply for Assistance</a>
+          <a href="#components" class="link btn">Donate</a>
+        </div>
+      </div></div></div>
+    </div>
+    <p class="ds-note">The glass pill is only visible at 960px and wider — the theme hides <code class="ds-code">.header-cta-group</code> below that.</p>
+  </div>
+</section>
+<section class="ds-section" id="components">
+  <div class="contained">
+    <header class="ds-head">
+      <div class="ds-eyebrow">03 — UI Components</div>
+      <div><h2 class="heading-level-two">UI Components</h2></div>
+      <p class="ds-lede">Only components that exist in the reference. Hover is shown side by side by a mirror class carrying the same declarations as the real <code class="ds-code">:hover</code> rule — the theme defines no <code class="ds-code">:active</code>, <code class="ds-code">:disabled</code> or general <code class="ds-code">:focus</code> styles, so none are invented.</p>
+    </header>
+
+    <h3 class="ds-sub">Buttons &amp; links</h3>
+    <div class="ds-comp-head"><div>Component</div><div>Default</div><div>Hover</div></div>
+    <div class="ds-comp">
+      <div class="ds-comp-name">Primary button<br><code class="ds-code">.btn</code></div>
+      <div class="ds-comp-state"><div class="ds-stage"><a class="btn" href="#components"><span class="text">I want to help</span></a></div></div>
+      <div class="ds-comp-state"><div class="ds-stage"><a class="btn ds-state-hover" href="#components"><span class="text">I want to help</span></a></div></div>
+    </div>
+    <div class="ds-comp">
+      <div class="ds-comp-name">Footer button<br><code class="ds-code">.btn-footer</code></div>
+      <div class="ds-comp-state"><div class="ds-stage ds-stage--flush"><div class="site-footer"><div class="footer-panel"><div class="footer-section footer-section-nav"><div class="holder"><div class="footer-nav-col footer-primary-cta"><div class="cta-nav"><a href="#components" class="btn-group"><div class="btn-footer"><span class="text">Contact Us</span></div></a></div></div></div></div></div></div></div></div>
+      <div class="ds-comp-state"><div class="ds-stage ds-stage--flush"><div class="site-footer"><div class="footer-panel"><div class="footer-section footer-section-nav"><div class="holder"><div class="footer-nav-col footer-primary-cta"><div class="cta-nav"><a href="#components" class="btn-group"><div class="btn-footer ds-state-hover"><span class="text">Contact Us</span></div></a></div></div></div></div></div></div></div></div>
+    </div>
+    <div class="ds-comp">
+      <div class="ds-comp-name">Link button<br><code class="ds-code">a.link-btn</code></div>
+      <div class="ds-comp-state"><div class="ds-stage"><a href="#components" class="link-btn">How It Started</a></div></div>
+      <div class="ds-comp-state"><span class="ds-na">No :hover rule in the theme.</span></div>
+    </div>
+    <div class="ds-comp">
+      <div class="ds-comp-name">Text link<br><code class="ds-code">a.link</code></div>
+      <div class="ds-comp-state"><div class="ds-stage"><a class="link" href="#components">Go To Calendar</a></div></div>
+      <div class="ds-comp-state"><span class="ds-na">No :hover rule in the theme.</span></div>
+    </div>
+    <div class="ds-comp">
+      <div class="ds-comp-name">Skip link<br><code class="ds-code">.skip-link</code></div>
+      <div class="ds-comp-state"><div class="ds-stage ds-stage--clip"><a href="#content" class="skip-link">Skip to main content</a></div><p class="ds-note">Off-screen (<code class="ds-code">top:-40px</code>) until keyboard-focused.</p></div>
+      <div class="ds-comp-state"><div class="ds-stage ds-stage--clip"><a href="#content" class="skip-link ds-state-focus">Skip to main content</a></div><p class="ds-note"><code class="ds-code">:focus{top:0}</code> — the only general focus rule in the theme.</p></div>
+    </div>
+    <div class="ds-comp">
+      <div class="ds-comp-name">Carousel controls<br><code class="ds-code">.event-prev / .event-next</code></div>
+      <div class="ds-comp-state"><div class="ds-stage ds-stage--gray"><div class="events_swiper"><div class="titling"><div class="controls"><div class="event-buttons"><div class="event-prev"></div><div class="event-next"></div></div></div></div></div></div></div>
+      <div class="ds-comp-state"><span class="ds-na">Cursor pointer; no :hover rule. Behavior in Motion.</span></div>
+    </div>
+
+    <h3 class="ds-sub">Form fields</h3>
+    <div class="ds-comp-head"><div>Component</div><div>Default</div><div>Error</div></div>
+    <div class="ds-comp">
+      <div class="ds-comp-name">Email registration<br><code class="ds-code">.email-registration-form</code></div>
+      <div class="ds-comp-state"><div class="ds-stage"><div class="engagement_section"><div class="subscribe-script"><div class="email-registration-form"><form action="javascript:void(0)" novalidate="novalidate"><div class="section contact"><div class="field text required"><label for="ds-first"><span class="label">First Name</span><span class="required-star">*</span></label><input id="ds-first" name="first-name" class="required" type="text"></div><div class="field email required"><label for="ds-email"><span class="label">Email</span><span class="required-star">*</span></label><input id="ds-email" name="email-address" class="email required" type="email" placeholder="someone@website.com"></div></div><div class="btn-group"><input class="btn btn-submit btn-submit-email" type="submit" value="Sign up"></div></form></div></div></div></div></div>
+      <div class="ds-comp-state"><div class="ds-stage"><div class="engagement_section"><div class="subscribe-script"><div class="email-registration-form"><form action="javascript:void(0)" novalidate="novalidate"><div class="errors">Please fix the highlighted fields.</div><div class="section contact"><div class="field text required"><label for="ds-first-e"><span class="label">First Name</span><span class="required-star">*</span><label class="error" for="ds-first-e">This field is required.</label></label><input id="ds-first-e" name="first-name" class="required" type="text"></div><div class="field email required"><label for="ds-email-e"><span class="label">Email</span><span class="required-star">*</span></label><input id="ds-email-e" name="email-address" class="email required" type="email" placeholder="someone@website.com"></div></div><div class="btn-group"><input class="btn btn-submit btn-submit-email" type="submit" value="Sign up"></div></form></div></div></div></div></div>
+    </div>
+    <p class="ds-note">Inputs have no focus or disabled styling in the theme; the error treatment is the red <code class="ds-code">.errors</code> box and <code class="ds-code">label.error</code>.</p>
+
+    <h3 class="ds-sub">Cards &amp; chips</h3>
+    <div class="ds-comp-head"><div>Component</div><div>Default</div><div>Notes</div></div>
+    <div class="ds-comp">
+      <div class="ds-comp-name">Event card<br><code class="ds-code">.event-tease-min</code></div>
+      <div class="ds-comp-state"><div class="ds-stage ds-stage--gray">
+                <a class="event-tease-min" href="#motion">
+                  <div class="box rounded">
+                    <div class="title-box">
+                      <div class="date-time">
+                        <div class="month">Apr</div>
+                        <div class="day">21</div>
+                        <div class="time">6 PM</div>
+                      </div>
+                      <div class="event-thumbnail">
+                        <picture>
+                          <img class="event-img" src="site/hopecancerresources.org/wp-content/uploads/2026/01/4-800x600-c-1.png" alt="Somatic Secrets: Unlocking the Information Within Your Body" width="800" height="600" loading="eager">
+                        </picture>
+                      </div>
+                      <div class="event-types">
+                        <div class="type-item">Workshops</div>
+                      </div>
+                      <h2 class="event-title">Somatic Secrets: Unlocking the Information Within Your Body</h2>
+                      <div class="cta link">Register Now!</div>
+                    </div>
+                  </div>
+                </a>
+              </div></div>
+      <div class="ds-comp-state"><p class="ds-note">300px fixed-width <code class="ds-code">.box.rounded</code> with 25px padding and a soft shadow. The blue date badge is absolutely placed over the thumbnail; the title uses <code class="ds-code">--font-serif</code> (EightiesComebackIt italic).</p></div>
+    </div>
+    <div class="ds-comp">
+      <div class="ds-comp-name">Type chip<br><code class="ds-code">.type-item</code></div>
+      <div class="ds-comp-state"><div class="ds-stage"><div class="event-tease-min"><div class="event-types"><div class="type-item">Workshops</div><div class="type-item">Fundraisers</div></div></div></div></div>
+      <div class="ds-comp-state"><p class="ds-note">Pill chip: #f0f4f5 background, dark-blue text, 20px radius.</p></div>
+    </div>
+    <p class="ds-note">The service card (<code class="ds-code">.full_service_list .item</code>), image card (<code class="ds-code">.three_block_set .item</code>) and stat (<code class="ds-code">.stats_block_one .stat</code>) are shown in context in Layout &amp; Spacing.</p>
+  </div>
+</section>
+<section class="ds-section ds-section--tint" id="layout">
+  <div class="contained">
+    <header class="ds-head">
+      <div class="ds-eyebrow">04 — Layout &amp; Spacing</div>
+      <div><h2 class="heading-level-two">Layout &amp; Spacing</h2></div>
+      <p class="ds-lede">Pages are a stack of full-width <code class="ds-code">section</code> blocks. Inside each one, content sits in <code class="ds-code">.contained</code> (max 1300px, 30px side gutters) and collapses from a grid to a single column on small screens.</p>
+    </header>
+
+    <h3 class="ds-sub">Containers</h3>
+    <div class="ds-table-wrap"><table class="ds-table">
+      <thead><tr><th>Class</th><th>Rule</th><th>Used by</th></tr></thead>
+      <tbody>
+        <tr><td>.contained</td><td>max-width 1300px · width calc(100% − 60px) · margin 0 auto</td><td>Stats band, two-column, service list, section titles</td></tr>
+        <tr><td>.contained-full</td><td>width calc(100% − 20px) · margin 0 auto</td><td>Image-card trio, big hero</td></tr>
+        <tr><td>.engagement_section .contained</td><td>max-width 1280px · width calc(100% − 150px) from 850px · gap 100px</td><td>Split panel</td></tr>
+        <tr><td>.events_swiper .wrapper</td><td>max-width 1400px · .event-list max-width 1350px</td><td>Carousel</td></tr>
+        <tr><td>.three_block_set .section-wrapper</td><td>max-width 1600px from 1600px</td><td>Image-card trio</td></tr>
+        <tr><td>.rounded / .box</td><td>radius 12px / radius 6px + shadow</td><td>Panels, cards</td></tr>
+      </tbody>
+    </table></div>
+
+    <h3 class="ds-sub">Spacing in use</h3>
+    <div class="ds-table-wrap"><table class="ds-table">
+      <thead><tr><th>Value</th><th>Scale</th><th>Where</th></tr></thead>
+      <tbody>
+        <tr><td>10px</td><td><span class="ds-bar ds-w10"></span></td><td>Grid gap (two-column rows), button gap 1rem</td></tr>
+        <tr><td>20px</td><td><span class="ds-bar ds-w20"></span></td><td>Stats band margin, list padding, content gutter</td></tr>
+        <tr><td>30px</td><td><span class="ds-bar ds-w30"></span></td><td>Service item padding, content side gutter (60px total)</td></tr>
+        <tr><td>40px</td><td><span class="ds-bar ds-w40"></span></td><td>Stats title padding, hero button margin</td></tr>
+        <tr><td>50px</td><td><span class="ds-bar ds-w50"></span></td><td>two_column_content vertical padding, .body-copy</td></tr>
+        <tr><td>60px</td><td><span class="ds-bar ds-w60"></span></td><td>Two-column gap ≥960px, events wrapper padding</td></tr>
+        <tr><td>100px</td><td><span class="ds-bar ds-w100"></span></td><td>Events wrapper top padding ≥860px, engagement gap, spacer</td></tr>
+      </tbody>
+    </table></div>
+    <p class="ds-note">Fluid padding: <code class="ds-code">.engagement_section .contained</code> top padding is <code class="ds-code">clamp(90px, 10vw, 200px)</code>.</p>
+
+    <h3 class="ds-sub">Breakpoints in the theme</h3>
+    <div class="ds-bp"><span class="ds-code">400</span><span class="ds-code">500</span><span class="ds-code">600</span><span class="ds-code">650</span><span class="ds-code">700</span><span class="ds-code">768</span><span class="ds-code">780 (JS)</span><span class="ds-code">800</span><span class="ds-code">850</span><span class="ds-code">860</span><span class="ds-code">900</span><span class="ds-code">960</span><span class="ds-code">1000</span><span class="ds-code">1024 (JS)</span><span class="ds-code">1100</span><span class="ds-code">1400</span><span class="ds-code">1600</span></div>
+    <p class="ds-note">Layout flips most often at <b>800px</b> (3-up service grid, stats band) and <b>960px</b> (desktop nav, footer panel, two-column).</p>
+  </div>
+
+  <div class="ds-pattern">
+    <div class="contained"><div class="ds-pattern-bar"><b>Pattern 1 — Stat band</b><code class="ds-code">section.stats_block_one</code><span class="ds-muted">Blue panel, title + auto-fit grid of stats; background image from 800px.</span></div></div>
+<section class="stats_block_one section-block contained">
+    <div class="contained rounded">
+                <div class="section-title">
+            <h2 class="heading-level-four">Driving real Change
+in Northwest Arkansas
+<span>(2025 Report)</span></h2>
+        </div>
+                <div class="stats-list">
+                    
+            <div class="stat">
+                <div class="num">
+                    5.8<span>k</span>
+                </div>
+                <div class="label">
+                    Patients + Caregivers  Supported
+                </div>
+            </div>
+                
+                    
+            <div class="stat">
+                <div class="num">
+                    304<span>k</span>
+                </div>
+                <div class="label">
+                    Miles Driven
+                </div>
+            </div>
+                
+                    
+            <div class="stat">
+                <div class="num">
+                    1,269
+                </div>
+                <div class="label">
+                    Hours of Counseling
+                </div>
+            </div>
+                
+                    </div>
+    </div>
+</section>
+  </div>
+
+  <div class="ds-pattern">
+    <div class="contained"><div class="ds-pattern-bar"><b>Pattern 2 — Two-column content</b><code class="ds-code">section.two_column_content</code><span class="ds-muted">1 column → 2 equal columns at 960px, 60px column gap. Variant with .big-header.</span></div></div>
+        <section id="section-3" class="two_column_content section-block">
+    <div class="contained">
+        <div class="content-wrapper">
+            <div class="columns">
+                        <div class="block-item">
+                <div class="block-spacing rte">
+
+                    <h2>At Hope Cancer Resources, we walk beside those facing cancer with open hearts, steady hands, and unwavering support.</h2>
+
+                </div>
+            </div>
+                        <div class="block-item">
+                <div class="block-spacing rte">
+
+                    <p>We exist to soften the weight of a diagnosis—with every ride given, every bill relieved, and every tear heard. Because no one should have to face cancer alone, and every life touched deserves dignity, peace, and love. We believe cancer care is not just about medicine—it’s about moments of relief, voices that listen, and the grace to live fully. Hope brings practical help and emotional refuge to those navigating life with cancer. In every call, every visit, and every small act of kindness, we are here to help people heal beyond the hospital walls.</p>
+
+                </div>
+            </div>
+                        </div>
+        </div>
+    </div>
+
+    </section>
+        <section id="section-6" class="two_column_content section-block">
+    <div class="contained">
+        <div class="content-wrapper">
+            <div class="columns">
+                        <div class="block-item">
+                <div class="block-spacing rte">
+
+                    <h2 class="big-header">Get Involved</h2>
+
+                </div>
+            </div>
+                        <div class="block-item">
+                <div class="block-spacing rte">
+
+                    <p>There are many ways to help further Hope’s mission. From volunteering to a direct donation, you can be part of the workforce that’s helping so many in NWA.</p>
+
+                </div>
+            </div>
+                        </div>
+        </div>
+    </div>
+
+    </section>
+  </div>
+
+  <div class="ds-pattern">
+    <div class="contained"><div class="ds-pattern-bar"><b>Pattern 3 — Service grid</b><code class="ds-code">section.full_service_list</code><span class="ds-muted">1 column → 3 columns at 800px; icon 100px, title, copy, link.</span></div></div>
+<section id="section-4" class="full_service_list section-block">
+    <div class="contained">
+        <h2 class="heading-level-two">Ways We Help</h2>
+        <div class="section-wrapper">
+            <div class="list">
+                                                <a href="https://hopecancerresources.org/services/patient-support/" class="item">
+                                                        <picture class="icon">
+                        <source media="(min-width: 500px)" srcset="site/hopecancerresources.org/wp-content/uploads/2025/05/hope-ico-services.svg">
+                        <img src="site/hopecancerresources.org/wp-content/uploads/2025/05/hope-ico-services.svg" alt="" width="500" height="500" loading="eager">
+                    </picture>
+                                        <div class="copy">
+                        <div class="title">
+                        Patient Support
+                        </div>
+                        <div class="content">
+                        We offer counseling and support groups for emotional support, case management, navigation, and financial assistance for specific cancer-related needs.
+                        </div>
+                                                <div class="link">
+                        Go To Support
+                        </div>
+                                            </div>
+                    
+                                
+                                                                </a><a href="https://hopecancerresources.org/services/wellness-center-for-hope/" class="item">
+                                                        <picture class="icon">
+                        <source media="(min-width: 500px)" srcset="site/hopecancerresources.org/wp-content/uploads/2025/05/hope-ico-wellness.svg">
+                        <img src="site/hopecancerresources.org/wp-content/uploads/2025/05/hope-ico-wellness.svg" alt="" width="500" height="500" loading="eager">
+                    </picture>
+                                        <div class="copy">
+                        <div class="title">
+                        Wellness Services
+                        </div>
+                        <div class="content">
+                        Our Wellness Services include personal training, yoga classes and audio meditations.
+                        </div>
+                                                <div class="link">
+                        Go To Wellness
+                        </div>
+                                            </div>
+                    
+                                
+                                                                </a><a href="https://hopecancerresources.org/services/transportation" class="item">
+                                                        <picture class="icon">
+                        <source media="(min-width: 500px)" srcset="site/hopecancerresources.org/wp-content/uploads/2025/05/hope-ico-transportation.svg">
+                        <img src="site/hopecancerresources.org/wp-content/uploads/2025/05/hope-ico-transportation.svg" alt="" width="500" height="500" loading="eager">
+                    </picture>
+                                        <div class="copy">
+                        <div class="title">
+                        Transportation
+                        </div>
+                        <div class="content">
+                        Transportation services are available to patients living in our service area for cancer-related doctor's appointments.
+                        </div>
+                                                <div class="link">
+                        Go To Transportation
+                        </div>
+                                            </div>
+                    
+                                
+                                
+        
+            </a></div>
+        </div>
+            </div>
+</section>
+  </div>
+
+  <div class="ds-pattern">
+    <div class="contained"><div class="ds-pattern-bar"><b>Pattern 4 — Image-card trio</b><code class="ds-code">section.three_block_set</code><span class="ds-muted">Stacked → 2-up at 800px → 3-up (layout-third) at 1100px. Copy is pinned bottom-left over the scrim.</span></div></div>
+<section id="section-7" class="three_block_set section-block">
+    <div class="section-wrapper contained-full">
+        <div class="list">
+                                <a href="https://hopecancerresources.org/get-involved/volunteer/" class="item rounded zoom-on-view layout-third text-color-white">
+                                            <picture class="bg-image">
+                    <source media="(min-width: 800px)" srcset="site/hopecancerresources.org/wp-content/uploads/2025/07/bg-volunteer-moblie-1600x0-c-default.jpg">
+                                            <img src="site/hopecancerresources.org/wp-content/uploads/2025/07/bg-volunteer-moblie-600x0-c-default.jpg" alt="" width="600" height="1000" loading="eager">
+                                    </picture>
+                                <div class="copy">
+                    <div class="title">
+                    Volunteer
+                    </div>
+                    <div class="content">
+                    Hope welcomes volunteers for clinic support, office tasks, events, and fundraisers. Most roles need daytime availability and training. Groups and donation drives are encouraged.
+                    </div>
+                                                                        <div class="link">
+                                <span class="text">Start Volunteering</span>
+                                <svg class="ico-arrow" xmlns="http://www.w3.org/2000/svg" version="1.1" viewBox="0 0 38 38">
+                                <line style="fill: none; stroke: #edf1f4; stroke-miterlimit: 10;" x1="4.3" y1="18.5" x2="31.6" y2="18.5"></line>
+                                <polyline style="fill: none; stroke: #edf1f4; stroke-miterlimit: 10;" points="23.7 10.2 32 18.5 23.7 26.8"></polyline>
+                                </svg>
+                            </div>
+                                                            </div>
+                
+                        </a>
+                                            <a href="https://hopecancerresources.org/get-involved/donate/" class="item rounded zoom-on-view layout-third text-color-white">
+                                            <picture class="bg-image">
+                    <source media="(min-width: 800px)" srcset="site/hopecancerresources.org/wp-content/uploads/2025/05/bg-donate-tall-1600x0-c-default.jpg">
+                                            <img src="site/hopecancerresources.org/wp-content/uploads/2025/05/bg-donate-tall-600x0-c-default.jpg" alt="" width="600" height="1000" loading="eager">
+                                    </picture>
+                                <div class="copy">
+                    <div class="title">
+                    Donate
+                    </div>
+                    <div class="content">
+                    Hope donations fund free cancer support services. Gifts are tax-deductible, can honor loved ones, and go directly to patient care.
+                    </div>
+                                                                        <div class="link">
+                                <span class="text">Donate</span>
+                                <svg class="ico-arrow" xmlns="http://www.w3.org/2000/svg" version="1.1" viewBox="0 0 38 38">
+                                <line style="fill: none; stroke: #edf1f4; stroke-miterlimit: 10;" x1="4.3" y1="18.5" x2="31.6" y2="18.5"></line>
+                                <polyline style="fill: none; stroke: #edf1f4; stroke-miterlimit: 10;" points="23.7 10.2 32 18.5 23.7 26.8"></polyline>
+                                </svg>
+                            </div>
+                                                            </div>
+                
+                        </a>
+                                            <a href="https://hopecancerresources.org/get-involved/grant-support/" class="item rounded zoom-on-view layout-third text-color-white">
+                                            <picture class="bg-image">
+                    <source media="(min-width: 800px)" srcset="site/hopecancerresources.org/wp-content/uploads/2025/05/bg-grant-support-tall-1600x0-c-default.jpg">
+                                            <img src="site/hopecancerresources.org/wp-content/uploads/2025/05/bg-grant-support-tall-600x0-c-default.jpg" alt="" width="600" height="1000" loading="eager">
+                                    </picture>
+                                <div class="copy">
+                    <div class="title">
+                    Grant Support
+                    </div>
+                    <div class="content">
+                    Hope’s grant partners fund patient transportation, financial aid, and cancer prevention. Their support helps ensure local patients can access care, education, and essential services.
+                    </div>
+                                                                        <div class="link">
+                                <span class="text">Get Support</span>
+                                <svg class="ico-arrow" xmlns="http://www.w3.org/2000/svg" version="1.1" viewBox="0 0 38 38">
+                                <line style="fill: none; stroke: #edf1f4; stroke-miterlimit: 10;" x1="4.3" y1="18.5" x2="31.6" y2="18.5"></line>
+                                <polyline style="fill: none; stroke: #edf1f4; stroke-miterlimit: 10;" points="23.7 10.2 32 18.5 23.7 26.8"></polyline>
+                                </svg>
+                            </div>
+                                                            </div>
+                
+                        </a>
+                    
+        </div>
+    </div>
+    </section>
+  </div>
+
+  <div class="ds-pattern">
+    <div class="contained"><div class="ds-pattern-bar"><b>Pattern 5 — Split panel</b><code class="ds-code">section.engagement_section</code><span class="ds-muted">Cover background image; left form panel + right story panel side by side from 850px.</span></div></div>
+<section class="engagement_section" style="background:url(&quot;site/hopecancerresources.org/wp-content/uploads/2025/06/BG-AboutUs-drk.jpg&quot;) no-repeat center; background-size:cover;">
+<div class="contained">
+    <div class="left-panel">
+                <div class="heading">Stay Connected</div>
+                        <div class="body-copy">Learn more about what we’re doing every month to fight cancer in NWA.</div>
+                        <div class="subscribe-script"><link rel="stylesheet" href="site/_runtime/style-5.css" data-wd3-runtime-style=""><div id="email-registration-form-container">  <form id="email-registration-form" class="email-registration-form" method="post" action="javascript:void(0)" novalidate="novalidate">    <div class="errors hidden"></div>    <div class="section contact">      <h3>Contact Information</h3>      <div class="field text first-name required"><label for="first-name"><span class="label">First Name</span><span class="required-star">*</span></label><input id="first-name" name="first-name" class="required" type="text"></div><div class="field text last-name required"><label for="last-name"><span class="label">Last Name</span><span class="required-star">*</span></label><input id="last-name" name="last-name" class="required" type="text"></div><div class="field email email-address required"><label for="email-address"><span class="label">Email</span><span class="required-star">*</span></label><input id="email-address" name="email-address" class="email required" type="email" placeholder="someone@website.com"></div><div class="consent">I want to receive emails at this address</div></div>            <div class="btn-group">      <input class="btn btn-submit btn-submit-email" type="submit" value="Sign up">    </div>  </form></div></div>
+        
+
+
+    </div>
+    <div class="right-panel">
+                <div class="content"><h2>Our Story</h2>
+<p>Born in 2009 from the teamwork of NARTI and HOPE, Inc., Hope Cancer Resources has been bringing care, comfort, and cancer support to Northwest Arkansas ever since!</p>
+<p><a href="https://hopecancerresources.org/our-story" class="link-btn">How It Started</a></p>
+</div>
+            </div>
+</div>
+</section>
+  </div>
+</section>
+<section class="ds-section" id="motion">
+  <div class="contained">
+    <header class="ds-head">
+      <div class="ds-eyebrow">05 — Motion &amp; Interaction</div>
+      <div><h2 class="heading-level-two">Motion &amp; Interaction</h2></div>
+      <p class="ds-lede">Motion is restrained: one global <b>.2s ease-in</b> transition on every element, a handful of scroll-driven effects written in the theme's inline JS, and a 2-second image zoom. The stylesheet contains <b>no <code class="ds-code">@keyframes</code></b> — there are no entrance animations to document.</p>
+    </header>
+
+    <h3 class="ds-sub">Motion gallery</h3>
+    <div class="ds-motion-grid">
+      <div class="ds-tile">
+        <h3>Button hover</h3>
+        <div class="ds-tile-demo"><a class="btn" href="#motion"><span class="text">Hover me</span></a></div>
+        <div class="ds-tile-meta"><code class="ds-code">.btn:hover</code> background blue → #0e1829 via the global <code class="ds-code">body *{transition:all .2s ease-in}</code>.</div>
+      </div>
+      <div class="ds-tile">
+        <h3>Image-card zoom</h3>
+        <div class="ds-tile-demo ds-tile-demo--flush"><div class="three_block_set"><div class="section-wrapper contained-full"><div class="list">
+                                            <a href="https://hopecancerresources.org/get-involved/donate/" class="item rounded zoom-on-view layout-third text-color-white">
+                                            <picture class="bg-image">
+                    <source media="(min-width: 800px)" srcset="site/hopecancerresources.org/wp-content/uploads/2025/05/bg-donate-tall-1600x0-c-default.jpg">
+                                            <img src="site/hopecancerresources.org/wp-content/uploads/2025/05/bg-donate-tall-600x0-c-default.jpg" alt="" width="600" height="1000" loading="eager">
+                                    </picture>
+                                <div class="copy">
+                    <div class="title">
+                    Donate
+                    </div>
+                    <div class="content">
+                    Hope donations fund free cancer support services. Gifts are tax-deductible, can honor loved ones, and go directly to patient care.
+                    </div>
+                                                                        <div class="link">
+                                <span class="text">Donate</span>
+                                <svg class="ico-arrow" xmlns="http://www.w3.org/2000/svg" version="1.1" viewBox="0 0 38 38">
+                                <line style="fill: none; stroke: #edf1f4; stroke-miterlimit: 10;" x1="4.3" y1="18.5" x2="31.6" y2="18.5"></line>
+                                <polyline style="fill: none; stroke: #edf1f4; stroke-miterlimit: 10;" points="23.7 10.2 32 18.5 23.7 26.8"></polyline>
+                                </svg>
+                            </div>
+                                                            </div>
+                
+                        </a>
+        </div></div></div></div>
+        <div class="ds-tile-meta"><code class="ds-code">.item:hover .bg-image img</code> <code class="ds-code">scale(1.05)</code> over <b>2s ease</b>. Elsewhere in the list: <code class="ds-code">transition: all .2s ease</code>.</div>
+      </div>
+      <div class="ds-tile">
+        <h3>Sticky header morph</h3>
+        <div class="ds-tile-demo"><div class="ds-readout">header class: <b data-ds-header-state>header-unscrolled</b></div></div>
+        <div class="ds-tile-meta"><code class="ds-code">HeaderScrollManager</code> toggles <code class="ds-code">.header-unscrolled</code> ↔ <code class="ds-code">.header-scrolled</code> past <b>80px</b> of scroll. The wordmark collapses to the “h” mark (<code class="ds-code">.logo-holder-main.show</code>) and the CTA group moves into the nav. Header transitions: <code class="ds-code">all .1s ease-out</code>.</div>
+      </div>
+      <div class="ds-tile">
+        <h3>Mega-menu</h3>
+        <div class="ds-tile-demo ds-stage--dark"><svg class="tick" xmlns="http://www.w3.org/2000/svg" version="1.1" viewBox="0 0 13.9 14.9" width="28">
+  <path style="fill: white;" d="M6.2,3.5L1.8,11.1c-.2.3,0,.7.4.7h8.8c.4,0,.6-.4.4-.7L7,3.5c-.2-.3-.6-.3-.8,0Z"></path>
+</svg></div>
+        <div class="ds-tile-meta">On <code class="ds-code">li:hover / :focus-within</code> the <code class="ds-code">.tick</code> rotates 90° → 180°, the item turns white and the submenu opens. Try it in the hero nav (≥960px). The positioning is recalculated by <code class="ds-code">DesktopNavManager</code> on load, resize and scroll.</div>
+      </div>
+      <div class="ds-tile">
+        <h3>Mobile menu reveal</h3>
+        <div class="ds-tile-demo"><span class="ds-code">clip-path: circle(0% → 150% at toggle)</span></div>
+        <div class="ds-tile-meta"><code class="ds-code">MobileNavManager</code> opens <code class="ds-code">.mobile-nav</code> with a <b>.5s ease-out</b> circular clip-path from the toggle button, traps focus and sets <code class="ds-code">aria-expanded</code>. Submenus slide with <code class="ds-code">left .2s</code>.</div>
+      </div>
+      <div class="ds-tile">
+        <h3>Intro splash</h3>
+        <div class="ds-tile-demo"><span class="ds-code">home · ≥780px · scrollY = 0</span></div>
+        <div class="ds-tile-meta">On load, a blue layer plus a white circular-mask overlay and the “h” mark wait <b>1s</b>, then expand and fade over <b>500ms</b> via <code class="ds-code">requestAnimationFrame</code>. Reload at the top of the page to see it.</div>
+      </div>
+    </div>
+
+    <div class="ds-full">
+      <div class="ds-pattern-bar"><b>Scroll reveal</b><code class="ds-code">section.big_hero.animate-on-view</code><span class="ds-muted">A white overlay with a radial mask (<code class="ds-code">.reveal-overlay</code>) opens as the section scrolls into view: radius 50px → √(w^1.8 + h^2.2).</span></div>
+    </div>
+  </div>
+<section id="section-5" class="big_hero section-block rounded contained-full animate-on-view">
+    
+    <div class="holder">
+
+                <div class="content">
+            <div class="content-container">
+            <h1 class="heading">Stories of Hope</h1>            <p class="subheading">We are dedicated to providing support for the journey and education for life. These are some of the stories of local patients and their families who we’ve been able to touch.</p>            </div>
+            <div class="button-holder">
+                                <a class="btn" href="https://hopecancerresources.org/stories">
+                    <span class="text">Read Their Stories</span>
+                </a>
+                            </div>
+        </div>
+        
+            <picture class="bg-image">
+            <source media="(min-width: 600px)" srcset="site/hopecancerresources.org/wp-content/uploads/2025/05/bg-stories.jpg">            <img src="site/hopecancerresources.org/wp-content/uploads/2025/05/bg-stories.jpg" alt="Hero BG" width="600" height="800" loading="eager">
+        </picture>
+    
+       
+       
+    </div>
+
+
+    
+
+
+  
+     
+</section>
+  <div class="contained ds-full">
+    <div class="ds-pattern-bar"><b>Carousel</b><code class="ds-code">section.events_swiper</code><span class="ds-muted">Native scroll with <code class="ds-code">scroll-snap-type:x mandatory</code> and <code class="ds-code">scroll-behavior:smooth</code>; the arrows scroll by one card width (<code class="ds-code">EventCarousel</code>), which also sorts upcoming events by date.</span></div>
+  </div>
+
+<section id="ds-events" class="events_swiper section-block  bg-light">
+    <div class="wrapper">
+        <div class="titling contained">
+          <div class="group">
+            <h2 class="heading-level-three">Upcoming Events</h2>
+          </div>
+          <div class="controls">
+            <a href="#motion" class="link">Go To Calendar</a>
+            <div class="event-buttons">
+                <div class="event-prev"></div>
+                <div class="event-next"></div>
+            </div>
+          </div>
+        </div>
+        <div class="event-list event-swiper-holder">
+            <div class="swiper-wrapper">
+              <div class="item" data-date-iso="2099-01-27 18:00:00" data-types="Workshops">
+                <a class="event-tease-min" href="#motion">
+                  <div class="box rounded">
+                    <div class="title-box">
+                      <div class="date-time">
+                        <div class="month">Jan</div>
+                        <div class="day">27</div>
+                        <div class="time">6 PM</div>
+                      </div>
+                      <div class="event-thumbnail">
+                        <picture>
+                          <img class="event-img" src="site/hopecancerresources.org/wp-content/uploads/2026/01/2-800x600-c-1.png" alt="Introduction to Yoga: A Breakdown of History &amp; Philosophy" width="800" height="600" loading="eager">
+                        </picture>
+                      </div>
+                      <div class="event-types">
+                        <div class="type-item">Workshops</div>
+                      </div>
+                      <h2 class="event-title">Introduction to Yoga: A Breakdown of History &amp; Philosophy</h2>
+                      <div class="cta link">Register Now!</div>
+                    </div>
+                  </div>
+                </a>
+              </div>
+              <div class="item" data-date-iso="2099-02-17 18:00:00" data-types="Workshops">
+                <a class="event-tease-min" href="#motion">
+                  <div class="box rounded">
+                    <div class="title-box">
+                      <div class="date-time">
+                        <div class="month">Feb</div>
+                        <div class="day">17</div>
+                        <div class="time">6 PM</div>
+                      </div>
+                      <div class="event-thumbnail">
+                        <picture>
+                          <img class="event-img" src="site/hopecancerresources.org/wp-content/uploads/2026/01/3-800x600-c-1.png" alt="Strength Training After Cancer" width="800" height="600" loading="eager">
+                        </picture>
+                      </div>
+                      <div class="event-types">
+                        <div class="type-item">Workshops</div>
+                      </div>
+                      <h2 class="event-title">Strength Training After Cancer</h2>
+                      <div class="cta link">Register Now!</div>
+                    </div>
+                  </div>
+                </a>
+              </div>
+              <div class="item" data-date-iso="2099-03-31 18:00:00" data-types="Workshops">
+                <a class="event-tease-min" href="#motion">
+                  <div class="box rounded">
+                    <div class="title-box">
+                      <div class="date-time">
+                        <div class="month">Mar</div>
+                        <div class="day">31</div>
+                        <div class="time">6 PM</div>
+                      </div>
+                      <div class="event-thumbnail">
+                        <picture>
+                          <img class="event-img" src="site/hopecancerresources.org/wp-content/uploads/2026/01/1-800x600-c-1.png" alt="Introduction to Pilates" width="800" height="600" loading="eager">
+                        </picture>
+                      </div>
+                      <div class="event-types">
+                        <div class="type-item">Workshops</div>
+                      </div>
+                      <h2 class="event-title">Introduction to Pilates</h2>
+                      <div class="cta link">Register Now!</div>
+                    </div>
+                  </div>
+                </a>
+              </div>
+              <div class="item" data-date-iso="2099-04-17 08:00:00" data-types="Fundraisers">
+                <a class="event-tease-min" href="#motion">
+                  <div class="box rounded">
+                    <div class="title-box">
+                      <div class="date-time">
+                        <div class="month">Apr</div>
+                        <div class="day">17</div>
+                        <div class="time">8 AM</div>
+                      </div>
+                      <div class="event-thumbnail">
+                        <picture>
+                          <img class="event-img" src="site/hopecancerresources.org/wp-content/uploads/2026/01/Untitled-design-95-800x600-c-1.png" alt="Hope Island" width="800" height="600" loading="eager">
+                        </picture>
+                      </div>
+                      <div class="event-types">
+                        <div class="type-item">Fundraisers</div>
+                      </div>
+                      <h2 class="event-title">Hope Island</h2>
+                      <div class="cta link">Form a Team</div>
+                    </div>
+                  </div>
+                </a>
+              </div>
+              <div class="item" data-date-iso="2099-04-21 18:00:00" data-types="Workshops">
+                <a class="event-tease-min" href="#motion">
+                  <div class="box rounded">
+                    <div class="title-box">
+                      <div class="date-time">
+                        <div class="month">Apr</div>
+                        <div class="day">21</div>
+                        <div class="time">6 PM</div>
+                      </div>
+                      <div class="event-thumbnail">
+                        <picture>
+                          <img class="event-img" src="site/hopecancerresources.org/wp-content/uploads/2026/01/4-800x600-c-1.png" alt="Somatic Secrets: Unlocking the Information Within Your Body" width="800" height="600" loading="eager">
+                        </picture>
+                      </div>
+                      <div class="event-types">
+                        <div class="type-item">Workshops</div>
+                      </div>
+                      <h2 class="event-title">Somatic Secrets: Unlocking the Information Within Your Body</h2>
+                      <div class="cta link">Register Now!</div>
+                    </div>
+                  </div>
+                </a>
+              </div>
+              <div class="item" data-date-iso="2099-04-28 18:00:00" data-types="Fundraisers">
+                <a class="event-tease-min" href="#motion">
+                  <div class="box rounded">
+                    <div class="title-box">
+                      <div class="date-time">
+                        <div class="month">Apr</div>
+                        <div class="day">28</div>
+                        <div class="time">6 PM</div>
+                      </div>
+                      <div class="event-thumbnail">
+                        <picture>
+                          <img class="event-img" src="site/hopecancerresources.org/wp-content/uploads/2026/01/Untitled-design-96-800x600-c-1.png" alt="Wellness Lab: Sun Safety &amp; Skin Cancer Screening" width="800" height="600" loading="eager">
+                        </picture>
+                      </div>
+                      <div class="event-types">
+                        <div class="type-item">Fundraisers</div>
+                      </div>
+                      <h2 class="event-title">Wellness Lab: Sun Safety &amp; Skin Cancer Screening</h2>
+                      <div class="cta link">Schedule Your Appointment</div>
+                    </div>
+                  </div>
+                </a>
+              </div>
+            </div>
+        </div>
+        <div class="spacer"></div>
+    </div>
+</section>
+
+  <div class="contained ds-full">
+    <h3 class="ds-sub">Timing tokens</h3>
+    <div class="ds-table-wrap"><table class="ds-table">
+      <thead><tr><th>Selector</th><th>Property</th><th>Timing</th></tr></thead>
+      <tbody>
+        <tr><td>body *</td><td>all</td><td>.2s ease-in</td></tr>
+        <tr><td>.site-header, .site-header *</td><td>all</td><td>.1s ease-out</td></tr>
+        <tr><td>.two_column_content *</td><td>all</td><td>.1s ease-out</td></tr>
+        <tr><td>.three_block_set .list *</td><td>all</td><td>.2s ease</td></tr>
+        <tr><td>.three_block_set .item:hover .bg-image img</td><td>transform scale(1.05)</td><td>2s ease</td></tr>
+        <tr><td>.reveal-overlay</td><td>mask-image</td><td>.1s ease-out (driven by scroll)</td></tr>
+        <tr><td>.skip-link</td><td>top</td><td>.3s ease</td></tr>
+        <tr><td>.mobile-nav (JS)</td><td>clip-path</td><td>.5s ease-out</td></tr>
+        <tr><td>.submenu-slide (JS, mobile)</td><td>left</td><td>.2s</td></tr>
+      </tbody>
+    </table></div>
+  </div>
+</section>
+<section class="ds-section ds-section--tint" id="icons">
+  <div class="contained">
+    <header class="ds-head">
+      <div class="ds-eyebrow">06 — Icons</div>
+      <div><h2 class="heading-level-two">Icons</h2></div>
+      <p class="ds-lede">No icon font or library. Icons are inline SVG (<code class="ds-code">.ico-arrow</code>, <code class="ds-code">.tick</code>, hamburger), SVG files for service pictograms and close, and CSS <code class="ds-code">content:url(data:image/svg+xml…)</code> for social marks.</p>
+    </header>
+
+    <div class="ds-icon-grid">
+      <div class="ds-icon-card">
+        <h3>Social <span class="ds-code">.icon.*</span></h3>
+        <div class="ds-icon-row"><figure><div class="icon instagram"></div><figcaption>.icon.instagram</figcaption></figure><figure><div class="icon facebook"></div><figcaption>.icon.facebook</figcaption></figure><figure><div class="icon youtube"></div><figcaption>.icon.youtube</figcaption></figure><figure><div class="icon twitter"></div><figcaption>.icon.twitter</figcaption></figure><figure><div class="icon linkedin"></div><figcaption>.icon.linkedin</figcaption></figure></div>
+        <div class="ds-tile-meta">15px wide, <code class="ds-code">filter:brightness(0)</code> — always black, no color inheritance.</div>
+        <div class="ds-icon-row"><div class="site-footer"><div class="footer-contact-blocks"><div class="contact-block social-block"><div class="spacing"><ul class="social-links"><li><a href="#icons" aria-label="Instagram"><div class="icon instagram"></div><span class="label">instagram</span></a></li><li><a href="#icons" aria-label="Facebook"><div class="icon facebook"></div><span class="label">facebook</span></a></li><li><a href="#icons" aria-label="YouTube"><div class="icon youtube"></div><span class="label">youtube</span></a></li><li><a href="#icons" aria-label="Twitter"><div class="icon twitter"></div><span class="label">twitter</span></a></li><li><a href="#icons" aria-label="LinkedIn"><div class="icon linkedin"></div><span class="label">linkedin</span></a></li></ul></div></div></div></div></div>
+        <div class="ds-tile-meta">20px in the footer: <code class="ds-code">.site-footer .social-block ul li a .icon</code>. The text label is hidden.</div>
+      </div>
+
+      <div class="ds-icon-card">
+        <h3>Arrow <span class="ds-code">svg.ico-arrow</span></h3>
+        <div class="ds-icon-row ds-icon-row--dark"><figure><svg class="ico-arrow" xmlns="http://www.w3.org/2000/svg" version="1.1" viewBox="0 0 38 38" width="24" height="24">
+  <line style="fill: none; stroke: #edf1f4; stroke-miterlimit: 10;" x1="4.3" y1="18.5" x2="31.6" y2="18.5"></line>
+  <polyline style="fill: none; stroke: #edf1f4; stroke-miterlimit: 10;" points="23.7 10.2 32 18.5 23.7 26.8"></polyline>
+</svg><figcaption>24 · as used</figcaption></figure><figure><svg class="ico-arrow" xmlns="http://www.w3.org/2000/svg" version="1.1" viewBox="0 0 38 38" width="38" height="38">
+  <line style="fill: none; stroke: #edf1f4; stroke-miterlimit: 10;" x1="4.3" y1="18.5" x2="31.6" y2="18.5"></line>
+  <polyline style="fill: none; stroke: #edf1f4; stroke-miterlimit: 10;" points="23.7 10.2 32 18.5 23.7 26.8"></polyline>
+</svg><figcaption>38 · viewBox</figcaption></figure><figure><svg class="ico-arrow" xmlns="http://www.w3.org/2000/svg" version="1.1" viewBox="0 0 38 38" width="56" height="56">
+  <line style="fill: none; stroke: #edf1f4; stroke-miterlimit: 10;" x1="4.3" y1="18.5" x2="31.6" y2="18.5"></line>
+  <polyline style="fill: none; stroke: #edf1f4; stroke-miterlimit: 10;" points="23.7 10.2 32 18.5 23.7 26.8"></polyline>
+</svg><figcaption>56</figcaption></figure></div>
+        <div class="ds-tile-meta">Two strokes in #edf1f4. In cards it is 24px with a 10px left margin; <code class="ds-code">.text-color-dark</code> flips the stroke to brand black.</div>
+      </div>
+
+      <div class="ds-icon-card">
+        <h3>Menu chevron <span class="ds-code">svg.tick</span></h3>
+        <div class="ds-icon-row ds-icon-row--dark"><figure><svg class="tick" xmlns="http://www.w3.org/2000/svg" version="1.1" viewBox="0 0 13.9 14.9" width="10">
+  <path style="fill: white;" d="M6.2,3.5L1.8,11.1c-.2.3,0,.7.4.7h8.8c.4,0,.6-.4.4-.7L7,3.5c-.2-.3-.6-.3-.8,0Z"></path>
+</svg><figcaption>10 · as used</figcaption></figure><figure><svg class="tick" xmlns="http://www.w3.org/2000/svg" version="1.1" viewBox="0 0 13.9 14.9" width="20">
+  <path style="fill: white;" d="M6.2,3.5L1.8,11.1c-.2.3,0,.7.4.7h8.8c.4,0,.6-.4.4-.7L7,3.5c-.2-.3-.6-.3-.8,0Z"></path>
+</svg><figcaption>20</figcaption></figure><figure><svg class="tick" xmlns="http://www.w3.org/2000/svg" version="1.1" viewBox="0 0 13.9 14.9" width="32">
+  <path style="fill: white;" d="M6.2,3.5L1.8,11.1c-.2.3,0,.7.4.7h8.8c.4,0,.6-.4.4-.7L7,3.5c-.2-.3-.6-.3-.8,0Z"></path>
+</svg><figcaption>32</figcaption></figure></div>
+        <div class="ds-tile-meta">White triangle. Rotated 90° by default and 180° on hover; fill turns brand blue on a white tab.</div>
+      </div>
+
+      <div class="ds-icon-card">
+        <h3>Hamburger &amp; close</h3>
+        <div class="ds-icon-row"><figure>                    <svg version="1.1" class="ico-mobile" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="30" height="30" viewBox="0 0 24.6 23.9" style="enable-background:new 0 0 24.6 23.9;" xml:space="preserve">
+<g>
+	<g>
+		<line style="fill:none;stroke:#000000;stroke-width:3;stroke-miterlimit:10;" x1="0" y1="22.4" x2="24.6" y2="22.4"></line>
+	</g>
+	<g>
+		<line style="fill:none;stroke:#000000;stroke-width:3;stroke-miterlimit:10;" x1="0" y1="12" x2="24.6" y2="12"></line>
+	</g>
+	<g>
+		<line style="fill:none;stroke:#000000;stroke-width:3;stroke-miterlimit:10;" x1="0" y1="1.5" x2="24.6" y2="1.5"></line>
+	</g>
+</g>
+</svg><figcaption>.ico-mobile · 30</figcaption></figure><figure><img src="site/hopecancerresources.org/wp-content/themes/hope-cancer-resources/img/ico-close.svg" alt="" width="30" height="30"><figcaption>ico-close.svg · 30</figcaption></figure></div>
+        <div class="ds-tile-meta">Toggle strokes are forced to white (blue when the header is scrolled) via <code class="ds-code">.mobile-nav-toggle svg *</code>.</div>
+      </div>
+
+      <div class="ds-icon-card">
+        <h3>Service pictograms</h3>
+        <div class="ds-icon-row"><div class="full_service_list"><div class="section-wrapper"><div class="list">
+          <picture class="icon"><img src="site/hopecancerresources.org/wp-content/uploads/2025/05/hope-ico-services.svg" alt="" width="500" height="500" loading="eager"></picture>
+          <picture class="icon"><img src="site/hopecancerresources.org/wp-content/uploads/2025/05/hope-ico-wellness.svg" alt="" width="500" height="500" loading="eager"></picture>
+          <picture class="icon"><img src="site/hopecancerresources.org/wp-content/uploads/2025/05/hope-ico-transportation.svg" alt="" width="500" height="500" loading="eager"></picture>
+        </div></div></div></div>
+        <div class="ds-tile-meta">100 × 100 box with a 10px radius (<code class="ds-code">.full_service_list .list .icon img</code>). Full-color files; color cannot be inherited.</div>
+      </div>
+    </div>
+  </div>
+</section>
+	</article>
+    </div>
+</main>
+<div class="ds-end">Hope Cancer Resources Design System — generated from index.html. All components use the original theme classes.</div>
+<script>
+
+// main.js
+document.addEventListener('DOMContentLoaded', () => {
+  new MobileNavManager();
+  new HeaderScrollManager();
+  new MobileMenuExpander();
+  new InnerPageHeader();
+  new AnimateOnView();
+  new DesktopNavManager(); // includes submenu shifting
+});
+
+class MobileNavManager {
+  constructor() {
+    this.siteHeader = document.querySelector('.site-header');
+    this.toggleButton = document.querySelector('.mobile-nav-toggle');
+    this.closeButton = document.querySelector('.mobile-nav-close');
+    this.mobileNav = document.querySelector('.mobile-nav');
+    this.navContainer = document.getElementById('nav-mobile');
+
+    if (this.toggleButton && this.mobileNav && this.navContainer) {
+      this.toggleButton.addEventListener('click', () => {
+        this.toggleAriaAndFocus();
+        this.openMenu();
+      });
+    }
+
+    if (this.closeButton) {
+      this.closeButton.addEventListener('click', () => {
+        this.closeMenu();
+        this.navContainer.classList.remove('is-open');
+        this.toggleButton.setAttribute('aria-expanded', 'false');
+        this.navContainer.setAttribute('aria-hidden', 'true');
+        this.toggleButton.focus();
+      });
+    }
+  }
+
+  getToggleCenterPosition() {
+    const rect = this.toggleButton.getBoundingClientRect();
+    return `${rect.left + rect.width / 2}px ${rect.top + rect.height / 2}px`;
+  }
+
+  openMenu() {
+    const center = this.getToggleCenterPosition();
+    this.mobileNav.style.clipPath = `circle(0% at ${center})`;
+    this.mobileNav.style.display = 'flex';
+
+    setTimeout(() => {
+      this.mobileNav.style.transition = 'clip-path 0.5s ease-out';
+      this.mobileNav.style.clipPath = `circle(150% at ${center})`;
+    }, 10);
+
+    this.siteHeader.classList.add('alt-logo');
+    setTimeout(() => {
+      this.siteHeader.classList.add('menu-open');
+    }, 10);
+  }
+
+  closeMenu() {
+    const center = this.getToggleCenterPosition();
+    this.mobileNav.style.clipPath = `circle(0% at ${center})`;
+    this.siteHeader.classList.remove('menu-open');
+
+    setTimeout(() => {
+      this.mobileNav.style.display = 'none';
+      this.mobileNav.style.transition = '';
+    }, 500);
+  }
+
+  trapFocus(container) {
+    const focusableSelector = 'a[href], button:not([disabled]), textarea, input, select, [tabindex]:not([tabindex="-1"])';
+
+    const handleKeydown = (e) => {
+        if (e.key !== 'Tab') return;
+
+        const focusableEls = container.querySelectorAll(focusableSelector);
+        const focusable = Array.from(container.querySelectorAll(focusableSelector))
+            .filter(el => el.tabIndex !== -1 && !el.hasAttribute('aria-hidden'));
+
+        const first = focusable[0];
+        const last = focusable[focusable.length - 1];
+
+        if (e.shiftKey) {
+        if (document.activeElement === first || !container.contains(document.activeElement)) {
+            e.preventDefault();
+            last.focus();
+        }
+        } else {
+        if (document.activeElement === last) {
+            e.preventDefault();
+            first.focus();
+        }
+        }
+    };
+
+    document.addEventListener('keydown', handleKeydown);
+    this.focusTrapCleanup = () => {
+        document.removeEventListener('keydown', handleKeydown);
+    };
+    }
+
+    toggleAriaAndFocus() {
+        const isOpen = this.navContainer.classList.toggle('is-open');
+        this.toggleButton.setAttribute('aria-expanded', isOpen);
+        this.navContainer.setAttribute('aria-hidden', !isOpen);
+
+        if (isOpen) {
+            document.body.classList.add('no-scroll');
+
+            // Delay focus until after nav is visible
+            setTimeout(() => {
+            const closeBtn = this.navContainer.querySelector('.mobile-nav-close');
+            closeBtn?.focus();
+            this.trapFocus(this.navContainer);
+            }, 50); // 50ms is enough to allow DOM visibility update
+        } else {
+            this.focusTrapCleanup?.();
+            document.body.classList.remove('no-scroll');
+            this.toggleButton.focus();
+        }
+    }
+
+}
+
+class HeaderScrollManager {
+  constructor() {
+    this.siteHeader = document.querySelector('.site-header');
+    this.desktopNav = document.querySelector('.desktop-nav');
+    this.ctaGroup = document.querySelector('.header-cta-group');
+    this.secondaryLogos = document.querySelectorAll('.logo-holder-main');
+    this.contentWrapper = document.querySelector('.header-base .content-wrapper');
+
+    this.updateHeaderClass();
+    window.addEventListener('scroll', () => this.updateHeaderClass());
+  }
+
+  updateHeaderClass() {
+    if (window.scrollY > 80) {
+      this.siteHeader.classList.remove('header-unscrolled');
+      this.siteHeader.classList.add('header-scrolled');
+      this.secondaryLogos.forEach(el => el.classList.add('show'));
+
+      if (this.ctaGroup && this.desktopNav) {
+        this.desktopNav.appendChild(this.ctaGroup);
+      }
+    } else {
+      this.siteHeader.classList.remove('header-scrolled');
+      this.siteHeader.classList.add('header-unscrolled');
+      this.secondaryLogos.forEach(el => el.classList.remove('show'));
+
+      if (this.ctaGroup && this.contentWrapper && this.desktopNav.contains(this.ctaGroup)) {
+        this.contentWrapper.appendChild(this.ctaGroup);
+      }
+    }
+  }
+}
+
+class MobileMenuExpander {
+    constructor() {
+        this.activateMenu();
+        window.addEventListener('resize', () => this.activateMenu());
+    }
+
+    activateMenu() {
+        if (window.innerWidth < 1024) {
+            // Clear existing listeners (optional but safe)
+
+            document.querySelectorAll('.nav-link').forEach(link => {
+                const clone = link.cloneNode(true);
+                link.replaceWith(link.cloneNode(true));
+            });
+
+            document.querySelectorAll('.nav-link').forEach(link => {
+                link.setAttribute('role', 'button');
+                link.setAttribute('tabindex', '0');
+                link.setAttribute('aria-expanded', 'false');
+
+                link.addEventListener('click', e => {
+                    e.preventDefault();
+                    const submenu = link.nextElementSibling;
+                    if (submenu) {
+                        submenu.style.transition = 'left 0.2s';
+                        submenu.style.left = '0';
+                        link.setAttribute('aria-expanded', 'true');
+                    }
+                });
+
+                link.addEventListener('keydown', e => {
+                    if (e.key === 'Enter' || e.key === ' ') {
+                        e.preventDefault();
+                        const submenu = link.nextElementSibling;
+                        if (submenu) {
+                            submenu.style.transition = 'left 0.2s';
+                            submenu.style.left = '0';
+                            link.setAttribute('aria-expanded', 'true');
+                        }
+                    }
+                });
+            });
+
+            document.querySelectorAll('.back-link').forEach(link => {
+                // Ensure it's focusable
+                link.setAttribute('role', 'button');
+                link.setAttribute('tabindex', '0');
+
+                // Handle click to close submenu
+                link.addEventListener('click', e => {
+                    e.preventDefault();
+                    const submenu = link.closest('.submenu-slide');
+                    if (submenu) {
+                    submenu.style.transition = 'left 0.2s';
+                    submenu.style.left = '100%';
+                    }
+                });
+
+                // Also support keyboard access (Enter/Space)
+                link.addEventListener('keydown', e => {
+                    if (e.key === 'Enter' || e.key === ' ') {
+                    e.preventDefault();
+                    const submenu = link.closest('.submenu-slide');
+                    if (submenu) {
+                        submenu.style.transition = 'left 0.2s';
+                        submenu.style.left = '100%';
+                    }
+                    }
+                });
+            });
+
+        }
+    }
+}
+
+class DesktopNavManager {
+  constructor() {
+    this.submenuItems = document.querySelectorAll('.style-megadropmenu-item .submenu');
+    this.nav = document.getElementById('nav-desktop');
+
+    this.positionSubmenus();
+    window.addEventListener('load', () => this.positionSubmenus());
+    window.addEventListener('resize', () => this.positionSubmenus());
+    window.addEventListener('scroll', () => this.positionSubmenus());
+  }
+
+  positionSubmenus() {
+    if (!this.nav || this.submenuItems.length === 0) return;
+
+    const navRect = this.nav.getBoundingClientRect();
+    const availableSpace = window.innerWidth - navRect.width;
+    const shiftAmount = availableSpace / 2;
+
+    this.submenuItems.forEach(submenu => {
+      submenu.style.transform = `translateX(-${shiftAmount}px)`;
+    });
+  }
+}
+
+class InnerPageHeader {
+  constructor() {
+    if (!document.body.classList.contains('home')) {
+      const siteHeader = document.querySelector('.site-header');
+      siteHeader?.classList.add('inner-page');
+    }
+  }
+}
+
+class AnimateOnView {
+  constructor(selector = '.animate-on-view') {
+    this.elements = document.querySelectorAll(selector);
+    this.init();
+  }
+
+  setMask(el, overlay, radius) {
+    const mask = `radial-gradient(circle ${radius}px at center, transparent ${radius}px, black ${radius + 0.1}px)`;
+    overlay.style.maskImage = mask;
+    overlay.style.webkitMaskImage = mask;
+  }
+
+  update(el, overlay) {
+    const rect = el.getBoundingClientRect();
+    const windowHeight = window.innerHeight;
+    const scrollProgress = (windowHeight - rect.top) / (windowHeight + rect.height);
+    const progress = Math.max(0, Math.min(1, scrollProgress));
+
+    const minRadius = 50;
+    const maxRadius = Math.sqrt(rect.width ** 1.8 + rect.height ** 2.2);
+    const radius = minRadius + (maxRadius - minRadius) * progress;
+
+    this.setMask(el, overlay, radius);
+  }
+
+  init() {
+    this.elements.forEach(el => {
+      const overlay = document.createElement('div');
+      overlay.classList.add('reveal-overlay');
+      el.appendChild(overlay);
+
+      const updateBound = () => this.update(el, overlay);
+      window.addEventListener('scroll', updateBound);
+      window.addEventListener('resize', updateBound);
+      updateBound();
+    });
+  }
+}
+
+
+
+document.addEventListener("DOMContentLoaded", function () {
+  const isHome = document.body.classList.contains("home");
+  const isDesktop = window.innerWidth >= 780;
+  const isAtTop = window.scrollY === 0;
+
+  if (!isHome || !isDesktop || !isAtTop) return;
+
+  // Step 0: Create blue background layer
+  const background = document.createElement("div");
+  Object.assign(background.style, {
+    position: "fixed",
+    top: "0",
+    left: "0",
+    width: "100vw",
+    height: "100vh",
+    backgroundColor: "#1b7aaf",
+    zIndex: "9997",
+    pointerEvents: "none",
+    opacity: "1",
+    transition: "none"
+  });
+  document.body.appendChild(background);
+
+  // Step 1: Create white overlay with circular mask
+  const overlay = document.createElement("div");
+  Object.assign(overlay.style, {
+    position: "fixed",
+    top: "0",
+    left: "0",
+    width: "100vw",
+    height: "100vh",
+    backgroundColor: "#ffffff",
+    pointerEvents: "none",
+    zIndex: "9998",
+    maskImage: "radial-gradient(circle 50px at center, transparent 50px, black 50.1px)",
+    WebkitMaskImage: "radial-gradient(circle 50px at center, transparent 50px, black 50.1px)",
+    opacity: "1",
+    transition: "none"
+  });
+  document.body.appendChild(overlay);
+
+  // Step 2: Create SVG icon layer
+  const iconWrapper = document.createElement("div");
+  iconWrapper.innerHTML = `
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 530.3 717.5" width="30">
+      <path fill="white" d="M424.3,303.9c-30,0-50.5,3.6-64.8,8-4.2,1.3-7-4.2-3.4-6.8l14.6-10.6c77.4-58.9,123.2-127.4,123.2-198.2S465.3,0,396.3,0c-129.9,0-189.5,120.8-233.3,243-8.3,23.1-12.1,33.8-13.9,39.1-.5,1.4.8,2.9,2.3,2.5,41.6-11.5,84.1-32.8,112.3-53.5,3.8-2.8,6.7-6.6,8.4-11.1,10.2-27.6,52.6-133.4,102.8-133.4s24.5,14.2,24.5,26.2c0,28.9-31.8,73.1-97.7,119-43.6,32.5-97.1,58.5-147.8,72v.2s-6.3,2-6.3,2c-37.5,11.7-77.8,20.2-120.2,25.5-2,.3-2.9,2.6-1.5,4.1l33,36.3L.8,424c-1.8,1.6-.5,4.6,1.9,4.3,35.4-3.1,69.9-8.3,103.1-15.5,0,0,2.1-.4,5.8-1.2l15.1-3.3c1.4-.3,2.7.9,2.4,2.4l-60.9,303.4c-.3,1.7,1,3.3,2.7,3.3h101.1c1.7,0,3.2-1.2,3.5-2.9l34.1-169.6c4.2-20.8,10.9-40.4,19.9-58.2,8.9-17.6,19.8-33.8,32.2-48.3,12-14.1,25.6-26.2,40.4-36.2,14.6-9.7,30.9-15.2,48.5-16.4h.8c0,0,.8,0,.8,0,20.9,1.3,36.8,8.2,47.1,20.7,10.6,12.8,16,29.1,16,48.3s-.7,20.6-2.1,30.2c-1.4,9.2-3,18.4-5,27.3l-40.5,201.7c-.3,1.7,1,3.3,2.7,3.3h100.9c1.7,0,3.2-1.2,3.5-2.9l45.2-224.7c2.5-12.4,3.8-24.3,6-34.8,22.5-104-53.8-151.3-102-151.3Z"/>
+    
+  `;
+  Object.assign(iconWrapper.style, {
+    position: "fixed",
+    top: "50%",
+    left: "50%",
+    transform: "translate(-60%, -70%)",
+    width: "30px",
+    height: "30px",
+    zIndex: "9999",
+    opacity: "1",
+    transition: "none",
+    pointerEvents: "none"
+  });
+  document.body.appendChild(iconWrapper);
+
+  // Step 3: Animate everything quickly
+  setTimeout(() => {
+    const duration = 500; // 0.2 seconds
+    const startTime = performance.now();
+    const maxRadius = Math.hypot(window.innerWidth, window.innerHeight);
+
+    function animate(time) {
+      const elapsed = time - startTime;
+      const progress = Math.min(elapsed / duration, 1);
+
+      const radius = 50 + (maxRadius - 50) * progress;
+      const mask = `radial-gradient(circle ${radius}px at center, transparent ${radius}px, black ${radius + 0.1}px)`;
+
+      overlay.style.maskImage = mask;
+      overlay.style.WebkitMaskImage = mask;
+      overlay.style.opacity = 1 - progress;
+      iconWrapper.style.opacity = 1 - progress;
+      background.style.opacity = 1 - progress;
+
+      if (progress < 1) {
+        requestAnimationFrame(animate);
+      } else {
+        overlay.remove();
+        iconWrapper.remove();
+        background.remove();
+      }
+    }
+
+    requestAnimationFrame(animate);
+  }, 1000); // Still delay 1s before animating
+});
+
+
+// JS for handling basic event navigation (prev/next scrolling) + SORTING
+class EventCarousel {
+  constructor(section) {
+    this.section = section;
+    this.scrollContainer = section.querySelector('.event-list');
+    this.wrapper         = section.querySelector('.swiper-wrapper');
+    this.prevBtn         = section.querySelector('.event-prev');
+    this.nextBtn         = section.querySelector('.event-next');
+
+    if (!this.scrollContainer || !this.wrapper || !this.prevBtn || !this.nextBtn) {
+      return;
+    }
+
+    this.sortSlides();
+    this.init();
+  }
+
+  getSlideFullWidth(slide) {
+    const style = getComputedStyle(slide);
+    const marginLR = parseFloat(style.marginLeft) + parseFloat(style.marginRight);
+    return slide.offsetWidth + marginLR;
+  }
+
+  parseDateFromItem(item) {
+    let raw = item.dataset.dateIso || '';
+
+    // Strip timezone abbrev if present
+    raw = raw.replace(/\b(CST|CDT)\b/g, '').trim();
+
+    // Ensure valid ISO format with 'T' separator
+    if (/^\d{4}-\d{2}-\d{2} \d{2}:\d{2}/.test(raw)) {
+      raw = raw.replace(' ', 'T');
+    }
+
+    const date = new Date(raw);
+    return isNaN(date) ? null : date;
+  }
+
+  sortSlides() {
+    const items = Array.from(this.wrapper.querySelectorAll('.item'));
+
+    const now = new Date();
+
+    const sorted = items
+      .map(item => ({ item, date: this.parseDateFromItem(item) }))
+      .filter(entry => entry.date !== null && entry.date >= now)
+      .sort((a, b) => a.date - b.date)
+      .map(entry => entry.item);
+
+    const frag = document.createDocumentFragment();
+    sorted.forEach(item => frag.appendChild(item));
+
+    // Clear and re-append sorted
+    this.wrapper.innerHTML = '';
+    this.wrapper.appendChild(frag);
+  }
+
+  init() {
+    const slides = Array.from(this.wrapper.querySelectorAll('.item'));
+    const firstSlide = slides.find(s => getComputedStyle(s).display !== 'none') || slides[0];
+    if (!firstSlide) return;
+
+    this.slideWidth = this.getSlideFullWidth(firstSlide);
+
+    this.nextBtn.addEventListener('click', () => {
+      this.scrollContainer.scrollBy({ left: this.slideWidth, behavior: 'smooth' });
+    });
+
+    this.prevBtn.addEventListener('click', () => {
+      this.scrollContainer.scrollBy({ left: -this.slideWidth, behavior: 'smooth' });
+    });
+  }
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+  document.querySelectorAll('.events_swiper').forEach(section => {
+    new EventCarousel(section);
+  });
+});
+
+</script>
+<script>
+/* design-system docs only: live spec labels, nav highlight, header-state readout */
+(function () {
+  function px(v) { return Math.round(parseFloat(v) * 100) / 100; }
+
+  function fillSpecs() {
+    document.querySelectorAll('.ds-spec-row').forEach(function (row) {
+      var t = row.querySelector(row.getAttribute('data-target'));
+      if (!t) return;
+      var cs = getComputedStyle(t);
+      var lh = cs.lineHeight === 'normal' ? 'normal' : px(cs.lineHeight) + 'px';
+      var size = row.querySelector('[data-spec-size]');
+      var meta = row.querySelector('[data-spec-meta]');
+      if (size) size.textContent = px(cs.fontSize) + 'px / ' + lh;
+      if (meta) meta.textContent = cs.fontWeight + ' · ' + cs.fontFamily.split(',')[0].replace(/["']/g, '');
+    });
+  }
+  fillSpecs();
+  window.addEventListener('resize', fillSpecs);
+  window.addEventListener('load', fillSpecs);
+  if (document.fonts && document.fonts.ready) document.fonts.ready.then(fillSpecs);
+
+  // highlight the section in view in the top nav
+  var links = Array.prototype.slice.call(document.querySelectorAll('.ds-topnav a'));
+  var map = {};
+  links.forEach(function (a) { map[a.getAttribute('href').slice(1)] = a; });
+  function onScroll() {
+    var y = window.scrollY + 120, current = null;
+    Object.keys(map).forEach(function (id) {
+      var el = document.getElementById(id);
+      if (el && el.getBoundingClientRect().top + window.scrollY <= y) current = id;
+    });
+    links.forEach(function (a) { a.classList.remove('is-active'); });
+    if (current && map[current]) map[current].classList.add('is-active');
+
+    var out = document.querySelector('[data-ds-header-state]');
+    var h = document.querySelector('.site-header');
+    if (out && h) out.textContent = h.classList.contains('header-scrolled') ? 'header-scrolled' : 'header-unscrolled';
+  }
+  window.addEventListener('scroll', onScroll);
+  onScroll();
+})();
+
+</script>
+</body></html>

@@ -1,0 +1,3726 @@
+/* Satoshi, served from this site (assets/fonts) so no visitor data goes to a font service for it */
+@font-face {
+  font-family: "Satoshi";
+  src: url("../assets/fonts/satoshi-400.woff2") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Satoshi";
+  src: url("../assets/fonts/satoshi-500.woff2") format("woff2");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Satoshi";
+  src: url("../assets/fonts/satoshi-700.woff2") format("woff2");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* Base */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+:root {
+  --gutter: clamp(16px, 1.6vw, 24px);
+  --text-sm: 0.875rem;
+  --ease-out: cubic-bezier(0.16, 1, 0.3, 1);
+
+  /* Brand shapes: frames around images are softly rounded; small solid objects are cushions */
+  --radius-frame: clamp(0.75rem, 1.4vw, 1.25rem);
+  --radius-cushion: 30%;
+
+  /* The page opens dark and alternates with white sections. These are the dark values; any element
+     with data-theme sets them for itself and everything inside it (see Themes below) */
+  --bg: var(--neutral-1000);
+  --fg: var(--neutral-0);
+  --fg-muted: rgb(from var(--neutral-0) r g b / 0.62);
+}
+
+/* Themes: a section is light or dark by its data-theme, and everything inside reads --bg, --fg and
+   --fg-muted, so no component needs to know which one it is in */
+[data-theme="light"] {
+  --bg: var(--neutral-0);
+  --fg: var(--neutral-1000);
+  --fg-muted: rgb(from var(--neutral-1000) r g b / 0.64);
+  /* The "room" of the hero and of the closing section: a faint shade towards the edges */
+  --room: radial-gradient(90% 70% at 50% 62%, transparent, rgb(from var(--neutral-1000) r g b / 0.05) 90%), var(--neutral-0);
+  background: var(--bg);
+  color: var(--fg);
+}
+
+[data-theme="dark"] {
+  --bg: var(--neutral-1000);
+  --fg: var(--neutral-0);
+  --fg-muted: rgb(from var(--neutral-0) r g b / 0.62);
+  --room: radial-gradient(90% 70% at 50% 62%, var(--neutral-900), var(--neutral-1000) 72%);
+  background: var(--bg);
+  color: var(--fg);
+}
+
+/* Orange: the closing section and the footer of every page, and the small-screen menu. The page's one
+   colour, used as a whole surface where the site asks for its one action */
+[data-theme="orange"] {
+  --bg: var(--vivid);
+  --fg: var(--neutral-0);
+  /* White at full strength: on this orange, any transparency drops small text under 4.5:1 */
+  --fg-muted: var(--neutral-0);
+  --fg-muted-large: rgb(from var(--neutral-0) r g b / 0.75);
+  --room: var(--vivid);
+  background: var(--bg);
+  color: var(--fg);
+}
+
+/* On orange the orange button would vanish: it turns white, and hovers go to black instead of orange */
+[data-theme="orange"] .button {
+  background: var(--neutral-0);
+  color: var(--neutral-1000);
+}
+
+[data-theme="orange"] .button:hover,
+[data-theme="orange"] .button:active {
+  background: var(--neutral-1000);
+  color: var(--neutral-0);
+}
+
+[data-theme="orange"] a:not(.button):hover,
+[data-theme="orange"] .site-footer__legal button:hover,
+[data-theme="orange"] .cta__mail .text-link:hover {
+  color: var(--neutral-1000);
+}
+
+[data-theme="orange"].site-header a.site-header__cta:hover,
+[data-theme="orange"].site-header a.site-header__cta:active {
+  background: var(--neutral-1000);
+  color: var(--neutral-0);
+}
+
+[data-theme="orange"] ::selection {
+  background: var(--neutral-0);
+  color: var(--vivid);
+}
+
+/* White cushions on a white section are told apart by the shadow they cast */
+[data-theme="light"] .badge-canvas {
+  filter: drop-shadow(0 0.3rem 0.45rem rgb(from var(--neutral-1000) r g b / 0.2));
+}
+
+[data-theme="light"] .cushion .badge-canvas {
+  filter: drop-shadow(0 0.5rem 0.9rem rgb(from var(--neutral-1000) r g b / 0.2));
+}
+
+[data-theme="light"] .hero__feature .badge-canvas {
+  filter: drop-shadow(0 1.4rem 2rem rgb(from var(--neutral-1000) r g b / 0.2));
+}
+
+[data-theme="light"] .cushion:not(.is-3d) {
+  box-shadow: 0 0.04em 0.12em rgb(from var(--neutral-1000) r g b / 0.22);
+}
+
+html {
+  -webkit-text-size-adjust: 100%;
+  scrollbar-color: var(--fg) var(--bg);
+}
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--fg);
+  font-family: var(--font-body);
+  font-size: 1rem;
+  font-weight: 500;
+  line-height: 1.4;
+  -webkit-font-smoothing: antialiased;
+  caret-color: var(--vivid);
+}
+
+::selection {
+  background: var(--vivid);
+  color: var(--neutral-0);
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+:focus-visible {
+  outline: 2px solid var(--vivid);
+  outline-offset: 3px;
+  border-radius: 2px;
+}
+
+/* The 3D cushions are drawn a little larger than their box, and can be thrown about:
+   nothing they do should ever widen the page */
+main {
+  overflow-x: clip;
+}
+
+h1,
+h2,
+h3,
+p {
+  margin: 0;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+/* Cover: the page is not shown until the hero's 3D badges are drawn, so nothing appears half-made.
+   On a normal load that takes a fraction of a second and all you see is the dark page; only if it takes
+   longer does the bar fade in: the brand, a count from 0 to 100 and an orange line, in the middle */
+.loader {
+  position: fixed;
+  inset: 0;
+  z-index: 100;
+  display: none;
+  place-items: center;
+  background: var(--neutral-1000);
+  color: var(--neutral-0);
+  transition: opacity 0.45s var(--ease-out);
+}
+
+.is-loading .loader,
+.loader.is-done {
+  display: grid;
+}
+
+.loader.is-done {
+  opacity: 0;
+  pointer-events: none;
+}
+
+.loader__box {
+  display: grid;
+  gap: 0.75rem;
+  width: min(18rem, 62vw);
+  font-size: var(--text-sm);
+  letter-spacing: -0.01em;
+  animation: loader-in 0.4s var(--ease-out) 0.5s both;
+}
+
+.loader__row {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  font-weight: 700;
+}
+
+.loader__count {
+  font-family: var(--font-display);
+  font-size: 1.75rem;
+  line-height: 1;
+  letter-spacing: -0.04em;
+  font-variant-numeric: tabular-nums;
+}
+
+.loader__bar {
+  height: 3px;
+  border-radius: 3px;
+  background: rgb(from var(--neutral-0) r g b / 0.16);
+  overflow: hidden;
+}
+
+.loader__bar span {
+  display: block;
+  height: 100%;
+  background: var(--vivid);
+  transform-origin: 0 50%;
+  transform: scaleX(0);
+}
+
+@keyframes loader-in {
+  from { opacity: 0; }
+}
+
+.is-loading,
+.is-loading body {
+  overflow: hidden;
+}
+
+/* Header */
+
+.site-header {
+  position: fixed;
+  inset: 0 0 auto;
+  z-index: 10;
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: center;
+  padding: calc(var(--gutter) * 0.6) var(--gutter) calc(var(--gutter) * 2);
+  /* Stays on top of whatever scrolls under it: the page colour fades out below the links */
+  background: linear-gradient(to bottom, var(--bg) 30%, transparent);
+  font-size: var(--text-sm);
+  letter-spacing: -0.01em;
+}
+
+.site-header__brand {
+  justify-self: start;
+  font-weight: 700;
+}
+
+.site-header__nav {
+  display: flex;
+  gap: 1.25em;
+}
+
+.site-header__nav sup {
+  font-size: 0.6em;
+  margin-left: 0.15em;
+  vertical-align: 0.7em;
+  line-height: 0;
+}
+
+/* Header button: the brand's cushion in miniature (white, with the black Upwork mark) set into a quiet
+   dark button. It turns orange on hover, the colour of the one action the whole site asks for */
+.site-header__cta {
+  justify-self: end;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.65em;
+  padding: 0.3em 0.85em 0.3em 0.3em;
+  border-radius: 0.85em;
+  background: color-mix(in srgb, var(--fg) 10%, transparent);
+  font-weight: 500;
+  line-height: 1;
+  transition: background-color 0.3s var(--ease-out), transform 0.3s var(--ease-out);
+}
+
+.site-header__cta-text {
+  white-space: nowrap;
+}
+
+.site-header__chip {
+  display: grid;
+  place-items: center;
+  width: 2em;
+  height: 2em;
+  border-radius: var(--radius-cushion);
+  background: var(--fg);
+  color: var(--bg);
+  transition: rotate 0.5s var(--ease-out), scale 0.5s var(--ease-out);
+}
+
+.site-header__chip svg {
+  width: 66%;
+  height: 66%;
+  fill: currentColor;
+}
+
+.site-header__arrow {
+  width: 1em;
+  height: 1em;
+  transition: transform 0.3s var(--ease-out);
+}
+
+.site-header a.site-header__cta:hover {
+  background: var(--vivid);
+  color: var(--neutral-0);
+}
+
+/* The cushion tips over a little, like the ones in the hero when the pointer comes near */
+.site-header__cta:hover .site-header__chip {
+  rotate: -10deg;
+  scale: 1.08;
+}
+
+.site-header__cta:hover .site-header__arrow {
+  transform: translate(0.12em, -0.12em);
+}
+
+.site-header a.site-header__cta:active {
+  background: var(--vivid-active);
+  color: var(--neutral-0);
+  transform: scale(0.97);
+}
+
+.site-header a {
+  transition: color 0.25s var(--ease-out);
+}
+
+.site-header a:hover {
+  color: var(--vivid);
+}
+
+.site-header a:active {
+  color: var(--vivid-active);
+}
+
+.status-dot {
+  width: 0.5em;
+  height: 0.5em;
+  border-radius: 50%;
+  background: var(--vivid);
+}
+
+/* Small screens: the three links move into a full-screen menu (built by js/main.js) and the header
+   keeps the brand, a shorter Upwork button and the menu button */
+.site-header__menu {
+  display: none;
+}
+
+.menu {
+  position: fixed;
+  inset: 0;
+  z-index: 30;
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+  gap: var(--gutter);
+  padding: var(--gutter);
+  background: var(--vivid);
+  color: var(--neutral-0);
+  overflow-y: auto;
+  visibility: hidden;
+  clip-path: inset(0 0 100% 0);
+  transition: clip-path 0.6s cubic-bezier(0.7, 0, 0.2, 1), visibility 0s 0.6s;
+}
+
+.menu.is-open {
+  visibility: visible;
+  clip-path: inset(0);
+  transition: clip-path 0.6s cubic-bezier(0.7, 0, 0.2, 1);
+}
+
+.menu__top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  font-size: var(--text-sm);
+}
+
+.menu__top span {
+  font-weight: 700;
+}
+
+.menu__links {
+  align-self: center;
+  display: grid;
+  gap: 0.1em;
+  font-family: var(--font-display);
+  font-size: clamp(3.25rem, 17vw, 6.5rem);
+  font-weight: 700;
+  line-height: 0.95;
+  letter-spacing: -0.04em;
+}
+
+.menu__links a {
+  display: block;
+  padding-block: 0.06em;
+  transition: color 0.25s var(--ease-out);
+}
+
+.menu__links a:hover,
+.menu__links a:active {
+  color: var(--neutral-1000);
+}
+
+.menu__foot {
+  display: grid;
+  gap: 1rem;
+  font-size: var(--text-sm);
+  color: rgb(from var(--neutral-0) r g b / 0.86);
+}
+
+.menu__foot .button {
+  justify-content: flex-start;
+  padding-left: 1.2em;
+  min-height: 3.25rem;
+  background: var(--neutral-0);
+  color: var(--neutral-1000);
+}
+
+.menu__foot .button svg {
+  margin-left: auto;
+}
+
+.menu__close,
+.site-header__menu {
+  align-items: center;
+  min-height: 2.75rem;
+  padding: 0 0.95em;
+  border: 0;
+  border-radius: 0.85em;
+  background: color-mix(in srgb, currentColor 12%, transparent);
+  color: inherit;
+  font: inherit;
+  font-weight: 500;
+  letter-spacing: -0.01em;
+  cursor: pointer;
+}
+
+.menu__close {
+  display: inline-flex;
+}
+
+/* Hero */
+
+/* One entrance, played together. With JavaScript on, every animation in the hero is held on its first
+   frame until js/main.js adds .is-go: that happens as soon as the 3D Upwork badge is drawn (or after a
+   short wait if it is slow), so the name, the statement, the badge and the button come in as one sequence
+   instead of the badge arriving late on its own */
+.js .hero:not(.is-go),
+.js .hero:not(.is-go) * {
+  animation-play-state: paused !important;
+}
+
+/* While it is held, the hero's text is not painted at all; it is first painted the moment the entrance
+   starts, which is when it should count as shown */
+.js .hero:not(.is-go) .hero__role span,
+.js .hero:not(.is-go) .hero__actions {
+  visibility: hidden;
+}
+
+.hero {
+  position: sticky;
+  top: 0;
+  height: 100svh;
+}
+
+.hero {
+  position: relative;
+  min-height: 100svh;
+  /* A faint lift behind the name, from the lighter neutral to the darker one, gives the 3D badges a room to sit in */
+  /* A faint lift behind the name gives the 3D badges a room to sit in (see --room in Themes) */
+  background: var(--room);
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  grid-template-rows: 1fr auto;
+  gap: var(--gutter);
+  padding: calc(var(--gutter) * 4) var(--gutter) calc(var(--gutter) * 0.5);
+  overflow: clip;
+}
+
+/* The name runs edge to edge along the bottom. js/main.js sets --fit so the line fills the width exactly */
+.hero__name {
+  --slot-h: 0.74em;
+  grid-column: 1 / -1;
+  grid-row: 2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.14em;
+  /* js/main.js raises the name with `top` during the scroll scene. Not a transform: that would isolate
+     the letters from the badges and break the orange blend */
+  position: relative;
+  pointer-events: none;
+  font-family: var(--font-display);
+  font-size: var(--fit, 13.6vw);
+  font-weight: 700;
+  line-height: 0.9;
+  letter-spacing: -0.04em;
+  white-space: nowrap;
+}
+
+.hero__word {
+  position: relative;
+  display: block;
+  overflow: clip;
+  padding-block: 0.06em;
+}
+
+/* Two copies of each word, both above a badge that is passing behind. The first is the name itself. The second is the same
+   word in orange, masked down to the squares where a badge is passing underneath (js/main.js keeps the
+   mask on the badges through --m0, --m1, --m2 and --ms), so the letters turn orange over each badge
+   whatever the colours of the page */
+.hero__ink {
+  position: relative;
+  z-index: 5;
+  display: block;
+  color: var(--fg);
+  animation: word-rise 1.1s var(--ease-out) both;
+}
+
+.hero__ink--tint {
+  --square: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 10 10'%3E%3Crect width='10' height='10' rx='3'/%3E%3C/svg%3E");
+  position: absolute;
+  top: 0.06em;
+  left: 0;
+  z-index: 6;
+  color: var(--vivid);
+  -webkit-mask-image: var(--square), var(--square), var(--square);
+  mask-image: var(--square), var(--square), var(--square);
+  -webkit-mask-repeat: no-repeat;
+  mask-repeat: no-repeat;
+  -webkit-mask-size: var(--s0, 0px) var(--s0, 0px), var(--s1, 0px) var(--s1, 0px), var(--s2, 0px) var(--s2, 0px);
+  mask-size: var(--s0, 0px) var(--s0, 0px), var(--s1, 0px) var(--s1, 0px), var(--s2, 0px) var(--s2, 0px);
+  -webkit-mask-position: var(--m0, -999px -999px), var(--m1, -999px -999px), var(--m2, -999px -999px);
+  mask-position: var(--m0, -999px -999px), var(--m1, -999px -999px), var(--m2, -999px -999px);
+}
+
+/* The orange copy is drawn from its attribute, not written in the page: the heading reads "David Estrada"
+   once, to people and to search engines alike */
+.hero__ink--tint::before {
+  content: attr(data-text);
+}
+
+.hero__word:last-child .hero__ink {
+  animation-delay: 0.08s;
+}
+
+/* Intro: role statement and actions, sized to be read before the name and flush with its left edge */
+.hero__intro {
+  --role: clamp(1.75rem, 4.9vw, 5.5rem);
+  grid-column: 1 / -1;
+  grid-row: 1;
+  align-self: center;
+  justify-self: start;
+  display: grid;
+  row-gap: clamp(1.5rem, 2.6vw, 2.5rem);
+  /* Lifted a little so the badges have the band above the name to themselves */
+  margin-bottom: 6svh;
+}
+
+.hero__role {
+  display: grid;
+  font-family: var(--font-display);
+  font-size: var(--role);
+  font-weight: 400;
+  line-height: 1.04;
+  letter-spacing: -0.025em;
+  word-spacing: 0.04em;
+}
+
+.hero__role span {
+  animation: fade-up 0.9s var(--ease-out) both;
+}
+
+.hero__role span:nth-child(1) { animation-delay: 0.4s; }
+.hero__role span:nth-child(2) { animation-delay: 0.48s; color: var(--fg-muted); }
+
+.hero__actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 1rem 2rem;
+  animation: fade-up 0.9s var(--ease-out) 0.62s both;
+}
+
+.hero__proof {
+  flex-basis: 100%;
+  color: var(--fg-muted);
+  font-size: clamp(0.9375rem, 1.1vw, 1.0625rem);
+}
+
+/* Buttons and links */
+
+.button {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75em;
+  /* Tight on the left so the portrait sits inside the button like a signature */
+  padding: 0.5em 1.6em 0.5em 0.5em;
+  font-size: clamp(1.0625rem, 1.45vw, 1.375rem);
+  border-radius: 0.9em;
+  background: var(--vivid);
+  color: var(--neutral-0);
+  font-weight: 500;
+  line-height: 1;
+  letter-spacing: -0.01em;
+  transition: background-color 0.3s var(--ease-out), color 0.3s var(--ease-out), transform 0.3s var(--ease-out);
+}
+
+.button__avatar {
+  width: 2.5em;
+  height: 2.5em;
+  border-radius: 0.62em;
+  object-fit: cover;
+  object-position: 50% 24%;
+}
+
+.button svg,
+.text-link svg {
+  width: 1em;
+  height: 1em;
+  transition: transform 0.3s var(--ease-out);
+}
+
+.button:hover {
+  background: var(--vivid-hover);
+}
+
+.button:hover svg {
+  transform: translate(0.12em, -0.12em);
+}
+
+.button:active {
+  background: var(--vivid-active);
+  transform: scale(0.97);
+}
+
+.text-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45em;
+  padding-block: 0.3em;
+  font-size: clamp(1rem, 1.25vw, 1.1875rem);
+  font-weight: 500;
+  letter-spacing: -0.01em;
+  background: linear-gradient(currentColor, currentColor) 0 100% / 100% 1px no-repeat;
+  transition: color 0.25s var(--ease-out);
+}
+
+.text-link:hover {
+  color: var(--vivid);
+}
+
+.text-link:hover svg {
+  transform: translateY(0.14em);
+}
+
+.text-link[target="_blank"]:hover svg {
+  transform: translate(0.12em, -0.12em);
+}
+
+/* Slot: the window inside the name, with the poster carousel */
+
+.slot {
+  position: relative;
+  z-index: 2;
+  flex: none;
+  width: calc(var(--slot-h) * 4 / 3);
+  height: var(--slot-h);
+  animation: slot-open 1.2s var(--ease-out) 0.15s both;
+}
+
+.slot__frame {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  border-radius: 0.11em;
+  background: var(--neutral-900);
+}
+
+.slot--work {
+  animation-delay: 0.25s;
+}
+
+.slot__frame img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  visibility: hidden;
+}
+
+.slot__frame img.is-prev {
+  visibility: visible;
+  z-index: 1;
+}
+
+.slot__frame img.is-active {
+  visibility: visible;
+  z-index: 2;
+}
+
+.slot__frame img.is-entering {
+  animation: slide-wipe 0.9s var(--ease-out) both;
+}
+
+/* Badges: 3D cushions that travel a figure-of-eight around the name.
+   js/main.js builds them and moves them. On one strand of the path they pass in front of the letters,
+   on the other behind them, where the letters turn orange over each one. All three start in front.
+   1em = the name's font size. */
+
+.badge {
+  --size: 0.36em;
+  --thick: 0.14em;
+  --bevel: 0.15;
+  --emboss: 0.012em;
+  position: absolute;
+  left: 0;
+  top: 0;
+  z-index: 1;
+  width: var(--size);
+  height: var(--size);
+  perspective: 5em;
+  will-change: transform;
+  cursor: grab;
+  touch-action: none;
+  user-select: none;
+}
+
+.badge.is-dragging {
+  z-index: 8;
+  cursor: grabbing;
+}
+
+/* In front of the letters of the name (z-index 5 and 6). Without it a badge is behind them */
+.badge.is-front {
+  z-index: 7;
+}
+
+.badge span,
+.badge a {
+  display: block;
+  transform-style: preserve-3d;
+}
+
+.badge__pop {
+  position: absolute;
+  inset: 0;
+  animation: coin-pop 0.9s var(--ease-out) both;
+  animation-delay: calc(1.1s + var(--n) * 0.12s);
+}
+
+.coin {
+  position: absolute;
+  inset: 0;
+  transform: rotateX(-10deg) rotateY(-22deg);
+}
+
+/* Cushion body: stacked rounded squares that taper towards each face.
+   White all the way round, the same white as the face behind the logo; only a breath of shade
+   on the widest layers keeps the volume readable while it turns */
+.coin__face,
+.coin__edge {
+  position: absolute;
+  inset: 0;
+  border-radius: 30%;
+}
+
+.coin__edge {
+  --p: calc(var(--i) / 10 - 1);
+  --p2: calc(var(--p) * var(--p));
+  --p4: calc(var(--p2) * var(--p2));
+  /* Picks up exactly where the face ends (#f6f5f3) and deepens a touch towards the middle of the side */
+  background: color-mix(in srgb, #f6f5f3, #e4e1dc calc((1 - var(--p2)) * 100%));
+  transform: translateZ(calc(var(--p) * var(--thick) / 2)) scale(calc(1 - var(--bevel) * var(--p4)));
+}
+
+.coin__face {
+  display: grid !important;
+  place-items: center;
+  /* Pure white behind the logo, fading to the off-white the side starts with, so face and side meet without a line */
+  background: radial-gradient(closest-side, #fff 50%, #f6f5f3 100%);
+  backface-visibility: hidden;
+}
+
+.coin__face--front {
+  transform: translateZ(calc(var(--thick) / 2 + 0.001em)) scale(calc(1 - var(--bevel)));
+}
+
+.coin__face--back {
+  transform: rotateY(180deg) translateZ(calc(var(--thick) / 2 + 0.001em)) scale(calc(1 - var(--bevel)));
+}
+
+/* Feature: the large Upwork cushion in the upper right. It stays where it is, bobbing slightly,
+   and js/main.js turns it as the page scrolls. 1em = its own width */
+.hero__feature {
+  --size: 1em;
+  --thick: 0.3em;
+  --bevel: 0.15;
+  --emboss: 0.03em;
+  --mark: 70%;
+  --mark-color: #0a0806;
+  grid-column: 2;
+  grid-row: 1;
+  align-self: center;
+  justify-self: center;
+  width: 1em;
+  height: 1em;
+  margin: 0 0 6svh;
+  font-size: min(28vw, 50svh);
+  perspective: 4em;
+  /* Hidden until js/main.js marks it ready (its 3D render is in place), then it rises in */
+  opacity: 0;
+}
+
+/* It comes in between the statement (0.4s) and the button (0.62s), overlapping both */
+.hero__feature.is-ready {
+  opacity: 1;
+  animation: feature-in 1.2s var(--ease-out) 0.46s backwards;
+}
+
+.hero__feature span,
+.hero__feature a {
+  display: block;
+  transform-style: preserve-3d;
+}
+
+.hero__feature a {
+  position: absolute;
+  inset: 0;
+  /* The float lives here, so the box itself is free to be pushed by the scroll scene */
+  animation: feature-float 7s ease-in-out infinite alternate;
+}
+
+/* WebGL version of every badge (js/feature3d.js): a canvas larger than the badge so the object is never
+   clipped as it turns. Once it is ready the CSS cushion underneath is hidden */
+.badge-canvas {
+  position: absolute;
+  inset: -18%;
+  width: 136%;
+  height: 136%;
+  pointer-events: none;
+}
+
+.is-3d .coin {
+  visibility: hidden;
+}
+
+/* Hover on the Upwork badge: it swells slightly, and a tag follows the pointer */
+.hero__feature a {
+  transition: scale 0.7s var(--ease-out);
+}
+
+.hero__feature.is-hovered a {
+  scale: 1.07;
+}
+
+/* Pill that follows the pointer inside an element with .is-hovered */
+.cursor-tag {
+  position: absolute;
+  left: var(--tag-x, 50%);
+  top: var(--tag-y, 50%);
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  gap: 0.5em;
+  padding: 0.7em 1.1em;
+  border-radius: 999px;
+  background: var(--vivid);
+  color: var(--neutral-0);
+  font-family: var(--font-body);
+  font-size: 0.9375rem;
+  font-weight: 500;
+  line-height: 1;
+  letter-spacing: -0.01em;
+  white-space: nowrap;
+  pointer-events: none;
+  /* Sits below and to the right of the pointer, and trails it slightly */
+  translate: 0.9rem 1.1rem;
+  scale: 0.6;
+  opacity: 0;
+  transform-origin: 0 0;
+  transition: scale 0.45s var(--ease-out), opacity 0.25s var(--ease-out), left 0.18s ease-out, top 0.18s ease-out;
+}
+
+.is-hovered > .cursor-tag {
+  scale: 1;
+  opacity: 1;
+}
+
+.cursor-tag svg {
+  width: 1em;
+  height: 1em;
+}
+
+.hero__feature .coin__logo {
+  filter: none;
+}
+
+.hero__feature .coin__logo:last-child {
+  fill: #2e2b28;
+}
+
+/* Raised mark in its brand colour: the same glyph stacked forward, darker on the layers underneath */
+.coin__logo {
+  grid-area: 1 / 1;
+  width: var(--mark, 70%);
+  height: var(--mark, 70%);
+  fill: var(--mark-color);
+  filter: brightness(0.68);
+  backface-visibility: hidden;
+  transform: translateZ(calc(var(--l) * var(--emboss) / 5));
+}
+
+.coin__logo:last-child {
+  filter: none;
+}
+
+.badge--figma { --mark: 62%; }
+.badge--wordpress { --mark: 70%; --mark-color: #21759b; }
+.badge--elementor { --mark: 64%; --mark-color: #92003b; }
+
+/* Brand: how every section opens.
+   A "line": two bold words fitted edge to edge with a white cushion between them, the way the hero sets
+   the name (js/main.js sets --fit). Under it a "statement": regular weight, second half muted, the way
+   the hero sets the role */
+
+.section-head {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr); /* so the fitted line is measured against the page, not itself */
+  gap: clamp(1.5rem, 2.6vw, 2.5rem);
+  padding-top: clamp(5rem, 11vw, 10rem);
+  padding-bottom: clamp(3rem, 6vw, 6rem);
+}
+
+.line {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.14em;
+  font-family: var(--font-display);
+  font-size: var(--fit, 13.6vw);
+  font-weight: 700;
+  line-height: 0.9;
+  letter-spacing: -0.04em;
+  white-space: nowrap;
+}
+
+.line__word {
+  display: block;
+  overflow: clip;
+  padding-block: 0.06em;
+  /* With tight tracking the last letter of a word reaches past its own box (the s of "Let's", the k of
+     "talk"), and the mask would slice it. The mask is widened on both sides and the layout put back */
+  padding-inline: 0.06em;
+  margin-inline: -0.06em;
+}
+
+.line__word > span {
+  display: block;
+}
+
+/* Words rise out of their mask when the line comes into view (class set by js/main.js) */
+.line.will-rise .line__word > span {
+  translate: 0 105%;
+  transition: translate 1.1s var(--ease-out);
+}
+
+.line.will-rise .line__word:last-child > span {
+  transition-delay: 0.08s;
+}
+
+.line.is-in .line__word > span {
+  translate: 0 0;
+}
+
+/* Cushion: the white pillow of the hero badges, set inside a line. js/feature3d.js renders it in WebGL;
+   this flat version is what shows until then, or without it */
+.cushion {
+  position: relative;
+  flex: none;
+  display: grid;
+  place-items: center;
+  width: 0.7em;
+  height: 0.7em;
+  border-radius: var(--radius-cushion);
+  background: var(--neutral-0);
+  color: var(--neutral-1000);
+  z-index: 1;
+  cursor: grab;
+  touch-action: pan-y; /* a finger that lands on it can still scroll the page */
+  user-select: none;
+  scale: 1;
+  transition: scale 0.9s var(--ease-out) 0.2s;
+}
+
+.cushion.is-dragging {
+  z-index: 3;
+  cursor: grabbing;
+}
+
+.line.will-rise .cushion {
+  scale: 0;
+}
+
+.line.is-in .cushion {
+  scale: 1;
+}
+
+.cushion svg {
+  width: 62%;
+  height: 62%;
+  fill: currentColor;
+}
+
+.cushion--reviews,
+.cushion--price {
+  color: var(--vivid);
+}
+
+/* The flat Upwork cushion in the Work line: the same mark as the hero badge, in two dimensions */
+.cushion--upwork svg {
+  width: 66%;
+  height: 66%;
+}
+
+.line.is-in a.cushion:hover,
+a.cushion:hover {
+  scale: 1.08;
+  transition-delay: 0s;
+}
+
+a.cushion:active {
+  scale: 0.96;
+}
+
+.cushion.is-3d {
+  background: none;
+}
+
+.cushion.is-3d svg,
+.cushion.is-3d > img {
+  visibility: hidden;
+}
+
+.cushion.is-3d {
+  overflow: visible; /* the WebGL canvas is larger than the cushion */
+}
+
+.statement {
+  display: grid;
+  font-family: var(--font-display);
+  font-size: clamp(1.75rem, 4.9vw, 5.5rem);
+  font-weight: 400;
+  line-height: 1.04;
+  letter-spacing: -0.025em;
+  word-spacing: 0.04em;
+}
+
+.statement span:last-child {
+  color: var(--fg-muted);
+}
+
+/* On the orange the muted half is large text, so it can stay muted (3:1 is enough at this size) */
+[data-theme="orange"] .statement span:last-child {
+  color: var(--fg-muted-large);
+}
+
+@media (max-width: 700px) {
+  /* Two lines, like the name: first word with the cushion, then the second word */
+  .line {
+    display: grid;
+    grid-template-columns: auto auto;
+    justify-content: start;
+    font-size: var(--fit, 22vw);
+  }
+
+  .line__word:last-child {
+    grid-column: 1 / -1;
+    margin-top: -0.1em;
+  }
+}
+
+@media (max-width: 520px) {
+  .statement {
+    font-size: 9.4vw;
+  }
+}
+
+/* Work: the section's line stays pinned in the middle of the screen and the projects scroll over it,
+   staggered left and right, large and small (reference: wearetheromans.com). js/main.js adds the weight:
+   each poster drifts at its own pace and leans with the speed of the scroll */
+
+.work {
+  position: relative;
+  padding: 0 var(--gutter);
+}
+
+/* No z-index anywhere here on purpose: the captions blend with the pinned title behind them, and a
+   stacking context in between would cut that off */
+.work__stage {
+  position: sticky;
+  top: 0;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  align-content: center;
+  gap: clamp(1.5rem, 2.6vw, 2.5rem);
+  height: 100svh;
+}
+
+.work__list {
+  position: relative;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  row-gap: clamp(5rem, 20svh, 13rem);
+  /* The first poster is just coming into view when the title settles in the middle of the screen */
+  margin: -14svh 0 0;
+  padding: 0 0 clamp(4rem, 12svh, 8rem);
+  list-style: none;
+}
+
+.work-card {
+  position: relative;
+  display: grid;
+  gap: clamp(0.9rem, 1.4vw, 1.25rem);
+  align-content: start;
+}
+
+/* Each poster is exactly as wide as one word of the pinned title and sits right over it, so as it passes
+   it covers that word whole and leaves the other word and the cushion untouched: odd ones over the first
+   word, even ones over the second. js/main.js measures the words and sets --a-* and --b-* (pixels from
+   the left edge of the list); the percentages are only the fallback until it has */
+.work-card {
+  width: var(--a-w, 56%);
+  margin-left: var(--a-x, 0px);
+}
+
+.work-card:nth-child(even) {
+  width: var(--b-w, 32%);
+  margin-left: var(--b-x, 68%);
+}
+
+.work-card__media {
+  display: block;
+  overflow: hidden;
+  border-radius: var(--radius-frame);
+  /* --v is the scroll speed (-1..1) and --p this poster's drift in pixels, both set by js/main.js */
+  translate: 0 calc(var(--p, 0) * 1px);
+  will-change: translate;
+}
+
+.work-card__media img {
+  width: 100%;
+  height: auto;
+  transition: scale 0.9s var(--ease-out);
+}
+
+.work-card.is-hovered .work-card__media img {
+  scale: 1.04;
+}
+
+/* Each card keeps its own text for assistive technology and for no-JavaScript; with JavaScript it is
+   shown in the pinned caption instead, so nothing is ever written across the title */
+.work-card__caption {
+  display: grid;
+  gap: 0.4rem;
+  max-width: 34rem;
+  padding: 0.75rem 0;
+  background: var(--bg);
+}
+
+.work-card__caption h3 {
+  font-family: var(--font-display);
+  font-size: clamp(1.5rem, 2.7vw, 2.75rem);
+  font-weight: 700;
+  line-height: 0.95;
+  letter-spacing: -0.035em;
+}
+
+.work-card__caption p {
+  color: var(--fg-muted);
+}
+
+.js .work-card__caption {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+
+/* Pinned caption: the name and the facts of the project that is crossing the screen, always in the same
+   place at the bottom, on the page colour, so it reads cleanly whatever is behind */
+.work__caption {
+  display: none;
+}
+
+.js .work__caption {
+  position: sticky;
+  bottom: 0;
+  z-index: 2;
+  display: grid;
+  grid-template-columns: minmax(0, 1.4fr) minmax(0, 1fr);
+  align-items: end;
+  gap: 1rem calc(var(--gutter) * 2);
+  margin: 0 calc(var(--gutter) * -1);
+  padding: clamp(4rem, 12svh, 8rem) var(--gutter) calc(var(--gutter) * 1.5);
+  background: linear-gradient(to top, var(--bg) 58%, transparent);
+  opacity: 0;
+  translate: 0 1.5rem;
+  transition: opacity 0.5s var(--ease-out), translate 0.7s var(--ease-out);
+  pointer-events: none;
+}
+
+.work__caption.is-on {
+  opacity: 1;
+  translate: 0 0;
+}
+
+.work__caption.is-on a {
+  pointer-events: auto;
+}
+
+.work__caption-name {
+  font-family: var(--font-display);
+  font-size: clamp(2rem, 5vw, 5rem);
+  font-weight: 700;
+  line-height: 0.92;
+  letter-spacing: -0.04em;
+  text-wrap: balance;
+}
+
+.work__caption-desc {
+  max-width: 38rem;
+  margin-top: 0.75rem;
+  color: var(--fg-muted);
+  font-size: clamp(0.9375rem, 1.2vw, 1.1875rem);
+  text-wrap: pretty;
+}
+
+.work__caption-side {
+  justify-self: end;
+  display: grid;
+  justify-items: end;
+  gap: 0.75rem;
+  text-align: right;
+}
+
+.work__caption-tags {
+  font-size: var(--text-sm);
+  letter-spacing: -0.01em;
+}
+
+.work-card .cursor-tag {
+  z-index: 1;
+}
+
+.work-card__media {
+  position: relative;
+}
+
+@media (max-width: 700px) {
+  .work__list {
+    row-gap: clamp(4rem, 14svh, 7rem);
+    margin-top: -18svh;
+  }
+
+  /* The title is on two rows here and its second word is short, so the posters go back to a simple
+     stagger: full width, then a little narrower to the right */
+  .work-card:nth-child(n) {
+    width: auto;
+    margin-left: 0;
+  }
+
+  .work-card:nth-child(even) {
+    margin-left: 16%;
+  }
+
+  .js .work__caption {
+    grid-template-columns: minmax(0, 1fr);
+  }
+
+  .work__caption-side {
+    justify-self: start;
+    justify-items: start;
+    text-align: left;
+  }
+}
+
+/* Reviews: the quotes are the section. Each one is set as display type on its own part of a
+   twelve-column grid, and its words light up as they cross the reading line (js/main.js) */
+
+.reviews {
+  padding: 0 var(--gutter) clamp(6rem, 12vw, 10rem);
+}
+
+.reviews .section-head {
+  margin-bottom: clamp(5rem, 11vw, 10rem);
+}
+
+.reviews__meta {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.75rem 2rem;
+  color: var(--fg-muted);
+  font-size: clamp(0.9375rem, 1.1vw, 1.0625rem);
+}
+
+.reviews__meta .text-link {
+  color: var(--fg);
+}
+
+.reviews__meta .text-link:hover {
+  color: var(--vivid);
+}
+
+.reviews__list {
+  display: grid;
+  grid-template-columns: repeat(12, minmax(0, 1fr));
+  column-gap: var(--gutter);
+  row-gap: clamp(5rem, 11vw, 10rem);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+/* Each review takes a different stretch of the grid, with the poster of its project in the columns
+   it leaves free, so the page reads as a conversation, not a stack */
+.reviews__list li {
+  grid-column: 1 / -1;
+  display: grid;
+  grid-template-columns: subgrid;
+  align-items: start;
+}
+
+.reviews__list li > * {
+  grid-row: 1;
+}
+
+.reviews__list li:nth-child(1) .review { grid-column: 1 / span 8; }
+.reviews__list li:nth-child(1) .review__poster { grid-column: 10 / -1; }
+.reviews__list li:nth-child(2) .review { grid-column: 6 / -1; }
+.reviews__list li:nth-child(2) .review__poster { grid-column: 2 / span 3; }
+.reviews__list li:nth-child(3) .review { grid-column: 1 / span 8; }
+.reviews__list li:nth-child(3) .review__poster { grid-column: 10 / -1; align-self: end; }
+.reviews__list li:nth-child(4) .review { grid-column: 5 / -1; }
+.reviews__list li:nth-child(4) .review__poster { grid-column: 1 / span 3; }
+
+.review__poster {
+  width: 100%;
+  height: auto;
+  margin-top: 0.4em;
+  border-radius: var(--radius-frame);
+}
+
+/* The poster wakes up with its quote */
+.reviews.is-reading .review__poster {
+  opacity: 0.3;
+  scale: 0.96;
+  transition: opacity 0.9s var(--ease-out), scale 0.9s var(--ease-out);
+}
+
+.reviews.is-reading .is-read .review__poster {
+  opacity: 1;
+  scale: 1;
+}
+
+.review,
+.review blockquote {
+  margin: 0;
+}
+
+.review__quote {
+  font-family: var(--font-display);
+  font-size: clamp(1.625rem, 3.5vw, 3.75rem);
+  font-weight: 400;
+  line-height: 1.08;
+  letter-spacing: -0.025em;
+  /* The opening mark hangs in the margin, so the text itself starts on the column edge */
+  text-indent: -0.42em;
+  text-wrap: pretty;
+}
+
+.review__rest {
+  max-width: 40rem; /* about 75 characters a line */
+  margin-top: clamp(1.25rem, 2vw, 2rem);
+  color: var(--fg-muted);
+  font-size: clamp(1rem, 1.25vw, 1.1875rem);
+  line-height: 1.5;
+  text-wrap: pretty;
+}
+
+.review figcaption {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.25rem 1.25rem;
+  margin-top: clamp(1.5rem, 2.4vw, 2.25rem);
+  font-size: clamp(0.9375rem, 1.1vw, 1.0625rem);
+  letter-spacing: -0.01em;
+}
+
+.review__stars {
+  display: inline-flex;
+  gap: 0.15em;
+  color: var(--vivid);
+}
+
+.review__stars svg {
+  width: 0.95em;
+  height: 0.95em;
+  fill: currentColor;
+}
+
+.review__name {
+  font-weight: 700;
+}
+
+.review__role,
+.review__job {
+  color: var(--fg-muted);
+}
+
+.review__job {
+  flex-basis: 100%;
+  font-size: var(--text-sm);
+}
+
+/* Words wait dimmed until they cross the reading line. Only once js/main.js has split them */
+.reviews.is-reading .word {
+  color: color-mix(in srgb, var(--fg) 20%, transparent);
+  transition: color 0.6s var(--ease-out);
+}
+
+.reviews.is-reading .word.is-lit {
+  color: inherit;
+}
+
+@media (max-width: 700px) {
+  .reviews__list li:nth-child(n) {
+    row-gap: 1.5rem;
+  }
+
+  .reviews__list li:nth-child(n) .review,
+  .reviews__list li:nth-child(n) .review__poster {
+    grid-column: 1 / -1;
+    grid-row: auto;
+  }
+
+  .reviews__list li:nth-child(n) .review__poster {
+    width: 62%;
+    align-self: start;
+  }
+
+  .reviews__list li:nth-child(even) .review__poster {
+    justify-self: end;
+  }
+
+  .review__quote {
+    text-indent: 0;
+  }
+}
+
+/* About: a short letter on the left, the facts on the right */
+
+.about,
+.approach {
+  padding: 0 var(--gutter) clamp(6rem, 12vw, 10rem);
+}
+
+.cushion--portrait {
+  overflow: hidden;
+}
+
+.cushion--portrait img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: 50% 22%;
+}
+
+.about__body {
+  display: grid;
+  grid-template-columns: repeat(12, minmax(0, 1fr));
+  column-gap: var(--gutter);
+}
+
+.about__body {
+  row-gap: 3rem;
+  align-items: start;
+}
+
+.about__text {
+  grid-column: 1 / span 6;
+  display: grid;
+  gap: 1.1em;
+  max-width: 36em;
+  font-size: clamp(1.125rem, 1.6vw, 1.5rem);
+  line-height: 1.4;
+  text-wrap: pretty;
+}
+
+.about__facts {
+  grid-column: 8 / -1;
+  display: grid;
+  gap: 1.5rem;
+  margin: 0;
+}
+
+.about__facts div {
+  display: grid;
+  gap: 0.2rem;
+}
+
+.about__facts dt {
+  color: var(--fg-muted);
+  font-size: var(--text-sm);
+}
+
+.about__facts dd {
+  margin: 0;
+  font-size: clamp(1rem, 1.25vw, 1.1875rem);
+}
+
+/* Approach: four promises, each one set as a line of its own, fitted edge to edge with its cushion
+   between the words, the same way every section opens. Lines of different lengths come out at different
+   sizes, which gives the block the look of a typographic poster. The sentence under each one alternates
+   sides, so the eye zigzags down the page */
+
+.approach__list {
+  display: grid;
+  row-gap: clamp(3rem, 7vw, 6.5rem);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.approach__list li {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: clamp(0.75rem, 1.6vw, 1.5rem);
+}
+
+.approach__list p {
+  max-width: 34em;
+  color: var(--fg-muted);
+  font-size: clamp(1.0625rem, 1.5vw, 1.375rem);
+  line-height: 1.4;
+  text-wrap: pretty;
+}
+
+.approach__list li:nth-child(even) p {
+  justify-self: end;
+}
+
+/* Closing call to action: the hero's room again, one line, one button */
+
+.cta {
+  display: grid;
+  align-content: center;
+  min-height: 100svh;
+  padding: 0 var(--gutter);
+  background: var(--room);
+}
+
+.cta .section-head {
+  padding-block: clamp(5rem, 11vw, 10rem);
+}
+
+.cta__actions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 1rem 2rem;
+  color: var(--fg-muted);
+  font-size: clamp(0.9375rem, 1.1vw, 1.0625rem);
+}
+
+/* The email is the quieter way in: its own line under the Upwork button */
+.cta__mail {
+  flex-basis: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 0.25rem 0.6rem;
+}
+
+.cta__mail .text-link {
+  color: var(--fg);
+  font-size: inherit;
+  overflow-wrap: anywhere;
+}
+
+.cta__mail .text-link:hover {
+  color: var(--vivid);
+}
+
+/* Footer */
+
+.site-footer {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: center;
+  gap: 1rem;
+  padding: calc(var(--gutter) * 1.5) var(--gutter);
+  font-size: var(--text-sm);
+  letter-spacing: -0.01em;
+}
+
+.site-footer p {
+  font-weight: 700;
+}
+
+.site-footer p span {
+  margin-left: 1em;
+  color: var(--fg-muted);
+  font-weight: 500;
+}
+
+.site-footer nav {
+  display: flex;
+  gap: 1.25em;
+}
+
+.site-footer__top {
+  justify-self: end;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4em;
+}
+
+.site-footer__top svg {
+  width: 1em;
+  height: 1em;
+}
+
+.site-footer a {
+  transition: color 0.25s var(--ease-out);
+}
+
+.site-footer a:hover {
+  color: var(--vivid);
+}
+
+@media (max-width: 700px) {
+  .about__text,
+  .about__facts {
+    grid-column: 1 / -1;
+  }
+
+  .approach__list li:nth-child(even) p {
+    justify-self: start;
+  }
+
+}
+
+/* Case-study pages (work/*.html, built by tools/build_cases.py) */
+
+/* Case pages speak in the portfolio's voice only. The project's own identity lives inside the frames of
+   the showcase (its screens and the sheet of its own system), never in the page around them */
+
+.case {
+  --case-accent-dark: var(--vivid);
+  --case-radius: var(--radius-frame);
+  --case-ink: var(--fg);
+}
+
+.case main > article {
+  padding: 0 var(--gutter);
+}
+
+.case-hero {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  justify-items: start;
+  gap: clamp(1.5rem, 2.6vw, 2.5rem);
+  padding-top: clamp(7rem, 13vw, 11rem);
+  padding-bottom: clamp(3rem, 6vw, 5rem);
+}
+
+/* The project's name fills the width in the bold voice, like every line of the site (js/main.js sets
+   --fit), up to a ceiling so a short name does not take over the screen */
+.case-hero__name {
+  display: block;
+  width: 100%;
+  font-family: var(--font-display);
+  font-size: min(var(--fit, 9vw), 21vw);
+  font-weight: 700;
+  line-height: 0.9;
+  letter-spacing: -0.04em;
+  white-space: nowrap;
+}
+
+.case-hero__name span {
+  display: inline-block;
+}
+
+@media (max-width: 700px) {
+  .case-hero__name {
+    font-size: clamp(2.75rem, 14vw, 5rem);
+    white-space: normal;
+    text-wrap: balance;
+  }
+}
+
+/* The project's colours, shown as small cushions: the portfolio's object in the project's palette */
+.case-swatches {
+  display: inline-flex;
+  gap: 0.3em;
+  margin-right: 0.7em;
+  vertical-align: -0.15em;
+}
+
+.case-swatches span {
+  width: 1.05em;
+  height: 1.05em;
+  border-radius: var(--radius-cushion);
+  box-shadow: inset 0 0 0 1px rgb(from var(--fg) r g b / 0.22);
+}
+
+.case-facts {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(11rem, 1fr));
+  gap: 1.5rem var(--gutter);
+  width: 100%;
+  margin: clamp(1rem, 2vw, 2rem) 0 0;
+}
+
+.case-facts div {
+  display: grid;
+  align-content: start;
+  justify-items: start;
+  gap: 0.2rem;
+}
+
+.case-facts dt {
+  color: var(--fg-muted);
+  font-size: var(--text-sm);
+}
+
+.case-facts dd {
+  margin: 0;
+  font-size: clamp(1rem, 1.25vw, 1.1875rem);
+}
+
+.case-cover,
+.case-gallery img {
+  width: 100%;
+  height: auto;
+  border-radius: var(--case-radius);
+}
+
+
+
+.case-block {
+  display: grid;
+  grid-template-columns: repeat(12, minmax(0, 1fr));
+  column-gap: var(--gutter);
+  row-gap: 1.5rem;
+  align-items: start;
+  padding-block: clamp(4rem, 9vw, 8rem);
+}
+
+.case-block h2 {
+  grid-column: 1 / span 5;
+  font-family: var(--font-display);
+  font-size: clamp(1.75rem, 3.8vw, 3.75rem);
+  font-weight: 700;
+  line-height: 0.95;
+  letter-spacing: -0.035em;
+}
+
+.case-block > div,
+.case-block > ul {
+  grid-column: 7 / -1;
+  display: grid;
+  gap: 1.1em;
+  max-width: 36em;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  font-size: clamp(1.0625rem, 1.4vw, 1.3125rem);
+  line-height: 1.45;
+  text-wrap: pretty;
+}
+
+/* List markers are small white cushions */
+.case-block li {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  gap: 0.9em;
+}
+
+.case-block li::before {
+  content: "";
+  width: 0.5em;
+  height: 0.5em;
+  margin-top: 0.48em;
+  border-radius: var(--radius-cushion);
+  background: var(--case-accent-dark);
+}
+
+/* Posters are shown one by one at full width, to be looked at properly */
+.case-gallery {
+  display: grid;
+  gap: var(--gutter);
+}
+
+/* The showcase (tools/showcase.py): the site itself instead of posters, laid out to be looked at, not
+   operated. The page keeps the portfolio's voice; the project's identity only lives inside these frames */
+
+/* A screen: a browser window or a phone holding a real capture. The frame is drawn on the body, so its
+   sizes can follow the width of the screen (cqw) */
+.screen {
+  position: relative;
+  container-type: inline-size;
+}
+
+.screen__body {
+  display: block;
+}
+
+.screen--desktop .screen__body {
+  overflow: hidden;
+  border-radius: 1.6cqw;
+  background: var(--neutral-900);
+  box-shadow: 0 3cqw 6cqw -2cqw rgb(0 0 0 / 0.45), inset 0 0 0 1px rgb(255 255 255 / 0.06);
+}
+
+/* The window's bar: three tiny cushions instead of traffic lights */
+.screen__bar {
+  display: flex;
+  gap: 0.6cqw;
+  padding: 1.1cqw 1.4cqw;
+}
+
+.screen__bar span {
+  width: 0.9cqw;
+  height: 0.9cqw;
+  min-width: 5px;
+  min-height: 5px;
+  border-radius: var(--radius-cushion);
+  background: rgb(255 255 255 / 0.22);
+}
+
+.screen__view {
+  position: relative;
+  display: block;
+  overflow: hidden;
+  aspect-ratio: 16 / 10;
+  background: var(--neutral-0);
+}
+
+.screen--phone .screen__body {
+  padding: 3.4cqw;
+  border-radius: 15cqw;
+  background: var(--neutral-1000);
+  box-shadow: 0 8cqw 14cqw -5cqw rgb(0 0 0 / 0.5), inset 0 0 0 1px rgb(255 255 255 / 0.12);
+}
+
+.screen--phone .screen__view {
+  aspect-ratio: 9 / 19.5;
+  border-radius: 11.6cqw;
+}
+
+.screen__top {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top;
+}
+
+/* Cover: the site on a computer and on a phone, on a stage in the project's own ground colour */
+.showcase-cover {
+  display: grid;
+  gap: 0.9rem;
+  margin: 0;
+}
+
+.showcase-cover__stage {
+  position: relative;
+  overflow: hidden;
+  padding: clamp(1.25rem, 5.5vw, 6rem) clamp(1.25rem, 9vw, 10rem) clamp(2.5rem, 8vw, 8.5rem) clamp(1.25rem, 5.5vw, 6rem);
+  border-radius: var(--radius-frame);
+  background:
+    radial-gradient(70% 80% at 30% 20%, rgb(255 255 255 / 0.14), transparent 70%),
+    radial-gradient(60% 60% at 90% 110%, rgb(0 0 0 / 0.22), transparent 70%),
+    var(--ground);
+}
+
+.showcase-cover .screen--desktop {
+  width: 88%;
+}
+
+.showcase-cover .screen--phone {
+  position: absolute;
+  right: clamp(1rem, 5vw, 5.5rem);
+  bottom: clamp(1.25rem, 4.5vw, 5rem);
+  width: clamp(6.5rem, 19%, 15.5rem);
+}
+
+.showcase-cover__caption {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 0.5rem 1.5rem;
+  font-size: var(--text-sm);
+}
+
+.showcase-cover__caption span + span {
+  color: var(--fg-muted);
+}
+
+/* Its own system: a sheet set in the project's typefaces and colours, and the notes beside it in the
+   portfolio's voice. The palette is drawn as cushions, the portfolio's object in the project's colours */
+.case-block > .specimen {
+  grid-column: 1 / -1;
+  display: grid;
+  grid-template-columns: minmax(0, 7fr) minmax(0, 5fr);
+  gap: var(--gutter);
+  max-width: none;
+  font-size: 1rem;
+  line-height: 1.45;
+}
+
+.specimen__sheet {
+  position: relative;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: clamp(1rem, 1.8vw, 1.5rem);
+  min-height: clamp(26rem, 42vw, 36rem);
+  padding: clamp(1.5rem, 4vw, 3.5rem);
+  border-radius: var(--radius-frame);
+  background: var(--s-ground);
+  color: var(--s-ink);
+  box-shadow: inset 0 0 0 1px rgb(255 255 255 / 0.07);
+}
+
+.specimen__aa {
+  position: absolute;
+  right: 0.08em;
+  bottom: -0.16em;
+  margin: 0;
+  color: var(--s-accent);
+  font-size: clamp(8rem, 19vw, 17rem);
+  line-height: 1;
+  pointer-events: none;
+}
+
+.specimen__headline {
+  position: relative;
+  max-width: 11em;
+  margin: 0;
+  font-size: clamp(2.25rem, 4.4vw, 4.25rem);
+  line-height: 0.98;
+  text-wrap: balance;
+}
+
+.specimen__body {
+  position: relative;
+  max-width: 26em;
+  margin: 0;
+  color: var(--s-muted);
+  font-size: clamp(0.9375rem, 1.1vw, 1.0625rem);
+  line-height: 1.55;
+}
+
+.specimen__button {
+  position: relative;
+  margin-top: auto;
+  padding: 0.95em 1.6em;
+  font-size: clamp(0.8125rem, 0.95vw, 0.9375rem);
+  line-height: 1.2;
+  white-space: nowrap;
+}
+
+.specimen__notes {
+  display: grid;
+  align-content: space-between;
+  gap: clamp(2rem, 4vw, 3rem);
+}
+
+.specimen__notes h3 {
+  margin: 0 0 0.75rem;
+  color: var(--fg-muted);
+  font-family: var(--font-body);
+  font-size: var(--text-sm);
+  font-weight: 500;
+  letter-spacing: 0;
+}
+
+.specimen__faces,
+.specimen__palette {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.specimen__faces li {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 1rem;
+  padding: 0.75rem 0;
+  border-top: 1px solid rgb(from var(--fg) r g b / 0.14);
+}
+
+.specimen__face {
+  font-size: clamp(1.5rem, 2.3vw, 2.125rem);
+  line-height: 1.1;
+}
+
+.specimen__role {
+  color: var(--fg-muted);
+  font-size: var(--text-sm);
+  text-align: right;
+}
+
+.specimen__palette {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 0.9rem;
+}
+
+.specimen__palette li {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 0.3rem;
+}
+
+.specimen__palette li::before,
+.specimen__faces li::before {
+  content: none;
+}
+
+.specimen__palette .specimen__role {
+  text-align: left;
+}
+
+.specimen__chip {
+  aspect-ratio: 1;
+  margin-bottom: 0.35rem;
+  border-radius: var(--radius-cushion);
+  background: var(--chip);
+  box-shadow: 0 0.6rem 1.2rem -0.5rem rgb(0 0 0 / 0.55), inset 0 -0.2rem 0.35rem rgb(0 0 0 / 0.16), inset 0 0 0 1px rgb(255 255 255 / 0.1);
+}
+
+.specimen__hex {
+  font-size: var(--text-sm);
+  font-variant-numeric: tabular-nums;
+}
+
+.specimen__corner {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin: 0;
+}
+
+.specimen__corner span {
+  width: 2.75rem;
+  height: 2.75rem;
+  border-top: 3px solid var(--vivid);
+  border-left: 3px solid var(--vivid);
+}
+
+/* More of the site: a presentation board in the project's colour. Rows zigzag: a phone beside a desktop
+   screen, or one wide screen pushed to one side. Each row rises into place once (js/main.js) */
+.case-pages {
+  display: grid;
+  gap: clamp(1.5rem, 3vw, 2.5rem);
+  padding-block: clamp(4rem, 9vw, 8rem) clamp(2rem, 5vw, 4rem);
+}
+
+.case-pages > h2 {
+  font-family: var(--font-display);
+  font-size: clamp(1.75rem, 3.8vw, 3.75rem);
+  font-weight: 700;
+  line-height: 0.95;
+  letter-spacing: -0.035em;
+}
+
+.board {
+  display: grid;
+  gap: clamp(3rem, 7vw, 7rem);
+  padding: clamp(1.5rem, 6vw, 7rem) clamp(1.25rem, 6vw, 7rem);
+  border-radius: var(--radius-frame);
+  background:
+    radial-gradient(80% 50% at 20% 0%, rgb(255 255 255 / 0.12), transparent 70%),
+    var(--ground);
+  color: var(--board-ink);
+}
+
+.board__row {
+  display: grid;
+  grid-template-columns: repeat(12, minmax(0, 1fr));
+  column-gap: clamp(1rem, 3vw, 3rem);
+  align-items: end;
+}
+
+.board__item {
+  display: grid;
+  gap: 0.8rem;
+  margin: 0;
+}
+
+.board__item figcaption {
+  color: var(--board-muted);
+  font-size: var(--text-sm);
+}
+
+/* One wide screen, to one side */
+.board__row--single.board__row--left .board__item { grid-column: 1 / span 10; }
+.board__row--single.board__row--right .board__item { grid-column: 3 / -1; }
+
+/* A desktop screen and a phone; the phone sits on the outer side and stands a little lower */
+.board__row--pair .board__item--desktop { grid-column: span 9; }
+.board__row--pair .board__item--phone { grid-column: span 3; }
+.board__row--pair.board__row--left .board__item--phone { order: -1; }
+.board__row--pair .board__item--phone { transform: translateY(clamp(1rem, 3vw, 3rem)); }
+
+/* Before and after, side by side and the same size */
+.board__row--compare .board__item { grid-column: span 6; }
+.board__row--compare .board__item:last-child figcaption { color: var(--board-ink); font-weight: 700; }
+
+/* The rise: an already visible default, so nothing is lost without JavaScript */
+.board__row.will-rise {
+  opacity: 0;
+  translate: 0 3rem;
+}
+
+.board__row.will-rise.is-in {
+  opacity: 1;
+  translate: 0 0;
+  transition: opacity 0.7s var(--ease-out), translate 1.1s var(--ease-out);
+}
+
+@media (max-width: 900px) {
+  .case-block > .specimen {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
+@media (max-width: 700px) {
+  .showcase-cover__stage {
+    padding: 1.25rem 1.25rem 3.5rem;
+  }
+
+  .showcase-cover .screen--desktop {
+    width: 100%;
+  }
+
+  .showcase-cover .screen--phone {
+    right: 1rem;
+    bottom: 1rem;
+    width: 28%;
+  }
+
+  .specimen__sheet {
+    min-height: 24rem;
+  }
+
+  .specimen__aa {
+    font-size: 6.5rem;
+  }
+
+  .specimen__button {
+    max-width: 62%;
+    white-space: normal;
+  }
+
+  .board {
+    gap: 2.5rem;
+  }
+
+  .board__row--single .board__item,
+  .board__row--single.board__row--right .board__item,
+  .board__row--compare .board__item {
+    grid-column: 1 / -1;
+  }
+
+  .board__row--compare {
+    row-gap: 1.5rem;
+  }
+
+  .board__row--pair .board__item--desktop { grid-column: span 8; }
+  .board__row--pair .board__item--phone { grid-column: span 4; transform: none; }
+}
+
+.reviews.case-quote {
+  padding: clamp(1rem, 3vw, 3rem) 0 clamp(4rem, 9vw, 8rem);
+}
+
+.case-quote .review {
+  max-width: 62rem;
+  font-family: var(--font-body);
+}
+
+.case-quote .review__stars {
+  color: var(--case-accent-dark);
+}
+
+.case-next {
+  display: grid;
+  justify-items: start;
+  gap: 0.75rem;
+  font-family: var(--font-body);
+  padding-block: clamp(3rem, 6vw, 6rem) clamp(5rem, 10vw, 9rem);
+}
+
+.case-next p {
+  color: var(--fg-muted);
+  font-size: var(--text-sm);
+}
+
+.case-next a {
+  display: inline-flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.1em 0.3em;
+  text-wrap: balance;
+  font-family: var(--font-display);
+  font-size: clamp(2.25rem, 6vw, 6rem);
+  font-weight: 700;
+  line-height: 0.92;
+  letter-spacing: -0.04em;
+  transition: color 0.3s var(--ease-out);
+}
+
+.case-next svg {
+  flex: none;
+  width: 0.55em;
+  height: 0.55em;
+  transition: translate 0.4s var(--ease-out);
+}
+
+.case-next a:hover {
+  color: var(--vivid);
+}
+
+.case-next a:hover svg {
+  translate: 0.15em 0;
+}
+
+@media (max-width: 700px) {
+  .case-block h2,
+  .case-block > div,
+  .case-block > ul {
+    grid-column: 1 / -1;
+  }
+
+}
+
+/* Footer: legal links and the way back to the cookie question */
+.site-footer__legal {
+  grid-column: 1 / -1;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem 1.25em;
+  padding-top: 0.75rem;
+  color: var(--fg-muted);
+}
+
+.site-footer__legal button {
+  padding: 0;
+  border: 0;
+  background: none;
+  color: inherit;
+  font: inherit;
+  letter-spacing: inherit;
+  cursor: pointer;
+  transition: color 0.25s var(--ease-out);
+}
+
+.site-footer__legal button:hover {
+  color: var(--vivid);
+}
+
+/* Small screens: two tidy columns that share a top edge (the site's sections in the loud voice on the
+   left, the legal links small on the right), then a rule, and under it the signature and the way back up */
+@media (max-width: 700px) {
+  .site-footer {
+    grid-template-columns: minmax(0, 1fr) auto;
+    grid-template-areas:
+      "nav legal"
+      "brand top";
+    align-items: start;
+    gap: 2rem 0;
+    padding-block: calc(var(--gutter) * 2) calc(var(--gutter) * 1.5);
+  }
+
+  .site-footer a,
+  .site-footer__legal button {
+    display: flex;
+    align-items: center;
+    min-height: 2.75rem;
+  }
+
+  .site-footer nav {
+    grid-area: nav;
+    flex-direction: column;
+    gap: 0;
+    font-family: var(--font-display);
+    font-size: 1.75rem;
+    font-weight: 700;
+    line-height: 1;
+    letter-spacing: -0.04em;
+  }
+
+  .site-footer__legal {
+    grid-area: legal;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    gap: 0;
+    padding: 0 0 0 1.5rem;
+    text-align: left;
+  }
+
+  .site-footer p,
+  .site-footer__top {
+    border-top: 1px solid rgb(from var(--fg) r g b / 0.32);
+  }
+
+  .site-footer p {
+    grid-area: brand;
+    padding-top: 0.75rem;
+  }
+
+  .site-footer p span {
+    display: block;
+    margin-left: 0;
+  }
+
+  .site-footer a.site-footer__top {
+    grid-area: top;
+    display: inline-flex;
+    justify-self: stretch;
+    justify-content: flex-end;
+    padding-left: 1.5rem;
+  }
+}
+
+/* Cookie question: a small panel in the corner, in the dark of the page. The two answers are the same
+   size, weight and colour on purpose: rejecting must be as easy as accepting */
+.consent {
+  position: fixed;
+  left: var(--gutter);
+  bottom: var(--gutter);
+  z-index: 20;
+  display: grid;
+  gap: 1rem;
+  width: min(26rem, calc(100vw - var(--gutter) * 2));
+  padding: 1.25rem;
+  border-radius: 1.1rem;
+  background: var(--neutral-900);
+  color: var(--neutral-0);
+  font-size: 0.9375rem;
+  line-height: 1.4;
+  box-shadow: 0 1rem 2.5rem rgb(from var(--neutral-1000) r g b / 0.35);
+  animation: fade-up 0.6s var(--ease-out) both;
+}
+
+.consent a {
+  text-decoration: underline;
+  text-underline-offset: 0.2em;
+}
+
+.consent a:hover {
+  color: var(--vivid);
+}
+
+.consent__actions {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0.5rem;
+}
+
+.consent button {
+  padding: 0.8em 1em;
+  border: 0;
+  border-radius: 0.8em;
+  background: var(--neutral-0);
+  color: var(--neutral-1000);
+  font: inherit;
+  font-weight: 500;
+  line-height: 1;
+  cursor: pointer;
+  transition: background-color 0.3s var(--ease-out), color 0.3s var(--ease-out), transform 0.3s var(--ease-out);
+}
+
+.consent button:hover {
+  background: var(--vivid);
+  color: var(--neutral-0);
+}
+
+.consent button:active {
+  transform: scale(0.97);
+}
+
+/* Services (services/index.html, built by tools/build_services.py; in WordPress page-services.php) and the
+   "Fixed price" section of the home. Three fixed-price projects sold in Upwork's Project Catalog. The page
+   opens like a case page, then one section per service, alternating light and dark. Typography carries
+   everything: no cards and no boxes, only fine rules between the rows of a table or a list. One orange
+   element per service: its "Order on Upwork" button */
+
+/* A rule between rows: the text colour at 14 %, set on each themed section so it follows its theme */
+.services-hero,
+.service,
+.offer {
+  --rule: rgb(from var(--fg) r g b / 0.14);
+}
+
+.services-page main > .case-hero {
+  padding-inline: var(--gutter);
+}
+
+/* The index under the statement: the three names, each jumping to its section */
+.services-index {
+  width: 100%;
+  margin-top: clamp(1rem, 2vw, 2rem);
+}
+
+.services-index ol {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.services-index a {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto auto;
+  align-items: baseline;
+  gap: 0.5rem clamp(1rem, 2.5vw, 2.5rem);
+  min-height: 44px;
+  padding-block: clamp(0.85rem, 1.6vw, 1.35rem);
+  border-top: 1px solid rgb(from var(--fg) r g b / 0.14);
+  transition: color 0.25s var(--ease-out);
+}
+
+.services-index li:last-child a {
+  border-bottom: 1px solid rgb(from var(--fg) r g b / 0.14);
+}
+
+.services-index__name {
+  font-family: var(--font-display);
+  font-size: clamp(1.375rem, 2.8vw, 2.75rem);
+  font-weight: 700;
+  line-height: 1;
+  letter-spacing: -0.035em;
+}
+
+.services-index__from {
+  color: var(--fg-muted);
+  font-variant-numeric: tabular-nums;
+}
+
+.services-index svg {
+  width: 1.25em;
+  height: 1.25em;
+  align-self: center;
+  transition: transform 0.3s var(--ease-out);
+}
+
+.services-index a:hover {
+  color: var(--vivid);
+}
+
+.services-index a:hover svg {
+  transform: translateY(0.2em);
+}
+
+/* One service */
+.service {
+  display: grid;
+  gap: clamp(4rem, 8vw, 7.5rem);
+  padding: clamp(5rem, 11vw, 10rem) var(--gutter);
+  scroll-margin-top: 4rem;
+}
+
+.service__head {
+  display: grid;
+  gap: clamp(1.25rem, 2.4vw, 2.25rem);
+}
+
+.service__name {
+  max-width: 12em;
+  font-family: var(--font-display);
+  font-size: clamp(2.75rem, 7.6vw, 8.5rem);
+  font-weight: 700;
+  line-height: 0.9;
+  letter-spacing: -0.04em;
+  text-wrap: balance;
+}
+
+.service h3 {
+  margin: 0 0 clamp(1.25rem, 2.4vw, 2rem);
+  font-family: var(--font-display);
+  font-size: clamp(1.625rem, 3vw, 3rem);
+  font-weight: 700;
+  line-height: 0.95;
+  letter-spacing: -0.035em;
+}
+
+/* What makes it different (left, at reading scale) and what you get (right) */
+.service__intro {
+  display: grid;
+  grid-template-columns: repeat(12, minmax(0, 1fr));
+  column-gap: var(--gutter);
+  row-gap: 3rem;
+  align-items: start;
+}
+
+.service__different {
+  grid-column: 1 / span 6;
+  max-width: 24em;
+  margin: 0;
+  font-family: var(--font-display);
+  font-size: clamp(1.375rem, 2.3vw, 2.125rem);
+  font-weight: 400;
+  line-height: 1.18;
+  letter-spacing: -0.02em;
+  text-wrap: pretty;
+}
+
+.service__get {
+  grid-column: 8 / -1;
+}
+
+/* The same tiny cushions as the lists of the case pages */
+.service__list {
+  display: grid;
+  gap: 0.85em;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+  font-size: clamp(1.0625rem, 1.3vw, 1.25rem);
+  line-height: 1.4;
+}
+
+.service__list li {
+  display: grid;
+  grid-template-columns: auto minmax(0, 1fr);
+  gap: 0.9em;
+}
+
+.service__list li::before {
+  content: "";
+  width: 0.5em;
+  height: 0.5em;
+  margin-top: 0.45em;
+  border-radius: var(--radius-cushion);
+  background: var(--vivid);
+}
+
+/* The packages: a real table, drawn as typographic rows */
+.tiers {
+  width: 100%;
+  border-collapse: collapse;
+  font-variant-numeric: tabular-nums;
+}
+
+.tiers th,
+.tiers td {
+  padding: clamp(1rem, 1.8vw, 1.5rem) clamp(0.75rem, 1.6vw, 1.5rem) clamp(1rem, 1.8vw, 1.5rem) 0;
+  text-align: left;
+  vertical-align: baseline;
+}
+
+.tiers thead th {
+  padding-block: 0 0.75rem;
+  color: var(--fg-muted);
+  font-size: var(--text-sm);
+  font-weight: 500;
+}
+
+.tiers tbody th,
+.tiers tbody td {
+  border-top: 1px solid var(--rule);
+}
+
+.tiers tbody tr:last-child th,
+.tiers tbody tr:last-child td {
+  border-bottom: 1px solid var(--rule);
+}
+
+.tiers tbody th {
+  width: 22%;
+  font-family: var(--font-display);
+  font-size: clamp(1.375rem, 2.2vw, 2.125rem);
+  font-weight: 700;
+  line-height: 1;
+  letter-spacing: -0.03em;
+}
+
+.tiers__included {
+  max-width: 28em;
+  font-size: clamp(1rem, 1.2vw, 1.125rem);
+  line-height: 1.4;
+}
+
+.tiers td:nth-child(3),
+.tiers td:nth-child(4) {
+  width: 10%;
+  white-space: nowrap;
+}
+
+.tiers thead th:last-child,
+.tiers td.tiers__price {
+  padding-right: 0;
+  text-align: right;
+}
+
+.tiers__price {
+  width: 12%;
+  font-family: var(--font-display);
+  font-size: clamp(1.75rem, 3.2vw, 3.25rem);
+  font-weight: 700;
+  line-height: 1;
+  letter-spacing: -0.035em;
+  white-space: nowrap;
+}
+
+/* Spelled out only when the rows are stacked and the column headings are gone */
+.tiers__label {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+}
+
+.tiers__extras {
+  max-width: 56em;
+  margin: 1.25rem 0 0;
+  color: var(--fg-muted);
+  font-size: clamp(0.9375rem, 1.1vw, 1.0625rem);
+}
+
+.tiers__extras strong {
+  margin-right: 0.4em;
+  color: var(--fg);
+  font-weight: 700;
+}
+
+/* How it works: five steps in a row. The numbers are the order, so they stay */
+.steps {
+  display: grid;
+  grid-template-columns: repeat(5, minmax(0, 1fr));
+  gap: 2rem var(--gutter);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.steps li {
+  display: grid;
+  align-content: start;
+  gap: 0.6rem;
+}
+
+.steps__n {
+  margin-bottom: 0.4rem;
+  color: var(--fg-muted);
+  font-family: var(--font-display);
+  font-size: clamp(2.75rem, 4.6vw, 4.75rem);
+  font-weight: 700;
+  line-height: 0.85;
+  letter-spacing: -0.04em;
+}
+
+.steps h4 {
+  margin: 0;
+  font-size: clamp(1.0625rem, 1.25vw, 1.1875rem);
+  font-weight: 700;
+  line-height: 1.25;
+}
+
+.steps p {
+  margin: 0;
+  color: var(--fg-muted);
+  font-size: clamp(0.9375rem, 1.1vw, 1.0625rem);
+  line-height: 1.45;
+}
+
+/* Work behind it: the case posters, each a link to its case, with the client's words where there are some */
+.proof {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 18rem), 1fr));
+  gap: clamp(2rem, 3vw, 3rem) var(--gutter);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.proof__item {
+  display: grid;
+  align-content: start;
+  gap: 1.25rem;
+}
+
+.proof__link {
+  display: grid;
+  gap: 0.6rem;
+}
+
+.proof__link img {
+  display: block;
+  width: 100%;
+  height: auto;
+  border-radius: var(--radius-frame);
+  transition: transform 0.6s var(--ease-out);
+}
+
+.proof__link:hover img {
+  transform: scale(1.02);
+}
+
+.proof__name {
+  margin-top: 0.4rem;
+  font-family: var(--font-display);
+  font-size: clamp(1.375rem, 2vw, 1.875rem);
+  font-weight: 700;
+  line-height: 1;
+  letter-spacing: -0.03em;
+  transition: color 0.25s var(--ease-out);
+}
+
+.proof__more {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45em;
+  color: var(--fg-muted);
+  font-size: var(--text-sm);
+}
+
+.proof__more svg {
+  width: 1em;
+  height: 1em;
+}
+
+.proof__link:hover .proof__name {
+  color: var(--vivid);
+}
+
+/* Before and after, side by side in the space of one poster */
+.proof__pair {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 0.5rem;
+}
+
+.proof__pair > span {
+  position: relative;
+}
+
+.proof__pair img {
+  aspect-ratio: 16 / 10;
+  object-fit: cover;
+  object-position: top;
+}
+
+.proof__tag {
+  position: absolute;
+  top: 0.6rem;
+  left: 0.6rem;
+  padding: 0.25rem 0.55rem;
+  border-radius: 0.45rem;
+  background: rgb(10 8 6 / 0.8);
+  color: var(--neutral-0);
+  font-size: 0.75rem;
+  font-weight: 700;
+}
+
+.proof__quote {
+  margin: 0;
+}
+
+.proof__quote p {
+  margin: 0 0 0.6rem;
+  font-family: var(--font-display);
+  font-size: clamp(1.25rem, 1.9vw, 1.75rem);
+  font-weight: 400;
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+  text-indent: -0.4em;
+}
+
+.proof__quote footer {
+  color: var(--fg-muted);
+  font-size: var(--text-sm);
+}
+
+/* Questions: native details and summary, so they open with the keyboard and with a screen reader */
+.service__block--faq {
+  display: grid;
+  grid-template-columns: repeat(12, minmax(0, 1fr));
+  column-gap: var(--gutter);
+  align-items: start;
+}
+
+.service__block--faq h3 {
+  grid-column: 1 / span 4;
+}
+
+.faq {
+  grid-column: 6 / -1;
+}
+
+.faq__item {
+  border-top: 1px solid var(--rule);
+}
+
+.faq__item:last-child {
+  border-bottom: 1px solid var(--rule);
+}
+
+.faq__item summary {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.5rem;
+  min-height: 44px;
+  padding-block: clamp(1rem, 1.6vw, 1.35rem);
+  font-family: var(--font-display);
+  font-size: clamp(1.125rem, 1.6vw, 1.5rem);
+  font-weight: 700;
+  line-height: 1.15;
+  letter-spacing: -0.02em;
+  list-style: none;
+  cursor: pointer;
+  transition: color 0.25s var(--ease-out);
+}
+
+.faq__item summary::-webkit-details-marker {
+  display: none;
+}
+
+.faq__item summary:hover {
+  color: var(--vivid);
+}
+
+.faq__item summary:focus-visible {
+  outline: 2px solid var(--vivid);
+  outline-offset: 4px;
+}
+
+.faq__icon {
+  flex: none;
+  width: 1.1em;
+  height: 1.1em;
+  transition: transform 0.3s var(--ease-out);
+}
+
+.faq__item[open] .faq__icon {
+  transform: rotate(45deg);
+}
+
+.faq__item p {
+  max-width: 38em;
+  margin: 0;
+  padding-bottom: clamp(1.1rem, 1.8vw, 1.5rem);
+  color: var(--fg-muted);
+  font-size: clamp(1rem, 1.2vw, 1.125rem);
+  line-height: 1.5;
+}
+
+/* The one orange element of each service */
+.service__order {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 1rem 2rem;
+}
+
+.service__order p {
+  margin: 0;
+  color: var(--fg-muted);
+}
+
+/* Home: "Fixed [price tag] price". The three services as rows, each a link to its section of /services */
+.offer {
+  padding: 0 var(--gutter) clamp(6rem, 12vw, 10rem);
+}
+
+.offer__list {
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.offer__item {
+  display: grid;
+  grid-template-columns: minmax(0, 1.25fr) minmax(0, 1fr) auto auto;
+  align-items: baseline;
+  gap: 0.5rem clamp(1rem, 2.5vw, 2.5rem);
+  padding-block: clamp(1.25rem, 2.6vw, 2.25rem);
+  border-top: 1px solid var(--rule);
+  transition: color 0.25s var(--ease-out);
+}
+
+.offer__list li:last-child .offer__item {
+  border-bottom: 1px solid var(--rule);
+}
+
+.offer__name {
+  font-family: var(--font-display);
+  font-size: clamp(1.5rem, 3.3vw, 3.25rem);
+  font-weight: 700;
+  line-height: 0.95;
+  letter-spacing: -0.035em;
+  text-wrap: balance;
+}
+
+.offer__line {
+  color: var(--fg-muted);
+  font-size: clamp(1rem, 1.25vw, 1.1875rem);
+  line-height: 1.4;
+}
+
+.offer__meta {
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+}
+
+.offer__item > svg {
+  width: 1.25em;
+  height: 1.25em;
+  align-self: center;
+  transition: transform 0.3s var(--ease-out);
+}
+
+.offer__item:hover {
+  color: var(--vivid);
+}
+
+.offer__item:hover .offer__line {
+  color: var(--fg-muted);
+}
+
+.offer__item:hover > svg {
+  transform: translate(0.15em, -0.15em);
+}
+
+.offer__more {
+  margin: clamp(1.5rem, 3vw, 2.5rem) 0 0;
+}
+
+@media (max-width: 1000px) {
+  .steps {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .service__intro > *,
+  .service__block--faq h3,
+  .faq {
+    grid-column: 1 / -1;
+  }
+
+  .offer__item {
+    grid-template-columns: minmax(0, 1fr) auto auto;
+  }
+
+  .offer__line {
+    grid-column: 1 / -1;
+    grid-row: 2;
+  }
+}
+
+/* Small screens, distilled: one column, the package rows stacked, fewer things side by side */
+@media (max-width: 700px) {
+  /* One word: it can fill the width, as on larger screens */
+  .services-hero .case-hero__name {
+    font-size: min(var(--fit, 20vw), 24vw);
+    white-space: nowrap;
+  }
+
+  .services-index a {
+    grid-template-columns: minmax(0, 1fr) auto;
+  }
+
+  .services-index__from {
+    grid-column: 1;
+    grid-row: 2;
+  }
+
+  .services-index svg {
+    grid-row: 1 / span 2;
+  }
+
+  .steps {
+    grid-template-columns: minmax(0, 1fr);
+    gap: 1.5rem;
+  }
+
+  .steps li {
+    grid-template-columns: 3.25rem minmax(0, 1fr);
+    column-gap: 0.75rem;
+  }
+
+  .steps__n {
+    grid-row: 1 / span 2;
+    margin: 0;
+    font-size: 2.5rem;
+  }
+
+  /* Each package becomes a small block: name and price, what it includes, then delivery and revisions */
+  .tiers thead {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip-path: inset(50%);
+  }
+
+  .tiers tbody tr {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+    column-gap: 1rem;
+    padding-block: 1.25rem;
+    border-top: 1px solid var(--rule);
+  }
+
+  .tiers tbody tr:last-child {
+    border-bottom: 1px solid var(--rule);
+  }
+
+  .tiers tbody th,
+  .tiers tbody td,
+  .tiers tbody tr:last-child th,
+  .tiers tbody tr:last-child td {
+    width: auto;
+    padding: 0;
+    border: 0;
+  }
+
+  .tiers__included {
+    grid-column: 1 / -1;
+    margin-top: 0.6rem;
+  }
+
+  .tiers td:nth-child(3),
+  .tiers td:nth-child(4) {
+    display: inline-block;
+    margin-top: 0.5rem;
+    color: var(--fg-muted);
+    font-size: var(--text-sm);
+  }
+
+  .tiers td:nth-child(4) {
+    grid-column: 2;
+    text-align: right;
+  }
+
+  .tiers__label {
+    position: static;
+    width: auto;
+    height: auto;
+    overflow: visible;
+    clip-path: none;
+  }
+
+  .tiers__price {
+    grid-column: 2;
+    grid-row: 1;
+    font-size: 1.75rem;
+  }
+
+  .offer__item {
+    grid-template-columns: minmax(0, 1fr) auto;
+  }
+
+  .offer__meta {
+    grid-column: 1;
+    grid-row: 3;
+    font-weight: 500;
+  }
+
+  .offer__item > svg {
+    grid-column: 2;
+    grid-row: 1;
+  }
+
+  .service__order .button {
+    width: 100%;
+  }
+}
+
+/* Legal pages (legal/*.html, built by tools/build_legal.py): plain reading pages */
+.legal {
+  padding: 0 var(--gutter) clamp(5rem, 10vw, 9rem);
+}
+
+.legal__head {
+  display: grid;
+  justify-items: start;
+  gap: clamp(1rem, 2vw, 1.75rem);
+  padding-top: clamp(7rem, 13vw, 11rem);
+  padding-bottom: clamp(3rem, 6vw, 5rem);
+}
+
+.legal h1 {
+  font-family: var(--font-display);
+  font-size: clamp(2.75rem, 9vw, 8rem);
+  font-weight: 700;
+  line-height: 0.9;
+  letter-spacing: -0.04em;
+  text-wrap: balance;
+}
+
+.legal__lead {
+  max-width: 28em;
+  font-family: var(--font-display);
+  font-size: clamp(1.375rem, 2.6vw, 2.5rem);
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+  color: var(--fg-muted);
+  text-wrap: balance;
+}
+
+.legal__meta {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 0.5rem 1.5rem;
+  color: var(--fg-muted);
+  font-size: var(--text-sm);
+}
+
+.legal__meta .text-link {
+  color: var(--fg);
+  font-size: inherit;
+}
+
+.legal__body {
+  max-width: 42rem; /* about 75 characters a line */
+  font-size: clamp(1rem, 1.2vw, 1.125rem);
+  line-height: 1.55;
+  text-wrap: pretty;
+}
+
+.legal__body h2 {
+  margin: 3.25rem 0 1rem;
+  font-family: var(--font-display);
+  font-size: clamp(1.5rem, 2.4vw, 2.125rem);
+  font-weight: 700;
+  line-height: 1.05;
+  letter-spacing: -0.03em;
+}
+
+.legal__body h2:first-child {
+  margin-top: 0;
+}
+
+.legal__body h3 {
+  margin: 1.75rem 0 0.5rem;
+  font-size: 1em;
+  font-weight: 700;
+}
+
+.legal__body p,
+.legal__body ul,
+.legal__body dl {
+  margin: 0 0 1rem;
+}
+
+.legal__body ul {
+  padding-left: 1.2em;
+}
+
+.legal__body li {
+  margin-bottom: 0.4rem;
+}
+
+.legal__body a {
+  text-decoration: underline;
+  text-underline-offset: 0.2em;
+  text-decoration-thickness: 1px;
+  transition: color 0.25s var(--ease-out);
+}
+
+.legal__body a:hover {
+  color: var(--vivid);
+}
+
+.legal__body dl {
+  display: grid;
+  gap: 0.75rem;
+}
+
+.legal__body dl div {
+  display: grid;
+  grid-template-columns: minmax(8rem, 12rem) minmax(0, 1fr);
+  gap: 0.25rem 1.5rem;
+}
+
+.legal__body dt {
+  color: var(--fg-muted);
+}
+
+.legal__body dd {
+  margin: 0;
+}
+
+.legal__body code {
+  font-family: ui-monospace, "SF Mono", Menlo, Consolas, monospace;
+  font-size: 0.9em;
+}
+
+/* The cookie table scrolls sideways inside its own box on narrow screens */
+.legal__table {
+  max-width: 100%;
+  margin: 0 0 1rem;
+  overflow-x: auto;
+}
+
+.legal__body table {
+  width: 100%;
+  min-width: 38rem;
+  border-collapse: collapse;
+  font-size: 0.9375em;
+}
+
+.legal__body th,
+.legal__body td {
+  padding: 0.75rem 1rem 0.75rem 0;
+  border-bottom: 1px solid rgb(from var(--fg) r g b / 0.16);
+  text-align: left;
+  vertical-align: top;
+}
+
+.legal__body th {
+  color: var(--fg-muted);
+  font-weight: 500;
+}
+
+.legal__inline-button {
+  padding: 0;
+  border: 0;
+  background: none;
+  color: inherit;
+  font: inherit;
+  text-decoration: underline;
+  text-underline-offset: 0.2em;
+  cursor: pointer;
+}
+
+.legal__inline-button:hover {
+  color: var(--vivid);
+}
+
+@media (max-width: 520px) {
+  .legal__body dl div {
+    grid-template-columns: minmax(0, 1fr);
+  }
+}
+
+/* Motion */
+
+@keyframes word-rise {
+  from { transform: translateY(105%); }
+}
+
+/* Starts a hair above zero: browsers do not count text painted at exactly zero opacity as content, and
+   since the fade then runs without repainting, the hero's text was never measured as having appeared */
+@keyframes fade-up {
+  from { opacity: 0.001; transform: translateY(0.6em); }
+}
+
+/* Opens from the centre without changing the layout, so the fitted name does not jump */
+@keyframes slot-open {
+  from { clip-path: inset(0 50% 0 50% round 0.11em); }
+  to { clip-path: inset(0 0 0 0 round 0.11em); }
+}
+
+@keyframes slide-wipe {
+  from { clip-path: inset(100% 0 0 0); transform: scale(1.12); }
+  to { clip-path: inset(0); transform: none; }
+}
+
+/* Grows into place and fades in. Only opacity and scale, so the browser can run it off the main thread */
+@keyframes feature-in {
+  from { opacity: 0; scale: 0.82; }
+}
+
+@keyframes feature-float {
+  from { translate: -1% -3%; rotate: -2deg; }
+  to { translate: 1% 3%; rotate: 2deg; }
+}
+
+@keyframes coin-pop {
+  from { transform: scale(0); }
+}
+
+/* Small screens */
+
+@media (max-width: 700px) {
+  .site-header {
+    grid-template-columns: 1fr auto auto;
+    column-gap: 0.5rem;
+  }
+
+  .site-header__nav {
+    display: none;
+  }
+
+  .js-menu .site-header__menu {
+    display: inline-flex;
+  }
+
+  /* Comfortable to hit with a thumb */
+  .site-header__cta {
+    min-height: 2.75rem;
+  }
+
+  .site-header__brand {
+    display: inline-flex;
+    align-items: center;
+    min-height: 2.75rem;
+  }
+
+  /* Two lines on narrow screens: "David" + carousel, then "Estrada" */
+  /* A grid, not a wrapping row: "David" and the slot can never be split apart, so the fit always
+     measures the real first row */
+  .hero__name {
+    display: grid;
+    grid-template-columns: auto auto;
+    justify-content: start;
+    font-size: var(--fit, 22vw);
+  }
+
+  .hero__word:last-child {
+    grid-column: 1 / -1;
+    margin-top: -0.1em;
+  }
+
+  /* Room under the name, so "Estrada" does not sit against the section below. And on a short screen the
+     hero grows with what it holds instead of cutting the name off at the bottom edge */
+  .hero {
+    grid-template-rows: 1fr auto auto;
+    height: auto;
+    padding-bottom: calc(var(--gutter) * 2.5);
+  }
+
+  .hero__name {
+    grid-row: 3;
+  }
+
+  .hero__intro {
+    grid-column: 1 / -1;
+    margin-bottom: 0;
+  }
+
+  /* The Upwork cushion sits in its own row, to the right, between the intro and the name */
+  .hero__feature {
+    grid-column: 1 / -1;
+    grid-row: 2;
+    justify-self: end;
+    margin: 0 6vw 8vw 0;
+    font-size: 27vw;
+  }
+
+  .badge {
+    --size: 0.36em;
+    --thick: 0.14em;
+  }
+
+
+}
+
+/* Phones: larger statement and a full-width button */
+@media (max-width: 520px) {
+  .site-header__cta-more {
+    display: none;
+  }
+
+  /* On the narrowest phones the button is the cushion and the arrow alone */
+  @media (max-width: 360px) {
+    .site-header__cta-text {
+      display: none;
+    }
+
+    .site-header__cta {
+      padding-right: 0.6em;
+    }
+  }
+
+  .hero__intro {
+    --role: 9.4vw;
+  }
+
+  .hero__actions {
+    gap: 1rem 1.5rem;
+  }
+
+  .button {
+    flex-basis: 100%;
+    justify-content: flex-start;
+  }
+
+  .button svg {
+    margin-left: auto;
+  }
+
+  .hero__feature {
+    margin: 0 4vw 5vw 0;
+    font-size: 24vw;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .work-card__media {
+    translate: none;
+    rotate: none;
+  }
+
+  .line.will-rise .line__word > span,
+  .line.will-rise .cushion,
+  .hero__ink,
+  .hero__feature,
+  .hero__feature a,
+  .hero__role span,
+  .hero__actions,
+  .slot,
+  .badge__pop,
+  .slot__frame img.is-entering {
+    animation: none;
+  }
+
+}
+
+/* Small screens, distilled (2026-10-07). On a phone the desktop composition put too much on one screen:
+   three badges crossing the name, two buttons to the same place, a link and a line of proof, posters
+   sliding over a pinned title with a caption over them. Here each screen holds one idea:
+   the hero is a statement, one object and the name with its button; Work is a plain run of posters;
+   the reviews are swiped one at a time. Same type, same objects, same colours. */
+@media (max-width: 700px) {
+  /* Header: the brand and the menu. Its button only shows once the hero's own button has left the screen */
+  .site-header__cta {
+    transition: opacity 0.35s var(--ease-out), visibility 0.35s;
+  }
+
+  .site-header__cta.is-twin {
+    visibility: hidden;
+    opacity: 0;
+  }
+
+  /* Hero: statement at the top, the Upwork cushion in the open middle, the name and the one button at
+     the bottom, where the thumb is */
+  .hero {
+    grid-template-rows: auto 1fr auto auto;
+    row-gap: 0;
+    height: auto;
+    padding-bottom: calc(var(--gutter) * 1.5);
+  }
+
+  .hero__intro {
+    display: contents;
+  }
+
+  .hero__role {
+    grid-column: 1 / -1;
+    grid-row: 1;
+  }
+
+  .hero__feature {
+    grid-row: 2;
+    align-self: center;
+    justify-self: end;
+    /* Sized by the height as well, so on a short phone the button still fits on the first screen */
+    margin: min(6vw, 2.2svh) 5vw min(6vw, 2.2svh) 0;
+    font-size: min(34vw, 18svh);
+  }
+
+  .hero__name {
+    grid-row: 3;
+  }
+
+  .hero__actions {
+    grid-column: 1 / -1;
+    grid-row: 4;
+    margin-top: calc(var(--gutter) * 1.75);
+  }
+
+  .hero__actions .text-link,
+  .hero__proof {
+    display: none;
+  }
+
+  /* The three small badges and the orange they print on the letters stay on wider screens */
+  .hero .badge,
+  .hero__ink--tint {
+    display: none;
+  }
+
+  /* Work: the title opens the section and the posters follow, one under another, each with its name */
+  .work__stage {
+    position: static;
+    height: auto;
+    padding: clamp(4rem, 18vw, 6rem) 0 calc(var(--gutter) * 2);
+  }
+
+  .work__list {
+    row-gap: calc(var(--gutter) * 3);
+    margin-top: 0;
+    padding-bottom: clamp(4rem, 18vw, 6rem);
+  }
+
+  .work-card:nth-child(n) {
+    width: auto;
+    margin-left: 0;
+    gap: 0.9rem;
+  }
+
+  .work-card__media {
+    translate: none;
+    will-change: auto;
+  }
+
+  .js .work-card__caption {
+    position: static;
+    width: auto;
+    height: auto;
+    margin: 0;
+    padding: 0;
+    overflow: visible;
+    clip-path: none;
+    white-space: normal;
+  }
+
+  .work-card__caption {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: baseline;
+    justify-content: space-between;
+    gap: 0.25rem 1rem;
+    max-width: none;
+  }
+
+  .work-card__caption h3 {
+    font-size: 1.75rem;
+  }
+
+  .work-card__caption p:not(.work-card__tags) {
+    display: none;
+  }
+
+  .work-card__tags {
+    font-size: var(--text-sm);
+  }
+
+  .js .work__caption {
+    display: none;
+  }
+
+  /* Reviews: one at a time, swiped sideways, with the edge of the next one showing */
+  .reviews .section-head {
+    margin-bottom: calc(var(--gutter) * 3);
+  }
+
+  .reviews__meta p {
+    display: none;
+  }
+
+  .reviews__list {
+    display: flex;
+    gap: var(--gutter);
+    margin: 0 calc(var(--gutter) * -1);
+    padding: 0 var(--gutter);
+    overflow-x: auto;
+    overscroll-behavior-x: contain;
+    scroll-snap-type: x mandatory;
+    scroll-padding: 0 var(--gutter);
+    scrollbar-width: none;
+  }
+
+  .reviews__list::-webkit-scrollbar {
+    display: none;
+  }
+
+  .reviews__list li:nth-child(n) {
+    flex: 0 0 86%;
+    display: block;
+    scroll-snap-align: start;
+  }
+
+  .reviews__list li:nth-child(n) .review__poster,
+  .review__rest,
+  .review__job {
+    display: none;
+  }
+
+  .review__quote {
+    font-size: 7vw;
+  }
+
+  /* The cookie question takes less of the first screen */
+  .consent {
+    gap: 0.7rem;
+    padding: 0.9rem;
+    font-size: 0.8125rem;
+    line-height: 1.35;
+  }
+}
+
+/* ------------------------------------------------------------------ The mosaic (case pages)
+
+   The screens of a case laid out as one still sheet: every screen in view at once, one featured large, each
+   cropped to the top of its page and named by a small label. No buttons and nothing that moves: David asked
+   for it on 2026-10-23, in place of the viewer and the scrolling strips. Each case's stylesheet sets the
+   composition for wide screens (--mosaic-cols, --mosaic-areas, --mosaic-row and each tile's grid-area, inside
+   a min-width: 701px query) and dresses the tiles and labels in its forms */
+.mosaic {
+  display: grid;
+  grid-template-columns: var(--mosaic-cols, repeat(4, minmax(0, 1fr)));
+  grid-template-areas: var(--mosaic-areas, none);
+  grid-auto-rows: var(--mosaic-row, clamp(12rem, 19vw, 20rem));
+  gap: var(--mosaic-gap, clamp(0.75rem, 1.4vw, 1.25rem));
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.mosaic__tile {
+  position: relative;
+  min-width: 0;
+  min-height: 0;
+  overflow: hidden;
+  border: var(--mosaic-border, 0);
+  border-radius: var(--mosaic-radius, 0);
+  background: var(--mosaic-ground, #fff);
+  box-shadow: var(--mosaic-shadow, none);
+}
+
+.mosaic__tile img {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: top center;
+}
+
+.mosaic__label {
+  position: absolute;
+  left: 0.75rem;
+  bottom: 0.75rem;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5em;
+  max-width: calc(100% - 1.5rem);
+  padding: 0.45em 0.8em;
+  border-radius: var(--mosaic-chip-radius, 999px);
+  background: var(--mosaic-chip-bg, rgb(10 8 6 / 0.82));
+  color: var(--mosaic-chip-fg, #fff);
+  font-size: 0.8125rem;
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+.mosaic__label i {
+  flex: none;
+  width: 0.75rem;
+  height: 0.75rem;
+  border-radius: var(--radius-cushion);
+  box-shadow: inset 0 0 0 1px rgb(255 255 255 / 0.4);
+}
+
+/* Small screens: two columns, the featured screen across both */
+@media (max-width: 700px) {
+  .mosaic {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    grid-template-areas: none;
+    grid-auto-rows: var(--mosaic-row-small, 15rem);
+    gap: 0.6rem;
+  }
+
+  .mosaic__tile:first-child {
+    grid-column: 1 / -1;
+    grid-row: span var(--mosaic-first-rows-small, 1);
+  }
+
+  /* and when that leaves one screen alone on the last row, it takes the row */
+  .mosaic__tile:last-child:nth-child(even) {
+    grid-column: 1 / -1;
+  }
+
+  .mosaic__label {
+    left: 0.5rem;
+    bottom: 0.5rem;
+    max-width: calc(100% - 1rem);
+    font-size: 0.75rem;
+  }
+}

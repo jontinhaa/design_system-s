@@ -1,0 +1,37 @@
+
+/* ===== Recipe as a card swap: skewed 3D stack; scrolling sends the front card to the back (and back again) ===== */
+#methode.section{padding:0}
+.swap-track{position:relative;height:calc(100svh + 3 * 65svh)}
+.swap-pin{position:sticky;top:0;height:100svh;display:flex;align-items:center;padding:90px 6% 30px;box-sizing:border-box}
+.swap-pin .swap-layout{width:100%}
+.method-section .swap-layout{display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1.1fr);align-items:center;gap:clamp(24px,4vw,64px);min-height:min(760px,92svh)}
+.swap-copy h2{font-size:clamp(54px,6.4vw,100px);margin:0 0 22px}
+.swap-copy h2 em{color:var(--cream);text-shadow:.03em .04em 0 var(--ink)}
+.swap-lede{font-size:18px;line-height:1.6;max-width:430px;margin:0 0 30px}
+.swap-legend{list-style:none;margin:0;padding:0;display:grid;gap:6px;max-width:430px}
+.swap-legend li{display:flex;align-items:center;gap:14px;padding:12px 16px;border-radius:14px;font-weight:700;font-size:17px;transition:background .4s,color .4s,transform .5s cubic-bezier(.34,1.56,.64,1)}
+.swap-legend li span{font-family:var(--display);font-weight:400;font-size:22px;opacity:.5;min-width:30px}
+.swap-legend li.is-on{background:var(--cream);transform:translateX(6px);box-shadow:0 14px 30px -20px rgba(23,60,49,.6)}
+.swap-legend li.is-on span{opacity:1}
+.swap-stage{position:relative;height:clamp(440px,62svh,600px);perspective:900px;overflow:visible}
+.swap-stack{position:absolute;left:44%;top:60%;width:0;height:0;transform-style:preserve-3d}
+.swap-card{--w:min(560px,44vw);position:absolute;left:0;top:0;width:var(--w);height:calc(var(--w) * .8);margin:calc(var(--w) * -.4) 0 0 calc(var(--w) * -.5);box-sizing:border-box;padding:clamp(22px,2.4vw,34px);border-radius:26px;background:var(--c);color:var(--ink);border:1.5px solid rgba(23,60,49,.14);box-shadow:0 30px 60px -30px rgba(23,60,49,.55);overflow:hidden;backface-visibility:hidden;will-change:transform;cursor:pointer;user-select:none}
+.swap-head{display:flex;align-items:center;justify-content:space-between;margin-bottom:6px}
+.swap-num{font-family:var(--display);font-size:calc(var(--w) * .2);line-height:.8;color:transparent;-webkit-text-stroke:2px var(--ink);letter-spacing:-.04em}
+.swap-chip{align-self:flex-start;background:var(--ink);color:var(--cream);font-size:11px;font-weight:800;letter-spacing:.14em;text-transform:uppercase;padding:8px 13px;border-radius:999px}
+.swap-card h3{font-family:var(--display);font-weight:400;font-size:calc(var(--w) * .072);line-height:1.02;margin:10px 0 10px;max-width:58%}
+.swap-card p{font-size:calc(var(--w) * .031);line-height:1.6;margin:0 0 14px;max-width:56%}
+.swap-card strong{display:inline-block;background:var(--yellow);border-radius:99px;padding:7px 12px;font-size:11px;letter-spacing:.06em;text-transform:uppercase;max-width:56%}
+.swap-card img{position:absolute;right:-9%;bottom:-14%;width:58%;aspect-ratio:1;object-fit:contain;filter:drop-shadow(0 22px 24px rgba(23,60,49,.3));pointer-events:none}
+@media(max-width:800px){
+.swap-track{height:calc(100svh + 3 * 60svh)}
+.swap-pin{align-items:flex-start;padding:84px 5% 16px}
+.method-section .swap-layout{grid-template-columns:1fr;min-height:0;gap:10px}
+.swap-legend{display:none}
+.swap-copy h2{font-size:clamp(46px,12vw,64px)}
+.swap-lede{font-size:15px;margin-bottom:18px}
+.swap-legend li{font-size:15px;padding:10px 12px}
+.swap-stage{height:calc(min(480px,84vw) * .8 + 150px)}
+.swap-stack{top:62%;left:36%}
+.swap-card{--w:min(480px,80vw)}
+}

@@ -1,0 +1,822 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>upGrad Design System — Case Study</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,400;9..40,500;9..40,600;9..40,700&family=Fraunces:ital,opsz,wght@1,9..144,600&display=swap" rel="stylesheet">
+<style>
+:root{
+  --neutral-white:#FFFFFF; --neutral-75:#F7F7F7; --neutral-100:#F2F2F2; --neutral-150:#EEEEEE;
+  --neutral-200:#E8E8E8; --neutral-300:#D9D9D9; --neutral-400:#A5A5A5; --neutral-500:#717171;
+  --neutral-600:#555555; --neutral-700:#393939; --neutral-800:#1D1D1D; --neutral-850:#171717;
+  --neutral-black:#000000;
+  --red-50:#FEEBED; --red-100:#FDCDD2; --red-200:#F8828D; --red-300:#EE2C3C; --red-400:#DC2132;
+  --red-500:#C2192A; --red-600:#A31423; --red-700:#7F111C; --red-800:#540E14; --red-900:#2A0C0C;
+  --green-400:#28AC52; --yellow-400:#F5C81C;
+
+  --text-primary:var(--neutral-black); --text-secondary:var(--neutral-500);
+  --text-tertiary:var(--neutral-400); --text-inverse:var(--neutral-white);
+  --text-brand:var(--red-300);
+  --surface-bg:var(--neutral-white); --surface-surface:var(--neutral-100);
+  --surface-brand:var(--red-300);
+  --border-primary:var(--neutral-150); --border-secondary:var(--neutral-200);
+
+  --gutter:24px; --margin:120px; --maxw:1440px;
+  --ease:cubic-bezier(.22,.61,.36,1);
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{
+  background:var(--surface-bg); color:var(--text-primary);
+  font-family:"DM Sans",system-ui,sans-serif; font-variation-settings:"opsz" 14;
+  -webkit-font-smoothing:antialiased;
+}
+.wrap{max-width:var(--maxw);margin:0 auto;padding:0 var(--margin)}
+
+/* ---------- type scale, taken from the system ---------- */
+.h1{font-size:51px;line-height:100%;font-weight:500;letter-spacing:0}
+.h2{font-size:48px;line-height:100%;font-weight:400;letter-spacing:0}
+.h3{font-size:36px;line-height:120%;font-weight:500;letter-spacing:2px}
+.h4{font-size:32px;line-height:120%;font-weight:600}
+.h5{font-size:24px;line-height:120%;font-weight:600}
+.accent{font-family:"Fraunces",Georgia,serif;font-style:italic;font-weight:600;letter-spacing:0}
+.bodyL{font-size:18px;line-height:140%}
+.body{font-size:16px;line-height:140%;letter-spacing:-.25px}
+.bodyS{font-size:14px;line-height:140%}
+.bodyXS{font-size:12px;line-height:140%;font-weight:600}
+.dim{color:var(--text-secondary)}
+.dimmer{color:var(--text-tertiary)}
+.brand{color:var(--text-brand)}
+strong{font-weight:600}
+
+/* ---------- margin label spine ---------- */
+.section{padding:120px 0;border-top:1px solid var(--border-primary)}
+.spine{display:grid;grid-template-columns:200px 1fr;gap:var(--gutter)}
+.label{
+  font-size:12px;font-weight:600;letter-spacing:1.2px;text-transform:uppercase;
+  color:var(--text-tertiary);display:flex;align-items:flex-start;gap:8px;padding-top:8px
+}
+.label::before{content:"";width:8px;height:8px;border-radius:50%;background:var(--surface-brand);flex:0 0 8px;margin-top:5px}
+.col{max-width:760px}
+.col > * + *{margin-top:24px}
+
+/* ---------- reveal ---------- */
+.rv{opacity:0;transform:translateY(24px);transition:opacity .7s var(--ease),transform .7s var(--ease)}
+.rv.in{opacity:1;transform:none}
+@media (prefers-reduced-motion:reduce){.rv{opacity:1;transform:none;transition:none}html{scroll-behavior:auto}}
+
+/* ---------- hero ---------- */
+.hero{padding:96px 0 0}
+.eyebrow{display:flex;gap:12px;align-items:center;font-size:12px;font-weight:600;letter-spacing:1.2px;text-transform:uppercase;color:var(--text-secondary)}
+.pill{border:1px solid var(--border-secondary);border-radius:999px;padding:4px 12px;font-size:12px;font-weight:600;letter-spacing:.4px;text-transform:none;color:var(--text-secondary)}
+.hookline{font-size:51px;line-height:110%;font-weight:400;color:var(--text-tertiary);max-width:15ch}
+.hookline b{font-weight:600;color:var(--text-primary)}
+.herofig{margin-top:64px;background:var(--surface-brand);border-radius:24px;padding:64px var(--margin);color:var(--text-inverse);overflow:hidden;position:relative}
+.herofig .big{font-size:clamp(48px,9vw,128px);line-height:96%;font-weight:600;letter-spacing:-2px}
+
+/* ---------- at a glance ---------- */
+.glance{display:grid;grid-template-columns:repeat(4,1fr);gap:0;border-top:1px solid var(--border-primary);border-bottom:1px solid var(--border-primary)}
+.gitem{padding:24px;border-right:1px solid var(--border-primary)}
+.gitem:last-child{border-right:0}
+.gitem dt{font-size:12px;font-weight:600;letter-spacing:1px;text-transform:uppercase;color:var(--text-tertiary);margin-bottom:8px}
+.gitem dd{font-size:16px;line-height:140%}
+
+/* ---------- token audit ---------- */
+.audit{background:var(--neutral-75);border-radius:24px;padding:48px}
+.dots{display:grid;grid-template-columns:repeat(23,1fr);gap:6px;margin:32px 0}
+.dot{aspect-ratio:1;border-radius:50%;background:var(--neutral-300);transform:scale(.4);opacity:0;transition:transform .5s var(--ease),opacity .5s var(--ease),background .5s var(--ease)}
+.dot.on{transform:scale(1);opacity:1}
+.dot.kh{background:var(--red-300)}
+.counts{display:flex;gap:48px;flex-wrap:wrap}
+.count .n{font-size:48px;line-height:100%;font-weight:600;font-variant-numeric:tabular-nums}
+.count .k{font-size:14px;color:var(--text-secondary);margin-top:4px}
+.legend{display:flex;gap:20px;font-size:14px;color:var(--text-secondary);flex-wrap:wrap}
+.legend i{display:inline-block;width:12px;height:12px;border-radius:50%;margin-right:8px;vertical-align:-1px}
+
+/* ---------- turn ---------- */
+.turn{background:var(--neutral-black);color:var(--text-inverse);border-radius:24px;padding:96px 64px;text-align:left}
+.turn p{font-size:clamp(32px,5vw,64px);line-height:110%;font-weight:400;color:var(--neutral-400);max-width:18ch}
+.turn p b{color:var(--neutral-white);font-weight:600}
+
+/* ---------- toggle / tabs ---------- */
+.switch{display:inline-flex;background:var(--neutral-100);border-radius:999px;padding:4px;gap:4px}
+.switch button{
+  font:inherit;font-size:14px;font-weight:500;border:0;cursor:pointer;background:transparent;
+  color:var(--text-secondary);padding:8px 20px;border-radius:999px;transition:.25s var(--ease)
+}
+.switch button[aria-selected="true"]{background:var(--neutral-white);color:var(--text-primary);box-shadow:0 1px 3px rgba(0,0,0,.12)}
+.panes{position:relative;margin-top:24px}
+.pane{display:none}
+.pane.on{display:block;animation:fade .4s var(--ease)}
+@keyframes fade{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+
+.codelist{background:var(--neutral-black);border-radius:16px;padding:32px;font-size:15px;line-height:2;color:var(--neutral-300)}
+.codelist span{color:var(--red-200)}
+.codelist em{font-style:normal;color:var(--neutral-500)}
+
+/* ---------- typeface cards ---------- */
+.faces{display:grid;grid-template-columns:repeat(3,1fr);gap:var(--gutter)}
+.face{border:1px solid var(--border-secondary);border-radius:16px;padding:28px;transition:.3s var(--ease);position:relative}
+.face.killed{opacity:.55}
+.face.chosen{border-color:var(--neutral-black);border-width:2px;padding:27px}
+.face .name{font-size:32px;line-height:1;margin-bottom:20px}
+.face .verdict{font-size:12px;font-weight:600;letter-spacing:1px;text-transform:uppercase;margin-bottom:12px}
+.face.killed .verdict{color:var(--text-tertiary)}
+.face.chosen .verdict{color:var(--text-brand)}
+.face p{font-size:14px;line-height:150%;color:var(--text-secondary)}
+
+/* ---------- token table ---------- */
+.tbl{width:100%;border-collapse:collapse;font-size:15px}
+.tbl th{text-align:left;font-size:12px;font-weight:600;letter-spacing:1px;text-transform:uppercase;color:var(--text-tertiary);padding:0 12px 14px}
+.tbl td{padding:14px 12px;border-top:1px solid var(--border-primary);vertical-align:middle}
+.sw{width:28px;height:28px;border-radius:50%;display:inline-block;border:1px solid rgba(0,0,0,.08)}
+.hex{font-size:13px;border:1px solid var(--border-primary);border-radius:6px;padding:3px 9px;display:inline-block;color:var(--text-secondary)}
+.alias{color:var(--text-secondary)}
+.arrow{color:var(--text-tertiary);padding:0 6px}
+
+/* ---------- button matrix ---------- */
+.matrix{display:grid;grid-template-columns:120px repeat(3,1fr);gap:12px;align-items:center}
+.matrix .hd{font-size:12px;font-weight:600;letter-spacing:1px;text-transform:uppercase;color:var(--text-tertiary)}
+.btn{border:0;border-radius:8px;padding:12px 20px;font:inherit;font-size:15px;font-weight:500;cursor:default;width:100%}
+.b-pri{background:var(--red-300);color:#fff}.b-pri.h{background:#BE2330}.b-pri.p{background:#8F1A24}
+.b-sec{background:var(--neutral-200);color:var(--neutral-black)}.b-sec.h{background:var(--neutral-300)}.b-sec.p{background:var(--neutral-400)}
+.b-acc{background:var(--neutral-black);color:#fff}.b-acc.h{background:var(--neutral-700)}.b-acc.p{background:var(--neutral-600)}
+.live{margin-top:32px;padding:32px;background:var(--neutral-75);border-radius:16px;display:flex;gap:16px;align-items:center;flex-wrap:wrap}
+.livebtn{border:0;border-radius:8px;padding:14px 28px;font:inherit;font-size:16px;font-weight:500;background:var(--red-300);color:#fff;cursor:pointer;transition:background .18s var(--ease)}
+.livebtn:hover{background:#BE2330}
+.livebtn:active{background:#8F1A24}
+
+/* ---------- grid demo ---------- */
+.gridwrap{position:relative;border:1px solid var(--border-secondary);border-radius:16px;overflow:hidden;background:var(--neutral-75)}
+.gridbar{display:flex;gap:2px;height:200px;padding:0 var(--gp,10%);transition:padding .5s var(--ease)}
+.gcol{flex:1;background:rgba(238,44,60,.14);border-left:1px solid rgba(238,44,60,.3);border-right:1px solid rgba(238,44,60,.3)}
+.gridmeta{display:flex;gap:32px;padding:20px;border-top:1px solid var(--border-primary);font-size:14px;color:var(--text-secondary);flex-wrap:wrap}
+
+/* ---------- type specimen ---------- */
+.spec{border-top:1px solid var(--border-primary);padding:20px 0;display:grid;grid-template-columns:1fr auto;gap:24px;align-items:baseline}
+.spec .meta{font-size:12px;color:var(--text-tertiary);white-space:nowrap;font-variant-numeric:tabular-nums}
+
+/* ---------- roadmap ---------- */
+.road{display:grid;grid-template-columns:repeat(3,1fr);gap:var(--gutter);margin-top:32px}
+.stop{border-top:3px solid var(--border-secondary);padding-top:20px}
+.stop.done{border-color:var(--neutral-black)}
+.stop.here{border-color:var(--red-300)}
+.stop .when{font-size:12px;font-weight:600;letter-spacing:1px;text-transform:uppercase;color:var(--text-tertiary);margin-bottom:10px;display:flex;align-items:center;gap:8px}
+.stop.here .when{color:var(--text-brand)}
+.stop.next{opacity:.5}
+.blip{width:8px;height:8px;border-radius:50%;background:var(--red-300);display:inline-block}
+
+/* ---------- outcome ---------- */
+.metrics{display:grid;grid-template-columns:repeat(3,1fr);gap:var(--gutter)}
+.metric{border:1px solid var(--border-secondary);border-radius:16px;padding:28px}
+.metric .n{font-size:48px;line-height:1;font-weight:600;font-variant-numeric:tabular-nums}
+.metric .k{font-size:14px;color:var(--text-secondary);margin-top:10px;line-height:150%}
+.note{background:var(--neutral-75);border-left:3px solid var(--neutral-300);padding:20px 24px;border-radius:0 12px 12px 0;font-size:15px;line-height:160%;color:var(--text-secondary)}
+
+.logo{height:22px;width:auto;display:block}
+.flogo{height:30px;margin-bottom:40px;filter:brightness(1.08)}
+
+/* ---------- shipped strip ---------- */
+.strip{display:flex;gap:20px;overflow-x:auto;padding:4px var(--margin) 24px;scroll-snap-type:x mandatory;scrollbar-width:thin}
+.strip figure{flex:0 0 66%;max-width:900px;scroll-snap-align:center;margin:0}
+.strip img{width:100%;height:auto;display:block;border-radius:16px;border:1px solid var(--border-primary);background:var(--neutral-75)}
+.strip figcaption{margin-top:12px;font-size:14px;line-height:150%;color:var(--text-secondary)}
+@media (max-width:900px){.strip figure{flex:0 0 88%}}
+
+/* ---------- footer ---------- */
+footer{background:var(--neutral-black);color:var(--neutral-400);padding:80px 0;margin-top:120px}
+footer .fgrid{display:grid;grid-template-columns:repeat(4,1fr);gap:var(--gutter)}
+footer h6{font-size:12px;font-weight:600;letter-spacing:1px;text-transform:uppercase;color:var(--neutral-600);margin-bottom:12px}
+footer p{font-size:15px;line-height:170%;color:var(--neutral-300)}
+
+/* ---------- responsive ---------- */
+@media (max-width:1100px){
+  :root{--margin:48px}
+  .spine{grid-template-columns:1fr}
+  .label{padding-top:0;margin-bottom:8px}
+  .faces,.metrics,.road,.glance{grid-template-columns:1fr 1fr}
+  footer .fgrid{grid-template-columns:1fr 1fr}
+}
+@media (max-width:640px){
+  :root{--margin:20px}
+  .hookline{font-size:34px}
+  .h2{font-size:32px}.h3{font-size:26px;letter-spacing:1px}.h4{font-size:24px}
+  .faces,.metrics,.road,.glance,.matrix,footer .fgrid{grid-template-columns:1fr}
+  .gitem{border-right:0;border-bottom:1px solid var(--border-primary)}
+  .section{padding:72px 0}
+  .turn{padding:56px 28px}
+  .audit{padding:28px}
+  .dots{grid-template-columns:repeat(15,1fr)}
+  .matrix .hd{display:none}
+}
+</style>
+</head>
+<body>
+
+<!-- ============ HERO ============ -->
+<header class="hero">
+  <div class="wrap">
+    <div class="eyebrow rv">
+      <img decoding="async" class="logo" src="media/upgrad-design-system/01.png" alt="upGrad"><span class="pill">Design System</span><span class="pill">Shipped</span>
+    </div>
+    <h1 class="hookline rv" style="margin-top:28px">
+      A system named after <b>its own history</b>, rebuilt around <b>what things do</b>.
+    </h1>
+    <p class="bodyL dim rv" style="margin-top:32px;max-width:60ch">
+      upGrad's design system was seven years old. Of the 299 tokens inside it, 276 were named for a
+      different brand in the group. We rebuilt the foundations, put them on a typeface anyone in the
+      company can install for free, and shipped the new upGrad homepage on top. <strong style="color:var(--text-primary)">All of it in one month.</strong>
+    </p>
+
+    <div class="herofig rv">
+      <div class="bodyXS" style="letter-spacing:1.4px;text-transform:uppercase;opacity:.75">upGrad · Design System · 2026</div>
+      <div class="big" style="margin-top:24px">276<span style="opacity:.55">/299</span></div>
+      <div class="bodyL" style="margin-top:16px;opacity:.9;max-width:40ch">
+        tokens in the old system carried a prefix inherited from another brand
+      </div>
+    </div>
+  </div>
+</header>
+
+<!-- ============ AT A GLANCE ============ -->
+<section class="section" style="border-top:0;padding-top:64px">
+  <div class="wrap">
+    <dl class="glance rv">
+      <div class="gitem"><dt>Role</dt><dd>Lead designer</dd></div>
+      <div class="gitem"><dt>Team</dt><dd>2 designers, 1 PM, the CPTO. Founder in review calls.</dd></div>
+      <div class="gitem"><dt>Duration</dt><dd>One month, foundations to homepage live</dd></div>
+      <div class="gitem"><dt>Scope</dt><dd>Foundations, type, colour, states, components, documentation, homepage</dd></div>
+    </dl>
+  </div>
+</section>
+
+<!-- ============ CONTEXT ============ -->
+<section class="section">
+  <div class="wrap spine rv">
+    <div class="label">Context</div>
+    <div class="col">
+      <h2 class="h3">A decade of acquisitions has to eventually look like one company.</h2>
+      <p class="bodyL dim">
+        upGrad started in 2015 as a single online higher education product. It is now one of Asia's
+        largest integrated skilling companies, with more than 9 verticals under one entity: upGrad,
+        KnowledgeHut, Centum Learning, upGrad Enterprise, Talentedge, upGrad Abroad, upGrad Campus,
+        GATE Academy, Internshala and most recently Unacademy. Around 6,800 people work there.
+      </p>
+      <p class="bodyL dim">
+        FY26 gross revenue was reported at 219 million dollars, EBITDA rose more than eightfold, and
+        losses halved for the third consecutive year. That is the moment this project existed in: a
+        company consolidating, and needing one face rather than nine.
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ PROBLEM / AUDIT ============ -->
+<section class="section">
+  <div class="wrap spine rv">
+    <div class="label">The problem</div>
+    <div class="col">
+      <h2 class="h3">The system was not broken. It was named after its own history.</h2>
+      <p class="bodyL dim">
+        The existing system was built six to seven years ago, for a company that sold one kind of
+        product to one kind of learner. Since then the surface has multiplied and the use cases moved
+        past what the system could answer. Designers were making the same decisions again,
+        individually, because the system had no position on them.
+      </p>
+      <p class="bodyL dim">I audited the library directly and counted where every token came from.</p>
+    </div>
+  </div>
+
+  <div class="wrap" style="margin-top:48px">
+    <div class="audit rv" id="audit">
+      <div class="legend">
+        <span><i style="background:var(--red-300)"></i>Named for KnowledgeHut</span>
+        <span><i style="background:var(--neutral-300)"></i>Named for upGrad</span>
+      </div>
+      <div class="dots" id="dots" aria-hidden="true"></div>
+      <div class="counts">
+        <div class="count"><div class="n" data-to="299">299</div><div class="k">tokens in the old system</div></div>
+        <div class="count"><div class="n brand" data-to="276">276</div><div class="k">carrying a KnowledgeHut prefix</div></div>
+        <div class="count"><div class="n" data-to="23">23</div><div class="k">carrying an upGrad prefix</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ EVIDENCE ============ -->
+<section class="section">
+  <div class="wrap spine rv">
+    <div class="label">Evidence</div>
+    <div class="col">
+      <h2 class="h3">There was no research budget, and that changed what the work could claim.</h2>
+      <p class="bodyL dim">
+        No user study ran for this. What was real was the file itself and the team's repeated
+        experience of it. I audited the existing library, counting tokens and tracing where each one
+        came from, alongside a running list of moments where the system had no answer.
+      </p>
+      <p class="bodyL dim">
+        The limit of that evidence is that it describes the designers' problem, not the learner's. So
+        the goals were set where the evidence actually reached: consistency, speed, and whether a
+        designer who was not in the room could use the system without asking anyone.
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ THE TURN ============ -->
+<section class="section" style="border-top:0">
+  <div class="wrap">
+    <div class="turn rv">
+      <p>A design system <b>nobody can install</b> is not a design system.</p>
+      <p class="bodyL" style="color:var(--neutral-500);margin-top:40px;max-width:52ch;font-size:18px;line-height:160%">
+        The brief read as a visual refresh. The real problem was adoption. In a company this size,
+        with this many verticals, a system succeeds or fails on whether a designer three teams away
+        can pick it up on a Tuesday without a licence, a handover call or a question.
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ EXPLORATIONS ============ -->
+<section class="section">
+  <div class="wrap spine rv">
+    <div class="label">Explorations</div>
+    <div class="col">
+      <h2 class="h3">We traded a preference for a guarantee.</h2>
+      <p class="bodyL dim">
+        Three typefaces were on the table. Circular was the aesthetic favourite. It is also
+        commercially licensed, which means every designer needs a paid seat and a manual install
+        before they can open a file correctly. Across this many verticals that is not a small
+        friction. It is the mechanism by which a system quietly stops being used.
+      </p>
+    </div>
+  </div>
+
+  <div class="wrap" style="margin-top:40px">
+    <div class="faces rv">
+      <div class="face killed">
+        <div class="verdict">Rejected</div>
+        <div class="name">Circular</div>
+        <p>The aesthetic favourite. Commercially licensed, so every designer needs a paid seat and a manual install before the file opens correctly.</p>
+      </div>
+      <div class="face killed">
+        <div class="verdict">Rejected</div>
+        <div class="name" style="font-family:Poppins,'DM Sans',sans-serif">Poppins</div>
+        <p>Free and available, but geometrically wide and already the default of a thousand edtech brands. Availability without any distinction.</p>
+      </div>
+      <div class="face chosen">
+        <div class="verdict">Chosen</div>
+        <div class="name">DM Sans</div>
+        <p>Free, open source, variable, with an optical size axis. Installable by anyone in under a minute. The guarantee that the system can actually be used.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="wrap spine rv" style="margin-top:72px">
+    <div class="label">The counterweight</div>
+    <div class="col">
+      <h2 class="h3">A free geometric sans is correct and forgettable.</h2>
+      <p class="bodyL dim">
+        DM Sans alone would have been safe. The brief asked for freshness. So the system carries a
+        second face: <span class="accent" style="font-size:1.15em">Fraunces</span>, SemiBold Italic,
+        permitted only at Heading 1 through Heading 3. Character in one controlled place instead of a
+        new identity everywhere.
+      </p>
+      <p class="bodyL dim">
+        The brand itself could not move. The instruction was that users should not feel a lot of
+        change, so the red stayed exactly where it was and the mark was untouched. The ramp was built
+        around the existing colour, which is why brand red sits at red 300 rather than at the tidy
+        midpoint of the scale. Everything that changed was structural.
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- ============ NAMING TOGGLE ============ -->
+<section class="section">
+  <div class="wrap spine rv">
+    <div class="label">Decision 01</div>
+    <div class="col">
+      <h2 class="h3">Name tokens by role, not by origin.</h2>
+      <p class="bodyL dim">
+        The old system named tokens after where they came from. The new one names them after what they
+        do. This is what stops the next acquisition from leaving another prefix behind.
+      </p>
+      <div class="switch" role="tablist" data-group="naming">
+        <button role="tab" aria-selected="true" data-pane="old">Old system</button>
+        <button role="tab" aria-selected="false" data-pane="new">New system</button>
+      </div>
+      <div class="panes">
+        <div class="pane on" data-pane="old">
+          <div class="codelist">
+            <span>--kh-spacing-half</span><br>
+            <span>--kh-spacing-1</span><br>
+            <span>--kh-spacing-2</span><br>
+            <span>--kh-spacing-4</span><br>
+            <span>--kh-spacing-8</span><br>
+            <span>--kh-spacing-32</span><br>
+            <em>a numeric ladder, prefixed with another brand, anchored to one desktop width</em>
+          </div>
+        </div>
+        <div class="pane" data-pane="new">
+          <div class="codelist">
+            <span>text-primary</span> <em>→ neutral/black</em><br>
+            <span>text-secondary</span> <em>→ neutral/500</em><br>
+            <span>surface-brand</span> <em>→ red/300</em><br>
+            <span>border-primary</span> <em>→ neutral/150</em><br>
+            <span>icon-success</span> <em>→ green/400</em><br>
+            <span>button-primary-pressed</span> <em>→ red/700</em><br>
+            <em>a role, and the primitive it resolves to, on every row</em>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ TOKEN TABLE ============ -->
+<section class="section">
+  <div class="wrap spine rv">
+    <div class="label">Craft close up</div>
+    <div class="col">
+      <h2 class="h3">Every semantic row carries the primitive it resolves to.</h2>
+      <p class="bodyL dim">
+        Four layers, not two: primitives, semantics, and then a separate primitive and semantic pair
+        for data visualisation. The alias column is the argument of the system made visible. A
+        designer reads the role and sees the source in the same line.
+      </p>
+    </div>
+  </div>
+
+  <div class="wrap" style="margin-top:40px">
+    <div class="rv">
+      <div class="switch" role="tablist" data-group="tokens">
+        <button role="tab" aria-selected="true" data-pane="text">Text</button>
+        <button role="tab" aria-selected="false" data-pane="surface">Surface</button>
+        <button role="tab" aria-selected="false" data-pane="button">Button</button>
+      </div>
+      <div class="panes">
+        <div class="pane on" data-pane="text">
+          <table class="tbl">
+            <thead><tr><th>Name</th><th>Fill</th><th>Hex</th><th>Alias</th></tr></thead>
+            <tbody id="t-text"></tbody>
+          </table>
+        </div>
+        <div class="pane" data-pane="surface">
+          <table class="tbl">
+            <thead><tr><th>Name</th><th>Fill</th><th>Hex</th><th>Alias</th></tr></thead>
+            <tbody id="t-surface"></tbody>
+          </table>
+        </div>
+        <div class="pane" data-pane="button">
+          <table class="tbl">
+            <thead><tr><th>Name</th><th>Fill</th><th>Hex</th><th>Alias</th></tr></thead>
+            <tbody id="t-button"></tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ BUTTON STATES ============ -->
+<section class="section">
+  <div class="wrap spine rv">
+    <div class="label">Decision 02</div>
+    <div class="col">
+      <h2 class="h3">Interaction states belong to the system, not to whoever builds the component.</h2>
+      <p class="bodyL dim">
+        Ten tokens covering default, hover and pressed across three button types, plus disabled. Most
+        systems leave these to the person building the component, which is how three different hover
+        reds end up in one product.
+      </p>
+    </div>
+  </div>
+
+  <div class="wrap" style="margin-top:40px">
+    <div class="rv">
+      <div class="matrix">
+        <div class="hd"></div><div class="hd">Default</div><div class="hd">Hover</div><div class="hd">Pressed</div>
+        <div class="bodyS dim">Primary</div>
+        <button class="btn b-pri">Explore courses</button>
+        <button class="btn b-pri h">Explore courses</button>
+        <button class="btn b-pri p">Explore courses</button>
+        <div class="bodyS dim">Secondary</div>
+        <button class="btn b-sec">Explore courses</button>
+        <button class="btn b-sec h">Explore courses</button>
+        <button class="btn b-sec p">Explore courses</button>
+        <div class="bodyS dim">Accent</div>
+        <button class="btn b-acc">Explore courses</button>
+        <button class="btn b-acc h">Explore courses</button>
+        <button class="btn b-acc p">Explore courses</button>
+      </div>
+      <div class="live">
+        <button class="livebtn">Hover and hold me</button>
+        <span class="bodyS dim">Live token behaviour: red 300, red 600 on hover, red 700 on press.</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ TYPE SCALE ============ -->
+<section class="section">
+  <div class="wrap spine rv">
+    <div class="label">Decision 03</div>
+    <div class="col">
+      <h2 class="h3">A scale small enough that people stop looking styles up.</h2>
+      <p class="bodyL dim">
+        Sixteen core styles and five for data visualisation. The core scale runs on percentage line
+        heights. The data visualisation scale runs on fixed pixel line heights, because percentage
+        leading does not hold alignment against a chart axis.
+      </p>
+    </div>
+  </div>
+  <div class="wrap" style="margin-top:40px">
+    <div class="rv" id="specimens"></div>
+  </div>
+</section>
+
+<!-- ============ GRID ============ -->
+<section class="section">
+  <div class="wrap spine rv">
+    <div class="label">Decision 04</div>
+    <div class="col">
+      <h2 class="h3">The phone stopped being a derivative of the desktop.</h2>
+      <p class="bodyL dim">
+        The old system defined a single scale anchored at 1440 and up. The new one defines two base
+        frames, each with its own column structure.
+      </p>
+      <div class="switch" role="tablist" data-group="grid">
+        <button role="tab" aria-selected="true" data-grid="desktop">Desktop 1440</button>
+        <button role="tab" aria-selected="false" data-grid="phone">Phone 360</button>
+      </div>
+      <div class="gridwrap" style="margin-top:24px">
+        <div class="gridbar" id="gridbar"></div>
+        <div class="gridmeta" id="gridmeta"></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ OUTCOME ============ -->
+<section class="section">
+  <div class="wrap spine rv">
+    <div class="label">Outcome</div>
+    <div class="col">
+      <h2 class="h3">The homepage shipped on it, reviewed by the founder.</h2>
+      <p class="bodyL dim">
+        The system and the homepage adaptation were done in one month. The new upGrad homepage is
+        live, built entirely on the new foundations, and the founder was directly involved in the
+        design review calls. That is the closest thing this project has to a real adoption test: the
+        system met the highest level of scrutiny in the company and shipped anyway. Other pages are
+        being rebuilt on it now.
+      </p>
+    </div>
+  </div>
+
+  <div class="wrap" style="margin-top:40px">
+    <div class="metrics rv">
+      <div class="metric"><div class="n" data-to="1">1</div><div class="k">month from foundations to a live homepage</div></div>
+      <div class="metric"><div class="n" data-to="4">4</div><div class="k">token layers: primitives, semantics, and the same pair again for data visualisation</div></div>
+      <div class="metric"><div class="n" data-to="21">21</div><div class="k">text styles across two scales, on two typefaces</div></div>
+    </div>
+    <div class="note rv" style="margin-top:24px">
+      Since launch, click activity and scroll depth on the homepage have both moved up. No controlled
+      experiment ran against the old design, so the direction is observed rather than isolated. The
+      real result here is adoption and speed, not conversion.
+    </div>
+  </div>
+</section>
+
+<!-- ============ REFLECTION ============ -->
+<section class="section">
+  <div class="wrap spine rv">
+    <div class="label">What I would change</div>
+    <div class="col">
+      <h2 class="h3">I documented the system by hand, and the documentation drifted first.</h2>
+      <p class="bodyL dim">
+        The tokens themselves are bound variables and they behave correctly. The reference tables that
+        explain them are typed text. Inside the first cycle they already drifted: the primitive ramp
+        and the button tokens now disagree about which red is red 500.
+      </p>
+      <p class="bodyL dim">
+        Next cycle the documentation gets bound to the same variables it describes, so the reference
+        generates itself instead of being retyped. The old system did not fail from bad decisions. It
+        failed from seven years of nobody owning the next one, which is why the cadence was set at
+        launch: core fixed, components and refinements once a year, deliberately.
+      </p>
+      <div class="road">
+        <div class="stop done">
+          <div class="when">Year one, shipped</div>
+          <p class="body dim">Foundations, typography, colour and states, core components, the homepage.</p>
+        </div>
+        <div class="stop here">
+          <div class="when"><span class="blip"></span> We are here</div>
+          <p class="body dim">Further pages migrating onto the system, one at a time.</p>
+        </div>
+        <div class="stop next">
+          <div class="when">Next cycle</div>
+          <p class="body dim">Documentation bound to variables. New components on the annual cadence.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ THE SHIPPED HOMEPAGE ============ -->
+<section class="section">
+  <div class="wrap spine rv">
+    <div class="label">Shipped</div>
+    <div class="col">
+      <h2 class="h3">The new upGrad homepage, live and built on the system.</h2>
+      <p class="bodyL dim">
+        Every red on this page is <strong style="color:var(--text-primary)">surface-brand</strong>. Every
+        button moves through the three states defined once in the token layer. The hero carries
+        <span class="accent" style="font-size:1.1em">Fraunces</span> at Heading 1 Accent, which is the
+        one place the system permits it, and it is doing exactly the job it was designed for: character
+        in a controlled position, on top of a foundation anyone can install for free.
+      </p>
+      <p class="bodyS dimmer">Captured from the live site. Drag or scroll the strip.</p>
+    </div>
+  </div>
+
+  <div class="rv" style="margin-top:48px">
+    <div class="strip" id="strip">
+      <figure><img decoding="async" src="media/upgrad-design-system/02.jpg" alt="upGrad homepage hero with the headline For Your Every Next Opportunity set in the Fraunces accent italic, over a video background, with the course search field and category pills" loading="lazy"><figcaption>Hero. Heading 1 Accent, the only place Fraunces is allowed.</figcaption></figure>
+      <figure><img decoding="async" src="media/upgrad-design-system/03.jpg" alt="Trending courses section on a dark navy background with four university programme cards" loading="lazy"><figcaption>Programme cards. One card component, one radius, one button pair.</figcaption></figure>
+      <figure><img decoding="async" src="media/upgrad-design-system/04.jpg" alt="Step into leadership roles section with four programme cards on a light surface" loading="lazy"><figcaption>Same card on surface-surface. The system holding across two backgrounds.</figcaption></figure>
+      <figure><img decoding="async" src="media/upgrad-design-system/05.jpg" alt="Study abroad section with a country carousel and two university programme cards" loading="lazy"><figcaption>Study abroad carousel, where the system started before it was promoted.</figcaption></figure>
+      <figure><img decoding="async" src="media/upgrad-design-system/06.jpg" alt="Dark banner promoting the IIM Bangalore young leaders programme, and the free courses tab set" loading="lazy"><figcaption>Inverse surfaces. text-inverse-primary and the accent button.</figcaption></figure>
+      <figure><img decoding="async" src="media/upgrad-design-system/07.jpg" alt="Learning support centre section showing an upGrad storefront photograph beside a bulleted list and two buttons" loading="lazy"><figcaption>Secondary and primary buttons side by side, exactly as the tokens define them.</figcaption></figure>
+      <figure><img decoding="async" src="media/upgrad-design-system/08.jpg" alt="Instructors section with three faculty cards showing photographs, names, roles and links" loading="lazy"><figcaption>A third card variant built from the same spacing and radius rules.</figcaption></figure>
+      <figure><img decoding="async" src="media/upgrad-design-system/09.jpg" alt="What gives us an edge section on a black background with a step one panel, statistics and a product illustration" loading="lazy"><figcaption>Full inverse section. The neutral ramp carrying an entire dark surface.</figcaption></figure>
+      <figure><img decoding="async" src="media/upgrad-design-system/10.jpg" alt="Awards and accomplishments row followed by the learner support contact section" loading="lazy"><figcaption>The tail of the page. Quiet, and still on the same grid.</figcaption></figure>
+    </div>
+    <div class="wrap" style="margin-top:20px">
+      <a class="livebtn" style="display:inline-block;text-decoration:none" href="https://www.upgrad.com" target="_blank" rel="noopener">View the live site</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <img decoding="async" loading="lazy" class="logo flogo" src="media/upgrad-design-system/11.png" alt="upGrad">
+    <div class="fgrid">
+      <div><h6>Designed by</h6><p style="color:#fff;font-weight:600;font-size:18px">Nesil Noble</p><p style="margin-top:4px">Lead designer</p></div>
+      <div><h6>Team</h6><p>2 designers, 1 product manager, the CPTO. Founder in review.</p></div>
+      <div><h6>Timeline</h6><p>One month, foundations to live homepage. Annual update cycle.</p></div>
+      <div><h6>Tools</h6><p>Figma. DM Sans and Fraunces, both open source.</p></div>
+    </div>
+  </div>
+</footer>
+
+<script>
+(function(){
+  var reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  /* ---------- scroll reveal ---------- */
+  var io = new IntersectionObserver(function(es){
+    es.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add('in'); io.unobserve(e.target); } });
+  },{threshold:.12, rootMargin:'0px 0px -60px 0px'});
+  document.querySelectorAll('.rv').forEach(function(el){ io.observe(el); });
+
+  /* ---------- token audit dots ---------- */
+  var dots = document.getElementById('dots');
+  var total = 299, kh = 276;
+  for(var i=0;i<total;i++){
+    var d = document.createElement('span');
+    d.className = 'dot' + (i < kh ? ' kh' : '');
+    dots.appendChild(d);
+  }
+  var auditIO = new IntersectionObserver(function(es){
+    es.forEach(function(e){
+      if(!e.isIntersecting) return;
+      auditIO.unobserve(e.target);
+      var all = dots.querySelectorAll('.dot');
+      all.forEach(function(d,i){
+        if(reduce){ d.classList.add('on'); return; }
+        setTimeout(function(){ d.classList.add('on'); }, i * 4);
+      });
+      e.target.querySelectorAll('[data-to]').forEach(function(n){ countUp(n); });
+    });
+  },{threshold:.25});
+  auditIO.observe(document.getElementById('audit'));
+
+  function countUp(el){
+    var to = parseInt(el.getAttribute('data-to'),10);
+    if(reduce || to < 5){ el.textContent = to; return; }
+    var t0 = null, dur = 1100;
+    function step(ts){
+      if(!t0) t0 = ts;
+      var p = Math.min((ts - t0)/dur, 1);
+      el.textContent = Math.round(to * (1 - Math.pow(1-p,3)));
+      if(p < 1) requestAnimationFrame(step);
+    }
+    requestAnimationFrame(step);
+  }
+  var mIO = new IntersectionObserver(function(es){
+    es.forEach(function(e){ if(e.isIntersecting){ mIO.unobserve(e.target); e.target.querySelectorAll('[data-to]').forEach(countUp); } });
+  },{threshold:.4});
+  document.querySelectorAll('.metrics').forEach(function(m){ mIO.observe(m); });
+
+  /* ---------- tab switches ---------- */
+  document.querySelectorAll('.switch[data-group]').forEach(function(sw){
+    sw.addEventListener('click', function(ev){
+      var b = ev.target.closest('button'); if(!b) return;
+      sw.querySelectorAll('button').forEach(function(x){ x.setAttribute('aria-selected', x===b); });
+      if(b.dataset.pane){
+        var scope = sw.parentElement;
+        scope.querySelectorAll('.pane').forEach(function(p){
+          p.classList.toggle('on', p.dataset.pane === b.dataset.pane);
+        });
+      }
+      if(b.dataset.grid) drawGrid(b.dataset.grid);
+    });
+  });
+
+  /* ---------- token tables ---------- */
+  var TOK = {
+    text:[
+      ['text-primary','#000000','neutral/black'],
+      ['text-secondary','#717171','neutral/500'],
+      ['text-tertiary','#A5A5A5','neutral/400'],
+      ['text-inverse-primary','#FFFFFF','neutral/white'],
+      ['text-brand','#EE2C3C','red/300'],
+      ['text-success','#28AC52','green/400'],
+      ['text-caution','#F5C81C','yellow/400'],
+      ['text-error','#DC2132','red/400']
+    ],
+    surface:[
+      ['surface-bg','#FFFFFF','neutral/white'],
+      ['surface-surface','#F2F2F2','neutral/100'],
+      ['surface-brand','#EE2C3C','red/300'],
+      ['surface-success','#C8F5D4','green/100'],
+      ['surface-caution','#FEF6C3','yellow/100'],
+      ['surface-error','#FDCDD2','red/100']
+    ],
+    button:[
+      ['button-primary','#EE2C3C','red/300'],
+      ['button-primary-hover','#BE2330','red/600'],
+      ['button-primary-pressed','#8F1A24','red/700'],
+      ['button-secondary','#E8E8E8','neutral/200'],
+      ['button-secondary-hover','#D9D9D9','neutral/300'],
+      ['button-secondary-pressed','#A5A5A5','neutral/400'],
+      ['button-secondary-accent','#000000','neutral/black'],
+      ['button-secondary-accent-hover','#393939','neutral/700'],
+      ['button-secondary-accent-pressed','#555555','neutral/600'],
+      ['button-disabled','#D9D9D9','neutral/300']
+    ]
+  };
+  Object.keys(TOK).forEach(function(k){
+    var tb = document.getElementById('t-'+k);
+    TOK[k].forEach(function(r){
+      var tr = document.createElement('tr');
+      tr.innerHTML = '<td>'+r[0]+'</td>'
+        + '<td><span class="sw" style="background:'+r[1]+'"></span></td>'
+        + '<td><span class="hex">'+r[1]+'</span></td>'
+        + '<td class="alias"><span class="arrow">→</span>'+r[2]+'</td>';
+      tb.appendChild(tr);
+    });
+  });
+
+  /* ---------- type specimens ---------- */
+  var SPEC = [
+    ['Heading 1','Aa Learning that compounds','h1','Medium · 51 · 100% · 0'],
+    ['Heading 1 Accent','Aa Learning that compounds','h1 accent','Fraunces SemiBold Italic · 51 · 100%'],
+    ['Heading 3','Aa Learning that compounds','h3','Medium · 36 · 120% · 2px'],
+    ['Heading 5','Aa Learning that compounds','h5','SemiBold · 24 · 120% · 0'],
+    ['Body Large','Aa Learning that compounds','bodyL','Regular · 18 · 140% · 0'],
+    ['Body','Aa Learning that compounds','body','Regular · 16 · 140% · -0.25px'],
+    ['Body Small','Aa Learning that compounds','bodyS','Regular · 14 · 140% · 0']
+  ];
+  var sp = document.getElementById('specimens');
+  SPEC.forEach(function(s){
+    var d = document.createElement('div');
+    d.className = 'spec';
+    d.innerHTML = '<div><div class="bodyXS dimmer" style="letter-spacing:1px;text-transform:uppercase;margin-bottom:8px">'+s[0]
+      +'</div><div class="'+s[2]+'">'+s[1]+'</div></div><div class="meta">'+s[3]+'</div>';
+    sp.appendChild(d);
+  });
+
+  /* ---------- grid demo ---------- */
+  var bar = document.getElementById('gridbar'), meta = document.getElementById('gridmeta');
+  function drawGrid(mode){
+    var cols = mode === 'phone' ? 4 : 12;
+    bar.innerHTML = '';
+    bar.style.gap = mode === 'phone' ? '16px' : '24px';
+    bar.style.setProperty('--gp', mode === 'phone' ? '5%' : '8.3%');
+    for(var i=0;i<cols;i++){
+      var c = document.createElement('div'); c.className='gcol'; bar.appendChild(c);
+    }
+    meta.innerHTML = mode === 'phone'
+      ? '<span><strong>Phone</strong> 360 × 800</span><span>4 columns</span><span>17 and 18px margins</span><span>16px gutters</span>'
+      : '<span><strong>Desktop</strong> 1440 × 1024</span><span>12 columns</span><span>120px margins</span><span>24px gutters</span>';
+  }
+  drawGrid('desktop');
+})();
+</script>
+</body>
+</html>

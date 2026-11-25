@@ -1,0 +1,157 @@
+<!DOCTYPE html>
+<html lang="en" class="-preload -string -black -loaded -ready -preload-exit" data-string-scroll-mode="smooth" data-string-scroll-device="desktop"><head><meta charset="utf-8">
+<!-- Website Downloader 3.0: este arquivo é o retrato estático do site (DOM renderizado). Aberto via servidor
+     local (serve.py, ver Como rodar.md), o bootstrap abaixo carrega o site vivo; via file://, mostra este retrato. -->
+<meta name="referrer" content="no-referrer">
+<script data-wd3>window.__WD3__ = {"entryUrl": "https://exp.fiddle.digital/", "replayHost": "exp.fiddle.digital.localhost", "entryPath": "/", "captureId": "exp.fiddle.digital-7ead5af5", "capturedAt": "2026-10-29T19:12:44+00:00", "snapshot": true, "fileFonts": "site/_runtime/file-fonts.css"};</script>
+<script data-wd3>/* Website Downloader 3.0 — bootstrap do index.html.
+ * file://  → fica no retrato estático (e carrega as fontes embutidas, que o Chrome bloqueia em file://).
+ * http(s)  → para de carregar o retrato, registra o Service Worker de replay e abre o site vivo.
+ */
+(function () {
+  var cfg = window.__WD3__ || {};
+  var root = document.documentElement;
+  if (location.protocol === 'file:') {
+    root.setAttribute('data-wd3', 'file');
+    if (cfg.fileFonts) {
+      var link = document.createElement('link');
+      link.rel = 'stylesheet';
+      link.href = cfg.fileFonts;
+      (document.head || root).appendChild(link);
+    }
+    return;
+  }
+  root.setAttribute('data-wd3', 'loading');
+  if (cfg.snapshot) {
+    try { window.stop(); } catch (e) { /* o retrato não precisa carregar: o site vivo vem do SW */ }
+  }
+
+  function fail(msg) {
+    root.setAttribute('data-wd3', 'error');
+    var el = document.getElementById('wd3-error');
+    if (!el) {
+      var body = document.body || root.appendChild(document.createElement('body'));
+      body.innerHTML = '<p style="font:15px system-ui,sans-serif;padding:24px;color:#e8e8e8;background:#050505;margin:0">' +
+        'Não foi possível iniciar o replay: <span id="wd3-error"></span></p>';
+      el = document.getElementById('wd3-error');
+    }
+    el.textContent = msg;
+  }
+  if (!('serviceWorker' in navigator)) return fail('este navegador não suporta Service Workers.');
+
+  function go() { location.replace(cfg.entryPath); }
+  function start() {
+    navigator.serviceWorker.register('/site/_wd3/sw.js', { scope: '/' })
+      .then(function () { return navigator.serviceWorker.ready; })
+      .then(function () {
+        if (navigator.serviceWorker.controller) return go();
+        navigator.serviceWorker.addEventListener('controllerchange', go);
+      })
+      .catch(function (err) { fail(String(err && err.message || err)); });
+  }
+  // Aberto em localhost puro: tenta <domínio>.localhost (mesmo servidor), para sites que checam location.hostname.
+  var plain = location.hostname === 'localhost' || location.hostname === '127.0.0.1';
+  if (!plain || !cfg.replayHost || cfg.replayHost === 'localhost') return start();
+  var target = location.protocol + '//' + cfg.replayHost + (location.port ? ':' + location.port : '');
+  var decided = false;
+  function decide(fn) { if (!decided) { decided = true; fn(); } }
+  setTimeout(function () { decide(start); }, 1500);
+  fetch(target + '/site/_wd3/site-index.json', { mode: 'no-cors', cache: 'no-store' })
+    .then(function () { decide(function () { location.replace(target + cfg.entryPath); }); })
+    .catch(function () { decide(start); });
+})();
+</script>
+<style data-wd3>
+  [data-wd3-banner] { display: none; }
+  html[data-wd3="file"] [data-wd3-banner] { display: flex; }
+  html[data-wd3-unlock], html[data-wd3-unlock] body { overflow-y: auto !important; }
+</style>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<title>Fiddle.Digital — Experiments</title>
+<link rel="shortcut icon" type="image/x-icon" href="site/exp.fiddle.digital/fav/favicon.ico" sizes="16x16 24x24 32x32 48x48 64x64">
+<link rel="apple-touch-icon" href="site/exp.fiddle.digital/fav/apple-touch-icon-57x57.png" sizes="57x57">
+<link rel="apple-touch-icon-precomposed" href="site/exp.fiddle.digital/fav/apple-touch-icon-57x57.png" sizes="57x57">
+<link rel="apple-touch-icon" href="site/exp.fiddle.digital/fav/apple-touch-icon-72x72.png" sizes="72x72">
+<link rel="apple-touch-icon" href="site/exp.fiddle.digital/fav/apple-touch-icon-114x114.png" sizes="114x114">
+<link rel="apple-touch-icon" href="site/exp.fiddle.digital/fav/apple-touch-icon-120x120.png" sizes="120x120">
+<link rel="apple-touch-icon" href="site/exp.fiddle.digital/fav/apple-touch-icon-144x144.png" sizes="144x144">
+<link rel="apple-touch-icon" href="site/exp.fiddle.digital/fav/apple-touch-icon-152x152.png" sizes="152x152">
+<link rel="msapplication-TileImage" href="https://exp.fiddle.digital/fav/mstile-144x144.png">
+<meta name="description" content="Ideas taking shape through code and design.">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Fiddle.Digital — Experiments">
+<meta name="twitter:description" content="Ideas taking shape through code and design.">
+<meta name="twitter:image" content="/share-screen.jpg">
+<meta property="og:title" content="Fiddle.Digital — Experiments">
+<meta property="og:description" content="Ideas taking shape through code and design.">
+<meta property="og:image" content="/share-screen.jpg">
+<meta property="og:image" content="/share-screen.jpg">
+<link rel="stylesheet" href="site/_runtime/style-0.css" data-wd3-runtime-style="">
+<link rel="stylesheet" href="site/_runtime/style-1.css" data-wd3-runtime-style="">
+<link rel="stylesheet" href="site/_runtime/style-2.css" data-wd3-runtime-style="">
+<link rel="stylesheet" href="site/_runtime/style-3.css" data-wd3-runtime-style="">
+<link rel="stylesheet" href="site/_runtime/style-4.css" data-wd3-runtime-style="">
+<link rel="stylesheet" href="site/_runtime/style-5.css" data-wd3-runtime-style="">
+<link rel="stylesheet" href="site/_runtime/style-6.css" data-wd3-runtime-style="">
+<link rel="stylesheet" href="site/exp.fiddle.digital/_nuxt/useExperimentModal.52999716.css">
+<link rel="stylesheet" href="site/exp.fiddle.digital/_nuxt/BaseVideo.20c1b928.css">
+<link rel="stylesheet" href="site/exp.fiddle.digital/_nuxt/BaseImage.24e6a4d3.css">
+<link rel="stylesheet" href="site/exp.fiddle.digital/_nuxt/GridRow.525bde8f.css">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<link rel="stylesheet" href="site/exp.fiddle.digital/_nuxt/index.26f0436c.css"><link rel="stylesheet" href="site/exp.fiddle.digital/_nuxt/default.df3435f8.css"><link rel="stylesheet" href="site/fonts.googleapis.com/css2__q11c5f611.css"></head>
+<body class="-fiddle-digital"><!----><!--teleport anchor--><div id="FiddleDigital"><!--[--><div class="vault"><svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" style="display:none;"><symbol id="icon-2_none" viewBox="0 0 2 2"></symbol><symbol id="logo" viewBox="0 0 38 48"><path d="M14.632,32L0,32L-0,31L15.086,31C14.489,30.574 13.964,30.054 13.533,29.46C13.443,29.487 13.348,29.501 13.25,29.501C12.698,29.501 12.25,29.053 12.25,28.5C12.25,28.185 12.396,27.903 12.624,27.72C12.382,27.025 12.25,26.278 12.25,25.5C12.25,21.94 15.006,19.024 18.5,18.768L18.5,-0L19.5,0L19.5,18.768C22.994,19.024 25.75,21.94 25.75,25.5C25.75,26.278 25.618,27.025 25.376,27.72C25.604,27.903 25.75,28.185 25.75,28.5C25.75,29.053 25.302,29.501 24.75,29.501C24.652,29.501 24.557,29.487 24.467,29.46C24.036,30.054 23.511,30.574 22.914,31L38,31L38,32L23.368,32C24.241,32.546 25.005,33.251 25.619,34.074C25.736,34.026 25.865,33.999 26,33.999C26.552,33.999 27,34.447 27,35C27,35.325 26.845,35.614 26.605,35.797C27.02,36.782 27.25,37.864 27.25,39C27.25,43.388 23.824,46.977 19.5,47.235L19.5,48L18.5,48L18.5,47.235C14.176,46.977 10.75,43.388 10.75,39C10.75,37.864 10.98,36.782 11.395,35.797C11.155,35.614 11,35.325 11,35C11,34.447 11.448,33.999 12,33.999C12.135,33.999 12.264,34.026 12.381,34.074C12.995,33.251 13.759,32.546 14.632,32ZM18.5,20.273C15.835,20.525 13.75,22.769 13.75,25.5C13.75,28.231 15.835,30.475 18.5,30.727L18.5,20.273ZM19.5,30.727C22.165,30.475 24.25,28.231 24.25,25.5C24.25,22.769 22.165,20.525 19.5,20.273L19.5,30.727ZM19.5,45.732C22.994,45.476 25.75,42.56 25.75,39C25.75,35.44 22.994,32.524 19.5,32.268L19.5,45.732ZM18.5,32.268C15.006,32.524 12.25,35.44 12.25,39C12.25,42.56 15.006,45.476 18.5,45.732L18.5,32.268ZM22,3.002C21.172,3.002 20.5,2.33 20.5,1.501C20.5,0.672 21.172,0 22,0C22.828,0 23.5,0.672 23.5,1.501C23.5,2.33 22.828,3.002 22,3.002ZM16.5,5.501C15.948,5.501 15.5,5.053 15.5,4.5C15.5,3.947 15.948,3.499 16.5,3.499C17.052,3.499 17.5,3.947 17.5,4.5C17.5,5.053 17.052,5.501 16.5,5.501Z"></path></symbol><symbol id="icon-20_blank" viewBox="0 0 20 20"><path d="M17.25,6.811L9.308,14.753C7.559,16.501 4.627,16.109 3.4,13.962L1.349,10.372L2.651,9.628L4.702,13.218C5.439,14.506 7.198,14.741 8.247,13.692L16.189,5.75L9,5.75L9,4.25L18,4.25L18.75,5L18.75,14L17.25,14L17.25,6.811Z"></path></symbol><symbol id="icon-20_close" viewBox="0 0 20 20"><path d="M8.939,10L2.47,3.53L3.53,2.47L10,8.939L16.47,2.47L17.53,3.53L11.061,10L17.53,16.47L16.47,17.53L10,11.061L3.53,17.53L2.47,16.47L8.939,10Z"></path></symbol><symbol id="icon-20_sound-off" viewBox="0 0 20 20"><path d="M11.75,4.23L11.75,15.77C11.75,17.878 9.471,19.198 7.639,18.156C3.321,15.7 1.25,12.935 1.25,10C1.25,7.065 3.321,4.3 7.639,1.844C9.471,0.802 11.75,2.122 11.75,4.23ZM10.25,4.23C10.25,3.272 9.213,2.675 8.38,3.148C4.684,5.25 2.75,7.487 2.75,10C2.75,12.513 4.684,14.75 8.38,16.852C9.213,17.325 10.25,16.728 10.25,15.77L10.25,4.23Z"></path></symbol><symbol id="icon-20_sound-on" viewBox="0 0 20 20"><path d="M11.75,4.23L11.75,15.77C11.75,17.878 9.471,19.198 7.639,18.156C3.321,15.7 1.25,12.935 1.25,10C1.25,7.065 3.321,4.3 7.639,1.844C9.471,0.802 11.75,2.122 11.75,4.23ZM10.25,4.23C10.25,3.272 9.213,2.675 8.38,3.148C4.684,5.25 2.75,7.487 2.75,10C2.75,12.513 4.684,14.75 8.38,16.852C9.213,17.325 10.25,16.728 10.25,15.77L10.25,4.23ZM16.187,16.187L15.127,15.127C16.439,13.815 17.25,12.002 17.25,10C17.25,7.998 16.439,6.185 15.127,4.873L16.187,3.813C17.771,5.396 18.75,7.584 18.75,10C18.75,12.416 17.771,14.604 16.187,16.187Z"></path></symbol><symbol id="icon-64_awwwards" viewBox="0 0 64 64"><path d="M40.6,20.3l-4.2,16.3-4-16.3h-5.4l-4,16.3-4.2-16.3h-5.8l7.5,23.7h5.1l4.1-15.3,4.1,15.3h5.1l7.5-23.7h-5.8,0ZM50.2,40.3c0,2.3,1.7,4,3.9,4s3.9-1.7,3.9-4-1.7-4-3.9-4-3.9,1.7-3.9,4h0Z"></path></symbol><symbol id="icon-64_awwwards" viewBox="0 0 64 64"><path d="M40.6,20.3l-4.2,16.3-4-16.3h-5.4l-4,16.3-4.2-16.3h-5.8l7.5,23.7h5.1l4.1-15.3,4.1,15.3h5.1l7.5-23.7h-5.8,0ZM50.2,40.3c0,2.3,1.7,4,3.9,4s3.9-1.7,3.9-4-1.7-4-3.9-4-3.9,1.7-3.9,4h0Z"></path></symbol><symbol id="icon-64_cssda" viewBox="0 0 64 64"><path d="M33.1,22.2l5,4.9,5,5,5,4.9-5,5-5,4.9h-10l10-9.9-9.9-9.9,4.9-4.9ZM35.9,17.3l-10,9.9,10,9.9-5,4.9-10-9.7-5-5,10-9.9h10Z"></path></symbol><symbol id="icon-64_orpetron" viewBox="0 0 64 64"><path d="M47.9,48v-11.7l-11.7,11.7h11.7ZM45.8,45.8h-4.6l4.6-4.6v4.6ZM15.9,16v11.7l11.7-11.7h-11.7ZM18.1,18.2h4.6l-4.6,4.6v-4.6ZM35.4,27v-8.9h-4.1v8.7h-.3c-.4.1-.9.3-1.3.5l-.6.3v-11.6h8.2l4.6,4.6-1.6,1.6-2.7-2.7v5.5l-2.2,2.2ZM47.9,26.6v8.2h-11.6l.3-.6c.2-.4.3-.8.4-1.3v-.3h8.8v-4.1h-8.9l2.2-2.2h5.5l-2.7-2.7,1.6-1.6,4.6,4.6ZM34.2,36.6l.6-.3v11.6h-8.2l-4.6-4.6,1.6-1.6,2.7,2.7v-5.5l2.2-2.2v8.9h4.1v-8.7h.3c.4-.1.9-.3,1.3-.5ZM22.1,40.3l-1.6,1.6-4.6-4.6v-8.2h11.6l-.3.6c-.2.4-.3.8-.4,1.3v.3h-8.8v4.1h8.9l-2.2,2.2h-5.5l2.7,2.7ZM35.1,32c0,1.7-1.4,3.2-3.2,3.2-1.7,0-3.2-1.4-3.2-3.2,0-1.7,1.4-3.2,3.2-3.2,1.7,0,3.2,1.4,3.2,3.2Z"></path></symbol></svg></div><svg xmlns="http://www.w3.org/2000/svg" width="0" height="0" style="visibility:none;"><defs><filter id="p1"><feFlood x="0" y="0" height="0.5" width="0.5" flood-color="white" flood-opacity="1"></feFlood><feComposite width="4" height="4"></feComposite><feTile result="a"></feTile><feComposite in="SourceGraphic" in2="a" operator="in" result="pixels"></feComposite><feMorphology in="pixels" operator="dilate" radius="2.5" result="dilated"></feMorphology><feColorMatrix in="dilated" type="matrix" values="
+            1 0 0 0 0
+            0 1 0 0 0
+            0 0 1 0 0
+            0 0 0 100 -50
+          "></feColorMatrix></filter><filter id="p2"><feFlood x="0.5" y="0.5" height="0.5" width="0.5" flood-color="white" flood-opacity="1"></feFlood><feComposite width="4" height="4"></feComposite><feTile result="a"></feTile><feComposite in="SourceGraphic" in2="a" operator="in" result="pixels"></feComposite><feMorphology in="pixels" operator="dilate" radius="2.5" result="dilated"></feMorphology><feColorMatrix in="dilated" type="matrix" values="
+            1 0 0 0 0
+            0 1 0 0 0
+            0 0 1 0 0
+            0 0 0 100 -50
+          "></feColorMatrix></filter><filter id="p3"><feFlood x="1" y="1" height="0.5" width="0.5" flood-color="white" flood-opacity="1"></feFlood><feComposite width="4" height="4"></feComposite><feTile result="a"></feTile><feComposite in="SourceGraphic" in2="a" operator="in" result="pixels"></feComposite><feMorphology in="pixels" operator="dilate" radius="2.5" result="dilated"></feMorphology><feColorMatrix in="dilated" type="matrix" values="
+            1 0 0 0 0
+            0 1 0 0 0
+            0 0 1 0 0
+            0 0 0 100 -50
+          "></feColorMatrix></filter><filter id="p4"><feFlood x="1" y="1" height="0.5" width="0.5" flood-color="white" flood-opacity="1"></feFlood><feComposite width="16" height="16"></feComposite><feTile result="a"></feTile><feComposite in="SourceGraphic" in2="a" operator="in" result="pixels"></feComposite><feMorphology in="pixels" operator="dilate" radius="10" result="dilated"></feMorphology><feColorMatrix in="dilated" type="matrix" values="
+            1 0 0 0 0
+            0 1 0 0 0
+            0 0 1 0 0
+            0 0 0 100 -50
+          "></feColorMatrix></filter><filter id="p5"><feFlood x="0.5" y="0.5" height="0.5" width="0.5" flood-color="white" flood-opacity="1"></feFlood><feComposite width="12" height="12"></feComposite><feTile result="a"></feTile><feComposite in="SourceGraphic" in2="a" operator="in" result="pixels"></feComposite><feMorphology in="pixels" operator="dilate" radius="8" result="dilated"></feMorphology><feColorMatrix in="dilated" type="matrix" values="
+            1 0 0 0 0
+            0 1 0 0 0
+            0 0 1 0 0
+            0 0 0 100 -50
+          "></feColorMatrix></filter><filter id="p6"><feFlood x="0" y="0" height="0.5" width="0.5" flood-color="white" flood-opacity="1"></feFlood><feComposite width="8" height="8"></feComposite><feTile result="a"></feTile><feComposite in="SourceGraphic" in2="a" operator="in" result="pixels"></feComposite><feMorphology in="pixels" operator="dilate" radius="5" result="dilated"></feMorphology><feColorMatrix in="dilated" type="matrix" values="
+            1 0 0 0 0
+            0 1 0 0 0
+            0 0 1 0 0
+            0 0 0 100 -50
+          "></feColorMatrix></filter></defs></svg><canvas class="app-gl-canvas" data-engine="three.js r182" width="2880" height="1800"></canvas><main class="page home-page" data-v-5709dad2=""><div class="gl-layer" data-v-5709dad2=""></div><!--teleport start--><!--teleport end--></main><header class="-mm -up" data-v-fd5ad0ee=""><div class="-w" data-v-fd5ad0ee="" data-v-4f043ceb=""><!--[--><a href="https://exp.fiddle.digital/" class="logo -nl -pm-p" data-v-fd5ad0ee=""><span class="-pm" data-v-fd5ad0ee="">FD.Exp</span></a><a class="fd_logo -nl" href="https://fiddle.digital/" target="_blank" data-v-fd5ad0ee=""><svg data-v-fd5ad0ee=""><use href="#logo"></use></svg></a><span class="toggle -pm-p" data-v-fd5ad0ee=""><span class="-active -pm" data-v-fd5ad0ee="">List</span><span class="-pm" data-v-fd5ad0ee="">/</span><span class="-pm" data-v-fd5ad0ee="">Grid</span></span><span class="about -pm-p" data-v-fd5ad0ee=""><span class="-pm" data-v-fd5ad0ee="">About</span></span><a class="talk -nl -pm-p" href="https://fiddle.digital/connect" target="_blank" data-v-fd5ad0ee=""><span class="-pm" data-v-fd5ad0ee="">Let's talk</span><!----></a><span class="expo -up -mm -jp" data-v-fd5ad0ee="">エクス</span><!--]--></div></header><main class="page home-route" data-v-9c322c49=""></main><span class="exp-name-hover -h3 -m-h4 -up">FD.EXP</span><span class="progress" style="--scroll-progress: 0.1667;"></span><footer class="" data-v-bb6718f9=""><div class="-w" data-v-bb6718f9="" data-v-4f043ceb=""><!--[--><figure class="sound -pm -muted" role="button" aria-pressed="true" aria-label="Toggle sound" data-v-bb6718f9=""><svg class="_20" data-v-bb6718f9=""><use href="#icon-20_sound-off"></use></svg><span class="-mm -up" data-v-bb6718f9="">sfx</span></figure><span class="c" data-v-bb6718f9=""><span class="-mm -up" data-v-bb6718f9="">Exp<span class="-pm" data-v-bb6718f9="">erience</span> Hub</span></span><span class="a" data-v-bb6718f9=""><span class="-mm -up -pm" data-v-bb6718f9="">Kōbō</span></span><span class="y -mm -up" data-v-bb6718f9=""><span data-v-bb6718f9="">©2026</span></span><div class="colours -mm -up" data-v-bb6718f9=""><!--[--><span class="-pm -active" data-v-bb6718f9="">Black</span><span class="-pm" data-v-bb6718f9="">Red</span><span class="-pm" data-v-bb6718f9="">Green</span><span class="-pm" data-v-bb6718f9="">Yellow</span><span class="-pm" data-v-bb6718f9="">Blue</span><!--]--></div><!--]--></div></footer><div class="splash-screen" role="status" aria-live="polite" data-v-14927a0a=""><div class="grid" data-v-14927a0a=""><!--[--><span style="--random:4;" data-v-14927a0a=""></span><span style="--random:2;" data-v-14927a0a=""></span><span style="--random:5;" data-v-14927a0a=""></span><span style="--random:3;" data-v-14927a0a=""></span><span style="--random:0;" data-v-14927a0a=""></span><span style="--random:5;" data-v-14927a0a=""></span><span style="--random:3;" data-v-14927a0a=""></span><span style="--random:3;" data-v-14927a0a=""></span><span style="--random:3;" data-v-14927a0a=""></span><span style="--random:4;" data-v-14927a0a=""></span><span style="--random:2;" data-v-14927a0a=""></span><span style="--random:2;" data-v-14927a0a=""></span><span style="--random:4;" data-v-14927a0a=""></span><span style="--random:5;" data-v-14927a0a=""></span><span style="--random:2;" data-v-14927a0a=""></span><span style="--random:1;" data-v-14927a0a=""></span><span style="--random:3;" data-v-14927a0a=""></span><span style="--random:0;" data-v-14927a0a=""></span><span style="--random:2;" data-v-14927a0a=""></span><span style="--random:3;" data-v-14927a0a=""></span><span style="--random:4;" data-v-14927a0a=""></span><span style="--random:2;" data-v-14927a0a=""></span><span style="--random:3;" data-v-14927a0a=""></span><span style="--random:5;" data-v-14927a0a=""></span><span style="--random:3;" data-v-14927a0a=""></span><span style="--random:2;" data-v-14927a0a=""></span><span style="--random:4;" data-v-14927a0a=""></span><span style="--random:0;" data-v-14927a0a=""></span><span style="--random:3;" data-v-14927a0a=""></span><span style="--random:2;" data-v-14927a0a=""></span><span style="--random:4;" data-v-14927a0a=""></span><span style="--random:5;" data-v-14927a0a=""></span><span style="--random:1;" data-v-14927a0a=""></span><span style="--random:1;" data-v-14927a0a=""></span><span style="--random:4;" data-v-14927a0a=""></span><span style="--random:4;" data-v-14927a0a=""></span><span style="--random:1;" data-v-14927a0a=""></span><span style="--random:3;" data-v-14927a0a=""></span><span style="--random:0;" data-v-14927a0a=""></span><span style="--random:0;" data-v-14927a0a=""></span><span style="--random:5;" data-v-14927a0a=""></span><span style="--random:0;" data-v-14927a0a=""></span><span style="--random:1;" data-v-14927a0a=""></span><span style="--random:4;" data-v-14927a0a=""></span><span style="--random:3;" data-v-14927a0a=""></span><span style="--random:3;" data-v-14927a0a=""></span><span style="--random:3;" data-v-14927a0a=""></span><span style="--random:3;" data-v-14927a0a=""></span><span style="--random:1;" data-v-14927a0a=""></span><span style="--random:2;" data-v-14927a0a=""></span><span style="--random:0;" data-v-14927a0a=""></span><span style="--random:3;" data-v-14927a0a=""></span><span style="--random:4;" data-v-14927a0a=""></span><span style="--random:4;" data-v-14927a0a=""></span><span style="--random:0;" data-v-14927a0a=""></span><span style="--random:2;" data-v-14927a0a=""></span><span style="--random:3;" data-v-14927a0a=""></span><span style="--random:3;" data-v-14927a0a=""></span><span style="--random:2;" data-v-14927a0a=""></span><span style="--random:3;" data-v-14927a0a=""></span><span style="--random:2;" data-v-14927a0a=""></span><span style="--random:3;" data-v-14927a0a=""></span><span style="--random:2;" data-v-14927a0a=""></span><span style="--random:1;" data-v-14927a0a=""></span><span style="--random:3;" data-v-14927a0a=""></span><span style="--random:1;" data-v-14927a0a=""></span><span style="--random:0;" data-v-14927a0a=""></span><span style="--random:3;" data-v-14927a0a=""></span><span style="--random:0;" data-v-14927a0a=""></span><span style="--random:0;" data-v-14927a0a=""></span><span style="--random:5;" data-v-14927a0a=""></span><span style="--random:2;" data-v-14927a0a=""></span><span style="--random:3;" data-v-14927a0a=""></span><span style="--random:4;" data-v-14927a0a=""></span><span style="--random:3;" data-v-14927a0a=""></span><span style="--random:3;" data-v-14927a0a=""></span><span style="--random:0;" data-v-14927a0a=""></span><span style="--random:0;" data-v-14927a0a=""></span><span style="--random:5;" data-v-14927a0a=""></span><span style="--random:0;" data-v-14927a0a=""></span><span style="--random:3;" data-v-14927a0a=""></span><span style="--random:0;" data-v-14927a0a=""></span><span style="--random:4;" data-v-14927a0a=""></span><span style="--random:1;" data-v-14927a0a=""></span><span style="--random:2;" data-v-14927a0a=""></span><span style="--random:2;" data-v-14927a0a=""></span><span style="--random:2;" data-v-14927a0a=""></span><span style="--random:2;" data-v-14927a0a=""></span><span style="--random:3;" data-v-14927a0a=""></span><span style="--random:1;" data-v-14927a0a=""></span><span style="--random:0;" data-v-14927a0a=""></span><span style="--random:3;" data-v-14927a0a=""></span><span style="--random:4;" data-v-14927a0a=""></span><span style="--random:1;" data-v-14927a0a=""></span><span style="--random:0;" data-v-14927a0a=""></span><span style="--random:1;" data-v-14927a0a=""></span><span style="--random:5;" data-v-14927a0a=""></span><span style="--random:1;" data-v-14927a0a=""></span><span style="--random:5;" data-v-14927a0a=""></span><span style="--random:5;" data-v-14927a0a=""></span><!--]--></div><div class="video-wrap" data-v-14927a0a=""><video muted="" playsinline="" loop="" autoplay="" src="site/exp.fiddle.digital/videos/kobo-loader.mp4"></video></div></div><!--]--></div>
+
+
+<div id="cookie-consent-container" class="fdcm--container fdcm--setup -light-theme"><div class="fdcm--title">Cookies</div><div class="fdcm--description">This website collects cookies to deliver better user experience and analyze our website traffic and performance; we never collect any personal data.<button id="fdcm--open-advanced" class="fdcm--link">Customize Settings</button></div><div class="fdcm--actions"><button class="accept-all fdcm--button -primary">Accept all</button><button class="reject-all fdcm--button -secondary">Reject all</button></div></div><div data-wd3-banner style="position:fixed;z-index:2147483647;left:16px;bottom:16px;max-width:min(560px,calc(100vw - 32px));align-items:center;gap:12px;padding:12px 14px;border-radius:12px;background:rgba(5,5,5,.92);color:#e8e8e8;border:1px solid #1d1d1d;box-shadow:0 8px 30px rgba(0,0,0,.35);font:13px/1.45 ui-sans-serif,system-ui,-apple-system,'Segoe UI',sans-serif;backdrop-filter:blur(8px)">
+  <span style="width:8px;height:8px;border-radius:50%;background:#00ffa3;flex:none"></span>
+  <span>Versão estática, sem animações. Para ver o site vivo, rode no terminal, nesta pasta: <b style="color:#00ffa3">python3 serve.py --open</b> (Windows: <b style="color:#00ffa3">py serve.py --open</b>). Passo a passo em <b style="color:#00ffa3">Como rodar.md</b>.</span>
+  <button type="button" onclick="this.parentNode.remove()" aria-label="Fechar" style="flex:none;background:none;border:0;color:#8a8a8a;font-size:18px;cursor:pointer;padding:0 2px">×</button>
+</div>
+</body></html>

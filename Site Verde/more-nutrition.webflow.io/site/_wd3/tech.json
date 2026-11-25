@@ -1,0 +1,111 @@
+{
+ "builders": [
+  "webflow"
+ ],
+ "libraries": [
+  {
+   "name": "gsap",
+   "version": "3.15.0",
+   "sources": [
+    "página",
+    "https://cdn.prod.website-files.com/gsap/3.15.0/ScrollTrigger.min.js",
+    "https://cdn.prod.website-files.com/gsap/3.15.0/DrawSVGPlugin.min.js",
+    "https://cdn.prod.website-files.com/gsap/3.15.0/CustomEase.min.js",
+    "https://cdn.prod.website-files.com/gsap/3.15.0/SplitText.min.js"
+   ]
+  },
+  {
+   "name": "gsap/ScrollTrigger",
+   "version": null,
+   "sources": [
+    "página"
+   ]
+  },
+  {
+   "name": "gsap/SplitText",
+   "version": null,
+   "sources": [
+    "página"
+   ]
+  },
+  {
+   "name": "jquery",
+   "version": "3.5.1",
+   "sources": [
+    "página",
+    "https://d3e54v103j8qbb.cloudfront.net/js/jquery-3.5.1.min.dc5e7f18c8.js?site=686c09a33211842a0ac0183d"
+   ]
+  },
+  {
+   "name": "lenis",
+   "version": null,
+   "sources": [
+    "página"
+   ]
+  },
+  {
+   "name": "lottie",
+   "version": null,
+   "sources": [
+    "página",
+    "embutido em https://morematcha.vercel.app/scripts/app.js"
+   ]
+  },
+  {
+   "name": "swiper",
+   "version": null,
+   "sources": [
+    "página"
+   ]
+  }
+ ],
+ "runtime": {
+  "contexts": {
+   "2d": 4
+  },
+  "wasm": 0,
+  "workers": 0,
+  "webgpu": false,
+  "shadowRoots": 1,
+  "canvases": 2
+ },
+ "cssFeatures": [],
+ "fonts": {
+  "families": [
+   "Founders Grotesk Condensed"
+  ],
+  "sources": [
+   "self-hosted"
+  ]
+ },
+ "videos": [
+  {
+   "src": "https://www.dl.dropboxusercontent.com/scl/fi/sn5g0ke38hntd7qchzhn3/SnapInsta.to_AQO-6-wc7kGZhVWDEZdicSozaqoIGuwQNnyqUly6BQNAyHcK97qvkSA6nEpLa8FL7KCmUoUDdz_a4LW2v49v8UhQxv0XijkRGobU6Io.mp4?rlkey=tip5d5fx1nr0sbeegogs83i3a&st=xphiyn1m&dl=0",
+   "kind": "decorativo",
+   "reason": "curto, sem controles e sem som",
+   "hosting": "próprio site",
+   "action": "baixado"
+  },
+  {
+   "src": "https://www.dl.dropboxusercontent.com/scl/fi/vzjyqfr7i098s1e4f35fx/SnapInsta.to_AQN4zwHLLGQzUTUU7rkiWCayhvMlcD579UzW7eIdHgcwvbEXgqqX8JMZkSiqALpLD_bigNDJwwg7Geal33Ocpjl7VEbT4P2VvF-qIzo.mp4?rlkey=13n2hsdztyjfay5542poch07u&st=di2y9e7y&dl=0",
+   "kind": "decorativo",
+   "reason": "curto, sem controles e sem som",
+   "hosting": "próprio site",
+   "action": "baixado"
+  },
+  {
+   "src": "https://www.dl.dropboxusercontent.com/scl/fi/ccn1egi3ikhsytqhbfwsf/SnapInsta.to_AQMqh_lTfkPamg2Oj4zR5IUuybxe2H0drgz6Q3qUpgoxPo_ITsqHGGRXaA0tU8cn22XVNo6eJ6_jLGfS0eVkEWLwpgjarC1GYIj9qMI.mp4?rlkey=o6zx1vqe0g584o8pwb12e8ju3&st=yfiuwnbo&dl=0",
+   "kind": "decorativo",
+   "reason": "curto, sem controles e sem som",
+   "hosting": "próprio site",
+   "action": "baixado"
+  }
+ ],
+ "files": {
+  "text": 10,
+  "image": 294,
+  "application": 3,
+  "font": 3,
+  "video": 3
+ }
+}

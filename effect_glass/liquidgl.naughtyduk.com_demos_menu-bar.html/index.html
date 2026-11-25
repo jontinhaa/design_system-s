@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en" class="lenis lenis-smooth"><head><meta charset="utf-8">
+<!-- Website Downloader 3.0: este arquivo é o retrato estático do site (DOM renderizado). Aberto via servidor
+     local (serve.py, ver Como rodar.md), o bootstrap abaixo carrega o site vivo; via file://, mostra este retrato. -->
+<meta name="referrer" content="no-referrer">
+<script data-wd3>window.__WD3__ = {"entryUrl": "https://liquidgl.naughtyduk.com/demos/menu-bar", "replayHost": "liquidgl.naughtyduk.com.localhost", "entryPath": "/demos/menu-bar", "captureId": "liquidgl.naughtyduk.com_demos_menu-bar.html-2e774f24", "capturedAt": "2026-11-19T16:49:59+00:00", "snapshot": true, "fileFonts": null};</script>
+<script data-wd3>/* Website Downloader 3.0 — bootstrap do index.html.
+ * file://  → fica no retrato estático (e carrega as fontes embutidas, que o Chrome bloqueia em file://).
+ * http(s)  → para de carregar o retrato, registra o Service Worker de replay e abre o site vivo.
+ */
+(function () {
+  var cfg = window.__WD3__ || {};
+  var root = document.documentElement;
+  if (location.protocol === 'file:') {
+    root.setAttribute('data-wd3', 'file');
+    if (cfg.fileFonts) {
+      var link = document.createElement('link');
+      link.rel = 'stylesheet';
+      link.href = cfg.fileFonts;
+      (document.head || root).appendChild(link);
+    }
+    return;
+  }
+  root.setAttribute('data-wd3', 'loading');
+  if (cfg.snapshot) {
+    try { window.stop(); } catch (e) { /* o retrato não precisa carregar: o site vivo vem do SW */ }
+  }
+
+  function fail(msg) {
+    root.setAttribute('data-wd3', 'error');
+    var el = document.getElementById('wd3-error');
+    if (!el) {
+      var body = document.body || root.appendChild(document.createElement('body'));
+      body.innerHTML = '<p style="font:15px system-ui,sans-serif;padding:24px;color:#e8e8e8;background:#050505;margin:0">' +
+        'Não foi possível iniciar o replay: <span id="wd3-error"></span></p>';
+      el = document.getElementById('wd3-error');
+    }
+    el.textContent = msg;
+  }
+  if (!('serviceWorker' in navigator)) return fail('este navegador não suporta Service Workers.');
+
+  function go() { location.replace(cfg.entryPath); }
+  function start() {
+    navigator.serviceWorker.register('/site/_wd3/sw.js', { scope: '/' })
+      .then(function () { return navigator.serviceWorker.ready; })
+      .then(function () {
+        if (navigator.serviceWorker.controller) return go();
+        navigator.serviceWorker.addEventListener('controllerchange', go);
+      })
+      .catch(function (err) { fail(String(err && err.message || err)); });
+  }
+  // Aberto em localhost puro: tenta <domínio>.localhost (mesmo servidor), para sites que checam location.hostname.
+  var plain = location.hostname === 'localhost' || location.hostname === '127.0.0.1';
+  if (!plain || !cfg.replayHost || cfg.replayHost === 'localhost') return start();
+  var target = location.protocol + '//' + cfg.replayHost + (location.port ? ':' + location.port : '');
+  var decided = false;
+  function decide(fn) { if (!decided) { decided = true; fn(); } }
+  setTimeout(function () { decide(start); }, 1500);
+  fetch(target + '/site/_wd3/site-index.json', { mode: 'no-cors', cache: 'no-store' })
+    .then(function () { decide(function () { location.replace(target + cfg.entryPath); }); })
+    .catch(function () { decide(start); });
+})();
+</script>
+<style data-wd3>
+  [data-wd3-banner] { display: none; }
+  html[data-wd3="file"] [data-wd3-banner] { display: flex; }
+  html[data-wd3-unlock], html[data-wd3-unlock] body { overflow-y: auto !important; }
+</style>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Menu Bar - liquidGL – Liquid Glass - NaughtyDuk©</title>
+    <link rel="icon" href="site/liquidgl.naughtyduk.com/assets/images/favicon.ico">
+    <meta name="description" content="A draggable Liquid Glass lens inside a menu bar, snapping fluidly between tabs with real-time refraction.">
+    <meta name="keywords" content="liquidGL, webGL, liquid glass, menu bar, real-time, refraction, NaughtyDuk©">
+    <meta name="author" content="NaughtyDuk©">
+    <meta name="robots" content="index, follow">
+    <meta name="googlebot" content="index, follow">
+    <meta property="og:image" content="/assets/images/_0005_menu-bar.jpg">
+    <meta property="og:title" content="Menu Bar - liquidGL – Liquid Glass - NaughtyDuk©">
+    <meta property="og:description" content="A draggable Liquid Glass lens inside a menu bar, snapping fluidly between tabs with real-time refraction.">
+    <meta property="og:url" content="https://liquidgl.naughtyduk.com/demos/menu-bar.html">
+    <meta property="og:type" content="website">
+    <meta property="og:locale" content="en_GB">
+    <meta property="og:site_name" content="liquidGL">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Menu Bar - liquidGL – Liquid Glass - NaughtyDuk©">
+    <meta name="twitter:description" content="A draggable Liquid Glass lens inside a menu bar, snapping fluidly between tabs with real-time refraction.">
+    <meta name="twitter:image" content="/assets/images/_0005_menu-bar.jpg">
+    <meta name="twitter:url" content="https://liquidgl.naughtyduk.com/demos/menu-bar.html">
+    <link rel="stylesheet" href="site/_runtime/style-0.css" data-wd3-runtime-style=""><link rel="stylesheet" href="site/_runtime/style-1.css" data-wd3-runtime-style="">
+  <link rel="stylesheet" href="site/_runtime/style-2.css" data-wd3-runtime-style=""><link rel="stylesheet" href="site/_runtime/style-3.css" data-wd3-runtime-style=""></head>
+  <body>
+    <video data-liquid-ignore="" class="bg-video" src="site/liquidgl.naughtyduk.com/assets/videos/liquid-wave.mp4" autoplay="" loop="" muted="" playsinline="" aria-label="Liquid wave animation"></video>
+
+    <!-- Global Navigation -->
+    <nav class="global-nav">
+      <div class="nav-container">
+        <button class="nav-toggle" aria-expanded="false" aria-label="Toggle navigation menu">
+          <span>Demos</span>
+          <svg viewBox="0 0 16 16">
+            <path d="M8 11L3 6h10l-5 5z"></path>
+          </svg>
+        </button>
+        <div data-lenis-prevent="" class="nav-menu">
+          <a href="https://liquidgl.naughtyduk.com/index.html" class="nav-item">Index</a>
+          <a href="https://liquidgl.naughtyduk.com/demos/audio-player.html" class="nav-item">Audio Player</a>
+          <a href="https://liquidgl.naughtyduk.com/demos/menu-bar.html" class="nav-item active">Menu Bar</a>
+          <a href="https://liquidgl.naughtyduk.com/demos/ai-search.html" class="nav-item">AI Search</a>
+          <a href="https://liquidgl.naughtyduk.com/demos/multiple-lenses.html" class="nav-item">Multiple Lenses</a>
+          <a href="https://liquidgl.naughtyduk.com/demos/chromatic-aberration.html" class="nav-item">Chromatic Aberration</a>
+          <a href="https://liquidgl.naughtyduk.com/demos/fluid-interaction.html" class="nav-item">Fluid Interaction</a>
+          <a href="https://liquidgl.naughtyduk.com/demos/frost-specular.html" class="nav-item">Frost &amp; Specular</a>
+          <a href="https://liquidgl.naughtyduk.com/demos/tinted-glass.html" class="nav-item">Tinted Glass</a>
+          <a href="https://liquidgl.naughtyduk.com/demos/stacked-lenses.html" class="nav-item">Stacked Lenses</a>
+          <a href="https://liquidgl.naughtyduk.com/demos/true-refraction.html" class="nav-item">True Refraction</a>
+        </div>
+      </div>
+    </nav>
+
+    <!-- Menu bar: plain DOM, part of the liquidGL snapshot -->
+    <div class="bar-anchor">
+      <canvas data-liquid-ignore="" width="2880" height="1800" style="position: absolute; top: 0px; left: 0px; width: 1440px; height: 900px; pointer-events: none; z-index: 199; opacity: 1; visibility: visible;"></canvas><div class="menu-bar" id="menu-bar" role="tablist" aria-label="Menu">
+        <button class="tab active" role="tab" aria-selected="true" style="">
+          <svg viewBox="0 0 24 24" style="translate: none; rotate: none; scale: none; transform-origin: 50% 50%; transform: translate(0px, 0px);">
+            <path d="M11.5 3.2a1.2 1.2 0 0 1 1 0l7.6 5.5a1.5 1.5 0 0 1 .55 1.16v9.14a1.5 1.5 0 0 1-1.5 1.5h-4.4a1 1 0 0 1-1-1v-4.9a2 2 0 0 0-4 0v4.9a1 1 0 0 1-1 1h-4.4a1.5 1.5 0 0 1-1.5-1.5V9.86a1.5 1.5 0 0 1 .55-1.16z"></path>
+          </svg>
+          <span class="tab-label" style="translate: none; rotate: none; scale: none; transform-origin: 50% 50%; transform: translate(0px, 0px); opacity: 1;">Home</span>
+        </button>
+        <button class="tab" role="tab" aria-selected="false" style="">
+          <svg viewBox="0 0 24 24" style="translate: none; rotate: none; scale: none; transform-origin: 50% 50%; transform: translate(0px, 0px);">
+            <rect x="3.5" y="3.5" width="7" height="7" rx="2"></rect>
+            <rect x="13.5" y="3.5" width="7" height="7" rx="2"></rect>
+            <rect x="3.5" y="13.5" width="7" height="7" rx="2"></rect>
+            <rect x="13.5" y="13.5" width="7" height="7" rx="2"></rect>
+          </svg>
+          <span class="tab-label" style="translate: none; rotate: none; scale: none; transform-origin: 50% 50%; transform: translate(0px, 0px);">New</span>
+        </button>
+        <button class="tab" role="tab" aria-selected="false" style="">
+          <svg viewBox="0 0 24 24" style="translate: none; rotate: none; scale: none; transform-origin: 50% 50%; transform: translate(0px, 0px);">
+            <circle cx="12" cy="12" r="2.4"></circle>
+            <path d="M8.9 8.9a4.4 4.4 0 0 0 0 6.2M15.1 8.9a4.4 4.4 0 0 1 0 6.2M6.2 6.2a8.2 8.2 0 0 0 0 11.6M17.8 6.2a8.2 8.2 0 0 1 0 11.6" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round"></path>
+          </svg>
+          <span class="tab-label" style="translate: none; rotate: none; scale: none; transform-origin: 50% 50%; transform: translate(0px, 0px);">Radio</span>
+        </button>
+        <button class="tab" role="tab" aria-selected="false" style="">
+          <svg viewBox="0 0 24 24" style="translate: none; rotate: none; scale: none; transform-origin: 50% 50%; transform: translate(0px, 0px);">
+            <rect x="6.5" y="5.5" width="11" height="13" rx="3"></rect>
+            <path d="M4 8.5v7a2 2 0 0 1 0-.01M20 8.5v7" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round"></path>
+          </svg>
+          <span class="tab-label" style="translate: none; rotate: none; scale: none; transform-origin: 50% 50%; transform: translate(0px, 0px);">Library</span>
+        </button>
+
+        <!-- The glass lens: dragged and snapped between tabs -->
+        <div class="lens" id="lens" style="translate: none; rotate: none; scale: none; transform-origin: 50% 50%; transform: translate(0px, 0px); width: 84px; transition: none; opacity: 1; background: transparent; backdrop-filter: none; pointer-events: auto; cursor: grab; touch-action: none; box-shadow: none; left: 8px;"></div>
+      </div>
+    <div style="position: absolute; pointer-events: none; z-index: 198; box-shadow: none; will-change: transform, width, height; opacity: 1; left: 552px; top: 417.5px; width: 84px; height: 65px; border-radius: 32.5px;"></div></div>
+
+    <div class="demo-disclaimer">
+      <p class="disclaimer-feature">
+        Menu bar with draggable, fluid liquid glass
+      </p>
+      <p class="disclaimer-note">
+        Apple Music UI is property of the rights holders and is not affiliated
+        with liquidGL. Menu bar UI is provided as an example of liquidGL
+        features.
+      </p>
+    </div>
+
+    <!-- Libraries -->
+    
+    
+    
+
+    <!-- Scripts -->
+    
+    
+    
+  
+
+
+<div class="lil-gui root allow-touch-styles autoPlace liquidgl-helper closed" style="top: 1rem;"><div class="title" role="button" aria-expanded="false" tabindex="0" style="cursor: default;">liquidGL Helper</div><div class="children"><div class="lil-gui closed"><div class="title" role="button" aria-expanded="false" tabindex="0">Refraction</div><div class="children"><div class="controller number hasSlider"><div class="name" id="lil-gui-name-1">Refraction</div><div class="widget"><div class="slider"><div class="fill" style="width: 16%;"></div></div><input type="text" aria-labelledby="lil-gui-name-1"></div></div><div class="controller number hasSlider"><div class="name" id="lil-gui-name-2">Aberration</div><div class="widget"><div class="slider"><div class="fill" style="width: 100%;"></div></div><input type="text" aria-labelledby="lil-gui-name-2"></div></div><div class="controller number hasSlider"><div class="name" id="lil-gui-name-3">Bevel Depth</div><div class="widget"><div class="slider"><div class="fill" style="width: 7%;"></div></div><input type="text" aria-labelledby="lil-gui-name-3"></div></div><div class="controller number hasSlider"><div class="name" id="lil-gui-name-4">Bevel Width</div><div class="widget"><div class="slider"><div class="fill" style="width: 14.2%;"></div></div><input type="text" aria-labelledby="lil-gui-name-4"></div></div><div class="controller number hasSlider"><div class="name" id="lil-gui-name-5">Magnify</div><div class="widget"><div class="slider"><div class="fill" style="width: 34.9783%;"></div></div><input type="text" aria-labelledby="lil-gui-name-5"></div></div></div></div><div class="lil-gui closed"><div class="title" role="button" aria-expanded="false" tabindex="0">Surface</div><div class="children"><div class="controller number hasSlider"><div class="name" id="lil-gui-name-6">Frost</div><div class="widget"><div class="slider"><div class="fill" style="width: 0%;"></div></div><input type="text" aria-labelledby="lil-gui-name-6"></div></div><label class="controller boolean"><div class="name" id="lil-gui-name-7">Specular</div><div class="widget"><input type="checkbox" aria-labelledby="lil-gui-name-7"></div></label><label class="controller boolean"><div class="name" id="lil-gui-name-8">Shadow</div><div class="widget"><input type="checkbox" aria-labelledby="lil-gui-name-8"></div></label><div class="controller color"><div class="name" id="lil-gui-name-9">Tint Colour</div><div class="widget"><div class="display" style="background-color: rgb(234, 234, 236);"><input type="color" tabindex="-1" aria-labelledby="lil-gui-name-9"></div><input type="text" spellcheck="false" aria-labelledby="lil-gui-name-9"></div></div><div class="controller number hasSlider"><div class="name" id="lil-gui-name-10">Tint Amount</div><div class="widget"><div class="slider"><div class="fill" style="width: 24%;"></div></div><input type="text" aria-labelledby="lil-gui-name-10"></div></div></div></div><div class="lil-gui closed"><div class="title" role="button" aria-expanded="false" tabindex="0">Interaction</div><div class="children"><div class="controller option"><div class="name" id="lil-gui-name-11">Mode</div><div class="widget"><select aria-labelledby="lil-gui-name-11"><option>none</option><option>fluid</option></select><div class="display">fluid</div></div></div><div class="controller number hasSlider"><div class="name" id="lil-gui-name-12">Fluid Strength</div><div class="widget"><div class="slider"><div class="fill" style="width: 10%;"></div></div><input type="text" aria-labelledby="lil-gui-name-12"></div></div><div class="controller number hasSlider"><div class="name" id="lil-gui-name-13">Fluid Radius</div><div class="widget"><div class="slider"><div class="fill" style="width: 60%;"></div></div><input type="text" aria-labelledby="lil-gui-name-13"></div></div><div class="controller number hasSlider"><div class="name" id="lil-gui-name-14">Fluid Viscosity</div><div class="widget"><div class="slider"><div class="fill" style="width: 25%;"></div></div><input type="text" aria-labelledby="lil-gui-name-14"></div></div><label class="controller boolean"><div class="name" id="lil-gui-name-15">Draggable</div><div class="widget"><input type="checkbox" aria-labelledby="lil-gui-name-15"></div></label><label class="controller boolean"><div class="name" id="lil-gui-name-16">Tilt</div><div class="widget"><input type="checkbox" aria-labelledby="lil-gui-name-16"></div></label><div class="controller number hasSlider"><div class="name" id="lil-gui-name-17">Tilt Factor</div><div class="widget"><div class="slider"><div class="fill" style="width: 20%;"></div></div><input type="text" aria-labelledby="lil-gui-name-17"></div></div><div class="controller number hasSlider"><div class="name" id="lil-gui-name-18">Tilt Ease</div><div class="widget"><div class="slider"><div class="fill" style="width: 40%;"></div></div><input type="text" aria-labelledby="lil-gui-name-18"></div></div></div></div><div class="lil-gui closed"><div class="title" role="button" aria-expanded="false" tabindex="0">Initialisation</div><div class="children"><div class="controller option"><div class="name" id="lil-gui-name-19">Reveal</div><div class="widget"><select aria-labelledby="lil-gui-name-19"><option>none</option><option>fade</option></select><div class="display">none</div></div></div><div class="controller number hasSlider"><div class="name" id="lil-gui-name-20">Resolution</div><div class="widget"><div class="slider"><div class="fill" style="width: 100%;"></div></div><input type="text" aria-labelledby="lil-gui-name-20"></div></div></div></div><div class="controller function"><div class="widget"><button><div class="name" id="lil-gui-name-21">Copy settings</div></button></div></div></div></div><div data-wd3-banner style="position:fixed;z-index:2147483647;left:16px;bottom:16px;max-width:min(560px,calc(100vw - 32px));align-items:center;gap:12px;padding:12px 14px;border-radius:12px;background:rgba(5,5,5,.92);color:#e8e8e8;border:1px solid #1d1d1d;box-shadow:0 8px 30px rgba(0,0,0,.35);font:13px/1.45 ui-sans-serif,system-ui,-apple-system,'Segoe UI',sans-serif;backdrop-filter:blur(8px)">
+  <span style="width:8px;height:8px;border-radius:50%;background:#00ffa3;flex:none"></span>
+  <span>Versão estática, sem animações. Para ver o site vivo, rode no terminal, nesta pasta: <b style="color:#00ffa3">python3 serve.py --open</b> (Windows: <b style="color:#00ffa3">py serve.py --open</b>). Passo a passo em <b style="color:#00ffa3">Como rodar.md</b>.</span>
+  <button type="button" onclick="this.parentNode.remove()" aria-label="Fechar" style="flex:none;background:none;border:0;color:#8a8a8a;font-size:18px;cursor:pointer;padding:0 2px">×</button>
+</div>
+</body></html>
